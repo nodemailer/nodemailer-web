@@ -5,10 +5,10 @@ chapter = true
 next = "/next/path"
 prev = "/prev/path"
 weight = 0
-title = "Message"
+title = "Message Configuration"
 
 +++
 
-# Message
+# Message Configuration
 
 Lorem ipsum
