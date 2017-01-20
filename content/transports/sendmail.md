@@ -52,7 +52,7 @@ transporter.sendMail({
     to: 'recipient@example.com',
     subject: 'Message',
     text: 'I hope this message gets delivered!'
-}, (err, info)=>{
+}, (err, info) => {
     console.log(info.envelope);
     console.log(info.messageId);
 });

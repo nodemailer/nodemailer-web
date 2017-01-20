@@ -32,7 +32,7 @@ transporter.sendMail({
     to: 'recipient@example.com',
     subject: 'Message',
     text: 'I hope this message gets streamed!'
-}, (err, info)=>{
+}, (err, info) => {
     console.log(info.envelope);
     console.log(info.messageId);
     info.message.pipe(process.stdout);
@@ -52,7 +52,7 @@ transporter.sendMail({
     to: 'recipient@example.com',
     subject: 'Message',
     text: 'I hope this message gets buffered!'
-}, (err, info)=>{
+}, (err, info) => {
     console.log(info.envelope);
     console.log(info.messageId);
     console.log(info.message.toString());
