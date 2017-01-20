@@ -8,7 +8,7 @@ weight = 5
 
 +++
 
-SMTP envelope is usually auto generated from **from**, **to**, **cc** and **bcc** fields in the message object but if for some reason you want to specify it yourself (custom envelopes are usually used for VERP addresses), you can do it with the `envelope` property in the message object.
+SMTP envelope is usually auto generated from **from**, **to**, **cc** and **bcc** fields in the message object but if for some reason you want to specify it yourself (custom envelopes are usually used for VERP addresses), you can do it with the **envelope** property in the message object.
 
 - **envelope** – is an object with the following address params that behave just like with regular mail options. You can also use the regular address format, unicode domains etc.
   - **from** – the first address gets used as MAIL FROM address in SMTP

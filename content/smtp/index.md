@@ -72,7 +72,7 @@ let poolConfig = 'smtps://user%40gmail.com:pass@smtp.gmail.com/?pool=true';
 ### Examples
 
 ```javascript
-var smtpConfig = {
+let smtpConfig = {
     host: 'smtp.gmail.com',
     port: 465,
     secure: true, // use SSL
@@ -82,7 +82,7 @@ var smtpConfig = {
     }
 };
 
-var poolConfig = {
+let poolConfig = {
     pool: true,
     host: 'smtp.gmail.com',
     port: 465,
@@ -93,7 +93,7 @@ var poolConfig = {
     }
 };
 
-var directConfig = {
+let directConfig = {
     name: 'hostname' // must be the same that can be reverse resolved by DNS for your IP
 };
 ```
