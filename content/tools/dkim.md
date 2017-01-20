@@ -31,9 +31,9 @@ In both cases you need to provide a `dkim` object with the following structure
   * **headerFieldNames** – an optional colon separated list of header keys to sign (eg. `message-id:date:from:to...'`)
   * **skipFields** – optional colon separated list of header keys not to sign. This is useful if you want to sign all the relevant keys but your provider changes some values, ie Message-ID and Date. In this case you should use `'message-id:date'` to prevent signing these values.
 
-## Examples
+### Examples
 
-### 1\. Sign all messages
+#### 1\. Sign all messages
 
 Assumes that there is a public key available for *2017._domainkey.example.com*. You can test if the key exists or not with the *dig* tool like this
 
@@ -52,7 +52,7 @@ let transporter = nodemailer.createTransport({
 });
 ```
 
-### 2\. Sign all messages with multiple keys
+#### 2\. Sign all messages with multiple keys
 
 Assumes that there is a public keys available for *2017._domainkey.example.com* and *2016._domainkey.example.com*
 
@@ -77,7 +77,7 @@ let transporter = nodemailer.createTransport({
 });
 ```
 
-### 3\. Sign a specific message
+#### 3\. Sign a specific message
 
 Do not sign by default. Provide DKIM key values separately for every message.
 
@@ -98,7 +98,7 @@ let message = {
 };
 ```
 
-### 4\. Cache large messages for signing
+#### 4\. Cache large messages for signing
 
 Messages larger than 100kB are cached to disk
 
@@ -115,7 +115,7 @@ let transporter = nodemailer.createTransport({
 });
 ```
 
-### 5\. Do not sign specific header keys
+#### 5\. Do not sign specific header keys
 
 This is needed when sending mail through SES that has its own Message-ID and Date system.
 

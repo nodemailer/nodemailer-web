@@ -8,19 +8,19 @@ next = "/next/path"
 
 +++
 
-Nodemailer includes a helper for setting more complex _List-*_ headers with ease. You can use this by providing message option `list`.
+Nodemailer includes a helper for setting more complex _List-*_ headers with ease. You can use this by providing message option **list**. It's an object where key names are converted into list headers. List key *help* becomes *List-Help* header etc.
 
 **General rules**
 
 - If the value is a string, it is treated as an URL
-- If you want to provide an optional comment, use `{url:'url', comment: 'comment'}` object
+- If you want to provide an optional comment, use *{url:'url', comment: 'comment'}* object
 - If you want to have multiple header rows for the same _List-*_ key, use an array as the value for this key
 - If you want to have multiple URLs for single _List-*_ header row, use an array inside an array
 - _List-*_ headers are treated as pregenerated values, this means that lines are not folded and strings are not encoded. Use only ascii characters and be prepared for longer header lines
 
-## Examples
+### Examples
 
-### 1\. Setup different List-* headers
+#### 1\. Setup different List-* headers
 
 ```javascript
 let message = {

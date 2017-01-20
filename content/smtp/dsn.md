@@ -21,9 +21,9 @@ To set up a DSN call, add a dsn property to message data
 
 Non-xtext strings are encoded automatically.
 
-## Examples
+### Examples
 
-### 1\. Request DSN for delivered messages
+#### 1\. Request DSN for delivered messages
 
 ```javascript
 let message = {
@@ -40,7 +40,7 @@ let message = {
 };
 ```
 
-### 2\. Request DSN for undelivered and delayed messages
+#### 2\. Request DSN for undelivered and delayed messages
 
 ```javascript
 let message = {
