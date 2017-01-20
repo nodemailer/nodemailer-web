@@ -1,0 +1,4 @@
+languageCode = "en-us"
+title = "Nodemailer"
+baseurl = "https://nodemailer.com"
+theme = "hugo-theme-learn"
