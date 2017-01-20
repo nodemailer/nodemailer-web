@@ -3,3 +3,12 @@ title = "Nodemailer"
 baseurl = "https://nodemailer.com"
 theme = "hugo-theme-learn"
 googleAnalytics = "UA-51322-34"
+
+[params]
+  # Prefix URL to edit current page. Useful to give opportunity to people to create merge request for your doc.
+  # See the config.toml file from this documentation site to have an example.
+  editURL = ""
+  # Author of the site, will be used in meta information
+  author = "Andris Reinman"
+  # Description of the site, will be used in meta information
+  description = "Nodemailer is a module for Node.js to send emails"

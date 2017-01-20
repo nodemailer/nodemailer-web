@@ -1,8 +1,8 @@
 +++
 date = "2017-01-20T21:37:15+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/about/pricing"
+next = "/message/"
 weight = 5
 title = "License"
 
