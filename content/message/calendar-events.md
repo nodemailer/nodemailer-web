@@ -8,15 +8,17 @@ toc = true
 
 +++
 
-If you want to attach a calendar event to your email then you can use message option `icalEvent`.
+If you want to attach a calendar event to your email then you can use message option **icalEvent**:
 
 - **icalEvent** – an object to define calendar event
 
-  - **method** – optional method, case insensitive, defaults to *'publish'*. Other possible values would be *'request'*, *'reply'*, *'cancel'* or any other valid calendar method listed in [RFC5546](https://tools.ietf.org/html/rfc5546#section-1.4). This should match the `METHOD:` value in calendar event file.
+  - **method** – optional method, case insensitive, defaults to *'publish'*. Other possible values would be *'request'*, *'reply'*, *'cancel'* or any other valid calendar method listed in [RFC5546](https://tools.ietf.org/html/rfc5546#section-1.4). This should match the **METHOD:** value in calendar event file.
   - **filename** – optional filename, defaults to *'invite.ics'*
-  - **content** – is the event file, it can be a string, a buffer, a stream a file path (`content:{path:'...'}`) or even an URL (`content:{href:'...'}`). You can use modules like [ical-generator](https://www.npmjs.com/package/ical-generator) to generate the actual calendar file content
+  - **content** – is the event file, it can be a string, a buffer, a stream, a file path (*content:{path:'...'}*) or even an URL (*content:{href:'...'}*). You can use modules like [ical-generator](https://www.npmjs.com/package/ical-generator) to generate the actual calendar file content
 
-> In general it is not a good idea to add additional attachments to calendar messages as it might mess up the behavior of some e-mail clients. Try to keep it only to `text`, `html` and `icalEvent` without any additional `alternatives` or `attachments`
+{{% notice note %}}
+In general it is not a good idea to add additional attachments to calendar messages as it might mess up the behavior of some e-mail clients. Try to keep it only to **text**, **html** and **icalEvent** without any additional **alternatives** or **attachments**
+{{% /notice %}}
 
 ## Examples
 
