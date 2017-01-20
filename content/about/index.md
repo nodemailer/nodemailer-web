@@ -11,16 +11,19 @@ next = "/about/pricing"
 
 # Nodemailer
 
-Nodemailer is an e-mail sending module for Node.js created by Andris Reinman
+Nodemailer is an e-mail sending module for Node.js. Send e-mails with Node.js – easy as cake!
+
+Initially it was meant to cover the void in the area of sending e-mails from Node.js – the project got started back in 2010 when there was no sane option to send e-mail messages. Nowadays it is the solution most Node.js users turn to by default.
+
+---
+
+Nodemailer is created by Andris Reinman
 
   * [GitHub](https://github.com/andris9)
   * [Twitter](https://twitter.com/andrisreinman)
   * [e-mail](mailto:andris.reinman@gmail.com)
   * [blog](http://www.andrisreinman.com/) (in estonian)
 
-Initially it was meant to cover the void in the area of sending e-mails from Node.js – the project got started back in 2010 when there was no sane option to send e-mail messages. Nowadays it is the solution most Node.js users turn to by default.
-
-![](http://nodemailer.com/wp-content/uploads/2016/01/nm_logo_200x136.png)
 
 ---
 
