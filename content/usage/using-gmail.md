@@ -1,10 +1,10 @@
 +++
-prev = "/prev/path"
+prev = "/usage/why-smtp/"
+next = "/usage/bulk-mail/"
 weight = 8
 title = "Using Gmail"
 date = "2017-01-21T00:25:10+02:00"
 toc = true
-next = "/next/path"
 
 +++
 

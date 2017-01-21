@@ -1,12 +1,12 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+prev = "/about/pro-support/"
+next = "/usage/why-smtp/"
 weight = 0
 title = "Usage"
 date = "2017-01-21T00:20:55+02:00"
 icon = "<b>2. </b>"
 chapter = true
-
+toc = true
 +++
 
 # Usage

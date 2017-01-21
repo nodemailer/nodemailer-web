@@ -1,8 +1,8 @@
 +++
 date = "2017-01-21T00:40:56+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/usage/using-gmail/"
+next = "/message/"
 weight = 9
 title = "Delivering Bulk Mail"
 

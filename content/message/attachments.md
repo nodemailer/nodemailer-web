@@ -3,8 +3,8 @@ weight = 11
 title = "Attachments"
 date = "2017-01-21T00:09:16+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/message/"
+next = "/message/alternatives/"
 
 +++
 

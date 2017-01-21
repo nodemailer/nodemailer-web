@@ -4,8 +4,9 @@ title = "Nodemailer PRO"
 date = "2017-01-20T21:25:35+02:00"
 icon = "<b>1. </b>"
 chapter = true
-next = "/about/pricing"
+next = "/about/why/"
 # prev = "/prev/path"
+toc = true
 
 +++
 

@@ -1,8 +1,8 @@
 +++
 date = "2017-01-21T00:44:30+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/usage/"
+next = "/usage/using-gmail/"
 weight = 7
 title = "SMTP? Say What?"
 

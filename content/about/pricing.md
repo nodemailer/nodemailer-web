@@ -1,6 +1,6 @@
 +++
-prev = "/about/"
-next = "/about/license"
+prev = "/about/license/"
+next = "/about/pro-support"
 weight = 4
 title = "Pricing"
 date = "2017-01-20T21:37:19+02:00"

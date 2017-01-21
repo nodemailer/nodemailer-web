@@ -3,10 +3,10 @@ title = "Other transports"
 date = "2017-01-20T17:20:25+02:00"
 icon = "<b>5. </b>"
 chapter = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/smtp/dsn/"
+next = "/transports/sendmail/"
 weight = 0
-
+toc = true
 +++
 
 # Other transports

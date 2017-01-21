@@ -3,8 +3,8 @@ weight = 28
 title = "Stream Transport"
 date = "2017-01-20T12:01:09+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/transports/sendmail/"
+next = "/plugins/"
 
 +++
 

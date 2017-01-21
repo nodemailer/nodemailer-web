@@ -2,10 +2,11 @@
 date = "2017-01-20T11:25:31+02:00"
 icon = "<b>3. </b>"
 chapter = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/usage/bulk-mail/"
+next = "/message/attachments/"
 weight = 0
 title = "Message Configuration"
+toc = true
 
 +++
 

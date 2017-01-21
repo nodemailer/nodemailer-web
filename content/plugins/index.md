@@ -4,8 +4,8 @@ title = "Plugins"
 date = "2017-01-20T22:51:00+02:00"
 icon = "<b>6. </b>"
 chapter = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/transports/stream/"
+next = "/plugins/create/"
 
 +++
 

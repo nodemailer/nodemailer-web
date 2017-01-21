@@ -1,8 +1,8 @@
 +++
 date = "2017-01-20T11:16:41+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/smtp/well-known/"
+next = "/smtp/dsn/"
 weight = 24
 title = "Proxy Support"
 

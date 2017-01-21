@@ -1,6 +1,6 @@
 +++
-next = "/next/path"
-prev = "/prev/path"
+prev = "/message/addresses/"
+next = "/message/embedded-images/"
 weight = 14
 title = "Calendar Events"
 date = "2017-01-20T12:01:43+02:00"

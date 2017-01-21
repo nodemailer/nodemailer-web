@@ -2,8 +2,8 @@
 title = "Delivery Status Notifications"
 date = "2017-01-20T11:20:07+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/smtp/proxies/"
+next = "/transports/"
 weight = 25
 
 +++

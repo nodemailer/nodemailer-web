@@ -1,7 +1,7 @@
 +++
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/message/list-headers/"
+next = "/message/custom-source/"
 weight = 17
 title = "Custom Headers"
 date = "2017-01-20T12:37:05+02:00"

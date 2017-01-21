@@ -1,8 +1,8 @@
 +++
 date = "2017-01-21T00:09:24+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/message/calendar-events/"
+next = "/message/list-headers/"
 weight = 15
 title = "Embedded images"
 

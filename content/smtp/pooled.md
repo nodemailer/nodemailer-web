@@ -2,8 +2,8 @@
 title = "Pooled SMTP"
 date = "2017-01-20T11:20:07+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/smtp/envelope/"
+next = "/smtp/oauth2/"
 weight = 21
 
 +++

@@ -1,8 +1,8 @@
 +++
 date = "2017-01-20T12:37:52+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/message/custom-headers/"
+next = "/smtp/"
 weight = 18
 title = "Custom source"
 

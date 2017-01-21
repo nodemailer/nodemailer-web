@@ -1,8 +1,8 @@
 +++
 date = "2017-01-20T11:35:26+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/transports/"
+next = "/transports/stream/"
 weight = 27
 title = "Sendmail Transport"
 

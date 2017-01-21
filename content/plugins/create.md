@@ -1,8 +1,8 @@
 +++
 date = "2017-01-20T23:19:31+02:00"
 toc = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/plugins/"
+next = "/dkim/"
 weight = 30
 title = "Create plugins"
 

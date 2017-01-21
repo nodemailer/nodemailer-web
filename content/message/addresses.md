@@ -1,10 +1,10 @@
 +++
-prev = "/prev/path"
+prev = "/message/alternatives/"
+next = "/message/calendar-events/"
 weight = 13
 title = "Address object"
 date = "2017-01-20T20:58:57+02:00"
 toc = true
-next = "/next/path"
 
 +++
 

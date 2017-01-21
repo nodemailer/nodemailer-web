@@ -1,12 +1,12 @@
 +++
 date = "2017-01-20T10:51:36+02:00"
 chapter = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/message/custom-source/"
+next = "/smtp/envelope/"
 weight = 0
 title = "SMTP Transport"
 icon = "<b>4. </b>"
-
+toc = true
 +++
 
 # SMTP Transport

@@ -2,10 +2,11 @@
 date = "2017-01-20T11:25:35+02:00"
 icon = "<b>7. </b>"
 chapter = true
-next = "/next/path"
-prev = "/prev/path"
+prev = "/plugins/create/"
+# next = "/plugins/create/"
 weight = 0
 title = "DKIM"
+toc = true
 
 +++
 
