@@ -1,5 +1,5 @@
 +++
-weight = 5
+weight = 11
 title = "Attachments"
 date = "2017-01-21T00:09:16+02:00"
 toc = true
@@ -19,7 +19,7 @@ Attachment object consists of the following properties:
 - **contentType** - optional content type for the attachment, if not set will be derived from the *filename* property
 - **contentDisposition** - optional content disposition type for the attachment, defaults to 'attachment'
 - **cid** - optional content id for using inline images in HTML message source
-- **encoding** - If set and *content* is string, then encodes the content to a Buffer using the specified encoding. Example values: *'base64'*, *'hex'*, *'binary'* etc. Useful if you want to use binary attachments in a JSON formatted e-mail object.
+- **encoding** - If set and *content* is string, then encodes the content to a Buffer using the specified encoding. Example values: *'base64'*, *'hex'*, *'binary'* etc. Useful if you want to use binary attachments in a JSON formatted email object.
 - **headers** - custom headers for the attachment node. Same usage as with message headers
 - **raw** - is an optional special value that overrides entire contents of current mime node including mime headers. Useful if you want to prepare node contents yourself
 

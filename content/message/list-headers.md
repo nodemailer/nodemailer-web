@@ -1,6 +1,6 @@
 +++
 prev = "/prev/path"
-weight = 5
+weight = 16
 title = "List Headers"
 date = "2017-01-20T12:01:57+02:00"
 toc = true
@@ -8,7 +8,7 @@ next = "/next/path"
 
 +++
 
-Nodemailer includes a helper for setting more complex _List-*_ headers with ease. You can use this by providing message option **list**. It's an object where key names are converted into list headers. List key *help* becomes *List-Help* header etc.
+Nodemailer PRO includes a helper for setting more complex _List-*_ headers with ease. You can use this by providing message option **list**. It's an object where key names are converted into list headers. List key *help* becomes *List-Help* header etc.
 
 **General rules**
 

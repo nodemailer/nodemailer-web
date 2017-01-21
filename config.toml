@@ -12,3 +12,4 @@ googleAnalytics = "UA-51322-34"
   author = "Andris Reinman"
   # Description of the site, will be used in meta information
   description = "Nodemailer is a module for Node.js to send emails"
+  menu = [ "about", "usage", "message", "smtp", "transports", "plugins", "dkim" ]

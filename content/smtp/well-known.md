@@ -1,6 +1,6 @@
 +++
 prev = "/prev/path"
-weight = 5
+weight = 23
 title = "Well Known Services"
 date = "2017-01-20T21:15:16+02:00"
 toc = true
@@ -8,7 +8,7 @@ next = "/next/path"
 
 +++
 
-Nodemailer knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.
+Nodemailer PRO knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.
 
 ```javascript
 let transporter = nodemailer.createTransport({

@@ -4,7 +4,7 @@ prev = "/prev/path"
 weight = 0
 title = "Usage"
 date = "2017-01-21T00:20:55+02:00"
-icon = "<b>X. </b>"
+icon = "<b>2. </b>"
 chapter = true
 
 +++
@@ -13,13 +13,13 @@ chapter = true
 
 ## Setting up
 
-Install Nodemailer from [npm](https://www.npmjs.com/package/@nodemailer/pro)
+Install Nodemailer PRO from [npm](https://www.npmjs.com/package/@nodemailer/pro)
 
 ```bash
 npm install @nodemailer/pro
 ```
 
-To send e-mails you need a transporter object
+To send emails you need a transporter object
 
 ```javascript
 let transporter = nodemailer.createTransport(transport[, defaults])
@@ -68,4 +68,4 @@ Where
 If the message includes several recipients then the message is considered sent if at least one recipient is accepted
 {{% /notice %}}
 
-If `callback` argument is not set then the method returns a Promise object. Nodemailer itself does not use Promises internally but it wraps the return into a Promise for convenience.
+If `callback` argument is not set then the method returns a Promise object. Nodemailer PRO itself does not use Promises internally but it wraps the return into a Promise for convenience.

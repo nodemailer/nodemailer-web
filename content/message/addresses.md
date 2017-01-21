@@ -1,6 +1,6 @@
 +++
 prev = "/prev/path"
-weight = 5
+weight = 13
 title = "Address object"
 date = "2017-01-20T20:58:57+02:00"
 toc = true
@@ -8,7 +8,7 @@ next = "/next/path"
 
 +++
 
-All e-mail addresses can be **plain** e-mail addresses
+All email addresses can be **plain** email addresses
 
 ```javascript
 'foobar@blurdybloop.com'
@@ -33,7 +33,7 @@ Notice that all address fields (even *from:*) are comma separated lists, so if y
 }
 ```
 
-All address fields accept values as a comma separated list of e-mails or an array of e-mails or an array of comma separated list of e-mails or address objects - use it as you like. Formatting can be mixed.
+All address fields accept values as a comma separated list of emails or an array of emails or an array of comma separated list of emails or address objects - use it as you like. Formatting can be mixed.
 
 ```javascript
 ...,

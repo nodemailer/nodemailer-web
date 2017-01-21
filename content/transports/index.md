@@ -1,7 +1,7 @@
 +++
 title = "Other transports"
 date = "2017-01-20T17:20:25+02:00"
-icon = "<b>7. </b>"
+icon = "<b>5. </b>"
 chapter = true
 next = "/next/path"
 prev = "/prev/path"
@@ -39,3 +39,11 @@ let transporter = nodemailer.createTransport(ses({
 - **[nodemailer-ses-transport](https://github.com/andris9/nodemailer-ses-transport)** – for sending messages to AWS SES
 - **[nodemailer-sparkpost-transport](https://github.com/sparkpost/nodemailer-sparkpost-transport)** – for sending messages through SparkPost's Web API
 - **your own** (see transport api documentation [here](/plugins/create/#transports))
+
+### General options for transports
+
+Event though every transport has its own set of configuration options there are a few that can be used for every transport type
+
+- **attachDataUrls** – if true, then converts *data:* images in the HTML content in every message to embedded attachments
+- **disableFileAccess** – if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error
+- **disableUrlAccess** – if true, then does not allow to use Urls as content

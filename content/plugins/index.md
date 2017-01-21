@@ -2,7 +2,7 @@
 weight = 0
 title = "Plugins"
 date = "2017-01-20T22:51:00+02:00"
-icon = "<b>X. </b>"
+icon = "<b>6. </b>"
 chapter = true
 next = "/next/path"
 prev = "/prev/path"
@@ -11,7 +11,7 @@ prev = "/prev/path"
 
 # Plugins
 
-Nodemailer can be extended with plugins. In most cases there are 3 different kind of plugins.
+Nodemailer PRO can be extended with plugins. In most cases there are 3 different kind of plugins.
 
   1. Plugins that operate on the mail object (for example extend it or change existing values). This is the pre-processing step
   2. Plugins that operate on mail stream (for example to calculate message signatures). This is the processing step

@@ -4,11 +4,11 @@ date = "2017-01-20T11:20:07+02:00"
 toc = true
 next = "/next/path"
 prev = "/prev/path"
-weight = 5
+weight = 25
 
 +++
 
-If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery Status Notifications (DSN) with Nodemailer as defined in [RFC3461](https://tools.ietf.org/html/rfc3461).
+If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery Status Notifications (DSN) with Nodemailer PRO as defined in [RFC3461](https://tools.ietf.org/html/rfc3461).
 
 To set up a DSN call, add a dsn property to message data
 

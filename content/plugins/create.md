@@ -3,16 +3,16 @@ date = "2017-01-20T23:19:31+02:00"
 toc = true
 next = "/next/path"
 prev = "/prev/path"
-weight = 5
+weight = 30
 title = "Create plugins"
 
 +++
 
 There are 3 stages a plugin can hook to:
 
-1. **'compile'** is the step where e-mail data is set but nothing has been done with it yet. At this step you can modify mail options, for example modify **html** content, add new headers etc.
-2. **'stream'** is the step where message tree has been compiled and is ready to be streamed. At this step you can modify the generated MIME tree or add a transform stream that the generated raw e-mail will be piped through before passed to the transport object
-3. **Transport** step where the raw e-mail is streamed to destination
+1. **'compile'** is the step where email data is set but nothing has been done with it yet. At this step you can modify mail options, for example modify **html** content, add new headers etc.
+2. **'stream'** is the step where message tree has been compiled and is ready to be streamed. At this step you can modify the generated MIME tree or add a transform stream that the generated raw email will be piped through before passed to the transport object
+3. **Transport** step where the raw email is streamed to destination
 
 ## Including plugins
 
@@ -36,11 +36,11 @@ Mail object that is passed to the plugin function as the first argument is an ob
 
 - **data** is the mail data object that is passed to the **sendMail()** method
 - **message** is the MimeNode object of the message. This is available for the 'stream' step and for the transport but not for 'compile'.
-- **resolveContent** is a helper function for converting Nodemailer compatible stream objects into Strings or Buffers
+- **resolveContent** is a helper function for converting Nodemailer PRO compatible stream objects into Strings or Buffers
 
 ### resolveContent()
 
-If your plugin needs to get the full value of a param, for example the String value for the **html** content, you can use **resolveContent()** to convert Nodemailer compatible content objects to Strings or Buffers.
+If your plugin needs to get the full value of a param, for example the String value for the **html** content, you can use **resolveContent()** to convert Nodemailer PRO compatible content objects to Strings or Buffers.
 
 ```javascript
 mail.resolveContent(obj, key, callback)
@@ -184,11 +184,11 @@ transport.version = require('package.json').version;
 
 ### transport.send(mail, callback)
 
-This is the method that actually sends out e-mails. The method is basically the same as 'stream' plugin functions. It gets two arguments: **mail** and a callback. To start streaming the message, create the stream with **mail.message.createReadStream()**
+This is the method that actually sends out emails. The method is basically the same as 'stream' plugin functions. It gets two arguments: **mail** and a callback. To start streaming the message, create the stream with **mail.message.createReadStream()**
 
 Callback function should return an **info** object as the second argument. This info object should contain and **envelope** object with envelope data and a **messageId** value with the Message-Id header (including the surrounding < & > brackets),
 
-The following example pipes the raw stream from Nodemailer to the console.
+The following example pipes the raw stream from Nodemailer PRO to the console.
 
 ```javascript
 transport.send = (mail, callback) => {

@@ -11,20 +11,20 @@ title = "Message Configuration"
 
 # Message Configuration
 
-The following are the possible fields of an e-mail message:
+The following are the possible fields of an email message:
 
 ### Commmon fields
 
-- **from** - The e-mail address of the sender. All e-mail addresses can be plain *'sender@server.com'* or formatted *'"Sender Name" <sender@server.com>'*, see [Address object](/message/addresses/) for details
-- **to** - Comma separated list or an array of recipients e-mail addresses that will appear on the _To:_ field
-- **cc** - Comma separated list or an array of recipients e-mail addresses that will appear on the _Cc:_ field
-- **bcc** - Comma separated list or an array of recipients e-mail addresses that will appear on the _Bcc:_ field
-- **subject** - The subject of the e-mail
+- **from** - The email address of the sender. All email addresses can be plain *'sender@server.com'* or formatted *'"Sender Name" <sender@server.com>'*, see [Address object](/message/addresses/) for details
+- **to** - Comma separated list or an array of recipients email addresses that will appear on the _To:_ field
+- **cc** - Comma separated list or an array of recipients email addresses that will appear on the _Cc:_ field
+- **bcc** - Comma separated list or an array of recipients email addresses that will appear on the _Bcc:_ field
+- **subject** - The subject of the email
 - **text** - The plaintext version of the message as an Unicode string, Buffer, Stream or an attachment-like object (*{path: '/var/data/...'}*)
 - **html** - The HTML version of the message as an Unicode string, Buffer, Stream or an attachment-like object (*{path: 'http://...'}*)
 - **attachments** - An array of attachment objects (see [Using attachments](/message/attachments/) for details). Attachments can be used for [embedding images](/message/embedded-images/) as well.
 
-A large majority of e-mails sent look a lot like this, using only a few basic fields:
+A large majority of emails sent look a lot like this, using only a few basic fields:
 
 ```javascript
 var message = {
@@ -37,21 +37,22 @@ var message = {
 ```
 
 {{% notice note %}}
-All text fields (e-mail addresses, plaintext body, html body, attachment filenames) use UTF-8 as the encoding. Attachments are streamed as binary.
+All text fields (email addresses, plaintext body, html body, attachment filenames) use UTF-8 as the encoding. Attachments are streamed as binary.
 {{% /notice %}}
 
 ### More advanced fields
 
 ##### Routing options
 
-- **sender** - An e-mail address that will appear on the _Sender:_ field (always prefer *from* if you're not sure which one to use)
-- **replyTo** - An e-mail address that will appear on the _Reply-To:_ field
+- **sender** - An email address that will appear on the _Sender:_ field (always prefer *from* if you're not sure which one to use)
+- **replyTo** - An email address that will appear on the _Reply-To:_ field
 - **inReplyTo** - The Message-ID this message is replying to
 - **references** - Message-ID list (an array or space separated string)
 - **envelope** - optional SMTP envelope, if auto generated envelope is not suitable (see [SMTP envelope](/smtp/envelope/) for details)
 
 ##### Content options
 
+- **attachDataUrls** – if true then convert *data:* images in the HTML content of this message to embedded attachments
 - **watchHtml** - Apple Watch specific HTML version of the message
 - **icalEvent** – iCalendar event to use as an alternative. See details [here](/message/calendar-events/)
 - **alternatives** - An array of alternative text contents (in addition to text and html parts) (see [Using alternative content](/message/alternatives/) for details)
@@ -83,7 +84,7 @@ var message = {
 ```
 
 {{% notice info %}}
-When using readable streams as any kind of content and sending fails then Nodemailer does not abort the already opened but not yet finished stream automatically, you need to do this yourself
+**Memory leak warning!** When using readable streams as content and sending fails then Nodemailer PRO does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer PRO only closes the streams it has opened itself (eg. file paths, URLs)
 {{% /notice %}}
 
 ```javascript

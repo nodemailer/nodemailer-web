@@ -4,11 +4,11 @@ date = "2017-01-20T11:20:07+02:00"
 toc = true
 next = "/next/path"
 prev = "/prev/path"
-weight = 5
+weight = 21
 
 +++
 
-If pooling is used then Nodemailer keeps a fixed amount of connections open and sends the next message once a connection becomes available. It is mostly useful when you have a large number of messages that you want to send in batches or your provider allows you to only use a small amount of parallel connections.
+If pooling is used then Nodemailer PRO keeps a fixed amount of connections open and sends the next message once a connection becomes available. It is mostly useful when you have a large number of messages that you want to send in batches or your provider allows you to only use a small amount of parallel connections.
 
 To use pooled connections use the following options in transport configuration
 

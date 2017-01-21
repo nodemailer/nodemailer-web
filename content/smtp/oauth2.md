@@ -3,14 +3,13 @@ date = "2017-01-20T10:45:57+02:00"
 toc = true
 next = "/next/path"
 prev = "/prev/path"
-weight = 5
+weight = 22
 title = "OAuth2"
-aliases = ["/2-0-0-beta/using-oauth2/"]
 +++
 
-OAuth2 allows your application to store and use authentication tokens instead of actual login credentials. This is great for security as tokens or valid only for specific actions and can be easily revoked thus, once stolen, can't to as much harm as actual account credentials. OAuth2 authentication in Nodemailer is mostly used with Gmail and G Suite (_née_ Google Apps) even though there are other providers that support it as well.
+OAuth2 allows your application to store and use authentication tokens instead of actual login credentials. This is great for security as tokens or valid only for specific actions and can be easily revoked thus, once stolen, can't to as much harm as actual account credentials. OAuth2 authentication in Nodemailer PRO is mostly used with Gmail and G Suite (_née_ Google Apps) even though there are other providers that support it as well.
 
-Access Tokens needed for OAuth2 authentication are short lived so these need to be regenerated from time to time. Nodemailer is able to use both [3LO](https://developers.google.com/identity/protocols/OAuth2) and [2LO](https://developers.google.com/api-client-library/php/auth/service-accounts) to automatically regenerate the tokens but you can also handle all token specific yourself.
+Access Tokens needed for OAuth2 authentication are short lived so these need to be regenerated from time to time. Nodemailer PRO is able to use both [3LO](https://developers.google.com/identity/protocols/OAuth2) and [2LO](https://developers.google.com/api-client-library/php/auth/service-accounts) to automatically regenerate the tokens but you can also handle all token specific yourself.
 
 1. [Normal OAuth2 authentication](#oauth-3lo)
 2. [Authenticating using Service Accounts](#oauth-2lo)
@@ -20,7 +19,7 @@ Access Tokens needed for OAuth2 authentication are short lived so these need to 
 6. [Troubleshooting](#troubleshooting)
 
 {{% notice tip %}}
-Nodemailer requires an **Access Token** to perform authentication. 3-legged and 2-legged OAuth2 mechanisms are different ways to produce such tokens but in the end it does not matter how a token was exactly generated, as long as it is valid.
+Nodemailer PRO requires an **Access Token** to perform authentication. 3-legged and 2-legged OAuth2 mechanisms are different ways to produce such tokens but in the end it does not matter how a token was exactly generated, as long as it is valid.
 {{% /notice %}}
 
 ### 3-legged OAuth2 authentication {#oauth-3lo}
@@ -33,7 +32,7 @@ This is the "normal" way of obtaining access tokens. Your application requests p
   - **user** – user email address (required)
   - **clientId** – is the registered client id of the application
   - **clientSecret** – is the registered client secret of the application
-  - **refreshToken** – is an optional refresh token. If it is provided then Nodemailer tries to generate a new access token if existing one expires or fails
+  - **refreshToken** – is an optional refresh token. If it is provided then Nodemailer PRO tries to generate a new access token if existing one expires or fails
   - **accessToken** – is the access token for the user. Required only if _refreshToken_ is not available and there is no token refresh callback specified
   - **expires** – is an optional expiration time for the current _accessToken_
   - **accessUrl** – is an optional HTTP endpoint for requesting new access tokens. This value defaults to Gmail
@@ -42,7 +41,7 @@ Normal SMTP transport (ie. not the pooled version) has a convenience method of u
 
 ### 2LO authentication (service accounts) {#oauth-2lo}
 
-Nodemailer also allows you to use [service accounts](https://developers.google.com/identity/protocols/OAuth2ServiceAccount) to generate access tokens. In this case the required `auth` options are a bit different from 3LO auth.
+Nodemailer PRO also allows you to use [service accounts](https://developers.google.com/identity/protocols/OAuth2ServiceAccount) to generate access tokens. In this case the required `auth` options are a bit different from 3LO auth.
 
 - **auth** – is the authentication object
 
@@ -53,7 +52,7 @@ Nodemailer also allows you to use [service accounts](https://developers.google.c
 
 ### Using custom token handling {#custom-handling}
 
-If you do not want Nodemailer to create new access tokens then you can provide a custom token generation callback that is called every time a new token is needed for an user.
+If you do not want Nodemailer PRO to create new access tokens then you can provide a custom token generation callback that is called every time a new token is needed for an user.
 
 The registered function gets the following arguments:
 
@@ -74,7 +73,7 @@ transporter.set('oauth2_provision_cb', (user, renew, callback)=>{
 
 ### Token update notifications {#update-notification}
 
-If you use _refreshToken_ or service keys to generate new tokens from Nodemailer when _accessToken_ is not present or expired then you can listen for the token updates by registering a 'token' event handler for the transporter object.
+If you use _refreshToken_ or service keys to generate new tokens from Nodemailer PRO when _accessToken_ is not present or expired then you can listen for the token updates by registering a 'token' event handler for the transporter object.
 
 ```javascript
 transporter.on('token', token => {
@@ -104,7 +103,7 @@ let transporter = nodemailer.createTransport({
 
 #### 2\. Custom handler {#example-2}
 
-This example requests a new _accessToken_ value from a custom OAuth2 handler. Nodemailer does not attempt to generate the token by itself.
+This example requests a new _accessToken_ value from a custom OAuth2 handler. Nodemailer PRO does not attempt to generate the token by itself.
 
 ```javascript
 let transporter = nodemailer.createTransport({

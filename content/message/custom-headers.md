@@ -2,7 +2,7 @@
 toc = true
 next = "/next/path"
 prev = "/prev/path"
-weight = 5
+weight = 17
 title = "Custom Headers"
 date = "2017-01-20T12:37:05+02:00"
 
