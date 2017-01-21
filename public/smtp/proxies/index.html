@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.18.1" />
+    <meta name="description" content="Nodemailer is a module for Node.js to send emails">
+<meta name="author" content="Andris Reinman">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    
+    <title>Proxy Support</title>
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/featherlight.min.css" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/hugo-theme.css" rel="stylesheet">
+    <script src="/js/jquery-2.x.min.js"></script>
+    <style type="text/css">:root #header + #content > #left > #rlblock_left
+    {display:none !important;}</style>
+    
+
+  </head>
+  <body class="" data-url="/smtp/proxies/">
+    <nav id="sidebar">
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+  <img src="/nm_logo_200x136.png" alt="Nodemailer"/>
+</a>
+
+    </div>
+
+    
+</div>
+
+
+  <div class="highlightable">
+      <div id="ads">
+          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=nodemailercom" id="_carbonads_js"></script>
+      </div>
+    <ul class="topics">
+      
+      
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/about/">
+        <a href="/about/">
+          <span>
+            
+              <b>1. </b>
+            
+             Nodemailer PRO
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/about/why/">
+              <a href="/about/why/">
+                <span>Why PRO?     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/about/license/">
+              <a href="/about/license/">
+                <span>License     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/about/pricing/">
+              <a href="/about/pricing/">
+                <span>Pricing     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/about/pro-support/">
+              <a href="/about/pro-support/">
+                <span>Support     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/usage/">
+        <a href="/usage/">
+          <span>
+            
+              <b>2. </b>
+            
+             Usage
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/usage/why-smtp/">
+              <a href="/usage/why-smtp/">
+                <span>SMTP? Say What?     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/usage/using-gmail/">
+              <a href="/usage/using-gmail/">
+                <span>Using Gmail     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/usage/bulk-mail/">
+              <a href="/usage/bulk-mail/">
+                <span>Delivering Bulk Mail     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/message/">
+        <a href="/message/">
+          <span>
+            
+              <b>3. </b>
+            
+             Message Configuration
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/attachments/">
+              <a href="/message/attachments/">
+                <span>Attachments     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/alternatives/">
+              <a href="/message/alternatives/">
+                <span>Alternatives     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/addresses/">
+              <a href="/message/addresses/">
+                <span>Address object     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/calendar-events/">
+              <a href="/message/calendar-events/">
+                <span>Calendar Events     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/embedded-images/">
+              <a href="/message/embedded-images/">
+                <span>Embedded images     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/list-headers/">
+              <a href="/message/list-headers/">
+                <span>List Headers     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/custom-headers/">
+              <a href="/message/custom-headers/">
+                <span>Custom Headers     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/custom-source/">
+              <a href="/message/custom-source/">
+                <span>Custom source     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  parent" data-nav-id="/smtp/">
+        <a href="/smtp/">
+          <span>
+            
+              <b>4. </b>
+            
+             SMTP Transport
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/envelope/">
+              <a href="/smtp/envelope/">
+                <span>SMTP Envelope     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/pooled/">
+              <a href="/smtp/pooled/">
+                <span>Pooled SMTP     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/oauth2/">
+              <a href="/smtp/oauth2/">
+                <span>OAuth2     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/well-known/">
+              <a href="/smtp/well-known/">
+                <span>Well Known Services     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item active" data-nav-id="/smtp/proxies/">
+              <a href="/smtp/proxies/">
+                <span>Proxy Support     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/dsn/">
+              <a href="/smtp/dsn/">
+                <span>Delivery Status Notifications     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/transports/">
+        <a href="/transports/">
+          <span>
+            
+              <b>5. </b>
+            
+             Other transports
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/transports/sendmail/">
+              <a href="/transports/sendmail/">
+                <span>Sendmail Transport     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/transports/stream/">
+              <a href="/transports/stream/">
+                <span>Stream Transport     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/plugins/">
+        <a href="/plugins/">
+          <span>
+            
+              <b>6. </b>
+            
+             Plugins
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/plugins/create/">
+              <a href="/plugins/create/">
+                <span>Create plugins     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/dkim/">
+        <a href="/dkim/">
+          <span>
+            
+              <b>7. </b>
+            
+             DKIM
+            
+           </span>
+        </a>
+        
+      </li>
+      
+      
+    </ul>
+    <hr>
+     
+  </div>
+</nav>
+
+        <section id="body">
+        <div id="overlay"></div>
+
+        <div class="padding highlightable">
+
+            <div id="top-bar">
+              
+              <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                  <span id="sidebar-toggle-span">
+                      <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                        <i class="fa fa-bars"></i>
+                      </a>
+                  </span>
+                
+                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
+                
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                <a href="/smtp/" itemprop="url"><span itemprop="title">SMTP Transport</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> Proxy Support</span>
+              </div>
+              
+                  <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#examples">Examples</a>
+<ul>
+<li><a href="#1-using-http-proxy">1. Using HTTP proxy</a></li>
+<li><a href="#2-using-socks-proxy">2. Using Socks proxy</a>
+<ul>
+<li><a href="#testing-socks-proxies">Testing Socks proxies</a></li>
+</ul></li>
+<li><a href="#3-using-a-custom-proxy-handler">3. Using a custom proxy handler</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+              
+
+            </div>
+            
+    	        <div id="body-inner">
+                
+                <h1>Proxy Support</h1>
+                
+
+
+
+<p>Nodemailer PRO is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing <a href="https://www.npmjs.com/package/socks">socks</a> module to Nodemailer, other proxies need custom handling.</p>
+
+<p>To enable proxying, define a <strong>proxy</strong> option for the transporter.</p>
+
+<ul>
+<li><strong>proxy</strong> – is a proxy URL</li>
+</ul>
+
+<h3 id="examples">Examples</h3>
+
+<h4 id="1-using-http-proxy">1. Using HTTP proxy</h4>
+
+<p>Set HTTP proxy url for the <em>proxy</em> option. That&rsquo;s it, everything required to handle it is built into Nodemailer.</p>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    proxy: 'http://proxy-host:1234'
+});
+</code></pre>
+
+<p>Or if you want to use some environment defined variable like <em>http_proxy</em>:</p>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    proxy: process.env.http_proxy
+});
+</code></pre>
+
+<div class="notices info" ><p>Make sure that your HTTP proxy supports CONNECT protocol and allows connecting to the SMTP port you want to use.</p>
+</div>
+
+
+<h4 id="2-using-socks-proxy">2. Using Socks proxy</h4>
+
+<p>Set Socks proxy url for the <strong>proxy</strong> option. Additionally you need to provide the <a href="https://www.npmjs.com/package/socks">socks</a> module for the transporter as it is not bundled with Nodemailer.</p>
+
+<p>Possible protocol values for the SOCKS proxy:</p>
+
+<ul>
+<li><em>&lsquo;socks4:&rsquo;</em> or <em>&lsquo;socks4a:&rsquo;</em> for a SOCKS4 proxy</li>
+<li><em>&lsquo;socks5:&rsquo;</em> or <em>&lsquo;socks:&rsquo;</em> for a SOCKS5 proxy</li>
+</ul>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    proxy: 'socks5://socks-host:1234'
+});
+// enable support for socks URLs
+transporter.set('proxy_socks_module', require('socks'));
+</code></pre>
+
+<h5 id="testing-socks-proxies">Testing Socks proxies</h5>
+
+<p>For testing you can use ssh to create a SOCKS5 proxy. The following command connects to your remote server and sets up a proxy on port 1080 that routes connections through that server.</p>
+
+<pre><code>ssh -N -D 0.0.0.0:1080 username@remote.host`
+</code></pre>
+
+<p><strong>proxy</strong> url for that server would be <code>socks5://localhost:1080</code></p>
+
+<h4 id="3-using-a-custom-proxy-handler">3. Using a custom proxy handler</h4>
+
+<p>Additionally you can create your own proxy handler. To do this you would need to register a protocol handler callback with the name <em>proxy_handler_{protocol}</em> where <em>{protocol}</em> would be the protocol from proxy URL. If the URL looks like <em>&lsquo;yyy://localhost&rsquo;</em> then you would need to set callback for <em>proxy_handler_yyy</em>.</p>
+
+<pre><code class="language-javascript">transporter.set('proxy_handler_myproxy', handler)
+</code></pre>
+
+<p>Where</p>
+
+<ul>
+<li><strong>handler</strong> is the function to run to create a proxied socket. It gets the following arguments:
+
+<ul>
+<li><strong>proxy</strong> is the proxy url in a parsed form</li>
+<li><strong>options</strong> is transport configuration object</li>
+<li><strong>callback</strong> is the function to return the socket</li>
+</ul></li>
+</ul>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    proxy: 'myproxy://localhost:1234'
+});
+// enable support for socks URLs
+transporter.set('proxy_handler_myproxy', (proxy, options, callback)=&gt;{
+    console.log('Proxy host=% port=%', proxy.hostname, proxy.port);
+    let socket = require('net').connect(options.port, options.host, () =&gt; {
+        callback(null, {
+            connection: socket
+        });
+    });
+});
+</code></pre>
+
+<p>If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer PRO from upgrading the provided connection using TLS.</p>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    proxy: 'myproxys://localhost:1234'
+});
+// enable support for socks URLs
+transporter.set('proxy_handler_myproxys', (proxy, options, callback)=&gt;{
+    console.log('Proxy host=% port=%', proxy.hostname, proxy.port);
+    let socket = require('tls').connect(options.port, options.host, () =&gt; {
+        callback(null, {
+            connection: socket,
+            secured: true
+        });
+    });
+});
+</code></pre>
+
+
+      
+      </div>
+    </div>
+
+    <div id="navigation">
+        
+        <a class="nav nav-prev" href="https://nodemailer.com/prev/path"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://nodemailer.com/next/path" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/perfect-scrollbar.min.js"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/js/jquery.sticky-kit.min.js"></script>
+    <script src="/js/featherlight.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/learn.js"></script>
+    <script src="/js/hugo-learn.js"></script>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-51322-34', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

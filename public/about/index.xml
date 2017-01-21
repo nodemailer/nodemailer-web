@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on Nodemailer</title>
+    <link>https://nodemailer.com/about/index.xml</link>
+    <description>Recent content in Abouts on Nodemailer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jan 2017 21:25:35 +0200</lastBuildDate>
+    <atom:link href="https://nodemailer.com/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Nodemailer PRO</title>
+      <link>https://nodemailer.com/about/</link>
+      <pubDate>Fri, 20 Jan 2017 21:25:35 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/about/</guid>
+      <description>
+
+&lt;h1 id=&#34;nodemailer-pro&#34;&gt;Nodemailer PRO&lt;/h1&gt;
+
+&lt;p&gt;The &lt;a href=&#34;https://community.nodemailer.com/&#34;&gt;community version&lt;/a&gt; of &lt;strong&gt;Nodemailer&lt;/strong&gt; is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nodemailer PRO&lt;/strong&gt; (&lt;a href=&#34;https://nodemailer.com/about/why/&#34;&gt;why PRO?&lt;/a&gt;) is an upgrade of Nodemailer. Unlike Nodemailer which is licensed under MIT, Nodemailer PRO is licensed under restrictive CC license. See license details in the &lt;a href=&#34;https://nodemailer.com/about/license/&#34;&gt;License page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;nodemailer-pro-features&#34;&gt;Nodemailer PRO features&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A single module with &lt;strong&gt;zero dependencies&lt;/strong&gt;. Code is easily auditable as there are no dark corners&lt;/li&gt;
+&lt;li&gt;Heavy focus on &lt;strong&gt;security&lt;/strong&gt;, no-one likes &lt;a href=&#34;http://thehackernews.com/2017/01/phpmailer-swiftmailer-zendmail.html&#34;&gt;RCE vulnerabilities&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Unicode support&lt;/strong&gt; to use any characters, including emoji 💪&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Windows support&lt;/strong&gt; – you can install it with &lt;a href=&#34;https://www.npmjs.com/package/@nodemailer/pro&#34;&gt;npm&lt;/a&gt; on Windows just like any other module, there are no compiled dependencies. Use it from Azure or from your Windows box hassle free.&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;HTML content&lt;/strong&gt; as well as &lt;strong&gt;plain text&lt;/strong&gt; alternative&lt;/li&gt;
+&lt;li&gt;Add &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/message/attachments/&#34;&gt;Attachments&lt;/a&gt;&lt;/strong&gt; to messages&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/message/embedded-images/&#34;&gt;Embedded&lt;/a&gt;&lt;/strong&gt; image attachments for HTML content, so your design does not get blocked&lt;/li&gt;
+&lt;li&gt;Secure email delivery using &lt;strong&gt;SSL/STARTTLS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Different &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/transports/&#34;&gt;transport methods&lt;/a&gt;&lt;/strong&gt; in addition to the built-in &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/smtp/&#34;&gt;SMTP support&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Sign messages with &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/dkim/&#34;&gt;DKIM sign&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Custom &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/plugins/&#34;&gt;Plugin support&lt;/a&gt;&lt;/strong&gt; for manipulating messages&lt;/li&gt;
+&lt;li&gt;Sane &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/smtp/oauth2/&#34;&gt;OAuth2&lt;/a&gt;&lt;/strong&gt; authentication&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/smtp/proxies/&#34;&gt;Proxies&lt;/a&gt;&lt;/strong&gt; for SMTP connections&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ES6 code&lt;/strong&gt; so no more unintentional memory leaks due to hoisted &lt;em&gt;var&lt;/em&gt;&amp;rsquo;s&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;requirements&#34;&gt;Requirements&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Node.js v6+. That&amp;rsquo;s it.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you are able to run Node.js version 6 or newer then you can use Nodemailer. There are no platform or resource specific requirements.&lt;/p&gt;
+
+&lt;h4 id=&#34;tl-dr&#34;&gt;TL;DR&lt;/h4&gt;
+
+&lt;p&gt;In short what you need to do to send messages would be the following:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Create a Nodemailer PRO transporter using either &lt;a href=&#34;https://nodemailer.com/smtp/&#34;&gt;SMTP&lt;/a&gt; or &lt;a href=&#34;https://nodemailer.com/transports/&#34;&gt;some other&lt;/a&gt; transport mechanism&lt;/li&gt;
+&lt;li&gt;Set up &lt;a href=&#34;https://nodemailer.com/message/&#34;&gt;message options&lt;/a&gt; (who sends what to whom)&lt;/li&gt;
+&lt;li&gt;Deliver the message object using the &lt;strong&gt;sendMail()&lt;/strong&gt; method of your previously created transporter&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h5 id=&#34;example&#34;&gt;Example&lt;/h5&gt;
+
+&lt;p&gt;This is a complete example to send an email with plaintext and HTML body&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const nodemailer = require(&#39;@nodemailer/pro&#39;);
+
+// create reusable transporter object using the default SMTP transport
+let transporter = nodemailer.createTransport({
+    service: &#39;gmail&#39;,
+    auth: {
+        user: &#39;gmail.user@gmail.com&#39;,
+        pass: &#39;yourpass&#39;
+    }
+});
+
+// setup email data with unicode symbols
+let mailOptions = {
+    from: &#39;&amp;quot;Fred Foo 👻&amp;quot; &amp;lt;foo@blurdybloop.com&amp;gt;&#39;, // sender address
+    to: &#39;bar@blurdybloop.com, baz@blurdybloop.com&#39;, // list of receivers
+    subject: &#39;Hello ✔&#39;, // Subject line
+    text: &#39;Hello world ?&#39;, // plaintext body
+    html: &#39;&amp;lt;b&amp;gt;Hello world ?&amp;lt;/b&amp;gt;&#39; // html body
+};
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, (error, info) {
+    if (error) {
+        return console.log(error);
+    }
+    console.log(&#39;Message %s sent: %s&#39;, info.messageId, info.response);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Using Gmail might or might not work out of the box. See instructions for setting up Gmail SMTP &lt;a href=&#34;https://nodemailer.com/usage/using-gmail/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;hr /&gt;
+
+&lt;p&gt;Nodemailer and Nodemailer PRO are created by &lt;a href=&#34;https://github.com/andris9&#34;&gt;Andris Reinman&lt;/a&gt;. The Nodemailer logo was designed by &lt;a href=&#34;https://www.behance.net/kristjansen&#34;&gt;Sven Kristjansen&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Why PRO?</title>
+      <link>https://nodemailer.com/about/why/</link>
+      <pubDate>Fri, 20 Jan 2017 21:37:15 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/about/why/</guid>
+      <description>
+
+&lt;p&gt;Even though you can use the &lt;a href=&#34;https://community.nodemailer.com/&#34;&gt;community version&lt;/a&gt; of Nodemailer PRO as long as you want, Nodemailer PRO has some benefits over it.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Nodemailer PRO is &lt;strong&gt;maintained&lt;/strong&gt;. Due to the large amount of effort what it takes to handle a myriad of RFC&amp;rsquo;s and also keep the code updated along ever-upgrading Node.js versions, I haven&amp;rsquo;t had too much time to manage the original Nodemailer. The testimonial being that Nodemailer is still fully ES5 code and works on legacy systems like Node.js 0.10.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Support&lt;/strong&gt;. For paying customers I am able to provide email based help setting up or resolving issues with Nodemailer PRO. For Nodemailer you mostly have to rely on &lt;a href=&#34;http://stackoverflow.com/search?q=nodemailer&#34;&gt;Stack Overflow&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Bundled modules&lt;/strong&gt;. Nodemailer PRO does not come alone. In addition you get to use &lt;a href=&#34;https://www.npmjs.com/package/@nodemailer/mailparser2&#34;&gt;Mailparser2&lt;/a&gt; and possibly other modules under the same terms as Nodemailer PRO with no extra cost. More modules coming in the future.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Auditability&lt;/strong&gt;. Nodemailer PRO includes a tree of dependencies. Nodemailer PRO has none as everything required (and only that) is built in. There&amp;rsquo;s no dead code or dark corners which makes code audits lot easier. In the future I plan to have regular security audits on Nodemailer PRO code to prevent issues like hidden &lt;a href=&#34;http://thehackernews.com/2017/01/phpmailer-swiftmailer-zendmail.html&#34;&gt;RCE vulnerabilities&lt;/a&gt; that some other email projects have had recently.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Longevity&lt;/strong&gt;. By paying you support the project to keep going on. You can use Nodemailer PRO without fearing that it does not support your latest platform upgrade or suddenly stops doing what really matters – delivering your messages to your customers.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;differences&#34;&gt;Differences&lt;/h3&gt;
+
+&lt;p&gt;Nodemailer PRO has dropped some features available in Nodemailer and also introduced some new ones.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;All &lt;strong&gt;templating is gone&lt;/strong&gt;. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer PRO is about email, not about parsing different template sytaxes&lt;/li&gt;
+&lt;li&gt;No &lt;strong&gt;NTLM authentication&lt;/strong&gt;. It was too difficult to re-implement. If you still need it then it would be possible to introduce a pluggable SASL interface where you could load the ntlm module in your own code and pass it to Nodemailer PRO. Currently this is not possible.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;OAuth2 authentication&lt;/strong&gt; is built in and has a different &lt;a href=&#34;https://nodemailer.com/smtp/oauth2/&#34;&gt;configuration&lt;/a&gt;. You can use both user (3LO) and service (2LO) accounts to generate access tokens from Nodemailer PRO. Additionally there&amp;rsquo;s a new feature to authenticate differently for every message – useful if your application sends on behalf of different users instead of a single sender.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Delivery Status Notifications&lt;/strong&gt; added to Nodemailer PRO&lt;/li&gt;
+&lt;li&gt;Improved &lt;strong&gt;DKIM&lt;/strong&gt; signing of messages. Previously you needed an external module for this and it did quite a lousy job with larger messages&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stream transport&lt;/strong&gt; to return a RFC822 formatted message as a stream. Useful if you want to use Nodemailer PRO as a preprocessor and not for actual delivery.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sendmail&lt;/strong&gt; transport built-in, no need for external transport plugin&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Improved Calendaring&lt;/strong&gt;. Provide an ical file to Nodemailer PRO to send out &lt;a href=&#34;https://nodemailer.com/message/calendar-events/&#34;&gt;calendar events&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Long pipeline of things to do&lt;/strong&gt;. Nodemailer PRO is far from being done.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;why&#34;&gt;Why?&lt;/h3&gt;
+
+&lt;p&gt;Simply because I was not able to afford keeping such a large project like Nodemailer alive. If I would make just a single sale of Nodemailer PRO it would still be more than the money I made in donations in the last 6 years I&amp;rsquo;ve been developing Nodemailer. I&amp;rsquo;m mostly interested in building email related modules, it does not matter if the modules are truly open source or not.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>License</title>
+      <link>https://nodemailer.com/about/license/</link>
+      <pubDate>Fri, 20 Jan 2017 21:37:15 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/about/license/</guid>
+      <description>&lt;p&gt;Nodemailer PRO is licensed under a &lt;a rel=&#34;license&#34; href=&#34;http://creativecommons.org/licenses/by-nc-sa/4.0/&#34;&gt;Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License&lt;/a&gt;. Community version of Nodemailer is licensed under the MIT license.&lt;/p&gt;
+
+&lt;p&gt;Commercial license (see &lt;a href=&#34;https://nodemailer.com/COMM-LICENSE&#34;&gt;COMM-LICENSE&lt;/a&gt;) is available upon request, see &lt;a href=&#34;https://nodemailer.com/about/pricing&#34;&gt;Pricing&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pricing</title>
+      <link>https://nodemailer.com/about/pricing/</link>
+      <pubDate>Fri, 20 Jan 2017 21:37:19 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/about/pricing/</guid>
+      <description>
+
+&lt;p&gt;Nodemailer PRO can be purchased in yearly licenses. License fee for a &lt;strong&gt;1 year&lt;/strong&gt; license is &lt;strong&gt;780.- €&lt;/strong&gt; which can be paid either by PayPal or by international wire transfer. Kreata OÜ is located in the European Union, Estonia.&lt;/p&gt;
+
+&lt;p&gt;Payment details are available on the invoice. Contact &lt;a href=&#34;mailto:sales@kreata.ee&#34;&gt;sales@kreata.ee&lt;/a&gt; if you need to re-issue an invoice.&lt;/p&gt;
+
+&lt;h4 id=&#34;what-do-you-get-for-that-price&#34;&gt;What do you get for that price&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Unlimited usage&lt;/strong&gt; of Nodemailer PRO inside your organization (see applying &lt;a href=&#34;https://nodemailer.com/COMM-LICENSE&#34;&gt;license terms&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Email based &lt;strong&gt;Support&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Bundled &lt;strong&gt;email modules&lt;/strong&gt; under the same terms as Nodemailer PRO. For now this means &lt;a href=&#34;https://www.npmjs.com/package/@nodemailer/mailparser2&#34;&gt;Mailparser2&lt;/a&gt;, additional modules might become available in the future.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;before-purchase&#34;&gt;Before purchase&lt;/h4&gt;
+
+&lt;p&gt;Nodemailer PRO is available under a restrictive license without a fee, so you are free to test Nodemailer PRO before actually buying anything. Sometimes there might be problems between the client software and SMTP server that are hard to resolve so it would be wise to try beforehand if Nodemailer PRO even works for you or not.&lt;/p&gt;
+
+&lt;h4 id=&#34;contact&#34;&gt;Contact&lt;/h4&gt;
+
+&lt;p&gt;Contact sales &lt;a href=&#34;mailto:sales@kreata.ee&#34;&gt;sales@kreata.ee&lt;/a&gt; to purchase the license or if you have any other sales related questions.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Support</title>
+      <link>https://nodemailer.com/about/pro-support/</link>
+      <pubDate>Sat, 21 Jan 2017 22:51:02 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/about/pro-support/</guid>
+      <description>&lt;p&gt;Support is available for Nodemailer PRO subscribers. If you have trouble setting up or using Nodemailer PRO then contact &lt;a href=&#34;mailto:support@kreata.ee&#34;&gt;support@kreata.ee&lt;/a&gt; for support.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

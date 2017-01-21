@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sendmails on Nodemailer</title>
+    <link>/sendmail/index.xml</link>
+    <description>Recent content in Sendmails on Nodemailer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jan 2017 11:34:08 +0200</lastBuildDate>
+    <atom:link href="/sendmail/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Sendmail Transport</title>
+      <link>/sendmail/</link>
+      <pubDate>Fri, 20 Jan 2017 11:34:08 +0200</pubDate>
+      
+      <guid>/sendmail/</guid>
+      <description>
+
+&lt;h1 id=&#34;sendmail-transport&#34;&gt;Sendmail Transport&lt;/h1&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Configuration</title>
+      <link>/sendmail/configuration/</link>
+      <pubDate>Fri, 20 Jan 2017 11:35:26 +0200</pubDate>
+      
+      <guid>/sendmail/configuration/</guid>
+      <description>
+
+&lt;p&gt;Sendmail Transport pipes the generated RFC822 message to the standard input of the &lt;code&gt;sendmail&lt;/code&gt; command, so it&amp;rsquo;s the same thing what the &lt;code&gt;mail()&lt;/code&gt; command in PHP does.&lt;/p&gt;
+
+&lt;p&gt;To use Sendmail Transport, set &lt;code&gt;sendmail&lt;/code&gt; option to &lt;code&gt;true&lt;/code&gt; in Nodemailer options.&lt;/p&gt;
+
+&lt;p&gt;The additional options to use with this transport are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;path&lt;/strong&gt; - path to the &lt;code&gt;sendmail&lt;/code&gt; command (defaults to &lt;code&gt;&#39;sendmail&#39;&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;newline&lt;/strong&gt; - either &amp;lsquo;windows&amp;rsquo; or &amp;lsquo;unix&amp;rsquo; (default). Forces all newlines in the output to either use Windows syntax &lt;code&gt;&amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;&lt;/code&gt; or Unix syntax &lt;code&gt;&amp;lt;LF&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;args&lt;/strong&gt; - an optional array of command line options to pass to the &lt;code&gt;sendmail&lt;/code&gt; command (ie. &lt;code&gt;[&amp;quot;-f&amp;quot;, &amp;quot;foo@blurdybloop.com&amp;quot;]&lt;/code&gt;). This overrides all default arguments except for &amp;lsquo;-i&amp;rsquo; and recipient list so you need to make sure you have all required arguments set (ie. the &amp;lsquo;-f&amp;rsquo; flag).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The command to be spawned by default looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sendmail -i -f from_addr to_addr[]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If &lt;code&gt;args&lt;/code&gt; property was provided then the command looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sendmail -i args[] to_addr[]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;info&lt;/code&gt; argument for &lt;code&gt;sendMail()&lt;/code&gt; method includes the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;envelope&lt;/strong&gt; – is an envelope object &lt;code&gt;{from:&#39;address&#39;, to:[&#39;address&#39;]}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;messageId&lt;/strong&gt; – is the Message-ID header value&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;examples&#34;&gt;Examples&lt;/h2&gt;
+
+&lt;h3 id=&#34;1-send-message-using-specific-binary&#34;&gt;1. Send message using specific binary&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
+    sendmail: true,
+    newline: &#39;unix&#39;,
+    path: &#39;/usr/sbin/sendmail&#39;
+});
+transporter.sendMail({
+    from: &#39;sender@example.com&#39;,
+    to: &#39;recipient@example.com&#39;,
+    subject: &#39;Message&#39;,
+    text: &#39;I hope this message gets delivered!&#39;
+}, (err, info)=&amp;gt;{
+    console.log(info.envelope);
+    console.log(info.messageId);
+});
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

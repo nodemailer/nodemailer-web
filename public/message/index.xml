@@ -1,0 +1,597 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Messages on Nodemailer</title>
+    <link>https://nodemailer.com/message/index.xml</link>
+    <description>Recent content in Messages on Nodemailer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jan 2017 11:25:31 +0200</lastBuildDate>
+    <atom:link href="https://nodemailer.com/message/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Message Configuration</title>
+      <link>https://nodemailer.com/message/</link>
+      <pubDate>Fri, 20 Jan 2017 11:25:31 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/message/</guid>
+      <description>
+
+&lt;h1 id=&#34;message-configuration&#34;&gt;Message Configuration&lt;/h1&gt;
+
+&lt;p&gt;The following are the possible fields of an email message:&lt;/p&gt;
+
+&lt;h3 id=&#34;commmon-fields&#34;&gt;Commmon fields&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;from&lt;/strong&gt; - The email address of the sender. All email addresses can be plain &lt;em&gt;&amp;lsquo;sender@server.com&amp;rsquo;&lt;/em&gt; or formatted &lt;em&gt;&amp;rsquo;&amp;ldquo;Sender Name&amp;rdquo; &lt;a href=&#34;mailto:sender@server.com&#34;&gt;sender@server.com&lt;/a&gt;&amp;lsquo;&lt;/em&gt;, see &lt;a href=&#34;https://nodemailer.com/message/addresses/&#34;&gt;Address object&lt;/a&gt; for details&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;to&lt;/strong&gt; - Comma separated list or an array of recipients email addresses that will appear on the &lt;em&gt;To:&lt;/em&gt; field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cc&lt;/strong&gt; - Comma separated list or an array of recipients email addresses that will appear on the &lt;em&gt;Cc:&lt;/em&gt; field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bcc&lt;/strong&gt; - Comma separated list or an array of recipients email addresses that will appear on the &lt;em&gt;Bcc:&lt;/em&gt; field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;subject&lt;/strong&gt; - The subject of the email&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;text&lt;/strong&gt; - The plaintext version of the message as an Unicode string, Buffer, Stream or an attachment-like object (&lt;em&gt;{path: &amp;lsquo;/var/data/&amp;hellip;&amp;rsquo;}&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;html&lt;/strong&gt; - The HTML version of the message as an Unicode string, Buffer, Stream or an attachment-like object (&lt;em&gt;{path: &amp;lsquo;http://&amp;hellip;&amp;lsquo;}&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;attachments&lt;/strong&gt; - An array of attachment objects (see &lt;a href=&#34;https://nodemailer.com/message/attachments/&#34;&gt;Using attachments&lt;/a&gt; for details). Attachments can be used for &lt;a href=&#34;https://nodemailer.com/message/embedded-images/&#34;&gt;embedding images&lt;/a&gt; as well.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A large majority of emails sent look a lot like this, using only a few basic fields:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var message = {
+    from: &#39;sender@server.com&#39;,
+    to: &#39;receiver@sender.com&#39;,
+    subject: &#39;Message title&#39;,
+    text: &#39;Plaintext version of the message&#39;,
+    html: &#39;&amp;lt;p&amp;gt;HTML version of the message&amp;lt;/p&amp;gt;&#39;
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;All text fields (email addresses, plaintext body, html body, attachment filenames) use UTF-8 as the encoding. Attachments are streamed as binary.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;more-advanced-fields&#34;&gt;More advanced fields&lt;/h3&gt;
+
+&lt;h5 id=&#34;routing-options&#34;&gt;Routing options&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;sender&lt;/strong&gt; - An email address that will appear on the &lt;em&gt;Sender:&lt;/em&gt; field (always prefer &lt;em&gt;from&lt;/em&gt; if you&amp;rsquo;re not sure which one to use)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;replyTo&lt;/strong&gt; - An email address that will appear on the &lt;em&gt;Reply-To:&lt;/em&gt; field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;inReplyTo&lt;/strong&gt; - The Message-ID this message is replying to&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;references&lt;/strong&gt; - Message-ID list (an array or space separated string)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;envelope&lt;/strong&gt; - optional SMTP envelope, if auto generated envelope is not suitable (see &lt;a href=&#34;https://nodemailer.com/smtp/envelope/&#34;&gt;SMTP envelope&lt;/a&gt; for details)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;content-options&#34;&gt;Content options&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;attachDataUrls&lt;/strong&gt; – if true then convert &lt;em&gt;data:&lt;/em&gt; images in the HTML content of this message to embedded attachments&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;watchHtml&lt;/strong&gt; - Apple Watch specific HTML version of the message&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;icalEvent&lt;/strong&gt; – iCalendar event to use as an alternative. See details &lt;a href=&#34;https://nodemailer.com/message/calendar-events/&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alternatives&lt;/strong&gt; - An array of alternative text contents (in addition to text and html parts) (see &lt;a href=&#34;https://nodemailer.com/message/alternatives/&#34;&gt;Using alternative content&lt;/a&gt; for details)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;encoding&lt;/strong&gt; - identifies encoding for text/html strings (defaults to &amp;lsquo;utf-8&amp;rsquo;, other values are &amp;lsquo;hex&amp;rsquo; and &amp;lsquo;base64&amp;rsquo;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;raw&lt;/strong&gt; - existing MIME message to use instead of generating a new one. See details &lt;a href=&#34;https://nodemailer.com/message/custom-source/&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;textEncoding&lt;/strong&gt; - force content-transfer-encoding for text values (either &lt;em&gt;quoted-printable&lt;/em&gt; or &lt;em&gt;base64&lt;/em&gt;). By default the best option is detected (for lots of ascii use &lt;em&gt;quoted-printable&lt;/em&gt;, otherwise &lt;em&gt;base64&lt;/em&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;header-options&#34;&gt;Header options&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;priority&lt;/strong&gt; - Sets message importance headers, either &lt;strong&gt;&amp;lsquo;high&amp;rsquo;&lt;/strong&gt;, &lt;strong&gt;&amp;lsquo;normal&amp;rsquo;&lt;/strong&gt; (default) or &lt;strong&gt;&amp;lsquo;low&amp;rsquo;&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; - An object or array of additional header fields (e.g. &lt;em&gt;{&amp;ldquo;X-Key-Name&amp;rdquo;: &amp;ldquo;key value&amp;rdquo;}&lt;/em&gt; or &lt;em&gt;[{key: &amp;ldquo;X-Key-Name&amp;rdquo;, value: &amp;ldquo;val1&amp;rdquo;}, {key: &amp;ldquo;X-Key-Name&amp;rdquo;, value: &amp;ldquo;val2&amp;rdquo;}]&lt;/em&gt;). Read more about custom headers &lt;a href=&#34;https://nodemailer.com/message/custom-headers/&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;messageId&lt;/strong&gt; - optional Message-Id value, random value will be generated if not set&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;date&lt;/strong&gt; - optional Date value, current UTC string will be used if not set&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;list&lt;/strong&gt; - helper for setting List-* headers (see more &lt;a href=&#34;https://nodemailer.com/message/list-headers/&#34;&gt;here&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;security-options&#34;&gt;Security options&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;disableFileAccess&lt;/strong&gt; if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error. If this field is also set in the transport options, then the value in mail data is ignored&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;disableUrlAccess&lt;/strong&gt; if true, then does not allow to use Urls as content. If this field is also set in the transport options, then the value in mail data is ignored&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var message = {
+    ...,
+    headers: {
+        &#39;My-Custom-Header&#39;: &#39;header value&#39;
+    },
+    date: new Date(&#39;2000-01-01 00:00:00&#39;)
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;&lt;strong&gt;Memory leak warning!&lt;/strong&gt; When using readable streams as content and sending fails then Nodemailer PRO does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer PRO only closes the streams it has opened itself (eg. file paths, URLs)&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var htmlstream = fs.createReadStream(&#39;content.html&#39;);
+transport.sendMail({html: htmlstream}, function(err){
+    if(err){
+        // check if htmlstream is still open and close it to clean up
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Attachments</title>
+      <link>https://nodemailer.com/message/attachments/</link>
+      <pubDate>Sat, 21 Jan 2017 00:09:16 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/message/attachments/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;attachments&lt;/strong&gt; option in the message object that contains an array of attachment objects.&lt;/p&gt;
+
+&lt;p&gt;Attachment object consists of the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;filename&lt;/strong&gt; - filename to be reported as the name of the attached file. Use of unicode is allowed.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt; - String, Buffer or a Stream contents for the attachment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;path&lt;/strong&gt; - path to the file if you want to stream the file instead of including it (better for larger attachments)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;href&lt;/strong&gt; – an URL to the file (data uris are allowed as well)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;contentType&lt;/strong&gt; - optional content type for the attachment, if not set will be derived from the &lt;em&gt;filename&lt;/em&gt; property&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;contentDisposition&lt;/strong&gt; - optional content disposition type for the attachment, defaults to &amp;lsquo;attachment&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cid&lt;/strong&gt; - optional content id for using inline images in HTML message source&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;encoding&lt;/strong&gt; - If set and &lt;em&gt;content&lt;/em&gt; is string, then encodes the content to a Buffer using the specified encoding. Example values: &lt;em&gt;&amp;lsquo;base64&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;hex&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;binary&amp;rsquo;&lt;/em&gt; etc. Useful if you want to use binary attachments in a JSON formatted email object.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; - custom headers for the attachment node. Same usage as with message headers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;raw&lt;/strong&gt; - is an optional special value that overrides entire contents of current mime node including mime headers. Useful if you want to prepare node contents yourself&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Attachments can be added as many as you want.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    ...
+    attachments: [
+        {   // utf-8 string as an attachment
+            filename: &#39;text1.txt&#39;,
+            content: &#39;hello world!&#39;
+        },
+        {   // binary buffer as an attachment
+            filename: &#39;text2.txt&#39;,
+            content: new Buffer(&#39;hello world!&#39;,&#39;utf-8&#39;)
+        },
+        {   // file on disk as an attachment
+            filename: &#39;text3.txt&#39;,
+            path: &#39;/path/to/file.txt&#39; // stream this file
+        },
+        {   // filename and content type is derived from path
+            path: &#39;/path/to/file.txt&#39;
+        },
+        {   // stream as an attachment
+            filename: &#39;text4.txt&#39;,
+            content: fs.createReadStream(&#39;file.txt&#39;)
+        },
+        {   // define custom content type for the attachment
+            filename: &#39;text.bin&#39;,
+            content: &#39;hello world!&#39;,
+            contentType: &#39;text/plain&#39;
+        },
+        {   // use URL as an attachment
+            filename: &#39;license.txt&#39;,
+            path: &#39;https://raw.github.com/nodemailer/nodemailer/master/LICENSE&#39;
+        },
+        {   // encoded string as an attachment
+            filename: &#39;text1.txt&#39;,
+            content: &#39;aGVsbG8gd29ybGQh&#39;,
+            encoding: &#39;base64&#39;
+        },
+        {   // data uri as an attachment
+            path: &#39;data:text/plain;base64,aGVsbG8gd29ybGQ=&#39;
+        },
+        {
+            // use pregenerated MIME node
+            raw: &#39;Content-Type: text/plain\r\n&#39; +
+                 &#39;Content-Disposition: attachment;\r\n&#39; +
+                 &#39;\r\n&#39; +
+                 &#39;Hello world!&#39;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Alternatives</title>
+      <link>https://nodemailer.com/message/alternatives/</link>
+      <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/message/alternatives/</guid>
+      <description>&lt;p&gt;In addition to text and HTML, any kind of data can be inserted as an alternative content of the main body - for example a word processing document with the same text as in the HTML field. It is the job of the email client to select and show the best fitting alternative to the reader. Usually this field is used for calendar events and such.&lt;/p&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you want to use a calendar event as the alternative, the consider using the &lt;strong&gt;icalEvent&lt;/strong&gt; option instead. See details &lt;a href=&#34;https://nodemailer.com/message/calendar-events/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Alternative objects use the same options as &lt;a href=&#34;https://nodemailer.com/attachments/&#34;&gt;attachment objects&lt;/a&gt;. The difference between an attachment and an alternative is the fact that attachments are placed into &lt;em&gt;multipart/mixed&lt;/em&gt; or &lt;em&gt;multipart/related&lt;/em&gt; parts of the message white alternatives are placed into &lt;em&gt;multipart/alternative&lt;/em&gt; part.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Usage example:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    ...
+    html: &#39;&amp;lt;b&amp;gt;Hello world!&amp;lt;/b&amp;gt;&#39;,
+    alternatives: [
+        {
+            contentType: &#39;text/x-web-markdown&#39;,
+            content: &#39;**Hello world!**&#39;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Alternatives can be added as many as you want.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Address object</title>
+      <link>https://nodemailer.com/message/addresses/</link>
+      <pubDate>Fri, 20 Jan 2017 20:58:57 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/message/addresses/</guid>
+      <description>&lt;p&gt;All email addresses can be &lt;strong&gt;plain&lt;/strong&gt; email addresses&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;foobar@blurdybloop.com&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;or with &lt;strong&gt;formatted name&lt;/strong&gt; (includes unicode support)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;Ноде Майлер &amp;lt;foobar@blurdybloop.com&amp;gt;&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;Notice that all address fields (even &lt;em&gt;from:&lt;/em&gt;) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: &lt;code&gt;&#39;&amp;quot;Майлер, Ноде&amp;quot; &amp;lt;foobar@blurdybloop.com&amp;gt;&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;or as an &lt;strong&gt;address object&lt;/strong&gt; (in this case you do not need to worry about the formatting, no need to use quotes etc.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
+    name: &#39;Майлер, Ноде&#39;,
+    address: &#39;foobar@blurdybloop.com&#39;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All address fields accept values as a comma separated list of emails or an array of emails or an array of comma separated list of emails or address objects - use it as you like. Formatting can be mixed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;...,
+to: &#39;foobar@blurdybloop.com, &amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@blurdybloop.com&amp;gt;, &amp;quot;Name, User&amp;quot; &amp;lt;baz@blurdybloop.com&amp;gt;&#39;,
+cc: [
+    &#39;foobar@blurdybloop.com&#39;,
+    &#39;&amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@blurdybloop.com&amp;gt;,
+    &amp;quot;Name, User&amp;quot; &amp;lt;baz@blurdybloop.com&amp;gt;&#39;
+],
+bcc: [
+    &#39;foobar@blurdybloop.com&#39;,
+    {
+        name: &#39;Майлер, Ноде&#39;,
+        address: &#39;foobar@blurdybloop.com&#39;
+    }
+]
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can even use unicode domains, these are automatically converted to punycode&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;&amp;quot;Unicode Domain&amp;quot; &amp;lt;info@müriaad-polüteism.info&amp;gt;&#39;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Calendar Events</title>
+      <link>https://nodemailer.com/message/calendar-events/</link>
+      <pubDate>Fri, 20 Jan 2017 12:01:43 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/message/calendar-events/</guid>
+      <description>
+
+&lt;p&gt;Calendar events are tricky because different email clients handle these differently. Nodemailer PRO uses the same style as Gmail for attaching calendar files which should ensure maximum compatibility. If you want to attach a calendar event to your email then you can use the message option &lt;strong&gt;icalEvent&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;icalEvent&lt;/strong&gt; – an object to define calendar event&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;method&lt;/strong&gt; – optional method, case insensitive, defaults to &lt;em&gt;&amp;lsquo;publish&amp;rsquo;&lt;/em&gt;. Other possible values would be &lt;em&gt;&amp;lsquo;request&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;reply&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;cancel&amp;rsquo;&lt;/em&gt; or any other valid calendar method listed in &lt;a href=&#34;https://tools.ietf.org/html/rfc5546#section-1.4&#34;&gt;RFC5546&lt;/a&gt;. This should match the &lt;strong&gt;METHOD:&lt;/strong&gt; value in calendar event file.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;filename&lt;/strong&gt; – optional filename, defaults to &lt;em&gt;&amp;lsquo;invite.ics&amp;rsquo;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt; – is the event file, it can be a string, a buffer, a stream, a file path (&lt;em&gt;content:{path:&amp;lsquo;&amp;hellip;&amp;rsquo;}&lt;/em&gt;) or even an URL (&lt;em&gt;content:{href:&amp;lsquo;&amp;hellip;&amp;rsquo;}&lt;/em&gt;). You can use modules like &lt;a href=&#34;https://www.npmjs.com/package/ical-generator&#34;&gt;ical-generator&lt;/a&gt; to generate the actual calendar file content, Nodemailer PRO acts as a transport layer only and does not generate the event file structure.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;In general it is not a good idea to add additional attachments to calendar messages as it might mess up the behavior of some email clients. Try to keep it only to &lt;strong&gt;text&lt;/strong&gt;, &lt;strong&gt;html&lt;/strong&gt; and &lt;strong&gt;icalEvent&lt;/strong&gt; without any additional &lt;strong&gt;alternatives&lt;/strong&gt; or &lt;strong&gt;attachments&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+
+&lt;h4 id=&#34;1-send-a-request-event-as-a-string&#34;&gt;1. Send a REQUEST event as a String&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let content = &#39;BEGIN:VCALENDAR\r\nPRODID:-//ACME/DesktopCalendar//EN\r\nMETHOD:REQUEST\r\n...&#39;;
+
+let message = {
+    from: &#39;sender@example.com&#39;,
+    to: &#39;recipient@example.com&#39;,
+    subject: &#39;Appointment&#39;,
+    text: &#39;Please see the attached appointment&#39;,
+    icalEvent: {
+        filename: &#39;invitation.ics&#39;,
+        method: &#39;request&#39;,
+        content: content
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;2-send-a-publish-event-from-a-file&#34;&gt;2. Send a PUBLISH event from a file&lt;/h4&gt;
+
+&lt;p&gt;Event data is loaded from the provided file and attached to the message.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    from: &#39;sender@example.com&#39;,
+    to: &#39;recipient@example.com&#39;,
+    subject: &#39;Appointment&#39;,
+    text: &#39;Please see the attached appointment&#39;,
+    icalEvent: {
+        method: &#39;PUBLISH&#39;,
+        content: {
+            path: &#39;/path/to/file&#39;
+        }
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;3-send-a-cancel-event-from-an-url&#34;&gt;3. Send a CANCEL event from an URL&lt;/h4&gt;
+
+&lt;p&gt;Event data is downloaded from the provided URL and attached to the message as regular calendar file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    from: &#39;sender@example.com&#39;,
+    to: &#39;recipient@example.com&#39;,
+    subject: &#39;Appointment&#39;,
+    text: &#39;Please see the attached appointment&#39;,
+    icalEvent: {
+        method: &#39;REQUEST&#39;,
+        content: {
+            href: &#39;http://www.example.com/events?event=123&#39;
+        }
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Embedded images</title>
+      <link>https://nodemailer.com/message/embedded-images/</link>
+      <pubDate>Sat, 21 Jan 2017 00:09:24 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/message/embedded-images/</guid>
+      <description>
+
+&lt;p&gt;Attachments can be used as embedded images in the HTML body. To use this feature, you need to set additional property of the attachment - &lt;strong&gt;cid&lt;/strong&gt; (unique identifier of the file) which is a reference to the attachment file. The same &lt;strong&gt;cid&lt;/strong&gt; value must be used as the image URL in HTML (using &lt;strong&gt;cid:&lt;/strong&gt; as the URL protocol, see example below).&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;&lt;strong&gt;NB!&lt;/strong&gt; the cid value should be as unique as possible!&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h4 id=&#34;example&#34;&gt;Example&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    ...
+    html: &#39;Embedded image: &amp;lt;img src=&amp;quot;cid:unique@kreata.ee&amp;quot;/&amp;gt;&#39;,
+    attachments: [{
+        filename: &#39;image.png&#39;,
+        path: &#39;/path/to/file&#39;,
+        cid: &#39;unique@kreata.ee&#39; //same cid value as in the html img src
+    }]
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>List Headers</title>
+      <link>https://nodemailer.com/message/list-headers/</link>
+      <pubDate>Fri, 20 Jan 2017 12:01:57 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/message/list-headers/</guid>
+      <description>
+
+&lt;p&gt;Nodemailer PRO includes a helper for setting more complex &lt;em&gt;List-*&lt;/em&gt; headers with ease. You can use this by providing message option &lt;strong&gt;list&lt;/strong&gt;. It&amp;rsquo;s an object where key names are converted into list headers. List key &lt;em&gt;help&lt;/em&gt; becomes &lt;em&gt;List-Help&lt;/em&gt; header etc.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;General rules&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If the value is a string, it is treated as an URL&lt;/li&gt;
+&lt;li&gt;If you want to provide an optional comment, use &lt;em&gt;{url:&amp;lsquo;url&amp;rsquo;, comment: &amp;lsquo;comment&amp;rsquo;}&lt;/em&gt; object&lt;/li&gt;
+&lt;li&gt;If you want to have multiple header rows for the same &lt;em&gt;List-*&lt;/em&gt; key, use an array as the value for this key&lt;/li&gt;
+&lt;li&gt;If you want to have multiple URLs for single &lt;em&gt;List-*&lt;/em&gt; header row, use an array inside an array&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;List-*&lt;/em&gt; headers are treated as pregenerated values, this means that lines are not folded and strings are not encoded. Use only ascii characters and be prepared for longer header lines&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+
+&lt;h4 id=&#34;1-setup-different-list-headers&#34;&gt;1. Setup different List-* headers&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    from: &#39;sender@example.com&#39;,
+    to: &#39;recipient@example.com&#39;,
+    subject: &#39;List Message&#39;,
+    text: &#39;I hope no-one unsubscribes from this list!&#39;,
+    list: {
+        // List-Help: &amp;lt;mailto:admin@example.com?subject=help&amp;gt;
+        help: &#39;admin@example.com?subject=help&#39;,
+        // List-Unsubscribe: &amp;lt;http://example.com&amp;gt; (Comment)
+        unsubscribe: {
+            url: &#39;http://example.com&#39;,
+            comment: &#39;Comment&#39;
+        },
+        // List-Subscribe: &amp;lt;mailto:admin@example.com?subject=subscribe&amp;gt;
+        // List-Subscribe: &amp;lt;http://example.com&amp;gt; (Subscribe)
+        subscribe: [
+            &#39;admin@example.com?subject=subscribe&#39;,
+            {
+                url: &#39;http://example.com&#39;,
+                comment: &#39;Subscribe&#39;
+            }
+        ],
+        // List-Post: &amp;lt;http://example.com/post&amp;gt;, &amp;lt;mailto:admin@example.com?subject=post&amp;gt; (Post)
+        post: [
+            [
+                &#39;http://example.com/post&#39;,
+                {
+                    url: &#39;admin@example.com?subject=post&#39;,
+                    comment: &#39;Post&#39;
+                }
+            ]
+        ]
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Custom Headers</title>
+      <link>https://nodemailer.com/message/custom-headers/</link>
+      <pubDate>Fri, 20 Jan 2017 12:37:05 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/message/custom-headers/</guid>
+      <description>
+
+&lt;p&gt;Most messages do not need any kind of tampering with the headers. If you do need to add custom headers either to the message or to an attachment/alternative, you can add these values with the &lt;strong&gt;headers&lt;/strong&gt; option. Values are processed automatically, non-ascii strings are encoded as mime-words and long lines are folded.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; – is an object of key-value pairs, where key names are converted into message header keys&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+
+&lt;h4 id=&#34;1-set-custom-headers&#34;&gt;1. Set custom headers&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    ...,
+    headers: {
+        &#39;x-my-key&#39;: &#39;header value&#39;,
+        &#39;x-another-key&#39;: &#39;another value&#39;
+    }
+}
+
+// Becomes:
+//   X-My-Key: header value
+//   X-Another-Key: another value
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;2-multiple-rows-with-the-same-key&#34;&gt;2. Multiple rows with the same key&lt;/h4&gt;
+
+&lt;p&gt;The same header key can be used multiple times if the header value is an Array&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    ...,
+    headers: {
+        &#39;x-my-key&#39;: [
+            &#39;value for row 1&#39;,
+            &#39;value for row 2&#39;,
+            &#39;value for row 3&#39;
+        ]
+    }
+}
+
+// X-My-Key: value for row 1
+// X-My-Key: value for row 2
+// X-My-Key: value for row 3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;3-prepared-headers&#34;&gt;3. Prepared headers&lt;/h4&gt;
+
+&lt;p&gt;Normally all headers are encoded and folded to meet the requirement of having plain-ASCII messages with lines no longer than 78 bytes. Sometimes it is preferable to not modify header values and pass these as provided. This can be achieved with the &lt;strong&gt;prepared&lt;/strong&gt; option:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    ...,
+    headers: {
+        &#39;x-processed&#39;: &#39;a really long header or value with non-ascii characters 👮&#39;,
+        &#39;x-unprocessed&#39;: {
+            prepared: true,
+            value: &#39;a really long header or value with non-ascii characters 👮&#39;
+        }
+    }
+}
+
+// X-Processed: a really long header or value with non-ascii characters
+//  =?UTF-8?Q?=F0=9F=91=AE?=
+// X-Unprocessed: a really long header or value with non-ascii characters ?
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Custom source</title>
+      <link>https://nodemailer.com/message/custom-source/</link>
+      <pubDate>Fri, 20 Jan 2017 12:37:52 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/message/custom-source/</guid>
+      <description>
+
+&lt;p&gt;If you want to use your own custom generated RFC822 formatted message source, instead of letting Nodemailer PRO to generate it from the message options, use option &lt;strong&gt;raw&lt;/strong&gt;. This can be used both for the entire message or alternatively per-attachment or per-alternative.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;Don&amp;rsquo;t forget to set the &lt;strong&gt;envelope&lt;/strong&gt; option when using &lt;strong&gt;raw&lt;/strong&gt; as the message source&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+
+&lt;h4 id=&#34;1-use-string-as-a-message-body&#34;&gt;1. Use string as a message body&lt;/h4&gt;
+
+&lt;p&gt;This example loads the entire message source from a string value. You don&amp;rsquo;t have to worry about proper newlines, these are handled by Nodemailer.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    envelope: {
+        from: &#39;sender@example.com&#39;,
+        to: [&#39;recipient@example.com&#39;]
+    },
+    raw: `From: sender@example.com
+To: recipient@example.com
+Subject: test message
+
+Hello world!`
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;2-set-eml-file-as-message-body&#34;&gt;2. Set eml file as message body&lt;/h4&gt;
+
+&lt;p&gt;This example loads the entire message source from a file&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    envelope: {
+        from: &#39;sender@example.com&#39;,
+        to: [&#39;recipient@example.com&#39;]
+    },
+    raw: {
+        path: &#39;/path/to/message.eml&#39;
+    }
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;3-set-string-as-attachment-body&#34;&gt;3. Set string as attachment body&lt;/h4&gt;
+
+&lt;p&gt;When using &lt;strong&gt;raw&lt;/strong&gt; for attachments then you need to provide all content headers youself, Nodemailer PRO does not process it in any way (besides newline processing), it is inserted into the MIME tree as is.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    from: &#39;sender@example.com&#39;,
+    to: &#39;recipient@example.com&#39;,
+    subject: &#39;Custom attachment&#39;,
+    attachments: [{
+        raw: `Content-Type: text/plain
+Content-Disposition: attachment
+
+Attached text file`}]
+};
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

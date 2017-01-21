@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.18.1" />
+    <meta name="description" content="Nodemailer is a module for Node.js to send emails">
+<meta name="author" content="Andris Reinman">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    
+    <title>Message Configuration</title>
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/featherlight.min.css" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/hugo-theme.css" rel="stylesheet">
+    <script src="/js/jquery-2.x.min.js"></script>
+    <style type="text/css">:root #header + #content > #left > #rlblock_left
+    {display:none !important;}</style>
+    
+
+  </head>
+  <body class="" data-url="/message/">
+    <nav id="sidebar">
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+  <img src="/nm_logo_200x136.png" alt="Nodemailer"/>
+</a>
+
+    </div>
+
+    
+</div>
+
+
+  <div class="highlightable">
+      <div id="ads">
+          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=nodemailercom" id="_carbonads_js"></script>
+      </div>
+    <ul class="topics">
+      
+      
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/about/">
+        <a href="/about/">
+          <span>
+            
+              <b>1. </b>
+            
+             Nodemailer PRO
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/about/why/">
+              <a href="/about/why/">
+                <span>Why PRO?     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/about/license/">
+              <a href="/about/license/">
+                <span>License     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/about/pricing/">
+              <a href="/about/pricing/">
+                <span>Pricing     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/about/pro-support/">
+              <a href="/about/pro-support/">
+                <span>Support     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/usage/">
+        <a href="/usage/">
+          <span>
+            
+              <b>2. </b>
+            
+             Usage
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/usage/why-smtp/">
+              <a href="/usage/why-smtp/">
+                <span>SMTP? Say What?     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/usage/using-gmail/">
+              <a href="/usage/using-gmail/">
+                <span>Using Gmail     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/usage/bulk-mail/">
+              <a href="/usage/bulk-mail/">
+                <span>Delivering Bulk Mail     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item active parent" data-nav-id="/message/">
+        <a href="/message/">
+          <span>
+            
+              <b>3. </b>
+            
+             Message Configuration
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/attachments/">
+              <a href="/message/attachments/">
+                <span>Attachments     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/alternatives/">
+              <a href="/message/alternatives/">
+                <span>Alternatives     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/addresses/">
+              <a href="/message/addresses/">
+                <span>Address object     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/calendar-events/">
+              <a href="/message/calendar-events/">
+                <span>Calendar Events     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/embedded-images/">
+              <a href="/message/embedded-images/">
+                <span>Embedded images     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/list-headers/">
+              <a href="/message/list-headers/">
+                <span>List Headers     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/custom-headers/">
+              <a href="/message/custom-headers/">
+                <span>Custom Headers     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/custom-source/">
+              <a href="/message/custom-source/">
+                <span>Custom source     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/smtp/">
+        <a href="/smtp/">
+          <span>
+            
+              <b>4. </b>
+            
+             SMTP Transport
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/envelope/">
+              <a href="/smtp/envelope/">
+                <span>SMTP Envelope     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/pooled/">
+              <a href="/smtp/pooled/">
+                <span>Pooled SMTP     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/oauth2/">
+              <a href="/smtp/oauth2/">
+                <span>OAuth2     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/well-known/">
+              <a href="/smtp/well-known/">
+                <span>Well Known Services     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/proxies/">
+              <a href="/smtp/proxies/">
+                <span>Proxy Support     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/dsn/">
+              <a href="/smtp/dsn/">
+                <span>Delivery Status Notifications     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/transports/">
+        <a href="/transports/">
+          <span>
+            
+              <b>5. </b>
+            
+             Other transports
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/transports/sendmail/">
+              <a href="/transports/sendmail/">
+                <span>Sendmail Transport     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/transports/stream/">
+              <a href="/transports/stream/">
+                <span>Stream Transport     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/plugins/">
+        <a href="/plugins/">
+          <span>
+            
+              <b>6. </b>
+            
+             Plugins
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/plugins/create/">
+              <a href="/plugins/create/">
+                <span>Create plugins     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/dkim/">
+        <a href="/dkim/">
+          <span>
+            
+              <b>7. </b>
+            
+             DKIM
+            
+           </span>
+        </a>
+        
+      </li>
+      
+      
+    </ul>
+    <hr>
+     
+  </div>
+</nav>
+
+        <section id="body">
+        <div id="overlay"></div>
+
+        <div class="padding highlightable">
+
+            <div id="top-bar">
+              
+              <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                  <span id="sidebar-toggle-span">
+                      <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                        <i class="fa fa-bars"></i>
+                      </a>
+                  </span>
+                
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> Message Configuration</span>
+              </div>
+              
+
+            </div>
+            
+              <div id="chapter">
+            
+    	        <div id="body-inner">
+                
+
+
+
+<h1 id="message-configuration">Message Configuration</h1>
+
+<p>The following are the possible fields of an email message:</p>
+
+<h3 id="commmon-fields">Commmon fields</h3>
+
+<ul>
+<li><strong>from</strong> - The email address of the sender. All email addresses can be plain <em>&lsquo;sender@server.com&rsquo;</em> or formatted <em>&rsquo;&ldquo;Sender Name&rdquo; <a href="mailto:sender@server.com">sender@server.com</a>&lsquo;</em>, see <a href="/message/addresses/">Address object</a> for details</li>
+<li><strong>to</strong> - Comma separated list or an array of recipients email addresses that will appear on the <em>To:</em> field</li>
+<li><strong>cc</strong> - Comma separated list or an array of recipients email addresses that will appear on the <em>Cc:</em> field</li>
+<li><strong>bcc</strong> - Comma separated list or an array of recipients email addresses that will appear on the <em>Bcc:</em> field</li>
+<li><strong>subject</strong> - The subject of the email</li>
+<li><strong>text</strong> - The plaintext version of the message as an Unicode string, Buffer, Stream or an attachment-like object (<em>{path: &lsquo;/var/data/&hellip;&rsquo;}</em>)</li>
+<li><strong>html</strong> - The HTML version of the message as an Unicode string, Buffer, Stream or an attachment-like object (<em>{path: &lsquo;http://&hellip;&lsquo;}</em>)</li>
+<li><strong>attachments</strong> - An array of attachment objects (see <a href="/message/attachments/">Using attachments</a> for details). Attachments can be used for <a href="/message/embedded-images/">embedding images</a> as well.</li>
+</ul>
+
+<p>A large majority of emails sent look a lot like this, using only a few basic fields:</p>
+
+<pre><code class="language-javascript">var message = {
+    from: 'sender@server.com',
+    to: 'receiver@sender.com',
+    subject: 'Message title',
+    text: 'Plaintext version of the message',
+    html: '&lt;p&gt;HTML version of the message&lt;/p&gt;'
+};
+</code></pre>
+
+<div class="notices note" ><p>All text fields (email addresses, plaintext body, html body, attachment filenames) use UTF-8 as the encoding. Attachments are streamed as binary.</p>
+</div>
+
+
+<h3 id="more-advanced-fields">More advanced fields</h3>
+
+<h5 id="routing-options">Routing options</h5>
+
+<ul>
+<li><strong>sender</strong> - An email address that will appear on the <em>Sender:</em> field (always prefer <em>from</em> if you&rsquo;re not sure which one to use)</li>
+<li><strong>replyTo</strong> - An email address that will appear on the <em>Reply-To:</em> field</li>
+<li><strong>inReplyTo</strong> - The Message-ID this message is replying to</li>
+<li><strong>references</strong> - Message-ID list (an array or space separated string)</li>
+<li><strong>envelope</strong> - optional SMTP envelope, if auto generated envelope is not suitable (see <a href="/smtp/envelope/">SMTP envelope</a> for details)</li>
+</ul>
+
+<h5 id="content-options">Content options</h5>
+
+<ul>
+<li><strong>attachDataUrls</strong> – if true then convert <em>data:</em> images in the HTML content of this message to embedded attachments</li>
+<li><strong>watchHtml</strong> - Apple Watch specific HTML version of the message</li>
+<li><strong>icalEvent</strong> – iCalendar event to use as an alternative. See details <a href="/message/calendar-events/">here</a></li>
+<li><strong>alternatives</strong> - An array of alternative text contents (in addition to text and html parts) (see <a href="/message/alternatives/">Using alternative content</a> for details)</li>
+<li><strong>encoding</strong> - identifies encoding for text/html strings (defaults to &lsquo;utf-8&rsquo;, other values are &lsquo;hex&rsquo; and &lsquo;base64&rsquo;)</li>
+<li><strong>raw</strong> - existing MIME message to use instead of generating a new one. See details <a href="/message/custom-source/">here</a></li>
+<li><strong>textEncoding</strong> - force content-transfer-encoding for text values (either <em>quoted-printable</em> or <em>base64</em>). By default the best option is detected (for lots of ascii use <em>quoted-printable</em>, otherwise <em>base64</em>)</li>
+</ul>
+
+<h5 id="header-options">Header options</h5>
+
+<ul>
+<li><strong>priority</strong> - Sets message importance headers, either <strong>&lsquo;high&rsquo;</strong>, <strong>&lsquo;normal&rsquo;</strong> (default) or <strong>&lsquo;low&rsquo;</strong>.</li>
+<li><strong>headers</strong> - An object or array of additional header fields (e.g. <em>{&ldquo;X-Key-Name&rdquo;: &ldquo;key value&rdquo;}</em> or <em>[{key: &ldquo;X-Key-Name&rdquo;, value: &ldquo;val1&rdquo;}, {key: &ldquo;X-Key-Name&rdquo;, value: &ldquo;val2&rdquo;}]</em>). Read more about custom headers <a href="/message/custom-headers/">here</a></li>
+<li><strong>messageId</strong> - optional Message-Id value, random value will be generated if not set</li>
+<li><strong>date</strong> - optional Date value, current UTC string will be used if not set</li>
+<li><strong>list</strong> - helper for setting List-* headers (see more <a href="/message/list-headers/">here</a>)</li>
+</ul>
+
+<h5 id="security-options">Security options</h5>
+
+<ul>
+<li><strong>disableFileAccess</strong> if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error. If this field is also set in the transport options, then the value in mail data is ignored</li>
+<li><strong>disableUrlAccess</strong> if true, then does not allow to use Urls as content. If this field is also set in the transport options, then the value in mail data is ignored</li>
+</ul>
+
+<pre><code class="language-javascript">var message = {
+    ...,
+    headers: {
+        'My-Custom-Header': 'header value'
+    },
+    date: new Date('2000-01-01 00:00:00')
+};
+</code></pre>
+
+<div class="notices info" ><p><strong>Memory leak warning!</strong> When using readable streams as content and sending fails then Nodemailer PRO does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer PRO only closes the streams it has opened itself (eg. file paths, URLs)</p>
+</div>
+
+
+<pre><code class="language-javascript">var htmlstream = fs.createReadStream('content.html');
+transport.sendMail({html: htmlstream}, function(err){
+    if(err){
+        // check if htmlstream is still open and close it to clean up
+    }
+});
+</code></pre>
+
+
+      
+        </div> 
+      
+      </div>
+    </div>
+
+    <div id="navigation">
+        
+        <a class="nav nav-prev" href="https://nodemailer.com/prev/path"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="https://nodemailer.com/next/path" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/perfect-scrollbar.min.js"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/js/jquery.sticky-kit.min.js"></script>
+    <script src="/js/featherlight.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/learn.js"></script>
+    <script src="/js/hugo-learn.js"></script>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-51322-34', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

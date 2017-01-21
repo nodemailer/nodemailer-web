@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Transports on Nodemailer</title>
+    <link>https://nodemailer.com/transports/index.xml</link>
+    <description>Recent content in Transports on Nodemailer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jan 2017 17:20:25 +0200</lastBuildDate>
+    <atom:link href="https://nodemailer.com/transports/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Other transports</title>
+      <link>https://nodemailer.com/transports/</link>
+      <pubDate>Fri, 20 Jan 2017 17:20:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/transports/</guid>
+      <description>
+
+&lt;h1 id=&#34;other-transports&#34;&gt;Other transports&lt;/h1&gt;
+
+&lt;p&gt;In addition to the default &lt;a href=&#34;https://nodemailer.com/smtp/&#34;&gt;SMTP transport&lt;/a&gt; you can use other kind of transports as well with Nodemailer. Some transprots are built-in, some need an external plugin. See &lt;em&gt;Available Transports&lt;/em&gt; below for known transports.&lt;/p&gt;
+
+&lt;p&gt;The following example uses &lt;a href=&#34;https://github.com/andris9/nodemailer-ses-transport&#34;&gt;nodemailer-ses-transport&lt;/a&gt; (Amazon SES).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let ses = require(&#39;nodemailer-ses-transport&#39;);
+let transporter = nodemailer.createTransport(ses({
+    accessKeyId: &#39;AWSACCESSKEY&#39;,
+    secretAccessKey: &#39;AWS/Secret/key&#39;
+}));
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;available-transports&#34;&gt;Available Transports&lt;/h2&gt;
+
+&lt;h3 id=&#34;built-in-transports&#34;&gt;Built-in transports&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/transports/sendmail/&#34;&gt;sendmail&lt;/a&gt;&lt;/strong&gt; – for piping messages to the &lt;em&gt;sendmail&lt;/em&gt; command&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/transports/stream/&#34;&gt;stream&lt;/a&gt;&lt;/strong&gt; – is just for returning messages, most probably for testing&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;external-transports&#34;&gt;External transports&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/rebelmail/nodemailer-mandrill-transport&#34;&gt;nodemailer-mandrill-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages through Mandrill&amp;rsquo;s Web API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/andris9/nodemailer-pickup-transport&#34;&gt;nodemailer-pickup-transport&lt;/a&gt;&lt;/strong&gt; – for storing messages to pickup folders&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/rebelmail/nodemailer-sailthru-transport&#34;&gt;nodemailer-sailthru-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages through Sailthru&amp;rsquo;s Web API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sendgrid/nodemailer-sendgrid-transport&#34;&gt;nodemailer-sendgrid-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages through SendGrid&amp;rsquo;s Web API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/andris9/nodemailer-ses-transport&#34;&gt;nodemailer-ses-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages to AWS SES&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sparkpost/nodemailer-sparkpost-transport&#34;&gt;nodemailer-sparkpost-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages through SparkPost&amp;rsquo;s Web API&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;your own&lt;/strong&gt; (see transport api documentation &lt;a href=&#34;https://nodemailer.com/plugins/create/#transports&#34;&gt;here&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;general-options-for-transports&#34;&gt;General options for transports&lt;/h3&gt;
+
+&lt;p&gt;Event though every transport has its own set of configuration options there are a few that can be used for every transport type&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;attachDataUrls&lt;/strong&gt; – if true, then converts &lt;em&gt;data:&lt;/em&gt; images in the HTML content in every message to embedded attachments&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;disableFileAccess&lt;/strong&gt; – if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;disableUrlAccess&lt;/strong&gt; – if true, then does not allow to use Urls as content&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sendmail Transport</title>
+      <link>https://nodemailer.com/transports/sendmail/</link>
+      <pubDate>Fri, 20 Jan 2017 11:35:26 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/transports/sendmail/</guid>
+      <description>
+
+&lt;p&gt;Sendmail Transport pipes the generated RFC822 message to the standard input of the &lt;strong&gt;sendmail&lt;/strong&gt; command, so it&amp;rsquo;s the same thing what the &lt;strong&gt;mail()&lt;/strong&gt; function in PHP does.&lt;/p&gt;
+
+&lt;p&gt;To use Sendmail Transport, set &lt;strong&gt;sendmail&lt;/strong&gt; in Nodemailer PRO transport options to &lt;em&gt;true&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The additional options to use with this transport are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;path&lt;/strong&gt; - path to the &lt;strong&gt;sendmail&lt;/strong&gt; command (defaults to &lt;em&gt;&amp;lsquo;sendmail&amp;rsquo;&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;newline&lt;/strong&gt; - either &lt;em&gt;&amp;lsquo;windows&amp;rsquo;&lt;/em&gt; or &lt;em&gt;&amp;lsquo;unix&amp;rsquo;&lt;/em&gt; (default). Forces all newlines in the output to either use Windows syntax &amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt; or Unix syntax &amp;lt;LF&amp;gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;args&lt;/strong&gt; - an optional array of command line options to pass to the &lt;strong&gt;sendmail&lt;/strong&gt; command (ie. &lt;code&gt;[&amp;quot;-f&amp;quot;, &amp;quot;foo@blurdybloop.com&amp;quot;]&lt;/code&gt;). This overrides all default arguments except for &lt;em&gt;&amp;rsquo;-i&amp;rsquo;&lt;/em&gt; and recipient list so you need to make sure you have all required arguments set (ie. the &amp;lsquo;-f&amp;rsquo; flag).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The command to be spawned by default looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sendmail -i -f from_addr to_addr[]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If &lt;strong&gt;args&lt;/strong&gt; property was provided then the command looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;sendmail -i args[] to_addr[]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;strong&gt;info&lt;/strong&gt; argument for &lt;strong&gt;sendMail()&lt;/strong&gt; callback includes the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;envelope&lt;/strong&gt; – is an envelope object &lt;em&gt;{from:&amp;lsquo;address&amp;rsquo;, to:[&amp;lsquo;address&amp;rsquo;]}&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;messageId&lt;/strong&gt; – is the Message-ID header value&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+
+&lt;h4 id=&#34;1-send-a-message-using-specific-binary&#34;&gt;1. Send a message using specific binary&lt;/h4&gt;
+
+&lt;p&gt;This example pipes message to a custom command using unix-style newlines. Sendmail does not produce any output besides the exit code, so there&amp;rsquo;s nothing else to return with the callback.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
+    sendmail: true,
+    newline: &#39;unix&#39;,
+    path: &#39;/usr/sbin/sendmail&#39;
+});
+transporter.sendMail({
+    from: &#39;sender@example.com&#39;,
+    to: &#39;recipient@example.com&#39;,
+    subject: &#39;Message&#39;,
+    text: &#39;I hope this message gets delivered!&#39;
+}, (err, info) =&amp;gt; {
+    console.log(info.envelope);
+    console.log(info.messageId);
+});
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Stream Transport</title>
+      <link>https://nodemailer.com/transports/stream/</link>
+      <pubDate>Fri, 20 Jan 2017 12:01:09 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/transports/stream/</guid>
+      <description>
+
+&lt;p&gt;Stream Transport is not actually a transport, it processes input data and returns you the generated RFC822 email message either as a stream or a Buffer. Additionally you can define which kind of newlines to use, either the &amp;lsquo;windows&amp;rsquo; style (&amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;) or the &amp;lsquo;unix&amp;rsquo; style (&amp;lt;LF&amp;gt;). This transport is mostly useful for testing and also for scenarios where you want to use Nodemailer PRO plugins to process the message and do the actual delivery by some other means.&lt;/p&gt;
+
+&lt;p&gt;To use Stream Transport, set &lt;strong&gt;streamTransport&lt;/strong&gt; in Nodemailer PRO transport options to &lt;em&gt;true&lt;/em&gt; in Nodemailer PRO options. If you want the transport to return buffers instead of streams, set &lt;strong&gt;buffer&lt;/strong&gt; option to &lt;em&gt;true&lt;/em&gt;. For newline selection use &lt;strong&gt;newline&lt;/strong&gt; property (defaults to &amp;lsquo;unix&amp;rsquo;)&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;info&lt;/strong&gt; argument for &lt;strong&gt;sendMail()&lt;/strong&gt; callback includes the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;envelope&lt;/strong&gt; – is an envelope object &lt;em&gt;{from:&amp;lsquo;address&amp;rsquo;, to:[&amp;lsquo;address&amp;rsquo;]}&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;messageId&lt;/strong&gt; – is the Message-ID header value&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;message&lt;/strong&gt; – is either stream (default) of buffer depending on the options&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+
+&lt;h4 id=&#34;1-stream-a-message-with-windows-style-newlines&#34;&gt;1. Stream a message with windows-style newlines&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
+    streamTransport: true,
+    newline: &#39;windows&#39;
+});
+transporter.sendMail({
+    from: &#39;sender@example.com&#39;,
+    to: &#39;recipient@example.com&#39;,
+    subject: &#39;Message&#39;,
+    text: &#39;I hope this message gets streamed!&#39;
+}, (err, info) =&amp;gt; {
+    console.log(info.envelope);
+    console.log(info.messageId);
+    info.message.pipe(process.stdout);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;2-create-a-buffer-with-unix-style-newlines&#34;&gt;2. Create a buffer with unix-style newlines&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
+    streamTransport: true,
+    newline: &#39;unix&#39;,
+    buffer: true
+});
+transporter.sendMail({
+    from: &#39;sender@example.com&#39;,
+    to: &#39;recipient@example.com&#39;,
+    subject: &#39;Message&#39;,
+    text: &#39;I hope this message gets buffered!&#39;
+}, (err, info) =&amp;gt; {
+    console.log(info.envelope);
+    console.log(info.messageId);
+    console.log(info.message.toString());
+});
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

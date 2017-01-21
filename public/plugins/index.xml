@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plugins on Nodemailer</title>
+    <link>https://nodemailer.com/plugins/index.xml</link>
+    <description>Recent content in Plugins on Nodemailer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jan 2017 22:51:00 +0200</lastBuildDate>
+    <atom:link href="https://nodemailer.com/plugins/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Plugins</title>
+      <link>https://nodemailer.com/plugins/</link>
+      <pubDate>Fri, 20 Jan 2017 22:51:00 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/plugins/</guid>
+      <description>
+
+&lt;h1 id=&#34;plugins&#34;&gt;Plugins&lt;/h1&gt;
+
+&lt;p&gt;Nodemailer PRO can be extended with plugins. In most cases there are 3 different kind of plugins.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Plugins that operate on the mail object (for example extend it or change existing values). This is the pre-processing step&lt;/li&gt;
+&lt;li&gt;Plugins that operate on mail stream (for example to calculate message signatures). This is the processing step&lt;/li&gt;
+&lt;li&gt;Plugins that operate as transports (for example to send the message using an API of some delivery provider). This is the sending step&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;available-plugins&#34;&gt;Available Plugins&lt;/h3&gt;
+
+&lt;p&gt;These are some existing public plugins for Nodemailer&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/yads/nodemailer-express-handlebars&#34;&gt;express-handlebars&lt;/a&gt; – this plugin uses the express-handlebars view engine to generate html emails&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mixmaxhq/nodemailer-plugin-inline-base64&#34;&gt;inline-base64&lt;/a&gt; – This plugin will convert base64-encoded images in your nodemailer email to be inline (&amp;ldquo;CID-referenced&amp;rdquo;) attachments within the email&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/andris9/nodemailer-html-to-text&#34;&gt;html-to-text&lt;/a&gt; – The plugin checks if there is no text option specified and populates it based on the html value&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For a more extensive list &lt;a href=&#34;https://www.npmjs.com/search?q=nodemailer&#34;&gt;search for nodemailer&lt;/a&gt; in npm.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Create plugins</title>
+      <link>https://nodemailer.com/plugins/create/</link>
+      <pubDate>Fri, 20 Jan 2017 23:19:31 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/plugins/create/</guid>
+      <description>
+
+&lt;p&gt;There are 3 stages a plugin can hook to:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&amp;lsquo;compile&amp;rsquo;&lt;/strong&gt; is the step where email data is set but nothing has been done with it yet. At this step you can modify mail options, for example modify &lt;strong&gt;html&lt;/strong&gt; content, add new headers etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;lsquo;stream&amp;rsquo;&lt;/strong&gt; is the step where message tree has been compiled and is ready to be streamed. At this step you can modify the generated MIME tree or add a transform stream that the generated raw email will be piped through before passed to the transport object&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transport&lt;/strong&gt; step where the raw email is streamed to destination&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;including-plugins&#34;&gt;Including plugins&lt;/h2&gt;
+
+&lt;p&gt;&amp;lsquo;compile&amp;rsquo; and &amp;lsquo;stream&amp;rsquo; plugins can be attached with &lt;code&gt;use(plugin)&lt;/code&gt; method&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transporter.use(step, pluginFunc)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;transporter&lt;/strong&gt; is a transport object created with &lt;strong&gt;createTransport()&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;step&lt;/strong&gt; is a string, either &lt;em&gt;&amp;lsquo;compile&amp;rsquo;&lt;/em&gt; or &lt;em&gt;&amp;lsquo;stream&amp;rsquo;&lt;/em&gt; that defines when the plugin should be hooked&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;pluginFunc&lt;/strong&gt; is a function that takes two arguments: the mail object and a callback function&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;plugin-api&#34;&gt;Plugin API&lt;/h2&gt;
+
+&lt;p&gt;All plugins (including transports) get two arguments, the mail object and a callback function.&lt;/p&gt;
+
+&lt;p&gt;Mail object that is passed to the plugin function as the first argument is an object with the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt; is the mail data object that is passed to the &lt;strong&gt;sendMail()&lt;/strong&gt; method&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;message&lt;/strong&gt; is the MimeNode object of the message. This is available for the &amp;lsquo;stream&amp;rsquo; step and for the transport but not for &amp;lsquo;compile&amp;rsquo;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;resolveContent&lt;/strong&gt; is a helper function for converting Nodemailer PRO compatible stream objects into Strings or Buffers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;resolvecontent&#34;&gt;resolveContent()&lt;/h3&gt;
+
+&lt;p&gt;If your plugin needs to get the full value of a param, for example the String value for the &lt;strong&gt;html&lt;/strong&gt; content, you can use &lt;strong&gt;resolveContent()&lt;/strong&gt; to convert Nodemailer PRO compatible content objects to Strings or Buffers.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;mail.resolveContent(obj, key, callback)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;obj&lt;/strong&gt; is an object that has a property you want to convert to a String or a Buffer&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;key&lt;/strong&gt; is the name of the property you want to convert&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;callback&lt;/strong&gt; is the callback function with &lt;em&gt;(err, value)&lt;/em&gt; where &lt;strong&gt;value&lt;/strong&gt; is either a String or Buffer, depending on the input&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;example&#34;&gt;Example&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;function plugin(mail, callback) {
+    // if mail.data.html is a file or an url, it is returned as a Buffer
+    mail.resolveContent(mail.data, &#39;html&#39;, (err, html) =&amp;gt; {
+        if(err){
+            return callback(err);
+        }
+        console.log(&#39;HTML contents: %s&#39;, html.toString());
+        callback();
+    });
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;compile&#34;&gt;&amp;lsquo;compile&amp;rsquo;&lt;/h3&gt;
+
+&lt;p&gt;Compile step plugins get only the &lt;strong&gt;mail.data&lt;/strong&gt; object but not &lt;strong&gt;mail.message&lt;/strong&gt;. If you need to access the latter as well, use &lt;em&gt;&amp;lsquo;stream&amp;rsquo;&lt;/em&gt; step instead.&lt;/p&gt;
+
+&lt;p&gt;This is really straightforward, your plugin can modify the &lt;strong&gt;mail.data&lt;/strong&gt; object at will and once everything is finished run the callback function. If the callback gets an error object as an argument, then the process is terminated and the error is returned to the &lt;strong&gt;sendMail()&lt;/strong&gt; callback.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-1&#34;&gt;Example&lt;/h4&gt;
+
+&lt;p&gt;The following plugin checks if &lt;strong&gt;text&lt;/strong&gt; value is set and if not converts &lt;strong&gt;html&lt;/strong&gt; value by removing all html tags.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transporter.use(&#39;compile&#39;, (mail, callback) =&amp;gt; {
+    if(!mail.data.text &amp;amp;&amp;amp; mail.data.html){
+        mail.data.text = mail.data.html.replace(/&amp;lt;[^&amp;gt;]*&amp;gt;/g, &#39; &#39;);
+    }
+    callback();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;stream&#34;&gt;&amp;lsquo;stream&amp;rsquo;&lt;/h3&gt;
+
+&lt;p&gt;Streaming step is invoked once the message structure is built and ready to be streamed to the transport. Plugin function does get &lt;strong&gt;mail.data&lt;/strong&gt; as an argument but it is included just for the reference, modifying it should not change anything (unless the transport requires something from the &lt;strong&gt;mail.data&lt;/strong&gt;, for example &lt;strong&gt;mail.data.envelope&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;p&gt;You can modify the &lt;strong&gt;mail.message&lt;/strong&gt; object as you like, the message is not yet streaming anything (message starts streaming when the transport calls &lt;strong&gt;mail.message.createReadStream()&lt;/strong&gt;).&lt;/p&gt;
+
+&lt;p&gt;In most cases you might be interested in the &lt;strong&gt;message.transform()&lt;/strong&gt; method for applying transform streams to the raw message.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-2&#34;&gt;Example&lt;/h4&gt;
+
+&lt;p&gt;The following plugin replaces all tabs with spaces in the raw message.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transformer = new (require(&#39;stream&#39;).Transform)();
+transformer._transform = (chunk, encoding, done) =&amp;gt; {
+    // replace all tabs with spaces in the stream chunk
+    for(let i = 0; i &amp;lt; chunk.length; i++){
+        if(chunk[i] === 0x09){
+            chunk[i] = 0x20;
+        }
+    }
+    this.push(chunk);
+    done();
+};
+
+transporter.use(&#39;stream&#39;, (mail, callback) =&amp;gt; {
+    // apply output transformer to the raw message stream
+    mail.message.transform(transformer);
+    callback();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Additionally you might be interested in the &lt;strong&gt;message.getAddresses()&lt;/strong&gt; method that returns the contents for all address fields as structured objects.&lt;/p&gt;
+
+&lt;h4 id=&#34;example-3&#34;&gt;Example&lt;/h4&gt;
+
+&lt;p&gt;The following plugin prints address information to console.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transporter.use(&#39;stream&#39;, function(mail, callback) =&amp;gt; {
+    let addresses = mail.message.getAddresses();
+    console.log(&#39;From: %s&#39;, JSON.stringify(addresses.from));
+    console.log(&#39;To: %s&#39;, JSON.stringify(addresses.to));
+    console.log(&#39;Cc: %s&#39;, JSON.stringify(addresses.cc));
+    console.log(&#39;Bcc: %s&#39;, JSON.stringify(addresses.bcc));
+    callback();
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;message-transform&#34;&gt;message.transform()&lt;/h3&gt;
+
+&lt;p&gt;If you want to modify the created stream, you can add transform streams that the output will be piped through.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;mail.message.transform(transformStream)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;transformStream&lt;/strong&gt; - &lt;em&gt;Stream&lt;/em&gt; or &lt;em&gt;Function&lt;/em&gt; Transform stream that the output will go through. If the value is a function the function should return a transform stream object when called.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;message-getaddresses&#34;&gt;message.getAddresses()&lt;/h3&gt;
+
+&lt;p&gt;Returns an address container object. Includes all parsed addresses from &lt;em&gt;From&lt;/em&gt;, &lt;em&gt;Sender&lt;/em&gt;, &lt;em&gt;To&lt;/em&gt;, &lt;em&gt;Cc&lt;/em&gt;, &lt;em&gt;Bcc&lt;/em&gt; and &lt;em&gt;Reply-To&lt;/em&gt; fields. All returned values are arrays, including &lt;code&gt;from&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Possible return values (all arrays in the form of &lt;code&gt;[{name:&#39;&#39;, address:&#39;&#39;}]&lt;/code&gt;):&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;from&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sender&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;lsquo;reply-to&amp;rsquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;to&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cc&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bcc&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If no addresses were found for a particular field, the field is not set in the response object.&lt;/p&gt;
+
+&lt;h2 id=&#34;transports&#34;&gt;Transports&lt;/h2&gt;
+
+&lt;p&gt;Transports are objects that have a method &lt;strong&gt;send()&lt;/strong&gt; and properies &lt;strong&gt;name&lt;/strong&gt; and &lt;strong&gt;version&lt;/strong&gt;. A transport object is passed to the &lt;code&gt;nodemailer.createTransport(transport)&lt;/code&gt; method to create the transporter object.&lt;/p&gt;
+
+&lt;h3 id=&#34;transport-name&#34;&gt;transport.name&lt;/h3&gt;
+
+&lt;p&gt;This is the name of the transport object. For example &amp;lsquo;SMTP&amp;rsquo; or &amp;lsquo;SES&amp;rsquo; etc.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transport.name = require(&#39;package.json&#39;).name;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;transport-version&#34;&gt;transport.version&lt;/h3&gt;
+
+&lt;p&gt;This should be the transport module version. For example &amp;lsquo;0.1.0&amp;rsquo;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transport.version = require(&#39;package.json&#39;).version;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;transport-send-mail-callback&#34;&gt;transport.send(mail, callback)&lt;/h3&gt;
+
+&lt;p&gt;This is the method that actually sends out emails. The method is basically the same as &amp;lsquo;stream&amp;rsquo; plugin functions. It gets two arguments: &lt;strong&gt;mail&lt;/strong&gt; and a callback. To start streaming the message, create the stream with &lt;strong&gt;mail.message.createReadStream()&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Callback function should return an &lt;strong&gt;info&lt;/strong&gt; object as the second argument. This info object should contain and &lt;strong&gt;envelope&lt;/strong&gt; object with envelope data and a &lt;strong&gt;messageId&lt;/strong&gt; value with the Message-Id header (including the surrounding &amp;lt; &amp;amp; &amp;gt; brackets),&lt;/p&gt;
+
+&lt;p&gt;The following example pipes the raw stream from Nodemailer PRO to the console.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transport.send = (mail, callback) =&amp;gt; {
+    let input = mail.message.createReadStream();
+    let envelope = mail.message.getEnvelope();
+    let messageId = mail.message.messageId();
+    input.pipe(process.stdout);
+    input.on(&#39;end&#39;, function() {
+        callback(null, {
+            envelope,
+            messageId
+        });
+    });
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;transport-close&#34;&gt;transport.close()&lt;/h3&gt;
+
+&lt;p&gt;If your transport needs to be closed explicitly, you can implement a &lt;strong&gt;close()&lt;/strong&gt; method.&lt;/p&gt;
+
+&lt;p&gt;This is purely optional feature and only makes sense in special contexts (eg. closing a SMTP pool).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transport.close = () =&amp;gt; {
+    transport.pool = null;
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;transport-isidle&#34;&gt;transport.isIdle()&lt;/h3&gt;
+
+&lt;p&gt;If your transport is able to notify about idling state by issuing &lt;em&gt;&amp;lsquo;idle&amp;rsquo;&lt;/em&gt; events then this method should return if the transport is still idling or not.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transport.idling = true;
+transport.isIdle = () =&amp;gt; transport.idling;
+transport.send = (mail, callback) =&amp;gt; {
+    transport.idling = false;
+    sendMail(mail, ()=&amp;gt;{
+        transport.idling = true;
+        transport.emit(&#39;idle&#39;);
+    });
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;transport-example&#34;&gt;Transport Example&lt;/h3&gt;
+
+&lt;p&gt;This example creates and uses a transport object that pipes the raw message to console&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transport = {
+    name: &#39;minimal&#39;,
+    version: &#39;0.1.0&#39;,
+    send: (mail, callback) =&amp;gt; {
+        let input = mail.message.createReadStream();
+        input.pipe(process.stdout);
+        input.on(&#39;end&#39;, function () {
+            callback(null, true);
+        });
+    }
+};
+
+let transporter = nodemailer.createTransport(transport);
+transporter.sendMail({
+    from: &#39;sender&#39;,
+    to: &#39;receiver&#39;,
+    subject: &#39;hello&#39;,
+    text: &#39;hello world!&#39;
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;wrapping-up&#34;&gt;Wrapping up&lt;/h2&gt;
+
+&lt;p&gt;Once you have a transport object, you can create a mail transporter out of it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transport = require(&#39;some-transport-method&#39;);
+let transporter = nodemailer.createTransport(transport);
+transporter.sendMail({
+    from: &#39;...&#39;,
+    to: &#39;...&#39;,
+    message
+});
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

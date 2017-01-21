@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.18.1" />
+    <meta name="description" content="">
+
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+
+    
+    <title>DKIM</title>
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/featherlight.min.css" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/hugo-theme.css" rel="stylesheet">
+    <script src="/js/jquery-2.x.min.js"></script>
+    <style type="text/css">:root #header + #content > #left > #rlblock_left
+    {display:none !important;}</style>
+    
+
+  </head>
+  <body class="" data-url="/tools/dkim/">
+    <nav id="sidebar">
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+  <img src="/nm_logo_200x136.png" alt="Nodemailer"/>
+</a>
+
+    </div>
+
+    
+</div>
+
+
+  <div class="highlightable">
+      <div id="ads">
+          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=nodemailercom" id="_carbonads_js"></script>
+      </div>
+    <ul class="topics">
+      
+      
+        
+      
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/message/">
+        <a href="/message/">
+          <span>
+            
+              <b>X. </b>
+            
+             Message
+            
+           </span>
+        </a>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/sendmail/">
+        <a href="/sendmail/">
+          <span>
+            
+              <b>X. </b>
+            
+             Sendmail Transport
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/sendmail/configuration/">
+              <a href="/sendmail/configuration/">
+                <span>Configuration     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/smtp/">
+        <a href="/smtp/">
+          <span>
+            
+              <b>1. </b>
+            
+             SMTP Transport
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/dsn/">
+              <a href="/smtp/dsn/">
+                <span>Delivery Status Notifications     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/proxies/">
+              <a href="/smtp/proxies/">
+                <span>Using Proxies     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/oauth2/">
+              <a href="/smtp/oauth2/">
+                <span>OAuth2     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  parent" data-nav-id="/tools/">
+        <a href="/tools/">
+          <span>
+            
+              <b>X. </b>
+            
+             Tools
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item active" data-nav-id="/tools/dkim/">
+              <a href="/tools/dkim/">
+                <span>DKIM     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+    </ul>
+    <hr>
+     
+  </div>
+</nav>
+
+        <section id="body">
+        <div id="overlay"></div>
+
+        <div class="padding highlightable">
+
+            <div id="top-bar">
+              
+              <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                  <span id="sidebar-toggle-span">
+                      <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                        <i class="fa fa-bars"></i>
+                      </a>
+                  </span>
+                
+                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
+                
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                <a href="/tools/" itemprop="url"><span itemprop="title">Tools</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                <span itemprop="title"> DKIM</span>
+              </div>
+              
+                  <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#setting-it-up">Setting it up</a></li>
+<li><a href="#examples">Examples</a>
+<ul>
+<li><a href="#1-sign-all-messages">1. Sign all messages</a></li>
+<li><a href="#2-sign-all-messages-with-multiple-keys">2. Sign all messages with multiple keys</a></li>
+<li><a href="#3-sign-a-specific-message">3. Sign a specific message</a></li>
+<li><a href="#4-cache-large-messages-for-signing">4. Cache large messages for signing</a></li>
+<li><a href="#5-do-not-sign-specific-header-keys">5. Do not sign specific header keys</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+              
+
+            </div>
+            
+    	        <div id="body-inner">
+                
+                <h1>DKIM</h1>
+                
+
+
+
+<p>Nodemailer is able to sign all messages with DKIM keys. This means calculating a signature for the message and adding it as an additional header (or headers, if you use multiple keys) to the message.</p>
+
+<p>The drawback on DKIM signing is that Nodemailer needs to cache the entire message before it can be sent, unlike normal sending where message output is streamed to SMTP as it is created and nothing needs to be cached. For small messages it does not matter, for larger messages Nodemailer offers an option to cache messages not in memory but on disk. In this case Nodemailer starts buffering the message in memory and if the message size reaches a certain treshold, it gets directed to a file on disk. Once signature is calculated and sent to SMTP, Nodemailer streams the cached message from disk to SMTP.</p>
+
+<p>In general DKIM signing should be fast and effective.</p>
+
+<h2 id="setting-it-up">Setting it up</h2>
+
+<p>DKIM signing can be set on the transport level (all messages get signed with the same keys) and also on the message level (provide different keys for every message). If both are set, then message level DKIM configuration is preferred.</p>
+
+<p>In both cases you need to provide a <code>dkim</code> object with the following structure</p>
+
+<ul>
+<li><strong>dkim</strong> is an object with DKIM options
+
+<ul>
+<li><strong>domainName</strong> – is the domain name to use in the signature</li>
+<li><strong>keySelector</strong> – is the DKIM key selector</li>
+<li><strong>privateKey</strong> – is the private key for the selector in PEM format</li>
+<li><strong>keys</strong> – is an optional array of key objects (<em>domainName</em>, <em>keySelector</em>, <em>privateKey</em>) if you want to add more than one signature to the message. If this value is set then the default key values are ignored</li>
+<li><strong>cacheDir</strong> – optional location for cached messages. If not set then caching is not used.</li>
+<li><strong>cacheTreshold</strong> – optional size in bytes, if message is larger than this treshold it gets cached to disk (assuming <em>cacheDir</em> is set and writable). Defaults to 131072 (128 kB).</li>
+<li><strong>hashAlgo</strong> – optional algorithm for the body hash, defaults to &lsquo;sha256&rsquo;</li>
+<li><strong>headerFieldNames</strong> – an optional colon separated list of header keys to sign (eg. <code>message-id:date:from:to...'</code>)</li>
+<li><strong>skipFields</strong> – optional colon separated list of header keys not to sign. This is useful if you want to sign all the relevant keys but your provider changes some values, ie Message-ID and Date. In this case you should use <code>'message-id:date'</code> to prevent signing these values.</li>
+</ul></li>
+</ul>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="1-sign-all-messages">1. Sign all messages</h3>
+
+<p>Assumes that there is a public key available for <em>2017._domainkey.example.com</em>. You can test if the key exists or not with the <em>dig</em> tool like this</p>
+
+<pre><code class="language-bash">dig TXT 2017._domainkey.example.com
+</code></pre>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    dkim: {
+        domainName: 'example.com',
+        keySelector: '2017',
+        privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...'
+    }
+});
+</code></pre>
+
+<h3 id="2-sign-all-messages-with-multiple-keys">2. Sign all messages with multiple keys</h3>
+
+<p>Assumes that there is a public keys available for <em>2017._domainkey.example.com</em> and <em>2016._domainkey.example.com</em></p>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    dkim: {
+        keys: [
+            {
+                domainName: 'example.com',
+                keySelector: '2017',
+                privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...'
+            },
+            {
+                domainName: 'example.com',
+                keySelector: '2016',
+                privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...'
+            }
+        ]
+        cacheDir: false
+    }
+});
+</code></pre>
+
+<h3 id="3-sign-a-specific-message">3. Sign a specific message</h3>
+
+<p>Do not sign by default. Provide DKIM key values separately for every message.</p>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    service: 'Gmail'
+});
+let message = {
+    from: 'sender@example.com',
+    to: 'recipient@example.com',
+    subject: 'Message',
+    text: 'I hope this message gets read!',
+    dkim: {
+        domainName: 'example.com',
+        keySelector: '2017',
+        privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...'
+    }
+};
+</code></pre>
+
+<h3 id="4-cache-large-messages-for-signing">4. Cache large messages for signing</h3>
+
+<p>Messages larger than 100kB are cached to disk</p>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    dkim: {
+        domainName: 'example.com',
+        keySelector: '2017',
+        privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...',
+        cacheDir: '/tmp',
+        cacheTreshold: 100 * 1024
+    }
+});
+</code></pre>
+
+<h3 id="5-do-not-sign-specific-header-keys">5. Do not sign specific header keys</h3>
+
+<p>This is needed when sending mail through SES that has its own Message-ID and Date system.</p>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    dkim: {
+        domainName: 'example.com',
+        keySelector: '2017',
+        privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...',
+        skipFields: 'message-id:date'
+    }
+});
+</code></pre>
+
+
+      
+      </div>
+    </div>
+
+    <div id="navigation">
+        
+        <a class="nav nav-prev" href="/prev/path"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/next/path" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/perfect-scrollbar.min.js"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/js/jquery.sticky-kit.min.js"></script>
+    <script src="/js/featherlight.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/learn.js"></script>
+    <script src="/js/hugo-learn.js"></script>
+    
+
+  </body>
+</html>
+

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://nodemailer.com/about/why/</loc>
+    <lastmod>2017-01-20T21:37:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/about/license/</loc>
+    <lastmod>2017-01-20T21:37:15+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/about/pricing/</loc>
+    <lastmod>2017-01-20T21:37:19+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/about/pro-support/</loc>
+    <lastmod>2017-01-21T22:51:02+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/usage/why-smtp/</loc>
+    <lastmod>2017-01-21T00:44:30+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/usage/using-gmail/</loc>
+    <lastmod>2017-01-21T00:25:10+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/usage/bulk-mail/</loc>
+    <lastmod>2017-01-21T00:40:56+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/message/attachments/</loc>
+    <lastmod>2017-01-21T00:09:16+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/message/alternatives/</loc>
+    <lastmod>2017-01-21T00:12:25+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/message/addresses/</loc>
+    <lastmod>2017-01-20T20:58:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/message/calendar-events/</loc>
+    <lastmod>2017-01-20T12:01:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/message/embedded-images/</loc>
+    <lastmod>2017-01-21T00:09:24+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/message/list-headers/</loc>
+    <lastmod>2017-01-20T12:01:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/message/custom-headers/</loc>
+    <lastmod>2017-01-20T12:37:05+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/message/custom-source/</loc>
+    <lastmod>2017-01-20T12:37:52+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/smtp/envelope/</loc>
+    <lastmod>2017-01-20T11:20:07+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/smtp/pooled/</loc>
+    <lastmod>2017-01-20T11:20:07+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/smtp/oauth2/</loc>
+    <lastmod>2017-01-20T10:45:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/smtp/well-known/</loc>
+    <lastmod>2017-01-20T21:15:16+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/smtp/proxies/</loc>
+    <lastmod>2017-01-20T11:16:41+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/smtp/dsn/</loc>
+    <lastmod>2017-01-20T11:20:07+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/transports/sendmail/</loc>
+    <lastmod>2017-01-20T11:35:26+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/transports/stream/</loc>
+    <lastmod>2017-01-20T12:01:09+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/plugins/create/</loc>
+    <lastmod>2017-01-20T23:19:31+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/usage/</loc>
+    <lastmod>2017-01-21T00:20:55+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/plugins/</loc>
+    <lastmod>2017-01-20T22:51:00+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/about/</loc>
+    <lastmod>2017-01-20T21:25:35+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/transports/</loc>
+    <lastmod>2017-01-20T17:20:25+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/dkim/</loc>
+    <lastmod>2017-01-20T11:25:35+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/message/</loc>
+    <lastmod>2017-01-20T11:25:31+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/smtp/</loc>
+    <lastmod>2017-01-20T10:51:36+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/about/</loc>
+    <lastmod>2017-01-20T21:25:35+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/dkim/</loc>
+    <lastmod>2017-01-20T11:25:35+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/message/</loc>
+    <lastmod>2017-01-20T11:25:31+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/</loc>
+    <lastmod>2017-01-20T21:37:15+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/plugins/</loc>
+    <lastmod>2017-01-20T22:51:00+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/smtp/</loc>
+    <lastmod>2017-01-20T10:51:36+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/transports/</loc>
+    <lastmod>2017-01-20T17:20:25+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://nodemailer.com/usage/</loc>
+    <lastmod>2017-01-21T00:20:55+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

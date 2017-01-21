@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.18.1" />
+    <meta name="description" content="">
+
+
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+
+    
+    <title>Configuration</title>
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/featherlight.min.css" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/hugo-theme.css" rel="stylesheet">
+    <script src="/js/jquery-2.x.min.js"></script>
+    <style type="text/css">:root #header + #content > #left > #rlblock_left
+    {display:none !important;}</style>
+    
+
+  </head>
+  <body class="" data-url="/sendmail/configuration/">
+    <nav id="sidebar">
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+  <img src="/nm_logo_200x136.png" alt="Nodemailer"/>
+</a>
+
+    </div>
+
+    
+</div>
+
+
+  <div class="highlightable">
+      <div id="ads">
+          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=nodemailercom" id="_carbonads_js"></script>
+      </div>
+    <ul class="topics">
+      
+      
+        
+      
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/message/">
+        <a href="/message/">
+          <span>
+            
+              <b>X. </b>
+            
+             Message
+            
+           </span>
+        </a>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  parent" data-nav-id="/sendmail/">
+        <a href="/sendmail/">
+          <span>
+            
+              <b>X. </b>
+            
+             Sendmail Transport
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item active" data-nav-id="/sendmail/configuration/">
+              <a href="/sendmail/configuration/">
+                <span>Configuration     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/smtp/">
+        <a href="/smtp/">
+          <span>
+            
+              <b>1. </b>
+            
+             SMTP Transport
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/dsn/">
+              <a href="/smtp/dsn/">
+                <span>Delivery Status Notifications     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/proxies/">
+              <a href="/smtp/proxies/">
+                <span>Using Proxies     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/oauth2/">
+              <a href="/smtp/oauth2/">
+                <span>OAuth2     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/tools/">
+        <a href="/tools/">
+          <span>
+            
+              <b>X. </b>
+            
+             Tools
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/tools/dkim/">
+              <a href="/tools/dkim/">
+                <span>DKIM     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+    </ul>
+    <hr>
+     
+  </div>
+</nav>
+
+        <section id="body">
+        <div id="overlay"></div>
+
+        <div class="padding highlightable">
+
+            <div id="top-bar">
+              
+              <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                  <span id="sidebar-toggle-span">
+                      <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                        <i class="fa fa-bars"></i>
+                      </a>
+                  </span>
+                
+                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
+                
+                
+                
+                
+                  
+                
+                  
+                    
+                    
+                <a href="/sendmail/" itemprop="url"><span itemprop="title">Sendmail Transport</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> Configuration</span>
+              </div>
+              
+                  <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#examples">Examples</a>
+<ul>
+<li><a href="#1-send-message-using-specific-binary">1. Send message using specific binary</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+              
+
+            </div>
+            
+    	        <div id="body-inner">
+                
+                <h1>Configuration</h1>
+                
+
+
+
+<p>Sendmail Transport pipes the generated RFC822 message to the standard input of the <code>sendmail</code> command, so it&rsquo;s the same thing what the <code>mail()</code> command in PHP does.</p>
+
+<p>To use Sendmail Transport, set <code>sendmail</code> option to <code>true</code> in Nodemailer options.</p>
+
+<p>The additional options to use with this transport are the following:</p>
+
+<ul>
+<li><strong>path</strong> - path to the <code>sendmail</code> command (defaults to <code>'sendmail'</code>)</li>
+<li><strong>newline</strong> - either &lsquo;windows&rsquo; or &lsquo;unix&rsquo; (default). Forces all newlines in the output to either use Windows syntax <code>&lt;CR&gt;&lt;LF&gt;</code> or Unix syntax <code>&lt;LF&gt;</code></li>
+<li><strong>args</strong> - an optional array of command line options to pass to the <code>sendmail</code> command (ie. <code>[&quot;-f&quot;, &quot;foo@blurdybloop.com&quot;]</code>). This overrides all default arguments except for &lsquo;-i&rsquo; and recipient list so you need to make sure you have all required arguments set (ie. the &lsquo;-f&rsquo; flag).</li>
+</ul>
+
+<p>The command to be spawned by default looks like this:</p>
+
+<pre><code>sendmail -i -f from_addr to_addr[]
+</code></pre>
+
+<p>If <code>args</code> property was provided then the command looks like this:</p>
+
+<pre><code>sendmail -i args[] to_addr[]
+</code></pre>
+
+<p>The <code>info</code> argument for <code>sendMail()</code> method includes the following properties:</p>
+
+<ul>
+<li><strong>envelope</strong> – is an envelope object <code>{from:'address', to:['address']}</code></li>
+<li><strong>messageId</strong> – is the Message-ID header value</li>
+</ul>
+
+<h2 id="examples">Examples</h2>
+
+<h3 id="1-send-message-using-specific-binary">1. Send message using specific binary</h3>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    sendmail: true,
+    newline: 'unix',
+    path: '/usr/sbin/sendmail'
+});
+transporter.sendMail({
+    from: 'sender@example.com',
+    to: 'recipient@example.com',
+    subject: 'Message',
+    text: 'I hope this message gets delivered!'
+}, (err, info)=&gt;{
+    console.log(info.envelope);
+    console.log(info.messageId);
+});
+</code></pre>
+
+
+      
+      </div>
+    </div>
+
+    <div id="navigation">
+        
+        <a class="nav nav-prev" href="/prev/path"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/next/path" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/perfect-scrollbar.min.js"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/js/jquery.sticky-kit.min.js"></script>
+    <script src="/js/featherlight.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/learn.js"></script>
+    <script src="/js/hugo-learn.js"></script>
+    
+
+  </body>
+</html>
+
