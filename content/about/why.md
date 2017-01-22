@@ -8,6 +8,8 @@ title = "Why PRO?"
 
 +++
 
+**Nodemailer PRO** is an upgrade of Nodemailer. Unlike Nodemailer which is licensed under MIT. Nodemailer PRO is licensed under restrictive CC license and commercial license. See license details in the [License page](/about/license/).
+
 Even though you can use the [community version](https://community.nodemailer.com/) of Nodemailer as long as you want, Nodemailer PRO has some benefits over it.
 
   * Nodemailer PRO is **maintained**. Due to the large amount of effort what it takes to handle a myriad of RFC's and also keep the code updated along ever-upgrading Node.js versions, I haven't had too much time to manage the original Nodemailer. The testimonial being that Nodemailer is still fully ES5 code and works on legacy systems like Node.js 0.10.
