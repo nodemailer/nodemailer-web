@@ -17,7 +17,7 @@
       <guid>https://nodemailer.com/dkim/</guid>
       <description>
 
-&lt;h1 id=&#34;dkim-signing&#34;&gt;DKIM Signing&lt;/h1&gt;
+&lt;h1 id=&#34;dkim-signing&#34;&gt;DKIM signing&lt;/h1&gt;
 
 &lt;p&gt;Nodemailer PRO is able to sign all messages with DKIM keys. This means calculating a signature for the message and adding it as an additional header (or headers, if you use multiple keys) to the message.&lt;/p&gt;
 

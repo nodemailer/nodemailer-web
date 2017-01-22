@@ -10,7 +10,7 @@ toc = true
 
 +++
 
-# DKIM Signing
+# DKIM signing
 
 Nodemailer PRO is able to sign all messages with DKIM keys. This means calculating a signature for the message and adding it as an additional header (or headers, if you use multiple keys) to the message.
 
