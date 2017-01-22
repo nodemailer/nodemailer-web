@@ -47,7 +47,7 @@
                         <i class="fa fa-bars"></i>
                       </a>
                   </span>
-                {{ if and (not .Params.chapter) (.Params.toc) }}
+                {{ if (.Params.toc) }}
                 <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
                 {{ end }}
                 {{ $type := .Type }}
