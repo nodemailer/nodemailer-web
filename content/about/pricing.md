@@ -10,7 +10,7 @@ toc = true
 
 Nodemailer PRO can be purchased from Kreata OÜ with a yearly license. License fee for a **1 year** license is **780.- €** (excluding VAT), which can be paid either by PayPal or by international wire transfer. Kreata OÜ is located in the European Union, Estonia.
 
-Payment details are available on the invoice. Contact [sales@nodemailer.com](mailto:sales@nodemailer.com) if you need to re-issue an invoice.
+Payment details are available on the invoice. Contact [sales@nodemailer.com](mailto:sales@nodemailer.com) if you need any assistanse.
 
 #### What do you get for that price
 
