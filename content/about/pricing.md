@@ -18,11 +18,11 @@ Contact [sales@nodemailer.com](mailto:sales@nodemailer.com).
 
   * **Unlimited usage** of Nodemailer PRO inside your organization (see applying [license terms](/COMM-LICENSE))
   * Email based **Support**
-  * Bundled **email modules** under the same terms as Nodemailer PRO. For now this means [Mailparser2](https://www.npmjs.com/package/@nodemailer/mailparser2), additional modules might become available in the future.
+  * Bundled **email modules** under the same terms as Nodemailer PRO. For now, this means [Mailparser2](https://www.npmjs.com/package/@nodemailer/mailparser2), additional modules might become available in the future.
 
 #### Before purchase
 
-Nodemailer PRO is available under a restrictive license without a fee, so you are free to test Nodemailer PRO before actually buying anything. Sometimes there might be problems between the client software and SMTP server that are hard to resolve so it would be wise to try beforehand if Nodemailer PRO even works for you or not.
+Nodemailer PRO is available under a restrictive license without a fee, so you are free to test Nodemailer PRO before actually buying anything.
 
 #### Contact
 
