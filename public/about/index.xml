@@ -179,8 +179,6 @@ transporter.sendMail(mailOptions, (error, info) {
 
 &lt;p&gt;Payment details are available on the invoice.&lt;/p&gt;
 
-&lt;p&gt;Contact &lt;a href=&#34;mailto:sales@nodemailer.com&#34;&gt;sales@nodemailer.com&lt;/a&gt;.&lt;/p&gt;
-
 &lt;h4 id=&#34;what-do-you-get-for-that-price&#34;&gt;What do you get for that price&lt;/h4&gt;
 
 &lt;ul&gt;
@@ -195,7 +193,7 @@ transporter.sendMail(mailOptions, (error, info) {
 
 &lt;h4 id=&#34;contact&#34;&gt;Contact&lt;/h4&gt;
 
-&lt;p&gt;Contact sales &lt;a href=&#34;mailto:sales@nodemailer.com&#34;&gt;sales@nodemailer.com&lt;/a&gt; to purchase the license or if you have any other sales related questions.&lt;/p&gt;
+&lt;p&gt;Contact sales &lt;a href=&#34;mailto:sales@nodemailer.com&#34;&gt;sales@nodemailer.com&lt;/a&gt; to purchase the license or if you have any other sales related questions. For support related issues contact &lt;a href=&#34;mailto:support@nodemailer.com&#34;&gt;support@nodemailer.com&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     

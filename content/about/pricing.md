@@ -12,8 +12,6 @@ Nodemailer PRO can be purchased from Kreata OÜ with a yearly license. License f
 
 Payment details are available on the invoice.
 
-Contact [sales@nodemailer.com](mailto:sales@nodemailer.com).
-
 #### What do you get for that price
 
   * **Unlimited usage** of Nodemailer PRO inside your organization (see applying [license terms](/COMM-LICENSE))
@@ -26,4 +24,4 @@ Nodemailer PRO is available under a restrictive license without a fee, so you ar
 
 #### Contact
 
-Contact sales [sales@nodemailer.com](mailto:sales@nodemailer.com) to purchase the license or if you have any other sales related questions.
+Contact sales [sales@nodemailer.com](mailto:sales@nodemailer.com) to purchase the license or if you have any other sales related questions. For support related issues contact [support@nodemailer.com](mailto:support@nodemailer.com).
