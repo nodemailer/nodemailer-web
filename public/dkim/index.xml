@@ -25,7 +25,7 @@
 
 &lt;p&gt;In general DKIM signing should be fast and effective.&lt;/p&gt;
 
-&lt;h2 id=&#34;setting-it-up&#34;&gt;Setting it up&lt;/h2&gt;
+&lt;h3 id=&#34;setting-it-up&#34;&gt;Setting it up&lt;/h3&gt;
 
 &lt;p&gt;DKIM signing can be set on the transport level (all messages get signed with the same keys) and also on the message level (provide different keys for every message). If both are set, then message level DKIM configuration is preferred.&lt;/p&gt;
 

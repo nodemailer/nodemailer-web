@@ -18,7 +18,7 @@ The drawback on DKIM signing is that Nodemailer PRO needs to cache the entire me
 
 In general DKIM signing should be fast and effective.
 
-## Setting it up
+### Setting it up
 
 DKIM signing can be set on the transport level (all messages get signed with the same keys) and also on the message level (provide different keys for every message). If both are set, then message level DKIM configuration is preferred.
 
