@@ -90,6 +90,11 @@ Using Gmail might or might not work out of the box. See instructions for setting
 {{% /notice %}}
 
 
+### Sources
+
+  * **Nodemailer PRO** source code is available [from Gitlab](https://gitlab.com/nodemailer/nodemailer-pro)
+  * **Mailparser2** source code is available [from Gitlab](https://gitlab.com/nodemailer/mailparser2)
+
 --------------------------------------------------------------------------------
 
 Nodemailer and Nodemailer PRO are created by [Andris Reinman](https://github.com/andris9). The Nodemailer logo was designed by [Sven Kristjansen](https://www.behance.net/kristjansen).
