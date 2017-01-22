@@ -1175,8 +1175,8 @@ pre .copy-to-clipboard:hover {
 #ads {
     border: 1px solid #fafafa;
     max-width: 260px;
-    min-height: 210px;
-    margin: 5px auto 20px auto;
+    min-height: 200px;
+    margin: 3px auto 10px auto;
     border-radius: 4px;
     font-size: 13px;
     color: #07689F;
