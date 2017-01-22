@@ -5,12 +5,12 @@ chapter = true
 prev = "/usage/bulk-mail/"
 next = "/message/attachments/"
 weight = 0
-title = "Message Configuration"
+title = "Message configuration"
 toc = true
 
 +++
 
-# Message Configuration
+# Message configuration
 
 The following are the possible fields of an email message:
 

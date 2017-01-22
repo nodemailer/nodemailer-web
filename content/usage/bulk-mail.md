@@ -4,7 +4,7 @@ toc = true
 prev = "/usage/using-gmail/"
 next = "/message/"
 weight = 9
-title = "Delivering Bulk Mail"
+title = "Delivering bulk mail"
 
 +++
 

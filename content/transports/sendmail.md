@@ -4,7 +4,7 @@ toc = true
 prev = "/transports/"
 next = "/transports/stream/"
 weight = 27
-title = "Sendmail Transport"
+title = "Sendmail transport"
 
 +++
 

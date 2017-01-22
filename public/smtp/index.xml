@@ -10,7 +10,7 @@
     <atom:link href="https://nodemailer.com/smtp/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>SMTP Transport</title>
+      <title>SMTP transport</title>
       <link>https://nodemailer.com/smtp/</link>
       <pubDate>Fri, 20 Jan 2017 10:51:36 +0200</pubDate>
       
@@ -39,7 +39,7 @@
 &lt;h5 id=&#34;general-options&#34;&gt;General options&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;service&lt;/strong&gt; – can be set to the name of a well-known service so you don&amp;rsquo;t have to input the &lt;strong&gt;port&lt;/strong&gt;, &lt;strong&gt;host&lt;/strong&gt;, and &lt;strong&gt;secure&lt;/strong&gt; options (see &lt;a href=&#34;https://nodemailer.com/smtp/well-known/&#34;&gt;Well Known Services&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;service&lt;/strong&gt; – can be set to the name of a well-known service so you don&amp;rsquo;t have to input the &lt;strong&gt;port&lt;/strong&gt;, &lt;strong&gt;host&lt;/strong&gt;, and &lt;strong&gt;secure&lt;/strong&gt; options (see &lt;a href=&#34;https://nodemailer.com/smtp/well-known/&#34;&gt;Well-known Services&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;port&lt;/strong&gt; – is the port to connect to (defaults to 587 is &lt;em&gt;secure&lt;/em&gt; is &lt;em&gt;false&lt;/em&gt; or 465 if &lt;em&gt;true&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;host&lt;/strong&gt; – is the hostname or IP address to connect to (defaults to &lt;em&gt;&amp;lsquo;localhost&amp;rsquo;&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;auth&lt;/strong&gt; – defines authentication data (see &lt;a href=&#34;#authentication&#34;&gt;authentication&lt;/a&gt; section below)&lt;/li&gt;
@@ -165,7 +165,7 @@
 
 &lt;h2 id=&#34;using-well-known-services&#34;&gt;Using &lt;em&gt;well-known&lt;/em&gt; services&lt;/h2&gt;
 
-&lt;p&gt;If you do not want to specify the hostname, port and security settings for a well known service, you can use it by its name, see the documentation and supported services &lt;a href=&#34;https://nodemailer.com/smtp/well-known/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you do not want to specify the hostname, port and security settings for a well-known service, you can use it by its name, see the documentation and supported services &lt;a href=&#34;https://nodemailer.com/smtp/well-known/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;verify-smtp-connection-configuration&#34;&gt;Verify SMTP connection configuration&lt;/h2&gt;
 
@@ -186,7 +186,7 @@ transporter.verify(function(error, success) {
     </item>
     
     <item>
-      <title>SMTP Envelope</title>
+      <title>SMTP envelope</title>
       <link>https://nodemailer.com/smtp/envelope/</link>
       <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
       
@@ -509,7 +509,7 @@ transporter.sendMail({
     </item>
     
     <item>
-      <title>Well Known Services</title>
+      <title>Well-known services</title>
       <link>https://nodemailer.com/smtp/well-known/</link>
       <pubDate>Fri, 20 Jan 2017 21:15:16 +0200</pubDate>
       
@@ -565,7 +565,7 @@ transporter.sendMail({
     </item>
     
     <item>
-      <title>Proxy Support</title>
+      <title>Proxy support</title>
       <link>https://nodemailer.com/smtp/proxies/</link>
       <pubDate>Fri, 20 Jan 2017 11:16:41 +0200</pubDate>
       
@@ -687,14 +687,14 @@ transporter.set(&#39;proxy_handler_myproxys&#39;, (proxy, options, callback)=&am
     </item>
     
     <item>
-      <title>Delivery Status Notifications</title>
+      <title>Delivery status notifications</title>
       <link>https://nodemailer.com/smtp/dsn/</link>
       <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
       
       <guid>https://nodemailer.com/smtp/dsn/</guid>
       <description>
 
-&lt;p&gt;If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery Status Notifications (DSN) with Nodemailer PRO as defined in &lt;a href=&#34;https://tools.ietf.org/html/rfc3461&#34;&gt;RFC3461&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery status notifications (DSN) with Nodemailer PRO as defined in &lt;a href=&#34;https://tools.ietf.org/html/rfc3461&#34;&gt;RFC3461&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;To set up a DSN call, add a dsn property to message data&lt;/p&gt;
 

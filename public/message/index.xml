@@ -10,14 +10,14 @@
     <atom:link href="https://nodemailer.com/message/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Message Configuration</title>
+      <title>Message configuration</title>
       <link>https://nodemailer.com/message/</link>
       <pubDate>Fri, 20 Jan 2017 11:25:31 +0200</pubDate>
       
       <guid>https://nodemailer.com/message/</guid>
       <description>
 
-&lt;h1 id=&#34;message-configuration&#34;&gt;Message Configuration&lt;/h1&gt;
+&lt;h1 id=&#34;message-configuration&#34;&gt;Message configuration&lt;/h1&gt;
 
 &lt;p&gt;The following are the possible fields of an email message:&lt;/p&gt;
 
@@ -283,7 +283,7 @@ bcc: [
     </item>
     
     <item>
-      <title>Calendar Events</title>
+      <title>Calendar events</title>
       <link>https://nodemailer.com/message/calendar-events/</link>
       <pubDate>Fri, 20 Jan 2017 12:01:43 +0200</pubDate>
       
@@ -393,7 +393,7 @@ let message = {
     </item>
     
     <item>
-      <title>List Headers</title>
+      <title>List headers</title>
       <link>https://nodemailer.com/message/list-headers/</link>
       <pubDate>Fri, 20 Jan 2017 12:01:57 +0200</pubDate>
       
@@ -455,7 +455,7 @@ let message = {
     </item>
     
     <item>
-      <title>Custom Headers</title>
+      <title>Custom headers</title>
       <link>https://nodemailer.com/message/custom-headers/</link>
       <pubDate>Fri, 20 Jan 2017 12:37:05 +0200</pubDate>
       

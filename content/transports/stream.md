@@ -1,6 +1,6 @@
 +++
 weight = 28
-title = "Stream Transport"
+title = "Stream transport"
 date = "2017-01-20T12:01:09+02:00"
 toc = true
 prev = "/transports/sendmail/"

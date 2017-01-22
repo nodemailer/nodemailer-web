@@ -2,7 +2,7 @@
 prev = "/message/addresses/"
 next = "/message/embedded-images/"
 weight = 14
-title = "Calendar Events"
+title = "Calendar events"
 date = "2017-01-20T12:01:43+02:00"
 toc = true
 

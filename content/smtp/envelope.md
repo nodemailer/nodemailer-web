@@ -1,5 +1,5 @@
 +++
-title = "SMTP Envelope"
+title = "SMTP envelope"
 date = "2017-01-20T11:20:07+02:00"
 toc = true
 prev = "/smtp/"

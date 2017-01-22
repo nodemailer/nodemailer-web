@@ -2,7 +2,7 @@
 prev = "/message/embedded-images/"
 next = "/message/custom-headers/"
 weight = 16
-title = "List Headers"
+title = "List headers"
 date = "2017-01-20T12:01:57+02:00"
 toc = true
 

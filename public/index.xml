@@ -37,7 +37,7 @@
 &lt;li&gt;All &lt;strong&gt;templating is gone&lt;/strong&gt;. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer PRO is about email, not about parsing different template sytaxes&lt;/li&gt;
 &lt;li&gt;No &lt;strong&gt;NTLM authentication&lt;/strong&gt;. It was too difficult to re-implement. If you still need it then it would be possible to introduce a pluggable SASL interface where you could load the ntlm module in your own code and pass it to Nodemailer PRO. Currently this is not possible.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;OAuth2 authentication&lt;/strong&gt; is built in and has a different &lt;a href=&#34;https://nodemailer.com/smtp/oauth2/&#34;&gt;configuration&lt;/a&gt;. You can use both user (3LO) and service (2LO) accounts to generate access tokens from Nodemailer PRO. Additionally there&amp;rsquo;s a new feature to authenticate differently for every message – useful if your application sends on behalf of different users instead of a single sender.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Delivery Status Notifications&lt;/strong&gt; added to Nodemailer PRO&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Delivery status notifications&lt;/strong&gt; added to Nodemailer PRO&lt;/li&gt;
 &lt;li&gt;Improved &lt;strong&gt;DKIM&lt;/strong&gt; signing of messages. Previously you needed an external module for this and it did quite a lousy job with larger messages&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Stream transport&lt;/strong&gt; to return a RFC822 formatted message as a stream. Useful if you want to use Nodemailer PRO as a preprocessor and not for actual delivery.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Sendmail&lt;/strong&gt; transport built-in, no need for external transport plugin&lt;/li&gt;
@@ -104,7 +104,7 @@
     </item>
     
     <item>
-      <title>SMTP? Say What?</title>
+      <title>SMTP? Say what?</title>
       <link>https://nodemailer.com/usage/why-smtp/</link>
       <pubDate>Sat, 21 Jan 2017 00:44:30 +0200</pubDate>
       
@@ -142,7 +142,7 @@
     </item>
     
     <item>
-      <title>Delivering Bulk Mail</title>
+      <title>Delivering bulk mail</title>
       <link>https://nodemailer.com/usage/bulk-mail/</link>
       <pubDate>Sat, 21 Jan 2017 00:40:56 +0200</pubDate>
       
@@ -331,7 +331,7 @@ bcc: [
     </item>
     
     <item>
-      <title>Calendar Events</title>
+      <title>Calendar events</title>
       <link>https://nodemailer.com/message/calendar-events/</link>
       <pubDate>Fri, 20 Jan 2017 12:01:43 +0200</pubDate>
       
@@ -441,7 +441,7 @@ let message = {
     </item>
     
     <item>
-      <title>List Headers</title>
+      <title>List headers</title>
       <link>https://nodemailer.com/message/list-headers/</link>
       <pubDate>Fri, 20 Jan 2017 12:01:57 +0200</pubDate>
       
@@ -503,7 +503,7 @@ let message = {
     </item>
     
     <item>
-      <title>Custom Headers</title>
+      <title>Custom headers</title>
       <link>https://nodemailer.com/message/custom-headers/</link>
       <pubDate>Fri, 20 Jan 2017 12:37:05 +0200</pubDate>
       

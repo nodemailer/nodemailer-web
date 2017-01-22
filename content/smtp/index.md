@@ -4,7 +4,7 @@ chapter = true
 prev = "/message/custom-source/"
 next = "/smtp/envelope/"
 weight = 0
-title = "SMTP Transport"
+title = "SMTP transport"
 icon = "<b>4. </b>"
 toc = true
 +++
@@ -30,7 +30,7 @@ let poolConfig = 'smtps://user%40gmail.com:pass@smtp.gmail.com/?pool=true';
 
 ##### General options
 
-  - **service** – can be set to the name of a well-known service so you don't have to input the **port**, **host**, and **secure** options (see [Well Known Services](/smtp/well-known/))
+  - **service** – can be set to the name of a well-known service so you don't have to input the **port**, **host**, and **secure** options (see [Well-known Services](/smtp/well-known/))
   - **port** – is the port to connect to (defaults to 587 is *secure* is *false* or 465 if *true*)
   - **host** – is the hostname or IP address to connect to (defaults to *'localhost'*)
   - **auth** – defines authentication data (see [authentication](#authentication) section below)
@@ -142,7 +142,7 @@ For authenticating using OAuth2 instead of normal auth, see OAuth2 options for t
 
 ## Using _well-known_ services
 
-If you do not want to specify the hostname, port and security settings for a well known service, you can use it by its name, see the documentation and supported services [here](/smtp/well-known/).
+If you do not want to specify the hostname, port and security settings for a well-known service, you can use it by its name, see the documentation and supported services [here](/smtp/well-known/).
 
 ## Verify SMTP connection configuration
 

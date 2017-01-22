@@ -2,7 +2,7 @@
 prev = "/smtp/oauth2/"
 next = "/smtp/proxies/"
 weight = 23
-title = "Well Known Services"
+title = "Well-known services"
 date = "2017-01-20T21:15:16+02:00"
 toc = true
 

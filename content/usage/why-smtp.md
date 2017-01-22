@@ -4,7 +4,7 @@ toc = true
 prev = "/usage/"
 next = "/usage/using-gmail/"
 weight = 7
-title = "SMTP? Say What?"
+title = "SMTP? Say what?"
 
 +++
 

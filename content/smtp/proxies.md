@@ -4,7 +4,7 @@ toc = true
 prev = "/smtp/well-known/"
 next = "/smtp/dsn/"
 weight = 24
-title = "Proxy Support"
+title = "Proxy support"
 
 +++
 

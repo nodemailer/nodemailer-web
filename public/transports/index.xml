@@ -64,7 +64,7 @@ let transporter = nodemailer.createTransport(ses({
     </item>
     
     <item>
-      <title>Sendmail Transport</title>
+      <title>Sendmail transport</title>
       <link>https://nodemailer.com/transports/sendmail/</link>
       <pubDate>Fri, 20 Jan 2017 11:35:26 +0200</pubDate>
       
@@ -125,7 +125,7 @@ transporter.sendMail({
     </item>
     
     <item>
-      <title>Stream Transport</title>
+      <title>Stream transport</title>
       <link>https://nodemailer.com/transports/stream/</link>
       <pubDate>Fri, 20 Jan 2017 12:01:09 +0200</pubDate>
       
