@@ -8,7 +8,7 @@ title = "Why PRO?"
 
 +++
 
-Even though you can use the [community version](https://community.nodemailer.com/) of Nodemailer PRO as long as you want, Nodemailer PRO has some benefits over it.
+Even though you can use the [community version](https://community.nodemailer.com/) of Nodemailer as long as you want, Nodemailer PRO has some benefits over it.
 
   * Nodemailer PRO is **maintained**. Due to the large amount of effort what it takes to handle a myriad of RFC's and also keep the code updated along ever-upgrading Node.js versions, I haven't had too much time to manage the original Nodemailer. The testimonial being that Nodemailer is still fully ES5 code and works on legacy systems like Node.js 0.10.
   * **Support**. For paying customers I am able to provide email based help setting up or resolving issues with Nodemailer PRO. For Nodemailer you mostly have to rely on [Stack Overflow](http://stackoverflow.com/search?q=nodemailer).
