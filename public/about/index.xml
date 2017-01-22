@@ -35,27 +35,27 @@
 &lt;li&gt;&lt;strong&gt;Windows support&lt;/strong&gt; – you can install it with &lt;a href=&#34;https://www.npmjs.com/package/@nodemailer/pro&#34;&gt;npm&lt;/a&gt; on Windows just like any other module, there are no compiled dependencies. Use it hassle free from Azure or from your Windows box&lt;/li&gt;
 &lt;li&gt;Use &lt;strong&gt;HTML content&lt;/strong&gt;, as well as &lt;strong&gt;plain text&lt;/strong&gt; alternative&lt;/li&gt;
 &lt;li&gt;Add &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/message/attachments/&#34;&gt;Attachments&lt;/a&gt;&lt;/strong&gt; to messages&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/message/embedded-images/&#34;&gt;Embedded&lt;/a&gt;&lt;/strong&gt; image attachments for HTML content, so that your design does not get blocked&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/message/embedded-images/&#34;&gt;Embedded&lt;/a&gt;&lt;/strong&gt; image attachments for HTML content – your design does not get blocked&lt;/li&gt;
 &lt;li&gt;Secure email delivery using &lt;strong&gt;TLS/STARTTLS&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Different &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/transports/&#34;&gt;transport methods&lt;/a&gt;&lt;/strong&gt; in addition to the built-in &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/smtp/&#34;&gt;SMTP support&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Sign messages with &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/dkim/&#34;&gt;DKIM&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Custom &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/plugins/&#34;&gt;Plugin support&lt;/a&gt;&lt;/strong&gt; for manipulating messages&lt;/li&gt;
 &lt;li&gt;Sane &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/smtp/oauth2/&#34;&gt;OAuth2&lt;/a&gt;&lt;/strong&gt; authentication&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/smtp/proxies/&#34;&gt;Proxies&lt;/a&gt;&lt;/strong&gt; for SMTP connections&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ES6 code&lt;/strong&gt; so no more unintentional memory leaks due to hoisted &lt;em&gt;var&lt;/em&gt;&amp;rsquo;s&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ES6 code&lt;/strong&gt; – no more unintentional memory leaks, due to hoisted &lt;em&gt;var&lt;/em&gt;&amp;rsquo;s&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&#34;requirements&#34;&gt;Requirements&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Node.js v6+. That&amp;rsquo;s it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Node.js v6+&lt;/strong&gt;. That&amp;rsquo;s it.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;If you are able to run Node.js version 6 or newer then you can use Nodemailer. There are no platform or resource specific requirements.&lt;/p&gt;
+&lt;p&gt;If you are able to run Node.js version 6 or newer, then you can use Nodemailer. There are no platform or resource specific requirements.&lt;/p&gt;
 
 &lt;h4 id=&#34;tl-dr&#34;&gt;TL;DR&lt;/h4&gt;
 
-&lt;p&gt;In short what you need to do to send messages would be the following:&lt;/p&gt;
+&lt;p&gt;In short, what you need to do to send messages, would be the following:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Create a Nodemailer PRO transporter using either &lt;a href=&#34;https://nodemailer.com/smtp/&#34;&gt;SMTP&lt;/a&gt; or &lt;a href=&#34;https://nodemailer.com/transports/&#34;&gt;some other&lt;/a&gt; transport mechanism&lt;/li&gt;

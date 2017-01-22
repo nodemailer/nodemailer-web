@@ -28,24 +28,24 @@ npm install @nodemailer/pro
 - **Windows support** – you can install it with [npm](https://www.npmjs.com/package/@nodemailer/pro) on Windows just like any other module, there are no compiled dependencies. Use it hassle free from Azure or from your Windows box
 - Use **HTML content**, as well as **plain text** alternative
 - Add **[Attachments](/message/attachments/)** to messages
-- **[Embedded](/message/embedded-images/)** image attachments for HTML content, so that your design does not get blocked
+- **[Embedded](/message/embedded-images/)** image attachments for HTML content – your design does not get blocked
 - Secure email delivery using **TLS/STARTTLS**
 - Different **[transport methods](/transports/)** in addition to the built-in **[SMTP support](/smtp/)**
 - Sign messages with **[DKIM](/dkim/)**
 - Custom **[Plugin support](/plugins/)** for manipulating messages
 - Sane **[OAuth2](/smtp/oauth2/)** authentication
 - **[Proxies](/smtp/proxies/)** for SMTP connections
-- **ES6 code** so no more unintentional memory leaks due to hoisted *var*'s
+- **ES6 code** – no more unintentional memory leaks, due to hoisted *var*'s
 
 #### Requirements
 
-* Node.js v6+. That's it.
+* **Node.js v6+**. That's it.
 
-If you are able to run Node.js version 6 or newer then you can use Nodemailer. There are no platform or resource specific requirements.
+If you are able to run Node.js version 6 or newer, then you can use Nodemailer. There are no platform or resource specific requirements.
 
 #### TL;DR
 
-In short what you need to do to send messages would be the following:
+In short, what you need to do to send messages, would be the following:
 
 1. Create a Nodemailer PRO transporter using either [SMTP](/smtp/) or [some other](/transports/) transport mechanism
 2. Set up [message options](/message/) (who sends what to whom)
