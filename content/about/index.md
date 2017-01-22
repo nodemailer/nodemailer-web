@@ -16,6 +16,10 @@ The [community version](https://community.nodemailer.com/) of **Nodemailer** is 
 
 **Nodemailer PRO** ([why PRO?](/about/why/)) is an upgrade of Nodemailer. Unlike Nodemailer which is licensed under MIT, Nodemailer PRO is licensed under restrictive CC license. See license details in the [License page](/about/license/).
 
+```bash
+npm install @nodemailer/pro
+```
+
 ### Nodemailer PRO features
 
 - A single module with **zero dependencies**. Code is easily auditable as there are no dark corners
