@@ -29,14 +29,14 @@
 &lt;h3 id=&#34;nodemailer-pro-features&#34;&gt;Nodemailer PRO features&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;A single module with &lt;strong&gt;zero dependencies&lt;/strong&gt;. Code is easily auditable as there are no dark corners&lt;/li&gt;
+&lt;li&gt;A single module with &lt;strong&gt;zero dependencies&lt;/strong&gt; – code is easily auditable, as there are no dark corners&lt;/li&gt;
 &lt;li&gt;Heavy focus on &lt;strong&gt;security&lt;/strong&gt;, no-one likes &lt;a href=&#34;http://thehackernews.com/2017/01/phpmailer-swiftmailer-zendmail.html&#34;&gt;RCE vulnerabilities&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Unicode support&lt;/strong&gt; to use any characters, including emoji 💪&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Windows support&lt;/strong&gt; – you can install it with &lt;a href=&#34;https://www.npmjs.com/package/@nodemailer/pro&#34;&gt;npm&lt;/a&gt; on Windows just like any other module, there are no compiled dependencies. Use it from Azure or from your Windows box hassle free.&lt;/li&gt;
-&lt;li&gt;Use &lt;strong&gt;HTML content&lt;/strong&gt; as well as &lt;strong&gt;plain text&lt;/strong&gt; alternative&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Windows support&lt;/strong&gt; – you can install it with &lt;a href=&#34;https://www.npmjs.com/package/@nodemailer/pro&#34;&gt;npm&lt;/a&gt; on Windows just like any other module, there are no compiled dependencies. Use it hassle free from Azure or from your Windows box&lt;/li&gt;
+&lt;li&gt;Use &lt;strong&gt;HTML content&lt;/strong&gt;, as well as &lt;strong&gt;plain text&lt;/strong&gt; alternative&lt;/li&gt;
 &lt;li&gt;Add &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/message/attachments/&#34;&gt;Attachments&lt;/a&gt;&lt;/strong&gt; to messages&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/message/embedded-images/&#34;&gt;Embedded&lt;/a&gt;&lt;/strong&gt; image attachments for HTML content, so your design does not get blocked&lt;/li&gt;
-&lt;li&gt;Secure email delivery using &lt;strong&gt;SSL/STARTTLS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/message/embedded-images/&#34;&gt;Embedded&lt;/a&gt;&lt;/strong&gt; image attachments for HTML content, so that your design does not get blocked&lt;/li&gt;
+&lt;li&gt;Secure email delivery using &lt;strong&gt;TLS/STARTTLS&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Different &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/transports/&#34;&gt;transport methods&lt;/a&gt;&lt;/strong&gt; in addition to the built-in &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/smtp/&#34;&gt;SMTP support&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Sign messages with &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/dkim/&#34;&gt;DKIM sign&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Custom &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/plugins/&#34;&gt;Plugin support&lt;/a&gt;&lt;/strong&gt; for manipulating messages&lt;/li&gt;
@@ -65,7 +65,7 @@
 
 &lt;h5 id=&#34;example&#34;&gt;Example&lt;/h5&gt;
 
-&lt;p&gt;This is a complete example to send an email with plaintext and HTML body&lt;/p&gt;
+&lt;p&gt;This is a complete example to send an email with plain text and HTML body&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const nodemailer = require(&#39;@nodemailer/pro&#39;);
 
@@ -83,7 +83,7 @@ let mailOptions = {
     from: &#39;&amp;quot;Fred Foo 👻&amp;quot; &amp;lt;foo@blurdybloop.com&amp;gt;&#39;, // sender address
     to: &#39;bar@blurdybloop.com, baz@blurdybloop.com&#39;, // list of receivers
     subject: &#39;Hello ✔&#39;, // Subject line
-    text: &#39;Hello world ?&#39;, // plaintext body
+    text: &#39;Hello world ?&#39;, // plain text body
     html: &#39;&amp;lt;b&amp;gt;Hello world ?&amp;lt;/b&amp;gt;&#39; // html body
 };
 

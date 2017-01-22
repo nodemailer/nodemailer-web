@@ -556,14 +556,14 @@
 <h3 id="nodemailer-pro-features">Nodemailer PRO features</h3>
 
 <ul>
-<li>A single module with <strong>zero dependencies</strong>. Code is easily auditable as there are no dark corners</li>
+<li>A single module with <strong>zero dependencies</strong> – code is easily auditable, as there are no dark corners</li>
 <li>Heavy focus on <strong>security</strong>, no-one likes <a href="http://thehackernews.com/2017/01/phpmailer-swiftmailer-zendmail.html">RCE vulnerabilities</a></li>
 <li><strong>Unicode support</strong> to use any characters, including emoji 💪</li>
-<li><strong>Windows support</strong> – you can install it with <a href="https://www.npmjs.com/package/@nodemailer/pro">npm</a> on Windows just like any other module, there are no compiled dependencies. Use it from Azure or from your Windows box hassle free.</li>
-<li>Use <strong>HTML content</strong> as well as <strong>plain text</strong> alternative</li>
+<li><strong>Windows support</strong> – you can install it with <a href="https://www.npmjs.com/package/@nodemailer/pro">npm</a> on Windows just like any other module, there are no compiled dependencies. Use it hassle free from Azure or from your Windows box</li>
+<li>Use <strong>HTML content</strong>, as well as <strong>plain text</strong> alternative</li>
 <li>Add <strong><a href="/message/attachments/">Attachments</a></strong> to messages</li>
-<li><strong><a href="/message/embedded-images/">Embedded</a></strong> image attachments for HTML content, so your design does not get blocked</li>
-<li>Secure email delivery using <strong>SSL/STARTTLS</strong></li>
+<li><strong><a href="/message/embedded-images/">Embedded</a></strong> image attachments for HTML content, so that your design does not get blocked</li>
+<li>Secure email delivery using <strong>TLS/STARTTLS</strong></li>
 <li>Different <strong><a href="/transports/">transport methods</a></strong> in addition to the built-in <strong><a href="/smtp/">SMTP support</a></strong></li>
 <li>Sign messages with <strong><a href="/dkim/">DKIM sign</a></strong></li>
 <li>Custom <strong><a href="/plugins/">Plugin support</a></strong> for manipulating messages</li>
@@ -592,7 +592,7 @@
 
 <h5 id="example">Example</h5>
 
-<p>This is a complete example to send an email with plaintext and HTML body</p>
+<p>This is a complete example to send an email with plain text and HTML body</p>
 
 <pre><code class="language-javascript">const nodemailer = require('@nodemailer/pro');
 
@@ -610,7 +610,7 @@ let mailOptions = {
     from: '&quot;Fred Foo 👻&quot; &lt;foo@blurdybloop.com&gt;', // sender address
     to: 'bar@blurdybloop.com, baz@blurdybloop.com', // list of receivers
     subject: 'Hello ✔', // Subject line
-    text: 'Hello world ?', // plaintext body
+    text: 'Hello world ?', // plain text body
     html: '&lt;b&gt;Hello world ?&lt;/b&gt;' // html body
 };
 

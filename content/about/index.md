@@ -22,14 +22,14 @@ npm install @nodemailer/pro
 
 ### Nodemailer PRO features
 
-- A single module with **zero dependencies**. Code is easily auditable as there are no dark corners
+- A single module with **zero dependencies** – code is easily auditable, as there are no dark corners
 - Heavy focus on **security**, no-one likes [RCE vulnerabilities](http://thehackernews.com/2017/01/phpmailer-swiftmailer-zendmail.html)
 - **Unicode support** to use any characters, including emoji 💪
-- **Windows support** – you can install it with [npm](https://www.npmjs.com/package/@nodemailer/pro) on Windows just like any other module, there are no compiled dependencies. Use it from Azure or from your Windows box hassle free.
-- Use **HTML content** as well as **plain text** alternative
+- **Windows support** – you can install it with [npm](https://www.npmjs.com/package/@nodemailer/pro) on Windows just like any other module, there are no compiled dependencies. Use it hassle free from Azure or from your Windows box
+- Use **HTML content**, as well as **plain text** alternative
 - Add **[Attachments](/message/attachments/)** to messages
-- **[Embedded](/message/embedded-images/)** image attachments for HTML content, so your design does not get blocked
-- Secure email delivery using **SSL/STARTTLS**
+- **[Embedded](/message/embedded-images/)** image attachments for HTML content, so that your design does not get blocked
+- Secure email delivery using **TLS/STARTTLS**
 - Different **[transport methods](/transports/)** in addition to the built-in **[SMTP support](/smtp/)**
 - Sign messages with **[DKIM sign](/dkim/)**
 - Custom **[Plugin support](/plugins/)** for manipulating messages
@@ -53,7 +53,7 @@ In short what you need to do to send messages would be the following:
 
 ##### Example
 
-This is a complete example to send an email with plaintext and HTML body
+This is a complete example to send an email with plain text and HTML body
 
 ```javascript
 const nodemailer = require('@nodemailer/pro');
@@ -72,7 +72,7 @@ let mailOptions = {
     from: '"Fred Foo 👻" <foo@blurdybloop.com>', // sender address
     to: 'bar@blurdybloop.com, baz@blurdybloop.com', // list of receivers
     subject: 'Hello ✔', // Subject line
-    text: 'Hello world ?', // plaintext body
+    text: 'Hello world ?', // plain text body
     html: '<b>Hello world ?</b>' // html body
 };
 
