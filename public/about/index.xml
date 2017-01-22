@@ -175,7 +175,7 @@ transporter.sendMail(mailOptions, (error, info) {
       <guid>https://nodemailer.com/about/pricing/</guid>
       <description>
 
-&lt;p&gt;Nodemailer PRO can be purchased in yearly licenses. License fee for a &lt;strong&gt;1 year&lt;/strong&gt; license is &lt;strong&gt;780.- €&lt;/strong&gt; which can be paid either by PayPal or by international wire transfer. Kreata OÜ is located in the European Union, Estonia.&lt;/p&gt;
+&lt;p&gt;Nodemailer PRO can be purchased with a yearly license. License fee for a &lt;strong&gt;1 year&lt;/strong&gt; license is &lt;strong&gt;780.- €&lt;/strong&gt; which can be paid either by PayPal or by international wire transfer. Kreata OÜ is located in the European Union, Estonia.&lt;/p&gt;
 
 &lt;p&gt;Payment details are available on the invoice. Contact &lt;a href=&#34;mailto:sales@nodemailer.com&#34;&gt;sales@nodemailer.com&lt;/a&gt; if you need to re-issue an invoice.&lt;/p&gt;
 
