@@ -308,7 +308,7 @@ bcc: [
 
 &lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
 
-&lt;h4 id=&#34;1-send-a-request-event-as-a-string&#34;&gt;1. Send a REQUEST event as a String&lt;/h4&gt;
+&lt;h4 id=&#34;1-send-a-request-event-as-a-string&#34;&gt;1. Send a REQUEST event as a string&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let content = &#39;BEGIN:VCALENDAR\r\nPRODID:-//ACME/DesktopCalendar//EN\r\nMETHOD:REQUEST\r\n...&#39;;
 
@@ -560,7 +560,7 @@ Hello world!`
 };
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;2-set-eml-file-as-message-body&#34;&gt;2. Set eml file as message body&lt;/h4&gt;
+&lt;h4 id=&#34;2-set-eml-file-as-message-body&#34;&gt;2. Set EML file as message body&lt;/h4&gt;
 
 &lt;p&gt;This example loads the entire message source from a file&lt;/p&gt;
 

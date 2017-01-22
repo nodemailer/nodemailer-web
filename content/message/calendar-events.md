@@ -22,7 +22,7 @@ In general it is not a good idea to add additional attachments to calendar messa
 
 ### Examples
 
-#### 1\. Send a REQUEST event as a String
+#### 1\. Send a REQUEST event as a string
 
 ```javascript
 let content = 'BEGIN:VCALENDAR\r\nPRODID:-//ACME/DesktopCalendar//EN\r\nMETHOD:REQUEST\r\n...';

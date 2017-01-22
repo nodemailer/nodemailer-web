@@ -17,7 +17,7 @@ Nodemailer PRO can be extended with plugins. In most cases there are 3 different
   2. Plugins that operate on mail stream (for example to calculate message signatures). This is the processing step
   3. Plugins that operate as transports (for example to send the message using an API of some delivery provider). This is the sending step
 
-### Available Plugins
+### Available plugins
 
 These are some existing public plugins for Nodemailer
 

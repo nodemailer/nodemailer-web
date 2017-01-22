@@ -30,7 +30,7 @@ let transporter = nodemailer.createTransport(ses({
 }));
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;available-transports&#34;&gt;Available Transports&lt;/h2&gt;
+&lt;h2 id=&#34;available-transports&#34;&gt;Available transports&lt;/h2&gt;
 
 &lt;h3 id=&#34;built-in-transports&#34;&gt;Built-in transports&lt;/h3&gt;
 

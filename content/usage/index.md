@@ -11,7 +11,7 @@ toc = true
 
 # Usage
 
-## Setting up
+## Setting it up
 
 Install Nodemailer PRO from [npm](https://www.npmjs.com/package/@nodemailer/pro)
 

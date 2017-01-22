@@ -23,7 +23,7 @@ let transporter = nodemailer.createTransport(ses({
 }));
 ```
 
-## Available Transports
+## Available transports
 
 ### Built-in transports
 

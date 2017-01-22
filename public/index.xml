@@ -153,7 +153,7 @@
 &lt;li&gt;&lt;strong&gt;Use a dedicated delivery provider&lt;/strong&gt;. Do not use services that offer SMTP as a sideline or for free (that&amp;rsquo;s Gmail or the SMTP of your homepage hosting company) to send bulk mail – you&amp;rsquo;ll hit all the hard limits immediately or get labelled as spammer. Basically you get what you pay for and if you pay zero then your deliverability is near zero as well. Email might seem free but it is only free to a certain amount and that amount certainly does not include 10 million emails in a short period of time.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Use a dedicated queue manager,&lt;/strong&gt; for example &lt;a href=&#34;http://www.rabbitmq.com/&#34;&gt;RabbitMQ&lt;/a&gt; for queueing the emails. Nodemailer PRO creates a callback function with related scopes etc. for every message so it might be hard on memory if you pile up the data for 10 million messages at once. Better to take the data from a queue when there&amp;rsquo;s a free spot in the connection pool (previously sent message returns its callback).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Use pooled SMTP&lt;/strong&gt; by setting &lt;em&gt;pool&lt;/em&gt; option to &lt;em&gt;true&lt;/em&gt; (assuming you always send using the same credentials). You do not want to have the overhead of creating a new connection and doing the SMTP handshake dance for every single email. Pooled connections make it possible to bring this overhead to a minimum.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Set &lt;em&gt;maxMessages&lt;/em&gt; option to *Infinity&lt;/strong&gt;* for the pooled SMTP transport. Dedicated SMTP providers happily accept all your emails as long you are paying for these, so no need to disconnect in the middle if everything is going smoothly. The default value is 100 which means that once a connection is used to send 100 messages it is removed from the pool and a new connection is created.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Set &lt;em&gt;maxMessages&lt;/em&gt; option to &lt;em&gt;Infinity&lt;/em&gt;&lt;/strong&gt; for the pooled SMTP transport. Dedicated SMTP providers happily accept all your emails as long you are paying for these, so no need to disconnect in the middle if everything is going smoothly. The default value is 100 which means that once a connection is used to send 100 messages it is removed from the pool and a new connection is created.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Set &lt;em&gt;maxConnections&lt;/em&gt; to whatever your system can handle.&lt;/strong&gt; There might be limits to this on the receiving side, so do not set it to &lt;em&gt;Infinity&lt;/em&gt;, even 20 is probably much better than the default 5. A larger number means a larger amount of messages are sent in parallel.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Use file paths not URLs for attachments.&lt;/strong&gt; If you are reading the same file from the disk several million times, the contents for the file probably get cached somewhere between your app and the physical hard disk, so you get your files back quicker (assuming you send the same attachment to all recipients). There is nothing like this for URLs – every new message makes a fresh HTTP fetch to receive the file from the server.&lt;/li&gt;
 &lt;li&gt;If the SMTP service accepts HTTP API as well you still might prefer SMTP and not the HTTP API as HTTP introduces additional overhead. You probably want to use HTTP over SMTP if the HTTP API is bulk aware – you send a message template and the list of 10 million recipients and the service compiles this information into emails itself, you can&amp;rsquo;t beat this with SMTP.&lt;/li&gt;
@@ -356,7 +356,7 @@ bcc: [
 
 &lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
 
-&lt;h4 id=&#34;1-send-a-request-event-as-a-string&#34;&gt;1. Send a REQUEST event as a String&lt;/h4&gt;
+&lt;h4 id=&#34;1-send-a-request-event-as-a-string&#34;&gt;1. Send a REQUEST event as a string&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let content = &#39;BEGIN:VCALENDAR\r\nPRODID:-//ACME/DesktopCalendar//EN\r\nMETHOD:REQUEST\r\n...&#39;;
 
@@ -608,7 +608,7 @@ Hello world!`
 };
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;2-set-eml-file-as-message-body&#34;&gt;2. Set eml file as message body&lt;/h4&gt;
+&lt;h4 id=&#34;2-set-eml-file-as-message-body&#34;&gt;2. Set EML file as message body&lt;/h4&gt;
 
 &lt;p&gt;This example loads the entire message source from a file&lt;/p&gt;
 

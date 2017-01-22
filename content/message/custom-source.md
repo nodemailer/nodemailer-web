@@ -34,7 +34,7 @@ Hello world!`
 };
 ```
 
-#### 2\. Set eml file as message body
+#### 2\. Set EML file as message body
 
 This example loads the entire message source from a file
 
