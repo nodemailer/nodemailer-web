@@ -381,11 +381,11 @@ let message = {
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
     ...
-    html: &#39;Embedded image: &amp;lt;img src=&amp;quot;cid:unique@kreata.ee&amp;quot;/&amp;gt;&#39;,
+    html: &#39;Embedded image: &amp;lt;img src=&amp;quot;cid:unique@nodemailer.com&amp;quot;/&amp;gt;&#39;,
     attachments: [{
         filename: &#39;image.png&#39;,
         path: &#39;/path/to/file&#39;,
-        cid: &#39;unique@kreata.ee&#39; //same cid value as in the html img src
+        cid: &#39;unique@nodemailer.com&#39; //same cid value as in the html img src
     }]
 }
 &lt;/code&gt;&lt;/pre&gt;

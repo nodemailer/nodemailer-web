@@ -19,11 +19,11 @@ SMTP envelope is usually auto generated from **from**, **to**, **cc** and **bcc*
 ```javascript
 let message = {
     ...,
-    from: 'mailer@kreata.ee', // listed in rfc822 message header
-    to: 'daemon@kreata.ee', // listed in rfc822 message header
+    from: 'mailer@nodemailer.com', // listed in rfc822 message header
+    to: 'daemon@nodemailer.com', // listed in rfc822 message header
     envelope: {
-        from: 'Daemon <deamon@kreata.ee>', // used as MAIL FROM: address for SMTP
-        to: 'mailer@kreata.ee, Mailer <mailer2@kreata.ee>' // used as RCPT TO: address for SMTP
+        from: 'Daemon <deamon@nodemailer.com>', // used as MAIL FROM: address for SMTP
+        to: 'mailer@nodemailer.com, Mailer <mailer2@nodemailer.com>' // used as RCPT TO: address for SMTP
     }
 }
 ```

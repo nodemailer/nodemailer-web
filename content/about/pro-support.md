@@ -8,4 +8,4 @@ title = "Support"
 
 +++
 
-Support is available for Nodemailer PRO subscribers. If you have trouble setting up or using Nodemailer PRO then contact [support@kreata.ee](mailto:support@kreata.ee) for support.
+Support is available for Nodemailer PRO subscribers. If you have trouble setting up or using Nodemailer PRO then contact [support@nodemailer.com](mailto:support@nodemailer.com) for support.

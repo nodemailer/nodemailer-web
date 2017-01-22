@@ -177,7 +177,7 @@ transporter.sendMail(mailOptions, (error, info) {
 
 &lt;p&gt;Nodemailer PRO can be purchased in yearly licenses. License fee for a &lt;strong&gt;1 year&lt;/strong&gt; license is &lt;strong&gt;780.- €&lt;/strong&gt; which can be paid either by PayPal or by international wire transfer. Kreata OÜ is located in the European Union, Estonia.&lt;/p&gt;
 
-&lt;p&gt;Payment details are available on the invoice. Contact &lt;a href=&#34;mailto:sales@kreata.ee&#34;&gt;sales@kreata.ee&lt;/a&gt; if you need to re-issue an invoice.&lt;/p&gt;
+&lt;p&gt;Payment details are available on the invoice. Contact &lt;a href=&#34;mailto:sales@nodemailer.com&#34;&gt;sales@nodemailer.com&lt;/a&gt; if you need to re-issue an invoice.&lt;/p&gt;
 
 &lt;h4 id=&#34;what-do-you-get-for-that-price&#34;&gt;What do you get for that price&lt;/h4&gt;
 
@@ -193,7 +193,7 @@ transporter.sendMail(mailOptions, (error, info) {
 
 &lt;h4 id=&#34;contact&#34;&gt;Contact&lt;/h4&gt;
 
-&lt;p&gt;Contact sales &lt;a href=&#34;mailto:sales@kreata.ee&#34;&gt;sales@kreata.ee&lt;/a&gt; to purchase the license or if you have any other sales related questions.&lt;/p&gt;
+&lt;p&gt;Contact sales &lt;a href=&#34;mailto:sales@nodemailer.com&#34;&gt;sales@nodemailer.com&lt;/a&gt; to purchase the license or if you have any other sales related questions.&lt;/p&gt;
 </description>
     </item>
     
@@ -203,7 +203,7 @@ transporter.sendMail(mailOptions, (error, info) {
       <pubDate>Sat, 21 Jan 2017 22:51:02 +0200</pubDate>
       
       <guid>https://nodemailer.com/about/pro-support/</guid>
-      <description>&lt;p&gt;Support is available for Nodemailer PRO subscribers. If you have trouble setting up or using Nodemailer PRO then contact &lt;a href=&#34;mailto:support@kreata.ee&#34;&gt;support@kreata.ee&lt;/a&gt; for support.&lt;/p&gt;
+      <description>&lt;p&gt;Support is available for Nodemailer PRO subscribers. If you have trouble setting up or using Nodemailer PRO then contact &lt;a href=&#34;mailto:support@nodemailer.com&#34;&gt;support@nodemailer.com&lt;/a&gt; for support.&lt;/p&gt;
 </description>
     </item>
     

@@ -19,11 +19,11 @@ Attachments can be used as embedded images in the HTML body. To use this feature
 ```javascript
 let message = {
     ...
-    html: 'Embedded image: <img src="cid:unique@kreata.ee"/>',
+    html: 'Embedded image: <img src="cid:unique@nodemailer.com"/>',
     attachments: [{
         filename: 'image.png',
         path: '/path/to/file',
-        cid: 'unique@kreata.ee' //same cid value as in the html img src
+        cid: 'unique@nodemailer.com' //same cid value as in the html img src
     }]
 }
 ```

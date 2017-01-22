@@ -206,11 +206,11 @@ transporter.verify(function(error, success) {
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
     ...,
-    from: &#39;mailer@kreata.ee&#39;, // listed in rfc822 message header
-    to: &#39;daemon@kreata.ee&#39;, // listed in rfc822 message header
+    from: &#39;mailer@nodemailer.com&#39;, // listed in rfc822 message header
+    to: &#39;daemon@nodemailer.com&#39;, // listed in rfc822 message header
     envelope: {
-        from: &#39;Daemon &amp;lt;deamon@kreata.ee&amp;gt;&#39;, // used as MAIL FROM: address for SMTP
-        to: &#39;mailer@kreata.ee, Mailer &amp;lt;mailer2@kreata.ee&amp;gt;&#39; // used as RCPT TO: address for SMTP
+        from: &#39;Daemon &amp;lt;deamon@nodemailer.com&amp;gt;&#39;, // used as MAIL FROM: address for SMTP
+        to: &#39;mailer@nodemailer.com, Mailer &amp;lt;mailer2@nodemailer.com&amp;gt;&#39; // used as RCPT TO: address for SMTP
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
