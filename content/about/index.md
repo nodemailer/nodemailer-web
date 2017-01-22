@@ -31,7 +31,7 @@ npm install @nodemailer/pro
 - **[Embedded](/message/embedded-images/)** image attachments for HTML content, so that your design does not get blocked
 - Secure email delivery using **TLS/STARTTLS**
 - Different **[transport methods](/transports/)** in addition to the built-in **[SMTP support](/smtp/)**
-- Sign messages with **[DKIM sign](/dkim/)**
+- Sign messages with **[DKIM](/dkim/)**
 - Custom **[Plugin support](/plugins/)** for manipulating messages
 - Sane **[OAuth2](/smtp/oauth2/)** authentication
 - **[Proxies](/smtp/proxies/)** for SMTP connections

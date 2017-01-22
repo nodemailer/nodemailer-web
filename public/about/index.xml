@@ -38,7 +38,7 @@
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/message/embedded-images/&#34;&gt;Embedded&lt;/a&gt;&lt;/strong&gt; image attachments for HTML content, so that your design does not get blocked&lt;/li&gt;
 &lt;li&gt;Secure email delivery using &lt;strong&gt;TLS/STARTTLS&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Different &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/transports/&#34;&gt;transport methods&lt;/a&gt;&lt;/strong&gt; in addition to the built-in &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/smtp/&#34;&gt;SMTP support&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Sign messages with &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/dkim/&#34;&gt;DKIM sign&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Sign messages with &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/dkim/&#34;&gt;DKIM&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;Custom &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/plugins/&#34;&gt;Plugin support&lt;/a&gt;&lt;/strong&gt; for manipulating messages&lt;/li&gt;
 &lt;li&gt;Sane &lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/smtp/oauth2/&#34;&gt;OAuth2&lt;/a&gt;&lt;/strong&gt; authentication&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/smtp/proxies/&#34;&gt;Proxies&lt;/a&gt;&lt;/strong&gt; for SMTP connections&lt;/li&gt;
