@@ -8,7 +8,7 @@ toc = true
 
 +++
 
-Nodemailer PRO knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.
+Nodemailer knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.
 
 ```javascript
 let transporter = nodemailer.createTransport({

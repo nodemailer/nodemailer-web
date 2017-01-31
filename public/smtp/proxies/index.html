@@ -96,7 +96,7 @@
             
               <b>1. </b>
             
-             Nodemailer PRO
+             Nodemailer
             
            </span>
         </a>
@@ -106,9 +106,9 @@
           
           
           
-            <li class="dd-item " data-nav-id="/about/why/">
-              <a href="/about/why/">
-                <span>Why PRO?     </i></span>
+            <li class="dd-item " data-nav-id="/about/migrate/">
+              <a href="/about/migrate/">
+                <span>Migration     </i></span>
               </a>
             </li>
           
@@ -554,7 +554,7 @@
 
 
 
-<p>Nodemailer PRO is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing <a href="https://www.npmjs.com/package/socks">socks</a> module to Nodemailer, other proxies need custom handling.</p>
+<p>Nodemailer is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing <a href="https://www.npmjs.com/package/socks">socks</a> module to Nodemailer, other proxies need custom handling.</p>
 
 <p>To enable proxying, define a <strong>proxy</strong> option for the transporter.</p>
 
@@ -648,7 +648,7 @@ transporter.set('proxy_handler_myproxy', (proxy, options, callback)=&gt;{
 });
 </code></pre>
 
-<p>If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer PRO from upgrading the provided connection using TLS.</p>
+<p>If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer from upgrading the provided connection using TLS.</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
     service: 'Gmail',

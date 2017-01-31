@@ -8,7 +8,7 @@ title = "Proxy support"
 
 +++
 
-Nodemailer PRO is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing [socks](https://www.npmjs.com/package/socks) module to Nodemailer, other proxies need custom handling.
+Nodemailer is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing [socks](https://www.npmjs.com/package/socks) module to Nodemailer, other proxies need custom handling.
 
 To enable proxying, define a **proxy** option for the transporter.
 
@@ -99,7 +99,7 @@ transporter.set('proxy_handler_myproxy', (proxy, options, callback)=>{
 });
 ```
 
-If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer PRO from upgrading the provided connection using TLS.
+If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer from upgrading the provided connection using TLS.
 
 ```javascript
 let transporter = nodemailer.createTransport({

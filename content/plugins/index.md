@@ -11,7 +11,7 @@ next = "/plugins/create/"
 
 # Plugins
 
-Nodemailer PRO can be extended with plugins. In most cases there are 3 different kind of plugins.
+Nodemailer can be extended with plugins. In most cases there are 3 different kind of plugins.
 
   1. Plugins that operate on the mail object (for example extend it or change existing values). This is the pre-processing step
   2. Plugins that operate on mail stream (for example to calculate message signatures). This is the processing step

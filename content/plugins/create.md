@@ -36,11 +36,11 @@ Mail object that is passed to the plugin function as the first argument is an ob
 
 - **data** is the mail data object that is passed to the **sendMail()** method
 - **message** is the MimeNode object of the message. This is available for the 'stream' step and for the transport but not for 'compile'.
-- **resolveContent** is a helper function for converting Nodemailer PRO compatible stream objects into Strings or Buffers
+- **resolveContent** is a helper function for converting Nodemailer compatible stream objects into Strings or Buffers
 
 ### resolveContent()
 
-If your plugin needs to get the full value of a param, for example the String value for the **html** content, you can use **resolveContent()** to convert Nodemailer PRO compatible content objects to Strings or Buffers.
+If your plugin needs to get the full value of a param, for example the String value for the **html** content, you can use **resolveContent()** to convert Nodemailer compatible content objects to Strings or Buffers.
 
 ```javascript
 mail.resolveContent(obj, key, callback)
@@ -188,7 +188,7 @@ This is the method that actually sends out emails. The method is basically the s
 
 Callback function should return an **info** object as the second argument. This info object should contain and **envelope** object with envelope data and a **messageId** value with the Message-Id header (including the surrounding < & > brackets),
 
-The following example pipes the raw stream from Nodemailer PRO to the console.
+The following example pipes the raw stream from Nodemailer to the console.
 
 ```javascript
 transport.send = (mail, callback) => {

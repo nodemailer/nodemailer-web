@@ -8,7 +8,7 @@ weight = 25
 
 +++
 
-If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery status notifications (DSN) with Nodemailer PRO as defined in [RFC3461](https://tools.ietf.org/html/rfc3461).
+If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery status notifications (DSN) with Nodemailer as defined in [RFC3461](https://tools.ietf.org/html/rfc3461).
 
 To set up a DSN call, add a dsn property to message data
 

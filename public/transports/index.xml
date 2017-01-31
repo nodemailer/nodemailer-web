@@ -73,7 +73,7 @@ let transporter = nodemailer.createTransport(ses({
 
 &lt;p&gt;Sendmail Transport pipes the generated RFC822 message to the standard input of the &lt;strong&gt;sendmail&lt;/strong&gt; command, so it&amp;rsquo;s the same thing what the &lt;strong&gt;mail()&lt;/strong&gt; function in PHP does.&lt;/p&gt;
 
-&lt;p&gt;To use Sendmail Transport, set &lt;strong&gt;sendmail&lt;/strong&gt; in Nodemailer PRO transport options to &lt;em&gt;true&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;To use Sendmail Transport, set &lt;strong&gt;sendmail&lt;/strong&gt; in Nodemailer transport options to &lt;em&gt;true&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;The additional options to use with this transport are the following:&lt;/p&gt;
 
@@ -132,9 +132,9 @@ transporter.sendMail({
       <guid>https://nodemailer.com/transports/stream/</guid>
       <description>
 
-&lt;p&gt;Stream Transport is not actually a transport, it processes input data and returns you the generated RFC822 email message either as a stream or a Buffer. Additionally you can define which kind of newlines to use, either the &amp;lsquo;windows&amp;rsquo; style (&amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;) or the &amp;lsquo;unix&amp;rsquo; style (&amp;lt;LF&amp;gt;). This transport is mostly useful for testing and also for scenarios where you want to use Nodemailer PRO plugins to process the message and do the actual delivery by some other means.&lt;/p&gt;
+&lt;p&gt;Stream Transport is not actually a transport, it processes input data and returns you the generated RFC822 email message either as a stream or a Buffer. Additionally you can define which kind of newlines to use, either the &amp;lsquo;windows&amp;rsquo; style (&amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;) or the &amp;lsquo;unix&amp;rsquo; style (&amp;lt;LF&amp;gt;). This transport is mostly useful for testing and also for scenarios where you want to use Nodemailer plugins to process the message and do the actual delivery by some other means.&lt;/p&gt;
 
-&lt;p&gt;To use Stream Transport, set &lt;strong&gt;streamTransport&lt;/strong&gt; in Nodemailer PRO transport options to &lt;em&gt;true&lt;/em&gt; in Nodemailer PRO options. If you want the transport to return buffers instead of streams, set &lt;strong&gt;buffer&lt;/strong&gt; option to &lt;em&gt;true&lt;/em&gt;. For newline selection use &lt;strong&gt;newline&lt;/strong&gt; property (defaults to &amp;lsquo;unix&amp;rsquo;)&lt;/p&gt;
+&lt;p&gt;To use Stream Transport, set &lt;strong&gt;streamTransport&lt;/strong&gt; in Nodemailer transport options to &lt;em&gt;true&lt;/em&gt; in Nodemailer options. If you want the transport to return buffers instead of streams, set &lt;strong&gt;buffer&lt;/strong&gt; option to &lt;em&gt;true&lt;/em&gt;. For newline selection use &lt;strong&gt;newline&lt;/strong&gt; property (defaults to &amp;lsquo;unix&amp;rsquo;)&lt;/p&gt;
 
 &lt;p&gt;The &lt;strong&gt;info&lt;/strong&gt; argument for &lt;strong&gt;sendMail()&lt;/strong&gt; callback includes the following properties:&lt;/p&gt;
 

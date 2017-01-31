@@ -96,7 +96,7 @@
             
               <b>1. </b>
             
-             Nodemailer PRO
+             Nodemailer
             
            </span>
         </a>
@@ -106,9 +106,9 @@
           
           
           
-            <li class="dd-item " data-nav-id="/about/why/">
-              <a href="/about/why/">
-                <span>Why PRO?     </i></span>
+            <li class="dd-item " data-nav-id="/about/migrate/">
+              <a href="/about/migrate/">
+                <span>Migration     </i></span>
               </a>
             </li>
           
@@ -554,9 +554,9 @@
 
 <h1 id="dkim-signing">DKIM signing</h1>
 
-<p>Nodemailer PRO is able to sign all messages with DKIM keys. This means calculating a signature for the message and adding it as an additional header (or headers, if you use multiple keys) to the message.</p>
+<p>Nodemailer is able to sign all messages with DKIM keys. This means calculating a signature for the message and adding it as an additional header (or headers, if you use multiple keys) to the message.</p>
 
-<p>The drawback on DKIM signing is that Nodemailer PRO needs to cache the entire message before it can be sent, unlike normal sending where message output is streamed to SMTP as it is created and nothing needs to be cached. For small messages it does not matter, for larger messages Nodemailer PRO offers an option to cache messages not in memory but on disk. In this case Nodemailer PRO starts buffering the message in memory and if the message size reaches a certain treshold, it gets directed to a file on disk. Once signature is calculated and sent to SMTP, Nodemailer PRO streams the cached message from disk to SMTP.</p>
+<p>The drawback on DKIM signing is that Nodemailer needs to cache the entire message before it can be sent, unlike normal sending where message output is streamed to SMTP as it is created and nothing needs to be cached. For small messages it does not matter, for larger messages Nodemailer offers an option to cache messages not in memory but on disk. In this case Nodemailer starts buffering the message in memory and if the message size reaches a certain treshold, it gets directed to a file on disk. Once signature is calculated and sent to SMTP, Nodemailer streams the cached message from disk to SMTP.</p>
 
 <p>In general DKIM signing should be fast and effective.</p>
 

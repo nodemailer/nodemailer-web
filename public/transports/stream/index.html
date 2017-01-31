@@ -96,7 +96,7 @@
             
               <b>1. </b>
             
-             Nodemailer PRO
+             Nodemailer
             
            </span>
         </a>
@@ -106,9 +106,9 @@
           
           
           
-            <li class="dd-item " data-nav-id="/about/why/">
-              <a href="/about/why/">
-                <span>Why PRO?     </i></span>
+            <li class="dd-item " data-nav-id="/about/migrate/">
+              <a href="/about/migrate/">
+                <span>Migration     </i></span>
               </a>
             </li>
           
@@ -550,9 +550,9 @@
 
 
 
-<p>Stream Transport is not actually a transport, it processes input data and returns you the generated RFC822 email message either as a stream or a Buffer. Additionally you can define which kind of newlines to use, either the &lsquo;windows&rsquo; style (&lt;CR&gt;&lt;LF&gt;) or the &lsquo;unix&rsquo; style (&lt;LF&gt;). This transport is mostly useful for testing and also for scenarios where you want to use Nodemailer PRO plugins to process the message and do the actual delivery by some other means.</p>
+<p>Stream Transport is not actually a transport, it processes input data and returns you the generated RFC822 email message either as a stream or a Buffer. Additionally you can define which kind of newlines to use, either the &lsquo;windows&rsquo; style (&lt;CR&gt;&lt;LF&gt;) or the &lsquo;unix&rsquo; style (&lt;LF&gt;). This transport is mostly useful for testing and also for scenarios where you want to use Nodemailer plugins to process the message and do the actual delivery by some other means.</p>
 
-<p>To use Stream Transport, set <strong>streamTransport</strong> in Nodemailer PRO transport options to <em>true</em> in Nodemailer PRO options. If you want the transport to return buffers instead of streams, set <strong>buffer</strong> option to <em>true</em>. For newline selection use <strong>newline</strong> property (defaults to &lsquo;unix&rsquo;)</p>
+<p>To use Stream Transport, set <strong>streamTransport</strong> in Nodemailer transport options to <em>true</em> in Nodemailer options. If you want the transport to return buffers instead of streams, set <strong>buffer</strong> option to <em>true</em>. For newline selection use <strong>newline</strong> property (defaults to &lsquo;unix&rsquo;)</p>
 
 <p>The <strong>info</strong> argument for <strong>sendMail()</strong> callback includes the following properties:</p>
 

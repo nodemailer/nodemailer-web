@@ -12,7 +12,7 @@ Even though Gmail is the fastest way to get started with sending emails, it is b
 
 Additionally Gmail has came up with the concept of ["Less Secure"](https://support.google.com/accounts/answer/6010255?hl=en) apps which is basically anyone who uses plain password to login to Gmail, so you might end up in a situation where one username can send mail (support for "less secure" apps is enabled) but other is blocked (support for "less secure" apps is disabled). You can configure your Gmail account to allow less secure apps [here](https://www.google.com/settings/security/lesssecureapps). When using this method make sure to also enable the required functionality by completing the ["Captcha Enable"](https://accounts.google.com/b/0/displayunlockcaptcha) challenge. Without this, less secure connections probably would not work.
 
-If you are using 2FA you would have to create an ["Application Specific"](https://security.google.com/settings/security/apppasswords) password for Nodemailer PRO to work.
+If you are using 2FA you would have to create an ["Application Specific"](https://security.google.com/settings/security/apppasswords) password for Nodemailer to work.
 
 Gmail also always sets authenticated username as the *From:* email address. So if you authenticate as *foo@example.com* and set *bar@example.com* as the *from:* address, then Gmail reverts this and replaces the sender with the authenticated user.
 

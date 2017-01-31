@@ -11,7 +11,7 @@ toc = true
 
 # SMTP transport
 
-SMTP is the main transport in Nodemailer PRO for delivering messages. SMTP is also the protocol used between different email hosts, so its truly universal. Almost every email delivery provider supports SMTP based sending, even if they mainly push their API based sending. APIs might have more features but using these also means vendor lock-in while in case of SMTP you only need to change the configuration options to replace one provider with another and you're good to go.
+SMTP is the main transport in Nodemailer for delivering messages. SMTP is also the protocol used between different email hosts, so its truly universal. Almost every email delivery provider supports SMTP based sending, even if they mainly push their API based sending. APIs might have more features but using these also means vendor lock-in while in case of SMTP you only need to change the configuration options to replace one provider with another and you're good to go.
 
 ```javascript
 let transporter = nodemailer.createTransport(options[, defaults])
@@ -41,7 +41,7 @@ let poolConfig = 'smtps://user%40gmail.com:pass@smtp.gmail.com/?pool=true';
   - **secure** – if *true* the connection will use TLS when connecting to server. If *false* (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to *true* if you are connecting to port 465. For port 587 or 25 keep it *false*
   - **tls** – defines additional [node.js TLSSocket options](https://nodejs.org/api/tls.html#tls_class_tls_tlssocket) to be passed to the socket constructor, eg. _{rejectUnauthorized: true}_.
   - **ignoreTLS** – if this is *true* and *secure* is false then TLS is not used even if the server supports STARTTLS extension
-  - **requireTLS** – if this is *true* and *secure* is false then Nodemailer PRO tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent
+  - **requireTLS** – if this is *true* and *secure* is false then Nodemailer tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent
 
 {{% notice note %}}
 Setting **secure** to **false** does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via [STARTTLS](https://tools.ietf.org/html/rfc3207#section-2) command but to use this you have to connect using plaintext first
@@ -71,7 +71,7 @@ Setting **secure** to **false** does not mean that you would not use an encrypte
 
 ##### Proxy options
 
-  - **proxy** – all SMTP based transports allow to use proxies for making TCP connections to servers. Read about proxy support in Nodemailer PRO from [here](/smtp/proxies/)
+  - **proxy** – all SMTP based transports allow to use proxies for making TCP connections to servers. Read about proxy support in Nodemailer from [here](/smtp/proxies/)
 
 ### Examples {#examples}
 

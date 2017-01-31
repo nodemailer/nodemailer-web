@@ -85,7 +85,7 @@ var message = {
 ```
 
 {{% notice info %}}
-**Memory leak warning!** When using readable streams as content and sending fails then Nodemailer PRO does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer PRO only closes the streams it has opened itself (eg. file paths, URLs)
+**Memory leak warning!** When using readable streams as content and sending fails then Nodemailer does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer only closes the streams it has opened itself (eg. file paths, URLs)
 {{% /notice %}}
 
 ```javascript

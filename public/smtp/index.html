@@ -96,7 +96,7 @@
             
               <b>1. </b>
             
-             Nodemailer PRO
+             Nodemailer
             
            </span>
         </a>
@@ -106,9 +106,9 @@
           
           
           
-            <li class="dd-item " data-nav-id="/about/why/">
-              <a href="/about/why/">
-                <span>Why PRO?     </i></span>
+            <li class="dd-item " data-nav-id="/about/migrate/">
+              <a href="/about/migrate/">
+                <span>Migration     </i></span>
               </a>
             </li>
           
@@ -567,7 +567,7 @@
 
 <h1 id="smtp-transport">SMTP transport</h1>
 
-<p>SMTP is the main transport in Nodemailer PRO for delivering messages. SMTP is also the protocol used between different email hosts, so its truly universal. Almost every email delivery provider supports SMTP based sending, even if they mainly push their API based sending. APIs might have more features but using these also means vendor lock-in while in case of SMTP you only need to change the configuration options to replace one provider with another and you&rsquo;re good to go.</p>
+<p>SMTP is the main transport in Nodemailer for delivering messages. SMTP is also the protocol used between different email hosts, so its truly universal. Almost every email delivery provider supports SMTP based sending, even if they mainly push their API based sending. APIs might have more features but using these also means vendor lock-in while in case of SMTP you only need to change the configuration options to replace one provider with another and you&rsquo;re good to go.</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport(options[, defaults])
 </code></pre>
@@ -600,7 +600,7 @@
 <li><strong>secure</strong> – if <em>true</em> the connection will use TLS when connecting to server. If <em>false</em> (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to <em>true</em> if you are connecting to port 465. For port 587 or 25 keep it <em>false</em></li>
 <li><strong>tls</strong> – defines additional <a href="https://nodejs.org/api/tls.html#tls_class_tls_tlssocket">node.js TLSSocket options</a> to be passed to the socket constructor, eg. <em>{rejectUnauthorized: true}</em>.</li>
 <li><strong>ignoreTLS</strong> – if this is <em>true</em> and <em>secure</em> is false then TLS is not used even if the server supports STARTTLS extension</li>
-<li><strong>requireTLS</strong> – if this is <em>true</em> and <em>secure</em> is false then Nodemailer PRO tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent</li>
+<li><strong>requireTLS</strong> – if this is <em>true</em> and <em>secure</em> is false then Nodemailer tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent</li>
 </ul>
 
 <div class="notices note" ><p>Setting <strong>secure</strong> to <strong>false</strong> does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via <a href="https://tools.ietf.org/html/rfc3207#section-2">STARTTLS</a> command but to use this you have to connect using plaintext first</p>
@@ -640,7 +640,7 @@
 <h5 id="proxy-options">Proxy options</h5>
 
 <ul>
-<li><strong>proxy</strong> – all SMTP based transports allow to use proxies for making TCP connections to servers. Read about proxy support in Nodemailer PRO from <a href="/smtp/proxies/">here</a></li>
+<li><strong>proxy</strong> – all SMTP based transports allow to use proxies for making TCP connections to servers. Read about proxy support in Nodemailer from <a href="/smtp/proxies/">here</a></li>
 </ul>
 
 <h3 id="examples">Examples</h3>

@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     
-    <title>Nodemailer PRO</title>
+    <title>Nodemailer</title>
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -96,7 +96,7 @@
             
               <b>1. </b>
             
-             Nodemailer PRO
+             Nodemailer
             
            </span>
         </a>
@@ -106,9 +106,9 @@
           
           
           
-            <li class="dd-item " data-nav-id="/about/why/">
-              <a href="/about/why/">
-                <span>Why PRO?     </i></span>
+            <li class="dd-item " data-nav-id="/about/migrate/">
+              <a href="/about/migrate/">
+                <span>Migration     </i></span>
               </a>
             </li>
           
@@ -514,18 +514,18 @@
                 
                   
                 
-                <span itemprop="title"> Nodemailer PRO</span>
+                <span itemprop="title"> Nodemailer</span>
               </div>
               
                   <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#nodemailer-pro">Nodemailer PRO</a>
+<li><a href="#nodemailer">Nodemailer</a>
 <ul>
 <li>
 <ul>
-<li><a href="#nodemailer-pro-features">Nodemailer PRO features</a>
+<li><a href="#nodemailer-features">Nodemailer features</a>
 <ul>
 <li><a href="#requirements">Requirements</a></li>
 <li><a href="#tl-dr">TL;DR</a>
@@ -552,22 +552,28 @@
 
 
 
-<h1 id="nodemailer-pro">Nodemailer PRO</h1>
+<h1 id="nodemailer">Nodemailer</h1>
 
-<p>The <a href="https://community.nodemailer.com/">community version</a> of <strong>Nodemailer</strong> is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.</p>
+<p><strong>Nodemailer</strong> is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.</p>
 
-<p><strong>Nodemailer PRO</strong> (<a href="/about/why/">why PRO?</a>) is an upgrade of Nodemailer. Unlike Nodemailer which is licensed under MIT, Nodemailer PRO is licensed under restrictive CC license. See license details in the <a href="/about/license/">License page</a>.</p>
+<p>The current version of Nodemailer v3+ is licensed under EUPL-v1.1 license. Commercial license availbale. See license details in the <a href="/about/license/">License page</a>.</p>
 
-<pre><code class="language-bash">npm install @nodemailer/pro
+<div class="notices info" ><p>To support the development of Nodemailer and keep it open source you can either donate using <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=DB26KWR2BQX5W">PayPal</a> or if you want to support with Bitcoins, then my wallet address is <code>15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM</code></p>
+</div>
+
+
+<p>If you do not want to upgrade from the MIT licensed Nodemailer 2 then you can see the old docs <a href="https://community.nodemailer.com/">here</a> otherwise see the light migration guide <a href="/about/migrate">here</a>.</p>
+
+<pre><code class="language-bash">npm install nodemailer
 </code></pre>
 
-<h3 id="nodemailer-pro-features">Nodemailer PRO features</h3>
+<h3 id="nodemailer-features">Nodemailer features</h3>
 
 <ul>
 <li>A single module with <strong>zero dependencies</strong> – code is easily auditable, as there are no dark corners</li>
 <li>Heavy focus on <strong>security</strong>, no-one likes <a href="http://thehackernews.com/2017/01/phpmailer-swiftmailer-zendmail.html">RCE vulnerabilities</a></li>
 <li><strong>Unicode support</strong> to use any characters, including emoji 💪</li>
-<li><strong>Windows support</strong> – you can install it with <a href="https://www.npmjs.com/package/@nodemailer/pro">npm</a> on Windows just like any other module, there are no compiled dependencies. Use it hassle free from Azure or from your Windows box</li>
+<li><strong>Windows support</strong> – you can install it with <a href="https://www.npmjs.com/package/nodemailer">npm</a> on Windows just like any other module, there are no compiled dependencies. Use it hassle free from Azure or from your Windows box</li>
 <li>Use <strong>HTML content</strong>, as well as <strong>plain text</strong> alternative</li>
 <li>Add <strong><a href="/message/attachments/">Attachments</a></strong> to messages</li>
 <li><strong><a href="/message/embedded-images/">Embedded</a></strong> image attachments for HTML content – your design does not get blocked</li>
@@ -593,7 +599,7 @@
 <p>In short, what you need to do to send messages, would be the following:</p>
 
 <ol>
-<li>Create a Nodemailer PRO transporter using either <a href="/smtp/">SMTP</a> or <a href="/transports/">some other</a> transport mechanism</li>
+<li>Create a Nodemailer transporter using either <a href="/smtp/">SMTP</a> or <a href="/transports/">some other</a> transport mechanism</li>
 <li>Set up <a href="/message/">message options</a> (who sends what to whom)</li>
 <li>Deliver the message object using the <strong>sendMail()</strong> method of your previously created transporter</li>
 </ol>
@@ -602,7 +608,7 @@
 
 <p>This is a complete example to send an email with plain text and HTML body</p>
 
-<pre><code class="language-javascript">const nodemailer = require('@nodemailer/pro');
+<pre><code class="language-javascript">const nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport
 let transporter = nodemailer.createTransport({
@@ -638,13 +644,13 @@ transporter.sendMail(mailOptions, (error, info) {
 <h3 id="sources">Sources</h3>
 
 <ul>
-<li><strong>Nodemailer PRO</strong> source code is available <a href="https://gitlab.com/nodemailer/nodemailer-pro">on Gitlab</a></li>
+<li><strong>Nodemailer</strong> source code is available <a href="https://gitlab.com/nodemailer/nodemailer-pro">on Gitlab</a></li>
 <li><strong>Mailparser2</strong> source code is available <a href="https://gitlab.com/nodemailer/mailparser2">on Gitlab</a></li>
 </ul>
 
 <hr />
 
-<p>Nodemailer and Nodemailer PRO are created by <a href="https://github.com/andris9">Andris Reinman</a>. The Nodemailer logo was designed by <a href="https://www.behance.net/kristjansen">Sven Kristjansen</a>.</p>
+<p>Nodemailer and Nodemailer are created by <a href="https://github.com/andris9">Andris Reinman</a>. The Nodemailer logo was designed by <a href="https://www.behance.net/kristjansen">Sven Kristjansen</a>.</p>
 
 
       
@@ -656,7 +662,7 @@ transporter.sendMail(mailOptions, (error, info) {
     <div id="navigation">
         
         
-        <a class="nav nav-next" href="/about/why/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-next" href="/about/migrate/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
     </div>
 
     </section>

@@ -99,7 +99,7 @@
 };
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;&lt;strong&gt;Memory leak warning!&lt;/strong&gt; When using readable streams as content and sending fails then Nodemailer PRO does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer PRO only closes the streams it has opened itself (eg. file paths, URLs)&lt;/p&gt;
+&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;&lt;strong&gt;Memory leak warning!&lt;/strong&gt; When using readable streams as content and sending fails then Nodemailer does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer only closes the streams it has opened itself (eg. file paths, URLs)&lt;/p&gt;
 &lt;/div&gt;
 
 
@@ -290,7 +290,7 @@ bcc: [
       <guid>https://nodemailer.com/message/calendar-events/</guid>
       <description>
 
-&lt;p&gt;Calendar events are tricky because different email clients handle these differently. Nodemailer PRO uses the same style as Gmail for attaching calendar files which should ensure maximum compatibility. If you want to attach a calendar event to your email then you can use the message option &lt;strong&gt;icalEvent&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Calendar events are tricky because different email clients handle these differently. Nodemailer uses the same style as Gmail for attaching calendar files which should ensure maximum compatibility. If you want to attach a calendar event to your email then you can use the message option &lt;strong&gt;icalEvent&lt;/strong&gt;:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;icalEvent&lt;/strong&gt; – an object to define calendar event&lt;/p&gt;
@@ -298,7 +298,7 @@ bcc: [
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;method&lt;/strong&gt; – optional method, case insensitive, defaults to &lt;em&gt;&amp;lsquo;publish&amp;rsquo;&lt;/em&gt;. Other possible values would be &lt;em&gt;&amp;lsquo;request&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;reply&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;cancel&amp;rsquo;&lt;/em&gt; or any other valid calendar method listed in &lt;a href=&#34;https://tools.ietf.org/html/rfc5546#section-1.4&#34;&gt;RFC5546&lt;/a&gt;. This should match the &lt;strong&gt;METHOD:&lt;/strong&gt; value in calendar event file.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;filename&lt;/strong&gt; – optional filename, defaults to &lt;em&gt;&amp;lsquo;invite.ics&amp;rsquo;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt; – is the event file, it can be a string, a buffer, a stream, a file path (&lt;em&gt;content:{path:&amp;lsquo;&amp;hellip;&amp;rsquo;}&lt;/em&gt;) or even an URL (&lt;em&gt;content:{href:&amp;lsquo;&amp;hellip;&amp;rsquo;}&lt;/em&gt;). You can use modules like &lt;a href=&#34;https://www.npmjs.com/package/ical-generator&#34;&gt;ical-generator&lt;/a&gt; to generate the actual calendar file content, Nodemailer PRO acts as a transport layer only and does not generate the event file structure.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt; – is the event file, it can be a string, a buffer, a stream, a file path (&lt;em&gt;content:{path:&amp;lsquo;&amp;hellip;&amp;rsquo;}&lt;/em&gt;) or even an URL (&lt;em&gt;content:{href:&amp;lsquo;&amp;hellip;&amp;rsquo;}&lt;/em&gt;). You can use modules like &lt;a href=&#34;https://www.npmjs.com/package/ical-generator&#34;&gt;ical-generator&lt;/a&gt; to generate the actual calendar file content, Nodemailer acts as a transport layer only and does not generate the event file structure.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -400,7 +400,7 @@ let message = {
       <guid>https://nodemailer.com/message/list-headers/</guid>
       <description>
 
-&lt;p&gt;Nodemailer PRO includes a helper for setting more complex &lt;em&gt;List-*&lt;/em&gt; headers with ease. You can use this by providing message option &lt;strong&gt;list&lt;/strong&gt;. It&amp;rsquo;s an object where key names are converted into list headers. List key &lt;em&gt;help&lt;/em&gt; becomes &lt;em&gt;List-Help&lt;/em&gt; header etc.&lt;/p&gt;
+&lt;p&gt;Nodemailer includes a helper for setting more complex &lt;em&gt;List-*&lt;/em&gt; headers with ease. You can use this by providing message option &lt;strong&gt;list&lt;/strong&gt;. It&amp;rsquo;s an object where key names are converted into list headers. List key &lt;em&gt;help&lt;/em&gt; becomes &lt;em&gt;List-Help&lt;/em&gt; header etc.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;General rules&lt;/strong&gt;&lt;/p&gt;
 
@@ -535,7 +535,7 @@ let message = {
       <guid>https://nodemailer.com/message/custom-source/</guid>
       <description>
 
-&lt;p&gt;If you want to use your own custom generated RFC822 formatted message source, instead of letting Nodemailer PRO to generate it from the message options, use option &lt;strong&gt;raw&lt;/strong&gt;. This can be used both for the entire message or alternatively per-attachment or per-alternative.&lt;/p&gt;
+&lt;p&gt;If you want to use your own custom generated RFC822 formatted message source, instead of letting Nodemailer to generate it from the message options, use option &lt;strong&gt;raw&lt;/strong&gt;. This can be used both for the entire message or alternatively per-attachment or per-alternative.&lt;/p&gt;
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;Don&amp;rsquo;t forget to set the &lt;strong&gt;envelope&lt;/strong&gt; option when using &lt;strong&gt;raw&lt;/strong&gt; as the message source&lt;/p&gt;
 &lt;/div&gt;
@@ -577,7 +577,7 @@ Hello world!`
 
 &lt;h4 id=&#34;3-set-string-as-attachment-body&#34;&gt;3. Set string as attachment body&lt;/h4&gt;
 
-&lt;p&gt;When using &lt;strong&gt;raw&lt;/strong&gt; for attachments then you need to provide all content headers youself, Nodemailer PRO does not process it in any way (besides newline processing), it is inserted into the MIME tree as is.&lt;/p&gt;
+&lt;p&gt;When using &lt;strong&gt;raw&lt;/strong&gt; for attachments then you need to provide all content headers youself, Nodemailer does not process it in any way (besides newline processing), it is inserted into the MIME tree as is.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
     from: &#39;sender@example.com&#39;,

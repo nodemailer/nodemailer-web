@@ -96,7 +96,7 @@
             
               <b>1. </b>
             
-             Nodemailer PRO
+             Nodemailer
             
            </span>
         </a>
@@ -106,9 +106,9 @@
           
           
           
-            <li class="dd-item " data-nav-id="/about/why/">
-              <a href="/about/why/">
-                <span>Why PRO?     </i></span>
+            <li class="dd-item " data-nav-id="/about/migrate/">
+              <a href="/about/migrate/">
+                <span>Migration     </i></span>
               </a>
             </li>
           
@@ -542,7 +542,7 @@
 
 <p>What PHP&rsquo;s <strong>mail()</strong> call actually does is that it passes your mail data to sendmail&rsquo;s <em>stdin</em> and thats it, no magic involved. <em>sendmail</em> does all the heavy lifting of queueing your message and trying to send it to the recipients&rsquo; MX mail server.</p>
 
-<p>In fact you can achieve the exact same behavior in Nodemailer PRO as well by using the <a href="/transports/sendmail/">sendmail transport</a>. The difference being that in case of PHP the sendmail configuration resides in <em>php.ini</em> but in case of Node.js the sendmail configuration is part of Nodemailer PRO setup.</p>
+<p>In fact you can achieve the exact same behavior in Nodemailer as well by using the <a href="/transports/sendmail/">sendmail transport</a>. The difference being that in case of PHP the sendmail configuration resides in <em>php.ini</em> but in case of Node.js the sendmail configuration is part of Nodemailer setup.</p>
 
 <p>Unfortunately this might not always work – as it was already said, the stack for Node.js is thin and this means that <em>sendmail</em> might not have been installed to the server your application is running on. This is why it is better to rely on an actual SMTP service that is always accessible.</p>
 

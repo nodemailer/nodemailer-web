@@ -13,10 +13,10 @@ toc = true
 
 ## Setting it up
 
-Install Nodemailer PRO from [npm](https://www.npmjs.com/package/@nodemailer/pro)
+Install Nodemailer from [npm](https://www.npmjs.com/package/nodemailer)
 
 ```bash
-npm install @nodemailer/pro
+npm install nodemailer
 ```
 
 To send emails you need a transporter object
@@ -68,4 +68,4 @@ Where
 If the message includes several recipients then the message is considered sent if at least one recipient is accepted
 {{% /notice %}}
 
-If `callback` argument is not set then the method returns a Promise object. Nodemailer PRO itself does not use Promises internally but it wraps the return into a Promise for convenience.
+If `callback` argument is not set then the method returns a Promise object. Nodemailer itself does not use Promises internally but it wraps the return into a Promise for convenience.

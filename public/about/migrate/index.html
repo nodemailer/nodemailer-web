@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     
-    <title>License</title>
+    <title>Migration</title>
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -28,7 +28,7 @@
     
 
   </head>
-  <body class="" data-url="/about/license/">
+  <body class="" data-url="/about/migrate/">
     <nav id="sidebar">
   <div id="header-wrapper">
     <div id="header">
@@ -106,7 +106,7 @@
           
           
           
-            <li class="dd-item " data-nav-id="/about/migrate/">
+            <li class="dd-item active" data-nav-id="/about/migrate/">
               <a href="/about/migrate/">
                 <span>Migration     </i></span>
               </a>
@@ -114,7 +114,7 @@
           
           
           
-            <li class="dd-item active" data-nav-id="/about/license/">
+            <li class="dd-item " data-nav-id="/about/license/">
               <a href="/about/license/">
                 <span>License     </i></span>
               </a>
@@ -516,7 +516,7 @@
                 
                   
                 
-                <span itemprop="title"> License</span>
+                <span itemprop="title"> Migration</span>
               </div>
               
                   <div class="progress">
@@ -531,12 +531,22 @@
             
     	        <div id="body-inner">
                 
-                <h1>License</h1>
+                <h1>Migration</h1>
                 
 
-<p>Nodemailer v3+ is licensed under the <a href="http://ec.europa.eu/idabc/eupl.html">European Union Public License 1.1</a>. Previous versions of Nodemailer are licensed under the MIT license.</p>
+<p>Nodemailer v3 has dropped some features that were available in Nodemailer v2 and also introduced some new ones.</p>
 
-<p>Commercial license (see <a href="/COMM-LICENSE">COMM-LICENSE</a>) is available upon request, see <a href="/about/pricing">Pricing</a>.</p>
+<ul>
+<li>All <strong>dependencies were dropped</strong>. There is exactly 0 dependencies needed to use Nodemailer. This brings the installation time of Nodemailer from NPM to less than 2 seconds</li>
+<li>All <strong>templating is gone</strong>. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template sytaxes</li>
+<li>No <strong>NTLM authentication</strong>. It was too difficult to re-implement. If you still need it then it would be possible to introduce a pluggable SASL interface where you could load the ntlm module in your own code and pass it to Nodemailer. Currently this is not possible.</li>
+<li><strong>OAuth2 authentication</strong> is built in and has a different <a href="/smtp/oauth2/">configuration</a>. You can use both user (3LO) and service (2LO) accounts to generate access tokens from Nodemailer. Additionally there&rsquo;s a new feature to authenticate differently for every message – useful if your application sends on behalf of different users instead of a single sender.</li>
+<li><strong>Delivery status notifications</strong> added to Nodemailer</li>
+<li>Improved <strong>DKIM</strong> signing of messages. Previously you needed an external module for this and it did quite a lousy job with larger messages</li>
+<li><strong>Stream transport</strong> to return a RFC822 formatted message as a stream. Useful if you want to use Nodemailer as a preprocessor and not for actual delivery.</li>
+<li><strong>Sendmail</strong> transport built-in, no need for external transport plugin</li>
+<li><strong>Improved Calendaring</strong>. Provide an ical file to Nodemailer to send out <a href="/message/calendar-events/">calendar events</a>.</li>
+</ul>
 
 
       
@@ -545,8 +555,8 @@
 
     <div id="navigation">
         
-        <a class="nav nav-prev" href="/about/migrate/"> <i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/about/pricing/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="/about/"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/about/license/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
     </div>
 
     </section>

@@ -19,7 +19,7 @@
 
 &lt;h1 id=&#34;plugins&#34;&gt;Plugins&lt;/h1&gt;
 
-&lt;p&gt;Nodemailer PRO can be extended with plugins. In most cases there are 3 different kind of plugins.&lt;/p&gt;
+&lt;p&gt;Nodemailer can be extended with plugins. In most cases there are 3 different kind of plugins.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Plugins that operate on the mail object (for example extend it or change existing values). This is the pre-processing step&lt;/li&gt;
@@ -81,12 +81,12 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;data&lt;/strong&gt; is the mail data object that is passed to the &lt;strong&gt;sendMail()&lt;/strong&gt; method&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;message&lt;/strong&gt; is the MimeNode object of the message. This is available for the &amp;lsquo;stream&amp;rsquo; step and for the transport but not for &amp;lsquo;compile&amp;rsquo;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;resolveContent&lt;/strong&gt; is a helper function for converting Nodemailer PRO compatible stream objects into Strings or Buffers&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;resolveContent&lt;/strong&gt; is a helper function for converting Nodemailer compatible stream objects into Strings or Buffers&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;resolvecontent&#34;&gt;resolveContent()&lt;/h3&gt;
 
-&lt;p&gt;If your plugin needs to get the full value of a param, for example the String value for the &lt;strong&gt;html&lt;/strong&gt; content, you can use &lt;strong&gt;resolveContent()&lt;/strong&gt; to convert Nodemailer PRO compatible content objects to Strings or Buffers.&lt;/p&gt;
+&lt;p&gt;If your plugin needs to get the full value of a param, for example the String value for the &lt;strong&gt;html&lt;/strong&gt; content, you can use &lt;strong&gt;resolveContent()&lt;/strong&gt; to convert Nodemailer compatible content objects to Strings or Buffers.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;mail.resolveContent(obj, key, callback)
 &lt;/code&gt;&lt;/pre&gt;
@@ -232,7 +232,7 @@ transporter.use(&#39;stream&#39;, (mail, callback) =&amp;gt; {
 
 &lt;p&gt;Callback function should return an &lt;strong&gt;info&lt;/strong&gt; object as the second argument. This info object should contain and &lt;strong&gt;envelope&lt;/strong&gt; object with envelope data and a &lt;strong&gt;messageId&lt;/strong&gt; value with the Message-Id header (including the surrounding &amp;lt; &amp;amp; &amp;gt; brackets),&lt;/p&gt;
 
-&lt;p&gt;The following example pipes the raw stream from Nodemailer PRO to the console.&lt;/p&gt;
+&lt;p&gt;The following example pipes the raw stream from Nodemailer to the console.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transport.send = (mail, callback) =&amp;gt; {
     let input = mail.message.createReadStream();

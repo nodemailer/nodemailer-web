@@ -19,7 +19,7 @@
 
 &lt;h1 id=&#34;smtp-transport&#34;&gt;SMTP transport&lt;/h1&gt;
 
-&lt;p&gt;SMTP is the main transport in Nodemailer PRO for delivering messages. SMTP is also the protocol used between different email hosts, so its truly universal. Almost every email delivery provider supports SMTP based sending, even if they mainly push their API based sending. APIs might have more features but using these also means vendor lock-in while in case of SMTP you only need to change the configuration options to replace one provider with another and you&amp;rsquo;re good to go.&lt;/p&gt;
+&lt;p&gt;SMTP is the main transport in Nodemailer for delivering messages. SMTP is also the protocol used between different email hosts, so its truly universal. Almost every email delivery provider supports SMTP based sending, even if they mainly push their API based sending. APIs might have more features but using these also means vendor lock-in while in case of SMTP you only need to change the configuration options to replace one provider with another and you&amp;rsquo;re good to go.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport(options[, defaults])
 &lt;/code&gt;&lt;/pre&gt;
@@ -52,7 +52,7 @@
 &lt;li&gt;&lt;strong&gt;secure&lt;/strong&gt; – if &lt;em&gt;true&lt;/em&gt; the connection will use TLS when connecting to server. If &lt;em&gt;false&lt;/em&gt; (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to &lt;em&gt;true&lt;/em&gt; if you are connecting to port 465. For port 587 or 25 keep it &lt;em&gt;false&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;tls&lt;/strong&gt; – defines additional &lt;a href=&#34;https://nodejs.org/api/tls.html#tls_class_tls_tlssocket&#34;&gt;node.js TLSSocket options&lt;/a&gt; to be passed to the socket constructor, eg. &lt;em&gt;{rejectUnauthorized: true}&lt;/em&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;ignoreTLS&lt;/strong&gt; – if this is &lt;em&gt;true&lt;/em&gt; and &lt;em&gt;secure&lt;/em&gt; is false then TLS is not used even if the server supports STARTTLS extension&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;requireTLS&lt;/strong&gt; – if this is &lt;em&gt;true&lt;/em&gt; and &lt;em&gt;secure&lt;/em&gt; is false then Nodemailer PRO tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;requireTLS&lt;/strong&gt; – if this is &lt;em&gt;true&lt;/em&gt; and &lt;em&gt;secure&lt;/em&gt; is false then Nodemailer tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;Setting &lt;strong&gt;secure&lt;/strong&gt; to &lt;strong&gt;false&lt;/strong&gt; does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via &lt;a href=&#34;https://tools.ietf.org/html/rfc3207#section-2&#34;&gt;STARTTLS&lt;/a&gt; command but to use this you have to connect using plaintext first&lt;/p&gt;
@@ -92,7 +92,7 @@
 &lt;h5 id=&#34;proxy-options&#34;&gt;Proxy options&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;proxy&lt;/strong&gt; – all SMTP based transports allow to use proxies for making TCP connections to servers. Read about proxy support in Nodemailer PRO from &lt;a href=&#34;https://nodemailer.com/smtp/proxies/&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;proxy&lt;/strong&gt; – all SMTP based transports allow to use proxies for making TCP connections to servers. Read about proxy support in Nodemailer from &lt;a href=&#34;https://nodemailer.com/smtp/proxies/&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
@@ -227,7 +227,7 @@ transporter.verify(function(error, success) {
       <guid>https://nodemailer.com/smtp/pooled/</guid>
       <description>
 
-&lt;p&gt;If pooling is used then Nodemailer PRO keeps a fixed amount of connections open and sends the next message once a connection becomes available. It is mostly useful when you have a large number of messages that you want to send in batches or your provider allows you to only use a small amount of parallel connections.&lt;/p&gt;
+&lt;p&gt;If pooling is used then Nodemailer keeps a fixed amount of connections open and sends the next message once a connection becomes available. It is mostly useful when you have a large number of messages that you want to send in batches or your provider allows you to only use a small amount of parallel connections.&lt;/p&gt;
 
 &lt;p&gt;To use pooled connections use the following options in transport configuration&lt;/p&gt;
 
@@ -279,9 +279,9 @@ transporter.on(&#39;idle&#39;, function(){
       <guid>https://nodemailer.com/smtp/oauth2/</guid>
       <description>
 
-&lt;p&gt;OAuth2 allows your application to store and use authentication tokens instead of actual login credentials. This is great for security as tokens or valid only for specific actions and can be easily revoked thus, once stolen, can&amp;rsquo;t to as much harm as actual account credentials. OAuth2 authentication in Nodemailer PRO is mostly used with Gmail and G Suite (&lt;em&gt;née&lt;/em&gt; Google Apps) even though there are other providers that support it as well.&lt;/p&gt;
+&lt;p&gt;OAuth2 allows your application to store and use authentication tokens instead of actual login credentials. This is great for security as tokens or valid only for specific actions and can be easily revoked thus, once stolen, can&amp;rsquo;t to as much harm as actual account credentials. OAuth2 authentication in Nodemailer is mostly used with Gmail and G Suite (&lt;em&gt;née&lt;/em&gt; Google Apps) even though there are other providers that support it as well.&lt;/p&gt;
 
-&lt;p&gt;Access Tokens needed for OAuth2 authentication are short lived so these need to be regenerated from time to time. Nodemailer PRO is able to use both &lt;a href=&#34;https://developers.google.com/identity/protocols/OAuth2&#34;&gt;3LO&lt;/a&gt; and &lt;a href=&#34;https://developers.google.com/api-client-library/php/auth/service-accounts&#34;&gt;2LO&lt;/a&gt; to automatically regenerate the tokens but you can also handle all token specific yourself.&lt;/p&gt;
+&lt;p&gt;Access Tokens needed for OAuth2 authentication are short lived so these need to be regenerated from time to time. Nodemailer is able to use both &lt;a href=&#34;https://developers.google.com/identity/protocols/OAuth2&#34;&gt;3LO&lt;/a&gt; and &lt;a href=&#34;https://developers.google.com/api-client-library/php/auth/service-accounts&#34;&gt;2LO&lt;/a&gt; to automatically regenerate the tokens but you can also handle all token specific yourself.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;#oauth-3lo&#34;&gt;Normal OAuth2 authentication&lt;/a&gt;&lt;/li&gt;
@@ -292,7 +292,7 @@ transporter.on(&#39;idle&#39;, function(){
 &lt;li&gt;&lt;a href=&#34;#troubleshooting&#34;&gt;Troubleshooting&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;Nodemailer PRO requires an &lt;strong&gt;Access Token&lt;/strong&gt; to perform authentication. 3-legged and 2-legged OAuth2 mechanisms are different ways to produce such tokens but in the end it does not matter how a token was exactly generated, as long as it is valid.&lt;/p&gt;
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;Nodemailer requires an &lt;strong&gt;Access Token&lt;/strong&gt; to perform authentication. 3-legged and 2-legged OAuth2 mechanisms are different ways to produce such tokens but in the end it does not matter how a token was exactly generated, as long as it is valid.&lt;/p&gt;
 &lt;/div&gt;
 
 
@@ -308,7 +308,7 @@ transporter.on(&#39;idle&#39;, function(){
 &lt;li&gt;&lt;strong&gt;user&lt;/strong&gt; – user email address (required)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;clientId&lt;/strong&gt; – is the registered client id of the application&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;clientSecret&lt;/strong&gt; – is the registered client secret of the application&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;refreshToken&lt;/strong&gt; – is an optional refresh token. If it is provided then Nodemailer PRO tries to generate a new access token if existing one expires or fails&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;refreshToken&lt;/strong&gt; – is an optional refresh token. If it is provided then Nodemailer tries to generate a new access token if existing one expires or fails&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;accessToken&lt;/strong&gt; – is the access token for the user. Required only if &lt;em&gt;refreshToken&lt;/em&gt; is not available and there is no token refresh callback specified&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;expires&lt;/strong&gt; – is an optional expiration time for the current &lt;em&gt;accessToken&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;accessUrl&lt;/strong&gt; – is an optional HTTP endpoint for requesting new access tokens. This value defaults to Gmail&lt;/li&gt;
@@ -319,7 +319,7 @@ transporter.on(&#39;idle&#39;, function(){
 
 &lt;h3 id=&#34;oauth-2lo&#34;&gt;2LO authentication (service accounts)&lt;/h3&gt;
 
-&lt;p&gt;Nodemailer PRO also allows you to use &lt;a href=&#34;https://developers.google.com/identity/protocols/OAuth2ServiceAccount&#34;&gt;service accounts&lt;/a&gt; to generate access tokens. In this case the required &lt;code&gt;auth&lt;/code&gt; options are a bit different from 3LO auth.&lt;/p&gt;
+&lt;p&gt;Nodemailer also allows you to use &lt;a href=&#34;https://developers.google.com/identity/protocols/OAuth2ServiceAccount&#34;&gt;service accounts&lt;/a&gt; to generate access tokens. In this case the required &lt;code&gt;auth&lt;/code&gt; options are a bit different from 3LO auth.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;auth&lt;/strong&gt; – is the authentication object&lt;/p&gt;
@@ -334,7 +334,7 @@ transporter.on(&#39;idle&#39;, function(){
 
 &lt;h3 id=&#34;custom-handling&#34;&gt;Using custom token handling&lt;/h3&gt;
 
-&lt;p&gt;If you do not want Nodemailer PRO to create new access tokens then you can provide a custom token generation callback that is called every time a new token is needed for an user.&lt;/p&gt;
+&lt;p&gt;If you do not want Nodemailer to create new access tokens then you can provide a custom token generation callback that is called every time a new token is needed for an user.&lt;/p&gt;
 
 &lt;p&gt;The registered function gets the following arguments:&lt;/p&gt;
 
@@ -356,7 +356,7 @@ transporter.on(&#39;idle&#39;, function(){
 
 &lt;h3 id=&#34;update-notification&#34;&gt;Token update notifications&lt;/h3&gt;
 
-&lt;p&gt;If you use &lt;em&gt;refreshToken&lt;/em&gt; or service keys to generate new tokens from Nodemailer PRO when &lt;em&gt;accessToken&lt;/em&gt; is not present or expired then you can listen for the token updates by registering a &amp;lsquo;token&amp;rsquo; event handler for the transporter object.&lt;/p&gt;
+&lt;p&gt;If you use &lt;em&gt;refreshToken&lt;/em&gt; or service keys to generate new tokens from Nodemailer when &lt;em&gt;accessToken&lt;/em&gt; is not present or expired then you can listen for the token updates by registering a &amp;lsquo;token&amp;rsquo; event handler for the transporter object.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transporter.on(&#39;token&#39;, token =&amp;gt; {
     console.log(&#39;A new access token was generated&#39;);
@@ -384,7 +384,7 @@ transporter.on(&#39;idle&#39;, function(){
 
 &lt;h4 id=&#34;example-2&#34;&gt;2. Custom handler&lt;/h4&gt;
 
-&lt;p&gt;This example requests a new &lt;em&gt;accessToken&lt;/em&gt; value from a custom OAuth2 handler. Nodemailer PRO does not attempt to generate the token by itself.&lt;/p&gt;
+&lt;p&gt;This example requests a new &lt;em&gt;accessToken&lt;/em&gt; value from a custom OAuth2 handler. Nodemailer does not attempt to generate the token by itself.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
     service: &#39;Gmail&#39;,
@@ -516,7 +516,7 @@ transporter.sendMail({
       <guid>https://nodemailer.com/smtp/well-known/</guid>
       <description>
 
-&lt;p&gt;Nodemailer PRO knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.&lt;/p&gt;
+&lt;p&gt;Nodemailer knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
      service: &#39;gmail&#39;, // no need to set host or port etc.
@@ -572,7 +572,7 @@ transporter.sendMail({
       <guid>https://nodemailer.com/smtp/proxies/</guid>
       <description>
 
-&lt;p&gt;Nodemailer PRO is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing &lt;a href=&#34;https://www.npmjs.com/package/socks&#34;&gt;socks&lt;/a&gt; module to Nodemailer, other proxies need custom handling.&lt;/p&gt;
+&lt;p&gt;Nodemailer is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing &lt;a href=&#34;https://www.npmjs.com/package/socks&#34;&gt;socks&lt;/a&gt; module to Nodemailer, other proxies need custom handling.&lt;/p&gt;
 
 &lt;p&gt;To enable proxying, define a &lt;strong&gt;proxy&lt;/strong&gt; option for the transporter.&lt;/p&gt;
 
@@ -666,7 +666,7 @@ transporter.set(&#39;proxy_handler_myproxy&#39;, (proxy, options, callback)=&amp
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer PRO from upgrading the provided connection using TLS.&lt;/p&gt;
+&lt;p&gt;If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer from upgrading the provided connection using TLS.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
     service: &#39;Gmail&#39;,
@@ -694,7 +694,7 @@ transporter.set(&#39;proxy_handler_myproxys&#39;, (proxy, options, callback)=&am
       <guid>https://nodemailer.com/smtp/dsn/</guid>
       <description>
 
-&lt;p&gt;If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery status notifications (DSN) with Nodemailer PRO as defined in &lt;a href=&#34;https://tools.ietf.org/html/rfc3461&#34;&gt;RFC3461&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery status notifications (DSN) with Nodemailer as defined in &lt;a href=&#34;https://tools.ietf.org/html/rfc3461&#34;&gt;RFC3461&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;To set up a DSN call, add a dsn property to message data&lt;/p&gt;
 

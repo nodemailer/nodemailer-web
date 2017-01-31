@@ -96,7 +96,7 @@
             
               <b>1. </b>
             
-             Nodemailer PRO
+             Nodemailer
             
            </span>
         </a>
@@ -106,9 +106,9 @@
           
           
           
-            <li class="dd-item " data-nav-id="/about/why/">
-              <a href="/about/why/">
-                <span>Why PRO?     </i></span>
+            <li class="dd-item " data-nav-id="/about/migrate/">
+              <a href="/about/migrate/">
+                <span>Migration     </i></span>
               </a>
             </li>
           
@@ -603,12 +603,12 @@
 <ul>
 <li><strong>data</strong> is the mail data object that is passed to the <strong>sendMail()</strong> method</li>
 <li><strong>message</strong> is the MimeNode object of the message. This is available for the &lsquo;stream&rsquo; step and for the transport but not for &lsquo;compile&rsquo;.</li>
-<li><strong>resolveContent</strong> is a helper function for converting Nodemailer PRO compatible stream objects into Strings or Buffers</li>
+<li><strong>resolveContent</strong> is a helper function for converting Nodemailer compatible stream objects into Strings or Buffers</li>
 </ul>
 
 <h3 id="resolvecontent">resolveContent()</h3>
 
-<p>If your plugin needs to get the full value of a param, for example the String value for the <strong>html</strong> content, you can use <strong>resolveContent()</strong> to convert Nodemailer PRO compatible content objects to Strings or Buffers.</p>
+<p>If your plugin needs to get the full value of a param, for example the String value for the <strong>html</strong> content, you can use <strong>resolveContent()</strong> to convert Nodemailer compatible content objects to Strings or Buffers.</p>
 
 <pre><code class="language-javascript">mail.resolveContent(obj, key, callback)
 </code></pre>
@@ -754,7 +754,7 @@ transporter.use('stream', (mail, callback) =&gt; {
 
 <p>Callback function should return an <strong>info</strong> object as the second argument. This info object should contain and <strong>envelope</strong> object with envelope data and a <strong>messageId</strong> value with the Message-Id header (including the surrounding &lt; &amp; &gt; brackets),</p>
 
-<p>The following example pipes the raw stream from Nodemailer PRO to the console.</p>
+<p>The following example pipes the raw stream from Nodemailer to the console.</p>
 
 <pre><code class="language-javascript">transport.send = (mail, callback) =&gt; {
     let input = mail.message.createReadStream();

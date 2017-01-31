@@ -96,7 +96,7 @@
             
               <b>1. </b>
             
-             Nodemailer PRO
+             Nodemailer
             
            </span>
         </a>
@@ -106,9 +106,9 @@
           
           
           
-            <li class="dd-item " data-nav-id="/about/why/">
-              <a href="/about/why/">
-                <span>Why PRO?     </i></span>
+            <li class="dd-item " data-nav-id="/about/migrate/">
+              <a href="/about/migrate/">
+                <span>Migration     </i></span>
               </a>
             </li>
           
@@ -551,7 +551,7 @@
 
 
 
-<p>Calendar events are tricky because different email clients handle these differently. Nodemailer PRO uses the same style as Gmail for attaching calendar files which should ensure maximum compatibility. If you want to attach a calendar event to your email then you can use the message option <strong>icalEvent</strong>:</p>
+<p>Calendar events are tricky because different email clients handle these differently. Nodemailer uses the same style as Gmail for attaching calendar files which should ensure maximum compatibility. If you want to attach a calendar event to your email then you can use the message option <strong>icalEvent</strong>:</p>
 
 <ul>
 <li><p><strong>icalEvent</strong> – an object to define calendar event</p>
@@ -559,7 +559,7 @@
 <ul>
 <li><strong>method</strong> – optional method, case insensitive, defaults to <em>&lsquo;publish&rsquo;</em>. Other possible values would be <em>&lsquo;request&rsquo;</em>, <em>&lsquo;reply&rsquo;</em>, <em>&lsquo;cancel&rsquo;</em> or any other valid calendar method listed in <a href="https://tools.ietf.org/html/rfc5546#section-1.4">RFC5546</a>. This should match the <strong>METHOD:</strong> value in calendar event file.</li>
 <li><strong>filename</strong> – optional filename, defaults to <em>&lsquo;invite.ics&rsquo;</em></li>
-<li><strong>content</strong> – is the event file, it can be a string, a buffer, a stream, a file path (<em>content:{path:&lsquo;&hellip;&rsquo;}</em>) or even an URL (<em>content:{href:&lsquo;&hellip;&rsquo;}</em>). You can use modules like <a href="https://www.npmjs.com/package/ical-generator">ical-generator</a> to generate the actual calendar file content, Nodemailer PRO acts as a transport layer only and does not generate the event file structure.</li>
+<li><strong>content</strong> – is the event file, it can be a string, a buffer, a stream, a file path (<em>content:{path:&lsquo;&hellip;&rsquo;}</em>) or even an URL (<em>content:{href:&lsquo;&hellip;&rsquo;}</em>). You can use modules like <a href="https://www.npmjs.com/package/ical-generator">ical-generator</a> to generate the actual calendar file content, Nodemailer acts as a transport layer only and does not generate the event file structure.</li>
 </ul></li>
 </ul>
 

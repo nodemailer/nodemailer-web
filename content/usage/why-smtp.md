@@ -16,6 +16,6 @@ Firstly the PHP interpreter itself. Then there's some kind of web server, most p
 
 What PHP's **mail()** call actually does is that it passes your mail data to sendmail's *stdin* and thats it, no magic involved. *sendmail* does all the heavy lifting of queueing your message and trying to send it to the recipients' MX mail server.
 
-In fact you can achieve the exact same behavior in Nodemailer PRO as well by using the [sendmail transport](/transports/sendmail/). The difference being that in case of PHP the sendmail configuration resides in *php.ini* but in case of Node.js the sendmail configuration is part of Nodemailer PRO setup.
+In fact you can achieve the exact same behavior in Nodemailer as well by using the [sendmail transport](/transports/sendmail/). The difference being that in case of PHP the sendmail configuration resides in *php.ini* but in case of Node.js the sendmail configuration is part of Nodemailer setup.
 
 Unfortunately this might not always work – as it was already said, the stack for Node.js is thin and this means that *sendmail* might not have been installed to the server your application is running on. This is why it is better to rely on an actual SMTP service that is always accessible.
