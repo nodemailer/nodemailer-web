@@ -106,10 +106,10 @@ transporter.sendMail(mailOptions, (error, info) {
 &lt;/div&gt;
 
 
-&lt;h3 id=&#34;sources&#34;&gt;Sources&lt;/h3&gt;
+&lt;h1 id=&#34;sources&#34;&gt;Sources&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Nodemailer&lt;/strong&gt; source code is available &lt;a href=&#34;https://gitlab.com/nodemailer/nodemailer-pro&#34;&gt;on Gitlab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nodemailer&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/nodemailer/nodemailer&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Mailparser2&lt;/strong&gt; source code is available &lt;a href=&#34;https://gitlab.com/nodemailer/mailparser2&#34;&gt;on Gitlab&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

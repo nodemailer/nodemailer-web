@@ -95,10 +95,10 @@ transporter.sendMail(mailOptions, (error, info) {
 Using Gmail might or might not work out of the box. See instructions for setting up Gmail SMTP [here](/usage/using-gmail/).
 {{% /notice %}}
 
-### Sources
+# Sources
 
-  * **Nodemailer** source code is available [on Github](https://github.com/nodemailer/nodemailer)
-  * **Mailparser2** source code is available [on Gitlab](https://gitlab.com/nodemailer/mailparser2)
+- **Nodemailer** source code is available [on Github](https://github.com/nodemailer/nodemailer)
+- **Mailparser2** source code is available [on Gitlab](https://gitlab.com/nodemailer/mailparser2)
 
 --------------------------------------------------------------------------------
 
