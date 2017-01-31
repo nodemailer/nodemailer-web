@@ -12,8 +12,6 @@ toc = true
 
 # Nodemailer
 
-<a href="https://gitter.im/nodemailer/nodemailer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"><img src="https://badges.gitter.im/Join Chat.svg" alt="Gitter chat" height="18"></a> <a href="http://travis-ci.org/nodemailer/nodemailer"><img src="https://secure.travis-ci.org/nodemailer/nodemailer.svg" alt="Build Status" height="18"></a> <a href="http://badge.fury.io/js/nodemailer"><img src="https://badge.fury.io/js/nodemailer.svg" alt="NPM version" height="18"></a> <a href="https://www.npmjs.com/package/nodemailer"><img src="https://img.shields.io/npm/dt/nodemailer.svg" alt="NPM downloads" height="18"></a>
-
 **Nodemailer** is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.
 
 The current version of **Nodemailer v3+** is licensed under **EUPL-v1.1 license**. Commercial license availbale. See license details in the [License page](/about/license/).
