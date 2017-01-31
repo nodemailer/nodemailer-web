@@ -14,7 +14,7 @@ toc = true
 
 **Nodemailer** is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.
 
-The current version of Nodemailer v3+ is licensed under EUPL-v1.1 license. Commercial license availbale. See license details in the [License page](/about/license/).
+The current version of **Nodemailer v3+** is licensed under **EUPL-v1.1 license**. Commercial license availbale. See license details in the [License page](/about/license/).
 
 {{% notice info %}}
 To support the development of Nodemailer and keep it open source you can either donate using [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DB26KWR2BQX5W) or if you want to support with Bitcoins, then my wallet address is `15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM`
