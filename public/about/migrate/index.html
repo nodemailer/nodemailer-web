@@ -538,7 +538,7 @@
 
 <ul>
 <li>All <strong>dependencies were dropped</strong>. There is exactly 0 dependencies needed to use Nodemailer. This brings the installation time of Nodemailer from NPM to less than 2 seconds</li>
-<li>All <strong>templating is gone</strong>. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template sytaxes</li>
+<li>All <strong>templating is gone</strong>. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template syntaxes</li>
 <li>No <strong>NTLM authentication</strong>. It was too difficult to re-implement. If you still need it then it would be possible to introduce a pluggable SASL interface where you could load the ntlm module in your own code and pass it to Nodemailer. Currently this is not possible.</li>
 <li><strong>OAuth2 authentication</strong> is built in and has a different <a href="/smtp/oauth2/">configuration</a>. You can use both user (3LO) and service (2LO) accounts to generate access tokens from Nodemailer. Additionally there&rsquo;s a new feature to authenticate differently for every message – useful if your application sends on behalf of different users instead of a single sender.</li>
 <li><strong>Delivery status notifications</strong> added to Nodemailer</li>

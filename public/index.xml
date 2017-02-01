@@ -19,7 +19,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;All &lt;strong&gt;dependencies were dropped&lt;/strong&gt;. There is exactly 0 dependencies needed to use Nodemailer. This brings the installation time of Nodemailer from NPM to less than 2 seconds&lt;/li&gt;
-&lt;li&gt;All &lt;strong&gt;templating is gone&lt;/strong&gt;. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template sytaxes&lt;/li&gt;
+&lt;li&gt;All &lt;strong&gt;templating is gone&lt;/strong&gt;. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template syntaxes&lt;/li&gt;
 &lt;li&gt;No &lt;strong&gt;NTLM authentication&lt;/strong&gt;. It was too difficult to re-implement. If you still need it then it would be possible to introduce a pluggable SASL interface where you could load the ntlm module in your own code and pass it to Nodemailer. Currently this is not possible.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;OAuth2 authentication&lt;/strong&gt; is built in and has a different &lt;a href=&#34;https://nodemailer.com/smtp/oauth2/&#34;&gt;configuration&lt;/a&gt;. You can use both user (3LO) and service (2LO) accounts to generate access tokens from Nodemailer. Additionally there&amp;rsquo;s a new feature to authenticate differently for every message – useful if your application sends on behalf of different users instead of a single sender.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Delivery status notifications&lt;/strong&gt; added to Nodemailer&lt;/li&gt;
@@ -381,7 +381,7 @@ let message = {
     subject: &#39;Appointment&#39;,
     text: &#39;Please see the attached appointment&#39;,
     icalEvent: {
-        method: &#39;REQUEST&#39;,
+        method: &#39;CANCEL&#39;,
         content: {
             href: &#39;http://www.example.com/events?event=123&#39;
         }

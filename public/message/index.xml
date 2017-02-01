@@ -353,7 +353,7 @@ let message = {
     subject: &#39;Appointment&#39;,
     text: &#39;Please see the attached appointment&#39;,
     icalEvent: {
-        method: &#39;REQUEST&#39;,
+        method: &#39;CANCEL&#39;,
         content: {
             href: &#39;http://www.example.com/events?event=123&#39;
         }
