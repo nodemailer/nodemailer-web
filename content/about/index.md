@@ -22,7 +22,7 @@ To support the development of Nodemailer and keep it open source you can either 
 {{% /notice %}}
 -->
 
-If you do not want to upgrade from the MIT licensed Nodemailer 2 then you can see the old docs [here](https://community.nodemailer.com/) otherwise see the light migration guide [here](/about/migrate).
+If you do not want to upgrade from the MIT licensed Nodemailer 2 then you can see the old docs [here](https://community.nodemailer.com/), otherwise see the light migration guide [here](/about/migrate).
 
 ```bash
 npm install nodemailer
@@ -97,7 +97,7 @@ transporter.sendMail(mailOptions, (error, info) {
 Using Gmail might or might not work out of the box. See instructions for setting up Gmail SMTP [here](/usage/using-gmail/).
 {{% /notice %}}
 
-# Sources
+### Source code
 
 - **Nodemailer** source code is available [on Github](https://github.com/nodemailer/nodemailer)
 - **Mailparser** source code is available [on Github](https://github.com/andris9/mailparser)

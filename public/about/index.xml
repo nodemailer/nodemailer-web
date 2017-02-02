@@ -29,7 +29,7 @@
 
 --&gt;
 
-&lt;p&gt;If you do not want to upgrade from the MIT licensed Nodemailer 2 then you can see the old docs &lt;a href=&#34;https://community.nodemailer.com/&#34;&gt;here&lt;/a&gt; otherwise see the light migration guide &lt;a href=&#34;https://nodemailer.com/about/migrate&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you do not want to upgrade from the MIT licensed Nodemailer 2 then you can see the old docs &lt;a href=&#34;https://community.nodemailer.com/&#34;&gt;here&lt;/a&gt;, otherwise see the light migration guide &lt;a href=&#34;https://nodemailer.com/about/migrate&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install nodemailer
 &lt;/code&gt;&lt;/pre&gt;
@@ -108,7 +108,7 @@ transporter.sendMail(mailOptions, (error, info) {
 &lt;/div&gt;
 
 
-&lt;h1 id=&#34;sources&#34;&gt;Sources&lt;/h1&gt;
+&lt;h3 id=&#34;source-code&#34;&gt;Source code&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Nodemailer&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/nodemailer/nodemailer&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
