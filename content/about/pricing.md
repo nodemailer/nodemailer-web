@@ -16,7 +16,7 @@ Payment details are available on the invoice.
 
   * **Unlimited usage** of Nodemailer inside your organization (see applying [license terms](/COMM-LICENSE))
   * Email based **Support**
-  * Bundled **email modules** under the same terms as Nodemailer. For now, this means [Mailparser2](https://www.npmjs.com/package/@nodemailer/mailparser2), additional modules might become available in the future.
+  * Bundled **email modules** under the same terms as Nodemailer. For now, this means [Mailparser](https://www.npmjs.com/package/mailparser), additional modules might become available in the future.
 
 #### Before purchase
 

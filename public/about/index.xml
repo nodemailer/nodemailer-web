@@ -110,7 +110,7 @@ transporter.sendMail(mailOptions, (error, info) {
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Nodemailer&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/nodemailer/nodemailer&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Mailparser2&lt;/strong&gt; source code is available &lt;a href=&#34;https://gitlab.com/nodemailer/mailparser2&#34;&gt;on Gitlab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mailparser&lt;/strong&gt; source code is available &lt;a href=&#34;https://gitlab.com/andris9/mailparser&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -170,7 +170,7 @@ transporter.sendMail(mailOptions, (error, info) {
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Unlimited usage&lt;/strong&gt; of Nodemailer inside your organization (see applying &lt;a href=&#34;https://nodemailer.com/COMM-LICENSE&#34;&gt;license terms&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Email based &lt;strong&gt;Support&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Bundled &lt;strong&gt;email modules&lt;/strong&gt; under the same terms as Nodemailer. For now, this means &lt;a href=&#34;https://www.npmjs.com/package/@nodemailer/mailparser2&#34;&gt;Mailparser2&lt;/a&gt;, additional modules might become available in the future.&lt;/li&gt;
+&lt;li&gt;Bundled &lt;strong&gt;email modules&lt;/strong&gt; under the same terms as Nodemailer. For now, this means &lt;a href=&#34;https://www.npmjs.com/package/mailparser&#34;&gt;Mailparser&lt;/a&gt;, additional modules might become available in the future.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&#34;before-purchase&#34;&gt;Before purchase&lt;/h4&gt;

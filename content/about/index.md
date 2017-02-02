@@ -98,7 +98,7 @@ Using Gmail might or might not work out of the box. See instructions for setting
 # Sources
 
 - **Nodemailer** source code is available [on Github](https://github.com/nodemailer/nodemailer)
-- **Mailparser2** source code is available [on Gitlab](https://gitlab.com/nodemailer/mailparser2)
+- **Mailparser** source code is available [on Github](https://gitlab.com/andris9/mailparser)
 
 --------------------------------------------------------------------------------
 
