@@ -102,4 +102,4 @@ Using Gmail might or might not work out of the box. See instructions for setting
 
 --------------------------------------------------------------------------------
 
-Nodemailer and Nodemailer are created by [Andris Reinman](https://github.com/andris9). The Nodemailer logo was designed by [Sven Kristjansen](https://www.behance.net/kristjansen).
+Nodemailer is created by [Andris Reinman](https://github.com/andris9). The Nodemailer logo was designed by [Sven Kristjansen](https://www.behance.net/kristjansen).
