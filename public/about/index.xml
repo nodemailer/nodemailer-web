@@ -31,7 +31,7 @@
 
 &lt;p&gt;If you do not want to upgrade from the MIT licensed Nodemailer 2 then you can see the old docs &lt;a href=&#34;https://community.nodemailer.com/&#34;&gt;here&lt;/a&gt;, otherwise see the light migration guide &lt;a href=&#34;https://nodemailer.com/about/migrate&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install nodemailer
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install nodemailer --save
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;nodemailer-features&#34;&gt;Nodemailer features&lt;/h3&gt;

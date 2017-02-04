@@ -25,7 +25,7 @@ To support the development of Nodemailer and keep it open source you can either 
 If you do not want to upgrade from the MIT licensed Nodemailer 2 then you can see the old docs [here](https://community.nodemailer.com/), otherwise see the light migration guide [here](/about/migrate).
 
 ```bash
-npm install nodemailer
+npm install nodemailer --save
 ```
 
 ### Nodemailer features
