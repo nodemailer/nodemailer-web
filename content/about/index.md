@@ -101,6 +101,7 @@ Using Gmail might or might not work out of the box. See instructions for setting
 
 - **Nodemailer** source code is available [on Github](https://github.com/nodemailer/nodemailer)
 - **MailParser** source code is available [on Github](https://github.com/andris9/mailparser)
+- **smtp-server** source code is available [on Github](https://github.com/andris9/smtp-server)
 
 --------------------------------------------------------------------------------
 

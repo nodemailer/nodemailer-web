@@ -60,7 +60,7 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Unlimited usage&lt;/strong&gt; of Nodemailer inside your organization (see applying &lt;a href=&#34;https://nodemailer.com/COMM-LICENSE&#34;&gt;license terms&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Email based &lt;strong&gt;Support&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Bundled &lt;strong&gt;email modules&lt;/strong&gt; under the same terms as Nodemailer. For now, this means &lt;a href=&#34;https://www.npmjs.com/package/mailparser&#34;&gt;MailParser&lt;/a&gt;, additional modules might become available in the future.&lt;/li&gt;
+&lt;li&gt;Bundled &lt;strong&gt;email modules&lt;/strong&gt; under the same terms as Nodemailer. For now, this means &lt;a href=&#34;https://www.npmjs.com/package/mailparser&#34;&gt;MailParser&lt;/a&gt; and &lt;a href=&#34;https://www.npmjs.com/package/smtp-server&#34;&gt;smtp-server&lt;/a&gt;, additional modules might become available in the future.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&#34;before-purchase&#34;&gt;Before purchase&lt;/h4&gt;
