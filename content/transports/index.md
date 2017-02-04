@@ -42,7 +42,7 @@ let transporter = nodemailer.createTransport(ses({
 
 ### General options for transports
 
-Event though every transport has its own set of configuration options there are a few that can be used for every transport type
+Even though every transport has its own set of configuration options there are a few that can be used for every transport type
 
 - **attachDataUrls** – if true, then converts *data:* images in the HTML content in every message to embedded attachments
 - **disableFileAccess** – if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error

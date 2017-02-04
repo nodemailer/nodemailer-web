@@ -53,7 +53,7 @@ let transporter = nodemailer.createTransport(ses({
 
 &lt;h3 id=&#34;general-options-for-transports&#34;&gt;General options for transports&lt;/h3&gt;
 
-&lt;p&gt;Event though every transport has its own set of configuration options there are a few that can be used for every transport type&lt;/p&gt;
+&lt;p&gt;Even though every transport has its own set of configuration options there are a few that can be used for every transport type&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;attachDataUrls&lt;/strong&gt; – if true, then converts &lt;em&gt;data:&lt;/em&gt; images in the HTML content in every message to embedded attachments&lt;/li&gt;
