@@ -64,6 +64,7 @@ In short, what you need to do to send messages, would be the following:
 This is a complete example to send an email with plain text and HTML body
 
 ```javascript
+'use strict';
 const nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport
@@ -85,7 +86,7 @@ let mailOptions = {
 };
 
 // send mail with defined transport object
-transporter.sendMail(mailOptions, (error, info) {
+transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
         return console.log(error);
     }

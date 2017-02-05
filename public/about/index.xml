@@ -75,7 +75,8 @@
 
 &lt;p&gt;This is a complete example to send an email with plain text and HTML body&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const nodemailer = require(&#39;nodemailer&#39;);
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;use strict&#39;;
+const nodemailer = require(&#39;nodemailer&#39;);
 
 // create reusable transporter object using the default SMTP transport
 let transporter = nodemailer.createTransport({
@@ -96,7 +97,7 @@ let mailOptions = {
 };
 
 // send mail with defined transport object
-transporter.sendMail(mailOptions, (error, info) {
+transporter.sendMail(mailOptions, (error, info) =&amp;gt; {
     if (error) {
         return console.log(error);
     }
