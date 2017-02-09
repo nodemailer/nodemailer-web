@@ -559,9 +559,14 @@
 <ul>
 <li><strong>method</strong> – optional method, case insensitive, defaults to <em>&lsquo;publish&rsquo;</em>. Other possible values would be <em>&lsquo;request&rsquo;</em>, <em>&lsquo;reply&rsquo;</em>, <em>&lsquo;cancel&rsquo;</em> or any other valid calendar method listed in <a href="https://tools.ietf.org/html/rfc5546#section-1.4">RFC5546</a>. This should match the <strong>METHOD:</strong> value in calendar event file.</li>
 <li><strong>filename</strong> – optional filename, defaults to <em>&lsquo;invite.ics&rsquo;</em></li>
-<li><strong>content</strong> – is the event file, it can be a string, a buffer, a stream, a file path (<em>content:{path:&lsquo;&hellip;&rsquo;}</em>) or even an URL (<em>content:{href:&lsquo;&hellip;&rsquo;}</em>). You can use modules like <a href="https://www.npmjs.com/package/ical-generator">ical-generator</a> to generate the actual calendar file content, Nodemailer acts as a transport layer only and does not generate the event file structure.</li>
+<li><strong>content</strong> – is the event file, it can be a string, a buffer, a stream</li>
+<li><strong>path</strong> – is an alternative for <em>content</em> to load the calendar data from a file</li>
+<li><strong>href</strong> – is an alternative for <em>content</em> to load the calendar data from an URL</li>
+<li><strong>encoding</strong> – defines optional <em>content</em> encoding, eg. &lsquo;base64&rsquo; or &lsquo;hex&rsquo;. This only applies if the <em>content</em> is a string. By default an unicode string is assumed.</li>
 </ul></li>
 </ul>
+
+<p>You can use modules like <a href="https://www.npmjs.com/package/ical-generator">ical-generator</a> to generate the actual calendar file content, Nodemailer acts as a transport layer only and does not generate the event file structure.</p>
 
 <div class="notices note" ><p>In general it is not a good idea to add additional attachments to calendar messages as it might mess up the behavior of some email clients. Try to keep it only to <strong>text</strong>, <strong>html</strong> and <strong>icalEvent</strong> without any additional <strong>alternatives</strong> or <strong>attachments</strong></p>
 </div>

@@ -298,9 +298,14 @@ bcc: [
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;method&lt;/strong&gt; – optional method, case insensitive, defaults to &lt;em&gt;&amp;lsquo;publish&amp;rsquo;&lt;/em&gt;. Other possible values would be &lt;em&gt;&amp;lsquo;request&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;reply&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;cancel&amp;rsquo;&lt;/em&gt; or any other valid calendar method listed in &lt;a href=&#34;https://tools.ietf.org/html/rfc5546#section-1.4&#34;&gt;RFC5546&lt;/a&gt;. This should match the &lt;strong&gt;METHOD:&lt;/strong&gt; value in calendar event file.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;filename&lt;/strong&gt; – optional filename, defaults to &lt;em&gt;&amp;lsquo;invite.ics&amp;rsquo;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt; – is the event file, it can be a string, a buffer, a stream, a file path (&lt;em&gt;content:{path:&amp;lsquo;&amp;hellip;&amp;rsquo;}&lt;/em&gt;) or even an URL (&lt;em&gt;content:{href:&amp;lsquo;&amp;hellip;&amp;rsquo;}&lt;/em&gt;). You can use modules like &lt;a href=&#34;https://www.npmjs.com/package/ical-generator&#34;&gt;ical-generator&lt;/a&gt; to generate the actual calendar file content, Nodemailer acts as a transport layer only and does not generate the event file structure.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt; – is the event file, it can be a string, a buffer, a stream&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;path&lt;/strong&gt; – is an alternative for &lt;em&gt;content&lt;/em&gt; to load the calendar data from a file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;href&lt;/strong&gt; – is an alternative for &lt;em&gt;content&lt;/em&gt; to load the calendar data from an URL&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;encoding&lt;/strong&gt; – defines optional &lt;em&gt;content&lt;/em&gt; encoding, eg. &amp;lsquo;base64&amp;rsquo; or &amp;lsquo;hex&amp;rsquo;. This only applies if the &lt;em&gt;content&lt;/em&gt; is a string. By default an unicode string is assumed.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;You can use modules like &lt;a href=&#34;https://www.npmjs.com/package/ical-generator&#34;&gt;ical-generator&lt;/a&gt; to generate the actual calendar file content, Nodemailer acts as a transport layer only and does not generate the event file structure.&lt;/p&gt;
 
 &lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;In general it is not a good idea to add additional attachments to calendar messages as it might mess up the behavior of some email clients. Try to keep it only to &lt;strong&gt;text&lt;/strong&gt;, &lt;strong&gt;html&lt;/strong&gt; and &lt;strong&gt;icalEvent&lt;/strong&gt; without any additional &lt;strong&gt;alternatives&lt;/strong&gt; or &lt;strong&gt;attachments&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
