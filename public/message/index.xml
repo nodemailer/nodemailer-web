@@ -307,13 +307,12 @@ bcc: [
 
 &lt;p&gt;You can use modules like &lt;a href=&#34;https://www.npmjs.com/package/ical-generator&#34;&gt;ical-generator&lt;/a&gt; to generate the actual calendar file content, Nodemailer acts as a transport layer only and does not generate the event file structure.&lt;/p&gt;
 
-&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;In general it is not a good idea to add additional attachments to calendar messages as it might mess up the behavior of some email clients. Try to keep it only to &lt;strong&gt;text&lt;/strong&gt;, &lt;strong&gt;html&lt;/strong&gt; and &lt;strong&gt;icalEvent&lt;/strong&gt; without any additional &lt;strong&gt;alternatives&lt;/strong&gt; or &lt;strong&gt;attachments&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
+&lt;div class=&#34;notices note&#34; &gt;In general it is not a good idea to add additional attachments to calendar messages as it might mess up the behavior of some email clients. Try to keep it only to &lt;strong&gt;text&lt;/strong&gt;, &lt;strong&gt;html&lt;/strong&gt; and &lt;strong&gt;icalEvent&lt;/strong&gt; without any additional &lt;strong&gt;alternatives&lt;/strong&gt; or &lt;strong&gt;attachments&lt;/strong&gt;&lt;/div&gt;
 
 
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+&lt;h1 id=&#34;examples&#34;&gt;Examples&lt;/h1&gt;
 
-&lt;h4 id=&#34;1-send-a-request-event-as-a-string&#34;&gt;1. Send a REQUEST event as a string&lt;/h4&gt;
+&lt;h2 id=&#34;1-send-a-request-event-as-a-string&#34;&gt;1. Send a REQUEST event as a string&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let content = &#39;BEGIN:VCALENDAR\r\nPRODID:-//ACME/DesktopCalendar//EN\r\nMETHOD:REQUEST\r\n...&#39;;
 
@@ -330,7 +329,7 @@ let message = {
 };
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;2-send-a-publish-event-from-a-file&#34;&gt;2. Send a PUBLISH event from a file&lt;/h4&gt;
+&lt;h2 id=&#34;2-send-a-publish-event-from-a-file&#34;&gt;2. Send a PUBLISH event from a file&lt;/h2&gt;
 
 &lt;p&gt;Event data is loaded from the provided file and attached to the message.&lt;/p&gt;
 
@@ -341,14 +340,12 @@ let message = {
     text: &#39;Please see the attached appointment&#39;,
     icalEvent: {
         method: &#39;PUBLISH&#39;,
-        content: {
-            path: &#39;/path/to/file&#39;
-        }
+        path: &#39;/path/to/file&#39;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;3-send-a-cancel-event-from-an-url&#34;&gt;3. Send a CANCEL event from an URL&lt;/h4&gt;
+&lt;h2 id=&#34;3-send-a-cancel-event-from-an-url&#34;&gt;3. Send a CANCEL event from an URL&lt;/h2&gt;
 
 &lt;p&gt;Event data is downloaded from the provided URL and attached to the message as regular calendar file.&lt;/p&gt;
 
@@ -359,9 +356,7 @@ let message = {
     text: &#39;Please see the attached appointment&#39;,
     icalEvent: {
         method: &#39;CANCEL&#39;,
-        content: {
-            href: &#39;http://www.example.com/events?event=123&#39;
-        }
+        href: &#39;http://www.example.com/events?event=123&#39;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
