@@ -105,6 +105,10 @@ Using Gmail might or might not work out of the box. See instructions for setting
 - **smtp-server** source code is available [on Github](https://github.com/andris9/smtp-server)
 - **mailsplit** source code is available [on Github](https://github.com/andris9/mailsplit)
 
+### Source code
+
+- ***Nodemailer AMQP example** is an example of using RabbitMQ to manage Nodemailer email messages. [Source](https://github.com/nodemailer/nodemailer-amqp-example).
+
 --------------------------------------------------------------------------------
 
 Nodemailer is created by [Andris Reinman](https://github.com/andris9). The Nodemailer logo was designed by [Sven Kristjansen](https://www.behance.net/kristjansen).
