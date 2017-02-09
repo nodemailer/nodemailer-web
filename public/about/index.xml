@@ -121,7 +121,7 @@ transporter.sendMail(mailOptions, (error, info) =&amp;gt; {
 &lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;*&lt;strong&gt;Nodemailer AMQP example&lt;/strong&gt; is an example of using RabbitMQ to manage Nodemailer email messages. &lt;a href=&#34;https://github.com/nodemailer/nodemailer-amqp-example&#34;&gt;Source&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nodemailer AMQP example&lt;/strong&gt; is an example of using RabbitMQ to manage Nodemailer email messages. &lt;a href=&#34;https://github.com/nodemailer/nodemailer-amqp-example&#34;&gt;Source&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;

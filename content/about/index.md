@@ -107,7 +107,7 @@ Using Gmail might or might not work out of the box. See instructions for setting
 
 ### Examples
 
-- ***Nodemailer AMQP example** is an example of using RabbitMQ to manage Nodemailer email messages. [Source](https://github.com/nodemailer/nodemailer-amqp-example).
+- **Nodemailer AMQP example** is an example of using RabbitMQ to manage Nodemailer email messages. [Source](https://github.com/nodemailer/nodemailer-amqp-example).
 
 --------------------------------------------------------------------------------
 
