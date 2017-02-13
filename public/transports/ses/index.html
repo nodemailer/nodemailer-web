@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     
-    <title>Address object</title>
+    <title>SES transport</title>
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -28,7 +28,7 @@
     
 
   </head>
-  <body class="" data-url="/message/addresses/">
+  <body class="" data-url="/transports/ses/">
     <nav id="sidebar">
   <div id="header-wrapper">
     <div id="header">
@@ -202,7 +202,7 @@
       
       
 
-      <li class="dd-item  parent" data-nav-id="/message/">
+      <li class="dd-item  " data-nav-id="/message/">
         <a href="/message/">
           <span>
             
@@ -234,7 +234,7 @@
           
           
           
-            <li class="dd-item active" data-nav-id="/message/addresses/">
+            <li class="dd-item " data-nav-id="/message/addresses/">
               <a href="/message/addresses/">
                 <span>Address object     </i></span>
               </a>
@@ -370,7 +370,7 @@
       
       
 
-      <li class="dd-item  " data-nav-id="/transports/">
+      <li class="dd-item  parent" data-nav-id="/transports/">
         <a href="/transports/">
           <span>
             
@@ -394,7 +394,7 @@
           
           
           
-            <li class="dd-item " data-nav-id="/transports/ses/">
+            <li class="dd-item active" data-nav-id="/transports/ses/">
               <a href="/transports/ses/">
                 <span>SES transport     </i></span>
               </a>
@@ -510,26 +510,49 @@
                   
                 
                   
+                
+                  
+                
+                  
+                
+                  
                     
                     
-                <a href="/message/" itemprop="url"><span itemprop="title">Message configuration</span></a> <i class="fa fa-angle-right"></i>
+                <a href="/transports/" itemprop="url"><span itemprop="title">Other transports</span></a> <i class="fa fa-angle-right"></i>
                     
                   
                 
                   
                 
-                  
-                
-                  
-                
-                  
-                
-                <span itemprop="title"> Address object</span>
+                <span itemprop="title"> SES transport</span>
               </div>
               
                   <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#why-not-use-aws-sdk-directly">Why not use aws-sdk directly?</a></li>
+<li><a href="#usage">Usage</a>
+<ul>
+<li><a href="#response">Response</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#examples">Examples</a>
+<ul>
+<li><a href="#1-send-a-message-using-ses-transport">1. Send a message using SES transport</a></li>
+<li><a href="#2-iam-policy">2. IAM policy</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -539,57 +562,106 @@
             
     	        <div id="body-inner">
                 
-                <h1>Address object</h1>
+                <h1>SES transport</h1>
                 
 
-<p>All email addresses can be <strong>plain</strong> email addresses</p>
 
-<pre><code class="language-javascript">'foobar@blurdybloop.com'
-</code></pre>
+
+<p>Nodemailer SES transport is a wrapper around <em>aws.SES</em> from the <a href="https://www.npmjs.com/package/aws-sdk">aws-sdk</a> package. SES transport is available from Nodemailer v3.1.0.</p>
+
+<h4 id="why-not-use-aws-sdk-directly">Why not use aws-sdk directly?</h4>
+
+<p>The SES API exposes two methods to send mail – <a href="http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendEmail-property">SendEmail</a> and <a href="http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendRawEmail-property">SendRawEmail</a>. While the first one is really easy to use and Nodemailer is not actualy needed, then it is also quite basic in features. For example you can&rsquo;t use attachments with <em>SendEmail</em>. On the other hand <em>SendRawEmail</em> requires you build your own MIME formatted email message which is far from being easy. And this is where Nodemailer steps in – it gives you a simple to use API while supporting even really complex scenarios like embedded images or calendar events.</p>
+
+<p>In addition to the simple API, Nodemailer also provides rate limiting for SES out of the box. SES can tolerate short spikes but you can&rsquo;t really flush all your emails at once and expect these to be delivered. To overcome this you can set a rate limiting value and let Nodemailer handle everything – if too many messages are being delivered then Nodemailer buffers these until there is an opportunity to do the actual delivery.</p>
+
+<h4 id="usage">Usage</h4>
+
+<p>To use SES transport, set a <em>aws.SES</em> object as the value for <strong>SES</strong> property in Nodemailer transport options. That&rsquo;s it. You are responsible of initializing that object yourself as Nodemailer does not touch the AWS settings in any way.</p>
+
+<p>Additional properties to use are the following:</p>
 
 <ul>
-<li>or with <strong>formatted name</strong> (includes unicode support)</li>
+<li><strong>sendingRate</strong> optional Number. How many messages per second is allowed to be delivered to SES</li>
+<li><strong>maxConnections</strong> optional Number. How many parallel connections to allow towards SES.</li>
 </ul>
 
-<pre><code class="language-javascript">'Ноде Майлер &lt;foobar@blurdybloop.com&gt;'
-</code></pre>
-
-<div class="notices tip" ><p>Notice that all address fields (even <em>from:</em>) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: <code>'&quot;Майлер, Ноде&quot; &lt;foobar@blurdybloop.com&gt;'</code></p>
-</div>
-
+<p>When sending mail there&rsquo;s also an additional message option for setting <em>SendRawEmail</em> options</p>
 
 <ul>
-<li>or as an <strong>address object</strong> (in this case you do not need to worry about the formatting, no need to use quotes etc.)</li>
+<li><strong>ses</strong> is an optional object. All keys are added to the <em>SendRawEmail</em> method options.</li>
 </ul>
 
-<pre><code class="language-javascript">{
-    name: 'Майлер, Ноде',
-    address: 'foobar@blurdybloop.com'
-}
-</code></pre>
+<h5 id="response">Response</h5>
 
-<p>All address fields accept values as a comma separated list of emails or an array of emails or an array of comma separated list of emails or address objects - use it as you like. Formatting can be mixed.</p>
+<p>The <strong>info</strong> argument for <strong>sendMail()</strong> callback includes the following properties:</p>
 
-<pre><code class="language-javascript">...,
-to: 'foobar@blurdybloop.com, &quot;Ноде Майлер&quot; &lt;bar@blurdybloop.com&gt;, &quot;Name, User&quot; &lt;baz@blurdybloop.com&gt;',
-cc: [
-    'foobar@blurdybloop.com',
-    '&quot;Ноде Майлер&quot; &lt;bar@blurdybloop.com&gt;,
-    &quot;Name, User&quot; &lt;baz@blurdybloop.com&gt;'
-],
-bcc: [
-    'foobar@blurdybloop.com',
-    {
-        name: 'Майлер, Ноде',
-        address: 'foobar@blurdybloop.com'
+<ul>
+<li><strong>envelope</strong> – is an envelope object <em>{from:&lsquo;address&rsquo;, to:[&lsquo;address&rsquo;]}</em></li>
+<li><strong>messageId</strong> – is the Message-ID header value. This value is derived from the response of SES API, so it differs from the Message-ID values used in logging.</li>
+</ul>
+
+<h3 id="troubleshooting">Troubleshooting</h3>
+
+<p><strong>1. Not allowed to send messages</strong></p>
+
+<ol>
+<li>Check that your IAM role has <em>ses:SendRawEmail</em> action allowed</li>
+<li>Check that the email address you are sending mail from is verified</li>
+<li>There are multiple reports that access keys with special symbols might fail sending mail. Try to generate new access keys and see if it helps</li>
+</ol>
+
+<p><strong>2. aws-sdk is not found</strong></p>
+
+<p>You need to install the <a href="https://www.npmjs.com/package/aws-sdk">aws-sdk</a> module separately, it is not bundled with Nodemailer.</p>
+
+<h3 id="examples">Examples</h3>
+
+<h4 id="1-send-a-message-using-ses-transport">1. Send a message using SES transport</h4>
+
+<pre><code class="language-javascript">let nodemailer = require('nodemailer');
+let aws = require('aws-sdk');
+
+// configure AWS SDK
+aws.config.loadFromPath('config.json');
+
+// create Nodemailer SES transporter
+let transporter = nodemailer.createTransport({
+    SES: new aws.SES({
+        apiVersion: '2010-12-01'
+    }),
+    sendingRate: 1 // max 1 messages/second
+});
+
+// send some mail
+transporter.sendMail({
+    from: 'sender@example.com',
+    to: 'recipient@example.com',
+    subject: 'Message',
+    text: 'I hope this message gets sent!',
+    ses: { // optional extra arguments for SendRawEmail
+        Tags: [{
+            Name: 'tag name',
+            Value: 'tag value'
+        }]
     }
-]
-...
+}, (err, info) =&gt; {
+    console.log(info.envelope);
+    console.log(info.messageId);
+});
 </code></pre>
 
-<p>You can even use unicode domains, these are automatically converted to punycode</p>
+<h4 id="2-iam-policy">2. IAM policy</h4>
 
-<pre><code class="language-javascript">'&quot;Unicode Domain&quot; &lt;info@müriaad-polüteism.info&gt;'
+<pre><code class="language-json">{
+    &quot;Statement&quot;: [
+        {
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;ses:SendRawEmail&quot;,
+            &quot;Resource&quot;: &quot;*&quot;
+        }
+    ]
+}
 </code></pre>
 
 
@@ -599,8 +671,8 @@ bcc: [
 
     <div id="navigation">
         
-        <a class="nav nav-prev" href="/message/alternatives/"> <i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/message/calendar-events/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="/transports/sendmail/"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/transports/stream/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
     </div>
 
     </section>

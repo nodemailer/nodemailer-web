@@ -21,13 +21,13 @@
 
 &lt;p&gt;In addition to the default &lt;a href=&#34;https://nodemailer.com/smtp/&#34;&gt;SMTP transport&lt;/a&gt; you can use other kind of transports as well with Nodemailer. Some transprots are built-in, some need an external plugin. See &lt;em&gt;Available Transports&lt;/em&gt; below for known transports.&lt;/p&gt;
 
-&lt;p&gt;The following example uses &lt;a href=&#34;https://github.com/andris9/nodemailer-ses-transport&#34;&gt;nodemailer-ses-transport&lt;/a&gt; (Amazon SES).&lt;/p&gt;
+&lt;p&gt;The following example uses &lt;a href=&#34;https://nodemailer.com/transports/ses/&#34;&gt;SES transport&lt;/a&gt; (Amazon SES).&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let ses = require(&#39;nodemailer-ses-transport&#39;);
-let transporter = nodemailer.createTransport(ses({
-    accessKeyId: &#39;AWSACCESSKEY&#39;,
-    secretAccessKey: &#39;AWS/Secret/key&#39;
-}));
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let nodemailer = require(&#39;nodemailer&#39;);
+let aws = require(&#39;aws-sdk&#39;);
+let transporter = nodemailer.createTransport({
+    SES: new aws.SES({apiVersion: &#39;2010-12-01&#39;})
+});
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;available-transports&#34;&gt;Available transports&lt;/h2&gt;
@@ -36,6 +36,7 @@ let transporter = nodemailer.createTransport(ses({
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/transports/sendmail/&#34;&gt;sendmail&lt;/a&gt;&lt;/strong&gt; – for piping messages to the &lt;em&gt;sendmail&lt;/em&gt; command&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/transports/ses/&#34;&gt;SES&lt;/a&gt;&lt;/strong&gt; – is a Nodemailer wrapper around &lt;em&gt;aws-sdk&lt;/em&gt; to send mail using AWS SES&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://nodemailer.com/transports/stream/&#34;&gt;stream&lt;/a&gt;&lt;/strong&gt; – is just for returning messages, most probably for testing&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -46,7 +47,6 @@ let transporter = nodemailer.createTransport(ses({
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/andris9/nodemailer-pickup-transport&#34;&gt;nodemailer-pickup-transport&lt;/a&gt;&lt;/strong&gt; – for storing messages to pickup folders&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/rebelmail/nodemailer-sailthru-transport&#34;&gt;nodemailer-sailthru-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages through Sailthru&amp;rsquo;s Web API&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sendgrid/nodemailer-sendgrid-transport&#34;&gt;nodemailer-sendgrid-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages through SendGrid&amp;rsquo;s Web API&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/andris9/nodemailer-ses-transport&#34;&gt;nodemailer-ses-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages to AWS SES&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sparkpost/nodemailer-sparkpost-transport&#34;&gt;nodemailer-sparkpost-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages through SparkPost&amp;rsquo;s Web API&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;your own&lt;/strong&gt; (see transport api documentation &lt;a href=&#34;https://nodemailer.com/plugins/create/#transports&#34;&gt;here&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
@@ -71,9 +71,9 @@ let transporter = nodemailer.createTransport(ses({
       <guid>https://nodemailer.com/transports/sendmail/</guid>
       <description>
 
-&lt;p&gt;Sendmail Transport pipes the generated RFC822 message to the standard input of the &lt;strong&gt;sendmail&lt;/strong&gt; command, so it&amp;rsquo;s the same thing what the &lt;strong&gt;mail()&lt;/strong&gt; function in PHP does.&lt;/p&gt;
+&lt;p&gt;Sendmail transport pipes the generated RFC822 message to the standard input of the &lt;strong&gt;sendmail&lt;/strong&gt; command, so it&amp;rsquo;s the same thing what the &lt;strong&gt;mail()&lt;/strong&gt; function in PHP does.&lt;/p&gt;
 
-&lt;p&gt;To use Sendmail Transport, set &lt;strong&gt;sendmail&lt;/strong&gt; in Nodemailer transport options to &lt;em&gt;true&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;To use Sendmail transport, set &lt;strong&gt;sendmail&lt;/strong&gt; in Nodemailer transport options to &lt;em&gt;true&lt;/em&gt;.&lt;/p&gt;
 
 &lt;p&gt;The additional options to use with this transport are the following:&lt;/p&gt;
 
@@ -125,6 +125,113 @@ transporter.sendMail({
     </item>
     
     <item>
+      <title>SES transport</title>
+      <link>https://nodemailer.com/transports/ses/</link>
+      <pubDate>Fri, 20 Jan 2017 12:01:09 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/transports/ses/</guid>
+      <description>
+
+&lt;p&gt;Nodemailer SES transport is a wrapper around &lt;em&gt;aws.SES&lt;/em&gt; from the &lt;a href=&#34;https://www.npmjs.com/package/aws-sdk&#34;&gt;aws-sdk&lt;/a&gt; package. SES transport is available from Nodemailer v3.1.0.&lt;/p&gt;
+
+&lt;h4 id=&#34;why-not-use-aws-sdk-directly&#34;&gt;Why not use aws-sdk directly?&lt;/h4&gt;
+
+&lt;p&gt;The SES API exposes two methods to send mail – &lt;a href=&#34;http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendEmail-property&#34;&gt;SendEmail&lt;/a&gt; and &lt;a href=&#34;http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendRawEmail-property&#34;&gt;SendRawEmail&lt;/a&gt;. While the first one is really easy to use and Nodemailer is not actualy needed, then it is also quite basic in features. For example you can&amp;rsquo;t use attachments with &lt;em&gt;SendEmail&lt;/em&gt;. On the other hand &lt;em&gt;SendRawEmail&lt;/em&gt; requires you build your own MIME formatted email message which is far from being easy. And this is where Nodemailer steps in – it gives you a simple to use API while supporting even really complex scenarios like embedded images or calendar events.&lt;/p&gt;
+
+&lt;p&gt;In addition to the simple API, Nodemailer also provides rate limiting for SES out of the box. SES can tolerate short spikes but you can&amp;rsquo;t really flush all your emails at once and expect these to be delivered. To overcome this you can set a rate limiting value and let Nodemailer handle everything – if too many messages are being delivered then Nodemailer buffers these until there is an opportunity to do the actual delivery.&lt;/p&gt;
+
+&lt;h4 id=&#34;usage&#34;&gt;Usage&lt;/h4&gt;
+
+&lt;p&gt;To use SES transport, set a &lt;em&gt;aws.SES&lt;/em&gt; object as the value for &lt;strong&gt;SES&lt;/strong&gt; property in Nodemailer transport options. That&amp;rsquo;s it. You are responsible of initializing that object yourself as Nodemailer does not touch the AWS settings in any way.&lt;/p&gt;
+
+&lt;p&gt;Additional properties to use are the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;sendingRate&lt;/strong&gt; optional Number. How many messages per second is allowed to be delivered to SES&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;maxConnections&lt;/strong&gt; optional Number. How many parallel connections to allow towards SES.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When sending mail there&amp;rsquo;s also an additional message option for setting &lt;em&gt;SendRawEmail&lt;/em&gt; options&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ses&lt;/strong&gt; is an optional object. All keys are added to the &lt;em&gt;SendRawEmail&lt;/em&gt; method options.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;response&#34;&gt;Response&lt;/h5&gt;
+
+&lt;p&gt;The &lt;strong&gt;info&lt;/strong&gt; argument for &lt;strong&gt;sendMail()&lt;/strong&gt; callback includes the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;envelope&lt;/strong&gt; – is an envelope object &lt;em&gt;{from:&amp;lsquo;address&amp;rsquo;, to:[&amp;lsquo;address&amp;rsquo;]}&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;messageId&lt;/strong&gt; – is the Message-ID header value. This value is derived from the response of SES API, so it differs from the Message-ID values used in logging.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Not allowed to send messages&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Check that your IAM role has &lt;em&gt;ses:SendRawEmail&lt;/em&gt; action allowed&lt;/li&gt;
+&lt;li&gt;Check that the email address you are sending mail from is verified&lt;/li&gt;
+&lt;li&gt;There are multiple reports that access keys with special symbols might fail sending mail. Try to generate new access keys and see if it helps&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;2. aws-sdk is not found&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You need to install the &lt;a href=&#34;https://www.npmjs.com/package/aws-sdk&#34;&gt;aws-sdk&lt;/a&gt; module separately, it is not bundled with Nodemailer.&lt;/p&gt;
+
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+
+&lt;h4 id=&#34;1-send-a-message-using-ses-transport&#34;&gt;1. Send a message using SES transport&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let nodemailer = require(&#39;nodemailer&#39;);
+let aws = require(&#39;aws-sdk&#39;);
+
+// configure AWS SDK
+aws.config.loadFromPath(&#39;config.json&#39;);
+
+// create Nodemailer SES transporter
+let transporter = nodemailer.createTransport({
+    SES: new aws.SES({
+        apiVersion: &#39;2010-12-01&#39;
+    }),
+    sendingRate: 1 // max 1 messages/second
+});
+
+// send some mail
+transporter.sendMail({
+    from: &#39;sender@example.com&#39;,
+    to: &#39;recipient@example.com&#39;,
+    subject: &#39;Message&#39;,
+    text: &#39;I hope this message gets sent!&#39;,
+    ses: { // optional extra arguments for SendRawEmail
+        Tags: [{
+            Name: &#39;tag name&#39;,
+            Value: &#39;tag value&#39;
+        }]
+    }
+}, (err, info) =&amp;gt; {
+    console.log(info.envelope);
+    console.log(info.messageId);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;2-iam-policy&#34;&gt;2. IAM policy&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+    &amp;quot;Statement&amp;quot;: [
+        {
+            &amp;quot;Effect&amp;quot;: &amp;quot;Allow&amp;quot;,
+            &amp;quot;Action&amp;quot;: &amp;quot;ses:SendRawEmail&amp;quot;,
+            &amp;quot;Resource&amp;quot;: &amp;quot;*&amp;quot;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Stream transport</title>
       <link>https://nodemailer.com/transports/stream/</link>
       <pubDate>Fri, 20 Jan 2017 12:01:09 +0200</pubDate>
@@ -132,7 +239,7 @@ transporter.sendMail({
       <guid>https://nodemailer.com/transports/stream/</guid>
       <description>
 
-&lt;p&gt;Stream Transport is not actually a transport, it processes input data and returns you the generated RFC822 email message either as a stream or a Buffer. Additionally you can define which kind of newlines to use, either the &amp;lsquo;windows&amp;rsquo; style (&amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;) or the &amp;lsquo;unix&amp;rsquo; style (&amp;lt;LF&amp;gt;). This transport is mostly useful for testing and also for scenarios where you want to use Nodemailer plugins to process the message and do the actual delivery by some other means.&lt;/p&gt;
+&lt;p&gt;Stream Transport is not actually a transport, it&amp;rsquo;s more like a testing add-on as instead of delivering the message it processes input data and returns you the generated RFC822 email message either as a stream or a Buffer. Additionally you can define which kind of newlines to use, either the &amp;lsquo;windows&amp;rsquo; style (&amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;) or the &amp;lsquo;unix&amp;rsquo; style (&amp;lt;LF&amp;gt;). This transport is mostly useful for testing and also for scenarios where you want to use Nodemailer plugins to process the message and do the actual delivery by some other means.&lt;/p&gt;
 
 &lt;p&gt;To use Stream Transport, set &lt;strong&gt;streamTransport&lt;/strong&gt; in Nodemailer transport options to &lt;em&gt;true&lt;/em&gt; in Nodemailer options. If you want the transport to return buffers instead of streams, set &lt;strong&gt;buffer&lt;/strong&gt; option to &lt;em&gt;true&lt;/em&gt;. For newline selection use &lt;strong&gt;newline&lt;/strong&gt; property (defaults to &amp;lsquo;unix&amp;rsquo;)&lt;/p&gt;
 
@@ -143,6 +250,10 @@ transporter.sendMail({
 &lt;li&gt;&lt;strong&gt;messageId&lt;/strong&gt; – is the Message-ID header value&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;message&lt;/strong&gt; – is either stream (default) of buffer depending on the options&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h3 id=&#34;json-transport&#34;&gt;JSON transport&lt;/h3&gt;
+
+&lt;p&gt;Another alternative instead of streaming is JSON transport (available since Nodemailer v3.1.0). In this case the message object would include a JSON string that in turn could be used as input for Nodemailer. All attachments, web content etc. are converted into base64 encoded strings. Address strings are parsed into address objects. The only downside is that &lt;em&gt;raw&lt;/em&gt; property is not supported.&lt;/p&gt;
 
 &lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
 
@@ -181,6 +292,45 @@ transporter.sendMail({
     console.log(info.messageId);
     console.log(info.message.toString());
 });
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;3-create-a-json-encoded-message-object&#34;&gt;3. Create a JSON encoded message object&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
+    jsonTransport: true
+});
+transporter.sendMail({
+    from: &#39;sender@example.com&#39;,
+    to: &#39;recipient@example.com&#39;,
+    subject: &#39;Message&#39;,
+    text: &#39;I hope this message gets buffered!&#39;
+}, (err, info) =&amp;gt; {
+    console.log(info.envelope);
+    console.log(info.messageId);
+    console.log(info.message); // JSON string
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The contents of &lt;em&gt;info.message&lt;/em&gt; (string value) would look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+   &amp;quot;from&amp;quot;:{
+      &amp;quot;address&amp;quot;:&amp;quot;sender@example.com&amp;quot;,
+      &amp;quot;name&amp;quot;:&amp;quot;&amp;quot;
+   },
+   &amp;quot;to&amp;quot;:[
+      {
+         &amp;quot;address&amp;quot;:&amp;quot;recipient@example.com&amp;quot;,
+         &amp;quot;name&amp;quot;:&amp;quot;&amp;quot;
+      }
+   ],
+   &amp;quot;subject&amp;quot;:&amp;quot;Message&amp;quot;,
+   &amp;quot;text&amp;quot;:&amp;quot;I hope this message gets buffered!&amp;quot;,
+   &amp;quot;headers&amp;quot;:{
+
+   },
+   &amp;quot;messageId&amp;quot;:&amp;quot;&amp;lt;77a3458f-8070-339d-095f-85bb73f3db8e@example.com&amp;gt;&amp;quot;
+}
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

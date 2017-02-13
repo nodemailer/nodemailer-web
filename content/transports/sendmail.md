@@ -2,15 +2,15 @@
 date = "2017-01-20T11:35:26+02:00"
 toc = true
 prev = "/transports/"
-next = "/transports/stream/"
+next = "/transports/ses/"
 weight = 27
 title = "Sendmail transport"
 
 +++
 
-Sendmail Transport pipes the generated RFC822 message to the standard input of the **sendmail** command, so it's the same thing what the **mail()** function in PHP does.
+Sendmail transport pipes the generated RFC822 message to the standard input of the **sendmail** command, so it's the same thing what the **mail()** function in PHP does.
 
-To use Sendmail Transport, set **sendmail** in Nodemailer transport options to *true*.
+To use Sendmail transport, set **sendmail** in Nodemailer transport options to *true*.
 
 The additional options to use with this transport are the following:
 

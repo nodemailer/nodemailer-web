@@ -112,6 +112,11 @@
   </url>
   
   <url>
+    <loc>https://nodemailer.com/transports/ses/</loc>
+    <lastmod>2017-01-20T12:01:09+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nodemailer.com/transports/stream/</loc>
     <lastmod>2017-01-20T12:01:09+02:00</lastmod>
   </url>

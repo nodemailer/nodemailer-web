@@ -394,6 +394,14 @@
           
           
           
+            <li class="dd-item " data-nav-id="/transports/ses/">
+              <a href="/transports/ses/">
+                <span>SES transport     </i></span>
+              </a>
+            </li>
+          
+          
+          
             <li class="dd-item active" data-nav-id="/transports/stream/">
               <a href="/transports/stream/">
                 <span>Stream transport     </i></span>
@@ -527,10 +535,12 @@
 <ul>
 <li>
 <ul>
+<li><a href="#json-transport">JSON transport</a></li>
 <li><a href="#examples">Examples</a>
 <ul>
 <li><a href="#1-stream-a-message-with-windows-style-newlines">1. Stream a message with windows-style newlines</a></li>
 <li><a href="#2-create-a-buffer-with-unix-style-newlines">2. Create a buffer with unix-style newlines</a></li>
+<li><a href="#3-create-a-json-encoded-message-object">3. Create a JSON encoded message object</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -550,7 +560,7 @@
 
 
 
-<p>Stream Transport is not actually a transport, it processes input data and returns you the generated RFC822 email message either as a stream or a Buffer. Additionally you can define which kind of newlines to use, either the &lsquo;windows&rsquo; style (&lt;CR&gt;&lt;LF&gt;) or the &lsquo;unix&rsquo; style (&lt;LF&gt;). This transport is mostly useful for testing and also for scenarios where you want to use Nodemailer plugins to process the message and do the actual delivery by some other means.</p>
+<p>Stream Transport is not actually a transport, it&rsquo;s more like a testing add-on as instead of delivering the message it processes input data and returns you the generated RFC822 email message either as a stream or a Buffer. Additionally you can define which kind of newlines to use, either the &lsquo;windows&rsquo; style (&lt;CR&gt;&lt;LF&gt;) or the &lsquo;unix&rsquo; style (&lt;LF&gt;). This transport is mostly useful for testing and also for scenarios where you want to use Nodemailer plugins to process the message and do the actual delivery by some other means.</p>
 
 <p>To use Stream Transport, set <strong>streamTransport</strong> in Nodemailer transport options to <em>true</em> in Nodemailer options. If you want the transport to return buffers instead of streams, set <strong>buffer</strong> option to <em>true</em>. For newline selection use <strong>newline</strong> property (defaults to &lsquo;unix&rsquo;)</p>
 
@@ -561,6 +571,10 @@
 <li><strong>messageId</strong> – is the Message-ID header value</li>
 <li><strong>message</strong> – is either stream (default) of buffer depending on the options</li>
 </ul>
+
+<h3 id="json-transport">JSON transport</h3>
+
+<p>Another alternative instead of streaming is JSON transport (available since Nodemailer v3.1.0). In this case the message object would include a JSON string that in turn could be used as input for Nodemailer. All attachments, web content etc. are converted into base64 encoded strings. Address strings are parsed into address objects. The only downside is that <em>raw</em> property is not supported.</p>
 
 <h3 id="examples">Examples</h3>
 
@@ -601,6 +615,45 @@ transporter.sendMail({
 });
 </code></pre>
 
+<h4 id="3-create-a-json-encoded-message-object">3. Create a JSON encoded message object</h4>
+
+<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    jsonTransport: true
+});
+transporter.sendMail({
+    from: 'sender@example.com',
+    to: 'recipient@example.com',
+    subject: 'Message',
+    text: 'I hope this message gets buffered!'
+}, (err, info) =&gt; {
+    console.log(info.envelope);
+    console.log(info.messageId);
+    console.log(info.message); // JSON string
+});
+</code></pre>
+
+<p>The contents of <em>info.message</em> (string value) would look like this:</p>
+
+<pre><code class="language-json">{
+   &quot;from&quot;:{
+      &quot;address&quot;:&quot;sender@example.com&quot;,
+      &quot;name&quot;:&quot;&quot;
+   },
+   &quot;to&quot;:[
+      {
+         &quot;address&quot;:&quot;recipient@example.com&quot;,
+         &quot;name&quot;:&quot;&quot;
+      }
+   ],
+   &quot;subject&quot;:&quot;Message&quot;,
+   &quot;text&quot;:&quot;I hope this message gets buffered!&quot;,
+   &quot;headers&quot;:{
+
+   },
+   &quot;messageId&quot;:&quot;&lt;77a3458f-8070-339d-095f-85bb73f3db8e@example.com&gt;&quot;
+}
+</code></pre>
+
 
       
       </div>
@@ -608,7 +661,7 @@ transporter.sendMail({
 
     <div id="navigation">
         
-        <a class="nav nav-prev" href="/transports/sendmail/"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/transports/ses/"> <i class="fa fa-chevron-left"></i></a>
         <a class="nav nav-next" href="/plugins/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
     </div>
 

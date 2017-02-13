@@ -394,6 +394,14 @@
           
           
           
+            <li class="dd-item " data-nav-id="/transports/ses/">
+              <a href="/transports/ses/">
+                <span>SES transport     </i></span>
+              </a>
+            </li>
+          
+          
+          
             <li class="dd-item " data-nav-id="/transports/stream/">
               <a href="/transports/stream/">
                 <span>Stream transport     </i></span>
@@ -550,13 +558,13 @@
 
 <p>In addition to the default <a href="/smtp/">SMTP transport</a> you can use other kind of transports as well with Nodemailer. Some transprots are built-in, some need an external plugin. See <em>Available Transports</em> below for known transports.</p>
 
-<p>The following example uses <a href="https://github.com/andris9/nodemailer-ses-transport">nodemailer-ses-transport</a> (Amazon SES).</p>
+<p>The following example uses <a href="/transports/ses/">SES transport</a> (Amazon SES).</p>
 
-<pre><code class="language-javascript">let ses = require('nodemailer-ses-transport');
-let transporter = nodemailer.createTransport(ses({
-    accessKeyId: 'AWSACCESSKEY',
-    secretAccessKey: 'AWS/Secret/key'
-}));
+<pre><code class="language-javascript">let nodemailer = require('nodemailer');
+let aws = require('aws-sdk');
+let transporter = nodemailer.createTransport({
+    SES: new aws.SES({apiVersion: '2010-12-01'})
+});
 </code></pre>
 
 <h2 id="available-transports">Available transports</h2>
@@ -565,6 +573,7 @@ let transporter = nodemailer.createTransport(ses({
 
 <ul>
 <li><strong><a href="/transports/sendmail/">sendmail</a></strong> – for piping messages to the <em>sendmail</em> command</li>
+<li><strong><a href="/transports/ses/">SES</a></strong> – is a Nodemailer wrapper around <em>aws-sdk</em> to send mail using AWS SES</li>
 <li><strong><a href="/transports/stream/">stream</a></strong> – is just for returning messages, most probably for testing</li>
 </ul>
 
@@ -575,7 +584,6 @@ let transporter = nodemailer.createTransport(ses({
 <li><strong><a href="https://github.com/andris9/nodemailer-pickup-transport">nodemailer-pickup-transport</a></strong> – for storing messages to pickup folders</li>
 <li><strong><a href="https://github.com/rebelmail/nodemailer-sailthru-transport">nodemailer-sailthru-transport</a></strong> – for sending messages through Sailthru&rsquo;s Web API</li>
 <li><strong><a href="https://github.com/sendgrid/nodemailer-sendgrid-transport">nodemailer-sendgrid-transport</a></strong> – for sending messages through SendGrid&rsquo;s Web API</li>
-<li><strong><a href="https://github.com/andris9/nodemailer-ses-transport">nodemailer-ses-transport</a></strong> – for sending messages to AWS SES</li>
 <li><strong><a href="https://github.com/sparkpost/nodemailer-sparkpost-transport">nodemailer-sparkpost-transport</a></strong> – for sending messages through SparkPost&rsquo;s Web API</li>
 <li><strong>your own</strong> (see transport api documentation <a href="/plugins/create/#transports">here</a>)</li>
 </ul>

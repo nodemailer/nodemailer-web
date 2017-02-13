@@ -13,14 +13,14 @@ toc = true
 
 In addition to the default [SMTP transport](/smtp/) you can use other kind of transports as well with Nodemailer. Some transprots are built-in, some need an external plugin. See _Available Transports_ below for known transports.
 
-The following example uses [nodemailer-ses-transport](https://github.com/andris9/nodemailer-ses-transport) (Amazon SES).
+The following example uses [SES transport](/transports/ses/) (Amazon SES).
 
 ```javascript
-let ses = require('nodemailer-ses-transport');
-let transporter = nodemailer.createTransport(ses({
-    accessKeyId: 'AWSACCESSKEY',
-    secretAccessKey: 'AWS/Secret/key'
-}));
+let nodemailer = require('nodemailer');
+let aws = require('aws-sdk');
+let transporter = nodemailer.createTransport({
+    SES: new aws.SES({apiVersion: '2010-12-01'})
+});
 ```
 
 ## Available transports
@@ -28,6 +28,7 @@ let transporter = nodemailer.createTransport(ses({
 ### Built-in transports
 
 - **[sendmail](/transports/sendmail/)** – for piping messages to the _sendmail_ command
+- **[SES](/transports/ses/)** – is a Nodemailer wrapper around *aws-sdk* to send mail using AWS SES
 - **[stream](/transports/stream/)** – is just for returning messages, most probably for testing
 
 ### External transports
@@ -36,7 +37,6 @@ let transporter = nodemailer.createTransport(ses({
 - **[nodemailer-pickup-transport](https://github.com/andris9/nodemailer-pickup-transport)** – for storing messages to pickup folders
 - **[nodemailer-sailthru-transport](https://github.com/rebelmail/nodemailer-sailthru-transport)** – for sending messages through Sailthru's Web API
 - **[nodemailer-sendgrid-transport](https://github.com/sendgrid/nodemailer-sendgrid-transport)** – for sending messages through SendGrid's Web API
-- **[nodemailer-ses-transport](https://github.com/andris9/nodemailer-ses-transport)** – for sending messages to AWS SES
 - **[nodemailer-sparkpost-transport](https://github.com/sparkpost/nodemailer-sparkpost-transport)** – for sending messages through SparkPost's Web API
 - **your own** (see transport api documentation [here](/plugins/create/#transports))
 
