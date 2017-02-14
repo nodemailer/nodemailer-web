@@ -25,4 +25,4 @@ Nodemailer is available under a more restrictive license without a fee, so you a
 
 #### Contact
 
-Contact sales [sales@nodemailer.com](mailto:sales@nodemailer.com) to purchase the license or if you have any other sales related questions. For support related issues contact [support@nodemailer.com](mailto:support@nodemailer.com).
+Nodemailer subscription for the commercial license is sold on [Gumroad](https://gum.co/nodemailer). Contact sales [sales@nodemailer.com](mailto:sales@nodemailer.com) for any sales related questions. For support related issues contact [support@nodemailer.com](mailto:support@nodemailer.com).
