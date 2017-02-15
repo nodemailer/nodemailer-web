@@ -20,7 +20,7 @@ In addition to the simple API, Nodemailer also provides rate limiting for SES ou
 
 To use SES transport, set a _aws.SES_ object as the value for **SES** property in Nodemailer transport options. That's it. You are responsible of initializing that object yourself as Nodemailer does not touch the AWS settings in any way.
 
-- **SES** – is an option that expects an instantiated _aws.SES_ object
+- **SES** – is an option that expects an instantiated _aws.SES_ object. See [example-1](#example-1)
 
 Additional properties to use are the following:
 
@@ -31,7 +31,7 @@ If you use rate or connection limiting then you can also use helper methods to d
 
 Listen for the _'idle'_ event to be notified if you can push more messages to the transporter.
 
-To explicitly check if there are free spots available use _isIdle()_ method. See [Example-2](#example-2).
+To explicitly check if there are free spots available use _isIdle()_ method. See [example-2](#example-2).
 
 #### Message options
 
