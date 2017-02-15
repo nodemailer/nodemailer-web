@@ -145,7 +145,7 @@ transporter.sendMail({
 &lt;p&gt;To use SES transport, set a &lt;em&gt;aws.SES&lt;/em&gt; object as the value for &lt;strong&gt;SES&lt;/strong&gt; property in Nodemailer transport options. That&amp;rsquo;s it. You are responsible of initializing that object yourself as Nodemailer does not touch the AWS settings in any way.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;SES&lt;/strong&gt; – is an option that expects an instantiated &lt;em&gt;aws.SES&lt;/em&gt; object. See &lt;a href=&#34;#example-1&#34;&gt;example-1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SES&lt;/strong&gt; – is an option that expects an instantiated &lt;em&gt;aws.SES&lt;/em&gt; object (see &lt;a href=&#34;#example-1&#34;&gt;example #1&lt;/a&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Additional properties to use are the following:&lt;/p&gt;
@@ -159,7 +159,7 @@ transporter.sendMail({
 
 &lt;p&gt;Listen for the &lt;em&gt;&amp;lsquo;idle&amp;rsquo;&lt;/em&gt; event to be notified if you can push more messages to the transporter.&lt;/p&gt;
 
-&lt;p&gt;To explicitly check if there are free spots available use &lt;em&gt;isIdle()&lt;/em&gt; method. See &lt;a href=&#34;#example-2&#34;&gt;example-2&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To explicitly check if there are free spots available use &lt;em&gt;isIdle()&lt;/em&gt; method (see &lt;a href=&#34;#example-2&#34;&gt;example #2&lt;/a&gt;).&lt;/p&gt;
 
 &lt;h4 id=&#34;message-options&#34;&gt;Message options&lt;/h4&gt;
 
@@ -183,7 +183,7 @@ transporter.sendMail({
 &lt;p&gt;&lt;strong&gt;1. Not allowed to send messages&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Check that your IAM role has &lt;em&gt;ses:SendRawEmail&lt;/em&gt; action allowed&lt;/li&gt;
+&lt;li&gt;Check that your IAM role has &lt;em&gt;ses:SendRawEmail&lt;/em&gt; action allowed (see &lt;a href=&#34;#example-3&#34;&gt;example #3&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Check that the email address you are sending mail from is verified&lt;/li&gt;
 &lt;li&gt;There are multiple reports that access keys with special symbols might fail sending mail. Try to generate new access keys and see if it helps&lt;/li&gt;
 &lt;/ol&gt;

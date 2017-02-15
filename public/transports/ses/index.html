@@ -579,7 +579,7 @@
 <p>To use SES transport, set a <em>aws.SES</em> object as the value for <strong>SES</strong> property in Nodemailer transport options. That&rsquo;s it. You are responsible of initializing that object yourself as Nodemailer does not touch the AWS settings in any way.</p>
 
 <ul>
-<li><strong>SES</strong> – is an option that expects an instantiated <em>aws.SES</em> object. See <a href="#example-1">example-1</a></li>
+<li><strong>SES</strong> – is an option that expects an instantiated <em>aws.SES</em> object (see <a href="#example-1">example #1</a>).</li>
 </ul>
 
 <p>Additional properties to use are the following:</p>
@@ -593,7 +593,7 @@
 
 <p>Listen for the <em>&lsquo;idle&rsquo;</em> event to be notified if you can push more messages to the transporter.</p>
 
-<p>To explicitly check if there are free spots available use <em>isIdle()</em> method. See <a href="#example-2">example-2</a>.</p>
+<p>To explicitly check if there are free spots available use <em>isIdle()</em> method (see <a href="#example-2">example #2</a>).</p>
 
 <h4 id="message-options">Message options</h4>
 
@@ -617,7 +617,7 @@
 <p><strong>1. Not allowed to send messages</strong></p>
 
 <ol>
-<li>Check that your IAM role has <em>ses:SendRawEmail</em> action allowed</li>
+<li>Check that your IAM role has <em>ses:SendRawEmail</em> action allowed (see <a href="#example-3">example #3</a>)</li>
 <li>Check that the email address you are sending mail from is verified</li>
 <li>There are multiple reports that access keys with special symbols might fail sending mail. Try to generate new access keys and see if it helps</li>
 </ol>
