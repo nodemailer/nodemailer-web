@@ -10,13 +10,13 @@ next = "/transports/stream/"
 
 Nodemailer SES transport is a wrapper around _aws.SES_ from the [aws-sdk](https://www.npmjs.com/package/aws-sdk) package. SES transport is available from Nodemailer v3.1.0.
 
-# Why not use aws-sdk directly?
+## Why not use aws-sdk directly?
 
 The SES API exposes two methods to send mail – [SendEmail](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendEmail-property) and [SendRawEmail](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendRawEmail-property). While the first one is really easy to use and Nodemailer is not actualy needed, then it is also quite basic in features. For example you can't use attachments with _SendEmail_. On the other hand _SendRawEmail_ requires you build your own MIME formatted email message which is far from being easy. And this is where Nodemailer steps in – it gives you a simple to use API while supporting even really complex scenarios like embedded images or calendar events.
 
 In addition to the simple API, Nodemailer also provides rate limiting for SES out of the box. SES can tolerate short spikes but you can't really flush all your emails at once and expect these to be delivered. To overcome this you can set a rate limiting value and let Nodemailer handle everything – if too many messages are being delivered then Nodemailer buffers these until there is an opportunity to do the actual delivery.
 
-# Usage
+## Usage
 
 To use SES transport, set a _aws.SES_ object as the value for **SES** property in Nodemailer transport options. That's it. You are responsible of initializing that object yourself as Nodemailer does not touch the AWS settings in any way.
 
@@ -33,13 +33,13 @@ Listen for the _'idle'_ event to be notified if you can push more messages to th
 
 To explicitly check if there are free spots available use _isIdle()_ method. See [Example-2](#example-2).
 
-## Message options
+#### Message options
 
 When sending mail there's also an additional message option for setting _SendRawEmail_ options
 
 - **ses** is an optional object. All keys are added to the _SendRawEmail_ method options.
 
-## Response
+#### Response
 
 The **info** argument for **sendMail()** callback includes the following properties:
 

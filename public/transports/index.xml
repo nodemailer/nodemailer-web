@@ -134,13 +134,13 @@ transporter.sendMail({
 
 &lt;p&gt;Nodemailer SES transport is a wrapper around &lt;em&gt;aws.SES&lt;/em&gt; from the &lt;a href=&#34;https://www.npmjs.com/package/aws-sdk&#34;&gt;aws-sdk&lt;/a&gt; package. SES transport is available from Nodemailer v3.1.0.&lt;/p&gt;
 
-&lt;h1 id=&#34;why-not-use-aws-sdk-directly&#34;&gt;Why not use aws-sdk directly?&lt;/h1&gt;
+&lt;h2 id=&#34;why-not-use-aws-sdk-directly&#34;&gt;Why not use aws-sdk directly?&lt;/h2&gt;
 
 &lt;p&gt;The SES API exposes two methods to send mail – &lt;a href=&#34;http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendEmail-property&#34;&gt;SendEmail&lt;/a&gt; and &lt;a href=&#34;http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendRawEmail-property&#34;&gt;SendRawEmail&lt;/a&gt;. While the first one is really easy to use and Nodemailer is not actualy needed, then it is also quite basic in features. For example you can&amp;rsquo;t use attachments with &lt;em&gt;SendEmail&lt;/em&gt;. On the other hand &lt;em&gt;SendRawEmail&lt;/em&gt; requires you build your own MIME formatted email message which is far from being easy. And this is where Nodemailer steps in – it gives you a simple to use API while supporting even really complex scenarios like embedded images or calendar events.&lt;/p&gt;
 
 &lt;p&gt;In addition to the simple API, Nodemailer also provides rate limiting for SES out of the box. SES can tolerate short spikes but you can&amp;rsquo;t really flush all your emails at once and expect these to be delivered. To overcome this you can set a rate limiting value and let Nodemailer handle everything – if too many messages are being delivered then Nodemailer buffers these until there is an opportunity to do the actual delivery.&lt;/p&gt;
 
-&lt;h1 id=&#34;usage&#34;&gt;Usage&lt;/h1&gt;
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
 
 &lt;p&gt;To use SES transport, set a &lt;em&gt;aws.SES&lt;/em&gt; object as the value for &lt;strong&gt;SES&lt;/strong&gt; property in Nodemailer transport options. That&amp;rsquo;s it. You are responsible of initializing that object yourself as Nodemailer does not touch the AWS settings in any way.&lt;/p&gt;
 
@@ -161,7 +161,7 @@ transporter.sendMail({
 
 &lt;p&gt;To explicitly check if there are free spots available use &lt;em&gt;isIdle()&lt;/em&gt; method. See &lt;a href=&#34;#example-2&#34;&gt;Example-2&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;message-options&#34;&gt;Message options&lt;/h2&gt;
+&lt;h4 id=&#34;message-options&#34;&gt;Message options&lt;/h4&gt;
 
 &lt;p&gt;When sending mail there&amp;rsquo;s also an additional message option for setting &lt;em&gt;SendRawEmail&lt;/em&gt; options&lt;/p&gt;
 
@@ -169,7 +169,7 @@ transporter.sendMail({
 &lt;li&gt;&lt;strong&gt;ses&lt;/strong&gt; is an optional object. All keys are added to the &lt;em&gt;SendRawEmail&lt;/em&gt; method options.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;response&#34;&gt;Response&lt;/h2&gt;
+&lt;h4 id=&#34;response&#34;&gt;Response&lt;/h4&gt;
 
 &lt;p&gt;The &lt;strong&gt;info&lt;/strong&gt; argument for &lt;strong&gt;sendMail()&lt;/strong&gt; callback includes the following properties:&lt;/p&gt;
 
