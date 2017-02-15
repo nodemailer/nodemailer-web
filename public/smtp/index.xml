@@ -518,7 +518,7 @@ transporter.sendMail({
 
 &lt;p&gt;Nodemailer knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.&lt;/p&gt;
 
-&lt;p&gt;The following example sets up a transporter against &lt;a href=&#34;https://sendpulse.com/&#34;&gt;SendPulse&lt;/a&gt; SMTP server using service name:&lt;/p&gt;
+&lt;p&gt;The following example sets up a transporter against &lt;a href=&#34;https://sendpulse.com/&#34;&gt;SendPulse&lt;/a&gt; SMTP server using only service name instead of actual server configuration:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
      service: &#39;SendPulse&#39;, // no need to set host or port etc.
@@ -527,6 +527,8 @@ transporter.sendMail({
          password: &#39;smtp-password&#39;
      }
 });
+
+transporter.sendMail(...)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;supported-services&#34;&gt;Supported services&lt;/h3&gt;

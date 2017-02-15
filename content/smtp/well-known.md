@@ -10,7 +10,7 @@ toc = true
 
 Nodemailer knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.
 
-The following example sets up a transporter against [SendPulse](https://sendpulse.com/) SMTP server using service name:
+The following example sets up a transporter against [SendPulse](https://sendpulse.com/) SMTP server using only service name instead of actual server configuration:
 
 ```javascript
 let transporter = nodemailer.createTransport({
@@ -20,6 +20,8 @@ let transporter = nodemailer.createTransport({
          password: 'smtp-password'
      }
 });
+
+transporter.sendMail(...)
 ```
 
 ### Supported services
