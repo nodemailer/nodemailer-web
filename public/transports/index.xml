@@ -157,9 +157,7 @@ transporter.sendMail({
 
 &lt;p&gt;If you use rate or connection limiting then you can also use helper methods to detect if the sending queue is full or not. This would help to avoid buffering up too many messages.&lt;/p&gt;
 
-&lt;p&gt;Listen for the &lt;em&gt;&amp;lsquo;idle&amp;rsquo;&lt;/em&gt; event to be notified if you can push more messages to the transporter.&lt;/p&gt;
-
-&lt;p&gt;To explicitly check if there are free spots available use &lt;em&gt;isIdle()&lt;/em&gt; method (see &lt;a href=&#34;#example-2&#34;&gt;example #2&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Listen for the &lt;em&gt;&amp;lsquo;idle&amp;rsquo;&lt;/em&gt; event to be notified if you can push more messages to the transporter. To explicitly check if there are free spots available use &lt;em&gt;isIdle()&lt;/em&gt; method (see &lt;a href=&#34;#example-2&#34;&gt;example #2&lt;/a&gt;).&lt;/p&gt;
 
 &lt;h4 id=&#34;message-options&#34;&gt;Message options&lt;/h4&gt;
 

@@ -29,9 +29,7 @@ Additional properties to use are the following:
 
 If you use rate or connection limiting then you can also use helper methods to detect if the sending queue is full or not. This would help to avoid buffering up too many messages.
 
-Listen for the _'idle'_ event to be notified if you can push more messages to the transporter.
-
-To explicitly check if there are free spots available use _isIdle()_ method (see [example #2](#example-2)).
+Listen for the _'idle'_ event to be notified if you can push more messages to the transporter. To explicitly check if there are free spots available use _isIdle()_ method (see [example #2](#example-2)).
 
 #### Message options
 
