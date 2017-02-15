@@ -31,18 +31,7 @@ If you use rate or connection limiting then you can also use helper methods to d
 
 Listen for the _'idle'_ event to be notified if you can push more messages to the transporter.
 
-To explicitly check if there are free spots available use _isIdle()_ method.
-
-**Example**
-
-```javascript
-// Push next messages to Nodemailer
-transport.on('idle', () => {
-    while (transport.isIdle()) {
-        transports.sendMail(...);
-    }
-});
-```
+To explicitly check if there are free spots available use _isIdle()_ method. See [Example-2](#example-2).
 
 ## Message options
 
@@ -71,7 +60,7 @@ You need to install the [aws-sdk](https://www.npmjs.com/package/aws-sdk) module 
 
 ### Examples
 
-#### 1\. Send a message using SES transport
+#### 1\. Send a message using SES transport {#example-1}
 
 ```javascript
 let nodemailer = require('nodemailer');
@@ -84,8 +73,7 @@ aws.config.loadFromPath('config.json');
 let transporter = nodemailer.createTransport({
     SES: new aws.SES({
         apiVersion: '2010-12-01'
-    }),
-    sendingRate: 1 // max 1 messages/second
+    })
 });
 
 // send some mail
@@ -106,7 +94,25 @@ transporter.sendMail({
 });
 ```
 
-#### 2\. IAM policy
+#### 2\. Throttle messages {#example-2}
+
+```javascript
+let transporter = nodemailer.createTransport({
+    SES: new aws.SES({
+        apiVersion: '2010-12-01'
+    }),
+    sendingRate: 1 // max 1 messages/second
+});
+
+// Push next messages to Nodemailer
+transport.on('idle', () => {
+    while (transport.isIdle()) {
+        transports.sendMail(...);
+    }
+});
+```
+
+#### 3\. IAM policy {#example-3}
 
 Nodemailer SES transport requires *ses:SendRawEmail* role
 

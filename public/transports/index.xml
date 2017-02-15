@@ -159,17 +159,7 @@ transporter.sendMail({
 
 &lt;p&gt;Listen for the &lt;em&gt;&amp;lsquo;idle&amp;rsquo;&lt;/em&gt; event to be notified if you can push more messages to the transporter.&lt;/p&gt;
 
-&lt;p&gt;To explicitly check if there are free spots available use &lt;em&gt;isIdle()&lt;/em&gt; method.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// Push next messages to Nodemailer
-transport.on(&#39;idle&#39;, () =&amp;gt; {
-    while (transport.isIdle()) {
-        transports.sendMail(...);
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;To explicitly check if there are free spots available use &lt;em&gt;isIdle()&lt;/em&gt; method. See &lt;a href=&#34;#example-2&#34;&gt;Example-2&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;message-options&#34;&gt;Message options&lt;/h2&gt;
 
@@ -204,7 +194,7 @@ transport.on(&#39;idle&#39;, () =&amp;gt; {
 
 &lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
 
-&lt;h4 id=&#34;1-send-a-message-using-ses-transport&#34;&gt;1. Send a message using SES transport&lt;/h4&gt;
+&lt;h4 id=&#34;example-1&#34;&gt;1. Send a message using SES transport&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let nodemailer = require(&#39;nodemailer&#39;);
 let aws = require(&#39;aws-sdk&#39;);
@@ -216,8 +206,7 @@ aws.config.loadFromPath(&#39;config.json&#39;);
 let transporter = nodemailer.createTransport({
     SES: new aws.SES({
         apiVersion: &#39;2010-12-01&#39;
-    }),
-    sendingRate: 1 // max 1 messages/second
+    })
 });
 
 // send some mail
@@ -238,7 +227,24 @@ transporter.sendMail({
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;2-iam-policy&#34;&gt;2. IAM policy&lt;/h4&gt;
+&lt;h4 id=&#34;example-2&#34;&gt;2. Throttle messages&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
+    SES: new aws.SES({
+        apiVersion: &#39;2010-12-01&#39;
+    }),
+    sendingRate: 1 // max 1 messages/second
+});
+
+// Push next messages to Nodemailer
+transport.on(&#39;idle&#39;, () =&amp;gt; {
+    while (transport.isIdle()) {
+        transports.sendMail(...);
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;example-3&#34;&gt;3. IAM policy&lt;/h4&gt;
 
 &lt;p&gt;Nodemailer SES transport requires &lt;em&gt;ses:SendRawEmail&lt;/em&gt; role&lt;/p&gt;
 
