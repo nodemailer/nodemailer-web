@@ -531,18 +531,12 @@
     <div class="wrapper">
 <nav id="TableOfContents">
 <ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
 <li><a href="#why-not-use-aws-sdk-directly">Why not use aws-sdk directly?</a></li>
 <li><a href="#usage">Usage</a>
 <ul>
-<li><a href="#response">Response</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#message-options">Message options</a></li>
+<li><a href="#response">Response</a>
+<ul>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 <li><a href="#examples">Examples</a>
 <ul>
@@ -569,15 +563,19 @@
 
 <p>Nodemailer SES transport is a wrapper around <em>aws.SES</em> from the <a href="https://www.npmjs.com/package/aws-sdk">aws-sdk</a> package. SES transport is available from Nodemailer v3.1.0.</p>
 
-<h4 id="why-not-use-aws-sdk-directly">Why not use aws-sdk directly?</h4>
+<h1 id="why-not-use-aws-sdk-directly">Why not use aws-sdk directly?</h1>
 
 <p>The SES API exposes two methods to send mail – <a href="http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendEmail-property">SendEmail</a> and <a href="http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendRawEmail-property">SendRawEmail</a>. While the first one is really easy to use and Nodemailer is not actualy needed, then it is also quite basic in features. For example you can&rsquo;t use attachments with <em>SendEmail</em>. On the other hand <em>SendRawEmail</em> requires you build your own MIME formatted email message which is far from being easy. And this is where Nodemailer steps in – it gives you a simple to use API while supporting even really complex scenarios like embedded images or calendar events.</p>
 
 <p>In addition to the simple API, Nodemailer also provides rate limiting for SES out of the box. SES can tolerate short spikes but you can&rsquo;t really flush all your emails at once and expect these to be delivered. To overcome this you can set a rate limiting value and let Nodemailer handle everything – if too many messages are being delivered then Nodemailer buffers these until there is an opportunity to do the actual delivery.</p>
 
-<h4 id="usage">Usage</h4>
+<h1 id="usage">Usage</h1>
 
 <p>To use SES transport, set a <em>aws.SES</em> object as the value for <strong>SES</strong> property in Nodemailer transport options. That&rsquo;s it. You are responsible of initializing that object yourself as Nodemailer does not touch the AWS settings in any way.</p>
+
+<ul>
+<li><strong>SES</strong> – is an option that expects an instantiated <em>aws.SES</em> object</li>
+</ul>
 
 <p>Additional properties to use are the following:</p>
 
@@ -586,13 +584,31 @@
 <li><strong>maxConnections</strong> optional Number. How many parallel connections to allow towards SES.</li>
 </ul>
 
+<p>If you use rate or connection limiting then you can also use helper methods to detect if the sending queue is full or not. This would help to avoid buffering up too many messages.</p>
+
+<p>Listen for the <em>&lsquo;idle&rsquo;</em> event to be notified if you can push more messages to the transporter.</p>
+
+<p>To explicitly check if there are free spots available use <em>isIdle()</em> method.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code class="language-javascript">// Push next messages to Nodemailer
+transport.on('idle', () =&gt; {
+    while (transport.isIdle()) {
+        transports.sendMail(...);
+    }
+});
+</code></pre>
+
+<h2 id="message-options">Message options</h2>
+
 <p>When sending mail there&rsquo;s also an additional message option for setting <em>SendRawEmail</em> options</p>
 
 <ul>
 <li><strong>ses</strong> is an optional object. All keys are added to the <em>SendRawEmail</em> method options.</li>
 </ul>
 
-<h5 id="response">Response</h5>
+<h2 id="response">Response</h2>
 
 <p>The <strong>info</strong> argument for <strong>sendMail()</strong> callback includes the following properties:</p>
 
@@ -652,6 +668,8 @@ transporter.sendMail({
 </code></pre>
 
 <h4 id="2-iam-policy">2. IAM policy</h4>
+
+<p>Nodemailer SES transport requires <em>ses:SendRawEmail</em> role</p>
 
 <pre><code class="language-json">{
     &quot;Statement&quot;: [
