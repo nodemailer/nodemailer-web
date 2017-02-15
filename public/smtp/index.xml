@@ -518,22 +518,29 @@ transporter.sendMail({
 
 &lt;p&gt;Nodemailer knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.&lt;/p&gt;
 
+&lt;p&gt;The following example sets up a transporter against &lt;a href=&#34;https://sendpulse.com/&#34;&gt;SendPulse&lt;/a&gt; SMTP server using service name:&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-     service: &#39;gmail&#39;, // no need to set host or port etc.
-     auth: {...}
+     service: &#39;SendPulse&#39;, // no need to set host or port etc.
+     auth: {
+         user: &#39;account.email@example.com&#39;,
+         password: &#39;smtp-password&#39;
+     }
 });
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;supported-services&#34;&gt;Supported services&lt;/h3&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;Service names are case insensitive&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;Service names are case insensitive&lt;/p&gt;
+&lt;/div&gt;
+
 
 &lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;126&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;163&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;1und1&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;AOL&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;DebugMail.io&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;DebugMail&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;DynectEmail&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;FastMail&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;GandiMail&amp;quot;&lt;/code&gt;&lt;/li&gt;
@@ -546,20 +553,29 @@ transporter.sendMail({
 &lt;li&gt;&lt;code&gt;&amp;quot;iCloud&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;mail.ee&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Mail.ru&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;Maildev&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Mailgun&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Mailjet&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Mandrill&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Naver&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;OpenMailBox&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;Outlook365&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Postmark&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;QQ&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;QQex&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;SendCloud&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;SendGrid&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;SendinBlue&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;SendPulse&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;SES&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;SES-US-EAST-1&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;SES-US-WEST-2&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;SES-EU-WEST-1&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Sparkpost&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Yahoo&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Yandex&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Zoho&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;qiye.aliyun&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

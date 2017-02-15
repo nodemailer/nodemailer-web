@@ -10,43 +10,61 @@ toc = true
 
 Nodemailer knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.
 
+The following example sets up a transporter against [SendPulse](https://sendpulse.com/) SMTP server using service name:
+
 ```javascript
 let transporter = nodemailer.createTransport({
-     service: 'gmail', // no need to set host or port etc.
-     auth: {...}
+     service: 'SendPulse', // no need to set host or port etc.
+     auth: {
+         user: 'account.email@example.com',
+         password: 'smtp-password'
+     }
 });
 ```
 
 ### Supported services
 
-> Service names are case insensitive
+{{% notice tip %}}
+Service names are case insensitive
+{{% /notice %}}
 
-* `"1und1"`
-* `"AOL"`
-* `"DebugMail.io"`
-* `"DynectEmail"`
-* `"FastMail"`
-* `"GandiMail"`
-* `"Gmail"`
-* `"Godaddy"`
-* `"GodaddyAsia"`
-* `"GodaddyEurope"`
-* `"hot.ee"`
-* `"Hotmail"`
-* `"iCloud"`
-* `"mail.ee"`
-* `"Mail.ru"`
-* `"Mailgun"`
-* `"Mailjet"`
-* `"Mandrill"`
-* `"Naver"`
-* `"Postmark"`
-* `"QQ"`
-* `"QQex"`
-* `"SendCloud"`
-* `"SendGrid"`
-* `"SES"`
-* `"Sparkpost"`
-* `"Yahoo"`
-* `"Yandex"`
-* `"Zoho"`
+- `"126"`
+- `"163"`
+- `"1und1"`
+- `"AOL"`
+- `"DebugMail"`
+- `"DynectEmail"`
+- `"FastMail"`
+- `"GandiMail"`
+- `"Gmail"`
+- `"Godaddy"`
+- `"GodaddyAsia"`
+- `"GodaddyEurope"`
+- `"hot.ee"`
+- `"Hotmail"`
+- `"iCloud"`
+- `"mail.ee"`
+- `"Mail.ru"`
+- `"Maildev"`
+- `"Mailgun"`
+- `"Mailjet"`
+- `"Mandrill"`
+- `"Naver"`
+- `"OpenMailBox"`
+- `"Outlook365"`
+- `"Postmark"`
+- `"QQ"`
+- `"QQex"`
+- `"SendCloud"`
+- `"SendGrid"`
+- `"SendinBlue"`
+- `"SendPulse"`
+- `"SES"`
+- `"SES-US-EAST-1"`
+- `"SES-US-WEST-2"`
+- `"SES-EU-WEST-1"`
+- `"Sparkpost"`
+- `"Yahoo"`
+- `"Yandex"`
+- `"Zoho"`
+- `"qiye.aliyun"`

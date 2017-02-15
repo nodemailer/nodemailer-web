@@ -556,22 +556,29 @@
 
 <p>Nodemailer knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.</p>
 
+<p>The following example sets up a transporter against <a href="https://sendpulse.com/">SendPulse</a> SMTP server using service name:</p>
+
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-     service: 'gmail', // no need to set host or port etc.
-     auth: {...}
+     service: 'SendPulse', // no need to set host or port etc.
+     auth: {
+         user: 'account.email@example.com',
+         password: 'smtp-password'
+     }
 });
 </code></pre>
 
 <h3 id="supported-services">Supported services</h3>
 
-<blockquote>
-<p>Service names are case insensitive</p>
-</blockquote>
+<div class="notices tip" ><p>Service names are case insensitive</p>
+</div>
+
 
 <ul>
+<li><code>&quot;126&quot;</code></li>
+<li><code>&quot;163&quot;</code></li>
 <li><code>&quot;1und1&quot;</code></li>
 <li><code>&quot;AOL&quot;</code></li>
-<li><code>&quot;DebugMail.io&quot;</code></li>
+<li><code>&quot;DebugMail&quot;</code></li>
 <li><code>&quot;DynectEmail&quot;</code></li>
 <li><code>&quot;FastMail&quot;</code></li>
 <li><code>&quot;GandiMail&quot;</code></li>
@@ -584,20 +591,29 @@
 <li><code>&quot;iCloud&quot;</code></li>
 <li><code>&quot;mail.ee&quot;</code></li>
 <li><code>&quot;Mail.ru&quot;</code></li>
+<li><code>&quot;Maildev&quot;</code></li>
 <li><code>&quot;Mailgun&quot;</code></li>
 <li><code>&quot;Mailjet&quot;</code></li>
 <li><code>&quot;Mandrill&quot;</code></li>
 <li><code>&quot;Naver&quot;</code></li>
+<li><code>&quot;OpenMailBox&quot;</code></li>
+<li><code>&quot;Outlook365&quot;</code></li>
 <li><code>&quot;Postmark&quot;</code></li>
 <li><code>&quot;QQ&quot;</code></li>
 <li><code>&quot;QQex&quot;</code></li>
 <li><code>&quot;SendCloud&quot;</code></li>
 <li><code>&quot;SendGrid&quot;</code></li>
+<li><code>&quot;SendinBlue&quot;</code></li>
+<li><code>&quot;SendPulse&quot;</code></li>
 <li><code>&quot;SES&quot;</code></li>
+<li><code>&quot;SES-US-EAST-1&quot;</code></li>
+<li><code>&quot;SES-US-WEST-2&quot;</code></li>
+<li><code>&quot;SES-EU-WEST-1&quot;</code></li>
 <li><code>&quot;Sparkpost&quot;</code></li>
 <li><code>&quot;Yahoo&quot;</code></li>
 <li><code>&quot;Yandex&quot;</code></li>
 <li><code>&quot;Zoho&quot;</code></li>
+<li><code>&quot;qiye.aliyun&quot;</code></li>
 </ul>
 
 
