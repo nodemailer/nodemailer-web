@@ -75,12 +75,24 @@
     </item>
     
     <item>
-      <title>Support</title>
+      <title>Support and Services</title>
       <link>https://nodemailer.com/about/pro-support/</link>
       <pubDate>Sat, 21 Jan 2017 22:51:02 +0200</pubDate>
       
       <guid>https://nodemailer.com/about/pro-support/</guid>
-      <description>&lt;p&gt;Support is available for Nodemailer subscribers. If you have trouble setting up or using Nodemailer, then contact &lt;a href=&#34;mailto:support@nodemailer.com&#34;&gt;support@nodemailer.com&lt;/a&gt;.&lt;/p&gt;
+      <description>
+
+&lt;p&gt;Support is available for Nodemailer subscribers. If you have trouble setting up or using Nodemailer, then contact &lt;a href=&#34;mailto:support@nodemailer.com&#34;&gt;support@nodemailer.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;custom-work-or-support&#34;&gt;Custom work or support&lt;/h3&gt;
+
+&lt;p&gt;I can help you to tweak Nodemailer to meet your specific requirements. Additionally I can help with debugging email related issues in general, be it with RFC822 formatting, IMAP protocol usage, SMTP protocol usage etc. I can&amp;rsquo;t provide any help with HTML email design.&lt;/p&gt;
+
+&lt;p&gt;If you are running an email sending service then I can also create integration with your API for Nodemailer.&lt;/p&gt;
+
+&lt;p&gt;Price: &lt;strong&gt;$160&lt;/strong&gt; per hour&lt;/p&gt;
+
+&lt;p&gt;To discuss details, email to &lt;a href=&#34;mailto:support@nodemailer.com&#34;&gt;support@nodemailer.com&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

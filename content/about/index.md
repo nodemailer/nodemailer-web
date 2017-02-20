@@ -16,11 +16,9 @@ toc = true
 
 The current version of **Nodemailer v3+** is licensed under **EUPL-v1.1 license**. Commercial license availbale. See license details in the [License page](/about/license/) or **[buy here](https://gum.co/nodemailer)**.
 
-<!--
-{{% notice info %}}
-To support the development of Nodemailer and keep it open source you can either donate using [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DB26KWR2BQX5W) or if you want to support with Bitcoins, then my wallet address is `15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM`
+{{% notice tip %}}
+In addition to twaking Nodemailer I can provide support for almost any email related issues (IMAP, SMTP, RFC822), see details in the [support page](/about/pro-support/).
 {{% /notice %}}
--->
 
 If you do not want to upgrade from the MIT licensed Nodemailer 2 then you can see the old docs [here](https://community.nodemailer.com/), otherwise see the light migration guide [here](/about/migrate).
 

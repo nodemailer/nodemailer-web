@@ -23,11 +23,9 @@
 
 &lt;p&gt;The current version of &lt;strong&gt;Nodemailer v3+&lt;/strong&gt; is licensed under &lt;strong&gt;EUPL-v1.1 license&lt;/strong&gt;. Commercial license availbale. See license details in the &lt;a href=&#34;https://nodemailer.com/about/license/&#34;&gt;License page&lt;/a&gt; or &lt;strong&gt;&lt;a href=&#34;https://gum.co/nodemailer&#34;&gt;buy here&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;!--
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;To support the development of Nodemailer and keep it open source you can either donate using &lt;a href=&#34;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;amp;hosted_button_id=DB26KWR2BQX5W&#34;&gt;PayPal&lt;/a&gt; or if you want to support with Bitcoins, then my wallet address is &lt;code&gt;15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;In addition to twaking Nodemailer I can provide support for almost any email related issues (IMAP, SMTP, RFC822), see details in the &lt;a href=&#34;https://nodemailer.com/about/pro-support/&#34;&gt;support page&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
 
---&gt;
 
 &lt;p&gt;If you do not want to upgrade from the MIT licensed Nodemailer 2 then you can see the old docs &lt;a href=&#34;https://community.nodemailer.com/&#34;&gt;here&lt;/a&gt;, otherwise see the light migration guide &lt;a href=&#34;https://nodemailer.com/about/migrate&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
@@ -196,12 +194,24 @@ transporter.sendMail(mailOptions, (error, info) =&amp;gt; {
     </item>
     
     <item>
-      <title>Support</title>
+      <title>Support and Services</title>
       <link>https://nodemailer.com/about/pro-support/</link>
       <pubDate>Sat, 21 Jan 2017 22:51:02 +0200</pubDate>
       
       <guid>https://nodemailer.com/about/pro-support/</guid>
-      <description>&lt;p&gt;Support is available for Nodemailer subscribers. If you have trouble setting up or using Nodemailer, then contact &lt;a href=&#34;mailto:support@nodemailer.com&#34;&gt;support@nodemailer.com&lt;/a&gt;.&lt;/p&gt;
+      <description>
+
+&lt;p&gt;Support is available for Nodemailer subscribers. If you have trouble setting up or using Nodemailer, then contact &lt;a href=&#34;mailto:support@nodemailer.com&#34;&gt;support@nodemailer.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;custom-work-or-support&#34;&gt;Custom work or support&lt;/h3&gt;
+
+&lt;p&gt;I can help you to tweak Nodemailer to meet your specific requirements. Additionally I can help with debugging email related issues in general, be it with RFC822 formatting, IMAP protocol usage, SMTP protocol usage etc. I can&amp;rsquo;t provide any help with HTML email design.&lt;/p&gt;
+
+&lt;p&gt;If you are running an email sending service then I can also create integration with your API for Nodemailer.&lt;/p&gt;
+
+&lt;p&gt;Price: &lt;strong&gt;$160&lt;/strong&gt; per hour&lt;/p&gt;
+
+&lt;p&gt;To discuss details, email to &lt;a href=&#34;mailto:support@nodemailer.com&#34;&gt;support@nodemailer.com&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
