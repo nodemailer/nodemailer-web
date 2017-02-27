@@ -533,8 +533,7 @@ transporter.sendMail(...)
 
 &lt;h3 id=&#34;supported-services&#34;&gt;Supported services&lt;/h3&gt;
 
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;Service names are case insensitive&lt;/p&gt;
-&lt;/div&gt;
+&lt;div class=&#34;notices tip&#34; &gt;Service names are case insensitive&lt;/div&gt;
 
 
 &lt;ul&gt;
@@ -558,6 +557,7 @@ transporter.sendMail(...)
 &lt;li&gt;&lt;code&gt;&amp;quot;Maildev&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Mailgun&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Mailjet&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;Mailosaur&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Mandrill&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;Naver&amp;quot;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;&amp;quot;OpenMailBox&amp;quot;&lt;/code&gt;&lt;/li&gt;

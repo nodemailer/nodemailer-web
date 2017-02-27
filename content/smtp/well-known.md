@@ -26,9 +26,7 @@ transporter.sendMail(...)
 
 ### Supported services
 
-{{% notice tip %}}
-Service names are case insensitive
-{{% /notice %}}
+{{% notice tip %}} Service names are case insensitive {{% /notice %}}
 
 - `"126"`
 - `"163"`
@@ -50,6 +48,7 @@ Service names are case insensitive
 - `"Maildev"`
 - `"Mailgun"`
 - `"Mailjet"`
+- `"Mailosaur"`
 - `"Mandrill"`
 - `"Naver"`
 - `"OpenMailBox"`
