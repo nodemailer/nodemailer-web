@@ -103,9 +103,9 @@ let transporter = nodemailer.createTransport({
 });
 
 // Push next messages to Nodemailer
-transport.on('idle', () => {
-    while (transport.isIdle()) {
-        transports.sendMail(...);
+transporter.on('idle', () => {
+    while (transporter.isIdle()) {
+        transporter.sendMail(...);
     }
 });
 ```

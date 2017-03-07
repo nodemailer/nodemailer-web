@@ -8,7 +8,7 @@ toc = true
 
 +++
 
-Nodemailer can be purchased from Kreata OÜ with a yearly license. License fee for a **1 year** license is **$820.-** (excluding VAT).
+Nodemailer can be purchased from Kreata OÜ with a yearly license. License fee for a **1 year** license is **$820.-** or **$82** for a montly subscription (excluding VAT).
 
 <script src="https://gumroad.com/js/gumroad.js"></script>
 <a class="gumroad-button" href="https://gum.co/nodemailer" data-gumroad-single-product="true">Buy Nodemailer Subscription</a>

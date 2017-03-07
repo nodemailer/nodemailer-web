@@ -235,9 +235,9 @@ transporter.sendMail({
 });
 
 // Push next messages to Nodemailer
-transport.on(&#39;idle&#39;, () =&amp;gt; {
-    while (transport.isIdle()) {
-        transports.sendMail(...);
+transporter.on(&#39;idle&#39;, () =&amp;gt; {
+    while (transporter.isIdle()) {
+        transporter.sendMail(...);
     }
 });
 &lt;/code&gt;&lt;/pre&gt;
