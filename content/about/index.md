@@ -18,7 +18,7 @@ The current version of **Nodemailer v3+** is licensed under **EUPL-v1.1 license*
 
 -----
 
-Also check out the Wild Duck IMAP server, it is built on the same foundation as Nodemailer and provides an open source distributed email server that uses MongoDB as email store. {{% button href="https://github.com/wildduck-email/wildduck?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=header-link" icon="fa fa-share" icon-position="right" %}}Wild Duck IMAP Server{{% /button %}}
+Also check out the **Wild Duck IMAP server**, it is built on the same foundation as Nodemailer and provides an open source distributed email server that uses MongoDB as email store. {{% button href="https://github.com/wildduck-email/wildduck?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=header-link" icon="fa fa-share" icon-position="right" %}}Wild Duck IMAP Server{{% /button %}}
 
 -----
 

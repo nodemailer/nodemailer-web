@@ -25,7 +25,7 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;Also check out the Wild Duck IMAP server, it is built on the same foundation as Nodemailer and provides an open source distributed email server that uses MongoDB as email store. &lt;a  href=&#34;https://github.com/wildduck-email/wildduck?utm_source=nodemailer&amp;amp;utm_campaign=nodemailer&amp;amp;utm_medium=header-link&#34; target=&#34;_blank&#34;  class=&#34;btn btn-default&#34;&gt;
+&lt;p&gt;Also check out the &lt;strong&gt;Wild Duck IMAP server&lt;/strong&gt;, it is built on the same foundation as Nodemailer and provides an open source distributed email server that uses MongoDB as email store. &lt;a  href=&#34;https://github.com/wildduck-email/wildduck?utm_source=nodemailer&amp;amp;utm_campaign=nodemailer&amp;amp;utm_medium=header-link&#34; target=&#34;_blank&#34;  class=&#34;btn btn-default&#34;&gt;
   
   
   
