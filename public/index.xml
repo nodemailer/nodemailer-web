@@ -37,58 +37,30 @@
       <pubDate>Fri, 20 Jan 2017 21:37:15 +0200</pubDate>
       
       <guid>https://nodemailer.com/about/license/</guid>
-      <description>&lt;p&gt;Nodemailer v3+ is licensed under the &lt;a href=&#34;http://ec.europa.eu/idabc/eupl.html&#34;&gt;European Union Public License 1.1&lt;/a&gt;. Previous versions of Nodemailer are licensed under the MIT license.&lt;/p&gt;
+      <description>&lt;p&gt;Nodemailer v4+ is licensed under the &lt;strong&gt;MIT license&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Commercial license (see &lt;a href=&#34;https://nodemailer.com/COMM-LICENSE&#34;&gt;COMM-LICENSE&lt;/a&gt;) is available upon request, see &lt;a href=&#34;https://nodemailer.com/about/pricing&#34;&gt;Pricing&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
+&lt;p&gt;Version 3 of Nodemailer used the &lt;strong&gt;European Union Public License 1.1&lt;/strong&gt; which is a &lt;em&gt;copyleft&lt;/em&gt; license. You can read about the reasoning behind using EUPL for Nodemailer from the &lt;a href=&#34;https://blog.nodemailer.com/2017/02/02/nodemailer-v3-0-0/&#34;&gt;Nodemailer blog&lt;/a&gt;. After a two months long experiment I decided to cancel all active subscriptions of Nodemailer and changed the license back to MIT.&lt;/p&gt;
+
+&lt;p&gt;Keeping a lower level infrastructure module under a restrictive license has turned out to cause more trouble than gains – I myself had to use older versions of Nodemailer for some client work to avoid any licensing conflicts. There weren&amp;rsquo;t too many paying or interested clients either and most users did not seem to care about the license at all, they still used the copyleft licensed Nodemailer in their commercial products and I did not have any means to enforce the license terms.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation to keep the Nodemailer development engines running. You can either use Bitcoin or PayPal for donations. I can also write a consulting invoice (I have a EU VAT number) if you can&amp;rsquo;t do donations.&lt;/p&gt;
+
+&lt;a  href=&#34;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;amp;hosted_button_id=DB26KWR2BQX5W&#34; target=&#34;_blank&#34;  class=&#34;btn btn-default&#34;&gt;
+  
+  
+  
     
-    <item>
-      <title>Pricing</title>
-      <link>https://nodemailer.com/about/pricing/</link>
-      <pubDate>Fri, 20 Jan 2017 21:37:19 +0200</pubDate>
-      
-      <guid>https://nodemailer.com/about/pricing/</guid>
-      <description>
+  
+  Donate using PayPal
+  
+  &lt;i class=&#34;fa fa-share&#34;&gt;&lt;/i&gt;
+  
+&lt;/a&gt;
 
-&lt;p&gt;Nodemailer can be purchased from Kreata OÜ. License fee (excluding VAT) for a &lt;strong&gt;1 year&lt;/strong&gt; license is &lt;strong&gt;$820.-&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;script src=&#34;https://gumroad.com/js/gumroad.js&#34;&gt;&lt;/script&gt;
-&lt;a class=&#34;gumroad-button&#34; href=&#34;https://gum.co/nodemailer&#34; data-gumroad-single-product=&#34;true&#34;&gt;Buy Nodemailer Subscription&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;what-do-you-get-for-that-price&#34;&gt;What do you get for that price&lt;/h4&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Unlimited usage&lt;/strong&gt; of Nodemailer inside your organization (see applying &lt;a href=&#34;https://nodemailer.com/COMM-LICENSE&#34;&gt;license terms&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Email based &lt;strong&gt;Support&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;Bundled &lt;strong&gt;email modules&lt;/strong&gt; under the same terms as Nodemailer. For now, this means &lt;a href=&#34;https://www.npmjs.com/package/mailparser&#34;&gt;MailParser&lt;/a&gt;, &lt;a href=&#34;https://www.npmjs.com/package/smtp-server&#34;&gt;smtp-server&lt;/a&gt; and &lt;a href=&#34;https://www.npmjs.com/package/mailsplit&#34;&gt;mailsplit&lt;/a&gt;, additional modules might become available in the future.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;before-purchase&#34;&gt;Before purchase&lt;/h4&gt;
-
-&lt;p&gt;Nodemailer is available under a more restrictive license without a fee, so you are free to test Nodemailer before actually buying anything.&lt;/p&gt;
-
-&lt;h4 id=&#34;contact&#34;&gt;Contact&lt;/h4&gt;
-
-&lt;p&gt;Nodemailer subscription for the commercial license is sold on &lt;a href=&#34;https://gum.co/nodemailer&#34;&gt;Gumroad&lt;/a&gt;. Contact sales &lt;a href=&#34;mailto:sales@nodemailer.com&#34;&gt;sales@nodemailer.com&lt;/a&gt; for any sales related questions. For support related issues contact &lt;a href=&#34;mailto:support@nodemailer.com&#34;&gt;support@nodemailer.com&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Support and Services</title>
-      <link>https://nodemailer.com/about/pro-support/</link>
-      <pubDate>Sat, 21 Jan 2017 22:51:02 +0200</pubDate>
-      
-      <guid>https://nodemailer.com/about/pro-support/</guid>
-      <description>
-
-&lt;p&gt;Support is available for Nodemailer subscribers. If you have trouble setting up or using Nodemailer, then contact &lt;a href=&#34;mailto:support@nodemailer.com&#34;&gt;support@nodemailer.com&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;custom-work-or-support&#34;&gt;Custom work or support&lt;/h3&gt;
-
-&lt;p&gt;&lt;strong&gt;Need custom plugins developed, or support for e-mail protocols (eg. IMAP, SMTP, RFC822)?&lt;/strong&gt; I&amp;rsquo;m available for custom contracting work - email me (Andris Reinman) for more details at &lt;a href=&#34;mailto:andris@kreata.ee&#34;&gt;andris@kreata.ee&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Price: &lt;strong&gt;$160&lt;/strong&gt; per hour&lt;/p&gt;
+&lt;p&gt;My Bitcoin wallet is: &lt;code&gt;15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM&lt;/code&gt;.&lt;/p&gt;
 </description>
     </item>
     
@@ -626,6 +598,92 @@ Content-Disposition: attachment
 
 Attached text file`}]
 };
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SMTP envelope</title>
+      <link>https://nodemailer.com/smtp/envelope/</link>
+      <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/smtp/envelope/</guid>
+      <description>&lt;p&gt;SMTP envelope is usually auto generated from &lt;strong&gt;from&lt;/strong&gt;, &lt;strong&gt;to&lt;/strong&gt;, &lt;strong&gt;cc&lt;/strong&gt; and &lt;strong&gt;bcc&lt;/strong&gt; fields in the message object but if for some reason you want to specify it yourself (custom envelopes are usually used for VERP addresses), you can do it with the &lt;strong&gt;envelope&lt;/strong&gt; property in the message object.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;envelope&lt;/strong&gt; – is an object with the following address params that behave just like with regular mail options. You can also use the regular address format, unicode domains etc.
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;from&lt;/strong&gt; – the first address gets used as MAIL FROM address in SMTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;to&lt;/strong&gt; – addresses from this value get added to RCPT TO list&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cc&lt;/strong&gt; – addresses from this value get added to RCPT TO list&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bcc&lt;/strong&gt; – addresses from this value get added to RCPT TO list&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
+    ...,
+    from: &#39;mailer@nodemailer.com&#39;, // listed in rfc822 message header
+    to: &#39;daemon@nodemailer.com&#39;, // listed in rfc822 message header
+    envelope: {
+        from: &#39;Daemon &amp;lt;deamon@nodemailer.com&amp;gt;&#39;, // used as MAIL FROM: address for SMTP
+        to: &#39;mailer@nodemailer.com, Mailer &amp;lt;mailer2@nodemailer.com&amp;gt;&#39; // used as RCPT TO: address for SMTP
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The envelope object returned by &lt;strong&gt;sendMail()&lt;/strong&gt; includes just &lt;strong&gt;from&lt;/strong&gt; (address string) and &lt;strong&gt;to&lt;/strong&gt; (an array of address strings) fields as all addresses from &lt;strong&gt;to&lt;/strong&gt;, &lt;strong&gt;cc&lt;/strong&gt; and &lt;strong&gt;bcc&lt;/strong&gt; get merged into &lt;strong&gt;to&lt;/strong&gt; when sending.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Pooled SMTP</title>
+      <link>https://nodemailer.com/smtp/pooled/</link>
+      <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/smtp/pooled/</guid>
+      <description>
+
+&lt;p&gt;If pooling is used then Nodemailer keeps a fixed amount of connections open and sends the next message once a connection becomes available. It is mostly useful when you have a large number of messages that you want to send in batches or your provider allows you to only use a small amount of parallel connections.&lt;/p&gt;
+
+&lt;p&gt;To use pooled connections use the following options in transport configuration&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;pool&lt;/strong&gt; – set to &lt;em&gt;true&lt;/em&gt; to use pooled connections (defaults to &lt;em&gt;false&lt;/em&gt;) instead of creating a new connection for every email&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;maxConnections&lt;/strong&gt; – is the count of maximum simultaneous connections to make against the SMTP server (defaults to 5)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;maxMessages&lt;/strong&gt; – limits the message count to be sent using a single connection (defaults to 100). After &lt;em&gt;maxMessages&lt;/em&gt; is reached the connection is dropped and a new one is created for the following messages&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rateDelta&lt;/strong&gt; – defines the time measuring period in milliseconds (defaults to 1000, ie. to 1 second) for rate limiting&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rateLimit&lt;/strong&gt; – limits the message count to be sent in &lt;strong&gt;rateDelta&lt;/strong&gt; time. Once &lt;em&gt;rateLimit&lt;/em&gt; is reached, sending is paused until the end of the measuring period. This limit is shared between connections, so if one connection uses up the limit, then other connections are paused as well. If &lt;em&gt;rateLimit&lt;/em&gt; is not set then sending rate is not limited&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;methods&#34;&gt;Methods&lt;/h3&gt;
+
+&lt;h4 id=&#34;transporter-isidle&#34;&gt;transporter.isIdle()&lt;/h4&gt;
+
+&lt;p&gt;Returns &lt;em&gt;true&lt;/em&gt; if there are available connection slots&lt;/p&gt;
+
+&lt;h4 id=&#34;transporter-close&#34;&gt;transporter.close()&lt;/h4&gt;
+
+&lt;p&gt;If transporter uses pooling then connections are kept open even if there is nothing to be sent. To close all pending connections you can use the &lt;em&gt;close()&lt;/em&gt; method&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({pool: true,...});
+// ...
+transporter.close();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;events&#34;&gt;Events&lt;/h3&gt;
+
+&lt;h4 id=&#34;event-idle&#34;&gt;Event:&amp;lsquo;idle&amp;rsquo;&lt;/h4&gt;
+
+&lt;p&gt;Emitted by the transporter object if connection pool has free connection slots. Check if a connection is still available with &lt;code&gt;isIdle()&lt;/code&gt; method (returns &lt;code&gt;true&lt;/code&gt; if a connection is still available). This allows to create push-like senders where messages are not queued into memory in a Node.js process but pushed and loaded through an external queue.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let messages = [...&#39;list of messages&#39;];
+transporter.on(&#39;idle&#39;, function(){
+    // send next message from the pending queue
+    while (transporter.isIdle() &amp;amp;&amp;amp; messages.length) {
+        transporter.sendMail (messages.shift());
+    }
+});
 &lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>

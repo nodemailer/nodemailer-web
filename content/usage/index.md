@@ -1,5 +1,5 @@
 +++
-prev = "/about/pro-support/"
+prev = "/about/license/"
 next = "/usage/why-smtp/"
 weight = 0
 title = "Usage"
