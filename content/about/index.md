@@ -14,13 +14,13 @@ toc = true
 
 **Nodemailer** is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.
 
-The current version of **Nodemailer v3+** is licensed under **EUPL-v1.1 license**. Commercial license availbale. See license details in the [License page](/about/license/) or **[buy here](https://gum.co/nodemailer)**.
+The current version of **Nodemailer v3+** is licensed under **EUPL-v1.1 license**. Commercial license availbale. See license details in the [License page](/about/license/) or **[buy here](https://gum.co/nodemailer)**. If you do not want to upgrade from the MIT licensed Nodemailer 2 then you can see the old docs [here](https://community.nodemailer.com/), otherwise see the light migration guide [here](/about/migrate).
 
-{{% notice tip %}}
-In addition to twaking Nodemailer I can provide support for almost any email related issues (IMAP, SMTP, RFC822), see details in the [support page](/about/pro-support/).
-{{% /notice %}}
+-----
 
-If you do not want to upgrade from the MIT licensed Nodemailer 2 then you can see the old docs [here](https://community.nodemailer.com/), otherwise see the light migration guide [here](/about/migrate).
+Also check out the Wild Duck IMAP server, it is built on the same foundation as Nodemailer and provides an open source distributed email server that uses MongoDB as email store. {{% button href="https://github.com/wildduck-email/wildduck?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=header-link" icon="fa fa-share" icon-position="right" %}}Wild Duck IMAP Server{{% /button %}}
+
+-----
 
 ```bash
 npm install nodemailer --save
