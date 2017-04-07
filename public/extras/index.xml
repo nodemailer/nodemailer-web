@@ -1,0 +1,1209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Extras on Nodemailer</title>
+    <link>https://nodemailer.com/extras/index.xml</link>
+    <description>Recent content in Extras on Nodemailer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Jan 2017 11:25:35 +0200</lastBuildDate>
+    <atom:link href="https://nodemailer.com/extras/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Extra modules</title>
+      <link>https://nodemailer.com/extras/</link>
+      <pubDate>Fri, 20 Jan 2017 11:25:35 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/extras/</guid>
+      <description>
+
+&lt;h1 id=&#34;extra-modules&#34;&gt;Extra modules&lt;/h1&gt;
+
+&lt;p&gt;In this section you can find additional e-mail related Node.js modules.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://nodemailer.com/extras/smtp-server&#34;&gt;smtp-server&lt;/a&gt; – accept SMTP connections&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://nodemailer.com/extras/smtp-connection&#34;&gt;smtp-connection&lt;/a&gt; – create SMTP connections&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SMTP Server</title>
+      <link>https://nodemailer.com/extras/smtp-server/</link>
+      <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/extras/smtp-server/</guid>
+      <description>
+
+&lt;p&gt;Create SMTP and LMTP server instances on the fly. This is not a full-blown server application like &lt;a href=&#34;https://haraka.github.io/&#34;&gt;Haraka&lt;/a&gt; but an easy way to add custom SMTP listeners to your app. This module is the successor for the server part of the (now deprecated) SMTP module &lt;a href=&#34;https://www.npmjs.com/package/simplesmtp&#34;&gt;simplesmtp&lt;/a&gt;. For matching SMTP client see &lt;a href=&#34;https://nodemailer.com/extras/smtp-connection/&#34;&gt;smtp-connection&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;This module does not make any email deliveries by itself. &lt;em&gt;smtp-server&lt;/em&gt; allows you to listen on ports 25/24/465/587 etc. using SMTP or LMTP protocol and that&amp;rsquo;s it. Your own application is responsible of accepting and delivering the message to destination.&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+
+&lt;h4 id=&#34;step-1-install-with-npm&#34;&gt;Step 1. Install with npm&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install smtp-server --save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;step-2-require-in-your-script&#34;&gt;Step 2. Require in your script&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const SMTPServer = require(&#39;smtp-server&#39;).SMTPServer;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;step-3-create-smtpserver-instance&#34;&gt;Step 3. Create SMTPServer instance&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer(options);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;options&lt;/strong&gt; defines the behavior of the server
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;options.secure&lt;/strong&gt; if &lt;em&gt;true&lt;/em&gt;, the connection will use TLS. The default is &lt;em&gt;false&lt;/em&gt;. If the server doesn&amp;rsquo;t start in TLS mode, it is still possible to upgrade clear text socket to TLS socket with the STARTTLS command (unless you disable support for it). If secure is &lt;em&gt;true&lt;/em&gt;, &lt;a href=&#34;http://nodejs.org/api/tls.html#tls_tls_createserver_options_secureconnectionlistener&#34;&gt;additional tls options for tls.createServer&lt;/a&gt; can be added directly onto this options object.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.name&lt;/strong&gt; optional hostname of the server, used for identifying to the client (defaults to &lt;em&gt;os.hostname()&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.banner&lt;/strong&gt; optional greeting message. This message is appended to the default ESMTP response.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.size&lt;/strong&gt; optional maximum allowed message size in bytes, see details &lt;a href=&#34;#using-size-extension&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.hideSize&lt;/strong&gt; if set to true then does not expose the max allowed size to the client but keeps size related values like &lt;em&gt;stream.sizeExceeded&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.authMethods&lt;/strong&gt; optional array of allowed authentication methods, defaults to &lt;em&gt;[&amp;lsquo;PLAIN&amp;rsquo;, &amp;lsquo;LOGIN&amp;rsquo;]&lt;/em&gt;. Only the methods listed in this array are allowed, so if you set it to &lt;em&gt;[&amp;lsquo;XOAUTH2&amp;rsquo;]&lt;/em&gt; then PLAIN and LOGIN are not available. Use &lt;em&gt;[&amp;lsquo;PLAIN&amp;rsquo;, &amp;lsquo;LOGIN&amp;rsquo;, &amp;lsquo;XOAUTH2&amp;rsquo;]&lt;/em&gt; to allow all three. Authentication is only allowed in secure mode (either the server is started with &lt;em&gt;secure:true&lt;/em&gt; option or STARTTLS command is used)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.authOptional&lt;/strong&gt; allow authentication, but do not require it&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.disabledCommands&lt;/strong&gt; optional array of disabled commands (see all supported commands &lt;a href=&#34;#commands&#34;&gt;here&lt;/a&gt;). For example if you want to disable authentication, use &lt;em&gt;[&amp;lsquo;AUTH&amp;rsquo;]&lt;/em&gt; as this value. If you want to allow authentication in clear text, set it to &lt;em&gt;[&amp;lsquo;STARTTLS&amp;rsquo;]&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.hideSTARTTLS&lt;/strong&gt; optional boolean, if set to true then allow using STARTTLS but do not advertise or require it. It only makes sense when creating integration test servers for testing the scenario where you want to try STARTTLS even when it is not advertised&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.hidePIPELINING&lt;/strong&gt; optional boolean, if set to true then does not show PIPELINING in feature list&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.hide8BITMIME&lt;/strong&gt; optional boolean, if set to true then does not show 8BITMIME in features list&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.hideSMTPUTF8&lt;/strong&gt; optional boolean, if set to true then does not show SMTPUTF8 in features list&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.allowInsecureAuth&lt;/strong&gt; optional boolean, if set to true allows authentication even if connection is not secured first&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.disableReverseLookup&lt;/strong&gt; optional boolean, if set to true then does not try to reverse resolve client hostname&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.sniOptions&lt;/strong&gt; optional &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map&#34;&gt;Map&lt;/a&gt; or an object of TLS options for SNI where servername is the key. Overrided by SNICallback.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.logger&lt;/strong&gt; optional &lt;a href=&#34;https://github.com/trentm/node-bunyan&#34;&gt;bunyan&lt;/a&gt; compatible logger instance. If set to &lt;em&gt;true&lt;/em&gt; then logs to console. If value is not set or is &lt;em&gt;false&lt;/em&gt; then nothing is logged&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.maxClients&lt;/strong&gt; sets the maximum number of concurrently connected clients, defaults to &lt;em&gt;Infinity&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.useProxy&lt;/strong&gt; boolean, if set to true expects to be behind a proxy that emits a &lt;a href=&#34;http://www.haproxy.org/download/1.5/doc/proxy-protocol.txt&#34;&gt;PROXY header&lt;/a&gt; (version 1 only)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.useXClient&lt;/strong&gt; boolean, if set to true, enables usage of &lt;a href=&#34;http://www.postfix.org/XCLIENT_README.html&#34;&gt;XCLIENT&lt;/a&gt; extension to override connection properties. See &lt;em&gt;session.xClient&lt;/em&gt; (Map object) for the details provided by the client&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.useXForward&lt;/strong&gt; boolean, if set to true, enables usage of &lt;a href=&#34;http://www.postfix.org/XFORWARD_README.html&#34;&gt;XFORWARD&lt;/a&gt; extension. See &lt;em&gt;session.xForward&lt;/em&gt; (Map object) for the details provided by the client&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.lmtp&lt;/strong&gt; boolean, if set to true use LMTP protocol instead of SMTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.socketTimeout&lt;/strong&gt; how many milliseconds of inactivity to allow before disconnecting the client (defaults to 1 minute)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.closeTimeout&lt;/strong&gt; how many millisceonds to wait before disconnecting pending connections once server.close() has been called (defaults to 30 seconds)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.onAuth&lt;/strong&gt; is the callback to handle authentications (see details &lt;a href=&#34;#handling-authentication&#34;&gt;here&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.onConnect&lt;/strong&gt; is the callback to handle the client connection. (see details &lt;a href=&#34;#validating-client-connection&#34;&gt;here&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.onMailFrom&lt;/strong&gt; is the callback to validate MAIL FROM commands (see details &lt;a href=&#34;#validating-sender-addresses&#34;&gt;here&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.onRcptTo&lt;/strong&gt; is the callback to validate RCPT TO commands (see details &lt;a href=&#34;#validating-recipient-addresses&#34;&gt;here&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.onData&lt;/strong&gt; is the callback to handle incoming messages (see details &lt;a href=&#34;#processing-incoming-message&#34;&gt;here&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.onClose&lt;/strong&gt; is the callback that informs about closed client connection&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Additionally you can use the options from &lt;a href=&#34;http://nodejs.org/api/net.html#net_net_createserver_options_connectionlistener&#34;&gt;net.createServer&lt;/a&gt; and &lt;a href=&#34;http://nodejs.org/api/tls.html#tls_tls_createserver_options_secureconnectionlistener&#34;&gt;tls.createServer&lt;/a&gt; (applies if &lt;em&gt;secure&lt;/em&gt; is set to true)&lt;/p&gt;
+
+&lt;h4 id=&#34;server-methods&#34;&gt;Server Methods&lt;/h4&gt;
+
+&lt;p&gt;The &lt;em&gt;server&lt;/em&gt; object returned from &lt;em&gt;new SMTPServer&lt;/em&gt; has the following methods:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;listen(port)&lt;/strong&gt; - Begins listening on the given port&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;close(callback)&lt;/strong&gt; - Stops the server from accepting new connections. &lt;em&gt;callback&lt;/em&gt; is invoked once all client connections are closed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;tls-and-startls-notice&#34;&gt;TLS and STARTLS notice&lt;/h3&gt;
+
+&lt;p&gt;If you use &lt;em&gt;secure:true&lt;/em&gt; option or you do not disable STARTTLS command then you SHOULD also define the &lt;em&gt;key&lt;/em&gt;, &lt;em&gt;cert&lt;/em&gt; and possibly &lt;em&gt;ca&lt;/em&gt; properties to use a proper certificate. If you do no specify your own certificate then a pregenerated self-signed certificate for &amp;lsquo;localhost&amp;rsquo; is used. Any respectful client refuses to accept such certificate.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// This example starts a SMTP server using TLS with your own certificate and key
+const server = new SMTPServer({
+    secure: true,
+    key: fs.readFileSync(&#39;private.key&#39;),
+    cert: fs.readFileSync(&#39;server.crt&#39;)
+});
+server.listen(465);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;start-the-server-instance&#34;&gt;Start the server instance&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;server.listen(port[,host][,callback]);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;port&lt;/strong&gt; is the port number to bound to&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;host&lt;/strong&gt; is the optional host to bound to&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;callback&lt;/strong&gt; is called once the server is bound&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;handling-errors&#34;&gt;Handling errors&lt;/h2&gt;
+
+&lt;p&gt;Errors can be handled by setting an &amp;lsquo;error&amp;rsquo; event listener to the server instance&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;server.on(&#39;error&#39;, err =&amp;gt; {
+    console.log(&#39;Error %s&#39;, err.message);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;handling-authentication&#34;&gt;Handling Authentication&lt;/h2&gt;
+
+&lt;p&gt;Authentication calls can be handled with &lt;em&gt;onAuth&lt;/em&gt; handler&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    onAuth(auth, session, callback){}
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;auth&lt;/strong&gt; is an authentication object
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;method&lt;/strong&gt; indicates the authentication method used, &amp;lsquo;PLAIN&amp;rsquo;, &amp;lsquo;LOGIN&amp;rsquo; or &amp;lsquo;XOAUTH2&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;username&lt;/strong&gt; is the username of the user&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;password&lt;/strong&gt; is the password if LOGIN or PLAIN was used&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;accessToken&lt;/strong&gt; is the OAuth2 bearer access token if &amp;lsquo;XOAUTH2&amp;rsquo; was used as the authentication method&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;validatePassword&lt;/strong&gt; is a function for validating CRAM-MD5 challenge responses. Takes the password of the user as an argument and returns &lt;em&gt;true&lt;/em&gt; if the response matches the password&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;session&lt;/strong&gt; includes information about the session like &lt;em&gt;remoteAddress&lt;/em&gt; for the remote IP, see details &lt;a href=&#34;#session-object&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;callback&lt;/strong&gt; is the function to run once the user is authenticated. Takes 2 arguments: &lt;em&gt;(error, response)&lt;/em&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;error&lt;/strong&gt; is an error to return if authentication failed. If you want to set custom error code, set &lt;em&gt;responseCode&lt;/em&gt; to the error object&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;response&lt;/strong&gt; is an object with the authentication results
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;user&lt;/strong&gt; can be any value - if this is set then the user is considered logged in and this value is used later with the session data to identify the user. If this value is empty, then the authentication is considered failed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt; is an object to return if XOAUTH2 authentication failed (do not set the error object in this case). This value is serialized to JSON and base64 encoded automatically, so you can just return the object&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This module supports &lt;em&gt;CRAM-MD5&lt;/em&gt; but the use of it is discouraged as it requires access to unencrypted user passwords during the authentication process. You shouldn&amp;rsquo;t store passwords unencrypted.&lt;/p&gt;
+
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+
+&lt;h4 id=&#34;password-based-authentication&#34;&gt;Password based authentication&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    onAuth(auth, session, callback){
+        if(auth.username !== &#39;abc&#39; || auth.password !== &#39;def&#39;){
+            return callback(new Error(&#39;Invalid username or password&#39;));
+        }
+        callback(null, {user: 123}); // where 123 is the user id or similar property
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;oauth2-authentication&#34;&gt;OAuth2 authentication&lt;/h4&gt;
+
+&lt;p&gt;XOAUTH2 support needs to enabled with the &lt;em&gt;authMethods&lt;/em&gt; array option as it is disabled by default.
+If you support multiple authentication mechanisms, then you can check the used mechanism from the &lt;em&gt;method&lt;/em&gt; property.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    authMethods: [&#39;XOAUTH2&#39;], // XOAUTH2 is not enabled by default
+    onAuth(auth, session, callback){
+        if(auth.method !== &#39;XOAUTH2&#39;){
+            // should never occur in this case as only XOAUTH2 is allowed
+            return callback(new Error(&#39;Expecting XOAUTH2&#39;));
+        }
+        if(auth.username !== &#39;abc&#39; || auth.accessToken !== &#39;def&#39;){
+            return callback(null, {
+                data: {
+                    status: &#39;401&#39;,
+                    schemes: &#39;bearer mac&#39;,
+                    scope: &#39;my_smtp_access_scope_name&#39;
+                }
+            });
+        }
+        callback(null, {user: 123}); // where 123 is the user id or similar property
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;cram-md5-authentication&#34;&gt;CRAM-MD5 authentication&lt;/h4&gt;
+
+&lt;p&gt;CRAM-MD5 support needs to enabled with the &lt;em&gt;authMethods&lt;/em&gt; array option as it is disabled by default.
+If you support multiple authentication mechanisms, then you can check the used mechanism from the &lt;em&gt;method&lt;/em&gt; property.&lt;/p&gt;
+
+&lt;p&gt;This authentication method does not return a password with the username but a response to a challenge. To validate the returned challenge response, the authentication object includes a method &lt;em&gt;validatePassword&lt;/em&gt; that takes the actual plaintext password as an argument and returns either &lt;em&gt;true&lt;/em&gt; if the password matches with the challenge response or &lt;em&gt;false&lt;/em&gt; if it does not.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    authMethods: [&#39;CRAM-MD5&#39;], // CRAM-MD5 is not enabled by default
+    onAuth(auth, session, callback){
+        if(auth.method !== &#39;CRAM-MD5&#39;){
+            // should never occur in this case as only CRAM-MD5 is allowed
+            return callback(new Error(&#39;Expecting CRAM-MD5&#39;));
+        }
+
+        // CRAM-MD5 does not provide a password but a challenge response
+        // that can be validated against the actual password of the user
+        if(auth.username !== &#39;abc&#39; || !auth.validatePassword(&#39;def&#39;)){
+            return callback(new Error(&#39;Invalid username or password&#39;));
+        }
+
+        callback(null, {user: 123}); // where 123 is the user id or similar property
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;validating-client-connection&#34;&gt;Validating client connection&lt;/h2&gt;
+
+&lt;p&gt;By default any client connection is allowed. If you want to check the remoteAddress or clientHostname before
+any other command, you can set a handler for it with &lt;em&gt;onConnect&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    onConnect(session, callback){}
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;session&lt;/strong&gt; includes the &lt;em&gt;remoteAddress&lt;/em&gt; and &lt;em&gt;clientHostname&lt;/em&gt; values&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;callback&lt;/strong&gt; is the function to run after validation. If you return an error object, the connection is rejected, otherwise it is accepted&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    onConnect(session, callback){
+        if(session.remoteAddress === &#39;127.0.0.1&#39;){
+            return callback(new Error(&#39;No connections from localhost allowed&#39;));
+        }
+        return callback(); // Accept the connection
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you also need to detect when a connection is closed use &lt;em&gt;onClose&lt;/em&gt;. This method does not expect you to run a callback function as it is purely informational.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    onClose(session){}
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;validating-sender-addresses&#34;&gt;Validating sender addresses&lt;/h2&gt;
+
+&lt;p&gt;By default all sender addresses (as long as these are in valid email format) are allowed. If you want to check
+the address before it is accepted you can set a handler for it with &lt;em&gt;onMailFrom&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    onMailFrom(address, session, callback){}
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;address&lt;/strong&gt; is an &lt;a href=&#34;#address-object&#34;&gt;address object&lt;/a&gt; with the provided email address from &lt;em&gt;MAIL FROM:&lt;/em&gt; command&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;session&lt;/strong&gt; includes the &lt;em&gt;envelope&lt;/em&gt; object and &lt;em&gt;user&lt;/em&gt; data if logged in, see details &lt;a href=&#34;#session-object&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;callback&lt;/strong&gt; is the function to run after validation. If you return an error object, the address is rejected, otherwise it is accepted&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    onMailFrom(address, session, callback){
+        if(address.address !== &#39;allowed@example.com&#39;){
+            return callback(new Error(&#39;Only allowed@example.com is allowed to send mail&#39;));
+        }
+        return callback(); // Accept the address
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;validating-recipient-addresses&#34;&gt;Validating recipient addresses&lt;/h2&gt;
+
+&lt;p&gt;By default all recipient addresses (as long as these are in valid email format) are allowed. If you want to check
+the address before it is accepted you can set a handler for it with &lt;em&gt;onRcptTo&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    onRcptTo(address, session, callback){}
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;address&lt;/strong&gt; is an &lt;a href=&#34;#address-object&#34;&gt;address object&lt;/a&gt; with the provided email address from &lt;em&gt;RCPT TO:&lt;/em&gt; command&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;session&lt;/strong&gt; includes the &lt;em&gt;envelope&lt;/em&gt; object and &lt;em&gt;user&lt;/em&gt; data if logged in, see details &lt;a href=&#34;#session-object&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;callback&lt;/strong&gt; is the function to run after validation. If you return an error object, the address is rejected, otherwise it is accepted&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    onRcptTo(address, session, callback){
+        if(address.address !== &#39;allowed@example.com&#39;){
+            return callback(new Error(&#39;Only allowed@example.com is allowed to receive mail&#39;));
+        }
+        return callback(); // Accept the address
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;processing-incoming-message&#34;&gt;Processing incoming message&lt;/h2&gt;
+
+&lt;p&gt;You can get the stream for the incoming message with &lt;em&gt;onData&lt;/em&gt; handler&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    onData(stream, session, callback){}
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;stream&lt;/strong&gt; is a readable stream for the incoming message&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;session&lt;/strong&gt; includes the &lt;em&gt;envelope&lt;/em&gt; object and &lt;em&gt;user&lt;/em&gt; data if logged in, see details &lt;a href=&#34;#session-object&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;callback&lt;/strong&gt; is the on to run once the stream is ended and you have processed the outcome. If you return an error object, the message is rejected, otherwise it is accepted&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    onData(stream, session, callback){
+        stream.pipe(process.stdout); // print message to console
+        stream.on(&#39;end&#39;, callback);
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This module does not prepend &lt;em&gt;Received&lt;/em&gt; or any other header field to the streamed message. The entire message is streamed as-is with no modifications whatsoever. For compliancy you should add the Received data to the message yourself, see &lt;a href=&#34;https://tools.ietf.org/html/rfc5321#section-4.4&#34;&gt;rfc5321 4.4. Trace Information&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;h2 id=&#34;using-size-extension&#34;&gt;Using SIZE extension&lt;/h2&gt;
+
+&lt;p&gt;When creating the server you can define maximum allowed message size with the &lt;em&gt;size&lt;/em&gt; option, see &lt;a href=&#34;https://tools.ietf.org/html/rfc1870&#34;&gt;RFC1870&lt;/a&gt; for details. This is not a strict limitation, the client is informed about the size limit but the client can still send a larger message than allowed, it is up to your application to reject or accept the oversized message. To check if the message was oversized, see &lt;em&gt;stream.sizeExceeded&lt;/em&gt; property.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    size: 1024, // allow messages up to 1 kb
+    onRcptTo(address, session, callback) {
+        // do not accept messages larger than 100 bytes to specific recipients
+        let expectedSize = Number(session.envelope.mailFrom.args.SIZE) || 0;
+        if (address.address === &#39;almost-full@example.com&#39; &amp;amp;&amp;amp;  expectedSize &amp;gt; 100) {
+            err = new Error(&#39;Insufficient channel storage: &#39; + address.address);
+            err.responseCode = 452;
+            return callback(err);
+        }
+        callback();
+    },
+    onData(stream, session, callback){
+        stream.pipe(process.stdout); // print message to console
+        stream.on(&#39;end&#39;, () =&amp;gt; {
+            let err;
+            if(stream.sizeExceeded){
+                err = new Error(&#39;Message exceeds fixed maximum message size&#39;);
+                err.responseCode = 552;
+                return callback(err);
+            }
+            callback(null, &#39;Message queued as abcdef&#39;);
+        });
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;using-lmtp&#34;&gt;Using LMTP&lt;/h2&gt;
+
+&lt;p&gt;If &lt;em&gt;lmtp&lt;/em&gt; option is set to true when starting the server, then LMTP protocol is used instead of SMTP. The main
+difference between these two is how multiple recipients are handled. In case of SMTP the message either fails or succeeds
+but in LMTP the message might fail and succeed individually for every recipient.&lt;/p&gt;
+
+&lt;p&gt;If your LMTP server application does not distinguish between different recipients then you do not need to care about it.
+On the other hand if you want to report results separately for every recipient you can do this by providing an array
+of responses instead of a single error or success message. The array must contain responses in the same order as in the
+envelope rcptTo array.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const server = new SMTPServer({
+    lmtp: true,
+    onData(stream, session, callback){
+        stream.pipe(process.stdout); // print message to console
+        stream.on(&#39;end&#39;, () =&amp;gt; {
+            // reject every other recipient
+            let response = session.envelope.rcptTo.map((rcpt, i) =&amp;gt; {
+                if (i % 2) {
+                    return new Error(&#39;&amp;lt;&#39; + rcpt.address + &#39;&amp;gt; Not accepted&#39;);
+                } else {
+                    return &#39;&amp;lt;&#39; + rcpt.address + &#39;&amp;gt; Accepted&#39;;
+                }
+            });
+            callback(null, response);
+        });
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you provide a single error by invoking &lt;em&gt;callback(err)&lt;/em&gt; or single success message &lt;em&gt;callback(null, &amp;lsquo;OK&amp;rsquo;)&lt;/em&gt; like when dealing with SMTP then every recipient gets the same response.&lt;/p&gt;
+
+&lt;h2 id=&#34;session-object&#34;&gt;Session object&lt;/h2&gt;
+
+&lt;p&gt;Session object that is passed to the handler functions includes the following properties&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;id&lt;/strong&gt; random string identificator generated when the client connected&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;remoteAddress&lt;/strong&gt; the IP address for the connected client&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;clientHostname&lt;/strong&gt; reverse resolved hostname for &lt;em&gt;remoteAddress&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;openingCommand&lt;/strong&gt; the opening SMTP command (HELO/EHLO/LHLO)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;hostNameAppearsAs&lt;/strong&gt; hostname the client provided with HELO/EHLO call&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;envelope&lt;/strong&gt; includes envelope data
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;mailFrom&lt;/strong&gt; includes an address object or is set to false&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rcptTo&lt;/strong&gt; includes an array of address objects&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;user&lt;/strong&gt; includes the &lt;em&gt;user&lt;/em&gt; value returned with the authentication handler&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;transaction&lt;/strong&gt; number of the current transaction. 1 is for the first message, 2 is for the 2nd message etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;transmissionType&lt;/strong&gt; indicates the current protocol type for the received header (SMTP, ESMTP, ESMTPA etc.)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;address-object&#34;&gt;Address object&lt;/h2&gt;
+
+&lt;p&gt;Address object in the &lt;em&gt;mailFrom&lt;/em&gt; and &lt;em&gt;rcptTo&lt;/em&gt; values include the following properties&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;address&lt;/strong&gt; is the address provided with the MAIL FROM or RCPT TO command&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;args&lt;/strong&gt; is an object with additional arguments (all key names are uppercase)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For example if the client runs the following commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;C: MAIL FROM:&amp;lt;sender@example.com&amp;gt; SIZE=12345 RET=HDRS
+C: RCPT TO:&amp;lt;recipient@example.com&amp;gt; NOTIFY=NEVER
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then the envelope object is going go look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  &amp;quot;mailFrom&amp;quot;: {
+    &amp;quot;address&amp;quot;: &amp;quot;sender@example.com&amp;quot;,
+    &amp;quot;args&amp;quot;: {
+      &amp;quot;SIZE&amp;quot;: &amp;quot;12345&amp;quot;,
+      &amp;quot;RET&amp;quot;: &amp;quot;HDRS&amp;quot;
+    }
+  },
+  &amp;quot;rcptTo&amp;quot;: [
+    {
+      &amp;quot;address&amp;quot;: &amp;quot;receiver@example.com&amp;quot;,
+      &amp;quot;args&amp;quot;: {
+        &amp;quot;NOTIFY&amp;quot;: &amp;quot;NEVER&amp;quot;
+      }
+    }
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;supported-smtp-commands&#34;&gt;Supported SMTP commands&lt;/h2&gt;
+
+&lt;h3 id=&#34;commands&#34;&gt;Commands&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AUTH LOGIN&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AUTH PLAIN&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AUTH XOAUTH2&lt;/strong&gt; not enabled by default, add to &lt;em&gt;authMethods:[&amp;lsquo;XOAUTH2&amp;rsquo;]&lt;/em&gt; to enable&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;EHLO&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DATA&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HELO&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;HELP&lt;/strong&gt; returns URL to RFC5321&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MAIL&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NOOP&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;QUIT&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RCPT&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;RSET&lt;/strong&gt; clears session info but does not renegotiate TLS session&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;STARTTLS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;VRFY&lt;/strong&gt; always returns positive 252 response&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;extensions&#34;&gt;Extensions&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PIPELINING&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;8BITMIME&lt;/strong&gt; allows 8bit message content&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SMTPUTF8&lt;/strong&gt; accepts unicode e-mail addresses like &lt;em&gt;δοκιμή@παράδειγμα.δοκιμή&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SIZE&lt;/strong&gt; limits maximum message size&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Most notably, the &lt;strong&gt;ENHANCEDSTATUSCODES&lt;/strong&gt; extension is not supported, all response codes use the standard three digit format and nothing else. I might change this in the future if I have time to revisit all responses and find the appropriate response codes.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;CHUNKING&lt;/strong&gt; is also missing. I might add support for it in the future but not at this moment since DATA already accepts a stream and CHUNKING is not supported everywhere.&lt;/p&gt;
+
+&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;MIT&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SMTP Connection</title>
+      <link>https://nodemailer.com/extras/smtp-connection/</link>
+      <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/extras/smtp-connection/</guid>
+      <description>
+
+&lt;p&gt;SMTP client module to connect to SMTP servers and send mail with it.&lt;/p&gt;
+
+&lt;p&gt;This module is the successor for the client part of the (now deprecated) SMTP module &lt;a href=&#34;https://www.npmjs.com/package/simplesmtp&#34;&gt;simplesmtp&lt;/a&gt;. For matching SMTP server see &lt;a href=&#34;https://nodemailer.com/extras/smtp-server/&#34;&gt;smtp-server&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+
+&lt;h4 id=&#34;step-1-install-nodemailer-with-npm&#34;&gt;Step 1. Install Nodemailer with npm&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;smtp-connection&lt;/em&gt; is exposed as a submodule of Nodemailer&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install nodemailer --save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;step-2-require-smtp-connection-in-your-script&#34;&gt;Step 2. Require &lt;em&gt;smtp-connection&lt;/em&gt; in your script&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const SMTPConnection = require(&#39;nodemailer/lib/smtp-connection&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;step-3-create-smtpconnection-instance&#34;&gt;Step 3. Create SMTPConnection instance&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let connection = new SMTPConnection(options);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;options&lt;/strong&gt; defines connection data&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;options.port&lt;/strong&gt; is the port to connect to (defaults to 25 or 465)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.host&lt;/strong&gt; is the hostname or IP address to connect to (defaults to &amp;lsquo;localhost&amp;rsquo;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.secure&lt;/strong&gt; defines if the connection should use SSL (if &lt;em&gt;true&lt;/em&gt;) or not (if &lt;em&gt;false&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.ignoreTLS&lt;/strong&gt; turns off STARTTLS support if true&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.requireTLS&lt;/strong&gt; forces the client to use STARTTLS. Returns an error if upgrading the connection is not possible or fails.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.opportunisticTLS&lt;/strong&gt; tries to use STARTTLS and continues normally if it fails&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.name&lt;/strong&gt; optional hostname of the client, used for identifying to the server&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.localAddress&lt;/strong&gt; is the local interface to bind to for network connections&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.connectionTimeout&lt;/strong&gt; how many milliseconds to wait for the connection to establish&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.greetingTimeout&lt;/strong&gt; how many milliseconds to wait for the greeting after connection is established&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.socketTimeout&lt;/strong&gt; how many milliseconds of inactivity to allow&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.logger&lt;/strong&gt; optional &lt;a href=&#34;https://github.com/trentm/node-bunyan&#34;&gt;bunyan&lt;/a&gt; compatible logger instance. If set to &lt;em&gt;true&lt;/em&gt; then logs to console. If value is not set or is &lt;em&gt;false&lt;/em&gt; then nothing is logged&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.transactionLog&lt;/strong&gt; if set to true, then logs SMTP traffic without message content&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.debug&lt;/strong&gt; if set to true, then logs SMTP traffic and message content, otherwise logs only transaction events&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.authMethod&lt;/strong&gt; defines preferred authentication method, e.g. &amp;lsquo;PLAIN&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.tls&lt;/strong&gt; defines additional options to be passed to the socket constructor, e.g. &lt;em&gt;{rejectUnauthorized: true}&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.socket&lt;/strong&gt; - initialized socket to use instead of creating a new one&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;options.connection&lt;/strong&gt; - connected socket to use instead of creating and connecting a new one. If &lt;em&gt;secure&lt;/em&gt; option is true, then socket is upgraded from plaintext to ciphertext&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;events&#34;&gt;Events&lt;/h3&gt;
+
+&lt;p&gt;SMTPConnection instances are event emitters with the following events&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&amp;lsquo;error&amp;rsquo;&lt;/strong&gt; &lt;em&gt;(err)&lt;/em&gt; emitted when an error occurs. Connection is closed automatically in this case.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;lsquo;connect&amp;rsquo;&lt;/strong&gt; emitted when the connection is established&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;lsquo;end&amp;rsquo;&lt;/strong&gt; when the instance is destroyed&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;connect&#34;&gt;connect&lt;/h3&gt;
+
+&lt;p&gt;Establish the connection&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;connection.connect(callback)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;callback&lt;/strong&gt; is the function to run once the connection is established. The function is added as a listener to the &amp;lsquo;connect&amp;rsquo; event.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After the connect event the &lt;em&gt;connection&lt;/em&gt; has the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;connection.secure&lt;/strong&gt; - if &lt;em&gt;true&lt;/em&gt; then the connection uses a TLS socket, otherwise it is using a cleartext socket. Connection can start out as cleartext but if available (or &lt;em&gt;requireTLS&lt;/em&gt; is set to true) connection upgrade is tried&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;login&#34;&gt;login&lt;/h3&gt;
+
+&lt;p&gt;If the server requires authentication you can login with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;connection.login(auth, callback)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;auth&lt;/strong&gt; is the authentication object&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;credentials&lt;/strong&gt; is a normal authentication object&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;credentials.user&lt;/strong&gt; is the username&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;credentials.pass&lt;/strong&gt; is the password&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;oauth2&lt;/strong&gt; if set then forces smtp-connection to use XOAuth2 for authentication&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;oauth2.user&lt;/strong&gt; is the username&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;oauth2.clientId&lt;/strong&gt; is the OAuth2 Client ID&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;oauth2.clientSecret&lt;/strong&gt; is the OAuth2 Client Secret&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;oauth2.refreshToken&lt;/strong&gt; is the refresh token to generate new access token if needed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;oauth2.accessToken&lt;/strong&gt; is the access token&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;callback&lt;/strong&gt; is the callback to run once the authentication is finished. Callback has the following arguments&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;err&lt;/strong&gt; and error object if authentication failed&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;send&#34;&gt;send&lt;/h3&gt;
+
+&lt;p&gt;Once the connection is authenticated (or just after connection is established if authentication is not required), you can send mail with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;connection.send(envelope, message, callback)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;envelope&lt;/strong&gt; is the envelope object to use&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;envelope.from&lt;/strong&gt; is the sender address&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;envelope.to&lt;/strong&gt; is the recipient address or an array of addresses&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;envelope.size&lt;/strong&gt; is an optional value of the predicted size of the message in bytes. This value is used if the server supports the SIZE extension (RFC1870)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;envelope.use8BitMime&lt;/strong&gt; if &lt;em&gt;true&lt;/em&gt; then inform the server that this message might contain bytes outside 7bit ascii range&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;envelope.dsn&lt;/strong&gt; is the dsn options&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;envelope.dsn.ret&lt;/strong&gt; return either the full message &amp;lsquo;FULL&amp;rsquo; or only headers &amp;lsquo;HDRS&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;envelope.dsn.envid&lt;/strong&gt; sender&amp;rsquo;s &amp;lsquo;envelope identifier&amp;rsquo; for tracking&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;envelope.dsn.notify&lt;/strong&gt; when to send a DSN. Multiple options are OK - array or comma delimited. NEVER must appear by itself. Available options: &amp;lsquo;NEVER&amp;rsquo;, &amp;lsquo;SUCCESS&amp;rsquo;, &amp;lsquo;FAILURE&amp;rsquo;, &amp;lsquo;DELAY&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;envelope.dsn.orcpt&lt;/strong&gt; original recipient&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;message&lt;/strong&gt; is either a String, Buffer or a Stream. All newlines are converted to \r\n and all dots are escaped automatically, no need to convert anything before.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;callback&lt;/strong&gt; is the callback to run once the sending is finished or failed. Callback has the following arguments&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;err&lt;/strong&gt; and error object if sending failed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;err.code&lt;/strong&gt; string code identifying the error, for example &amp;lsquo;EAUTH&amp;rsquo; is returned when authentication fails&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;err.response&lt;/strong&gt; is the last response received from the server (if the error is caused by an error response from the server)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;err.responseCode&lt;/strong&gt; is the numeric response code of the &lt;em&gt;response&lt;/em&gt; string (if available)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;info&lt;/strong&gt; information object about accepted and rejected recipients&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;info.accepted&lt;/strong&gt; an array of accepted recipient addresses. Normally this array should contain at least one address except when in LMTP mode. In this case the message itself might have succeeded but all recipients were rejected after sending the message.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;info.rejected&lt;/strong&gt; an array of rejected recipient addresses. This array includes both the addresses that were rejected before sending the message and addresses rejected after sending it if using LMTP&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;info.rejectedErrors&lt;/strong&gt; if some recipients were rejected then this property holds an array of error objects for the rejected recipients&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;info.response&lt;/strong&gt; is the last response received from the server&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;quit&#34;&gt;quit&lt;/h3&gt;
+
+&lt;p&gt;Use it for graceful disconnect&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;connection.quit();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;close&#34;&gt;close&lt;/h3&gt;
+
+&lt;p&gt;Use it for less graceful disconnect&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;connection.close();
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;reset&#34;&gt;reset&lt;/h3&gt;
+
+&lt;p&gt;Use it to reset current session (invokes RSET command)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;connection.reset(callback);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;MIT&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mailparser</title>
+      <link>https://nodemailer.com/extras/mailparser/</link>
+      <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/extras/mailparser/</guid>
+      <description>
+
+&lt;p&gt;Advanced email parser for Node.js. Everything is handled as a stream which should make it able to parse even very large messages (100MB+) with relatively low overhead.&lt;/p&gt;
+
+&lt;p&gt;The module exposes two separate modes, a lower level &lt;strong&gt;MailParser&lt;/strong&gt; class and &lt;strong&gt;simpleParser&lt;/strong&gt; function. The latter is simpler to use (hence the name) but is less resource efficient as it buffers attachment contents in memory.&lt;/p&gt;
+
+&lt;h2 id=&#34;install&#34;&gt;Install&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install mailparser --save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;simpleparser&#34;&gt;simpleParser&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;simpleParser&lt;/strong&gt; is the easiest way to parse emails. You only need to provide a message source to get a parsed email structure in return. As an additional bonus all embedded images in HTML (eg. the images that point to attachments using cid: URIs) are replaced with base64 encoded data URIs, so the message can be displayed without any additional processing. Be aware though that this module does not do any security cleansing (eg. removing javascript and so on), this is left to your own application.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const simpleParser = require(&#39;mailparser&#39;).simpleParser;
+simpleParser(source, (err, mail)=&amp;gt;{})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or as a Promise:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;simpleParser(source).then(mail=&amp;gt;{}).catch(err=&amp;gt;{})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;source&lt;/strong&gt; is either a stream, a Buffer or a string that needs to be parsed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;err&lt;/strong&gt; is the possible error object&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;mail&lt;/strong&gt; is a structured email object&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;mail-object&#34;&gt;mail object&lt;/h3&gt;
+
+&lt;p&gt;Parsed &lt;strong&gt;mail&lt;/strong&gt;* object has the following properties&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; – a Map object with lowercase header keys&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;subject&lt;/strong&gt; is the subject line (also available from the header &lt;em&gt;mail.headers.get(&amp;lsquo;subject&amp;rsquo;)&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;from&lt;/strong&gt; is an address object for the From: header&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;to&lt;/strong&gt; is an address object for the To: header&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cc&lt;/strong&gt; is an address object for the Cc: header&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bcc&lt;/strong&gt; is an address object for the Bcc: header (usually not present)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;date&lt;/strong&gt; is a Date object for the Date: header&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;messageId&lt;/strong&gt; is the Message-ID value string&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;inReplyTo&lt;/strong&gt; is the In-Reply-To value string&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;reply-to&lt;/strong&gt; is an address object for the Cc: header&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;references&lt;/strong&gt; is an array of referenced Message-ID values&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;html&lt;/strong&gt; is the HTML body of the message. If the message included embedded images as cid: urls then these are all replaced with base64 formatted data: URIs&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;text&lt;/strong&gt; is the plaintext body of the message&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;textAsHtml&lt;/strong&gt; is the plaintext body of the message formatted as HTML&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;attachments&lt;/strong&gt; is an array of attachments&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;address-object&#34;&gt;address object&lt;/h3&gt;
+
+&lt;p&gt;Address objects have the following structure:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;value&lt;/strong&gt; an array with address details&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;name&lt;/strong&gt; is the name part of the email/group&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;address&lt;/strong&gt; is the email address&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;group&lt;/strong&gt; is an array of grouped addresses&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;text&lt;/strong&gt; is a formatted address string for plaintext context&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;html&lt;/strong&gt; is a formatted address string for HTML context&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
+    value: [
+        {
+            address: &#39;andris+123@kreata.ee&#39;,
+            name: &#39;Andris Reinman&#39;
+        },
+        {
+            address: &#39;andris.reinman@gmail.com&#39;,
+            name: &#39;&#39;
+        }
+    ],
+    html: &#39;&amp;lt;span class=&amp;quot;mp_address_name&amp;quot;&amp;gt;Andris Reinman&amp;lt;/span&amp;gt; &amp;lt;&amp;lt;a href=&amp;quot;mailto:andris+123@kreata.ee&amp;quot; class=&amp;quot;mp_address_email&amp;quot;&amp;gt;andris+123@kreata.ee&amp;lt;/a&amp;gt;&amp;gt;, &amp;lt;a href=&amp;quot;mailto:andris.reinman@gmail.com&amp;quot; class=&amp;quot;mp_address_email&amp;quot;&amp;gt;andris.reinman@gmail.com&amp;lt;/a&amp;gt;&#39;,
+    text: &#39;Andris Reinman &amp;lt;andris+123@kreata.ee&amp;gt;, andris.reinman@gmail.com&#39;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;headers-map&#34;&gt;headers Map&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;headers&lt;/strong&gt; is a Map with lowercase header keys. So if you want to check for the Subject: header then you can do it like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;if (mail.headers.has(&#39;subject&#39;)) {
+    console.log(mail.headers.get(&#39;subject&#39;));
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The format of a header depends on the specific key. For most header keys the value is either a string (a single header) or an array of strings (multiple headers with the same key were found).&lt;/p&gt;
+
+&lt;p&gt;Special header keys are the following:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;All address headers are converted into address objects&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;from&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;to&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cc&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bcc&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sender&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;reply-to&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;delivered-to&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;return-path&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;All different priority headers are converted into &lt;strong&gt;priority&lt;/strong&gt; with the following values:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&amp;lsquo;high&amp;rsquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;lsquo;normal&amp;rsquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;lsquo;low&amp;rsquo;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;references&lt;/strong&gt; is a string if only a single reference-id exists or an array if multiple ids exist&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;date&lt;/strong&gt; value is a Date object&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The following headers are parsed into structured objects, where &lt;em&gt;value&lt;/em&gt; property includes the main value as string and &lt;em&gt;params&lt;/em&gt; property holds an object of additional arguments as key-value pairs&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;content-type&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;content-disposition&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;dkim-signature&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Some headers are also automaticaly mime-word decoded&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;all address headers (name parts and punycode encoded domains are converted to unicode)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;subject&lt;/strong&gt; is converted to unicode&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;attachment-object&#34;&gt;attachment object&lt;/h3&gt;
+
+&lt;p&gt;Attachment objects have the following structure:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;filename&lt;/strong&gt; (if available) file name of the attachment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;contentType&lt;/strong&gt; MIME type of the message&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;contentDisposition&lt;/strong&gt; content disposition type for the attachment, most probably &amp;ldquo;attachment&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;checksum&lt;/strong&gt; a MD5 hash of the message content&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;size&lt;/strong&gt; message size in bytes&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; a Map value that holds MIME headers for the attachment node&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt; a Buffer that contains the attachment contents&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;contentId&lt;/strong&gt; the header value from &amp;lsquo;Content-ID&amp;rsquo; (if present)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cid&lt;/strong&gt; contentId without &amp;lt; and &amp;gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;related&lt;/strong&gt; if true then this attachment should not be offered for download (at least not in the main attachments list)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;mailparser&#34;&gt;MailParser&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;MailParser&lt;/strong&gt; is a lower-level email parsing class. It is a transform stream that takes email source as bytestream for the input and emits data objects for attachments and text contents.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const MailParser = require(&#39;mailparser&#39;).MailParser;
+let parser = new MailParser()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;event-headers&#34;&gt;Event &amp;lsquo;headers&amp;rsquo;&lt;/h3&gt;
+
+&lt;p&gt;The parser emits &amp;lsquo;headers&amp;rsquo; once message headers have been processed. The headers object is a Map. Different header keys have different kind of values, for example address headers have the address object/array as the value while subject value is string.&lt;/p&gt;
+
+&lt;p&gt;Header keys in the Map are lowercase.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;parser.on(&#39;headers&#39;, headers = {
+    console.log(headers.get(&#39;subject&#39;));
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;event-data&#34;&gt;Event &amp;lsquo;data&amp;rsquo;&lt;/h3&gt;
+
+&lt;p&gt;Event &amp;lsquo;data&amp;rsquo; or &amp;lsquo;readable&amp;rsquo; emits message content objects. The type of the object can be determine by the &lt;em&gt;type&lt;/em&gt; property. Currently there are two kind of data objects&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;lsquo;attachment&amp;rsquo; indicates that this object is an attachment&lt;/li&gt;
+&lt;li&gt;&amp;lsquo;text&amp;rsquo; indicates that this object includes the html and text parts of the message. This object is emitted once and it includes both values&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;attachment-object-1&#34;&gt;attachment object&lt;/h3&gt;
+
+&lt;p&gt;Attachment object is the same as in &lt;em&gt;simpleParser&lt;/em&gt; except that &lt;em&gt;content&lt;/em&gt; is not a buffer but a stream. Additionally there&amp;rsquo;s a method &lt;strong&gt;release()&lt;/strong&gt; that must be called once you have processed the attachment. The property &lt;em&gt;related&lt;/em&gt; is set after message processing is ended, so at the &lt;em&gt;data&lt;/em&gt; event this value is not yet available.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;parser.on(&#39;data&#39;, data =&amp;gt; {
+    if(data.type === &#39;attachment&#39;){
+        console.log(data.filename);
+        data.content.pipe(process.stdout);
+        data.on(&#39;end&#39;, ()=&amp;gt;data.release());
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you do not call &lt;strong&gt;release()&lt;/strong&gt; then the message processing is paused.&lt;/p&gt;
+
+&lt;h3 id=&#34;text-object&#34;&gt;text object&lt;/h3&gt;
+
+&lt;p&gt;Text object has the following keys:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;text&lt;/strong&gt; includes the plaintext version of the message. Is set if the message has at least one &amp;lsquo;text/plain&amp;rsquo; node&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;html&lt;/strong&gt; includes the HTML version of the message. Is set if the message has at least one &amp;lsquo;text/html&amp;rsquo; node&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;textAsHtml&lt;/strong&gt; includes the plaintext version of the message in HTML format. Is set if the message has at least one &amp;lsquo;text/plain&amp;rsquo; node.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;parser.on(&#39;data&#39;, data =&amp;gt; {
+    if(data.type === &#39;text&#39;){
+        console.log(data.html);
+    }
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;issues&#34;&gt;Issues&lt;/h2&gt;
+
+&lt;p&gt;Charset decoding is handled using &lt;a href=&#34;https://github.com/ashtuchkin/iconv-lite&#34;&gt;iconv-lite&lt;/a&gt; that is missing some charsets, especially some Japanese ones. If required then it would be possible to switch to native iconv bindings with &lt;a href=&#34;https://github.com/bnoordhuis/node-iconv&#34;&gt;node-iconv&lt;/a&gt; to handle these missing charsets but for now this option is not used for easier packaging.&lt;/p&gt;
+
+&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;MIT&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mailcomposer</title>
+      <link>https://nodemailer.com/extras/mailcomposer/</link>
+      <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/extras/mailcomposer/</guid>
+      <description>
+
+&lt;p&gt;Generate RFC822 formatted e-mail messages that can be streamed to SMTP or file.&lt;/p&gt;
+
+&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
+
+&lt;h4 id=&#34;step-1-install-nodemailer-with-npm&#34;&gt;Step 1. Install Nodemailer with npm&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;mailcomposer&lt;/em&gt; is exposed as a submodule of Nodemailer&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install nodemailer --save
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;step-2-require-mailcomposer-in-your-script&#34;&gt;Step 2. Require &lt;em&gt;mailcomposer&lt;/em&gt; in your script&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const MailComposer = require(&#39;nodemailer/lib/mail-composer&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;step-3-create-a-new-mailcomposer-instance&#34;&gt;Step 3. Create a new &lt;em&gt;MailComposer&lt;/em&gt; instance&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var mail = new MailComposer(mailOptions);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Where &lt;code&gt;mailOptions&lt;/code&gt; is an object that defines the components of the message, see below&lt;/p&gt;
+
+&lt;h2 id=&#34;api&#34;&gt;API&lt;/h2&gt;
+
+&lt;h3 id=&#34;createreadstream&#34;&gt;createReadStream&lt;/h3&gt;
+
+&lt;p&gt;To create a stream that outputs a raw rfc822 message from the defined input, use &lt;code&gt;createReadStream()&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var mail = new MailComposer({from: &#39;...&#39;, ...});
+var stream = mail.compile().createReadStream();
+stream.pipe(process.stdout);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;build&#34;&gt;build&lt;/h3&gt;
+
+&lt;p&gt;To generate the message and return it with a callback use &lt;code&gt;build()&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var mail = new MailComposer({from: &#39;...&#39;, ...});
+mail.compile().build(function(err, message){
+    process.stdout.write(message);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;e-mail-message-fields&#34;&gt;E-mail message fields&lt;/h3&gt;
+
+&lt;p&gt;The following are the possible fields of an e-mail message:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;from&lt;/strong&gt; - The e-mail address of the sender. All e-mail addresses can be plain &lt;code&gt;&#39;sender@server.com&#39;&lt;/code&gt; or formatted &lt;code&gt;&#39;Sender Name &amp;lt;sender@server.com&amp;gt;&#39;&lt;/code&gt;, see &lt;a href=&#34;#address-formatting&#34;&gt;here&lt;/a&gt; for details&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;sender&lt;/strong&gt; - An e-mail address that will appear on the &lt;em&gt;Sender:&lt;/em&gt; field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;to&lt;/strong&gt; - Comma separated list or an array of recipients e-mail addresses that will appear on the &lt;em&gt;To:&lt;/em&gt; field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cc&lt;/strong&gt; - Comma separated list or an array of recipients e-mail addresses that will appear on the &lt;em&gt;Cc:&lt;/em&gt; field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bcc&lt;/strong&gt; - Comma separated list or an array of recipients e-mail addresses that will appear on the &lt;em&gt;Bcc:&lt;/em&gt; field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;replyTo&lt;/strong&gt; - An e-mail address that will appear on the &lt;em&gt;Reply-To:&lt;/em&gt; field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;inReplyTo&lt;/strong&gt; - The message-id this message is replying&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;references&lt;/strong&gt; - Message-id list (an array or space separated string)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;subject&lt;/strong&gt; - The subject of the e-mail&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;text&lt;/strong&gt; - The plaintext version of the message as an Unicode string, Buffer, Stream or an object &lt;em&gt;{path: &amp;lsquo;&amp;hellip;&amp;rsquo;}&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;html&lt;/strong&gt; - The HTML version of the message as an Unicode string, Buffer, Stream or an object &lt;em&gt;{path: &amp;lsquo;&amp;hellip;&amp;rsquo;}&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;watchHtml&lt;/strong&gt; - Apple Watch specific HTML version of the message, same usage as with &lt;code&gt;text&lt;/code&gt; and &lt;code&gt;html&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;icalEvent&lt;/strong&gt; - iCalendar event, same usage as with &lt;code&gt;text&lt;/code&gt; and &lt;code&gt;html&lt;/code&gt;. Event &lt;code&gt;method&lt;/code&gt; attribute defaults to &amp;lsquo;PUBLISH&amp;rsquo; or define it yourself: &lt;code&gt;{method: &#39;REQUEST&#39;, content: iCalString}&lt;/code&gt;. This value is added as an additional alternative to html or text. Only utf-8 content is allowed&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; - An object or array of additional header fields (e.g. &lt;em&gt;{&amp;ldquo;X-Key-Name&amp;rdquo;: &amp;ldquo;key value&amp;rdquo;}&lt;/em&gt; or &lt;em&gt;[{key: &amp;ldquo;X-Key-Name&amp;rdquo;, value: &amp;ldquo;val1&amp;rdquo;}, {key: &amp;ldquo;X-Key-Name&amp;rdquo;, value: &amp;ldquo;val2&amp;rdquo;}]&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;attachments&lt;/strong&gt; - An array of attachment objects  (see &lt;a href=&#34;#attachments&#34;&gt;below&lt;/a&gt; for details)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;alternatives&lt;/strong&gt; - An array of alternative text contents (in addition to text and html parts)  (see &lt;a href=&#34;#alternatives&#34;&gt;below&lt;/a&gt; for details)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;envelope&lt;/strong&gt; - optional SMTP envelope, if auto generated envelope is not suitable (see &lt;a href=&#34;#smtp-envelope&#34;&gt;below&lt;/a&gt; for details)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;messageId&lt;/strong&gt; - optional Message-Id value, random value will be generated if not set&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;date&lt;/strong&gt; - optional Date value, current UTC string will be used if not set&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;encoding&lt;/strong&gt; - optional transfer encoding for the textual parts&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;raw&lt;/strong&gt; - if set then overwrites entire message output with this value. The value is not parsed, so you should still set address headers or the envelope value for the message to work&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;textEncoding&lt;/strong&gt; - set explicitly which encoding to use for text parts (&lt;em&gt;quoted-printable&lt;/em&gt; or &lt;em&gt;base64&lt;/em&gt;). If not set then encoding is detected from text content (mostly ascii means &lt;em&gt;quoted-printable&lt;/em&gt;, otherwise &lt;em&gt;base64&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;disableUrlAccess&lt;/strong&gt; - if set to true then fails with an error when a node tries to load content from URL&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;disableFileAccess&lt;/strong&gt; - if set to true then fails with an error when a node tries to load content from a file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;All text fields (e-mail addresses, plaintext body, html body) use UTF-8 as the encoding.
+Attachments are streamed as binary.&lt;/p&gt;
+
+&lt;h3 id=&#34;attachments&#34;&gt;Attachments&lt;/h3&gt;
+
+&lt;p&gt;Attachment object consists of the following properties:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;filename&lt;/strong&gt; - filename to be reported as the name of the attached file, use of unicode is allowed. If you do not want to use a filename, set this value as &lt;code&gt;false&lt;/code&gt;, otherwise a filename is generated automatically&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cid&lt;/strong&gt; - optional content id for using inline images in HTML message source. Using &lt;code&gt;cid&lt;/code&gt; sets the default &lt;code&gt;contentDisposition&lt;/code&gt; to &lt;code&gt;&#39;inline&#39;&lt;/code&gt; and moves the attachment into a &lt;em&gt;multipart/related&lt;/em&gt; mime node, so use it only if you actually want to use this attachment as an embedded image&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt; - String, Buffer or a Stream contents for the attachment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;encoding&lt;/strong&gt; - If set and &lt;code&gt;content&lt;/code&gt; is string, then encodes the content to a Buffer using the specified encoding. Example values: &lt;code&gt;base64&lt;/code&gt;, &lt;code&gt;hex&lt;/code&gt;, &lt;code&gt;binary&lt;/code&gt; etc. Useful if you want to use binary attachments in a JSON formatted e-mail object&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;path&lt;/strong&gt; - path to a file or an URL (data uris are allowed as well) if you want to stream the file instead of including it (better for larger attachments)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;contentType&lt;/strong&gt; - optional content type for the attachment, if not set will be derived from the &lt;code&gt;filename&lt;/code&gt; property&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;contentTransferEncoding&lt;/strong&gt; - optional transfer encoding for the attachment, if not set it will be derived from the &lt;code&gt;contentType&lt;/code&gt; property. Example values: &lt;code&gt;quoted-printable&lt;/code&gt;, &lt;code&gt;base64&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;contentDisposition&lt;/strong&gt; - optional content disposition type for the attachment, defaults to &amp;lsquo;attachment&amp;rsquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; is an object of additional headers, similar to &lt;em&gt;message.headers&lt;/em&gt; option &lt;code&gt;{&#39;X-My-Header&#39;: &#39;value&#39;}&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;raw&lt;/strong&gt; is an optional value that overrides entire node content in the mime message. If used then all other options set for this node are ignored. The value is either a string, a buffer, a stream or an attachment-like object (eg. provides &lt;code&gt;path&lt;/code&gt; or &lt;code&gt;content&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Attachments can be added as many as you want.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var mailOptions = {
+    ...
+    attachments: [
+        {   // utf-8 string as an attachment
+            filename: &#39;text1.txt&#39;,
+            content: &#39;hello world!&#39;
+        },
+        {   // binary buffer as an attachment
+            filename: &#39;text2.txt&#39;,
+            content: new Buffer(&#39;hello world!&#39;,&#39;utf-8&#39;)
+        },
+        {   // file on disk as an attachment
+            filename: &#39;text3.txt&#39;,
+            path: &#39;/path/to/file.txt&#39; // stream this file
+        },
+        {   // filename and content type is derived from path
+            path: &#39;/path/to/file.txt&#39;
+        },
+        {   // stream as an attachment
+            filename: &#39;text4.txt&#39;,
+            content: fs.createReadStream(&#39;file.txt&#39;)
+        },
+        {   // define custom content type for the attachment
+            filename: &#39;text.bin&#39;,
+            content: &#39;hello world!&#39;,
+            contentType: &#39;text/plain&#39;
+        },
+        {   // use URL as an attachment
+            filename: &#39;license.txt&#39;,
+            path: &#39;https://raw.github.com/andris9/Nodemailer/master/LICENSE&#39;
+        },
+        {   // encoded string as an attachment
+            filename: &#39;text1.txt&#39;,
+            content: &#39;aGVsbG8gd29ybGQh&#39;,
+            encoding: &#39;base64&#39;
+        },
+        {   // data uri as an attachment
+            path: &#39;data:text/plain;base64,aGVsbG8gd29ybGQ=&#39;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;alternatives&#34;&gt;Alternatives&lt;/h3&gt;
+
+&lt;p&gt;In addition to text and HTML, any kind of data can be inserted as an alternative content of the main body - for example a word processing document with the same text as in the HTML field. It is the job of the e-mail client to select and show the best fitting alternative to the reader. Usually this field is used for calendar events and such.&lt;/p&gt;
+
+&lt;p&gt;Alternative objects use the same options as &lt;a href=&#34;#attachments&#34;&gt;attachment objects&lt;/a&gt;. The difference between an attachment and an alternative is the fact that attachments are placed into &lt;em&gt;multipart/mixed&lt;/em&gt; or &lt;em&gt;multipart/related&lt;/em&gt; parts of the message white alternatives are placed into &lt;em&gt;multipart/alternative&lt;/em&gt; part.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Usage example:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var mailOptions = {
+    ...
+    html: &#39;&amp;lt;b&amp;gt;Hello world!&amp;lt;/b&amp;gt;&#39;,
+    alternatives: [
+        {
+            contentType: &#39;text/x-web-markdown&#39;,
+            content: &#39;**Hello world!**&#39;
+        }
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Alternatives can be added as many as you want.&lt;/p&gt;
+
+&lt;h3 id=&#34;address-formatting&#34;&gt;Address Formatting&lt;/h3&gt;
+
+&lt;p&gt;All the e-mail addresses can be plain e-mail addresses&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;foobar@blurdybloop.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;or with formatted name (includes unicode support)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;quot;Ноде Майлер&amp;quot; &amp;lt;foobar@blurdybloop.com&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Notice that all address fields (even &lt;code&gt;from&lt;/code&gt;) are comma separated lists, so if you want to use a comma in the name part, make sure you enclose the name in double quotes: &lt;code&gt;&amp;quot;Майлер, Ноде&amp;quot; &amp;lt;foobar@blurdybloop.com&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    name: &#39;Майлер, Ноде&#39;,
+    address: &#39;foobar@blurdybloop.com&#39;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;All address fields accept comma separated list of e-mails or an array of
+e-mails or an array of comma separated list of e-mails or address objects - use it as you like.
+Formatting can be mixed.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;...,
+to: &#39;foobar@blurdybloop.com, &amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@blurdybloop.com&amp;gt;, &amp;quot;Name, User&amp;quot; &amp;lt;baz@blurdybloop.com&amp;gt;&#39;,
+cc: [&#39;foobar@blurdybloop.com&#39;, &#39;&amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@blurdybloop.com&amp;gt;, &amp;quot;Name, User&amp;quot; &amp;lt;baz@blurdybloop.com&amp;gt;&#39;],
+bcc: [&#39;foobar@blurdybloop.com&#39;, {name: &#39;Майлер, Ноде&#39;, address: &#39;foobar@blurdybloop.com&#39;}]
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can even use unicode domains, these are automatically converted to punycode&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&#39;&amp;quot;Unicode Domain&amp;quot; &amp;lt;info@müriaad-polüteism.info&amp;gt;&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;smtp-envelope&#34;&gt;SMTP envelope&lt;/h3&gt;
+
+&lt;p&gt;SMTP envelope is usually auto generated from &lt;code&gt;from&lt;/code&gt;, &lt;code&gt;to&lt;/code&gt;, &lt;code&gt;cc&lt;/code&gt; and &lt;code&gt;bcc&lt;/code&gt; fields but
+if for some reason you want to specify it yourself, you can do it with &lt;code&gt;envelope&lt;/code&gt; property.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;envelope&lt;/code&gt; is an object with the following params: &lt;code&gt;from&lt;/code&gt;, &lt;code&gt;to&lt;/code&gt;, &lt;code&gt;cc&lt;/code&gt; and &lt;code&gt;bcc&lt;/code&gt; just like
+with regular mail options. You can also use the regular address format, unicode domains etc.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;mailOptions = {
+    ...,
+    from: &#39;mailer@kreata.ee&#39;,
+    to: &#39;daemon@kreata.ee&#39;,
+    envelope: {
+        from: &#39;Daemon &amp;lt;deamon@kreata.ee&amp;gt;&#39;,
+        to: &#39;mailer@kreata.ee, Mailer &amp;lt;mailer2@kreata.ee&amp;gt;&#39;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Not all transports can use the &lt;code&gt;envelope&lt;/code&gt; object, for example SES ignores it and uses the data from the From:, To: etc. headers.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;using-embedded-images&#34;&gt;Using Embedded Images&lt;/h3&gt;
+
+&lt;p&gt;Attachments can be used as embedded images in the HTML body. To use this feature, you need to set additional property of the attachment - &lt;code&gt;cid&lt;/code&gt; (unique identifier of the file) which is a reference to the attachment file. The same &lt;code&gt;cid&lt;/code&gt; value must be used as the image URL in HTML (using &lt;code&gt;cid:&lt;/code&gt; as the URL protocol, see example below).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NB!&lt;/strong&gt; the cid value should be as unique as possible!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var mailOptions = {
+    ...
+    html: &#39;Embedded image: &amp;lt;img src=&amp;quot;cid:unique@kreata.ee&amp;quot;/&amp;gt;&#39;,
+    attachments: [{
+        filename: &#39;image.png&#39;,
+        path: &#39;/path/to/file&#39;,
+        cid: &#39;unique@kreata.ee&#39; //same cid value as in the html img src
+    }]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;MIT&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

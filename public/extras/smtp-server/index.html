@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.18.1" />
+    <meta name="description" content="Nodemailer is a module for Node.js to send emails">
+<meta name="author" content="Andris Reinman">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    
+    <title>SMTP Server</title>
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/featherlight.min.css" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/theme.css" rel="stylesheet">
+    <link href="/css/hugo-theme.css" rel="stylesheet">
+    <script src="/js/jquery-2.x.min.js"></script>
+    <style type="text/css">:root #header + #content > #left > #rlblock_left
+    {display:none !important;}</style>
+    
+
+  </head>
+  <body class="" data-url="/extras/smtp-server/">
+    <nav id="sidebar">
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+  <img src="/nm_logo_200x136.png" alt="Nodemailer"/>
+</a>
+
+    </div>
+
+    <p><a href="https://moonmail.io/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=header-link">Proudly Sponsored by <b>MoonMail</b></a></p>
+
+    
+</div>
+
+
+  <div class="highlightable">
+      <div id="ads">
+          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=nodemailercom" id="_carbonads_js"></script>
+      </div>
+    <ul class="topics">
+      
+      
+        
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/about/">
+        <a href="/about/">
+          <span>
+            
+              <b>1. </b>
+            
+             Nodemailer
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/about/migrate/">
+              <a href="/about/migrate/">
+                <span>Migration     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/about/license/">
+              <a href="/about/license/">
+                <span>License     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/usage/">
+        <a href="/usage/">
+          <span>
+            
+              <b>2. </b>
+            
+             Usage
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/usage/why-smtp/">
+              <a href="/usage/why-smtp/">
+                <span>SMTP? Say what?     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/usage/using-gmail/">
+              <a href="/usage/using-gmail/">
+                <span>Using Gmail     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/usage/bulk-mail/">
+              <a href="/usage/bulk-mail/">
+                <span>Delivering bulk mail     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/message/">
+        <a href="/message/">
+          <span>
+            
+              <b>3. </b>
+            
+             Message configuration
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/attachments/">
+              <a href="/message/attachments/">
+                <span>Attachments     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/alternatives/">
+              <a href="/message/alternatives/">
+                <span>Alternatives     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/addresses/">
+              <a href="/message/addresses/">
+                <span>Address object     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/calendar-events/">
+              <a href="/message/calendar-events/">
+                <span>Calendar events     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/embedded-images/">
+              <a href="/message/embedded-images/">
+                <span>Embedded images     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/list-headers/">
+              <a href="/message/list-headers/">
+                <span>List headers     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/custom-headers/">
+              <a href="/message/custom-headers/">
+                <span>Custom headers     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/message/custom-source/">
+              <a href="/message/custom-source/">
+                <span>Custom source     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/smtp/">
+        <a href="/smtp/">
+          <span>
+            
+              <b>4. </b>
+            
+             SMTP transport
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/envelope/">
+              <a href="/smtp/envelope/">
+                <span>SMTP envelope     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/pooled/">
+              <a href="/smtp/pooled/">
+                <span>Pooled SMTP     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/oauth2/">
+              <a href="/smtp/oauth2/">
+                <span>OAuth2     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/well-known/">
+              <a href="/smtp/well-known/">
+                <span>Well-known services     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/proxies/">
+              <a href="/smtp/proxies/">
+                <span>Proxy support     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/smtp/dsn/">
+              <a href="/smtp/dsn/">
+                <span>Delivery status notifications     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/transports/">
+        <a href="/transports/">
+          <span>
+            
+              <b>5. </b>
+            
+             Other transports
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/transports/sendmail/">
+              <a href="/transports/sendmail/">
+                <span>Sendmail transport     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/transports/ses/">
+              <a href="/transports/ses/">
+                <span>SES transport     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/transports/stream/">
+              <a href="/transports/stream/">
+                <span>Stream transport     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/plugins/">
+        <a href="/plugins/">
+          <span>
+            
+              <b>6. </b>
+            
+             Plugins
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item " data-nav-id="/plugins/create/">
+              <a href="/plugins/create/">
+                <span>Create plugins     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  " data-nav-id="/dkim/">
+        <a href="/dkim/">
+          <span>
+            
+              <b>7. </b>
+            
+             DKIM
+            
+           </span>
+        </a>
+        
+      </li>
+      
+      
+      
+
+      
+        
+      
+      
+      
+
+      <li class="dd-item  parent" data-nav-id="/extras/">
+        <a href="/extras/">
+          <span>
+            
+              <b>8. </b>
+            
+             Extra modules
+            
+           </span>
+        </a>
+        
+        <ul>
+          
+          
+          
+          
+            <li class="dd-item active" data-nav-id="/extras/smtp-server/">
+              <a href="/extras/smtp-server/">
+                <span>SMTP Server     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/extras/smtp-connection/">
+              <a href="/extras/smtp-connection/">
+                <span>SMTP Connection     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/extras/mailparser/">
+              <a href="/extras/mailparser/">
+                <span>Mailparser     </i></span>
+              </a>
+            </li>
+          
+          
+          
+            <li class="dd-item " data-nav-id="/extras/mailcomposer/">
+              <a href="/extras/mailcomposer/">
+                <span>Mailcomposer     </i></span>
+              </a>
+            </li>
+          
+          
+        </ul>
+        
+      </li>
+      
+      
+      <li class="dd-item">
+        <a href="https://blog.nodemailer.com">
+          <span>
+             <b>9. </b>
+             Blog
+           </span>
+        </a>
+      </li>
+    </ul>
+    <hr>
+     
+  </div>
+</nav>
+
+        <section id="body">
+        <div id="overlay"></div>
+
+        <div class="padding highlightable">
+
+            <div id="top-bar">
+              
+              <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                  <span id="sidebar-toggle-span">
+                      <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                        <i class="fa fa-bars"></i>
+                      </a>
+                  </span>
+                
+                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
+                
+                
+                
+                
+                  
+                
+                  
+                
+                  
+                    
+                    
+                <a href="/extras/" itemprop="url"><span itemprop="title">Extra modules</span></a> <i class="fa fa-angle-right"></i>
+                    
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> SMTP Server</span>
+              </div>
+              
+                  <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#usage">Usage</a>
+<ul>
+<li>
+<ul>
+<li><a href="#step-1-install-with-npm">Step 1. Install with npm</a></li>
+<li><a href="#step-2-require-in-your-script">Step 2. Require in your script</a></li>
+<li><a href="#step-3-create-smtpserver-instance">Step 3. Create SMTPServer instance</a></li>
+<li><a href="#server-methods">Server Methods</a></li>
+</ul></li>
+<li><a href="#tls-and-startls-notice">TLS and STARTLS notice</a></li>
+<li><a href="#start-the-server-instance">Start the server instance</a></li>
+</ul></li>
+<li><a href="#handling-errors">Handling errors</a></li>
+<li><a href="#handling-authentication">Handling Authentication</a>
+<ul>
+<li><a href="#examples">Examples</a>
+<ul>
+<li><a href="#password-based-authentication">Password based authentication</a></li>
+<li><a href="#oauth2-authentication">OAuth2 authentication</a></li>
+<li><a href="#cram-md5-authentication">CRAM-MD5 authentication</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#validating-client-connection">Validating client connection</a></li>
+<li><a href="#validating-sender-addresses">Validating sender addresses</a></li>
+<li><a href="#validating-recipient-addresses">Validating recipient addresses</a></li>
+<li><a href="#processing-incoming-message">Processing incoming message</a></li>
+<li><a href="#using-size-extension">Using SIZE extension</a></li>
+<li><a href="#using-lmtp">Using LMTP</a></li>
+<li><a href="#session-object">Session object</a></li>
+<li><a href="#address-object">Address object</a></li>
+<li><a href="#supported-smtp-commands">Supported SMTP commands</a>
+<ul>
+<li><a href="#commands">Commands</a></li>
+<li><a href="#extensions">Extensions</a></li>
+</ul></li>
+<li><a href="#license">License</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+              
+
+            </div>
+            
+    	        <div id="body-inner">
+                
+                <h1>SMTP Server</h1>
+                
+
+
+
+<p>Create SMTP and LMTP server instances on the fly. This is not a full-blown server application like <a href="https://haraka.github.io/">Haraka</a> but an easy way to add custom SMTP listeners to your app. This module is the successor for the server part of the (now deprecated) SMTP module <a href="https://www.npmjs.com/package/simplesmtp">simplesmtp</a>. For matching SMTP client see <a href="/extras/smtp-connection/">smtp-connection</a>.</p>
+
+<div class="notices note" ><p>This module does not make any email deliveries by itself. <em>smtp-server</em> allows you to listen on ports 25/24/465/587 etc. using SMTP or LMTP protocol and that&rsquo;s it. Your own application is responsible of accepting and delivering the message to destination.</p>
+</div>
+
+
+<h2 id="usage">Usage</h2>
+
+<h4 id="step-1-install-with-npm">Step 1. Install with npm</h4>
+
+<pre><code class="language-bash">npm install smtp-server --save
+</code></pre>
+
+<h4 id="step-2-require-in-your-script">Step 2. Require in your script</h4>
+
+<pre><code class="language-javascript">const SMTPServer = require('smtp-server').SMTPServer;
+</code></pre>
+
+<h4 id="step-3-create-smtpserver-instance">Step 3. Create SMTPServer instance</h4>
+
+<pre><code class="language-javascript">const server = new SMTPServer(options);
+</code></pre>
+
+<p>Where</p>
+
+<ul>
+<li><strong>options</strong> defines the behavior of the server
+
+<ul>
+<li><strong>options.secure</strong> if <em>true</em>, the connection will use TLS. The default is <em>false</em>. If the server doesn&rsquo;t start in TLS mode, it is still possible to upgrade clear text socket to TLS socket with the STARTTLS command (unless you disable support for it). If secure is <em>true</em>, <a href="http://nodejs.org/api/tls.html#tls_tls_createserver_options_secureconnectionlistener">additional tls options for tls.createServer</a> can be added directly onto this options object.</li>
+<li><strong>options.name</strong> optional hostname of the server, used for identifying to the client (defaults to <em>os.hostname()</em>)</li>
+<li><strong>options.banner</strong> optional greeting message. This message is appended to the default ESMTP response.</li>
+<li><strong>options.size</strong> optional maximum allowed message size in bytes, see details <a href="#using-size-extension">here</a></li>
+<li><strong>options.hideSize</strong> if set to true then does not expose the max allowed size to the client but keeps size related values like <em>stream.sizeExceeded</em></li>
+<li><strong>options.authMethods</strong> optional array of allowed authentication methods, defaults to <em>[&lsquo;PLAIN&rsquo;, &lsquo;LOGIN&rsquo;]</em>. Only the methods listed in this array are allowed, so if you set it to <em>[&lsquo;XOAUTH2&rsquo;]</em> then PLAIN and LOGIN are not available. Use <em>[&lsquo;PLAIN&rsquo;, &lsquo;LOGIN&rsquo;, &lsquo;XOAUTH2&rsquo;]</em> to allow all three. Authentication is only allowed in secure mode (either the server is started with <em>secure:true</em> option or STARTTLS command is used)</li>
+<li><strong>options.authOptional</strong> allow authentication, but do not require it</li>
+<li><strong>options.disabledCommands</strong> optional array of disabled commands (see all supported commands <a href="#commands">here</a>). For example if you want to disable authentication, use <em>[&lsquo;AUTH&rsquo;]</em> as this value. If you want to allow authentication in clear text, set it to <em>[&lsquo;STARTTLS&rsquo;]</em>.</li>
+<li><strong>options.hideSTARTTLS</strong> optional boolean, if set to true then allow using STARTTLS but do not advertise or require it. It only makes sense when creating integration test servers for testing the scenario where you want to try STARTTLS even when it is not advertised</li>
+<li><strong>options.hidePIPELINING</strong> optional boolean, if set to true then does not show PIPELINING in feature list</li>
+<li><strong>options.hide8BITMIME</strong> optional boolean, if set to true then does not show 8BITMIME in features list</li>
+<li><strong>options.hideSMTPUTF8</strong> optional boolean, if set to true then does not show SMTPUTF8 in features list</li>
+<li><strong>options.allowInsecureAuth</strong> optional boolean, if set to true allows authentication even if connection is not secured first</li>
+<li><strong>options.disableReverseLookup</strong> optional boolean, if set to true then does not try to reverse resolve client hostname</li>
+<li><strong>options.sniOptions</strong> optional <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</a> or an object of TLS options for SNI where servername is the key. Overrided by SNICallback.</li>
+<li><strong>options.logger</strong> optional <a href="https://github.com/trentm/node-bunyan">bunyan</a> compatible logger instance. If set to <em>true</em> then logs to console. If value is not set or is <em>false</em> then nothing is logged</li>
+<li><strong>options.maxClients</strong> sets the maximum number of concurrently connected clients, defaults to <em>Infinity</em></li>
+<li><strong>options.useProxy</strong> boolean, if set to true expects to be behind a proxy that emits a <a href="http://www.haproxy.org/download/1.5/doc/proxy-protocol.txt">PROXY header</a> (version 1 only)</li>
+<li><strong>options.useXClient</strong> boolean, if set to true, enables usage of <a href="http://www.postfix.org/XCLIENT_README.html">XCLIENT</a> extension to override connection properties. See <em>session.xClient</em> (Map object) for the details provided by the client</li>
+<li><strong>options.useXForward</strong> boolean, if set to true, enables usage of <a href="http://www.postfix.org/XFORWARD_README.html">XFORWARD</a> extension. See <em>session.xForward</em> (Map object) for the details provided by the client</li>
+<li><strong>options.lmtp</strong> boolean, if set to true use LMTP protocol instead of SMTP</li>
+<li><strong>options.socketTimeout</strong> how many milliseconds of inactivity to allow before disconnecting the client (defaults to 1 minute)</li>
+<li><strong>options.closeTimeout</strong> how many millisceonds to wait before disconnecting pending connections once server.close() has been called (defaults to 30 seconds)</li>
+<li><strong>options.onAuth</strong> is the callback to handle authentications (see details <a href="#handling-authentication">here</a>)</li>
+<li><strong>options.onConnect</strong> is the callback to handle the client connection. (see details <a href="#validating-client-connection">here</a>)</li>
+<li><strong>options.onMailFrom</strong> is the callback to validate MAIL FROM commands (see details <a href="#validating-sender-addresses">here</a>)</li>
+<li><strong>options.onRcptTo</strong> is the callback to validate RCPT TO commands (see details <a href="#validating-recipient-addresses">here</a>)</li>
+<li><strong>options.onData</strong> is the callback to handle incoming messages (see details <a href="#processing-incoming-message">here</a>)</li>
+<li><strong>options.onClose</strong> is the callback that informs about closed client connection</li>
+</ul></li>
+</ul>
+
+<p>Additionally you can use the options from <a href="http://nodejs.org/api/net.html#net_net_createserver_options_connectionlistener">net.createServer</a> and <a href="http://nodejs.org/api/tls.html#tls_tls_createserver_options_secureconnectionlistener">tls.createServer</a> (applies if <em>secure</em> is set to true)</p>
+
+<h4 id="server-methods">Server Methods</h4>
+
+<p>The <em>server</em> object returned from <em>new SMTPServer</em> has the following methods:</p>
+
+<ul>
+<li><strong>listen(port)</strong> - Begins listening on the given port</li>
+<li><strong>close(callback)</strong> - Stops the server from accepting new connections. <em>callback</em> is invoked once all client connections are closed</li>
+</ul>
+
+<h3 id="tls-and-startls-notice">TLS and STARTLS notice</h3>
+
+<p>If you use <em>secure:true</em> option or you do not disable STARTTLS command then you SHOULD also define the <em>key</em>, <em>cert</em> and possibly <em>ca</em> properties to use a proper certificate. If you do no specify your own certificate then a pregenerated self-signed certificate for &lsquo;localhost&rsquo; is used. Any respectful client refuses to accept such certificate.</p>
+
+<p><strong>Example</strong></p>
+
+<pre><code class="language-javascript">// This example starts a SMTP server using TLS with your own certificate and key
+const server = new SMTPServer({
+    secure: true,
+    key: fs.readFileSync('private.key'),
+    cert: fs.readFileSync('server.crt')
+});
+server.listen(465);
+</code></pre>
+
+<h3 id="start-the-server-instance">Start the server instance</h3>
+
+<pre><code class="language-javascript">server.listen(port[,host][,callback]);
+</code></pre>
+
+<p>Where</p>
+
+<ul>
+<li><strong>port</strong> is the port number to bound to</li>
+<li><strong>host</strong> is the optional host to bound to</li>
+<li><strong>callback</strong> is called once the server is bound</li>
+</ul>
+
+<h2 id="handling-errors">Handling errors</h2>
+
+<p>Errors can be handled by setting an &lsquo;error&rsquo; event listener to the server instance</p>
+
+<pre><code class="language-javascript">server.on('error', err =&gt; {
+    console.log('Error %s', err.message);
+});
+</code></pre>
+
+<h2 id="handling-authentication">Handling Authentication</h2>
+
+<p>Authentication calls can be handled with <em>onAuth</em> handler</p>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    onAuth(auth, session, callback){}
+});
+</code></pre>
+
+<p>Where</p>
+
+<ul>
+<li><strong>auth</strong> is an authentication object
+
+<ul>
+<li><strong>method</strong> indicates the authentication method used, &lsquo;PLAIN&rsquo;, &lsquo;LOGIN&rsquo; or &lsquo;XOAUTH2&rsquo;</li>
+<li><strong>username</strong> is the username of the user</li>
+<li><strong>password</strong> is the password if LOGIN or PLAIN was used</li>
+<li><strong>accessToken</strong> is the OAuth2 bearer access token if &lsquo;XOAUTH2&rsquo; was used as the authentication method</li>
+<li><strong>validatePassword</strong> is a function for validating CRAM-MD5 challenge responses. Takes the password of the user as an argument and returns <em>true</em> if the response matches the password</li>
+</ul></li>
+<li><strong>session</strong> includes information about the session like <em>remoteAddress</em> for the remote IP, see details <a href="#session-object">here</a></li>
+<li><strong>callback</strong> is the function to run once the user is authenticated. Takes 2 arguments: <em>(error, response)</em>
+
+<ul>
+<li><strong>error</strong> is an error to return if authentication failed. If you want to set custom error code, set <em>responseCode</em> to the error object</li>
+<li><strong>response</strong> is an object with the authentication results
+
+<ul>
+<li><strong>user</strong> can be any value - if this is set then the user is considered logged in and this value is used later with the session data to identify the user. If this value is empty, then the authentication is considered failed</li>
+<li><strong>data</strong> is an object to return if XOAUTH2 authentication failed (do not set the error object in this case). This value is serialized to JSON and base64 encoded automatically, so you can just return the object</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>This module supports <em>CRAM-MD5</em> but the use of it is discouraged as it requires access to unencrypted user passwords during the authentication process. You shouldn&rsquo;t store passwords unencrypted.</p>
+
+<h3 id="examples">Examples</h3>
+
+<h4 id="password-based-authentication">Password based authentication</h4>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    onAuth(auth, session, callback){
+        if(auth.username !== 'abc' || auth.password !== 'def'){
+            return callback(new Error('Invalid username or password'));
+        }
+        callback(null, {user: 123}); // where 123 is the user id or similar property
+    }
+});
+</code></pre>
+
+<h4 id="oauth2-authentication">OAuth2 authentication</h4>
+
+<p>XOAUTH2 support needs to enabled with the <em>authMethods</em> array option as it is disabled by default.
+If you support multiple authentication mechanisms, then you can check the used mechanism from the <em>method</em> property.</p>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    authMethods: ['XOAUTH2'], // XOAUTH2 is not enabled by default
+    onAuth(auth, session, callback){
+        if(auth.method !== 'XOAUTH2'){
+            // should never occur in this case as only XOAUTH2 is allowed
+            return callback(new Error('Expecting XOAUTH2'));
+        }
+        if(auth.username !== 'abc' || auth.accessToken !== 'def'){
+            return callback(null, {
+                data: {
+                    status: '401',
+                    schemes: 'bearer mac',
+                    scope: 'my_smtp_access_scope_name'
+                }
+            });
+        }
+        callback(null, {user: 123}); // where 123 is the user id or similar property
+    }
+});
+</code></pre>
+
+<h4 id="cram-md5-authentication">CRAM-MD5 authentication</h4>
+
+<p>CRAM-MD5 support needs to enabled with the <em>authMethods</em> array option as it is disabled by default.
+If you support multiple authentication mechanisms, then you can check the used mechanism from the <em>method</em> property.</p>
+
+<p>This authentication method does not return a password with the username but a response to a challenge. To validate the returned challenge response, the authentication object includes a method <em>validatePassword</em> that takes the actual plaintext password as an argument and returns either <em>true</em> if the password matches with the challenge response or <em>false</em> if it does not.</p>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    authMethods: ['CRAM-MD5'], // CRAM-MD5 is not enabled by default
+    onAuth(auth, session, callback){
+        if(auth.method !== 'CRAM-MD5'){
+            // should never occur in this case as only CRAM-MD5 is allowed
+            return callback(new Error('Expecting CRAM-MD5'));
+        }
+
+        // CRAM-MD5 does not provide a password but a challenge response
+        // that can be validated against the actual password of the user
+        if(auth.username !== 'abc' || !auth.validatePassword('def')){
+            return callback(new Error('Invalid username or password'));
+        }
+
+        callback(null, {user: 123}); // where 123 is the user id or similar property
+    }
+});
+</code></pre>
+
+<h2 id="validating-client-connection">Validating client connection</h2>
+
+<p>By default any client connection is allowed. If you want to check the remoteAddress or clientHostname before
+any other command, you can set a handler for it with <em>onConnect</em></p>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    onConnect(session, callback){}
+});
+</code></pre>
+
+<p>Where</p>
+
+<ul>
+<li><strong>session</strong> includes the <em>remoteAddress</em> and <em>clientHostname</em> values</li>
+<li><strong>callback</strong> is the function to run after validation. If you return an error object, the connection is rejected, otherwise it is accepted</li>
+</ul>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    onConnect(session, callback){
+        if(session.remoteAddress === '127.0.0.1'){
+            return callback(new Error('No connections from localhost allowed'));
+        }
+        return callback(); // Accept the connection
+    }
+});
+</code></pre>
+
+<p>If you also need to detect when a connection is closed use <em>onClose</em>. This method does not expect you to run a callback function as it is purely informational.</p>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    onClose(session){}
+});
+</code></pre>
+
+<h2 id="validating-sender-addresses">Validating sender addresses</h2>
+
+<p>By default all sender addresses (as long as these are in valid email format) are allowed. If you want to check
+the address before it is accepted you can set a handler for it with <em>onMailFrom</em></p>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    onMailFrom(address, session, callback){}
+});
+</code></pre>
+
+<p>Where</p>
+
+<ul>
+<li><strong>address</strong> is an <a href="#address-object">address object</a> with the provided email address from <em>MAIL FROM:</em> command</li>
+<li><strong>session</strong> includes the <em>envelope</em> object and <em>user</em> data if logged in, see details <a href="#session-object">here</a></li>
+<li><strong>callback</strong> is the function to run after validation. If you return an error object, the address is rejected, otherwise it is accepted</li>
+</ul>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    onMailFrom(address, session, callback){
+        if(address.address !== 'allowed@example.com'){
+            return callback(new Error('Only allowed@example.com is allowed to send mail'));
+        }
+        return callback(); // Accept the address
+    }
+});
+</code></pre>
+
+<h2 id="validating-recipient-addresses">Validating recipient addresses</h2>
+
+<p>By default all recipient addresses (as long as these are in valid email format) are allowed. If you want to check
+the address before it is accepted you can set a handler for it with <em>onRcptTo</em></p>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    onRcptTo(address, session, callback){}
+});
+</code></pre>
+
+<p>Where</p>
+
+<ul>
+<li><strong>address</strong> is an <a href="#address-object">address object</a> with the provided email address from <em>RCPT TO:</em> command</li>
+<li><strong>session</strong> includes the <em>envelope</em> object and <em>user</em> data if logged in, see details <a href="#session-object">here</a></li>
+<li><strong>callback</strong> is the function to run after validation. If you return an error object, the address is rejected, otherwise it is accepted</li>
+</ul>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    onRcptTo(address, session, callback){
+        if(address.address !== 'allowed@example.com'){
+            return callback(new Error('Only allowed@example.com is allowed to receive mail'));
+        }
+        return callback(); // Accept the address
+    }
+});
+</code></pre>
+
+<h2 id="processing-incoming-message">Processing incoming message</h2>
+
+<p>You can get the stream for the incoming message with <em>onData</em> handler</p>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    onData(stream, session, callback){}
+});
+</code></pre>
+
+<p>Where</p>
+
+<ul>
+<li><strong>stream</strong> is a readable stream for the incoming message</li>
+<li><strong>session</strong> includes the <em>envelope</em> object and <em>user</em> data if logged in, see details <a href="#session-object">here</a></li>
+<li><strong>callback</strong> is the on to run once the stream is ended and you have processed the outcome. If you return an error object, the message is rejected, otherwise it is accepted</li>
+</ul>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    onData(stream, session, callback){
+        stream.pipe(process.stdout); // print message to console
+        stream.on('end', callback);
+    }
+});
+</code></pre>
+
+<p>This module does not prepend <em>Received</em> or any other header field to the streamed message. The entire message is streamed as-is with no modifications whatsoever. For compliancy you should add the Received data to the message yourself, see <a href="https://tools.ietf.org/html/rfc5321#section-4.4">rfc5321 4.4. Trace Information</a> for details.</p>
+
+<h2 id="using-size-extension">Using SIZE extension</h2>
+
+<p>When creating the server you can define maximum allowed message size with the <em>size</em> option, see <a href="https://tools.ietf.org/html/rfc1870">RFC1870</a> for details. This is not a strict limitation, the client is informed about the size limit but the client can still send a larger message than allowed, it is up to your application to reject or accept the oversized message. To check if the message was oversized, see <em>stream.sizeExceeded</em> property.</p>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    size: 1024, // allow messages up to 1 kb
+    onRcptTo(address, session, callback) {
+        // do not accept messages larger than 100 bytes to specific recipients
+        let expectedSize = Number(session.envelope.mailFrom.args.SIZE) || 0;
+        if (address.address === 'almost-full@example.com' &amp;&amp;  expectedSize &gt; 100) {
+            err = new Error('Insufficient channel storage: ' + address.address);
+            err.responseCode = 452;
+            return callback(err);
+        }
+        callback();
+    },
+    onData(stream, session, callback){
+        stream.pipe(process.stdout); // print message to console
+        stream.on('end', () =&gt; {
+            let err;
+            if(stream.sizeExceeded){
+                err = new Error('Message exceeds fixed maximum message size');
+                err.responseCode = 552;
+                return callback(err);
+            }
+            callback(null, 'Message queued as abcdef');
+        });
+    }
+});
+</code></pre>
+
+<h2 id="using-lmtp">Using LMTP</h2>
+
+<p>If <em>lmtp</em> option is set to true when starting the server, then LMTP protocol is used instead of SMTP. The main
+difference between these two is how multiple recipients are handled. In case of SMTP the message either fails or succeeds
+but in LMTP the message might fail and succeed individually for every recipient.</p>
+
+<p>If your LMTP server application does not distinguish between different recipients then you do not need to care about it.
+On the other hand if you want to report results separately for every recipient you can do this by providing an array
+of responses instead of a single error or success message. The array must contain responses in the same order as in the
+envelope rcptTo array.</p>
+
+<pre><code class="language-javascript">const server = new SMTPServer({
+    lmtp: true,
+    onData(stream, session, callback){
+        stream.pipe(process.stdout); // print message to console
+        stream.on('end', () =&gt; {
+            // reject every other recipient
+            let response = session.envelope.rcptTo.map((rcpt, i) =&gt; {
+                if (i % 2) {
+                    return new Error('&lt;' + rcpt.address + '&gt; Not accepted');
+                } else {
+                    return '&lt;' + rcpt.address + '&gt; Accepted';
+                }
+            });
+            callback(null, response);
+        });
+    }
+});
+</code></pre>
+
+<p>If you provide a single error by invoking <em>callback(err)</em> or single success message <em>callback(null, &lsquo;OK&rsquo;)</em> like when dealing with SMTP then every recipient gets the same response.</p>
+
+<h2 id="session-object">Session object</h2>
+
+<p>Session object that is passed to the handler functions includes the following properties</p>
+
+<ul>
+<li><strong>id</strong> random string identificator generated when the client connected</li>
+<li><strong>remoteAddress</strong> the IP address for the connected client</li>
+<li><strong>clientHostname</strong> reverse resolved hostname for <em>remoteAddress</em></li>
+<li><strong>openingCommand</strong> the opening SMTP command (HELO/EHLO/LHLO)</li>
+<li><strong>hostNameAppearsAs</strong> hostname the client provided with HELO/EHLO call</li>
+<li><strong>envelope</strong> includes envelope data
+
+<ul>
+<li><strong>mailFrom</strong> includes an address object or is set to false</li>
+<li><strong>rcptTo</strong> includes an array of address objects</li>
+</ul></li>
+<li><strong>user</strong> includes the <em>user</em> value returned with the authentication handler</li>
+<li><strong>transaction</strong> number of the current transaction. 1 is for the first message, 2 is for the 2nd message etc.</li>
+<li><strong>transmissionType</strong> indicates the current protocol type for the received header (SMTP, ESMTP, ESMTPA etc.)</li>
+</ul>
+
+<h2 id="address-object">Address object</h2>
+
+<p>Address object in the <em>mailFrom</em> and <em>rcptTo</em> values include the following properties</p>
+
+<ul>
+<li><strong>address</strong> is the address provided with the MAIL FROM or RCPT TO command</li>
+<li><strong>args</strong> is an object with additional arguments (all key names are uppercase)</li>
+</ul>
+
+<p>For example if the client runs the following commands:</p>
+
+<pre><code>C: MAIL FROM:&lt;sender@example.com&gt; SIZE=12345 RET=HDRS
+C: RCPT TO:&lt;recipient@example.com&gt; NOTIFY=NEVER
+</code></pre>
+
+<p>then the envelope object is going go look like this:</p>
+
+<pre><code class="language-json">{
+  &quot;mailFrom&quot;: {
+    &quot;address&quot;: &quot;sender@example.com&quot;,
+    &quot;args&quot;: {
+      &quot;SIZE&quot;: &quot;12345&quot;,
+      &quot;RET&quot;: &quot;HDRS&quot;
+    }
+  },
+  &quot;rcptTo&quot;: [
+    {
+      &quot;address&quot;: &quot;receiver@example.com&quot;,
+      &quot;args&quot;: {
+        &quot;NOTIFY&quot;: &quot;NEVER&quot;
+      }
+    }
+  ]
+}
+</code></pre>
+
+<h2 id="supported-smtp-commands">Supported SMTP commands</h2>
+
+<h3 id="commands">Commands</h3>
+
+<ul>
+<li><strong>AUTH LOGIN</strong></li>
+<li><strong>AUTH PLAIN</strong></li>
+<li><strong>AUTH XOAUTH2</strong> not enabled by default, add to <em>authMethods:[&lsquo;XOAUTH2&rsquo;]</em> to enable</li>
+<li><strong>EHLO</strong></li>
+<li><strong>DATA</strong></li>
+<li><strong>HELO</strong></li>
+<li><strong>HELP</strong> returns URL to RFC5321</li>
+<li><strong>MAIL</strong></li>
+<li><strong>NOOP</strong></li>
+<li><strong>QUIT</strong></li>
+<li><strong>RCPT</strong></li>
+<li><strong>RSET</strong> clears session info but does not renegotiate TLS session</li>
+<li><strong>STARTTLS</strong></li>
+<li><strong>VRFY</strong> always returns positive 252 response</li>
+</ul>
+
+<h3 id="extensions">Extensions</h3>
+
+<ul>
+<li><strong>PIPELINING</strong></li>
+<li><strong>8BITMIME</strong> allows 8bit message content</li>
+<li><strong>SMTPUTF8</strong> accepts unicode e-mail addresses like <em>δοκιμή@παράδειγμα.δοκιμή</em></li>
+<li><strong>SIZE</strong> limits maximum message size</li>
+</ul>
+
+<p>Most notably, the <strong>ENHANCEDSTATUSCODES</strong> extension is not supported, all response codes use the standard three digit format and nothing else. I might change this in the future if I have time to revisit all responses and find the appropriate response codes.</p>
+
+<p><strong>CHUNKING</strong> is also missing. I might add support for it in the future but not at this moment since DATA already accepts a stream and CHUNKING is not supported everywhere.</p>
+
+<h2 id="license">License</h2>
+
+<p><strong>MIT</strong></p>
+
+
+      
+      </div>
+    </div>
+
+    <div id="navigation">
+        
+        <a class="nav nav-prev" href="/extras/"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/extras/smtp-connection/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/perfect-scrollbar.min.js"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="/js/jquery.sticky-kit.min.js"></script>
+    <script src="/js/featherlight.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/learn.js"></script>
+    <script src="/js/hugo-learn.js"></script>
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-51322-34', 'auto');
+ga('send', 'pageview');
+</script>
+
+  </body>
+</html>
+

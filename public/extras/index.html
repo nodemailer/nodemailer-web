@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     
-    <title>Usage</title>
+    <title>Extra modules</title>
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -28,7 +28,7 @@
     
 
   </head>
-  <body class="" data-url="/usage/">
+  <body class="" data-url="/extras/">
     <nav id="sidebar">
   <div id="header-wrapper">
     <div id="header">
@@ -140,7 +140,7 @@
       
       
 
-      <li class="dd-item active parent" data-nav-id="/usage/">
+      <li class="dd-item  " data-nav-id="/usage/">
         <a href="/usage/">
           <span>
             
@@ -470,7 +470,7 @@
       
       
 
-      <li class="dd-item  " data-nav-id="/extras/">
+      <li class="dd-item active parent" data-nav-id="/extras/">
         <a href="/extras/">
           <span>
             
@@ -560,36 +560,28 @@
                   
                 
                   
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
                     
                     
                   
                 
-                <span itemprop="title"> Usage</span>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> Extra modules</span>
               </div>
               
                   <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#usage">Usage</a>
-<ul>
-<li><a href="#setting-it-up">Setting it up</a>
-<ul>
-<li><a href="#send-using-smtp">Send using SMTP</a></li>
-<li><a href="#send-using-a-transport-plugin">Send using a transport plugin</a></li>
-</ul></li>
-<li><a href="#sending-mail">Sending mail</a></li>
-</ul></li>
+<li><a href="#extra-modules">Extra modules</a></li>
 </ul>
 </nav>
     </div>
@@ -606,73 +598,14 @@
 
 
 
-<h1 id="usage">Usage</h1>
+<h1 id="extra-modules">Extra modules</h1>
 
-<h2 id="setting-it-up">Setting it up</h2>
+<p>In this section you can find additional e-mail related Node.js modules.</p>
 
-<p>Install Nodemailer from <a href="https://www.npmjs.com/package/nodemailer">npm</a></p>
-
-<pre><code class="language-bash">npm install nodemailer
-</code></pre>
-
-<p>To send emails you need a transporter object</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport(transport[, defaults])
-</code></pre>
-
-<p>Where</p>
-
-<ul>
-<li><strong>transporter</strong> is going to be an object that is able to send mail</li>
-<li><strong>transport</strong> is the transport configuration object, connection url or a transport plugin instance</li>
-<li><strong>defaults</strong> is an object that defines default values for mail options</li>
-</ul>
-
-<div class="notices tip" ><p>You have to create the transporter object only once. If you already have a transporter object you can use it to send mail as much as you like.</p>
-</div>
-
-
-<h3 id="send-using-smtp">Send using SMTP</h3>
-
-<p>See the details about setting up a SMTP based transporter <a href="/smtp/">here</a>.</p>
-
-<h3 id="send-using-a-transport-plugin">Send using a transport plugin</h3>
-
-<p>See the details about setting up a plugin based transporter <a href="/transports/">here</a>.</p>
-
-<h2 id="sending-mail">Sending mail</h2>
-
-<p>Once you have a transporter object you can send mail with it:</p>
-
-<pre><code class="language-javascript">transporter.sendMail(data[, callback])
-</code></pre>
-
-<p>Where</p>
-
-<ul>
-<li><strong>data</strong> defines the mail content (see <a href="/message/">Message Configuration</a> for possible options)</li>
-<li><strong>callback</strong> is an optional callback function to run once the message is delivered or it failed
-
-<ul>
-<li><strong>err</strong> is the error object if message failed</li>
-<li><strong>info</strong> includes the result, the exact format depends on the transport mechanism used
-
-<ul>
-<li><strong>info.messageId</strong> most transports <em>should</em> return the final Message-Id value used with this property</li>
-<li><strong>info.envelope</strong> includes the envelope object for the message</li>
-<li><strong>info.accepted</strong> is an array returned by SMTP transports (includes recipient addresses that were accepted by the server)</li>
-<li><strong>info.rejected</strong> is an array returned by SMTP transports (includes recipient addresses that were rejected by the server)</li>
-<li><strong>info.pending</strong> is an array returned by Direct SMTP transport. Includes recipient addresses that were temporarily rejected together with the server response</li>
-<li><strong>response</strong> is a string returned by SMTP transports and includes the last SMTP response from the server</li>
-</ul></li>
-</ul></li>
-</ul>
-
-<div class="notices info" ><p>If the message includes several recipients then the message is considered sent if at least one recipient is accepted</p>
-</div>
-
-
-<p>If <code>callback</code> argument is not set then the method returns a Promise object. Nodemailer itself does not use Promises internally but it wraps the return into a Promise for convenience.</p>
+<ol>
+<li><a href="/extras/smtp-server">smtp-server</a> – accept SMTP connections</li>
+<li><a href="/extras/smtp-connection">smtp-connection</a> – create SMTP connections</li>
+</ol>
 
 
       
@@ -683,8 +616,8 @@
 
     <div id="navigation">
         
-        <a class="nav nav-prev" href="/about/license/"> <i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/usage/why-smtp/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="/dkim/"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/extras/smtp-server/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
     </div>
 
     </section>

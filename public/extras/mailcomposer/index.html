@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     
-    <title>Attachments</title>
+    <title>Mailcomposer</title>
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -28,7 +28,7 @@
     
 
   </head>
-  <body class="" data-url="/message/attachments/">
+  <body class="" data-url="/extras/mailcomposer/">
     <nav id="sidebar">
   <div id="header-wrapper">
     <div id="header">
@@ -192,7 +192,7 @@
       
       
 
-      <li class="dd-item  parent" data-nav-id="/message/">
+      <li class="dd-item  " data-nav-id="/message/">
         <a href="/message/">
           <span>
             
@@ -208,7 +208,7 @@
           
           
           
-            <li class="dd-item active" data-nav-id="/message/attachments/">
+            <li class="dd-item " data-nav-id="/message/attachments/">
               <a href="/message/attachments/">
                 <span>Attachments     </i></span>
               </a>
@@ -470,7 +470,7 @@
       
       
 
-      <li class="dd-item  " data-nav-id="/extras/">
+      <li class="dd-item  parent" data-nav-id="/extras/">
         <a href="/extras/">
           <span>
             
@@ -510,7 +510,7 @@
           
           
           
-            <li class="dd-item " data-nav-id="/extras/mailcomposer/">
+            <li class="dd-item active" data-nav-id="/extras/mailcomposer/">
               <a href="/extras/mailcomposer/">
                 <span>Mailcomposer     </i></span>
               </a>
@@ -560,11 +560,9 @@
                   
                 
                   
-                
-                  
                     
                     
-                <a href="/message/" itemprop="url"><span itemprop="title">Message configuration</span></a> <i class="fa fa-angle-right"></i>
+                <a href="/extras/" itemprop="url"><span itemprop="title">Extra modules</span></a> <i class="fa fa-angle-right"></i>
                     
                   
                 
@@ -576,12 +574,41 @@
                 
                   
                 
-                <span itemprop="title"> Attachments</span>
+                  
+                
+                <span itemprop="title"> Mailcomposer</span>
               </div>
               
                   <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#usage">Usage</a>
+<ul>
+<li>
+<ul>
+<li><a href="#step-1-install-nodemailer-with-npm">Step 1. Install Nodemailer with npm</a></li>
+<li><a href="#step-2-require-mailcomposer-in-your-script">Step 2. Require <em>mailcomposer</em> in your script</a></li>
+<li><a href="#step-3-create-a-new-mailcomposer-instance">Step 3. Create a new <em>MailComposer</em> instance</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#api">API</a>
+<ul>
+<li><a href="#createreadstream">createReadStream</a></li>
+<li><a href="#build">build</a></li>
+<li><a href="#e-mail-message-fields">E-mail message fields</a></li>
+<li><a href="#attachments">Attachments</a></li>
+<li><a href="#alternatives">Alternatives</a></li>
+<li><a href="#address-formatting">Address Formatting</a></li>
+<li><a href="#smtp-envelope">SMTP envelope</a></li>
+<li><a href="#using-embedded-images">Using Embedded Images</a></li>
+</ul></li>
+<li><a href="#license">License</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -591,31 +618,109 @@
             
     	        <div id="body-inner">
                 
-                <h1>Attachments</h1>
+                <h1>Mailcomposer</h1>
                 
 
-<p><strong>attachments</strong> option in the message object that contains an array of attachment objects.</p>
+
+
+<p>Generate RFC822 formatted e-mail messages that can be streamed to SMTP or file.</p>
+
+<h2 id="usage">Usage</h2>
+
+<h4 id="step-1-install-nodemailer-with-npm">Step 1. Install Nodemailer with npm</h4>
+
+<p><em>mailcomposer</em> is exposed as a submodule of Nodemailer</p>
+
+<pre><code class="language-bash">npm install nodemailer --save
+</code></pre>
+
+<h4 id="step-2-require-mailcomposer-in-your-script">Step 2. Require <em>mailcomposer</em> in your script</h4>
+
+<pre><code class="language-javascript">const MailComposer = require('nodemailer/lib/mail-composer');
+</code></pre>
+
+<h4 id="step-3-create-a-new-mailcomposer-instance">Step 3. Create a new <em>MailComposer</em> instance</h4>
+
+<pre><code class="language-javascript">var mail = new MailComposer(mailOptions);
+</code></pre>
+
+<p>Where <code>mailOptions</code> is an object that defines the components of the message, see below</p>
+
+<h2 id="api">API</h2>
+
+<h3 id="createreadstream">createReadStream</h3>
+
+<p>To create a stream that outputs a raw rfc822 message from the defined input, use <code>createReadStream()</code></p>
+
+<pre><code class="language-javascript">var mail = new MailComposer({from: '...', ...});
+var stream = mail.compile().createReadStream();
+stream.pipe(process.stdout);
+</code></pre>
+
+<h3 id="build">build</h3>
+
+<p>To generate the message and return it with a callback use <code>build()</code></p>
+
+<pre><code class="language-javascript">var mail = new MailComposer({from: '...', ...});
+mail.compile().build(function(err, message){
+    process.stdout.write(message);
+});
+</code></pre>
+
+<h3 id="e-mail-message-fields">E-mail message fields</h3>
+
+<p>The following are the possible fields of an e-mail message:</p>
+
+<ul>
+<li><strong>from</strong> - The e-mail address of the sender. All e-mail addresses can be plain <code>'sender@server.com'</code> or formatted <code>'Sender Name &lt;sender@server.com&gt;'</code>, see <a href="#address-formatting">here</a> for details</li>
+<li><strong>sender</strong> - An e-mail address that will appear on the <em>Sender:</em> field</li>
+<li><strong>to</strong> - Comma separated list or an array of recipients e-mail addresses that will appear on the <em>To:</em> field</li>
+<li><strong>cc</strong> - Comma separated list or an array of recipients e-mail addresses that will appear on the <em>Cc:</em> field</li>
+<li><strong>bcc</strong> - Comma separated list or an array of recipients e-mail addresses that will appear on the <em>Bcc:</em> field</li>
+<li><strong>replyTo</strong> - An e-mail address that will appear on the <em>Reply-To:</em> field</li>
+<li><strong>inReplyTo</strong> - The message-id this message is replying</li>
+<li><strong>references</strong> - Message-id list (an array or space separated string)</li>
+<li><strong>subject</strong> - The subject of the e-mail</li>
+<li><strong>text</strong> - The plaintext version of the message as an Unicode string, Buffer, Stream or an object <em>{path: &lsquo;&hellip;&rsquo;}</em></li>
+<li><strong>html</strong> - The HTML version of the message as an Unicode string, Buffer, Stream or an object <em>{path: &lsquo;&hellip;&rsquo;}</em></li>
+<li><strong>watchHtml</strong> - Apple Watch specific HTML version of the message, same usage as with <code>text</code> and <code>html</code></li>
+<li><strong>icalEvent</strong> - iCalendar event, same usage as with <code>text</code> and <code>html</code>. Event <code>method</code> attribute defaults to &lsquo;PUBLISH&rsquo; or define it yourself: <code>{method: 'REQUEST', content: iCalString}</code>. This value is added as an additional alternative to html or text. Only utf-8 content is allowed</li>
+<li><strong>headers</strong> - An object or array of additional header fields (e.g. <em>{&ldquo;X-Key-Name&rdquo;: &ldquo;key value&rdquo;}</em> or <em>[{key: &ldquo;X-Key-Name&rdquo;, value: &ldquo;val1&rdquo;}, {key: &ldquo;X-Key-Name&rdquo;, value: &ldquo;val2&rdquo;}]</em>)</li>
+<li><strong>attachments</strong> - An array of attachment objects  (see <a href="#attachments">below</a> for details)</li>
+<li><strong>alternatives</strong> - An array of alternative text contents (in addition to text and html parts)  (see <a href="#alternatives">below</a> for details)</li>
+<li><strong>envelope</strong> - optional SMTP envelope, if auto generated envelope is not suitable (see <a href="#smtp-envelope">below</a> for details)</li>
+<li><strong>messageId</strong> - optional Message-Id value, random value will be generated if not set</li>
+<li><strong>date</strong> - optional Date value, current UTC string will be used if not set</li>
+<li><strong>encoding</strong> - optional transfer encoding for the textual parts</li>
+<li><strong>raw</strong> - if set then overwrites entire message output with this value. The value is not parsed, so you should still set address headers or the envelope value for the message to work</li>
+<li><strong>textEncoding</strong> - set explicitly which encoding to use for text parts (<em>quoted-printable</em> or <em>base64</em>). If not set then encoding is detected from text content (mostly ascii means <em>quoted-printable</em>, otherwise <em>base64</em>)</li>
+<li><strong>disableUrlAccess</strong> - if set to true then fails with an error when a node tries to load content from URL</li>
+<li><strong>disableFileAccess</strong> - if set to true then fails with an error when a node tries to load content from a file</li>
+</ul>
+
+<p>All text fields (e-mail addresses, plaintext body, html body) use UTF-8 as the encoding.
+Attachments are streamed as binary.</p>
+
+<h3 id="attachments">Attachments</h3>
 
 <p>Attachment object consists of the following properties:</p>
 
 <ul>
-<li><strong>filename</strong> - filename to be reported as the name of the attached file. Use of unicode is allowed.</li>
+<li><strong>filename</strong> - filename to be reported as the name of the attached file, use of unicode is allowed. If you do not want to use a filename, set this value as <code>false</code>, otherwise a filename is generated automatically</li>
+<li><strong>cid</strong> - optional content id for using inline images in HTML message source. Using <code>cid</code> sets the default <code>contentDisposition</code> to <code>'inline'</code> and moves the attachment into a <em>multipart/related</em> mime node, so use it only if you actually want to use this attachment as an embedded image</li>
 <li><strong>content</strong> - String, Buffer or a Stream contents for the attachment</li>
-<li><strong>path</strong> - path to the file if you want to stream the file instead of including it (better for larger attachments)</li>
-<li><strong>href</strong> – an URL to the file (data uris are allowed as well)</li>
-<li><strong>contentType</strong> - optional content type for the attachment, if not set will be derived from the <em>filename</em> property</li>
+<li><strong>encoding</strong> - If set and <code>content</code> is string, then encodes the content to a Buffer using the specified encoding. Example values: <code>base64</code>, <code>hex</code>, <code>binary</code> etc. Useful if you want to use binary attachments in a JSON formatted e-mail object</li>
+<li><strong>path</strong> - path to a file or an URL (data uris are allowed as well) if you want to stream the file instead of including it (better for larger attachments)</li>
+<li><strong>contentType</strong> - optional content type for the attachment, if not set will be derived from the <code>filename</code> property</li>
+<li><strong>contentTransferEncoding</strong> - optional transfer encoding for the attachment, if not set it will be derived from the <code>contentType</code> property. Example values: <code>quoted-printable</code>, <code>base64</code></li>
 <li><strong>contentDisposition</strong> - optional content disposition type for the attachment, defaults to &lsquo;attachment&rsquo;</li>
-<li><strong>cid</strong> - optional content id for using inline images in HTML message source</li>
-<li><strong>encoding</strong> - If set and <em>content</em> is string, then encodes the content to a Buffer using the specified encoding. Example values: <em>&lsquo;base64&rsquo;</em>, <em>&lsquo;hex&rsquo;</em>, <em>&lsquo;binary&rsquo;</em> etc. Useful if you want to use binary attachments in a JSON formatted email object.</li>
-<li><strong>headers</strong> - custom headers for the attachment node. Same usage as with message headers</li>
-<li><strong>raw</strong> - is an optional special value that overrides entire contents of current mime node including mime headers. Useful if you want to prepare node contents yourself</li>
+<li><strong>headers</strong> is an object of additional headers, similar to <em>message.headers</em> option <code>{'X-My-Header': 'value'}</code></li>
+<li><strong>raw</strong> is an optional value that overrides entire node content in the mime message. If used then all other options set for this node are ignored. The value is either a string, a buffer, a stream or an attachment-like object (eg. provides <code>path</code> or <code>content</code>)</li>
 </ul>
 
 <p>Attachments can be added as many as you want.</p>
 
-<p><strong>Example</strong></p>
-
-<pre><code class="language-javascript">let message = {
+<pre><code class="language-javascript">var mailOptions = {
     ...
     attachments: [
         {   // utf-8 string as an attachment
@@ -644,7 +749,7 @@
         },
         {   // use URL as an attachment
             filename: 'license.txt',
-            path: 'https://raw.github.com/nodemailer/nodemailer/master/LICENSE'
+            path: 'https://raw.github.com/andris9/Nodemailer/master/LICENSE'
         },
         {   // encoded string as an attachment
             filename: 'text1.txt',
@@ -653,17 +758,116 @@
         },
         {   // data uri as an attachment
             path: 'data:text/plain;base64,aGVsbG8gd29ybGQ='
-        },
-        {
-            // use pregenerated MIME node
-            raw: 'Content-Type: text/plain\r\n' +
-                 'Content-Disposition: attachment;\r\n' +
-                 '\r\n' +
-                 'Hello world!'
         }
     ]
 }
 </code></pre>
+
+<h3 id="alternatives">Alternatives</h3>
+
+<p>In addition to text and HTML, any kind of data can be inserted as an alternative content of the main body - for example a word processing document with the same text as in the HTML field. It is the job of the e-mail client to select and show the best fitting alternative to the reader. Usually this field is used for calendar events and such.</p>
+
+<p>Alternative objects use the same options as <a href="#attachments">attachment objects</a>. The difference between an attachment and an alternative is the fact that attachments are placed into <em>multipart/mixed</em> or <em>multipart/related</em> parts of the message white alternatives are placed into <em>multipart/alternative</em> part.</p>
+
+<p><strong>Usage example:</strong></p>
+
+<pre><code class="language-javascript">var mailOptions = {
+    ...
+    html: '&lt;b&gt;Hello world!&lt;/b&gt;',
+    alternatives: [
+        {
+            contentType: 'text/x-web-markdown',
+            content: '**Hello world!**'
+        }
+    ]
+}
+</code></pre>
+
+<p>Alternatives can be added as many as you want.</p>
+
+<h3 id="address-formatting">Address Formatting</h3>
+
+<p>All the e-mail addresses can be plain e-mail addresses</p>
+
+<pre><code>foobar@blurdybloop.com
+</code></pre>
+
+<p>or with formatted name (includes unicode support)</p>
+
+<pre><code>&quot;Ноде Майлер&quot; &lt;foobar@blurdybloop.com&gt;
+</code></pre>
+
+<blockquote>
+<p>Notice that all address fields (even <code>from</code>) are comma separated lists, so if you want to use a comma in the name part, make sure you enclose the name in double quotes: <code>&quot;Майлер, Ноде&quot; &lt;foobar@blurdybloop.com&gt;</code></p>
+</blockquote>
+
+<p>or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.)</p>
+
+<pre><code>{
+    name: 'Майлер, Ноде',
+    address: 'foobar@blurdybloop.com'
+}
+</code></pre>
+
+<p>All address fields accept comma separated list of e-mails or an array of
+e-mails or an array of comma separated list of e-mails or address objects - use it as you like.
+Formatting can be mixed.</p>
+
+<pre><code>...,
+to: 'foobar@blurdybloop.com, &quot;Ноде Майлер&quot; &lt;bar@blurdybloop.com&gt;, &quot;Name, User&quot; &lt;baz@blurdybloop.com&gt;',
+cc: ['foobar@blurdybloop.com', '&quot;Ноде Майлер&quot; &lt;bar@blurdybloop.com&gt;, &quot;Name, User&quot; &lt;baz@blurdybloop.com&gt;'],
+bcc: ['foobar@blurdybloop.com', {name: 'Майлер, Ноде', address: 'foobar@blurdybloop.com'}]
+...
+</code></pre>
+
+<p>You can even use unicode domains, these are automatically converted to punycode</p>
+
+<pre><code>'&quot;Unicode Domain&quot; &lt;info@müriaad-polüteism.info&gt;'
+</code></pre>
+
+<h3 id="smtp-envelope">SMTP envelope</h3>
+
+<p>SMTP envelope is usually auto generated from <code>from</code>, <code>to</code>, <code>cc</code> and <code>bcc</code> fields but
+if for some reason you want to specify it yourself, you can do it with <code>envelope</code> property.</p>
+
+<p><code>envelope</code> is an object with the following params: <code>from</code>, <code>to</code>, <code>cc</code> and <code>bcc</code> just like
+with regular mail options. You can also use the regular address format, unicode domains etc.</p>
+
+<pre><code class="language-javascript">mailOptions = {
+    ...,
+    from: 'mailer@kreata.ee',
+    to: 'daemon@kreata.ee',
+    envelope: {
+        from: 'Daemon &lt;deamon@kreata.ee&gt;',
+        to: 'mailer@kreata.ee, Mailer &lt;mailer2@kreata.ee&gt;'
+    }
+}
+</code></pre>
+
+<blockquote>
+<p>Not all transports can use the <code>envelope</code> object, for example SES ignores it and uses the data from the From:, To: etc. headers.</p>
+</blockquote>
+
+<h3 id="using-embedded-images">Using Embedded Images</h3>
+
+<p>Attachments can be used as embedded images in the HTML body. To use this feature, you need to set additional property of the attachment - <code>cid</code> (unique identifier of the file) which is a reference to the attachment file. The same <code>cid</code> value must be used as the image URL in HTML (using <code>cid:</code> as the URL protocol, see example below).</p>
+
+<p><strong>NB!</strong> the cid value should be as unique as possible!</p>
+
+<pre><code class="language-javascript">var mailOptions = {
+    ...
+    html: 'Embedded image: &lt;img src=&quot;cid:unique@kreata.ee&quot;/&gt;',
+    attachments: [{
+        filename: 'image.png',
+        path: '/path/to/file',
+        cid: 'unique@kreata.ee' //same cid value as in the html img src
+    }]
+}
+</code></pre>
+
+<h2 id="license">License</h2>
+
+<p><strong>MIT</strong></p>
 
 
       
@@ -672,8 +876,8 @@
 
     <div id="navigation">
         
-        <a class="nav nav-prev" href="/message/"> <i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/message/alternatives/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="/extras/mailparser/"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/about/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
     </div>
 
     </section>

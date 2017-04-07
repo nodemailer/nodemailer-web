@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     
-    <title>Usage</title>
+    <title>Mailparser</title>
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -28,7 +28,7 @@
     
 
   </head>
-  <body class="" data-url="/usage/">
+  <body class="" data-url="/extras/mailparser/">
     <nav id="sidebar">
   <div id="header-wrapper">
     <div id="header">
@@ -140,7 +140,7 @@
       
       
 
-      <li class="dd-item active parent" data-nav-id="/usage/">
+      <li class="dd-item  " data-nav-id="/usage/">
         <a href="/usage/">
           <span>
             
@@ -470,7 +470,7 @@
       
       
 
-      <li class="dd-item  " data-nav-id="/extras/">
+      <li class="dd-item  parent" data-nav-id="/extras/">
         <a href="/extras/">
           <span>
             
@@ -502,7 +502,7 @@
           
           
           
-            <li class="dd-item " data-nav-id="/extras/mailparser/">
+            <li class="dd-item active" data-nav-id="/extras/mailparser/">
               <a href="/extras/mailparser/">
                 <span>Mailparser     </i></span>
               </a>
@@ -560,35 +560,48 @@
                   
                 
                   
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
                     
+                    
+                <a href="/extras/" itemprop="url"><span itemprop="title">Extra modules</span></a> <i class="fa fa-angle-right"></i>
                     
                   
                 
-                <span itemprop="title"> Usage</span>
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                  
+                
+                <span itemprop="title"> Mailparser</span>
               </div>
               
                   <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#usage">Usage</a>
+<li>
 <ul>
-<li><a href="#setting-it-up">Setting it up</a>
+<li><a href="#install">Install</a></li>
+<li><a href="#simpleparser">simpleParser</a>
 <ul>
-<li><a href="#send-using-smtp">Send using SMTP</a></li>
-<li><a href="#send-using-a-transport-plugin">Send using a transport plugin</a></li>
+<li><a href="#mail-object">mail object</a></li>
+<li><a href="#address-object">address object</a></li>
+<li><a href="#headers-map">headers Map</a></li>
+<li><a href="#attachment-object">attachment object</a></li>
 </ul></li>
-<li><a href="#sending-mail">Sending mail</a></li>
+<li><a href="#mailparser">MailParser</a>
+<ul>
+<li><a href="#event-headers">Event &lsquo;headers&rsquo;</a></li>
+<li><a href="#event-data">Event &lsquo;data&rsquo;</a></li>
+<li><a href="#attachment-object-1">attachment object</a></li>
+<li><a href="#text-object">text object</a></li>
+</ul></li>
+<li><a href="#issues">Issues</a></li>
+<li><a href="#license">License</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -599,92 +612,250 @@
 
             </div>
             
-              <div id="chapter">
-            
     	        <div id="body-inner">
+                
+                <h1>Mailparser</h1>
                 
 
 
 
-<h1 id="usage">Usage</h1>
+<p>Advanced email parser for Node.js. Everything is handled as a stream which should make it able to parse even very large messages (100MB+) with relatively low overhead.</p>
 
-<h2 id="setting-it-up">Setting it up</h2>
+<p>The module exposes two separate modes, a lower level <strong>MailParser</strong> class and <strong>simpleParser</strong> function. The latter is simpler to use (hence the name) but is less resource efficient as it buffers attachment contents in memory.</p>
 
-<p>Install Nodemailer from <a href="https://www.npmjs.com/package/nodemailer">npm</a></p>
+<h2 id="install">Install</h2>
 
-<pre><code class="language-bash">npm install nodemailer
+<pre><code class="language-bash">npm install mailparser --save
 </code></pre>
 
-<p>To send emails you need a transporter object</p>
+<h2 id="simpleparser">simpleParser</h2>
 
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport(transport[, defaults])
+<p><strong>simpleParser</strong> is the easiest way to parse emails. You only need to provide a message source to get a parsed email structure in return. As an additional bonus all embedded images in HTML (eg. the images that point to attachments using cid: URIs) are replaced with base64 encoded data URIs, so the message can be displayed without any additional processing. Be aware though that this module does not do any security cleansing (eg. removing javascript and so on), this is left to your own application.</p>
+
+<pre><code class="language-javascript">const simpleParser = require('mailparser').simpleParser;
+simpleParser(source, (err, mail)=&gt;{})
 </code></pre>
 
-<p>Where</p>
+<p>or as a Promise:</p>
 
-<ul>
-<li><strong>transporter</strong> is going to be an object that is able to send mail</li>
-<li><strong>transport</strong> is the transport configuration object, connection url or a transport plugin instance</li>
-<li><strong>defaults</strong> is an object that defines default values for mail options</li>
-</ul>
-
-<div class="notices tip" ><p>You have to create the transporter object only once. If you already have a transporter object you can use it to send mail as much as you like.</p>
-</div>
-
-
-<h3 id="send-using-smtp">Send using SMTP</h3>
-
-<p>See the details about setting up a SMTP based transporter <a href="/smtp/">here</a>.</p>
-
-<h3 id="send-using-a-transport-plugin">Send using a transport plugin</h3>
-
-<p>See the details about setting up a plugin based transporter <a href="/transports/">here</a>.</p>
-
-<h2 id="sending-mail">Sending mail</h2>
-
-<p>Once you have a transporter object you can send mail with it:</p>
-
-<pre><code class="language-javascript">transporter.sendMail(data[, callback])
+<pre><code class="language-javascript">simpleParser(source).then(mail=&gt;{}).catch(err=&gt;{})
 </code></pre>
 
 <p>Where</p>
 
 <ul>
-<li><strong>data</strong> defines the mail content (see <a href="/message/">Message Configuration</a> for possible options)</li>
-<li><strong>callback</strong> is an optional callback function to run once the message is delivered or it failed
-
-<ul>
-<li><strong>err</strong> is the error object if message failed</li>
-<li><strong>info</strong> includes the result, the exact format depends on the transport mechanism used
-
-<ul>
-<li><strong>info.messageId</strong> most transports <em>should</em> return the final Message-Id value used with this property</li>
-<li><strong>info.envelope</strong> includes the envelope object for the message</li>
-<li><strong>info.accepted</strong> is an array returned by SMTP transports (includes recipient addresses that were accepted by the server)</li>
-<li><strong>info.rejected</strong> is an array returned by SMTP transports (includes recipient addresses that were rejected by the server)</li>
-<li><strong>info.pending</strong> is an array returned by Direct SMTP transport. Includes recipient addresses that were temporarily rejected together with the server response</li>
-<li><strong>response</strong> is a string returned by SMTP transports and includes the last SMTP response from the server</li>
-</ul></li>
-</ul></li>
+<li><strong>source</strong> is either a stream, a Buffer or a string that needs to be parsed</li>
+<li><strong>err</strong> is the possible error object</li>
+<li><strong>mail</strong> is a structured email object</li>
 </ul>
 
-<div class="notices info" ><p>If the message includes several recipients then the message is considered sent if at least one recipient is accepted</p>
-</div>
+<h3 id="mail-object">mail object</h3>
+
+<p>Parsed <strong>mail</strong>* object has the following properties</p>
+
+<ul>
+<li><strong>headers</strong> – a Map object with lowercase header keys</li>
+<li><strong>subject</strong> is the subject line (also available from the header <em>mail.headers.get(&lsquo;subject&rsquo;)</em>)</li>
+<li><strong>from</strong> is an address object for the From: header</li>
+<li><strong>to</strong> is an address object for the To: header</li>
+<li><strong>cc</strong> is an address object for the Cc: header</li>
+<li><strong>bcc</strong> is an address object for the Bcc: header (usually not present)</li>
+<li><strong>date</strong> is a Date object for the Date: header</li>
+<li><strong>messageId</strong> is the Message-ID value string</li>
+<li><strong>inReplyTo</strong> is the In-Reply-To value string</li>
+<li><strong>reply-to</strong> is an address object for the Cc: header</li>
+<li><strong>references</strong> is an array of referenced Message-ID values</li>
+<li><strong>html</strong> is the HTML body of the message. If the message included embedded images as cid: urls then these are all replaced with base64 formatted data: URIs</li>
+<li><strong>text</strong> is the plaintext body of the message</li>
+<li><strong>textAsHtml</strong> is the plaintext body of the message formatted as HTML</li>
+<li><strong>attachments</strong> is an array of attachments</li>
+</ul>
+
+<h3 id="address-object">address object</h3>
+
+<p>Address objects have the following structure:</p>
+
+<ul>
+<li><p><strong>value</strong> an array with address details</p>
+
+<ul>
+<li><strong>name</strong> is the name part of the email/group</li>
+<li><strong>address</strong> is the email address</li>
+<li><strong>group</strong> is an array of grouped addresses</li>
+</ul></li>
+
+<li><p><strong>text</strong> is a formatted address string for plaintext context</p></li>
+
+<li><p><strong>html</strong> is a formatted address string for HTML context</p></li>
+</ul>
+
+<p><strong>Example</strong></p>
+
+<pre><code class="language-javascript">{
+    value: [
+        {
+            address: 'andris+123@kreata.ee',
+            name: 'Andris Reinman'
+        },
+        {
+            address: 'andris.reinman@gmail.com',
+            name: ''
+        }
+    ],
+    html: '&lt;span class=&quot;mp_address_name&quot;&gt;Andris Reinman&lt;/span&gt; &lt;&lt;a href=&quot;mailto:andris+123@kreata.ee&quot; class=&quot;mp_address_email&quot;&gt;andris+123@kreata.ee&lt;/a&gt;&gt;, &lt;a href=&quot;mailto:andris.reinman@gmail.com&quot; class=&quot;mp_address_email&quot;&gt;andris.reinman@gmail.com&lt;/a&gt;',
+    text: 'Andris Reinman &lt;andris+123@kreata.ee&gt;, andris.reinman@gmail.com'
+}
+</code></pre>
+
+<h3 id="headers-map">headers Map</h3>
+
+<p><strong>headers</strong> is a Map with lowercase header keys. So if you want to check for the Subject: header then you can do it like this:</p>
+
+<pre><code class="language-javascript">if (mail.headers.has('subject')) {
+    console.log(mail.headers.get('subject'));
+}
+</code></pre>
+
+<p>The format of a header depends on the specific key. For most header keys the value is either a string (a single header) or an array of strings (multiple headers with the same key were found).</p>
+
+<p>Special header keys are the following:</p>
+
+<ol>
+<li><p>All address headers are converted into address objects</p>
+
+<ul>
+<li><strong>from</strong></li>
+<li><strong>to</strong></li>
+<li><strong>cc</strong></li>
+<li><strong>bcc</strong></li>
+<li><strong>sender</strong></li>
+<li><strong>reply-to</strong></li>
+<li><strong>delivered-to</strong></li>
+<li><strong>return-path</strong></li>
+</ul></li>
+
+<li><p>All different priority headers are converted into <strong>priority</strong> with the following values:</p>
+
+<ul>
+<li><strong>&lsquo;high&rsquo;</strong></li>
+<li><strong>&lsquo;normal&rsquo;</strong></li>
+<li><strong>&lsquo;low&rsquo;</strong></li>
+</ul></li>
+
+<li><p><strong>references</strong> is a string if only a single reference-id exists or an array if multiple ids exist</p></li>
+
+<li><p><strong>date</strong> value is a Date object</p></li>
+
+<li><p>The following headers are parsed into structured objects, where <em>value</em> property includes the main value as string and <em>params</em> property holds an object of additional arguments as key-value pairs</p>
+
+<ul>
+<li><strong>content-type</strong></li>
+<li><strong>content-disposition</strong></li>
+<li><strong>dkim-signature</strong></li>
+</ul></li>
+</ol>
+
+<p>Some headers are also automaticaly mime-word decoded</p>
+
+<ul>
+<li>all address headers (name parts and punycode encoded domains are converted to unicode)</li>
+<li><strong>subject</strong> is converted to unicode</li>
+</ul>
+
+<h3 id="attachment-object">attachment object</h3>
+
+<p>Attachment objects have the following structure:</p>
+
+<ul>
+<li><strong>filename</strong> (if available) file name of the attachment</li>
+<li><strong>contentType</strong> MIME type of the message</li>
+<li><strong>contentDisposition</strong> content disposition type for the attachment, most probably &ldquo;attachment&rdquo;</li>
+<li><strong>checksum</strong> a MD5 hash of the message content</li>
+<li><strong>size</strong> message size in bytes</li>
+<li><strong>headers</strong> a Map value that holds MIME headers for the attachment node</li>
+<li><strong>content</strong> a Buffer that contains the attachment contents</li>
+<li><strong>contentId</strong> the header value from &lsquo;Content-ID&rsquo; (if present)</li>
+<li><strong>cid</strong> contentId without &lt; and &gt;</li>
+<li><strong>related</strong> if true then this attachment should not be offered for download (at least not in the main attachments list)</li>
+</ul>
+
+<h2 id="mailparser">MailParser</h2>
+
+<p><strong>MailParser</strong> is a lower-level email parsing class. It is a transform stream that takes email source as bytestream for the input and emits data objects for attachments and text contents.</p>
+
+<pre><code class="language-javascript">const MailParser = require('mailparser').MailParser;
+let parser = new MailParser()
+</code></pre>
+
+<h3 id="event-headers">Event &lsquo;headers&rsquo;</h3>
+
+<p>The parser emits &lsquo;headers&rsquo; once message headers have been processed. The headers object is a Map. Different header keys have different kind of values, for example address headers have the address object/array as the value while subject value is string.</p>
+
+<p>Header keys in the Map are lowercase.</p>
+
+<pre><code class="language-javascript">parser.on('headers', headers = {
+    console.log(headers.get('subject'));
+});
+</code></pre>
+
+<h3 id="event-data">Event &lsquo;data&rsquo;</h3>
+
+<p>Event &lsquo;data&rsquo; or &lsquo;readable&rsquo; emits message content objects. The type of the object can be determine by the <em>type</em> property. Currently there are two kind of data objects</p>
+
+<ul>
+<li>&lsquo;attachment&rsquo; indicates that this object is an attachment</li>
+<li>&lsquo;text&rsquo; indicates that this object includes the html and text parts of the message. This object is emitted once and it includes both values</li>
+</ul>
+
+<h3 id="attachment-object-1">attachment object</h3>
+
+<p>Attachment object is the same as in <em>simpleParser</em> except that <em>content</em> is not a buffer but a stream. Additionally there&rsquo;s a method <strong>release()</strong> that must be called once you have processed the attachment. The property <em>related</em> is set after message processing is ended, so at the <em>data</em> event this value is not yet available.</p>
+
+<pre><code class="language-javascript">parser.on('data', data =&gt; {
+    if(data.type === 'attachment'){
+        console.log(data.filename);
+        data.content.pipe(process.stdout);
+        data.on('end', ()=&gt;data.release());
+    }
+});
+</code></pre>
+
+<p>If you do not call <strong>release()</strong> then the message processing is paused.</p>
+
+<h3 id="text-object">text object</h3>
+
+<p>Text object has the following keys:</p>
+
+<ul>
+<li><strong>text</strong> includes the plaintext version of the message. Is set if the message has at least one &lsquo;text/plain&rsquo; node</li>
+<li><strong>html</strong> includes the HTML version of the message. Is set if the message has at least one &lsquo;text/html&rsquo; node</li>
+<li><strong>textAsHtml</strong> includes the plaintext version of the message in HTML format. Is set if the message has at least one &lsquo;text/plain&rsquo; node.</li>
+</ul>
+
+<pre><code class="language-javascript">parser.on('data', data =&gt; {
+    if(data.type === 'text'){
+        console.log(data.html);
+    }
+});
+</code></pre>
+
+<h2 id="issues">Issues</h2>
+
+<p>Charset decoding is handled using <a href="https://github.com/ashtuchkin/iconv-lite">iconv-lite</a> that is missing some charsets, especially some Japanese ones. If required then it would be possible to switch to native iconv bindings with <a href="https://github.com/bnoordhuis/node-iconv">node-iconv</a> to handle these missing charsets but for now this option is not used for easier packaging.</p>
+
+<h2 id="license">License</h2>
+
+<p><strong>MIT</strong></p>
 
 
-<p>If <code>callback</code> argument is not set then the method returns a Promise object. Nodemailer itself does not use Promises internally but it wraps the return into a Promise for convenience.</p>
-
-
-      
-        </div> 
       
       </div>
     </div>
 
     <div id="navigation">
         
-        <a class="nav nav-prev" href="/about/license/"> <i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/usage/why-smtp/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="/extras/smtp-connection/"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/extras/mailcomposer/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
     </div>
 
     </section>
