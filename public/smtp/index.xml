@@ -524,7 +524,7 @@ transporter.sendMail({
      service: &#39;SendPulse&#39;, // no need to set host or port etc.
      auth: {
          user: &#39;account.email@example.com&#39;,
-         password: &#39;smtp-password&#39;
+         pass: &#39;smtp-password&#39;
      }
 });
 

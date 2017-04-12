@@ -17,7 +17,7 @@ let transporter = nodemailer.createTransport({
      service: 'SendPulse', // no need to set host or port etc.
      auth: {
          user: 'account.email@example.com',
-         password: 'smtp-password'
+         pass: 'smtp-password'
      }
 });
 
