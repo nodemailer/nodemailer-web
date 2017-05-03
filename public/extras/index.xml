@@ -945,7 +945,7 @@ let parser = new MailParser()
 
 &lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
 
-&lt;p&gt;&lt;strong&gt;MIT&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;EUPLv1.1&lt;/strong&gt;&lt;/p&gt;
 </description>
     </item>
     

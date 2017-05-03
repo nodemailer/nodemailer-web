@@ -122,8 +122,8 @@ transporter.sendMail(mailOptions, (error, info) =&amp;gt; {
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Nodemailer&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/nodemailer/nodemailer&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MailParser&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/andris9/mailparser&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;smtp-server&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/andris9/smtp-server&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MailParser&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/nodemailer/mailparser&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;smtp-server&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/nodemailer/smtp-server&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;mailsplit&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/andris9/mailsplit&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 

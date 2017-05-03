@@ -218,4 +218,4 @@ Charset decoding is handled using [iconv-lite](https://github.com/ashtuchkin/ico
 
 ## License
 
-**MIT**
+**EUPLv1.1**

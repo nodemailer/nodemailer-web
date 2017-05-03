@@ -99,8 +99,8 @@ Using Gmail might or might not work out of the box. See instructions for setting
 ### Source code
 
 - **Nodemailer** source code is available [on Github](https://github.com/nodemailer/nodemailer)
-- **MailParser** source code is available [on Github](https://github.com/andris9/mailparser)
-- **smtp-server** source code is available [on Github](https://github.com/andris9/smtp-server)
+- **MailParser** source code is available [on Github](https://github.com/nodemailer/mailparser)
+- **smtp-server** source code is available [on Github](https://github.com/nodemailer/smtp-server)
 - **mailsplit** source code is available [on Github](https://github.com/andris9/mailsplit)
 
 ### Examples
