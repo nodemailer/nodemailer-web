@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     
-    <title>List headers</title>
+    <title>Status</title>
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -28,7 +28,7 @@
     
 
   </head>
-  <body class="" data-url="/message/list-headers/">
+  <body class="" data-url="/status/">
     <nav id="sidebar">
   <div id="header-wrapper">
     <div id="header">
@@ -192,7 +192,7 @@
       
       
 
-      <li class="dd-item  parent" data-nav-id="/message/">
+      <li class="dd-item  " data-nav-id="/message/">
         <a href="/message/">
           <span>
             
@@ -248,7 +248,7 @@
           
           
           
-            <li class="dd-item active" data-nav-id="/message/list-headers/">
+            <li class="dd-item " data-nav-id="/message/list-headers/">
               <a href="/message/list-headers/">
                 <span>List headers     </i></span>
               </a>
@@ -542,8 +542,6 @@
                       </a>
                   </span>
                 
-                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
-                
                 
                 
                 
@@ -556,11 +554,6 @@
                   
                 
                   
-                    
-                    
-                <a href="/message/" itemprop="url"><span itemprop="title">Message configuration</span></a> <i class="fa fa-angle-right"></i>
-                    
-                  
                 
                   
                 
@@ -570,90 +563,36 @@
                 
                   
                 
-                <span itemprop="title"> List headers</span>
+                <span itemprop="title"> Status</span>
               </div>
-              
-                  <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#examples">Examples</a>
-<ul>
-<li><a href="#1-setup-different-list-headers">1. Setup different List-* headers</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-    </div>
-</div>
-
               
 
             </div>
             
     	        <div id="body-inner">
                 
-                <h1>List headers</h1>
+                <h1>Status</h1>
                 
 
+<p>In short, I am dumping the project. Most probably the current version 4.0.1 is going the be the last version of Nodemailer ever released.</p>
 
+<p>This does not mean that I&rsquo;m giving this project over to someone else. No, it just means that I won&rsquo;t work on it anymore. I&rsquo;ll keep the homepage up as it is – the advertising stuff in the left top corner of the page generates several tens of dollars a month which covers the server costs for any other stuff that I do and I do not want to give up this revenue.</p>
 
-<p>Nodemailer includes a helper for setting more complex <em>List-*</em> headers with ease. You can use this by providing message option <strong>list</strong>. It&rsquo;s an object where key names are converted into list headers. List key <em>help</em> becomes <em>List-Help</em> header etc.</p>
+<p>So what happened?</p>
 
-<p><strong>General rules</strong></p>
+<p>For the past 6 years I have helped resolving issues around sending emails with Nodemailer. Usually it has been exactly the same complaint about Gmail which I had written about at least a thousand times but yeah, nobody RTFM anymore, so I&rsquo;ve had to spend countless hours explaining the same thing over and over. TBQH there has been some valid issues as well that pointed out or even fixed errors in my mail protocol handling code but this has been extremely rare and even rarer in the recent years. So, mostly Gmail and to a lesser extent SES and it&rsquo;s always a configuration problem (invalid access scopes, invalid IAM tokens etc.).</p>
 
-<ul>
-<li>If the value is a string, it is treated as an URL</li>
-<li>If you want to provide an optional comment, use <em>{url:&lsquo;url&rsquo;, comment: &lsquo;comment&rsquo;}</em> object</li>
-<li>If you want to have multiple header rows for the same <em>List-*</em> key, use an array as the value for this key</li>
-<li>If you want to have multiple URLs for single <em>List-*</em> header row, use an array inside an array</li>
-<li><em>List-*</em> headers are treated as pregenerated values, this means that lines are not folded and strings are not encoded. Use only ascii characters and be prepared for longer header lines</li>
-</ul>
+<p>In the end of 2016 I decided that I&rsquo;m on the verge of burnout and I can&rsquo;t keep up putting my time into it anymore, so I decided that for the next major rewrite I&rsquo;d change the license from MIT to copyleft and start selling licenses to users that want to use it in commercial products which should allow me to work on Nodemailer in business hours instead of sleep time. I finished the rewrite and released Nodemailer v3 by the end of January 2017 and started selling it.</p>
 
-<h3 id="examples">Examples</h3>
+<p>&ldquo;Selling&rdquo; is a strong word though. I got thousands and thousands of people viewing the pricing page, there were even a couple of people actually buying it, so things seemed nice. The buyers preferred monthly payment option so there weren&rsquo;t so much revenue coming in, maybe just a couple of hundred dollars in total but that&rsquo;s better than zero.</p>
 
-<h4 id="1-setup-different-list-headers">1. Setup different List-* headers</h4>
+<p>Then I started to have a massive amount of emails coming in asking for advice of how to skip the license fee and use Nodemailer without paying for it.</p>
 
-<pre><code class="language-javascript">let message = {
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'List Message',
-    text: 'I hope no-one unsubscribes from this list!',
-    list: {
-        // List-Help: &lt;mailto:admin@example.com?subject=help&gt;
-        help: 'admin@example.com?subject=help',
-        // List-Unsubscribe: &lt;http://example.com&gt; (Comment)
-        unsubscribe: {
-            url: 'http://example.com',
-            comment: 'Comment'
-        },
-        // List-Subscribe: &lt;mailto:admin@example.com?subject=subscribe&gt;
-        // List-Subscribe: &lt;http://example.com&gt; (Subscribe)
-        subscribe: [
-            'admin@example.com?subject=subscribe',
-            {
-                url: 'http://example.com',
-                comment: 'Subscribe'
-            }
-        ],
-        // List-Post: &lt;http://example.com/post&gt;, &lt;mailto:admin@example.com?subject=post&gt; (Post)
-        post: [
-            [
-                'http://example.com/post',
-                {
-                    url: 'admin@example.com?subject=post',
-                    comment: 'Post'
-                }
-            ]
-        ]
-    }
-};
-</code></pre>
+<p>And then it went all downhill. Existing buyers started to cancel subscriptions and asked for a refund. These that did not just plain disputed the payments for chargebacks. It appears that the buyers were mostly spammers and I assume they were using stolen credit cards, because they did not understand what they were paying for. They assumed they can use Nodemailer as a service of some kind for sending out bulk mail.</p>
+
+<p>Anyhow, in the end my seller account was eventually suspended because all the chargebacks and stuff cost more that I&rsquo;d had made from selling the Nodemailer license.</p>
+
+<p>I stopped selling the license (I wasn&rsquo;t even able to because of the suspended seller account), changed the license back to MIT to stop the complaints coming in of how I betrayed the open source community and decided that this is it, I won&rsquo;t be spending a second on this project anymore. If there weren&rsquo;t that ad revenue of tens of dollars a month, I&rsquo;d probably close this webpage but I need this money for my experiments.</p>
 
 
       
@@ -662,8 +601,8 @@
 
     <div id="navigation">
         
-        <a class="nav nav-prev" href="/message/embedded-images/"> <i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/message/custom-headers/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+        
     </div>
 
     </section>

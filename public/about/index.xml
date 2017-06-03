@@ -23,23 +23,6 @@
 
 &lt;p&gt;The current version of &lt;strong&gt;Nodemailer v4+&lt;/strong&gt; is licensed under &lt;strong&gt;MIT license&lt;/strong&gt;. See license details in the &lt;a href=&#34;https://nodemailer.com/about/license/&#34;&gt;License page&lt;/a&gt;. If you are upgrading from Nodemailer v2 or older, then see the light migration guide &lt;a href=&#34;https://nodemailer.com/about/migrate&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;hr /&gt;
-
-&lt;p&gt;Also check out the &lt;strong&gt;Wild Duck IMAP server&lt;/strong&gt;, it is built on the same foundation as Nodemailer and provides an open source distributed email server that uses MongoDB as email store. &lt;a  href=&#34;https://github.com/wildduck-email/wildduck?utm_source=nodemailer&amp;amp;utm_campaign=nodemailer&amp;amp;utm_medium=header-link&#34; target=&#34;_blank&#34;  class=&#34;btn btn-default&#34;&gt;
-  
-  
-  
-    
-  
-  Wild Duck IMAP Server
-  
-  &lt;i class=&#34;fa fa-share&#34;&gt;&lt;/i&gt;
-  
-&lt;/a&gt;
-&lt;/p&gt;
-
-&lt;hr /&gt;
-
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install nodemailer --save
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -116,15 +99,6 @@ transporter.sendMail(mailOptions, (error, info) =&amp;gt; {
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;source-code&#34;&gt;Source code&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Nodemailer&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/nodemailer/nodemailer&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;MailParser&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/nodemailer/mailparser&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;smtp-server&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/nodemailer/smtp-server&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;mailsplit&lt;/strong&gt; source code is available &lt;a href=&#34;https://github.com/andris9/mailsplit&#34;&gt;on Github&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
 &lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
 
 &lt;ul&gt;
@@ -173,7 +147,7 @@ transporter.sendMail(mailOptions, (error, info) =&amp;gt; {
 
 &lt;hr /&gt;
 
-&lt;p&gt;If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation to keep the Nodemailer development engines running. You can either use Bitcoin or PayPal for donations. I can also write a consulting invoice (I have a EU VAT number) if you can&amp;rsquo;t do donations.&lt;/p&gt;
+&lt;p&gt;If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations. I can also write a consulting invoice (I have a EU VAT number) if you can&amp;rsquo;t do donations.&lt;/p&gt;
 
 &lt;a  href=&#34;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;amp;hosted_button_id=DB26KWR2BQX5W&#34; target=&#34;_blank&#34;  class=&#34;btn btn-default&#34;&gt;
   

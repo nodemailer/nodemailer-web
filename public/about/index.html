@@ -548,6 +548,8 @@
                 
                 
                   
+                
+                  
                     
                     
                   
@@ -585,7 +587,6 @@
 <li><a href="#example">Example</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#source-code">Source code</a></li>
 <li><a href="#examples">Examples</a></li>
 </ul></li>
 </ul></li>
@@ -610,23 +611,6 @@
 <p><strong>Nodemailer</strong> is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.</p>
 
 <p>The current version of <strong>Nodemailer v4+</strong> is licensed under <strong>MIT license</strong>. See license details in the <a href="/about/license/">License page</a>. If you are upgrading from Nodemailer v2 or older, then see the light migration guide <a href="/about/migrate">here</a>.</p>
-
-<hr />
-
-<p>Also check out the <strong>Wild Duck IMAP server</strong>, it is built on the same foundation as Nodemailer and provides an open source distributed email server that uses MongoDB as email store. <a  href="https://github.com/wildduck-email/wildduck?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=header-link" target="_blank"  class="btn btn-default">
-  
-  
-  
-    
-  
-  Wild Duck IMAP Server
-  
-  <i class="fa fa-share"></i>
-  
-</a>
-</p>
-
-<hr />
 
 <pre><code class="language-bash">npm install nodemailer --save
 </code></pre>
@@ -703,15 +687,6 @@ transporter.sendMail(mailOptions, (error, info) =&gt; {
     console.log('Message %s sent: %s', info.messageId, info.response);
 });
 </code></pre>
-
-<h3 id="source-code">Source code</h3>
-
-<ul>
-<li><strong>Nodemailer</strong> source code is available <a href="https://github.com/nodemailer/nodemailer">on Github</a></li>
-<li><strong>MailParser</strong> source code is available <a href="https://github.com/nodemailer/mailparser">on Github</a></li>
-<li><strong>smtp-server</strong> source code is available <a href="https://github.com/nodemailer/smtp-server">on Github</a></li>
-<li><strong>mailsplit</strong> source code is available <a href="https://github.com/andris9/mailsplit">on Github</a></li>
-</ul>
 
 <h3 id="examples">Examples</h3>
 
