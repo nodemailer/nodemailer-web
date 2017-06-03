@@ -33,13 +33,12 @@
 
 &lt;p&gt;Alternatively you could use a connection url instead of an object for the options. Use &lt;em&gt;&amp;lsquo;smtp:&amp;rsquo;&lt;/em&gt; or &lt;em&gt;&amp;lsquo;smtps:&amp;rsquo;&lt;/em&gt; as the protocol in the url.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let poolConfig = &#39;smtps://user%40gmail.com:pass@smtp.gmail.com/?pool=true&#39;;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let poolConfig = &#39;smtps://username:password@smtp.example.com/?pool=true&#39;;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h5 id=&#34;general-options&#34;&gt;General options&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;service&lt;/strong&gt; – can be set to the name of a well-known service so you don&amp;rsquo;t have to input the &lt;strong&gt;port&lt;/strong&gt;, &lt;strong&gt;host&lt;/strong&gt;, and &lt;strong&gt;secure&lt;/strong&gt; options (see &lt;a href=&#34;https://nodemailer.com/smtp/well-known/&#34;&gt;Well-known Services&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;port&lt;/strong&gt; – is the port to connect to (defaults to 587 is &lt;em&gt;secure&lt;/em&gt; is &lt;em&gt;false&lt;/em&gt; or 465 if &lt;em&gt;true&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;host&lt;/strong&gt; – is the hostname or IP address to connect to (defaults to &lt;em&gt;&amp;lsquo;localhost&amp;rsquo;&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;auth&lt;/strong&gt; – defines authentication data (see &lt;a href=&#34;#authentication&#34;&gt;authentication&lt;/a&gt; section below)&lt;/li&gt;
@@ -99,31 +98,31 @@
 
 &lt;h4 id=&#34;1-single-connection&#34;&gt;1. Single connection&lt;/h4&gt;
 
-&lt;p&gt;This example would connect to Gmail port 587 separately for every single message&lt;/p&gt;
+&lt;p&gt;This example would connect to a SMTP server separately for every single message&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let smtpConfig = {
-    host: &#39;smtp.gmail.com&#39;,
+    host: &#39;smtp.example.com&#39;,
     port: 587,
     secure: false, // upgrade later with STARTTLS
     auth: {
-        user: &#39;user@gmail.com&#39;,
-        pass: &#39;pass&#39;
+        user: &#39;username&#39;,
+        pass: &#39;password&#39;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;2-single-connection&#34;&gt;2. Single connection&lt;/h4&gt;
 
-&lt;p&gt;This example would set up pooled connections against Gmail port 465&lt;/p&gt;
+&lt;p&gt;This example would set up pooled connections against a SMTP server on port 465&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let poolConfig = {
     pool: true,
-    host: &#39;smtp.gmail.com&#39;,
+    host: &#39;smtp.example.com&#39;,
     port: 465,
     secure: true, // use TLS
     auth: {
-        user: &#39;user@gmail.com&#39;,
-        pass: &#39;pass&#39;
+        user: &#39;username&#39;,
+        pass: &#39;password&#39;
     }
 };
 &lt;/code&gt;&lt;/pre&gt;
@@ -162,10 +161,6 @@
 &lt;/ul&gt;
 
 &lt;p&gt;For authenticating using OAuth2 instead of normal auth, see OAuth2 options for the &lt;strong&gt;auth&lt;/strong&gt; object &lt;a href=&#34;https://nodemailer.com/smtp/oauth2/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;using-well-known-services&#34;&gt;Using &lt;em&gt;well-known&lt;/em&gt; services&lt;/h2&gt;
-
-&lt;p&gt;If you do not want to specify the hostname, port and security settings for a well-known service, you can use it by its name, see the documentation and supported services &lt;a href=&#34;https://nodemailer.com/smtp/well-known/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&#34;verify-smtp-connection-configuration&#34;&gt;Verify SMTP connection configuration&lt;/h2&gt;
 
@@ -373,7 +368,9 @@ transporter.on(&#39;idle&#39;, function(){
 &lt;p&gt;Use an existing Access Token. If the token is not accepted then message is not sent as there is no way to generate a new token.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.gmail.com&#39;,
+    port: 465,
+    secure: true,
     auth: {
         type: &#39;OAuth2&#39;,
         user: &#39;user@example.com&#39;,
@@ -387,7 +384,9 @@ transporter.on(&#39;idle&#39;, function(){
 &lt;p&gt;This example requests a new &lt;em&gt;accessToken&lt;/em&gt; value from a custom OAuth2 handler. Nodemailer does not attempt to generate the token by itself.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.gmail.com&#39;,
+    port: 465,
+    secure: true,
     auth: {
         type: &#39;OAuth2&#39;,
         user: &#39;user@example.com&#39;
@@ -409,7 +408,9 @@ transporter.set(&#39;oauth2_provision_cb&#39;, (user, renew, callback)=&amp;gt;{
 &lt;p&gt;This example uses an existing Access Token. If the token is not accepted or current time is past the &lt;em&gt;expires&lt;/em&gt; value, then &lt;em&gt;refreshToken&lt;/em&gt; is used to automatically generate a new &lt;em&gt;accessToken&lt;/em&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.gmail.com&#39;,
+    port: 465,
+    secure: true,
     auth: {
         type: &#39;OAuth2&#39;,
         user: &#39;user@example.com&#39;,
@@ -427,7 +428,9 @@ transporter.set(&#39;oauth2_provision_cb&#39;, (user, renew, callback)=&amp;gt;{
 &lt;p&gt;This example uses an existing Access Token. If the token is not accepted or current time is past the &lt;em&gt;expires&lt;/em&gt; value, then a new &lt;em&gt;accessToken&lt;/em&gt; value is generated using provided service account.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.gmail.com&#39;,
+    port: 465,
+    secure: true,
     auth: {
         type: &#39;OAuth2&#39;,
         user: &#39;user@example.com&#39;,
@@ -448,7 +451,9 @@ transporter.set(&#39;oauth2_provision_cb&#39;, (user, renew, callback)=&amp;gt;{
 
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.gmail.com&#39;,
+    port: 465,
+    secure: true,
     auth: {
         type: &#39;OAuth2&#39;,
         clientId: &#39;000000000000-xxx.apps.googleusercontent.com&#39;,
@@ -473,7 +478,9 @@ transporter.sendMail({
 &lt;p&gt;Or alternatively you can do the same with your own OAuth2 handler.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.gmail.com&#39;,
+    port: 465,
+    secure: true,
     auth: {
         type: &#39;OAuth2&#39;
     }
@@ -509,80 +516,6 @@ transporter.sendMail({
     </item>
     
     <item>
-      <title>Well-known services</title>
-      <link>https://nodemailer.com/smtp/well-known/</link>
-      <pubDate>Fri, 20 Jan 2017 21:15:16 +0200</pubDate>
-      
-      <guid>https://nodemailer.com/smtp/well-known/</guid>
-      <description>
-
-&lt;p&gt;Nodemailer knows SMTP connection details for several well-known providers. If your provider is listed here you do not need to set the connection details yourself (you can if you want it though) for the transporter object, providing service name is already good enough.&lt;/p&gt;
-
-&lt;p&gt;The following example sets up a transporter against &lt;a href=&#34;https://sendpulse.com/&#34;&gt;SendPulse&lt;/a&gt; SMTP server using only service name instead of actual server configuration:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-     service: &#39;SendPulse&#39;, // no need to set host or port etc.
-     auth: {
-         user: &#39;account.email@example.com&#39;,
-         pass: &#39;smtp-password&#39;
-     }
-});
-
-transporter.sendMail(...)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;supported-services&#34;&gt;Supported services&lt;/h3&gt;
-
-&lt;div class=&#34;notices tip&#34; &gt;Service names are case insensitive&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;126&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;163&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;1und1&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;AOL&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;DebugMail&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;DynectEmail&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;FastMail&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;GandiMail&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Gmail&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Godaddy&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;GodaddyAsia&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;GodaddyEurope&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;hot.ee&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Hotmail&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;iCloud&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;mail.ee&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Mail.ru&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Maildev&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Mailgun&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Mailjet&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Mailosaur&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Mandrill&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Naver&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;OpenMailBox&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Outlook365&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Postmark&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;QQ&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;QQex&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;SendCloud&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;SendGrid&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;SendinBlue&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;SendPulse&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;SES&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;SES-US-EAST-1&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;SES-US-WEST-2&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;SES-EU-WEST-1&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Sparkpost&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Yahoo&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Yandex&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;Zoho&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;quot;qiye.aliyun&amp;quot;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Proxy support</title>
       <link>https://nodemailer.com/smtp/proxies/</link>
       <pubDate>Fri, 20 Jan 2017 11:16:41 +0200</pubDate>
@@ -605,7 +538,9 @@ transporter.sendMail(...)
 &lt;p&gt;Set HTTP proxy url for the &lt;em&gt;proxy&lt;/em&gt; option. That&amp;rsquo;s it, everything required to handle it is built into Nodemailer.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.example.com&#39;,
+    port: 465,
+    secure: true,
     proxy: &#39;http://proxy-host:1234&#39;
 });
 &lt;/code&gt;&lt;/pre&gt;
@@ -613,7 +548,9 @@ transporter.sendMail(...)
 &lt;p&gt;Or if you want to use some environment defined variable like &lt;em&gt;http_proxy&lt;/em&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.example.com&#39;,
+    port: 465,
+    secure: true,
     proxy: process.env.http_proxy
 });
 &lt;/code&gt;&lt;/pre&gt;
@@ -634,7 +571,9 @@ transporter.sendMail(...)
 &lt;/ul&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.example.com&#39;,
+    port: 465,
+    secure: true,
     proxy: &#39;socks5://socks-host:1234&#39;
 });
 // enable support for socks URLs
@@ -670,7 +609,9 @@ transporter.set(&#39;proxy_socks_module&#39;, require(&#39;socks&#39;));
 &lt;/ul&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.example.com&#39;,
+    port: 465,
+    secure: true,
     proxy: &#39;myproxy://localhost:1234&#39;
 });
 // enable support for socks URLs
@@ -687,7 +628,9 @@ transporter.set(&#39;proxy_handler_myproxy&#39;, (proxy, options, callback)=&amp
 &lt;p&gt;If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer from upgrading the provided connection using TLS.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.example.com&#39;,
+    port: 465,
+    secure: true,
     proxy: &#39;myproxys://localhost:1234&#39;
 });
 // enable support for socks URLs

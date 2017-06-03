@@ -324,14 +324,6 @@
           
           
           
-            <li class="dd-item " data-nav-id="/smtp/well-known/">
-              <a href="/smtp/well-known/">
-                <span>Well-known services     </i></span>
-              </a>
-            </li>
-          
-          
-          
             <li class="dd-item " data-nav-id="/smtp/proxies/">
               <a href="/smtp/proxies/">
                 <span>Proxy support     </i></span>
@@ -712,7 +704,9 @@
 <p>Use an existing Access Token. If the token is not accepted then message is not sent as there is no way to generate a new token.</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2',
         user: 'user@example.com',
@@ -726,7 +720,9 @@
 <p>This example requests a new <em>accessToken</em> value from a custom OAuth2 handler. Nodemailer does not attempt to generate the token by itself.</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2',
         user: 'user@example.com'
@@ -748,7 +744,9 @@ transporter.set('oauth2_provision_cb', (user, renew, callback)=&gt;{
 <p>This example uses an existing Access Token. If the token is not accepted or current time is past the <em>expires</em> value, then <em>refreshToken</em> is used to automatically generate a new <em>accessToken</em></p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2',
         user: 'user@example.com',
@@ -766,7 +764,9 @@ transporter.set('oauth2_provision_cb', (user, renew, callback)=&gt;{
 <p>This example uses an existing Access Token. If the token is not accepted or current time is past the <em>expires</em> value, then a new <em>accessToken</em> value is generated using provided service account.</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2',
         user: 'user@example.com',
@@ -787,7 +787,9 @@ transporter.set('oauth2_provision_cb', (user, renew, callback)=&gt;{
 
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2',
         clientId: '000000000000-xxx.apps.googleusercontent.com',
@@ -812,7 +814,9 @@ transporter.sendMail({
 <p>Or alternatively you can do the same with your own OAuth2 handler.</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2'
     }
@@ -853,7 +857,7 @@ transporter.sendMail({
     <div id="navigation">
         
         <a class="nav nav-prev" href="/smtp/pooled/"> <i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/smtp/well-known/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-next" href="/smtp/proxies/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
     </div>
 
     </section>

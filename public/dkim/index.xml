@@ -57,7 +57,9 @@
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.example.com&#39;,
+    port: 465,
+    secure: true,
     dkim: {
         domainName: &#39;example.com&#39;,
         keySelector: &#39;2017&#39;,
@@ -71,7 +73,9 @@
 &lt;p&gt;Assumes that there is a public keys available for &lt;em&gt;2017._domainkey.example.com&lt;/em&gt; and &lt;em&gt;2016._domainkey.example.com&lt;/em&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.example.com&#39;,
+    port: 465,
+    secure: true,
     dkim: {
         keys: [
             {
@@ -95,7 +99,9 @@
 &lt;p&gt;Do not sign by default. Provide DKIM key values separately for every message.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;
+    host: &#39;smtp.example.com&#39;,
+    port: 465,
+    secure: true
 });
 let message = {
     from: &#39;sender@example.com&#39;,
@@ -115,7 +121,9 @@ let message = {
 &lt;p&gt;Messages larger than 100kB are cached to disk&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.example.com&#39;,
+    port: 465,
+    secure: true,
     dkim: {
         domainName: &#39;example.com&#39;,
         keySelector: &#39;2017&#39;,
@@ -131,7 +139,9 @@ let message = {
 &lt;p&gt;This is needed when sending mail through SES that has its own Message-ID and Date system.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    service: &#39;Gmail&#39;,
+    host: &#39;smtp.example.com&#39;,
+    port: 465,
+    secure: true,
     dkim: {
         domainName: &#39;example.com&#39;,
         keySelector: &#39;2017&#39;,

@@ -16,12 +16,6 @@ toc = true
 
 The current version of **Nodemailer v4+** is licensed under **MIT license**. See license details in the [License page](/about/license/). If you are upgrading from Nodemailer v2 or older, then see the light migration guide [here](/about/migrate).
 
------
-
-Also check out the **Wild Duck IMAP server**, it is built on the same foundation as Nodemailer and provides an open source distributed email server that uses MongoDB as email store. {{% button href="https://github.com/wildduck-email/wildduck?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=header-link" icon="fa fa-share" icon-position="right" %}}Wild Duck IMAP Server{{% /button %}}
-
------
-
 ```bash
 npm install nodemailer --save
 ```
@@ -67,10 +61,12 @@ const nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport
 let transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true, // secure:true for port 465, secure:false for port 587
     auth: {
-        user: 'gmail.user@gmail.com',
-        pass: 'yourpass'
+        user: 'username@example.com',
+        pass: 'userpass'
     }
 });
 
@@ -91,17 +87,6 @@ transporter.sendMail(mailOptions, (error, info) => {
     console.log('Message %s sent: %s', info.messageId, info.response);
 });
 ```
-
-{{% notice info %}}
-Using Gmail might or might not work out of the box. See instructions for setting up Gmail SMTP [here](/usage/using-gmail/).
-{{% /notice %}}
-
-### Source code
-
-- **Nodemailer** source code is available [on Github](https://github.com/nodemailer/nodemailer)
-- **MailParser** source code is available [on Github](https://github.com/nodemailer/mailparser)
-- **smtp-server** source code is available [on Github](https://github.com/nodemailer/smtp-server)
-- **mailsplit** source code is available [on Github](https://github.com/andris9/mailsplit)
 
 ### Examples
 

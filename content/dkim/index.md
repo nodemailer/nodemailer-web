@@ -47,7 +47,9 @@ dig TXT 2017._domainkey.example.com
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     dkim: {
         domainName: 'example.com',
         keySelector: '2017',
@@ -62,7 +64,9 @@ Assumes that there is a public keys available for *2017._domainkey.example.com* 
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     dkim: {
         keys: [
             {
@@ -87,7 +91,9 @@ Do not sign by default. Provide DKIM key values separately for every message.
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail'
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true
 });
 let message = {
     from: 'sender@example.com',
@@ -108,7 +114,9 @@ Messages larger than 100kB are cached to disk
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     dkim: {
         domainName: 'example.com',
         keySelector: '2017',
@@ -125,7 +133,9 @@ This is needed when sending mail through SES that has its own Message-ID and Dat
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     dkim: {
         domainName: 'example.com',
         keySelector: '2017',

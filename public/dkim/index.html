@@ -324,14 +324,6 @@
           
           
           
-            <li class="dd-item " data-nav-id="/smtp/well-known/">
-              <a href="/smtp/well-known/">
-                <span>Well-known services     </i></span>
-              </a>
-            </li>
-          
-          
-          
             <li class="dd-item " data-nav-id="/smtp/proxies/">
               <a href="/smtp/proxies/">
                 <span>Proxy support     </i></span>
@@ -652,7 +644,9 @@
 </code></pre>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     dkim: {
         domainName: 'example.com',
         keySelector: '2017',
@@ -666,7 +660,9 @@
 <p>Assumes that there is a public keys available for <em>2017._domainkey.example.com</em> and <em>2016._domainkey.example.com</em></p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     dkim: {
         keys: [
             {
@@ -690,7 +686,9 @@
 <p>Do not sign by default. Provide DKIM key values separately for every message.</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail'
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true
 });
 let message = {
     from: 'sender@example.com',
@@ -710,7 +708,9 @@ let message = {
 <p>Messages larger than 100kB are cached to disk</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     dkim: {
         domainName: 'example.com',
         keySelector: '2017',
@@ -726,7 +726,9 @@ let message = {
 <p>This is needed when sending mail through SES that has its own Message-ID and Date system.</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     dkim: {
         domainName: 'example.com',
         keySelector: '2017',

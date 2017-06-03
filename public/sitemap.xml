@@ -82,11 +82,6 @@
   </url>
   
   <url>
-    <loc>https://nodemailer.com/smtp/well-known/</loc>
-    <lastmod>2017-01-20T21:15:16+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://nodemailer.com/smtp/proxies/</loc>
     <lastmod>2017-01-20T11:16:41+02:00</lastmod>
   </url>

@@ -25,12 +25,11 @@ Where
 Alternatively you could use a connection url instead of an object for the options. Use *'smtp:'* or *'smtps:'* as the protocol in the url.
 
 ```javascript
-let poolConfig = 'smtps://user%40gmail.com:pass@smtp.gmail.com/?pool=true';
+let poolConfig = 'smtps://username:password@smtp.example.com/?pool=true';
 ```
 
 ##### General options
 
-  - **service** – can be set to the name of a well-known service so you don't have to input the **port**, **host**, and **secure** options (see [Well-known Services](/smtp/well-known/))
   - **port** – is the port to connect to (defaults to 587 is *secure* is *false* or 465 if *true*)
   - **host** – is the hostname or IP address to connect to (defaults to *'localhost'*)
   - **auth** – defines authentication data (see [authentication](#authentication) section below)
@@ -77,33 +76,33 @@ Setting **secure** to **false** does not mean that you would not use an encrypte
 
 #### 1\. Single connection
 
-This example would connect to Gmail port 587 separately for every single message
+This example would connect to a SMTP server separately for every single message
 
 ```javascript
 let smtpConfig = {
-    host: 'smtp.gmail.com',
+    host: 'smtp.example.com',
     port: 587,
     secure: false, // upgrade later with STARTTLS
     auth: {
-        user: 'user@gmail.com',
-        pass: 'pass'
+        user: 'username',
+        pass: 'password'
     }
 };
 ```
 
 #### 2\. Single connection
 
-This example would set up pooled connections against Gmail port 465
+This example would set up pooled connections against a SMTP server on port 465
 
 ```javascript
 let poolConfig = {
     pool: true,
-    host: 'smtp.gmail.com',
+    host: 'smtp.example.com',
     port: 465,
     secure: true, // use TLS
     auth: {
-        user: 'user@gmail.com',
-        pass: 'pass'
+        user: 'username',
+        pass: 'password'
     }
 };
 ```
@@ -139,10 +138,6 @@ If authentication data is not present, the connection is considered authenticate
   - **pass** is the password for the user if normal login is used
 
 For authenticating using OAuth2 instead of normal auth, see OAuth2 options for the **auth** object [here](/smtp/oauth2/).
-
-## Using _well-known_ services
-
-If you do not want to specify the hostname, port and security settings for a well-known service, you can use it by its name, see the documentation and supported services [here](/smtp/well-known/).
 
 ## Verify SMTP connection configuration
 

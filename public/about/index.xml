@@ -89,10 +89,12 @@ const nodemailer = require(&#39;nodemailer&#39;);
 
 // create reusable transporter object using the default SMTP transport
 let transporter = nodemailer.createTransport({
-    service: &#39;gmail&#39;,
+    host: &#39;smtp.example.com&#39;,
+    port: 465,
+    secure: true, // secure:true for port 465, secure:false for port 587
     auth: {
-        user: &#39;gmail.user@gmail.com&#39;,
-        pass: &#39;yourpass&#39;
+        user: &#39;username@example.com&#39;,
+        pass: &#39;userpass&#39;
     }
 });
 
@@ -113,10 +115,6 @@ transporter.sendMail(mailOptions, (error, info) =&amp;gt; {
     console.log(&#39;Message %s sent: %s&#39;, info.messageId, info.response);
 });
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Using Gmail might or might not work out of the box. See instructions for setting up Gmail SMTP &lt;a href=&#34;https://nodemailer.com/usage/using-gmail/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-
 
 &lt;h3 id=&#34;source-code&#34;&gt;Source code&lt;/h3&gt;
 

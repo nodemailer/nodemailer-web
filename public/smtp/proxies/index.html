@@ -324,14 +324,6 @@
           
           
           
-            <li class="dd-item " data-nav-id="/smtp/well-known/">
-              <a href="/smtp/well-known/">
-                <span>Well-known services     </i></span>
-              </a>
-            </li>
-          
-          
-          
             <li class="dd-item active" data-nav-id="/smtp/proxies/">
               <a href="/smtp/proxies/">
                 <span>Proxy support     </i></span>
@@ -629,7 +621,9 @@
 <p>Set HTTP proxy url for the <em>proxy</em> option. That&rsquo;s it, everything required to handle it is built into Nodemailer.</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     proxy: 'http://proxy-host:1234'
 });
 </code></pre>
@@ -637,7 +631,9 @@
 <p>Or if you want to use some environment defined variable like <em>http_proxy</em>:</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     proxy: process.env.http_proxy
 });
 </code></pre>
@@ -658,7 +654,9 @@
 </ul>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     proxy: 'socks5://socks-host:1234'
 });
 // enable support for socks URLs
@@ -694,7 +692,9 @@ transporter.set('proxy_socks_module', require('socks'));
 </ul>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     proxy: 'myproxy://localhost:1234'
 });
 // enable support for socks URLs
@@ -711,7 +711,9 @@ transporter.set('proxy_handler_myproxy', (proxy, options, callback)=&gt;{
 <p>If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer from upgrading the provided connection using TLS.</p>
 
 <pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     proxy: 'myproxys://localhost:1234'
 });
 // enable support for socks URLs
@@ -733,7 +735,7 @@ transporter.set('proxy_handler_myproxys', (proxy, options, callback)=&gt;{
 
     <div id="navigation">
         
-        <a class="nav nav-prev" href="/smtp/well-known/"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-prev" href="/smtp/oauth2/"> <i class="fa fa-chevron-left"></i></a>
         <a class="nav nav-next" href="/smtp/dsn/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
     </div>
 

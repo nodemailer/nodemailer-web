@@ -2,7 +2,7 @@
 date = "2017-01-20T10:45:57+02:00"
 toc = true
 prev = "/smtp/pooled/"
-next = "/smtp/well-known/"
+next = "/smtp/proxies/"
 weight = 22
 title = "OAuth2"
 +++
@@ -92,7 +92,9 @@ Use an existing Access Token. If the token is not accepted then message is not s
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2',
         user: 'user@example.com',
@@ -107,7 +109,9 @@ This example requests a new _accessToken_ value from a custom OAuth2 handler. No
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2',
         user: 'user@example.com'
@@ -130,7 +134,9 @@ This example uses an existing Access Token. If the token is not accepted or curr
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2',
         user: 'user@example.com',
@@ -149,7 +155,9 @@ This example uses an existing Access Token. If the token is not accepted or curr
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2',
         user: 'user@example.com',
@@ -171,7 +179,9 @@ Per-message specific authentication does not work in pooled mode
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2',
         clientId: '000000000000-xxx.apps.googleusercontent.com',
@@ -197,7 +207,9 @@ Or alternatively you can do the same with your own OAuth2 handler.
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
     auth: {
         type: 'OAuth2'
     }

@@ -1,7 +1,7 @@
 +++
 date = "2017-01-20T11:16:41+02:00"
 toc = true
-prev = "/smtp/well-known/"
+prev = "/smtp/oauth2/"
 next = "/smtp/dsn/"
 weight = 24
 title = "Proxy support"
@@ -22,7 +22,9 @@ Set HTTP proxy url for the _proxy_ option. That's it, everything required to han
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     proxy: 'http://proxy-host:1234'
 });
 ```
@@ -31,7 +33,9 @@ Or if you want to use some environment defined variable like *http_proxy*:
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     proxy: process.env.http_proxy
 });
 ```
@@ -51,7 +55,9 @@ Possible protocol values for the SOCKS proxy:
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     proxy: 'socks5://socks-host:1234'
 });
 // enable support for socks URLs
@@ -85,7 +91,9 @@ Where
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     proxy: 'myproxy://localhost:1234'
 });
 // enable support for socks URLs
@@ -103,7 +111,9 @@ If your proxy uses an encrypted connection then you can mark the proxied socket 
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
     proxy: 'myproxys://localhost:1234'
 });
 // enable support for socks URLs

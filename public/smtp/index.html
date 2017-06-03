@@ -324,14 +324,6 @@
           
           
           
-            <li class="dd-item " data-nav-id="/smtp/well-known/">
-              <a href="/smtp/well-known/">
-                <span>Well-known services     </i></span>
-              </a>
-            </li>
-          
-          
-          
             <li class="dd-item " data-nav-id="/smtp/proxies/">
               <a href="/smtp/proxies/">
                 <span>Proxy support     </i></span>
@@ -606,7 +598,6 @@
 </ul></li>
 </ul></li>
 <li><a href="#authentication">Authentication</a></li>
-<li><a href="#using-well-known-services">Using <em>well-known</em> services</a></li>
 <li><a href="#verify-smtp-connection-configuration">Verify SMTP connection configuration</a></li>
 </ul></li>
 </ul>
@@ -641,13 +632,12 @@
 
 <p>Alternatively you could use a connection url instead of an object for the options. Use <em>&lsquo;smtp:&rsquo;</em> or <em>&lsquo;smtps:&rsquo;</em> as the protocol in the url.</p>
 
-<pre><code class="language-javascript">let poolConfig = 'smtps://user%40gmail.com:pass@smtp.gmail.com/?pool=true';
+<pre><code class="language-javascript">let poolConfig = 'smtps://username:password@smtp.example.com/?pool=true';
 </code></pre>
 
 <h5 id="general-options">General options</h5>
 
 <ul>
-<li><strong>service</strong> – can be set to the name of a well-known service so you don&rsquo;t have to input the <strong>port</strong>, <strong>host</strong>, and <strong>secure</strong> options (see <a href="/smtp/well-known/">Well-known Services</a>)</li>
 <li><strong>port</strong> – is the port to connect to (defaults to 587 is <em>secure</em> is <em>false</em> or 465 if <em>true</em>)</li>
 <li><strong>host</strong> – is the hostname or IP address to connect to (defaults to <em>&lsquo;localhost&rsquo;</em>)</li>
 <li><strong>auth</strong> – defines authentication data (see <a href="#authentication">authentication</a> section below)</li>
@@ -707,31 +697,31 @@
 
 <h4 id="1-single-connection">1. Single connection</h4>
 
-<p>This example would connect to Gmail port 587 separately for every single message</p>
+<p>This example would connect to a SMTP server separately for every single message</p>
 
 <pre><code class="language-javascript">let smtpConfig = {
-    host: 'smtp.gmail.com',
+    host: 'smtp.example.com',
     port: 587,
     secure: false, // upgrade later with STARTTLS
     auth: {
-        user: 'user@gmail.com',
-        pass: 'pass'
+        user: 'username',
+        pass: 'password'
     }
 };
 </code></pre>
 
 <h4 id="2-single-connection">2. Single connection</h4>
 
-<p>This example would set up pooled connections against Gmail port 465</p>
+<p>This example would set up pooled connections against a SMTP server on port 465</p>
 
 <pre><code class="language-javascript">let poolConfig = {
     pool: true,
-    host: 'smtp.gmail.com',
+    host: 'smtp.example.com',
     port: 465,
     secure: true, // use TLS
     auth: {
-        user: 'user@gmail.com',
-        pass: 'pass'
+        user: 'username',
+        pass: 'password'
     }
 };
 </code></pre>
@@ -770,10 +760,6 @@
 </ul>
 
 <p>For authenticating using OAuth2 instead of normal auth, see OAuth2 options for the <strong>auth</strong> object <a href="/smtp/oauth2/">here</a>.</p>
-
-<h2 id="using-well-known-services">Using <em>well-known</em> services</h2>
-
-<p>If you do not want to specify the hostname, port and security settings for a well-known service, you can use it by its name, see the documentation and supported services <a href="/smtp/well-known/">here</a>.</p>
 
 <h2 id="verify-smtp-connection-configuration">Verify SMTP connection configuration</h2>
 

@@ -16,7 +16,7 @@ Keeping a lower level infrastructure module under a restrictive license has turn
 
 -----
 
-If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation to keep the Nodemailer development engines running. You can either use Bitcoin or PayPal for donations. I can also write a consulting invoice (I have a EU VAT number) if you can't do donations.
+If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations. I can also write a consulting invoice (I have a EU VAT number) if you can't do donations.
 
 {{% button href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DB26KWR2BQX5W" icon="fa fa-share" icon-position="right" %}}Donate using PayPal{{% /button %}}
 
