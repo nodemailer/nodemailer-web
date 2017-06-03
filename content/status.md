@@ -20,6 +20,6 @@ Then I started to have a massive amount of emails coming in asking for advice of
 
 And then it went all downhill. Existing buyers started to cancel subscriptions and asked for a refund. These that did not just plain disputed the payments for chargebacks. It appears that the buyers were mostly spammers and I assume they were using stolen credit cards, because they did not understand what they were paying for. They assumed they can use Nodemailer as a service of some kind for sending out bulk mail.
 
-Anyhow, in the end my seller account was eventually suspended because all the chargebacks and stuff cost more that I'd had made from selling the Nodemailer license.
+Anyhow, in the end my seller account was eventually suspended because all the chargebacks cost more that I had made from selling the Nodemailer license.
 
-I stopped selling the license (I wasn't even able to because of the suspended seller account), changed the license back to MIT to stop the complaints coming in of how I betrayed the open source community and decided that this is it, I won't be spending a second on this project anymore. If there weren't that ad revenue of tens of dollars a month, I'd probably close this webpage but I need this money for my experiments.
+I stopped selling the license (I wasn't even able to, at least with the existing provider, because of the suspended seller account), changed the license back to MIT to stop the complaints coming in of how I betrayed the open source community and decided that this is it, I won't be spending a second on this project anymore. If there weren't that ad revenue of tens of dollars a month, I'd probably close this webpage but I need this money for my experiments.
