@@ -6,7 +6,7 @@ title = "Status"
 
 **In short, I am dumping the project.** Most probably the current version 4.0.1 is going the be the last version of Nodemailer ever released. I don't plan to add any new features nor fix any bugs or potential security issues. Nodemailer codebase is solid enough that there shouldn't be major bugs, so it should be safe to continue using it for the foreseeable future.
 
-This does not mean that I'm giving this project over to someone else. No, it just means that I won't work on it anymore. I'll keep the homepage up as it is – the advertising stuff in the left top corner of the page generates several tens of dollars a month which covers the server costs for any other stuff that I do and I do not want to give up this revenue.
+This does not mean that I'm giving this project over to someone else. No, it just means that I won't work on it anymore. I'll keep the homepage up as it is – the advertising stuff on this page generates several tens of dollars a month which covers the server costs for any other stuff that I do and I do not want to give up this revenue.
 
 **So what happened?**
 
