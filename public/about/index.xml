@@ -21,7 +21,7 @@
 
 &lt;p&gt;&lt;strong&gt;Nodemailer&lt;/strong&gt; is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.&lt;/p&gt;
 
-&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;&lt;a href=&#34;https://nodemailer.com/status/&#34;&gt;Status update&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;Important &lt;a href=&#34;https://nodemailer.com/status/&#34;&gt;status update&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 
