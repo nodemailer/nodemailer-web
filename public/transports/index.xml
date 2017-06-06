@@ -43,11 +43,6 @@ let transporter = nodemailer.createTransport({
 &lt;h3 id=&#34;external-transports&#34;&gt;External transports&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/rebelmail/nodemailer-mandrill-transport&#34;&gt;nodemailer-mandrill-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages through Mandrill&amp;rsquo;s Web API&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/andris9/nodemailer-pickup-transport&#34;&gt;nodemailer-pickup-transport&lt;/a&gt;&lt;/strong&gt; – for storing messages to pickup folders&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/rebelmail/nodemailer-sailthru-transport&#34;&gt;nodemailer-sailthru-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages through Sailthru&amp;rsquo;s Web API&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sendgrid/nodemailer-sendgrid-transport&#34;&gt;nodemailer-sendgrid-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages through SendGrid&amp;rsquo;s Web API&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/sparkpost/nodemailer-sparkpost-transport&#34;&gt;nodemailer-sparkpost-transport&lt;/a&gt;&lt;/strong&gt; – for sending messages through SparkPost&amp;rsquo;s Web API&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;your own&lt;/strong&gt; (see transport api documentation &lt;a href=&#34;https://nodemailer.com/plugins/create/#transports&#34;&gt;here&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 

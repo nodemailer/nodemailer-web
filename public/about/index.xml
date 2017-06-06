@@ -21,10 +21,6 @@
 
 &lt;p&gt;&lt;strong&gt;Nodemailer&lt;/strong&gt; is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.&lt;/p&gt;
 
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Important &lt;a href=&#34;https://nodemailer.com/status/&#34;&gt;status update&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-
 &lt;p&gt;&lt;strong&gt;Nodemailer&lt;/strong&gt; is licensed under &lt;strong&gt;MIT license&lt;/strong&gt;. See license details in the &lt;a href=&#34;https://nodemailer.com/about/license/&#34;&gt;License page&lt;/a&gt;. If you are upgrading from Nodemailer v2 or older, then see the light migration guide &lt;a href=&#34;https://nodemailer.com/about/migrate&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install nodemailer --save
