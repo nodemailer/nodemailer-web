@@ -101,6 +101,7 @@ nodemailer.createTestAccount((err, account) =&amp;gt; {
             return console.log(error);
         }
         console.log(&#39;Message sent: %s&#39;, info.messageId);
+        // Preview only available when sending through an Ethereal account
         console.log(&#39;Preview URL: %s&#39;, nodemailer.getTestMessageUrl(info));
 
         // Message sent: &amp;lt;b658f8ca-6296-ccf4-8306-87d57a0b4321@blurdybloop.com&amp;gt;
