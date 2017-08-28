@@ -70,32 +70,37 @@
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;use strict&#39;;
 const nodemailer = require(&#39;nodemailer&#39;);
 
-// create reusable transporter object using the default SMTP transport
-let transporter = nodemailer.createTransport({
-    host: &#39;smtp.example.com&#39;,
-    port: 465,
-    secure: true, // secure:true for port 465, secure:false for port 587
-    auth: {
-        user: &#39;username@example.com&#39;,
-        pass: &#39;userpass&#39;
-    }
-});
+// Generate test SMTP service account from ethereal.email
+nodemailer.createTestAccount((err, account) =&amp;gt; {
 
-// setup email data with unicode symbols
-let mailOptions = {
-    from: &#39;&amp;quot;Fred Foo 👻&amp;quot; &amp;lt;foo@blurdybloop.com&amp;gt;&#39;, // sender address
-    to: &#39;bar@blurdybloop.com, baz@blurdybloop.com&#39;, // list of receivers
-    subject: &#39;Hello ✔&#39;, // Subject line
-    text: &#39;Hello world ?&#39;, // plain text body
-    html: &#39;&amp;lt;b&amp;gt;Hello world ?&amp;lt;/b&amp;gt;&#39; // html body
-};
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+        host: &#39;smtp.ethereal.email&#39;,
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: account.user, // generated ethereal user
+            pass: account.pass  // generated ethereal password
+        }
+    });
 
-// send mail with defined transport object
-transporter.sendMail(mailOptions, (error, info) =&amp;gt; {
-    if (error) {
-        return console.log(error);
-    }
-    console.log(&#39;Message %s sent: %s&#39;, info.messageId, info.response);
+    // setup email data with unicode symbols
+    let mailOptions = {
+        from: &#39;&amp;quot;Fred Foo 👻&amp;quot; &amp;lt;foo@blurdybloop.com&amp;gt;&#39;, // sender address
+        to: &#39;bar@blurdybloop.com, baz@blurdybloop.com&#39;, // list of receivers
+        subject: &#39;Hello ✔&#39;, // Subject line
+        text: &#39;Hello world?&#39;, // plain text body
+        html: &#39;&amp;lt;b&amp;gt;Hello world?&amp;lt;/b&amp;gt;&#39; // html body
+    };
+
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) =&amp;gt; {
+        if (error) {
+            return console.log(error);
+        }
+        console.log(&#39;Message sent: %s&#39;, info.messageId);
+        console.log(&#39;Preview URL: %s&#39;, nodemailer.getTestMessageUrl(info));
+    });
 });
 &lt;/code&gt;&lt;/pre&gt;
 
