@@ -274,7 +274,9 @@ transporter.on(&#39;idle&#39;, function(){
       <guid>https://nodemailer.com/smtp/testing/</guid>
       <description>
 
-&lt;p&gt;When building complex applications then sooner or later you end up in a situation where you need to send emails from your application in test environment but do not want to accidentally spam anyone. One solution would be to separate development email addresses and use only some specific testing account but a better approach would be to use a separate email catching service that accepts all messages like a normal transactional SMTP service but instead of delivering these to destination, it only logs these messages.&lt;/p&gt;
+&lt;p&gt;When building complex applications then sooner or later you end up in a situation where you need to send emails from your application in test environment but do not want to accidentally spam anyone.&lt;/p&gt;
+
+&lt;p&gt;One solution would be to separate development email addresses and use only some specific testing address to send all mail to but a better approach would be to use a separate email catching service that accepts all messages like a normal transactional SMTP service would but instead of delivering these to destination, it only logs these messages.&lt;/p&gt;
 
 &lt;p&gt;There are several options for using such a service, Nodemailer has built-in support for &lt;a href=&#34;https://ethereal.email&#34;&gt;Ethereal Email&lt;/a&gt;. You can create new testing account on the fly by using the &lt;code&gt;createTestAccount&lt;/code&gt; method or from the Ethereal homepage.&lt;/p&gt;
 

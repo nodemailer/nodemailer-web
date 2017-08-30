@@ -8,7 +8,9 @@ weight = 22
 
 +++
 
-When building complex applications then sooner or later you end up in a situation where you need to send emails from your application in test environment but do not want to accidentally spam anyone. One solution would be to separate development email addresses and use only some specific testing account but a better approach would be to use a separate email catching service that accepts all messages like a normal transactional SMTP service but instead of delivering these to destination, it only logs these messages.
+When building complex applications then sooner or later you end up in a situation where you need to send emails from your application in test environment but do not want to accidentally spam anyone.
+
+One solution would be to separate development email addresses and use only some specific testing address to send all mail to but a better approach would be to use a separate email catching service that accepts all messages like a normal transactional SMTP service would but instead of delivering these to destination, it only logs these messages.
 
 There are several options for using such a service, Nodemailer has built-in support for [Ethereal Email](https://ethereal.email). You can create new testing account on the fly by using the `createTestAccount` method or from the Ethereal homepage.
 
