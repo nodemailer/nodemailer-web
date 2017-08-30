@@ -77,6 +77,11 @@
   </url>
   
   <url>
+    <loc>https://nodemailer.com/smtp/testing/</loc>
+    <lastmod>2017-01-20T11:20:07+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nodemailer.com/smtp/oauth2/</loc>
     <lastmod>2017-01-20T10:45:57+02:00</lastmod>
   </url>

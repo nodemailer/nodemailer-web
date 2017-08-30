@@ -267,6 +267,65 @@ transporter.on(&#39;idle&#39;, function(){
     </item>
     
     <item>
+      <title>Testing SMTP</title>
+      <link>https://nodemailer.com/smtp/testing/</link>
+      <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/smtp/testing/</guid>
+      <description>
+
+&lt;p&gt;When building complex applications then sooner or later you end up in a situation where you need to send emails from your application in test environment but do not want to accidentally spam anyone. One solution would be to separate development email addresses and use only some specific testing account but a better approach would be to use a separate email catching service that accepts all messages like a normal transactional SMTP service but instead of delivering these to destination, it only logs these messages.&lt;/p&gt;
+
+&lt;p&gt;There are several options for using such a service, Nodemailer has built-in support for &lt;a href=&#34;https://ethereal.email&#34;&gt;Ethereal Email&lt;/a&gt;. You can create new testing account on the fly by using the &lt;code&gt;createTestAccount&lt;/code&gt; method or from the Ethereal homepage.&lt;/p&gt;
+
+&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
+
+&lt;h4 id=&#34;create-a-testing-account-on-the-fly&#34;&gt;Create a testing account on the fly&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;nodemailer.createTestAccount((err, account) =&amp;gt; {
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+        host: &#39;smtp.ethereal.email&#39;,
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: account.user, // generated ethereal user
+            pass: account.pass  // generated ethereal password
+        }
+    });
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;use-environment-specific-smtp-settings&#34;&gt;Use environment specific SMTP settings&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var mailConfig;
+if (process.env.NODE_ENV === &#39;production&#39; ){
+    // all emails are delivered to destination
+    mailConfig = {
+        host: &#39;smtp.sendgrid.net&#39;,
+        port: 587,
+        auth: {
+            user: &#39;real.user&#39;,
+            user: &#39;verysecret&#39;
+        }
+    };
+} else {
+    // all emails are catched by ethereal.email
+    mailConfig = {
+        host: &#39;smtp.ethereal.email&#39;,
+        port: 587,
+        auth: {
+            user: &#39;ethereal.user@ethereal.email&#39;,
+            user: &#39;verysecret&#39;
+        }
+    };
+}
+let transport = nodemailer.createTransport(mailConfig);
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>OAuth2</title>
       <link>https://nodemailer.com/smtp/oauth2/</link>
       <pubDate>Fri, 20 Jan 2017 10:45:57 +0200</pubDate>

@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     
-    <title>SMTP Connection</title>
+    <title>Testing SMTP</title>
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -28,7 +28,7 @@
     
 
   </head>
-  <body class="" data-url="/extras/smtp-connection/">
+  <body class="" data-url="/smtp/testing/">
     <nav id="sidebar">
   <div id="header-wrapper">
     <div id="header">
@@ -284,7 +284,7 @@
       
       
 
-      <li class="dd-item  " data-nav-id="/smtp/">
+      <li class="dd-item  parent" data-nav-id="/smtp/">
         <a href="/smtp/">
           <span>
             
@@ -316,7 +316,7 @@
           
           
           
-            <li class="dd-item " data-nav-id="/smtp/testing/">
+            <li class="dd-item active" data-nav-id="/smtp/testing/">
               <a href="/smtp/testing/">
                 <span>Testing SMTP     </i></span>
               </a>
@@ -470,7 +470,7 @@
       
       
 
-      <li class="dd-item  parent" data-nav-id="/extras/">
+      <li class="dd-item  " data-nav-id="/extras/">
         <a href="/extras/">
           <span>
             
@@ -494,7 +494,7 @@
           
           
           
-            <li class="dd-item active" data-nav-id="/extras/smtp-connection/">
+            <li class="dd-item " data-nav-id="/extras/smtp-connection/">
               <a href="/extras/smtp-connection/">
                 <span>SMTP Connection     </i></span>
               </a>
@@ -562,9 +562,15 @@
                   
                 
                   
+                
+                  
+                
+                  
+                
+                  
                     
                     
-                <a href="/extras/" itemprop="url"><span itemprop="title">Extra modules</span></a> <i class="fa fa-angle-right"></i>
+                <a href="/smtp/" itemprop="url"><span itemprop="title">SMTP transport</span></a> <i class="fa fa-angle-right"></i>
                     
                   
                 
@@ -572,13 +578,7 @@
                 
                   
                 
-                  
-                
-                  
-                
-                  
-                
-                <span itemprop="title"> SMTP Connection</span>
+                <span itemprop="title"> Testing SMTP</span>
               </div>
               
                   <div class="progress">
@@ -587,23 +587,14 @@
 <ul>
 <li>
 <ul>
-<li><a href="#usage">Usage</a>
-<ul>
 <li>
 <ul>
-<li><a href="#step-1-install-nodemailer-with-npm">Step 1. Install Nodemailer with npm</a></li>
-<li><a href="#step-2-require-smtp-connection-in-your-script">Step 2. Require <em>smtp-connection</em> in your script</a></li>
-<li><a href="#step-3-create-smtpconnection-instance">Step 3. Create SMTPConnection instance</a></li>
+<li><a href="#examples">Examples</a>
+<ul>
+<li><a href="#create-a-testing-account-on-the-fly">Create a testing account on the fly</a></li>
+<li><a href="#use-environment-specific-smtp-settings">Use environment specific SMTP settings</a></li>
 </ul></li>
-<li><a href="#events">Events</a></li>
-<li><a href="#connect">connect</a></li>
-<li><a href="#login">login</a></li>
-<li><a href="#send">send</a></li>
-<li><a href="#quit">quit</a></li>
-<li><a href="#close">close</a></li>
-<li><a href="#reset">reset</a></li>
 </ul></li>
-<li><a href="#license">License</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -616,186 +607,59 @@
             
     	        <div id="body-inner">
                 
-                <h1>SMTP Connection</h1>
+                <h1>Testing SMTP</h1>
                 
 
 
 
-<p>SMTP client module to connect to SMTP servers and send mail with it.</p>
+<p>When building complex applications then sooner or later you end up in a situation where you need to send emails from your application in test environment but do not want to accidentally spam anyone. One solution would be to separate development email addresses and use only some specific testing account but a better approach would be to use a separate email catching service that accepts all messages like a normal transactional SMTP service but instead of delivering these to destination, it only logs these messages.</p>
 
-<p>This module is the successor for the client part of the (now deprecated) SMTP module <a href="https://www.npmjs.com/package/simplesmtp">simplesmtp</a>. For matching SMTP server see <a href="/extras/smtp-server/">smtp-server</a>.</p>
+<p>There are several options for using such a service, Nodemailer has built-in support for <a href="https://ethereal.email">Ethereal Email</a>. You can create new testing account on the fly by using the <code>createTestAccount</code> method or from the Ethereal homepage.</p>
 
-<h2 id="usage">Usage</h2>
+<h3 id="examples">Examples</h3>
 
-<h4 id="step-1-install-nodemailer-with-npm">Step 1. Install Nodemailer with npm</h4>
+<h4 id="create-a-testing-account-on-the-fly">Create a testing account on the fly</h4>
 
-<p><em>smtp-connection</em> is exposed as a submodule of Nodemailer</p>
-
-<pre><code class="language-bash">npm install nodemailer --save
+<pre><code class="language-javascript">nodemailer.createTestAccount((err, account) =&gt; {
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+        host: 'smtp.ethereal.email',
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: account.user, // generated ethereal user
+            pass: account.pass  // generated ethereal password
+        }
+    });
+});
 </code></pre>
 
-<h4 id="step-2-require-smtp-connection-in-your-script">Step 2. Require <em>smtp-connection</em> in your script</h4>
+<h4 id="use-environment-specific-smtp-settings">Use environment specific SMTP settings</h4>
 
-<pre><code class="language-javascript">const SMTPConnection = require('nodemailer/lib/smtp-connection');
+<pre><code class="language-javascript">var mailConfig;
+if (process.env.NODE_ENV === 'production' ){
+    // all emails are delivered to destination
+    mailConfig = {
+        host: 'smtp.sendgrid.net',
+        port: 587,
+        auth: {
+            user: 'real.user',
+            user: 'verysecret'
+        }
+    };
+} else {
+    // all emails are catched by ethereal.email
+    mailConfig = {
+        host: 'smtp.ethereal.email',
+        port: 587,
+        auth: {
+            user: 'ethereal.user@ethereal.email',
+            user: 'verysecret'
+        }
+    };
+}
+let transport = nodemailer.createTransport(mailConfig);
 </code></pre>
-
-<h4 id="step-3-create-smtpconnection-instance">Step 3. Create SMTPConnection instance</h4>
-
-<pre><code class="language-javascript">let connection = new SMTPConnection(options);
-</code></pre>
-
-<p>Where</p>
-
-<ul>
-<li><p><strong>options</strong> defines connection data</p>
-
-<ul>
-<li><strong>options.port</strong> is the port to connect to (defaults to 25 or 465)</li>
-<li><strong>options.host</strong> is the hostname or IP address to connect to (defaults to &lsquo;localhost&rsquo;)</li>
-<li><strong>options.secure</strong> defines if the connection should use SSL (if <em>true</em>) or not (if <em>false</em>)</li>
-<li><strong>options.ignoreTLS</strong> turns off STARTTLS support if true</li>
-<li><strong>options.requireTLS</strong> forces the client to use STARTTLS. Returns an error if upgrading the connection is not possible or fails.</li>
-<li><strong>options.opportunisticTLS</strong> tries to use STARTTLS and continues normally if it fails</li>
-<li><strong>options.name</strong> optional hostname of the client, used for identifying to the server</li>
-<li><strong>options.localAddress</strong> is the local interface to bind to for network connections</li>
-<li><strong>options.connectionTimeout</strong> how many milliseconds to wait for the connection to establish</li>
-<li><strong>options.greetingTimeout</strong> how many milliseconds to wait for the greeting after connection is established</li>
-<li><strong>options.socketTimeout</strong> how many milliseconds of inactivity to allow</li>
-<li><strong>options.logger</strong> optional <a href="https://github.com/trentm/node-bunyan">bunyan</a> compatible logger instance. If set to <em>true</em> then logs to console. If value is not set or is <em>false</em> then nothing is logged</li>
-<li><strong>options.transactionLog</strong> if set to true, then logs SMTP traffic without message content</li>
-<li><strong>options.debug</strong> if set to true, then logs SMTP traffic and message content, otherwise logs only transaction events</li>
-<li><strong>options.authMethod</strong> defines preferred authentication method, e.g. &lsquo;PLAIN&rsquo;</li>
-<li><strong>options.tls</strong> defines additional options to be passed to the socket constructor, e.g. <em>{rejectUnauthorized: true}</em></li>
-<li><strong>options.socket</strong> - initialized socket to use instead of creating a new one</li>
-<li><strong>options.connection</strong> - connected socket to use instead of creating and connecting a new one. If <em>secure</em> option is true, then socket is upgraded from plaintext to ciphertext</li>
-</ul></li>
-</ul>
-
-<h3 id="events">Events</h3>
-
-<p>SMTPConnection instances are event emitters with the following events</p>
-
-<ul>
-<li><strong>&lsquo;error&rsquo;</strong> <em>(err)</em> emitted when an error occurs. Connection is closed automatically in this case.</li>
-<li><strong>&lsquo;connect&rsquo;</strong> emitted when the connection is established</li>
-<li><strong>&lsquo;end&rsquo;</strong> when the instance is destroyed</li>
-</ul>
-
-<h3 id="connect">connect</h3>
-
-<p>Establish the connection</p>
-
-<pre><code class="language-javascript">connection.connect(callback)
-</code></pre>
-
-<p>Where</p>
-
-<ul>
-<li><strong>callback</strong> is the function to run once the connection is established. The function is added as a listener to the &lsquo;connect&rsquo; event.</li>
-</ul>
-
-<p>After the connect event the <em>connection</em> has the following properties:</p>
-
-<ul>
-<li><strong>connection.secure</strong> - if <em>true</em> then the connection uses a TLS socket, otherwise it is using a cleartext socket. Connection can start out as cleartext but if available (or <em>requireTLS</em> is set to true) connection upgrade is tried</li>
-</ul>
-
-<h3 id="login">login</h3>
-
-<p>If the server requires authentication you can login with</p>
-
-<pre><code class="language-javascript">connection.login(auth, callback)
-</code></pre>
-
-<p>Where</p>
-
-<ul>
-<li><p><strong>auth</strong> is the authentication object</p>
-
-<ul>
-<li><strong>credentials</strong> is a normal authentication object</li>
-<li><strong>credentials.user</strong> is the username</li>
-<li><strong>credentials.pass</strong> is the password</li>
-<li><strong>oauth2</strong> if set then forces smtp-connection to use XOAuth2 for authentication</li>
-<li><strong>oauth2.user</strong> is the username</li>
-<li><strong>oauth2.clientId</strong> is the OAuth2 Client ID</li>
-<li><strong>oauth2.clientSecret</strong> is the OAuth2 Client Secret</li>
-<li><strong>oauth2.refreshToken</strong> is the refresh token to generate new access token if needed</li>
-<li><strong>oauth2.accessToken</strong> is the access token</li>
-</ul></li>
-
-<li><p><strong>callback</strong> is the callback to run once the authentication is finished. Callback has the following arguments</p>
-
-<ul>
-<li><strong>err</strong> and error object if authentication failed</li>
-</ul></li>
-</ul>
-
-<h3 id="send">send</h3>
-
-<p>Once the connection is authenticated (or just after connection is established if authentication is not required), you can send mail with</p>
-
-<pre><code class="language-javascript">connection.send(envelope, message, callback)
-</code></pre>
-
-<p>Where</p>
-
-<ul>
-<li><p><strong>envelope</strong> is the envelope object to use</p>
-
-<ul>
-<li><strong>envelope.from</strong> is the sender address</li>
-<li><strong>envelope.to</strong> is the recipient address or an array of addresses</li>
-<li><strong>envelope.size</strong> is an optional value of the predicted size of the message in bytes. This value is used if the server supports the SIZE extension (RFC1870)</li>
-<li><strong>envelope.use8BitMime</strong> if <em>true</em> then inform the server that this message might contain bytes outside 7bit ascii range</li>
-<li><strong>envelope.dsn</strong> is the dsn options</li>
-<li><strong>envelope.dsn.ret</strong> return either the full message &lsquo;FULL&rsquo; or only headers &lsquo;HDRS&rsquo;</li>
-<li><strong>envelope.dsn.envid</strong> sender&rsquo;s &lsquo;envelope identifier&rsquo; for tracking</li>
-<li><strong>envelope.dsn.notify</strong> when to send a DSN. Multiple options are OK - array or comma delimited. NEVER must appear by itself. Available options: &lsquo;NEVER&rsquo;, &lsquo;SUCCESS&rsquo;, &lsquo;FAILURE&rsquo;, &lsquo;DELAY&rsquo;</li>
-<li><strong>envelope.dsn.orcpt</strong> original recipient</li>
-</ul></li>
-
-<li><p><strong>message</strong> is either a String, Buffer or a Stream. All newlines are converted to \r\n and all dots are escaped automatically, no need to convert anything before.</p></li>
-
-<li><p><strong>callback</strong> is the callback to run once the sending is finished or failed. Callback has the following arguments</p>
-
-<ul>
-<li><strong>err</strong> and error object if sending failed</li>
-<li><strong>err.code</strong> string code identifying the error, for example &lsquo;EAUTH&rsquo; is returned when authentication fails</li>
-<li><strong>err.response</strong> is the last response received from the server (if the error is caused by an error response from the server)</li>
-<li><strong>err.responseCode</strong> is the numeric response code of the <em>response</em> string (if available)</li>
-<li><strong>info</strong> information object about accepted and rejected recipients</li>
-<li><strong>info.accepted</strong> an array of accepted recipient addresses. Normally this array should contain at least one address except when in LMTP mode. In this case the message itself might have succeeded but all recipients were rejected after sending the message.</li>
-<li><strong>info.rejected</strong> an array of rejected recipient addresses. This array includes both the addresses that were rejected before sending the message and addresses rejected after sending it if using LMTP</li>
-<li><strong>info.rejectedErrors</strong> if some recipients were rejected then this property holds an array of error objects for the rejected recipients</li>
-<li><strong>info.response</strong> is the last response received from the server</li>
-</ul></li>
-</ul>
-
-<h3 id="quit">quit</h3>
-
-<p>Use it for graceful disconnect</p>
-
-<pre><code class="language-javascript">connection.quit();
-</code></pre>
-
-<h3 id="close">close</h3>
-
-<p>Use it for less graceful disconnect</p>
-
-<pre><code class="language-javascript">connection.close();
-</code></pre>
-
-<h3 id="reset">reset</h3>
-
-<p>Use it to reset current session (invokes RSET command)</p>
-
-<pre><code class="language-javascript">connection.reset(callback);
-</code></pre>
-
-<h2 id="license">License</h2>
-
-<p><strong>MIT</strong></p>
 
 
       
@@ -804,8 +668,8 @@
 
     <div id="navigation">
         
-        <a class="nav nav-prev" href="/extras/smtp-server/"> <i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/extras/mailparser/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="/smtp/pooled/"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/smtp/oauth2/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
     </div>
 
     </section>
