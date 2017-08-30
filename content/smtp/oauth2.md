@@ -1,7 +1,7 @@
 +++
 date = "2017-01-20T10:45:57+02:00"
 toc = true
-prev = "/smtp/pooled/"
+prev = "/smtp/testing/"
 next = "/smtp/proxies/"
 weight = 23
 title = "OAuth2"

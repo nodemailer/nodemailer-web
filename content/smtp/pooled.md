@@ -3,7 +3,7 @@ title = "Pooled SMTP"
 date = "2017-01-20T11:20:07+02:00"
 toc = true
 prev = "/smtp/envelope/"
-next = "/smtp/oauth2/"
+next = "/smtp/testing/"
 weight = 21
 
 +++
