@@ -664,8 +664,19 @@ if (process.env.NODE_ENV === 'production' ){
         }
     };
 }
-let transport = nodemailer.createTransport(mailConfig);
+let transporter = nodemailer.createTransport(mailConfig);
 </code></pre>
+
+<p>Sending a message to Ethereal gives you a link to the stored message. You can either get the link using <code>getTestMessageUrl</code> method or log in to Ethereal and open the Messages section.</p>
+
+<pre><code class="language-javascript">transporter.sendMail(...).then(info=&gt;{
+    console.log('Preview URL: ' + nodemailer.getTestMessageUrl(info));
+});
+</code></pre>
+
+<p>Output of the the <a href="https://github.com/nodemailer/nodemailer/blob/master/examples/full.js">example script</a> as shown by the <a href="https://ethereal.email/">Ethereal</a> mail catching service:</p>
+
+<p><img src="https://cldup.com/D5Cj_C1Vw3.png" alt="" /></p>
 
 
       
