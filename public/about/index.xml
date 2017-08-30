@@ -116,6 +116,10 @@ nodemailer.createTestAccount((err, account) =&amp;gt; {
 &lt;li&gt;&lt;strong&gt;Nodemailer AMQP example&lt;/strong&gt; is an example of using RabbitMQ to manage Nodemailer email messages. &lt;a href=&#34;https://github.com/nodemailer/nodemailer-amqp-example&#34;&gt;Source&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;Output of the the &lt;a href=&#34;https://github.com/nodemailer/nodemailer/blob/master/examples/full.js&#34;&gt;example script&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://cldup.com/D5Cj_C1Vw3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 
 &lt;p&gt;Nodemailer is created by &lt;a href=&#34;https://github.com/andris9&#34;&gt;Andris Reinman&lt;/a&gt;. The Nodemailer logo was designed by &lt;a href=&#34;https://www.behance.net/kristjansen&#34;&gt;Sven Kristjansen&lt;/a&gt;.&lt;/p&gt;
