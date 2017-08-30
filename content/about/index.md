@@ -103,7 +103,7 @@ nodemailer.createTestAccount((err, account) => {
 
 - **Nodemailer AMQP example** is an example of using RabbitMQ to manage Nodemailer email messages. [Source](https://github.com/nodemailer/nodemailer-amqp-example).
 
-Output of the the [example script](https://github.com/nodemailer/nodemailer/blob/master/examples/full.js)
+Output of the the [example script](https://github.com/nodemailer/nodemailer/blob/master/examples/full.js) as shown by the [Ethereal](https://ethereal.email/) mail catching service:
 
 ![](https://cldup.com/D5Cj_C1Vw3.png)
 
