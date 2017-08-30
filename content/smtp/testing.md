@@ -35,7 +35,7 @@ nodemailer.createTestAccount((err, account) => {
 
 #### Use environment specific SMTP settings
 
-This example assumes you have already generated as user account at Ethereal. You can do this for example for the [login page](https://ethereal.email/login).
+This example assumes you have already generated as user account at Ethereal. You can do this for example from the [login page](https://ethereal.email/login) or re-use the credentials created in the previous example.
 
 ```javascript
 var mailConfig;

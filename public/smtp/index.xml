@@ -300,7 +300,7 @@ transporter.on(&#39;idle&#39;, function(){
 
 &lt;h4 id=&#34;use-environment-specific-smtp-settings&#34;&gt;Use environment specific SMTP settings&lt;/h4&gt;
 
-&lt;p&gt;This example assumes you have already generated as user account at Ethereal. You can do this for example for the &lt;a href=&#34;https://ethereal.email/login&#34;&gt;login page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This example assumes you have already generated as user account at Ethereal. You can do this for example from the &lt;a href=&#34;https://ethereal.email/login&#34;&gt;login page&lt;/a&gt; or re-use the credentials created in the previous example.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var mailConfig;
 if (process.env.NODE_ENV === &#39;production&#39; ){
