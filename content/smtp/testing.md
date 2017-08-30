@@ -16,6 +16,8 @@ There are several options for using such a service, Nodemailer has built-in supp
 
 #### Create a testing account on the fly
 
+**NB!** Do not forget to store these credentials somewhere if you want to browse sent messages at [ethereal.email](https://ethereal.email)
+
 ```javascript
 nodemailer.createTestAccount((err, account) => {
     // create reusable transporter object using the default SMTP transport
@@ -32,6 +34,8 @@ nodemailer.createTestAccount((err, account) => {
 ```
 
 #### Use environment specific SMTP settings
+
+This example assumes you have already generated as user account at Ethereal. You can do this for example for the [login page](https://ethereal.email/login).
 
 ```javascript
 var mailConfig;

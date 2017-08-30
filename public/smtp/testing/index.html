@@ -620,6 +620,8 @@
 
 <h4 id="create-a-testing-account-on-the-fly">Create a testing account on the fly</h4>
 
+<p><strong>NB!</strong> Do not forget to store these credentials somewhere if you want to browse sent messages at <a href="https://ethereal.email">ethereal.email</a></p>
+
 <pre><code class="language-javascript">nodemailer.createTestAccount((err, account) =&gt; {
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
@@ -635,6 +637,8 @@
 </code></pre>
 
 <h4 id="use-environment-specific-smtp-settings">Use environment specific SMTP settings</h4>
+
+<p>This example assumes you have already generated as user account at Ethereal. You can do this for example for the <a href="https://ethereal.email/login">login page</a>.</p>
 
 <pre><code class="language-javascript">var mailConfig;
 if (process.env.NODE_ENV === 'production' ){

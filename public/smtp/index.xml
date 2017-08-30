@@ -282,6 +282,8 @@ transporter.on(&#39;idle&#39;, function(){
 
 &lt;h4 id=&#34;create-a-testing-account-on-the-fly&#34;&gt;Create a testing account on the fly&lt;/h4&gt;
 
+&lt;p&gt;&lt;strong&gt;NB!&lt;/strong&gt; Do not forget to store these credentials somewhere if you want to browse sent messages at &lt;a href=&#34;https://ethereal.email&#34;&gt;ethereal.email&lt;/a&gt;&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;nodemailer.createTestAccount((err, account) =&amp;gt; {
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
@@ -297,6 +299,8 @@ transporter.on(&#39;idle&#39;, function(){
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4 id=&#34;use-environment-specific-smtp-settings&#34;&gt;Use environment specific SMTP settings&lt;/h4&gt;
+
+&lt;p&gt;This example assumes you have already generated as user account at Ethereal. You can do this for example for the &lt;a href=&#34;https://ethereal.email/login&#34;&gt;login page&lt;/a&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var mailConfig;
 if (process.env.NODE_ENV === &#39;production&#39; ){
