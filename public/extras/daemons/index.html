@@ -13,7 +13,7 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     
-    <title>Message configuration</title>
+    <title>Node.js daemons</title>
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -28,7 +28,7 @@
     
 
   </head>
-  <body class="" data-url="/message/">
+  <body class="" data-url="/extras/daemons/">
     <nav id="sidebar">
   <div id="header-wrapper">
     <div id="header">
@@ -192,7 +192,7 @@
       
       
 
-      <li class="dd-item active parent" data-nav-id="/message/">
+      <li class="dd-item  " data-nav-id="/message/">
         <a href="/message/">
           <span>
             
@@ -470,7 +470,7 @@
       
       
 
-      <li class="dd-item  " data-nav-id="/extras/">
+      <li class="dd-item  parent" data-nav-id="/extras/">
         <a href="/extras/">
           <span>
             
@@ -518,7 +518,7 @@
           
           
           
-            <li class="dd-item " data-nav-id="/extras/daemons/">
+            <li class="dd-item active" data-nav-id="/extras/daemons/">
               <a href="/extras/daemons/">
                 <span>Node.js daemons     </i></span>
               </a>
@@ -570,10 +570,10 @@
                   
                 
                   
-                
-                  
                     
                     
+                <a href="/extras/" itemprop="url"><span itemprop="title">Extra modules</span></a> <i class="fa fa-angle-right"></i>
+                    
                   
                 
                   
@@ -584,28 +584,22 @@
                 
                   
                 
-                <span itemprop="title"> Message configuration</span>
+                  
+                
+                <span itemprop="title"> Node.js daemons</span>
               </div>
               
                   <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#message-configuration">Message configuration</a>
+<li>
 <ul>
 <li>
 <ul>
-<li><a href="#commmon-fields">Commmon fields</a></li>
-<li><a href="#more-advanced-fields">More advanced fields</a>
-<ul>
-<li>
-<ul>
-<li><a href="#routing-options">Routing options</a></li>
-<li><a href="#content-options">Content options</a></li>
-<li><a href="#header-options">Header options</a></li>
-<li><a href="#security-options">Security options</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#1-application">1. Application</a></li>
+<li><a href="#2-setting-up-git">2. Setting up git</a></li>
+<li><a href="#3-setting-up-server">3. Setting up server</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -617,118 +611,88 @@
 
             </div>
             
-              <div id="chapter">
-            
     	        <div id="body-inner">
+                
+                <h1>Node.js daemons</h1>
                 
 
 
 
-<h1 id="message-configuration">Message configuration</h1>
-
-<p>The following are the possible fields of an email message:</p>
-
-<h3 id="commmon-fields">Commmon fields</h3>
+<p>This tutorial shows how to set up Node.js applications as daemon services under Linux. Specifically the following would apply:</p>
 
 <ul>
-<li><strong>from</strong> - The email address of the sender. All email addresses can be plain <em>&lsquo;sender@server.com&rsquo;</em> or formatted <em>&rsquo;&ldquo;Sender Name&rdquo; <a href="mailto:sender@server.com">sender@server.com</a>&lsquo;</em>, see <a href="/message/addresses/">Address object</a> for details</li>
-<li><strong>to</strong> - Comma separated list or an array of recipients email addresses that will appear on the <em>To:</em> field</li>
-<li><strong>cc</strong> - Comma separated list or an array of recipients email addresses that will appear on the <em>Cc:</em> field</li>
-<li><strong>bcc</strong> - Comma separated list or an array of recipients email addresses that will appear on the <em>Bcc:</em> field</li>
-<li><strong>subject</strong> - The subject of the email</li>
-<li><strong>text</strong> - The plaintext version of the message as an Unicode string, Buffer, Stream or an attachment-like object (<em>{path: &lsquo;/var/data/&hellip;&rsquo;}</em>)</li>
-<li><strong>html</strong> - The HTML version of the message as an Unicode string, Buffer, Stream or an attachment-like object (<em>{path: &lsquo;http://&hellip;&lsquo;}</em>)</li>
-<li><strong>attachments</strong> - An array of attachment objects (see <a href="/message/attachments/">Using attachments</a> for details). Attachments can be used for <a href="/message/embedded-images/">embedding images</a> as well.</li>
+<li>The daemon application is a Node.js web app</li>
+<li>Daemon is set up as a SystemD services</li>
+<li>Node.js app is accessed as a Nginx virtual domain</li>
+<li>Updates are deployed using git</li>
 </ul>
 
-<p>A large majority of emails sent look a lot like this, using only a few basic fields:</p>
+<blockquote>
+<p>Even though this tutorial uses a web app as the service daemon, then the same approach can be used for deploying any kind of services.</p>
+</blockquote>
 
-<pre><code class="language-javascript">var message = {
-    from: 'sender@server.com',
-    to: 'receiver@sender.com',
-    subject: 'Message title',
-    text: 'Plaintext version of the message',
-    html: '&lt;p&gt;HTML version of the message&lt;/p&gt;'
-};
-</code></pre>
+<h3 id="1-application">1. Application</h3>
 
-<div class="notices note" ><p>All text fields (email addresses, plaintext body, html body, attachment filenames) use UTF-8 as the encoding. Attachments are streamed as binary.</p>
-</div>
+<p>The application code is simple, it consists only from two files, the application script and package.json. It&rsquo;s a Node.js app that serves web requests at port 3000. For demo purposes the app uses <a href="https://www.npmjs.com/package/npmlog">npmlog</a> as a dependency that is only needed to demonstrate deploying dependencies.</p>
 
+<pre><code class="language-javascript">// index.js
+const http = require('http');
+const log = require('npmlog')
 
-<h3 id="more-advanced-fields">More advanced fields</h3>
+const hostname = '127.0.0.1';
+const port = 3000;
 
-<h5 id="routing-options">Routing options</h5>
+const server = http.createServer((req, res) =&gt; {
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello World\n');
+  log.http('App', req.url);
+});
 
-<ul>
-<li><strong>sender</strong> - An email address that will appear on the <em>Sender:</em> field (always prefer <em>from</em> if you&rsquo;re not sure which one to use)</li>
-<li><strong>replyTo</strong> - An email address that will appear on the <em>Reply-To:</em> field</li>
-<li><strong>inReplyTo</strong> - The Message-ID this message is replying to</li>
-<li><strong>references</strong> - Message-ID list (an array or space separated string)</li>
-<li><strong>envelope</strong> - optional SMTP envelope, if auto generated envelope is not suitable (see <a href="/smtp/envelope/">SMTP envelope</a> for details)</li>
-</ul>
-
-<h5 id="content-options">Content options</h5>
-
-<ul>
-<li><strong>attachDataUrls</strong> – if true then convert <em>data:</em> images in the HTML content of this message to embedded attachments</li>
-<li><strong>watchHtml</strong> - Apple Watch specific HTML version of the message</li>
-<li><strong>icalEvent</strong> – iCalendar event to use as an alternative. See details <a href="/message/calendar-events/">here</a></li>
-<li><strong>alternatives</strong> - An array of alternative text contents (in addition to text and html parts) (see <a href="/message/alternatives/">Using alternative content</a> for details)</li>
-<li><strong>encoding</strong> - identifies encoding for text/html strings (defaults to &lsquo;utf-8&rsquo;, other values are &lsquo;hex&rsquo; and &lsquo;base64&rsquo;)</li>
-<li><strong>raw</strong> - existing MIME message to use instead of generating a new one. See details <a href="/message/custom-source/">here</a></li>
-<li><strong>textEncoding</strong> - force content-transfer-encoding for text values (either <em>quoted-printable</em> or <em>base64</em>). By default the best option is detected (for lots of ascii use <em>quoted-printable</em>, otherwise <em>base64</em>)</li>
-</ul>
-
-<h5 id="header-options">Header options</h5>
-
-<ul>
-<li><strong>priority</strong> - Sets message importance headers, either <strong>&lsquo;high&rsquo;</strong>, <strong>&lsquo;normal&rsquo;</strong> (default) or <strong>&lsquo;low&rsquo;</strong>.</li>
-<li><strong>headers</strong> - An object or array of additional header fields (e.g. <em>{&ldquo;X-Key-Name&rdquo;: &ldquo;key value&rdquo;}</em> or <em>[{key: &ldquo;X-Key-Name&rdquo;, value: &ldquo;val1&rdquo;}, {key: &ldquo;X-Key-Name&rdquo;, value: &ldquo;val2&rdquo;}]</em>). Read more about custom headers <a href="/message/custom-headers/">here</a></li>
-<li><strong>messageId</strong> - optional Message-Id value, random value will be generated if not set</li>
-<li><strong>date</strong> - optional Date value, current UTC string will be used if not set</li>
-<li><strong>list</strong> - helper for setting List-* headers (see more <a href="/message/list-headers/">here</a>)</li>
-</ul>
-
-<h5 id="security-options">Security options</h5>
-
-<ul>
-<li><strong>disableFileAccess</strong> if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error. If this field is also set in the transport options, then the value in mail data is ignored</li>
-<li><strong>disableUrlAccess</strong> if true, then does not allow to use Urls as content. If this field is also set in the transport options, then the value in mail data is ignored</li>
-</ul>
-
-<pre><code class="language-javascript">var message = {
-    ...,
-    headers: {
-        'My-Custom-Header': 'header value'
-    },
-    date: new Date('2000-01-01 00:00:00')
-};
-</code></pre>
-
-<div class="notices info" ><p><strong>Memory leak warning!</strong> When using readable streams as content and sending fails then Nodemailer does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer only closes the streams it has opened itself (eg. file paths, URLs)</p>
-</div>
-
-
-<pre><code class="language-javascript">var htmlstream = fs.createReadStream('content.html');
-transport.sendMail({html: htmlstream}, function(err){
-    if(err){
-        // check if htmlstream is still open and close it to clean up
-    }
+server.listen(port, hostname, () =&gt; {
+  log.info('App', `Server running at http://${hostname}:${port}/`);
 });
 </code></pre>
 
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;demo-app&quot;,
+  &quot;private&quot;: true,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;dependencies&quot;: {
+    &quot;npmlog&quot;: &quot;^4.1.2&quot;
+  },
+  &quot;license&quot;: &quot;ISC&quot;
+}
+</code></pre>
 
-      
-        </div> 
+<h3 id="2-setting-up-git">2. Setting up git</h3>
+
+<p>Assuming we have these two files in a directory, let&rsquo;s set up git repository</p>
+
+<pre><code class="language-bash">$ git init
+  Initialized empty Git repository in ~/demo-app/.git/
+$ git add .
+$ git commit -m Initial
+  [master (root-commit) 057e7f3] initial
+   2 files changed, 27 insertions(+)
+   create mode 100644 index.js
+   create mode 100644 package.json
+</code></pre>
+
+<p>For now we do not set up remote repository, let&rsquo;s leave this for later.</p>
+
+<h3 id="3-setting-up-server">3. Setting up server</h3>
+
+
       
       </div>
     </div>
 
     <div id="navigation">
         
-        <a class="nav nav-prev" href="/usage/bulk-mail/"> <i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/message/attachments/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        <a class="nav nav-prev" href="/extras/mailcomposer/"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/about/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
     </div>
 
     </section>

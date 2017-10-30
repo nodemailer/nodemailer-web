@@ -517,6 +517,14 @@
             </li>
           
           
+          
+            <li class="dd-item " data-nav-id="/extras/daemons/">
+              <a href="/extras/daemons/">
+                <span>Node.js daemons     </i></span>
+              </a>
+            </li>
+          
+          
         </ul>
         
       </li>
@@ -795,7 +803,7 @@ let parser = new MailParser()
 
 <p>Header keys in the Map are lowercase.</p>
 
-<pre><code class="language-javascript">parser.on('headers', headers = {
+<pre><code class="language-javascript">parser.on('headers', headers =&gt; {
     console.log(headers.get('subject'));
 });
 </code></pre>
@@ -817,7 +825,7 @@ let parser = new MailParser()
     if(data.type === 'attachment'){
         console.log(data.filename);
         data.content.pipe(process.stdout);
-        data.on('end', ()=&gt;data.release());
+        data.content.on('end', ()=&gt;data.release());
     }
 });
 </code></pre>

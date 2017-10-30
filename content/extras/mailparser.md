@@ -168,7 +168,7 @@ The parser emits 'headers' once message headers have been processed. The headers
 Header keys in the Map are lowercase.
 
 ```javascript
-parser.on('headers', headers = {
+parser.on('headers', headers => {
     console.log(headers.get('subject'));
 });
 ```
@@ -189,7 +189,7 @@ parser.on('data', data => {
     if(data.type === 'attachment'){
         console.log(data.filename);
         data.content.pipe(process.stdout);
-        data.on('end', ()=>data.release());
+        data.content.on('end', ()=>data.release());
     }
 });
 ```

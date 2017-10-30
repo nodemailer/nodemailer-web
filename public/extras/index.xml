@@ -893,7 +893,7 @@ let parser = new MailParser()
 
 &lt;p&gt;Header keys in the Map are lowercase.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;parser.on(&#39;headers&#39;, headers = {
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;parser.on(&#39;headers&#39;, headers =&amp;gt; {
     console.log(headers.get(&#39;subject&#39;));
 });
 &lt;/code&gt;&lt;/pre&gt;
@@ -915,7 +915,7 @@ let parser = new MailParser()
     if(data.type === &#39;attachment&#39;){
         console.log(data.filename);
         data.content.pipe(process.stdout);
-        data.on(&#39;end&#39;, ()=&amp;gt;data.release());
+        data.content.on(&#39;end&#39;, ()=&amp;gt;data.release());
     }
 });
 &lt;/code&gt;&lt;/pre&gt;
@@ -1202,6 +1202,82 @@ with regular mail options. You can also use the regular address format, unicode 
 &lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;MIT&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Node.js daemons</title>
+      <link>https://nodemailer.com/extras/daemons/</link>
+      <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/extras/daemons/</guid>
+      <description>
+
+&lt;p&gt;This tutorial shows how to set up Node.js applications as daemon services under Linux. Specifically the following would apply:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;The daemon application is a Node.js web app&lt;/li&gt;
+&lt;li&gt;Daemon is set up as a SystemD services&lt;/li&gt;
+&lt;li&gt;Node.js app is accessed as a Nginx virtual domain&lt;/li&gt;
+&lt;li&gt;Updates are deployed using git&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Even though this tutorial uses a web app as the service daemon, then the same approach can be used for deploying any kind of services.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;1-application&#34;&gt;1. Application&lt;/h3&gt;
+
+&lt;p&gt;The application code is simple, it consists only from two files, the application script and package.json. It&amp;rsquo;s a Node.js app that serves web requests at port 3000. For demo purposes the app uses &lt;a href=&#34;https://www.npmjs.com/package/npmlog&#34;&gt;npmlog&lt;/a&gt; as a dependency that is only needed to demonstrate deploying dependencies.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// index.js
+const http = require(&#39;http&#39;);
+const log = require(&#39;npmlog&#39;)
+
+const hostname = &#39;127.0.0.1&#39;;
+const port = 3000;
+
+const server = http.createServer((req, res) =&amp;gt; {
+  res.statusCode = 200;
+  res.setHeader(&#39;Content-Type&#39;, &#39;text/plain&#39;);
+  res.end(&#39;Hello World\n&#39;);
+  log.http(&#39;App&#39;, req.url);
+});
+
+server.listen(port, hostname, () =&amp;gt; {
+  log.info(&#39;App&#39;, `Server running at http://${hostname}:${port}/`);
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  &amp;quot;name&amp;quot;: &amp;quot;demo-app&amp;quot;,
+  &amp;quot;private&amp;quot;: true,
+  &amp;quot;version&amp;quot;: &amp;quot;1.0.0&amp;quot;,
+  &amp;quot;main&amp;quot;: &amp;quot;index.js&amp;quot;,
+  &amp;quot;dependencies&amp;quot;: {
+    &amp;quot;npmlog&amp;quot;: &amp;quot;^4.1.2&amp;quot;
+  },
+  &amp;quot;license&amp;quot;: &amp;quot;ISC&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-setting-up-git&#34;&gt;2. Setting up git&lt;/h3&gt;
+
+&lt;p&gt;Assuming we have these two files in a directory, let&amp;rsquo;s set up git repository&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ git init
+  Initialized empty Git repository in ~/demo-app/.git/
+$ git add .
+$ git commit -m Initial
+  [master (root-commit) 057e7f3] initial
+   2 files changed, 27 insertions(+)
+   create mode 100644 index.js
+   create mode 100644 package.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For now we do not set up remote repository, let&amp;rsquo;s leave this for later.&lt;/p&gt;
+
+&lt;h3 id=&#34;3-setting-up-server&#34;&gt;3. Setting up server&lt;/h3&gt;
 </description>
     </item>
     

@@ -3,7 +3,7 @@ title = "Mailcomposer"
 date = "2017-01-21T00:12:25+02:00"
 toc = true
 prev = "/extras/mailparser/"
-next = "/about/"
+next = "/extras/daemons/"
 weight = 46
 
 +++
