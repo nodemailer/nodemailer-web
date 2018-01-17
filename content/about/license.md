@@ -18,6 +18,8 @@ Keeping a lower level infrastructure module under a restrictive license has turn
 
 If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations. I can also write a consulting invoice (I have a EU VAT number) if you can't do donations.
 
+My [OpenCollective page](https://opencollective.com/nodemailer)
+
 My [Patreon page](https://www.patreon.com/andrisreinman).
 
 My Bitcoin wallet is: `15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM`.
