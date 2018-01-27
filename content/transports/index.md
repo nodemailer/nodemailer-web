@@ -11,7 +11,7 @@ toc = true
 
 # Other transports
 
-In addition to the default [SMTP transport](/smtp/) you can use other kind of transports as well with Nodemailer. Some transprots are built-in, some need an external plugin. See _Available Transports_ below for known transports.
+In addition to the default [SMTP transport](/smtp/) you can use other kind of transports as well with Nodemailer. Some transports are built-in, some need an external plugin. See _Available Transports_ below for known transports.
 
 The following example uses [SES transport](/transports/ses/) (Amazon SES).
 

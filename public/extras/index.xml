@@ -1123,23 +1123,23 @@ Attachments are streamed as binary.&lt;/p&gt;
 
 &lt;p&gt;All the e-mail addresses can be plain e-mail addresses&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;foobar@blurdybloop.com
+&lt;pre&gt;&lt;code&gt;foobar@example.com
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;or with formatted name (includes unicode support)&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;&amp;quot;Ноде Майлер&amp;quot; &amp;lt;foobar@blurdybloop.com&amp;gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;Ноде Майлер&amp;quot; &amp;lt;foobar@example.com&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Notice that all address fields (even &lt;code&gt;from&lt;/code&gt;) are comma separated lists, so if you want to use a comma in the name part, make sure you enclose the name in double quotes: &lt;code&gt;&amp;quot;Майлер, Ноде&amp;quot; &amp;lt;foobar@blurdybloop.com&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Notice that all address fields (even &lt;code&gt;from&lt;/code&gt;) are comma separated lists, so if you want to use a comma in the name part, make sure you enclose the name in double quotes: &lt;code&gt;&amp;quot;Майлер, Ноде&amp;quot; &amp;lt;foobar@example.com&amp;gt;&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.)&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;{
     name: &#39;Майлер, Ноде&#39;,
-    address: &#39;foobar@blurdybloop.com&#39;
+    address: &#39;foobar@example.com&#39;
 }
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -1148,9 +1148,9 @@ e-mails or an array of comma separated list of e-mails or address objects - use 
 Formatting can be mixed.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;...,
-to: &#39;foobar@blurdybloop.com, &amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@blurdybloop.com&amp;gt;, &amp;quot;Name, User&amp;quot; &amp;lt;baz@blurdybloop.com&amp;gt;&#39;,
-cc: [&#39;foobar@blurdybloop.com&#39;, &#39;&amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@blurdybloop.com&amp;gt;, &amp;quot;Name, User&amp;quot; &amp;lt;baz@blurdybloop.com&amp;gt;&#39;],
-bcc: [&#39;foobar@blurdybloop.com&#39;, {name: &#39;Майлер, Ноде&#39;, address: &#39;foobar@blurdybloop.com&#39;}]
+to: &#39;foobar@example.com, &amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@example.com&amp;gt;, &amp;quot;Name, User&amp;quot; &amp;lt;baz@example.com&amp;gt;&#39;,
+cc: [&#39;foobar@example.com&#39;, &#39;&amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@example.com&amp;gt;, &amp;quot;Name, User&amp;quot; &amp;lt;baz@example.com&amp;gt;&#39;],
+bcc: [&#39;foobar@example.com&#39;, {name: &#39;Майлер, Ноде&#39;, address: &#39;foobar@example.com&#39;}]
 ...
 &lt;/code&gt;&lt;/pre&gt;
 

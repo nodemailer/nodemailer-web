@@ -232,17 +232,17 @@ transport.sendMail({html: htmlstream}, function(err){
       <guid>https://nodemailer.com/message/addresses/</guid>
       <description>&lt;p&gt;All email addresses can be &lt;strong&gt;plain&lt;/strong&gt; email addresses&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;foobar@blurdybloop.com&#39;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;foobar@example.com&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
 &lt;li&gt;or with &lt;strong&gt;formatted name&lt;/strong&gt; (includes unicode support)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;Ноде Майлер &amp;lt;foobar@blurdybloop.com&amp;gt;&#39;
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;Ноде Майлер &amp;lt;foobar@example.com&amp;gt;&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;Notice that all address fields (even &lt;em&gt;from:&lt;/em&gt;) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: &lt;code&gt;&#39;&amp;quot;Майлер, Ноде&amp;quot; &amp;lt;foobar@blurdybloop.com&amp;gt;&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;Notice that all address fields (even &lt;em&gt;from:&lt;/em&gt;) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: &lt;code&gt;&#39;&amp;quot;Майлер, Ноде&amp;quot; &amp;lt;foobar@example.com&amp;gt;&#39;&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 
@@ -252,24 +252,24 @@ transport.sendMail({html: htmlstream}, function(err){
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
     name: &#39;Майлер, Ноде&#39;,
-    address: &#39;foobar@blurdybloop.com&#39;
+    address: &#39;foobar@example.com&#39;
 }
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;All address fields accept values as a comma separated list of emails or an array of emails or an array of comma separated list of emails or address objects - use it as you like. Formatting can be mixed.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;...,
-to: &#39;foobar@blurdybloop.com, &amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@blurdybloop.com&amp;gt;, &amp;quot;Name, User&amp;quot; &amp;lt;baz@blurdybloop.com&amp;gt;&#39;,
+to: &#39;foobar@example.com, &amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@example.com&amp;gt;, &amp;quot;Name, User&amp;quot; &amp;lt;baz@example.com&amp;gt;&#39;,
 cc: [
-    &#39;foobar@blurdybloop.com&#39;,
-    &#39;&amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@blurdybloop.com&amp;gt;,
-    &amp;quot;Name, User&amp;quot; &amp;lt;baz@blurdybloop.com&amp;gt;&#39;
+    &#39;foobar@example.com&#39;,
+    &#39;&amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@example.com&amp;gt;,
+    &amp;quot;Name, User&amp;quot; &amp;lt;baz@example.com&amp;gt;&#39;
 ],
 bcc: [
-    &#39;foobar@blurdybloop.com&#39;,
+    &#39;foobar@example.com&#39;,
     {
         name: &#39;Майлер, Ноде&#39;,
-        address: &#39;foobar@blurdybloop.com&#39;
+        address: &#39;foobar@example.com&#39;
     }
 ]
 ...

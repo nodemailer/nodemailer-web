@@ -810,23 +810,23 @@ Attachments are streamed as binary.</p>
 
 <p>All the e-mail addresses can be plain e-mail addresses</p>
 
-<pre><code>foobar@blurdybloop.com
+<pre><code>foobar@example.com
 </code></pre>
 
 <p>or with formatted name (includes unicode support)</p>
 
-<pre><code>&quot;Ноде Майлер&quot; &lt;foobar@blurdybloop.com&gt;
+<pre><code>&quot;Ноде Майлер&quot; &lt;foobar@example.com&gt;
 </code></pre>
 
 <blockquote>
-<p>Notice that all address fields (even <code>from</code>) are comma separated lists, so if you want to use a comma in the name part, make sure you enclose the name in double quotes: <code>&quot;Майлер, Ноде&quot; &lt;foobar@blurdybloop.com&gt;</code></p>
+<p>Notice that all address fields (even <code>from</code>) are comma separated lists, so if you want to use a comma in the name part, make sure you enclose the name in double quotes: <code>&quot;Майлер, Ноде&quot; &lt;foobar@example.com&gt;</code></p>
 </blockquote>
 
 <p>or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.)</p>
 
 <pre><code>{
     name: 'Майлер, Ноде',
-    address: 'foobar@blurdybloop.com'
+    address: 'foobar@example.com'
 }
 </code></pre>
 
@@ -835,9 +835,9 @@ e-mails or an array of comma separated list of e-mails or address objects - use 
 Formatting can be mixed.</p>
 
 <pre><code>...,
-to: 'foobar@blurdybloop.com, &quot;Ноде Майлер&quot; &lt;bar@blurdybloop.com&gt;, &quot;Name, User&quot; &lt;baz@blurdybloop.com&gt;',
-cc: ['foobar@blurdybloop.com', '&quot;Ноде Майлер&quot; &lt;bar@blurdybloop.com&gt;, &quot;Name, User&quot; &lt;baz@blurdybloop.com&gt;'],
-bcc: ['foobar@blurdybloop.com', {name: 'Майлер, Ноде', address: 'foobar@blurdybloop.com'}]
+to: 'foobar@example.com, &quot;Ноде Майлер&quot; &lt;bar@example.com&gt;, &quot;Name, User&quot; &lt;baz@example.com&gt;',
+cc: ['foobar@example.com', '&quot;Ноде Майлер&quot; &lt;bar@example.com&gt;, &quot;Name, User&quot; &lt;baz@example.com&gt;'],
+bcc: ['foobar@example.com', {name: 'Майлер, Ноде', address: 'foobar@example.com'}]
 ...
 </code></pre>
 

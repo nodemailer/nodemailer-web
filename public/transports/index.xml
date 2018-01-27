@@ -19,7 +19,7 @@
 
 &lt;h1 id=&#34;other-transports&#34;&gt;Other transports&lt;/h1&gt;
 
-&lt;p&gt;In addition to the default &lt;a href=&#34;https://nodemailer.com/smtp/&#34;&gt;SMTP transport&lt;/a&gt; you can use other kind of transports as well with Nodemailer. Some transprots are built-in, some need an external plugin. See &lt;em&gt;Available Transports&lt;/em&gt; below for known transports.&lt;/p&gt;
+&lt;p&gt;In addition to the default &lt;a href=&#34;https://nodemailer.com/smtp/&#34;&gt;SMTP transport&lt;/a&gt; you can use other kind of transports as well with Nodemailer. Some transports are built-in, some need an external plugin. See &lt;em&gt;Available Transports&lt;/em&gt; below for known transports.&lt;/p&gt;
 
 &lt;p&gt;The following example uses &lt;a href=&#34;https://nodemailer.com/transports/ses/&#34;&gt;SES transport&lt;/a&gt; (Amazon SES).&lt;/p&gt;
 
@@ -75,7 +75,7 @@ let transporter = nodemailer.createTransport({
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;path&lt;/strong&gt; - path to the &lt;strong&gt;sendmail&lt;/strong&gt; command (defaults to &lt;em&gt;&amp;lsquo;sendmail&amp;rsquo;&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;newline&lt;/strong&gt; - either &lt;em&gt;&amp;lsquo;windows&amp;rsquo;&lt;/em&gt; or &lt;em&gt;&amp;lsquo;unix&amp;rsquo;&lt;/em&gt; (default). Forces all newlines in the output to either use Windows syntax &amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt; or Unix syntax &amp;lt;LF&amp;gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;args&lt;/strong&gt; - an optional array of command line options to pass to the &lt;strong&gt;sendmail&lt;/strong&gt; command (ie. &lt;code&gt;[&amp;quot;-f&amp;quot;, &amp;quot;foo@blurdybloop.com&amp;quot;]&lt;/code&gt;). This overrides all default arguments except for &lt;em&gt;&amp;rsquo;-i&amp;rsquo;&lt;/em&gt; and recipient list so you need to make sure you have all required arguments set (ie. the &amp;lsquo;-f&amp;rsquo; flag).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;args&lt;/strong&gt; - an optional array of command line options to pass to the &lt;strong&gt;sendmail&lt;/strong&gt; command (ie. &lt;code&gt;[&amp;quot;-f&amp;quot;, &amp;quot;foo@example.com&amp;quot;]&lt;/code&gt;). This overrides all default arguments except for &lt;em&gt;&amp;rsquo;-i&amp;rsquo;&lt;/em&gt; and recipient list so you need to make sure you have all required arguments set (ie. the &amp;lsquo;-f&amp;rsquo; flag).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;The command to be spawned by default looks like this:&lt;/p&gt;

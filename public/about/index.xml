@@ -92,8 +92,8 @@ nodemailer.createTestAccount((err, account) =&amp;gt; {
 
     // setup email data with unicode symbols
     let mailOptions = {
-        from: &#39;&amp;quot;Fred Foo 👻&amp;quot; &amp;lt;foo@blurdybloop.com&amp;gt;&#39;, // sender address
-        to: &#39;bar@blurdybloop.com, baz@blurdybloop.com&#39;, // list of receivers
+        from: &#39;&amp;quot;Fred Foo 👻&amp;quot; &amp;lt;foo@example.com&amp;gt;&#39;, // sender address
+        to: &#39;bar@example.com, baz@example.com&#39;, // list of receivers
         subject: &#39;Hello ✔&#39;, // Subject line
         text: &#39;Hello world?&#39;, // plain text body
         html: &#39;&amp;lt;b&amp;gt;Hello world?&amp;lt;/b&amp;gt;&#39; // html body
@@ -108,7 +108,7 @@ nodemailer.createTestAccount((err, account) =&amp;gt; {
         // Preview only available when sending through an Ethereal account
         console.log(&#39;Preview URL: %s&#39;, nodemailer.getTestMessageUrl(info));
 
-        // Message sent: &amp;lt;b658f8ca-6296-ccf4-8306-87d57a0b4321@blurdybloop.com&amp;gt;
+        // Message sent: &amp;lt;b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com&amp;gt;
         // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
     });
 });

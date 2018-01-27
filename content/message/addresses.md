@@ -11,17 +11,17 @@ toc = true
 All email addresses can be **plain** email addresses
 
 ```javascript
-'foobar@blurdybloop.com'
+'foobar@example.com'
 ```
 
 - or with **formatted name** (includes unicode support)
 
 ```javascript
-'Ноде Майлер <foobar@blurdybloop.com>'
+'Ноде Майлер <foobar@example.com>'
 ```
 
 {{% notice tip %}}
-Notice that all address fields (even *from:*) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: `'"Майлер, Ноде" <foobar@blurdybloop.com>'`
+Notice that all address fields (even *from:*) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: `'"Майлер, Ноде" <foobar@example.com>'`
 {{% /notice %}}
 
 - or as an **address object** (in this case you do not need to worry about the formatting, no need to use quotes etc.)
@@ -29,7 +29,7 @@ Notice that all address fields (even *from:*) are comma separated lists, so if y
 ```javascript
 {
     name: 'Майлер, Ноде',
-    address: 'foobar@blurdybloop.com'
+    address: 'foobar@example.com'
 }
 ```
 
@@ -37,17 +37,17 @@ All address fields accept values as a comma separated list of emails or an array
 
 ```javascript
 ...,
-to: 'foobar@blurdybloop.com, "Ноде Майлер" <bar@blurdybloop.com>, "Name, User" <baz@blurdybloop.com>',
+to: 'foobar@example.com, "Ноде Майлер" <bar@example.com>, "Name, User" <baz@example.com>',
 cc: [
-    'foobar@blurdybloop.com',
-    '"Ноде Майлер" <bar@blurdybloop.com>,
-    "Name, User" <baz@blurdybloop.com>'
+    'foobar@example.com',
+    '"Ноде Майлер" <bar@example.com>,
+    "Name, User" <baz@example.com>'
 ],
 bcc: [
-    'foobar@blurdybloop.com',
+    'foobar@example.com',
     {
         name: 'Майлер, Ноде',
-        address: 'foobar@blurdybloop.com'
+        address: 'foobar@example.com'
     }
 ]
 ...
