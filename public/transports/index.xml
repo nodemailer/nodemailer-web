@@ -54,7 +54,7 @@ let transporter = nodemailer.createTransport({
 &lt;li&gt;&lt;strong&gt;attachDataUrls&lt;/strong&gt; – if true, then converts &lt;em&gt;data:&lt;/em&gt; images in the HTML content in every message to embedded attachments&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;disableFileAccess&lt;/strong&gt; – if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;disableUrlAccess&lt;/strong&gt; – if true, then does not allow to use Urls as content&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;normalizeHeaderKey(key)&lt;/strong&gt; – a method that is applied to every header key before inserting to generated rfc822 message&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;normalizeHeaderKey(key)&lt;/strong&gt; – a method that is applied to every header key before inserting to generated rfc822 message. &lt;a href=&#34;https://github.com/nodemailer/nodemailer/blob/3e3ba4f30ad5a73f037f45d3e36a9361ca43a318/examples/custom-headers.js#L13-L14&#34;&gt;Example&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

@@ -42,4 +42,4 @@ Even though every transport has its own set of configuration options there are a
 * **attachDataUrls** – if true, then converts _data:_ images in the HTML content in every message to embedded attachments
 * **disableFileAccess** – if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error
 * **disableUrlAccess** – if true, then does not allow to use Urls as content
-* **normalizeHeaderKey(key)** – a method that is applied to every header key before inserting to generated rfc822 message
+* **normalizeHeaderKey(key)** – a method that is applied to every header key before inserting to generated rfc822 message. [Example](https://github.com/nodemailer/nodemailer/blob/3e3ba4f30ad5a73f037f45d3e36a9361ca43a318/examples/custom-headers.js#L13-L14)
