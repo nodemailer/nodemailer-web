@@ -636,7 +636,7 @@
 <pre><code class="language-javascript">let nodemailer = require('nodemailer');
 let aws = require('aws-sdk');
 let transporter = nodemailer.createTransport({
-    SES: new aws.SES({apiVersion: '2010-12-01'})
+    SES: new aws.SES({ apiVersion: '2010-12-01' })
 });
 </code></pre>
 
@@ -664,6 +664,7 @@ let transporter = nodemailer.createTransport({
 <li><strong>attachDataUrls</strong> – if true, then converts <em>data:</em> images in the HTML content in every message to embedded attachments</li>
 <li><strong>disableFileAccess</strong> – if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error</li>
 <li><strong>disableUrlAccess</strong> – if true, then does not allow to use Urls as content</li>
+<li><strong>normalizeHeaderKey(key)</strong> – a method that is applied to every header key before inserting to generated rfc822 message</li>
 </ul>
 
 

@@ -19,7 +19,7 @@ The following example uses [SES transport](/transports/ses/) (Amazon SES).
 let nodemailer = require('nodemailer');
 let aws = require('aws-sdk');
 let transporter = nodemailer.createTransport({
-    SES: new aws.SES({apiVersion: '2010-12-01'})
+    SES: new aws.SES({ apiVersion: '2010-12-01' })
 });
 ```
 
@@ -27,18 +27,19 @@ let transporter = nodemailer.createTransport({
 
 ### Built-in transports
 
-- **[sendmail](/transports/sendmail/)** – for piping messages to the _sendmail_ command
-- **[SES](/transports/ses/)** – is a Nodemailer wrapper around *aws-sdk* to send mail using AWS SES
-- **[stream](/transports/stream/)** – is just for returning messages, most probably for testing
+* **[sendmail](/transports/sendmail/)** – for piping messages to the _sendmail_ command
+* **[SES](/transports/ses/)** – is a Nodemailer wrapper around _aws-sdk_ to send mail using AWS SES
+* **[stream](/transports/stream/)** – is just for returning messages, most probably for testing
 
 ### External transports
 
-- **your own** (see transport api documentation [here](/plugins/create/#transports))
+* **your own** (see transport api documentation [here](/plugins/create/#transports))
 
 ### General options for transports
 
 Even though every transport has its own set of configuration options there are a few that can be used for every transport type
 
-- **attachDataUrls** – if true, then converts *data:* images in the HTML content in every message to embedded attachments
-- **disableFileAccess** – if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error
-- **disableUrlAccess** – if true, then does not allow to use Urls as content
+* **attachDataUrls** – if true, then converts _data:_ images in the HTML content in every message to embedded attachments
+* **disableFileAccess** – if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error
+* **disableUrlAccess** – if true, then does not allow to use Urls as content
+* **normalizeHeaderKey(key)** – a method that is applied to every header key before inserting to generated rfc822 message
