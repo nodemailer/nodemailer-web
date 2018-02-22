@@ -645,7 +645,7 @@
 
 <h3 id="support-nodemailer">Support Nodemailer</h3>
 
-<p>You can either support Nodemailer by becoming a <a href="https://www.patreon.com/andrisreinman">patreon</a> or by making a donation via PayPal, see <a href="https://nodemailer.com/about/license/">License page</a> for details.</p>
+<p>You can either support Nodemailer by becoming an <a href="https://opencollective.com/nodemailer">OpenCollective sponsor</a>, a <a href="https://www.patreon.com/andrisreinman">patreon</a> or by making a donation via PayPal, see <a href="https://nodemailer.com/about/license/">License page</a> for details.</p>
 
 <h3 id="nodemailer-features">Nodemailer features</h3>
 
@@ -695,7 +695,6 @@ const nodemailer = require('nodemailer');
 // Generate test SMTP service account from ethereal.email
 // Only needed if you don't have a real mail account for testing
 nodemailer.createTestAccount((err, account) =&gt; {
-
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
         host: 'smtp.ethereal.email',
@@ -703,7 +702,7 @@ nodemailer.createTestAccount((err, account) =&gt; {
         secure: false, // true for 465, false for other ports
         auth: {
             user: account.user, // generated ethereal user
-            pass: account.pass  // generated ethereal password
+            pass: account.pass // generated ethereal password
         }
     });
 

@@ -47,11 +47,11 @@
 
 &lt;p&gt;If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations. I can also write a consulting invoice (I have a EU VAT number) if you can&amp;rsquo;t do donations.&lt;/p&gt;
 
-&lt;p&gt;My &lt;a href=&#34;https://opencollective.com/nodemailer&#34;&gt;OpenCollective page&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;My &lt;a href=&#34;https://www.patreon.com/andrisreinman&#34;&gt;Patreon page&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;My Bitcoin wallet is: &lt;code&gt;15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;My &lt;a href=&#34;https://opencollective.com/nodemailer&#34;&gt;OpenCollective page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;My &lt;a href=&#34;https://www.patreon.com/andrisreinman&#34;&gt;Patreon page&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;My Bitcoin wallet is: &lt;code&gt;15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;form action=&#34;https://www.paypal.com/cgi-bin/webscr&#34; method=&#34;post&#34; target=&#34;_top&#34;&gt;
 &lt;input type=&#34;hidden&#34; name=&#34;cmd&#34; value=&#34;_s-xclick&#34;&gt;

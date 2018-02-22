@@ -28,7 +28,7 @@
 
 &lt;h3 id=&#34;support-nodemailer&#34;&gt;Support Nodemailer&lt;/h3&gt;
 
-&lt;p&gt;You can either support Nodemailer by becoming a &lt;a href=&#34;https://www.patreon.com/andrisreinman&#34;&gt;patreon&lt;/a&gt; or by making a donation via PayPal, see &lt;a href=&#34;https://nodemailer.com/about/license/&#34;&gt;License page&lt;/a&gt; for details.&lt;/p&gt;
+&lt;p&gt;You can either support Nodemailer by becoming an &lt;a href=&#34;https://opencollective.com/nodemailer&#34;&gt;OpenCollective sponsor&lt;/a&gt;, a &lt;a href=&#34;https://www.patreon.com/andrisreinman&#34;&gt;patreon&lt;/a&gt; or by making a donation via PayPal, see &lt;a href=&#34;https://nodemailer.com/about/license/&#34;&gt;License page&lt;/a&gt; for details.&lt;/p&gt;
 
 &lt;h3 id=&#34;nodemailer-features&#34;&gt;Nodemailer features&lt;/h3&gt;
 
@@ -78,7 +78,6 @@ const nodemailer = require(&#39;nodemailer&#39;);
 // Generate test SMTP service account from ethereal.email
 // Only needed if you don&#39;t have a real mail account for testing
 nodemailer.createTestAccount((err, account) =&amp;gt; {
-
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
         host: &#39;smtp.ethereal.email&#39;,
@@ -86,7 +85,7 @@ nodemailer.createTestAccount((err, account) =&amp;gt; {
         secure: false, // true for 465, false for other ports
         auth: {
             user: account.user, // generated ethereal user
-            pass: account.pass  // generated ethereal password
+            pass: account.pass // generated ethereal password
         }
     });
 
@@ -168,11 +167,11 @@ nodemailer.createTestAccount((err, account) =&amp;gt; {
 
 &lt;p&gt;If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations. I can also write a consulting invoice (I have a EU VAT number) if you can&amp;rsquo;t do donations.&lt;/p&gt;
 
-&lt;p&gt;My &lt;a href=&#34;https://opencollective.com/nodemailer&#34;&gt;OpenCollective page&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;My &lt;a href=&#34;https://www.patreon.com/andrisreinman&#34;&gt;Patreon page&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;My Bitcoin wallet is: &lt;code&gt;15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM&lt;/code&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;My &lt;a href=&#34;https://opencollective.com/nodemailer&#34;&gt;OpenCollective page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;My &lt;a href=&#34;https://www.patreon.com/andrisreinman&#34;&gt;Patreon page&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;My Bitcoin wallet is: &lt;code&gt;15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;form action=&#34;https://www.paypal.com/cgi-bin/webscr&#34; method=&#34;post&#34; target=&#34;_top&#34;&gt;
 &lt;input type=&#34;hidden&#34; name=&#34;cmd&#34; value=&#34;_s-xclick&#34;&gt;
