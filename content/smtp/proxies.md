@@ -5,14 +5,13 @@ prev = "/smtp/oauth2/"
 next = "/smtp/dsn/"
 weight = 24
 title = "Proxy support"
-
 +++
 
 Nodemailer is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing [socks](https://www.npmjs.com/package/socks) module to Nodemailer, other proxies need custom handling.
 
 To enable proxying, define a **proxy** option for the transporter.
 
-- **proxy** – is a proxy URL
+* **proxy** – is a proxy URL
 
 ### Examples
 
@@ -29,7 +28,7 @@ let transporter = nodemailer.createTransport({
 });
 ```
 
-Or if you want to use some environment defined variable like *http_proxy*:
+Or if you want to use some environment defined variable like _http_proxy_:
 
 ```javascript
 let transporter = nodemailer.createTransport({
@@ -46,12 +45,12 @@ Make sure that your HTTP proxy supports CONNECT protocol and allows connecting t
 
 #### 2\. Using Socks proxy
 
-Set Socks proxy url for the **proxy** option. Additionally you need to provide the [socks](https://www.npmjs.com/package/socks) module for the transporter as it is not bundled with Nodemailer.
+Set Socks proxy url for the **proxy** option. Additionally you need to provide the [socks](https://www.npmjs.com/package/socks) module for the transporter as it is not bundled with Nodemailer. Both versions 1.x.x and 2.x.x of the socks module are supported
 
 Possible protocol values for the SOCKS proxy:
 
-  * *'socks4:'* or *'socks4a:'* for a SOCKS4 proxy
-  * *'socks5:'* or *'socks:'* for a SOCKS5 proxy
+* _'socks4:'_ or _'socks4a:'_ for a SOCKS4 proxy
+* _'socks5:'_ or _'socks:'_ for a SOCKS5 proxy
 
 ```javascript
 let transporter = nodemailer.createTransport({
@@ -76,15 +75,15 @@ ssh -N -D 0.0.0.0:1080 username@remote.host`
 
 #### 3\. Using a custom proxy handler
 
-Additionally you can create your own proxy handler. To do this you would need to register a protocol handler callback with the name *proxy\_handler\_{protocol}* where *{protocol}* would be the protocol from proxy URL. If the URL looks like *'yyy://localhost'* then you would need to set callback for *proxy\_handler\_yyy*.
+Additionally you can create your own proxy handler. To do this you would need to register a protocol handler callback with the name _proxy_handler\_{protocol}_ where _{protocol}_ would be the protocol from proxy URL. If the URL looks like _'yyy://localhost'_ then you would need to set callback for _proxy_handler_yyy_.
 
 ```javascript
-transporter.set('proxy_handler_myproxy', handler)
+transporter.set('proxy_handler_myproxy', handler);
 ```
 
 Where
 
-  * **handler** is the function to run to create a proxied socket. It gets the following arguments:
+* **handler** is the function to run to create a proxied socket. It gets the following arguments:
     * **proxy** is the proxy url in a parsed form
     * **options** is transport configuration object
     * **callback** is the function to return the socket
@@ -97,7 +96,7 @@ let transporter = nodemailer.createTransport({
     proxy: 'myproxy://localhost:1234'
 });
 // enable support for socks URLs
-transporter.set('proxy_handler_myproxy', (proxy, options, callback)=>{
+transporter.set('proxy_handler_myproxy', (proxy, options, callback) => {
     console.log('Proxy host=% port=%', proxy.hostname, proxy.port);
     let socket = require('net').connect(options.port, options.host, () => {
         callback(null, {
@@ -117,7 +116,7 @@ let transporter = nodemailer.createTransport({
     proxy: 'myproxys://localhost:1234'
 });
 // enable support for socks URLs
-transporter.set('proxy_handler_myproxys', (proxy, options, callback)=>{
+transporter.set('proxy_handler_myproxys', (proxy, options, callback) => {
     console.log('Proxy host=% port=%', proxy.hostname, proxy.port);
     let socket = require('tls').connect(options.port, options.host, () => {
         callback(null, {

@@ -621,7 +621,7 @@ transporter.sendMail({
 });
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Or if you want to use some environment defined variable like &lt;em&gt;http_proxy&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;Or if you want to use some environment defined variable like _http&lt;em&gt;proxy&lt;/em&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
     host: &#39;smtp.example.com&#39;,
@@ -637,7 +637,7 @@ transporter.sendMail({
 
 &lt;h4 id=&#34;2-using-socks-proxy&#34;&gt;2. Using Socks proxy&lt;/h4&gt;
 
-&lt;p&gt;Set Socks proxy url for the &lt;strong&gt;proxy&lt;/strong&gt; option. Additionally you need to provide the &lt;a href=&#34;https://www.npmjs.com/package/socks&#34;&gt;socks&lt;/a&gt; module for the transporter as it is not bundled with Nodemailer.&lt;/p&gt;
+&lt;p&gt;Set Socks proxy url for the &lt;strong&gt;proxy&lt;/strong&gt; option. Additionally you need to provide the &lt;a href=&#34;https://www.npmjs.com/package/socks&#34;&gt;socks&lt;/a&gt; module for the transporter as it is not bundled with Nodemailer. Both versions 1.x.x and 2.x.x of the socks module are supported&lt;/p&gt;
 
 &lt;p&gt;Possible protocol values for the SOCKS proxy:&lt;/p&gt;
 
@@ -667,9 +667,9 @@ transporter.set(&#39;proxy_socks_module&#39;, require(&#39;socks&#39;));
 
 &lt;h4 id=&#34;3-using-a-custom-proxy-handler&#34;&gt;3. Using a custom proxy handler&lt;/h4&gt;
 
-&lt;p&gt;Additionally you can create your own proxy handler. To do this you would need to register a protocol handler callback with the name &lt;em&gt;proxy_handler_{protocol}&lt;/em&gt; where &lt;em&gt;{protocol}&lt;/em&gt; would be the protocol from proxy URL. If the URL looks like &lt;em&gt;&amp;lsquo;yyy://localhost&amp;rsquo;&lt;/em&gt; then you would need to set callback for &lt;em&gt;proxy_handler_yyy&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Additionally you can create your own proxy handler. To do this you would need to register a protocol handler callback with the name _proxy&lt;em&gt;handler_{protocol}&lt;/em&gt; where &lt;em&gt;{protocol}&lt;/em&gt; would be the protocol from proxy URL. If the URL looks like &lt;em&gt;&amp;lsquo;yyy://localhost&amp;rsquo;&lt;/em&gt; then you would need to set callback for _proxy_handler&lt;em&gt;yyy&lt;/em&gt;.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transporter.set(&#39;proxy_handler_myproxy&#39;, handler)
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transporter.set(&#39;proxy_handler_myproxy&#39;, handler);
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Where&lt;/p&gt;
@@ -691,7 +691,7 @@ transporter.set(&#39;proxy_socks_module&#39;, require(&#39;socks&#39;));
     proxy: &#39;myproxy://localhost:1234&#39;
 });
 // enable support for socks URLs
-transporter.set(&#39;proxy_handler_myproxy&#39;, (proxy, options, callback)=&amp;gt;{
+transporter.set(&#39;proxy_handler_myproxy&#39;, (proxy, options, callback) =&amp;gt; {
     console.log(&#39;Proxy host=% port=%&#39;, proxy.hostname, proxy.port);
     let socket = require(&#39;net&#39;).connect(options.port, options.host, () =&amp;gt; {
         callback(null, {
@@ -710,7 +710,7 @@ transporter.set(&#39;proxy_handler_myproxy&#39;, (proxy, options, callback)=&amp
     proxy: &#39;myproxys://localhost:1234&#39;
 });
 // enable support for socks URLs
-transporter.set(&#39;proxy_handler_myproxys&#39;, (proxy, options, callback)=&amp;gt;{
+transporter.set(&#39;proxy_handler_myproxys&#39;, (proxy, options, callback) =&amp;gt; {
     console.log(&#39;Proxy host=% port=%&#39;, proxy.hostname, proxy.port);
     let socket = require(&#39;tls&#39;).connect(options.port, options.host, () =&amp;gt; {
         callback(null, {
