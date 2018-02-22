@@ -21,7 +21,7 @@ npm install nodemailer --save
 
 ### Support Nodemailer
 
-You can either support Nodemailer by becoming an [OpenCollective sponsor](https://opencollective.com/nodemailer), a [patreon](https://www.patreon.com/andrisreinman) or by making a donation via PayPal, see [License page](https://nodemailer.com/about/license/) for details.
+You can support Nodemailer by becoming either an [OpenCollective sponsor](https://opencollective.com/nodemailer), a [patreon](https://www.patreon.com/andrisreinman) or by making a donation via PayPal, see [License page](https://nodemailer.com/about/license/) for details.
 
 ### Nodemailer features
 
