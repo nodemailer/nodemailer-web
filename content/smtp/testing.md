@@ -48,7 +48,7 @@ if (process.env.NODE_ENV === 'production' ){
         port: 587,
         auth: {
             user: 'real.user',
-            user: 'verysecret'
+            pass: 'verysecret'
         }
     };
 } else {
@@ -58,7 +58,7 @@ if (process.env.NODE_ENV === 'production' ){
         port: 587,
         auth: {
             user: 'ethereal.user@ethereal.email',
-            user: 'verysecret'
+            pass: 'verysecret'
         }
     };
 }
