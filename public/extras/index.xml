@@ -719,6 +719,12 @@ C: RCPT TO:&amp;lt;recipient@example.com&amp;gt; NOTIFY=NEVER
       <guid>https://nodemailer.com/extras/mailparser/</guid>
       <description>
 
+&lt;h1 id=&#34;nb-this-project-is-deprecated&#34;&gt;NB! This project is deprecated&lt;/h1&gt;
+
+&lt;p&gt;All users of this project are urged to find an alternative as it is not maintained anymore. Read more &lt;a href=&#34;https://blog.nodemailer.com/2018/03/11/spring-cleaning/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
 &lt;p&gt;Advanced email parser for Node.js. Everything is handled as a stream which should make it able to parse even very large messages (100MB+) with relatively low overhead.&lt;/p&gt;
 
 &lt;p&gt;The module exposes two separate modes, a lower level &lt;strong&gt;MailParser&lt;/strong&gt; class and &lt;strong&gt;simpleParser&lt;/strong&gt; function. The latter is simpler to use (hence the name) but is less resource efficient as it buffers attachment contents in memory.&lt;/p&gt;

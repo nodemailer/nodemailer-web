@@ -312,7 +312,7 @@ if (process.env.NODE_ENV === &#39;production&#39; ){
         port: 587,
         auth: {
             user: &#39;real.user&#39;,
-            user: &#39;verysecret&#39;
+            pass: &#39;verysecret&#39;
         }
     };
 } else {
@@ -322,7 +322,7 @@ if (process.env.NODE_ENV === &#39;production&#39; ){
         port: 587,
         auth: {
             user: &#39;ethereal.user@ethereal.email&#39;,
-            user: &#39;verysecret&#39;
+            pass: &#39;verysecret&#39;
         }
     };
 }
