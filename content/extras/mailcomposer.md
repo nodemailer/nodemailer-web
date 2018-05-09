@@ -65,7 +65,7 @@ The following are the possible fields of an e-mail message:
   - **sender** - An e-mail address that will appear on the *Sender:* field
   - **to** - Comma separated list or an array of recipients e-mail addresses that will appear on the *To:* field
   - **cc** - Comma separated list or an array of recipients e-mail addresses that will appear on the *Cc:* field
-  - **bcc** - Comma separated list or an array of recipients e-mail addresses that will appear on the *Bcc:* field
+  - **bcc** - Comma separated list or an array of recipients e-mail addresses that will appear on the *Bcc:* field, see [here](#bcc) on how to compile with BCC shown
   - **replyTo** - An e-mail address that will appear on the *Reply-To:* field
   - **inReplyTo** - The message-id this message is replying
   - **references** - Message-id list (an array or space separated string)
@@ -254,6 +254,23 @@ var mailOptions = {
         cid: 'unique@kreata.ee' //same cid value as in the html img src
     }]
 }
+```
+
+### BCC
+
+By default, MailComposer drops the BCC header when built. If you need to BCC header to be shown when built, you'll need to include the `keepBcc` option like so.
+
+```javascript
+var mailOptions = {
+   ...
+   bcc: 'bcc@example.com'
+}
+
+var mail = new MailComposer(mailOptions).compile()
+mail.keepBcc = true
+mail.build(function(err, message){
+    process.stdout.write(message);
+});
 ```
 
 ## License
