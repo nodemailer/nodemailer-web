@@ -1016,7 +1016,7 @@ mail.compile().build(function(err, message){
 &lt;li&gt;&lt;strong&gt;sender&lt;/strong&gt; - An e-mail address that will appear on the &lt;em&gt;Sender:&lt;/em&gt; field&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;to&lt;/strong&gt; - Comma separated list or an array of recipients e-mail addresses that will appear on the &lt;em&gt;To:&lt;/em&gt; field&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;cc&lt;/strong&gt; - Comma separated list or an array of recipients e-mail addresses that will appear on the &lt;em&gt;Cc:&lt;/em&gt; field&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;bcc&lt;/strong&gt; - Comma separated list or an array of recipients e-mail addresses that will appear on the &lt;em&gt;Bcc:&lt;/em&gt; field&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;bcc&lt;/strong&gt; - Comma separated list or an array of recipients e-mail addresses that will appear on the &lt;em&gt;Bcc:&lt;/em&gt; field, see &lt;a href=&#34;#bcc&#34;&gt;here&lt;/a&gt; on how to compile with BCC shown&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;replyTo&lt;/strong&gt; - An e-mail address that will appear on the &lt;em&gt;Reply-To:&lt;/em&gt; field&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;inReplyTo&lt;/strong&gt; - The message-id this message is replying&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;references&lt;/strong&gt; - Message-id list (an array or space separated string)&lt;/li&gt;
@@ -1203,6 +1203,22 @@ with regular mail options. You can also use the regular address format, unicode 
         cid: &#39;unique@kreata.ee&#39; //same cid value as in the html img src
     }]
 }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;bcc&#34;&gt;BCC&lt;/h3&gt;
+
+&lt;p&gt;By default, MailComposer drops the BCC header when built. If you need to BCC header to be shown when built, you&amp;rsquo;ll need to include the &lt;code&gt;keepBcc&lt;/code&gt; option like so.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var mailOptions = {
+   ...
+   bcc: &#39;bcc@example.com&#39;
+}
+
+var mail = new MailComposer(mailOptions).compile()
+mail.keepBcc = true
+mail.build(function(err, message){
+    process.stdout.write(message);
+});
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;

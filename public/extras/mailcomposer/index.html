@@ -626,6 +626,7 @@
 <li><a href="#address-formatting">Address Formatting</a></li>
 <li><a href="#smtp-envelope">SMTP envelope</a></li>
 <li><a href="#using-embedded-images">Using Embedded Images</a></li>
+<li><a href="#bcc">BCC</a></li>
 </ul></li>
 <li><a href="#license">License</a></li>
 </ul></li>
@@ -698,7 +699,7 @@ mail.compile().build(function(err, message){
 <li><strong>sender</strong> - An e-mail address that will appear on the <em>Sender:</em> field</li>
 <li><strong>to</strong> - Comma separated list or an array of recipients e-mail addresses that will appear on the <em>To:</em> field</li>
 <li><strong>cc</strong> - Comma separated list or an array of recipients e-mail addresses that will appear on the <em>Cc:</em> field</li>
-<li><strong>bcc</strong> - Comma separated list or an array of recipients e-mail addresses that will appear on the <em>Bcc:</em> field</li>
+<li><strong>bcc</strong> - Comma separated list or an array of recipients e-mail addresses that will appear on the <em>Bcc:</em> field, see <a href="#bcc">here</a> on how to compile with BCC shown</li>
 <li><strong>replyTo</strong> - An e-mail address that will appear on the <em>Reply-To:</em> field</li>
 <li><strong>inReplyTo</strong> - The message-id this message is replying</li>
 <li><strong>references</strong> - Message-id list (an array or space separated string)</li>
@@ -885,6 +886,22 @@ with regular mail options. You can also use the regular address format, unicode 
         cid: 'unique@kreata.ee' //same cid value as in the html img src
     }]
 }
+</code></pre>
+
+<h3 id="bcc">BCC</h3>
+
+<p>By default, MailComposer drops the BCC header when built. If you need to BCC header to be shown when built, you&rsquo;ll need to include the <code>keepBcc</code> option like so.</p>
+
+<pre><code class="language-javascript">var mailOptions = {
+   ...
+   bcc: 'bcc@example.com'
+}
+
+var mail = new MailComposer(mailOptions).compile()
+mail.keepBcc = true
+mail.build(function(err, message){
+    process.stdout.write(message);
+});
 </code></pre>
 
 <h2 id="license">License</h2>
