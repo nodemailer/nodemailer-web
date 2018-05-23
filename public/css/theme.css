@@ -1258,11 +1258,11 @@ pre .copy-to-clipboard:hover {
 /* test */
 
 #ads {
-    border: 1px solid #fafafa;
+    /*border: 1px solid #fafafa;*/
     max-width: 260px;
     min-height: 200px;
     margin: 3px auto 10px auto;
-    border-radius: 4px;
+    /*border-radius: 4px;*/
     font-size: 13px;
     color: #07689f;
 }
@@ -1302,6 +1302,8 @@ pre .copy-to-clipboard:hover {
 */
 
 #carbonads {
+    display: block;
+    margin: 0 auto;
     --width: 180px;
     --font-size: 14px;
 }
