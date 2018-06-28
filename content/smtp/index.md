@@ -30,7 +30,7 @@ let poolConfig = 'smtps://username:password@smtp.example.com/?pool=true';
 
 ##### General options
 
-  - **port** – is the port to connect to (defaults to 587 is *secure* is *false* or 465 if *true*)
+  - **port** – is the port to connect to (defaults to 587 if is *secure* is *false* or 465 if *true*)
   - **host** – is the hostname or IP address to connect to (defaults to *'localhost'*)
   - **auth** – defines authentication data (see [authentication](#authentication) section below)
   - **authMethod** – defines preferred authentication method, defaults to 'PLAIN'
