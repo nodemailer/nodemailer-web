@@ -39,7 +39,7 @@
 &lt;h5 id=&#34;general-options&#34;&gt;General options&lt;/h5&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;port&lt;/strong&gt; – is the port to connect to (defaults to 587 is &lt;em&gt;secure&lt;/em&gt; is &lt;em&gt;false&lt;/em&gt; or 465 if &lt;em&gt;true&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;port&lt;/strong&gt; – is the port to connect to (defaults to 587 if is &lt;em&gt;secure&lt;/em&gt; is &lt;em&gt;false&lt;/em&gt; or 465 if &lt;em&gt;true&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;host&lt;/strong&gt; – is the hostname or IP address to connect to (defaults to &lt;em&gt;&amp;lsquo;localhost&amp;rsquo;&lt;/em&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;auth&lt;/strong&gt; – defines authentication data (see &lt;a href=&#34;#authentication&#34;&gt;authentication&lt;/a&gt; section below)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;authMethod&lt;/strong&gt; – defines preferred authentication method, defaults to &amp;lsquo;PLAIN&amp;rsquo;&lt;/li&gt;
@@ -63,9 +63,9 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;name&lt;/strong&gt; – optional hostname of the client, used for identifying to the server, defaults to hostname of the machine&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;localAddress&lt;/strong&gt; – is the local interface to bind to for network connections&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;connectionTimeout&lt;/strong&gt; – how many milliseconds to wait for the connection to establish&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;greetingTimeout&lt;/strong&gt; – how many milliseconds to wait for the greeting after connection is established&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;socketTimeout&lt;/strong&gt; – how many milliseconds of inactivity to allow&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;connectionTimeout&lt;/strong&gt; – how many milliseconds to wait for the connection to establish (default is 2 minutes)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;greetingTimeout&lt;/strong&gt; – how many milliseconds to wait for the greeting after connection is established (default is 30 seconds)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;socketTimeout&lt;/strong&gt; – how many milliseconds of inactivity to allow (default is 10 minutes)&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h5 id=&#34;debug-options&#34;&gt;Debug options&lt;/h5&gt;

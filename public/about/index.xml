@@ -68,6 +68,10 @@
 &lt;li&gt;Deliver the message object using the &lt;strong&gt;sendMail()&lt;/strong&gt; method of your previously created transporter&lt;/li&gt;
 &lt;/ol&gt;
 
+&lt;h4 id=&#34;not-able-to-send-mail-using-transport&#34;&gt;Not Able to send Mail using transport ?&lt;/h4&gt;
+
+&lt;p&gt;If createTransport function is not taking up the path which is &amp;lsquo;/usr/bin/sendMail&amp;rsquo;, make sure you have sendmail configured in your system. Take a look at &lt;a href=&#34;https://www.computerhope.com/unix/usendmai.htm&#34;&gt;Source&lt;/a&gt; (for linux/unix).&lt;/p&gt;
+
 &lt;h5 id=&#34;example&#34;&gt;Example&lt;/h5&gt;
 
 &lt;p&gt;This is a complete example to send an email with plain text and HTML body&lt;/p&gt;

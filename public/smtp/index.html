@@ -668,7 +668,7 @@
 <h5 id="general-options">General options</h5>
 
 <ul>
-<li><strong>port</strong> – is the port to connect to (defaults to 587 is <em>secure</em> is <em>false</em> or 465 if <em>true</em>)</li>
+<li><strong>port</strong> – is the port to connect to (defaults to 587 if is <em>secure</em> is <em>false</em> or 465 if <em>true</em>)</li>
 <li><strong>host</strong> – is the hostname or IP address to connect to (defaults to <em>&lsquo;localhost&rsquo;</em>)</li>
 <li><strong>auth</strong> – defines authentication data (see <a href="#authentication">authentication</a> section below)</li>
 <li><strong>authMethod</strong> – defines preferred authentication method, defaults to &lsquo;PLAIN&rsquo;</li>
@@ -692,9 +692,9 @@
 <ul>
 <li><strong>name</strong> – optional hostname of the client, used for identifying to the server, defaults to hostname of the machine</li>
 <li><strong>localAddress</strong> – is the local interface to bind to for network connections</li>
-<li><strong>connectionTimeout</strong> – how many milliseconds to wait for the connection to establish</li>
-<li><strong>greetingTimeout</strong> – how many milliseconds to wait for the greeting after connection is established</li>
-<li><strong>socketTimeout</strong> – how many milliseconds of inactivity to allow</li>
+<li><strong>connectionTimeout</strong> – how many milliseconds to wait for the connection to establish (default is 2 minutes)</li>
+<li><strong>greetingTimeout</strong> – how many milliseconds to wait for the greeting after connection is established (default is 30 seconds)</li>
+<li><strong>socketTimeout</strong> – how many milliseconds of inactivity to allow (default is 10 minutes)</li>
 </ul>
 
 <h5 id="debug-options">Debug options</h5>

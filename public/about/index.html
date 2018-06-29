@@ -611,7 +611,8 @@
 <li><a href="#nodemailer-features">Nodemailer features</a>
 <ul>
 <li><a href="#requirements">Requirements</a></li>
-<li><a href="#tl-dr">TL;DR</a>
+<li><a href="#tl-dr">TL;DR</a></li>
+<li><a href="#not-able-to-send-mail-using-transport">Not Able to send Mail using transport ?</a>
 <ul>
 <li><a href="#example">Example</a></li>
 </ul></li>
@@ -685,6 +686,10 @@
 <li>Set up <a href="/message/">message options</a> (who sends what to whom)</li>
 <li>Deliver the message object using the <strong>sendMail()</strong> method of your previously created transporter</li>
 </ol>
+
+<h4 id="not-able-to-send-mail-using-transport">Not Able to send Mail using transport ?</h4>
+
+<p>If createTransport function is not taking up the path which is &lsquo;/usr/bin/sendMail&rsquo;, make sure you have sendmail configured in your system. Take a look at <a href="https://www.computerhope.com/unix/usendmai.htm">Source</a> (for linux/unix).</p>
 
 <h5 id="example">Example</h5>
 
