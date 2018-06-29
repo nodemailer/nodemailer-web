@@ -30,7 +30,7 @@ let poolConfig = 'smtps://username:password@smtp.example.com/?pool=true';
 
 ##### General options
 
-  - **port** – is the port to connect to (defaults to 587 is *secure* is *false* or 465 if *true*)
+  - **port** – is the port to connect to (defaults to 587 if is *secure* is *false* or 465 if *true*)
   - **host** – is the hostname or IP address to connect to (defaults to *'localhost'*)
   - **auth** – defines authentication data (see [authentication](#authentication) section below)
   - **authMethod** – defines preferred authentication method, defaults to 'PLAIN'
@@ -50,9 +50,9 @@ Setting **secure** to **false** does not mean that you would not use an encrypte
 
   - **name** – optional hostname of the client, used for identifying to the server, defaults to hostname of the machine
   - **localAddress** – is the local interface to bind to for network connections
-  - **connectionTimeout** – how many milliseconds to wait for the connection to establish
-  - **greetingTimeout** – how many milliseconds to wait for the greeting after connection is established
-  - **socketTimeout** – how many milliseconds of inactivity to allow
+  - **connectionTimeout** – how many milliseconds to wait for the connection to establish (default is 2 minutes)
+  - **greetingTimeout** – how many milliseconds to wait for the greeting after connection is established (default is 30 seconds)
+  - **socketTimeout** – how many milliseconds of inactivity to allow (default is 10 minutes)
 
 ##### Debug options
 
