@@ -55,6 +55,10 @@ In short, what you need to do to send messages, would be the following:
 2. Set up [message options](/message/) (who sends what to whom)
 3. Deliver the message object using the **sendMail()** method of your previously created transporter
 
+#### Not Able to send Mail using transport ?
+
+If createTransport function is not taking up the path which is '/usr/bin/sendMail', make sure you have sendmail configured in your system. Take a look at [Source](https://www.computerhope.com/unix/usendmai.htm) (for linux/unix).
+
 ##### Example
 
 This is a complete example to send an email with plain text and HTML body
