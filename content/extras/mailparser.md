@@ -24,15 +24,21 @@ npm install mailparser --save
 
 ```javascript
 const simpleParser = require('mailparser').simpleParser;
-simpleParser(source, (err, mail) => {});
+simpleParser(source, (err, parsed) => {});
 ```
 
 or as a Promise:
 
 ```javascript
 simpleParser(source)
-    .then(mail => {})
+    .then(parsed => {})
     .catch(err => {});
+```
+
+or even with async..await:
+
+```javascript
+let parsed = await simpleParser(source)
 ```
 
 Where

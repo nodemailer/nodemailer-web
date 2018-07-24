@@ -655,14 +655,19 @@
 <p><strong>simpleParser</strong> is the easiest way to parse emails. You only need to provide a message source to get a parsed email structure in return. As an additional bonus all embedded images in HTML (eg. the images that point to attachments using cid: URIs) are replaced with base64 encoded data URIs, so the message can be displayed without any additional processing. Be aware though that this module does not do any security cleansing (eg. removing javascript and so on), this is left to your own application.</p>
 
 <pre><code class="language-javascript">const simpleParser = require('mailparser').simpleParser;
-simpleParser(source, (err, mail) =&gt; {});
+simpleParser(source, (err, parsed) =&gt; {});
 </code></pre>
 
 <p>or as a Promise:</p>
 
 <pre><code class="language-javascript">simpleParser(source)
-    .then(mail =&gt; {})
+    .then(parsed =&gt; {})
     .catch(err =&gt; {});
+</code></pre>
+
+<p>or even with async..await:</p>
+
+<pre><code class="language-javascript">let parsed = await simpleParser(source)
 </code></pre>
 
 <p>Where</p>
