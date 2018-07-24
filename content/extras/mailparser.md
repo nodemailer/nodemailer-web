@@ -8,12 +8,6 @@ weight = 44
 
 +++
 
-# NB! This project is deprecated
-
-All users of this project are urged to find an alternative as it is not maintained anymore. Read more [here](https://blog.nodemailer.com/2018/03/11/spring-cleaning/)
-
-----
-
 Advanced email parser for Node.js. Everything is handled as a stream which should make it able to parse even very large messages (100MB+) with relatively low overhead.
 
 The module exposes two separate modes, a lower level **MailParser** class and **simpleParser** function. The latter is simpler to use (hence the name) but is less resource efficient as it buffers attachment contents in memory.
@@ -30,54 +24,56 @@ npm install mailparser --save
 
 ```javascript
 const simpleParser = require('mailparser').simpleParser;
-simpleParser(source, (err, mail)=>{})
+simpleParser(source, (err, mail) => {});
 ```
 
 or as a Promise:
 
 ```javascript
-simpleParser(source).then(mail=>{}).catch(err=>{})
+simpleParser(source)
+    .then(mail => {})
+    .catch(err => {});
 ```
 
 Where
 
-- **source** is either a stream, a Buffer or a string that needs to be parsed
-- **err** is the possible error object
-- **mail** is a structured email object
+-   **source** is either a stream, a Buffer or a string that needs to be parsed
+-   **err** is the possible error object
+-   **mail** is a structured email object
 
 ### mail object
 
-Parsed **mail*** object has the following properties
+Parsed **mail\*** object has the following properties
 
-- **headers** – a Map object with lowercase header keys
-- **subject** is the subject line (also available from the header *mail.headers.get('subject')*)
-- **from** is an address object for the From: header
-- **to** is an address object for the To: header
-- **cc** is an address object for the Cc: header
-- **bcc** is an address object for the Bcc: header (usually not present)
-- **date** is a Date object for the Date: header
-- **messageId** is the Message-ID value string
-- **inReplyTo** is the In-Reply-To value string
-- **reply-to** is an address object for the Cc: header
-- **references** is an array of referenced Message-ID values
-- **html** is the HTML body of the message. If the message included embedded images as cid: urls then these are all replaced with base64 formatted data: URIs
-- **text** is the plaintext body of the message
-- **textAsHtml** is the plaintext body of the message formatted as HTML
-- **attachments** is an array of attachments
+-   **headers** – a Map object with lowercase header keys
+-   **subject** is the subject line (also available from the header _mail.headers.get('subject')_)
+-   **from** is an address object for the From: header
+-   **to** is an address object for the To: header
+-   **cc** is an address object for the Cc: header
+-   **bcc** is an address object for the Bcc: header (usually not present)
+-   **date** is a Date object for the Date: header
+-   **messageId** is the Message-ID value string
+-   **inReplyTo** is the In-Reply-To value string
+-   **reply-to** is an address object for the Cc: header
+-   **references** is an array of referenced Message-ID values
+-   **html** is the HTML body of the message. If the message included embedded images as cid: urls then these are all replaced with base64 formatted data: URIs
+-   **text** is the plaintext body of the message
+-   **textAsHtml** is the plaintext body of the message formatted as HTML
+-   **attachments** is an array of attachments
 
 ### address object
 
 Address objects have the following structure:
 
-- **value** an array with address details
+-   **value** an array with address details
 
-  - **name** is the name part of the email/group
-  - **address** is the email address
-  - **group** is an array of grouped addresses
+    -   **name** is the name part of the email/group
+    -   **address** is the email address
+    -   **group** is an array of grouped addresses
 
-- **text** is a formatted address string for plaintext context
+-   **text** is a formatted address string for plaintext context
 
-- **html** is a formatted address string for HTML context
+-   **html** is a formatted address string for HTML context
 
 **Example**
 
@@ -112,51 +108,51 @@ The format of a header depends on the specific key. For most header keys the val
 
 Special header keys are the following:
 
-1. All address headers are converted into address objects
+1.  All address headers are converted into address objects
 
-  - **from**
-  - **to**
-  - **cc**
-  - **bcc**
-  - **sender**
-  - **reply-to**
-  - **delivered-to**
-  - **return-path**
+-   **from**
+-   **to**
+-   **cc**
+-   **bcc**
+-   **sender**
+-   **reply-to**
+-   **delivered-to**
+-   **return-path**
 
-2. All different priority headers are converted into **priority** with the following values:
+2.  All different priority headers are converted into **priority** with the following values:
 
-  - **'high'**
-  - **'normal'**
-  - **'low'**
+-   **'high'**
+-   **'normal'**
+-   **'low'**
 
-3. **references** is a string if only a single reference-id exists or an array if multiple ids exist
+3.  **references** is a string if only a single reference-id exists or an array if multiple ids exist
 
-4. **date** value is a Date object
-5. The following headers are parsed into structured objects, where *value* property includes the main value as string and *params* property holds an object of additional arguments as key-value pairs
+4.  **date** value is a Date object
+5.  The following headers are parsed into structured objects, where _value_ property includes the main value as string and _params_ property holds an object of additional arguments as key-value pairs
 
-  - **content-type**
-  - **content-disposition**
-  - **dkim-signature**
+-   **content-type**
+-   **content-disposition**
+-   **dkim-signature**
 
 Some headers are also automaticaly mime-word decoded
 
-- all address headers (name parts and punycode encoded domains are converted to unicode)
-- **subject** is converted to unicode
+-   all address headers (name parts and punycode encoded domains are converted to unicode)
+-   **subject** is converted to unicode
 
 ### attachment object
 
 Attachment objects have the following structure:
 
-- **filename** (if available) file name of the attachment
-- **contentType** MIME type of the message
-- **contentDisposition** content disposition type for the attachment, most probably "attachment"
-- **checksum** a MD5 hash of the message content
-- **size** message size in bytes
-- **headers** a Map value that holds MIME headers for the attachment node
-- **content** a Buffer that contains the attachment contents
-- **contentId** the header value from 'Content-ID' (if present)
-- **cid** contentId without < and >
-- **related** if true then this attachment should not be offered for download (at least not in the main attachments list)
+-   **filename** (if available) file name of the attachment
+-   **contentType** MIME type of the message
+-   **contentDisposition** content disposition type for the attachment, most probably "attachment"
+-   **checksum** a MD5 hash of the message content
+-   **size** message size in bytes
+-   **headers** a Map value that holds MIME headers for the attachment node
+-   **content** a Buffer that contains the attachment contents
+-   **contentId** the header value from 'Content-ID' (if present)
+-   **cid** contentId without < and >
+-   **related** if true then this attachment should not be offered for download (at least not in the main attachments list)
 
 ## MailParser
 
@@ -164,7 +160,7 @@ Attachment objects have the following structure:
 
 ```javascript
 const MailParser = require('mailparser').MailParser;
-let parser = new MailParser()
+let parser = new MailParser();
 ```
 
 ### Event 'headers'
@@ -181,21 +177,21 @@ parser.on('headers', headers => {
 
 ### Event 'data'
 
-Event 'data' or 'readable' emits message content objects. The type of the object can be determine by the *type* property. Currently there are two kind of data objects
+Event 'data' or 'readable' emits message content objects. The type of the object can be determine by the _type_ property. Currently there are two kind of data objects
 
-- 'attachment' indicates that this object is an attachment
-- 'text' indicates that this object includes the html and text parts of the message. This object is emitted once and it includes both values
+-   'attachment' indicates that this object is an attachment
+-   'text' indicates that this object includes the html and text parts of the message. This object is emitted once and it includes both values
 
 ### attachment object
 
-Attachment object is the same as in *simpleParser* except that *content* is not a buffer but a stream. Additionally there's a method **release()** that must be called once you have processed the attachment. The property *related* is set after message processing is ended, so at the *data* event this value is not yet available.
+Attachment object is the same as in _simpleParser_ except that _content_ is not a buffer but a stream. Additionally there's a method **release()** that must be called once you have processed the attachment. The property _related_ is set after message processing is ended, so at the _data_ event this value is not yet available.
 
 ```javascript
 parser.on('data', data => {
-    if(data.type === 'attachment'){
+    if (data.type === 'attachment') {
         console.log(data.filename);
         data.content.pipe(process.stdout);
-        data.content.on('end', ()=>data.release());
+        data.content.on('end', () => data.release());
     }
 });
 ```
@@ -206,13 +202,13 @@ If you do not call **release()** then the message processing is paused.
 
 Text object has the following keys:
 
-- **text** includes the plaintext version of the message. Is set if the message has at least one 'text/plain' node
-- **html** includes the HTML version of the message. Is set if the message has at least one 'text/html' node
-- **textAsHtml** includes the plaintext version of the message in HTML format. Is set if the message has at least one 'text/plain' node.
+-   **text** includes the plaintext version of the message. Is set if the message has at least one 'text/plain' node
+-   **html** includes the HTML version of the message. Is set if the message has at least one 'text/html' node
+-   **textAsHtml** includes the plaintext version of the message in HTML format. Is set if the message has at least one 'text/plain' node.
 
 ```javascript
 parser.on('data', data => {
-    if(data.type === 'text'){
+    if (data.type === 'text') {
         console.log(data.html);
     }
 });

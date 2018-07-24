@@ -605,7 +605,7 @@
     <div class="wrapper">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#nb-this-project-is-deprecated">NB! This project is deprecated</a>
+<li>
 <ul>
 <li><a href="#install">Install</a></li>
 <li><a href="#simpleparser">simpleParser</a>
@@ -641,12 +641,6 @@
 
 
 
-<h1 id="nb-this-project-is-deprecated">NB! This project is deprecated</h1>
-
-<p>All users of this project are urged to find an alternative as it is not maintained anymore. Read more <a href="https://blog.nodemailer.com/2018/03/11/spring-cleaning/">here</a></p>
-
-<hr />
-
 <p>Advanced email parser for Node.js. Everything is handled as a stream which should make it able to parse even very large messages (100MB+) with relatively low overhead.</p>
 
 <p>The module exposes two separate modes, a lower level <strong>MailParser</strong> class and <strong>simpleParser</strong> function. The latter is simpler to use (hence the name) but is less resource efficient as it buffers attachment contents in memory.</p>
@@ -661,12 +655,14 @@
 <p><strong>simpleParser</strong> is the easiest way to parse emails. You only need to provide a message source to get a parsed email structure in return. As an additional bonus all embedded images in HTML (eg. the images that point to attachments using cid: URIs) are replaced with base64 encoded data URIs, so the message can be displayed without any additional processing. Be aware though that this module does not do any security cleansing (eg. removing javascript and so on), this is left to your own application.</p>
 
 <pre><code class="language-javascript">const simpleParser = require('mailparser').simpleParser;
-simpleParser(source, (err, mail)=&gt;{})
+simpleParser(source, (err, mail) =&gt; {});
 </code></pre>
 
 <p>or as a Promise:</p>
 
-<pre><code class="language-javascript">simpleParser(source).then(mail=&gt;{}).catch(err=&gt;{})
+<pre><code class="language-javascript">simpleParser(source)
+    .then(mail =&gt; {})
+    .catch(err =&gt; {});
 </code></pre>
 
 <p>Where</p>
@@ -679,7 +675,7 @@ simpleParser(source, (err, mail)=&gt;{})
 
 <h3 id="mail-object">mail object</h3>
 
-<p>Parsed <strong>mail</strong>* object has the following properties</p>
+<p>Parsed <strong>mail*</strong> object has the following properties</p>
 
 <ul>
 <li><strong>headers</strong> – a Map object with lowercase header keys</li>
@@ -749,7 +745,8 @@ simpleParser(source, (err, mail)=&gt;{})
 <p>Special header keys are the following:</p>
 
 <ol>
-<li><p>All address headers are converted into address objects</p>
+<li>All address headers are converted into address objects</li>
+</ol>
 
 <ul>
 <li><strong>from</strong></li>
@@ -760,28 +757,31 @@ simpleParser(source, (err, mail)=&gt;{})
 <li><strong>reply-to</strong></li>
 <li><strong>delivered-to</strong></li>
 <li><strong>return-path</strong></li>
-</ul></li>
+</ul>
 
-<li><p>All different priority headers are converted into <strong>priority</strong> with the following values:</p>
+<ol>
+<li>All different priority headers are converted into <strong>priority</strong> with the following values:</li>
+</ol>
 
 <ul>
 <li><strong>&lsquo;high&rsquo;</strong></li>
 <li><strong>&lsquo;normal&rsquo;</strong></li>
 <li><strong>&lsquo;low&rsquo;</strong></li>
-</ul></li>
+</ul>
 
+<ol>
 <li><p><strong>references</strong> is a string if only a single reference-id exists or an array if multiple ids exist</p></li>
 
 <li><p><strong>date</strong> value is a Date object</p></li>
 
-<li><p>The following headers are parsed into structured objects, where <em>value</em> property includes the main value as string and <em>params</em> property holds an object of additional arguments as key-value pairs</p>
+<li><p>The following headers are parsed into structured objects, where <em>value</em> property includes the main value as string and <em>params</em> property holds an object of additional arguments as key-value pairs</p></li>
+</ol>
 
 <ul>
 <li><strong>content-type</strong></li>
 <li><strong>content-disposition</strong></li>
 <li><strong>dkim-signature</strong></li>
-</ul></li>
-</ol>
+</ul>
 
 <p>Some headers are also automaticaly mime-word decoded</p>
 
@@ -812,7 +812,7 @@ simpleParser(source, (err, mail)=&gt;{})
 <p><strong>MailParser</strong> is a lower-level email parsing class. It is a transform stream that takes email source as bytestream for the input and emits data objects for attachments and text contents.</p>
 
 <pre><code class="language-javascript">const MailParser = require('mailparser').MailParser;
-let parser = new MailParser()
+let parser = new MailParser();
 </code></pre>
 
 <h3 id="event-headers">Event &lsquo;headers&rsquo;</h3>
@@ -840,10 +840,10 @@ let parser = new MailParser()
 <p>Attachment object is the same as in <em>simpleParser</em> except that <em>content</em> is not a buffer but a stream. Additionally there&rsquo;s a method <strong>release()</strong> that must be called once you have processed the attachment. The property <em>related</em> is set after message processing is ended, so at the <em>data</em> event this value is not yet available.</p>
 
 <pre><code class="language-javascript">parser.on('data', data =&gt; {
-    if(data.type === 'attachment'){
+    if (data.type === 'attachment') {
         console.log(data.filename);
         data.content.pipe(process.stdout);
-        data.content.on('end', ()=&gt;data.release());
+        data.content.on('end', () =&gt; data.release());
     }
 });
 </code></pre>
@@ -861,7 +861,7 @@ let parser = new MailParser()
 </ul>
 
 <pre><code class="language-javascript">parser.on('data', data =&gt; {
-    if(data.type === 'text'){
+    if (data.type === 'text') {
         console.log(data.html);
     }
 });

@@ -719,12 +719,6 @@ C: RCPT TO:&amp;lt;recipient@example.com&amp;gt; NOTIFY=NEVER
       <guid>https://nodemailer.com/extras/mailparser/</guid>
       <description>
 
-&lt;h1 id=&#34;nb-this-project-is-deprecated&#34;&gt;NB! This project is deprecated&lt;/h1&gt;
-
-&lt;p&gt;All users of this project are urged to find an alternative as it is not maintained anymore. Read more &lt;a href=&#34;https://blog.nodemailer.com/2018/03/11/spring-cleaning/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
 &lt;p&gt;Advanced email parser for Node.js. Everything is handled as a stream which should make it able to parse even very large messages (100MB+) with relatively low overhead.&lt;/p&gt;
 
 &lt;p&gt;The module exposes two separate modes, a lower level &lt;strong&gt;MailParser&lt;/strong&gt; class and &lt;strong&gt;simpleParser&lt;/strong&gt; function. The latter is simpler to use (hence the name) but is less resource efficient as it buffers attachment contents in memory.&lt;/p&gt;
@@ -739,12 +733,14 @@ C: RCPT TO:&amp;lt;recipient@example.com&amp;gt; NOTIFY=NEVER
 &lt;p&gt;&lt;strong&gt;simpleParser&lt;/strong&gt; is the easiest way to parse emails. You only need to provide a message source to get a parsed email structure in return. As an additional bonus all embedded images in HTML (eg. the images that point to attachments using cid: URIs) are replaced with base64 encoded data URIs, so the message can be displayed without any additional processing. Be aware though that this module does not do any security cleansing (eg. removing javascript and so on), this is left to your own application.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const simpleParser = require(&#39;mailparser&#39;).simpleParser;
-simpleParser(source, (err, mail)=&amp;gt;{})
+simpleParser(source, (err, mail) =&amp;gt; {});
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;or as a Promise:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;simpleParser(source).then(mail=&amp;gt;{}).catch(err=&amp;gt;{})
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;simpleParser(source)
+    .then(mail =&amp;gt; {})
+    .catch(err =&amp;gt; {});
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Where&lt;/p&gt;
@@ -757,7 +753,7 @@ simpleParser(source, (err, mail)=&amp;gt;{})
 
 &lt;h3 id=&#34;mail-object&#34;&gt;mail object&lt;/h3&gt;
 
-&lt;p&gt;Parsed &lt;strong&gt;mail&lt;/strong&gt;* object has the following properties&lt;/p&gt;
+&lt;p&gt;Parsed &lt;strong&gt;mail*&lt;/strong&gt; object has the following properties&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; – a Map object with lowercase header keys&lt;/li&gt;
@@ -827,7 +823,8 @@ simpleParser(source, (err, mail)=&amp;gt;{})
 &lt;p&gt;Special header keys are the following:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;All address headers are converted into address objects&lt;/p&gt;
+&lt;li&gt;All address headers are converted into address objects&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;from&lt;/strong&gt;&lt;/li&gt;
@@ -838,28 +835,31 @@ simpleParser(source, (err, mail)=&amp;gt;{})
 &lt;li&gt;&lt;strong&gt;reply-to&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;delivered-to&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;return-path&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;li&gt;&lt;p&gt;All different priority headers are converted into &lt;strong&gt;priority&lt;/strong&gt; with the following values:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;All different priority headers are converted into &lt;strong&gt;priority&lt;/strong&gt; with the following values:&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;&amp;lsquo;high&amp;rsquo;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&amp;lsquo;normal&amp;rsquo;&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&amp;lsquo;low&amp;rsquo;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;references&lt;/strong&gt; is a string if only a single reference-id exists or an array if multiple ids exist&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;date&lt;/strong&gt; value is a Date object&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;The following headers are parsed into structured objects, where &lt;em&gt;value&lt;/em&gt; property includes the main value as string and &lt;em&gt;params&lt;/em&gt; property holds an object of additional arguments as key-value pairs&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;The following headers are parsed into structured objects, where &lt;em&gt;value&lt;/em&gt; property includes the main value as string and &lt;em&gt;params&lt;/em&gt; property holds an object of additional arguments as key-value pairs&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;content-type&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;content-disposition&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;dkim-signature&lt;/strong&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Some headers are also automaticaly mime-word decoded&lt;/p&gt;
 
@@ -890,7 +890,7 @@ simpleParser(source, (err, mail)=&amp;gt;{})
 &lt;p&gt;&lt;strong&gt;MailParser&lt;/strong&gt; is a lower-level email parsing class. It is a transform stream that takes email source as bytestream for the input and emits data objects for attachments and text contents.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;const MailParser = require(&#39;mailparser&#39;).MailParser;
-let parser = new MailParser()
+let parser = new MailParser();
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;event-headers&#34;&gt;Event &amp;lsquo;headers&amp;rsquo;&lt;/h3&gt;
@@ -918,10 +918,10 @@ let parser = new MailParser()
 &lt;p&gt;Attachment object is the same as in &lt;em&gt;simpleParser&lt;/em&gt; except that &lt;em&gt;content&lt;/em&gt; is not a buffer but a stream. Additionally there&amp;rsquo;s a method &lt;strong&gt;release()&lt;/strong&gt; that must be called once you have processed the attachment. The property &lt;em&gt;related&lt;/em&gt; is set after message processing is ended, so at the &lt;em&gt;data&lt;/em&gt; event this value is not yet available.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;parser.on(&#39;data&#39;, data =&amp;gt; {
-    if(data.type === &#39;attachment&#39;){
+    if (data.type === &#39;attachment&#39;) {
         console.log(data.filename);
         data.content.pipe(process.stdout);
-        data.content.on(&#39;end&#39;, ()=&amp;gt;data.release());
+        data.content.on(&#39;end&#39;, () =&amp;gt; data.release());
     }
 });
 &lt;/code&gt;&lt;/pre&gt;
@@ -939,7 +939,7 @@ let parser = new MailParser()
 &lt;/ul&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;parser.on(&#39;data&#39;, data =&amp;gt; {
-    if(data.type === &#39;text&#39;){
+    if (data.type === &#39;text&#39;) {
         console.log(data.html);
     }
 });
