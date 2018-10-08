@@ -662,7 +662,7 @@ Attached text file`}]
 
 &lt;h4 id=&#34;transporter-close&#34;&gt;transporter.close()&lt;/h4&gt;
 
-&lt;p&gt;If transporter uses pooling then connections are kept open even if there is nothing to be sent. To close all pending connections you can use the &lt;em&gt;close()&lt;/em&gt; method&lt;/p&gt;
+&lt;p&gt;If transporter uses pooling then connections are kept open even if there is nothing to be sent. Connections that idle for longer than the &lt;em&gt;socketTimeout&lt;/em&gt; will be closed automatically and reopened once there&amp;rsquo;s more mail to send. You can also use &lt;em&gt;transporter.close()&lt;/em&gt; to clean up all connections.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({pool: true,...});
 // ...
@@ -675,12 +675,12 @@ transporter.close();
 
 &lt;p&gt;Emitted by the transporter object if connection pool has free connection slots. Check if a connection is still available with &lt;code&gt;isIdle()&lt;/code&gt; method (returns &lt;code&gt;true&lt;/code&gt; if a connection is still available). This allows to create push-like senders where messages are not queued into memory in a Node.js process but pushed and loaded through an external queue.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let messages = [...&#39;list of messages&#39;];
-transporter.on(&#39;idle&#39;, function(){
-    // send next message from the pending queue
-    while (transporter.isIdle() &amp;amp;&amp;amp; messages.length) {
-        transporter.sendMail (messages.shift());
-    }
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let messages = [...&amp;quot;list of messages&amp;quot;];
+transporter.on(&amp;quot;idle&amp;quot;, function() {
+  // send next message from the pending queue
+  while (transporter.isIdle() &amp;amp;&amp;amp; messages.length) {
+    transporter.sendMail(messages.shift());
+  }
 });
 &lt;/code&gt;&lt;/pre&gt;
 </description>
