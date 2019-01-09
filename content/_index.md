@@ -45,7 +45,7 @@ You can support Nodemailer by becoming either an [OpenCollective sponsor](https:
 
 - **Node.js v6.0.0** or newer. That's it.
 
-If you are able to run Node.js version 6 or newer, then you can use Nodemailer. There are no platform or resource specific requirements. All public Nodemailer methods support both callbacks and if callback is omitted then Promises and `async..await` (you need to have at least Node v8.0.0 if you want to use `async..await` with Nodemailer).
+If you are able to run Node.js version 6 or newer, then you can use Nodemailer. There are no platform or resource specific requirements. All public Nodemailer methods support both callbacks and Promises (if callback is omitted). You need to have at least Node v8.0.0 if you want to use *async..await* with Nodemailer.
 
 #### TL;DR
 
