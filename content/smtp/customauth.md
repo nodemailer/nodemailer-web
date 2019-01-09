@@ -83,3 +83,33 @@ let transporter = nodemailer.createTransport({
     }
 });
 ```
+
+### Custom options
+
+If your authentication mechanism required additional configuration besides the usual username and password, then you can use the `pass` field, set it as an object.
+
+```
+let transporter = nodemailer.createTransport({
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
+    auth: {
+        type: 'custom',
+        method: 'MY-CUSTOM-METHOD', // forces Nodemailer to use your custom handler
+        user: 'username',
+        pass: {
+            clientId: 'verysecret',
+            applicationId: 'my-app'
+        }
+    },
+    customAuth: {
+        'MY-CUSTOM-METHOD': async ctx => {
+            let token = await generateSecretTokenSomehow(
+                ctx.auth.credentials.pass.clientId,
+                ctx.auth.credentials.pass.applicationId
+            );
+            ...
+        }
+    }
+});
+```
