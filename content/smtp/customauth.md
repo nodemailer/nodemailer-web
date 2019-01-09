@@ -7,6 +7,8 @@ weight = 24
 title = "Custom authentication"
 +++
 
+> Available from Nodemailer v5.1.0
+
 Nodemailer SMTP client can be extended to use custom authentication mechanisms that Nodemailer does not support by default.
 
 To use one you should define a custom authentication handler with `customAuth` in the transporter options. Multiple handlers can be defined. Use authentication identifier as the handler name. For example if the server responds with "AUTH LOGIN PLAIN MY-CUSTOM-METHOD" then it supports "LOGIN", "PLAIN" and "MY-CUSTOM-METHOD". Nodemailer has built in support form "LOGIN" and "PLAIN" but it knows nothing about "MY-CUSTOM-METHOD", to add support use this identifier as the handler name.

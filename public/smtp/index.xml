@@ -57,8 +57,9 @@ One solution would be to separate development email addresses and use only some 
       <pubDate>Fri, 20 Jan 2017 11:16:41 +0200</pubDate>
       
       <guid>https://nodemailer.com/smtp/customauth/</guid>
-      <description>Nodemailer SMTP client can be extended to use custom authentication mechanisms that Nodemailer does not support by default.
-To use one you should define a custom authentication handler with customAuth in the transporter options. Multiple handlers can be defined. Use authentication identifier as the handler name. For example if the server responds with &amp;ldquo;AUTH LOGIN PLAIN MY-CUSTOM-METHOD&amp;rdquo; then it supports &amp;ldquo;LOGIN&amp;rdquo;, &amp;ldquo;PLAIN&amp;rdquo; and &amp;ldquo;MY-CUSTOM-METHOD&amp;rdquo;. Nodemailer has built in support form &amp;ldquo;LOGIN&amp;rdquo; and &amp;ldquo;PLAIN&amp;rdquo; but it knows nothing about &amp;ldquo;MY-CUSTOM-METHOD&amp;rdquo;, to add support use this identifier as the handler name.</description>
+      <description>Available from Nodemailer v5.1.0
+ Nodemailer SMTP client can be extended to use custom authentication mechanisms that Nodemailer does not support by default.
+To use one you should define a custom authentication handler with customAuth in the transporter options. Multiple handlers can be defined. Use authentication identifier as the handler name. For example if the server responds with &amp;ldquo;AUTH LOGIN PLAIN MY-CUSTOM-METHOD&amp;rdquo; then it supports &amp;ldquo;LOGIN&amp;rdquo;, &amp;ldquo;PLAIN&amp;rdquo; and &amp;ldquo;MY-CUSTOM-METHOD&amp;rdquo;.</description>
     </item>
     
     <item>
