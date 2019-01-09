@@ -116,3 +116,7 @@ let transporter = nodemailer.createTransport({
     }
 });
 ```
+
+### Examples
+
+- **[NTLM handler](https://github.com/nodemailer/nodemailer-ntlm-auth)** to authenticate using NTLM
