@@ -86,7 +86,7 @@ let transporter = nodemailer.createTransport({
 
 ### Custom options
 
-If your authentication mechanism required additional configuration besides the usual username and password, then you can use the `pass` field, set it as an object.
+If your authentication mechanism requires additional configuration besides the usual username and password, then you can use the `pass` field to provide the details.
 
 ```
 let transporter = nodemailer.createTransport({
