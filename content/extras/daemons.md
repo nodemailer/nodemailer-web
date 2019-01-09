@@ -4,19 +4,18 @@ date = "2017-01-21T00:12:25+02:00"
 toc = true
 prev = "/extras/mailcomposer/"
 next = "/about/"
-weight = 47
+weight = 5
 
 +++
 
 This tutorial shows how to set up Node.js applications as daemon services under Linux. Specifically the following would apply:
 
-* The daemon application is a Node.js web app
-* Daemon is set up as a SystemD services
-* Node.js app is accessed as a Nginx virtual domain
-* Updates are deployed using git
+- The daemon application is a Node.js web app
+- Daemon is set up as a SystemD services
+- Node.js app is accessed as a Nginx virtual domain
+- Updates are deployed using git
 
 > Even though this tutorial uses a web app as the service daemon, then the same approach can be used for deploying any kind of services.
-
 
 ### 1\. Application
 
@@ -24,21 +23,21 @@ The application code is simple, it consists only from two files, the application
 
 ```javascript
 // index.js
-const http = require('http');
-const log = require('npmlog')
+const http = require("http");
+const log = require("npmlog");
 
-const hostname = '127.0.0.1';
+const hostname = "127.0.0.1";
 const port = 3000;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-  log.http('App', req.url);
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello World\n");
+  log.http("App", req.url);
 });
 
 server.listen(port, hostname, () => {
-  log.info('App', `Server running at http://${hostname}:${port}/`);
+  log.info("App", `Server running at http://${hostname}:${port}/`);
 });
 ```
 

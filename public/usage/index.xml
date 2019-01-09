@@ -1,91 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Usages on Nodemailer</title>
-    <link>https://nodemailer.com/usage/index.xml</link>
-    <description>Recent content in Usages on Nodemailer</description>
+    <title>Usage on Nodemailer</title>
+    <link>https://nodemailer.com/usage/</link>
+    <description>Recent content in Usage on Nodemailer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 21 Jan 2017 00:20:55 +0200</lastBuildDate>
-    <atom:link href="https://nodemailer.com/usage/index.xml" rel="self" type="application/rss+xml" />
     
-    <item>
-      <title>Usage</title>
-      <link>https://nodemailer.com/usage/</link>
-      <pubDate>Sat, 21 Jan 2017 00:20:55 +0200</pubDate>
-      
-      <guid>https://nodemailer.com/usage/</guid>
-      <description>
-
-&lt;h1 id=&#34;usage&#34;&gt;Usage&lt;/h1&gt;
-
-&lt;h2 id=&#34;setting-it-up&#34;&gt;Setting it up&lt;/h2&gt;
-
-&lt;p&gt;Install Nodemailer from &lt;a href=&#34;https://www.npmjs.com/package/nodemailer&#34;&gt;npm&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install nodemailer
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To send emails you need a transporter object&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport(transport[, defaults])
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Where&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;transporter&lt;/strong&gt; is going to be an object that is able to send mail&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;transport&lt;/strong&gt; is the transport configuration object, connection url or a transport plugin instance&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;defaults&lt;/strong&gt; is an object that defines default values for mail options&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;You have to create the transporter object only once. If you already have a transporter object you can use it to send mail as much as you like.&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;h3 id=&#34;send-using-smtp&#34;&gt;Send using SMTP&lt;/h3&gt;
-
-&lt;p&gt;See the details about setting up a SMTP based transporter &lt;a href=&#34;https://nodemailer.com/smtp/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;send-using-a-transport-plugin&#34;&gt;Send using a transport plugin&lt;/h3&gt;
-
-&lt;p&gt;See the details about setting up a plugin based transporter &lt;a href=&#34;https://nodemailer.com/transports/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;sending-mail&#34;&gt;Sending mail&lt;/h2&gt;
-
-&lt;p&gt;Once you have a transporter object you can send mail with it:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transporter.sendMail(data[, callback])
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Where&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;data&lt;/strong&gt; defines the mail content (see &lt;a href=&#34;https://nodemailer.com/message/&#34;&gt;Message Configuration&lt;/a&gt; for possible options)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;callback&lt;/strong&gt; is an optional callback function to run once the message is delivered or it failed
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;err&lt;/strong&gt; is the error object if message failed&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;info&lt;/strong&gt; includes the result, the exact format depends on the transport mechanism used
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;info.messageId&lt;/strong&gt; most transports &lt;em&gt;should&lt;/em&gt; return the final Message-Id value used with this property&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;info.envelope&lt;/strong&gt; includes the envelope object for the message&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;info.accepted&lt;/strong&gt; is an array returned by SMTP transports (includes recipient addresses that were accepted by the server)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;info.rejected&lt;/strong&gt; is an array returned by SMTP transports (includes recipient addresses that were rejected by the server)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;info.pending&lt;/strong&gt; is an array returned by Direct SMTP transport. Includes recipient addresses that were temporarily rejected together with the server response&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;response&lt;/strong&gt; is a string returned by SMTP transports and includes the last SMTP response from the server&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;If the message includes several recipients then the message is considered sent if at least one recipient is accepted&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;If &lt;code&gt;callback&lt;/code&gt; argument is not set then the method returns a Promise object. Nodemailer itself does not use Promises internally but it wraps the return into a Promise for convenience.&lt;/p&gt;
-</description>
-    </item>
+	<atom:link href="https://nodemailer.com/usage/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>SMTP? Say what?</title>
@@ -93,18 +17,8 @@
       <pubDate>Sat, 21 Jan 2017 00:44:30 +0200</pubDate>
       
       <guid>https://nodemailer.com/usage/why-smtp/</guid>
-      <description>&lt;p&gt;You might wonder why you would need to set something up while in comparison PHP&amp;rsquo;s &lt;a href=&#34;http://php.net/manual/en/function.mail.php&#34;&gt;mail&lt;/a&gt; command works out of the box with no special configuration whatsoever. Just call &lt;strong&gt;mail(&amp;hellip;)&lt;/strong&gt; and you&amp;rsquo;re already sending mail. So what&amp;rsquo;s going on in Node.js?&lt;/p&gt;
-
-&lt;p&gt;The difference is in the software stack required for your application to work. While Node.js stack is thin, all you need for your app to work is the &lt;em&gt;node&lt;/em&gt; binary, then PHP&amp;rsquo;s stack is fat. The server you&amp;rsquo;re running your PHP code on has several different components installed.&lt;/p&gt;
-
-&lt;p&gt;Firstly the PHP interpreter itself. Then there&amp;rsquo;s some kind of web server, most probably Apache or Nginx. Web server needs some way to interact with the PHP interpreter, so you have a (fast-)CGI process manager. There might be MySQL also running in the same host. Depending on the installation type you might even have &lt;em&gt;imagemagick&lt;/em&gt; executables or other helpers lying around somewhere. And finally, you have the &lt;em&gt;sendmail&lt;/em&gt; binary.&lt;/p&gt;
-
-&lt;p&gt;What PHP&amp;rsquo;s &lt;strong&gt;mail()&lt;/strong&gt; call actually does is that it passes your mail data to sendmail&amp;rsquo;s &lt;em&gt;stdin&lt;/em&gt; and thats it, no magic involved. &lt;em&gt;sendmail&lt;/em&gt; does all the heavy lifting of queueing your message and trying to send it to the recipients&amp;rsquo; MX mail server.&lt;/p&gt;
-
-&lt;p&gt;In fact you can achieve the exact same behavior in Nodemailer as well by using the &lt;a href=&#34;https://nodemailer.com/transports/sendmail/&#34;&gt;sendmail transport&lt;/a&gt;. The difference being that in case of PHP the sendmail configuration resides in &lt;em&gt;php.ini&lt;/em&gt; but in case of Node.js the sendmail configuration is part of Nodemailer setup.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately this might not always work – as it was already said, the stack for Node.js is thin and this means that &lt;em&gt;sendmail&lt;/em&gt; might not have been installed to the server your application is running on. This is why it is better to rely on an actual SMTP service that is always accessible.&lt;/p&gt;
-</description>
+      <description>You might wonder why you would need to set something up while in comparison PHP&amp;rsquo;s mail command works out of the box with no special configuration whatsoever. Just call mail(&amp;hellip;) and you&amp;rsquo;re already sending mail. So what&amp;rsquo;s going on in Node.js?
+The difference is in the software stack required for your application to work. While Node.js stack is thin, all you need for your app to work is the node binary, then PHP&amp;rsquo;s stack is fat.</description>
     </item>
     
     <item>
@@ -113,16 +27,7 @@
       <pubDate>Sat, 21 Jan 2017 00:25:10 +0200</pubDate>
       
       <guid>https://nodemailer.com/usage/using-gmail/</guid>
-      <description>&lt;p&gt;Even though Gmail is the fastest way to get started with sending emails, it is by no means a preferable solution unless you are using OAuth2 authentication. Gmail expects the user to be an actual user not a robot so it runs a lot of heuristics for every login attempt and blocks anything that looks suspicious to defend the user from account hijacking attempts. For example you might run into trouble if your server is in another geographical location – everything works in your dev machine but messages are blocked in production.&lt;/p&gt;
-
-&lt;p&gt;Additionally Gmail has came up with the concept of &lt;a href=&#34;https://support.google.com/accounts/answer/6010255?hl=en&#34;&gt;&amp;ldquo;Less Secure&amp;rdquo;&lt;/a&gt; apps which is basically anyone who uses plain password to login to Gmail, so you might end up in a situation where one username can send mail (support for &amp;ldquo;less secure&amp;rdquo; apps is enabled) but other is blocked (support for &amp;ldquo;less secure&amp;rdquo; apps is disabled). You can configure your Gmail account to allow less secure apps &lt;a href=&#34;https://www.google.com/settings/security/lesssecureapps&#34;&gt;here&lt;/a&gt;. When using this method make sure to also enable the required functionality by completing the &lt;a href=&#34;https://accounts.google.com/b/0/displayunlockcaptcha&#34;&gt;&amp;ldquo;Captcha Enable&amp;rdquo;&lt;/a&gt; challenge. Without this, less secure connections probably would not work.&lt;/p&gt;
-
-&lt;p&gt;If you are using 2FA you would have to create an &lt;a href=&#34;https://security.google.com/settings/security/apppasswords&#34;&gt;&amp;ldquo;Application Specific&amp;rdquo;&lt;/a&gt; password for Nodemailer to work.&lt;/p&gt;
-
-&lt;p&gt;Gmail also always sets authenticated username as the &lt;em&gt;From:&lt;/em&gt; email address. So if you authenticate as &lt;em&gt;foo@example.com&lt;/em&gt; and set &lt;em&gt;bar@example.com&lt;/em&gt; as the &lt;em&gt;from:&lt;/em&gt; address, then Gmail reverts this and replaces the sender with the authenticated user.&lt;/p&gt;
-
-&lt;p&gt;To prevent having login issues you should either use OAuth2 (see details &lt;a href=&#34;https://nodemailer.com/smtp/oauth2/&#34;&gt;here&lt;/a&gt;) or use another delivery provider and preferably a dedicated one. Usually these providers have free plans available that are comparable to the daily sending limits of Gmail. Gmail has a limit of 500 recipients a day (a message with one &lt;em&gt;To&lt;/em&gt; and one &lt;em&gt;Cc&lt;/em&gt; address counts as two messages since it has two recipients) for @gmail.com addresses and 2000 for Google Apps customers, larger SMTP providers usually offer about 200-300 recipients a day for free.&lt;/p&gt;
-</description>
+      <description>Even though Gmail is the fastest way to get started with sending emails, it is by no means a preferable solution unless you are using OAuth2 authentication. Gmail expects the user to be an actual user not a robot so it runs a lot of heuristics for every login attempt and blocks anything that looks suspicious to defend the user from account hijacking attempts. For example you might run into trouble if your server is in another geographical location – everything works in your dev machine but messages are blocked in production.</description>
     </item>
     
     <item>
@@ -131,18 +36,8 @@
       <pubDate>Sat, 21 Jan 2017 00:40:56 +0200</pubDate>
       
       <guid>https://nodemailer.com/usage/bulk-mail/</guid>
-      <description>&lt;p&gt;Here are some tips how to handle bulk mail, for example if you need to send 10 million messages at once.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Use a dedicated delivery provider&lt;/strong&gt;. Do not use services that offer SMTP as a sideline or for free (that&amp;rsquo;s Gmail or the SMTP of your homepage hosting company) to send bulk mail – you&amp;rsquo;ll hit all the hard limits immediately or get labelled as spammer. Basically you get what you pay for and if you pay zero then your deliverability is near zero as well. Email might seem free but it is only free to a certain amount and that amount certainly does not include 10 million emails in a short period of time.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Use a dedicated queue manager,&lt;/strong&gt; for example &lt;a href=&#34;http://www.rabbitmq.com/&#34;&gt;RabbitMQ&lt;/a&gt; for queueing the emails. Nodemailer creates a callback function with related scopes etc. for every message so it might be hard on memory if you pile up the data for 10 million messages at once. Better to take the data from a queue when there&amp;rsquo;s a free spot in the connection pool (previously sent message returns its callback).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Use pooled SMTP&lt;/strong&gt; by setting &lt;em&gt;pool&lt;/em&gt; option to &lt;em&gt;true&lt;/em&gt; (assuming you always send using the same credentials). You do not want to have the overhead of creating a new connection and doing the SMTP handshake dance for every single email. Pooled connections make it possible to bring this overhead to a minimum.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Set &lt;em&gt;maxMessages&lt;/em&gt; option to &lt;em&gt;Infinity&lt;/em&gt;&lt;/strong&gt; for the pooled SMTP transport. Dedicated SMTP providers happily accept all your emails as long you are paying for these, so no need to disconnect in the middle if everything is going smoothly. The default value is 100 which means that once a connection is used to send 100 messages it is removed from the pool and a new connection is created.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Set &lt;em&gt;maxConnections&lt;/em&gt; to whatever your system can handle.&lt;/strong&gt; There might be limits to this on the receiving side, so do not set it to &lt;em&gt;Infinity&lt;/em&gt;, even 20 is probably much better than the default 5. A larger number means a larger amount of messages are sent in parallel.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Use file paths not URLs for attachments.&lt;/strong&gt; If you are reading the same file from the disk several million times, the contents for the file probably get cached somewhere between your app and the physical hard disk, so you get your files back quicker (assuming you send the same attachment to all recipients). There is nothing like this for URLs – every new message makes a fresh HTTP fetch to receive the file from the server.&lt;/li&gt;
-&lt;li&gt;If the SMTP service accepts HTTP API as well you still might prefer SMTP and not the HTTP API as HTTP introduces additional overhead. You probably want to use HTTP over SMTP if the HTTP API is bulk aware – you send a message template and the list of 10 million recipients and the service compiles this information into emails itself, you can&amp;rsquo;t beat this with SMTP.&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+      <description>Here are some tips how to handle bulk mail, for example if you need to send 10 million messages at once.
+ Use a dedicated delivery provider. Do not use services that offer SMTP as a sideline or for free (that&amp;rsquo;s Gmail or the SMTP of your homepage hosting company) to send bulk mail – you&amp;rsquo;ll hit all the hard limits immediately or get labelled as spammer. Basically you get what you pay for and if you pay zero then your deliverability is near zero as well.</description>
     </item>
     
   </channel>

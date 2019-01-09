@@ -4,7 +4,7 @@ date = "2017-01-21T00:12:25+02:00"
 toc = true
 prev = "/extras/smtp-server/"
 next = "/extras/mailparser/"
-weight = 42
+weight = 2
 
 +++
 
@@ -16,16 +16,16 @@ This module is the successor for the client part of the (now deprecated) SMTP mo
 
 #### Step 1. Install Nodemailer with npm
 
-*smtp-connection* is exposed as a submodule of Nodemailer
+_smtp-connection_ is exposed as a submodule of Nodemailer
 
 ```bash
 npm install nodemailer --save
 ```
 
-#### Step 2. Require *smtp-connection* in your script
+#### Step 2. Require _smtp-connection_ in your script
 
 ```javascript
-const SMTPConnection = require('nodemailer/lib/smtp-connection');
+const SMTPConnection = require("nodemailer/lib/smtp-connection");
 ```
 
 #### Step 3. Create SMTPConnection instance
@@ -40,7 +40,7 @@ Where
 
   - **options.port** is the port to connect to (defaults to 25 or 465)
   - **options.host** is the hostname or IP address to connect to (defaults to 'localhost')
-  - **options.secure** defines if the connection should use SSL (if *true*) or not (if *false*)
+  - **options.secure** defines if the connection should use SSL (if _true_) or not (if _false_)
   - **options.ignoreTLS** turns off STARTTLS support if true
   - **options.requireTLS** forces the client to use STARTTLS. Returns an error if upgrading the connection is not possible or fails.
   - **options.opportunisticTLS** tries to use STARTTLS and continues normally if it fails
@@ -49,13 +49,13 @@ Where
   - **options.connectionTimeout** how many milliseconds to wait for the connection to establish
   - **options.greetingTimeout** how many milliseconds to wait for the greeting after connection is established
   - **options.socketTimeout** how many milliseconds of inactivity to allow
-  - **options.logger** optional [bunyan](https://github.com/trentm/node-bunyan) compatible logger instance. If set to *true* then logs to console. If value is not set or is *false* then nothing is logged
+  - **options.logger** optional [bunyan](https://github.com/trentm/node-bunyan) compatible logger instance. If set to _true_ then logs to console. If value is not set or is _false_ then nothing is logged
   - **options.transactionLog** if set to true, then logs SMTP traffic without message content
   - **options.debug** if set to true, then logs SMTP traffic and message content, otherwise logs only transaction events
   - **options.authMethod** defines preferred authentication method, e.g. 'PLAIN'
   - **options.tls** defines additional options to be passed to the socket constructor, e.g. _{rejectUnauthorized: true}_
   - **options.socket** - initialized socket to use instead of creating a new one
-  - **options.connection** - connected socket to use instead of creating and connecting a new one. If *secure* option is true, then socket is upgraded from plaintext to ciphertext
+  - **options.connection** - connected socket to use instead of creating and connecting a new one. If _secure_ option is true, then socket is upgraded from plaintext to ciphertext
 
 ### Events
 
@@ -70,23 +70,23 @@ SMTPConnection instances are event emitters with the following events
 Establish the connection
 
 ```javascript
-connection.connect(callback)
+connection.connect(callback);
 ```
 
 Where
 
 - **callback** is the function to run once the connection is established. The function is added as a listener to the 'connect' event.
 
-After the connect event the *connection* has the following properties:
+After the connect event the _connection_ has the following properties:
 
-- **connection.secure** - if *true* then the connection uses a TLS socket, otherwise it is using a cleartext socket. Connection can start out as cleartext but if available (or *requireTLS* is set to true) connection upgrade is tried
+- **connection.secure** - if _true_ then the connection uses a TLS socket, otherwise it is using a cleartext socket. Connection can start out as cleartext but if available (or _requireTLS_ is set to true) connection upgrade is tried
 
 ### login
 
 If the server requires authentication you can login with
 
 ```javascript
-connection.login(auth, callback)
+connection.login(auth, callback);
 ```
 
 Where
@@ -112,16 +112,17 @@ Where
 Once the connection is authenticated (or just after connection is established if authentication is not required), you can send mail with
 
 ```javascript
-connection.send(envelope, message, callback)
+connection.send(envelope, message, callback);
 ```
 
 Where
 
 - **envelope** is the envelope object to use
+
   - **envelope.from** is the sender address
   - **envelope.to** is the recipient address or an array of addresses
   - **envelope.size** is an optional value of the predicted size of the message in bytes. This value is used if the server supports the SIZE extension (RFC1870)
-  - **envelope.use8BitMime** if *true* then inform the server that this message might contain bytes outside 7bit ascii range
+  - **envelope.use8BitMime** if _true_ then inform the server that this message might contain bytes outside 7bit ascii range
   - **envelope.dsn** is the dsn options
   - **envelope.dsn.ret** return either the full message 'FULL' or only headers 'HDRS'
   - **envelope.dsn.envid** sender's 'envelope identifier' for tracking
@@ -134,7 +135,7 @@ Where
   - **err** and error object if sending failed
   - **err.code** string code identifying the error, for example 'EAUTH' is returned when authentication fails
   - **err.response** is the last response received from the server (if the error is caused by an error response from the server)
-  - **err.responseCode** is the numeric response code of the *response* string (if available)
+  - **err.responseCode** is the numeric response code of the _response_ string (if available)
   - **info** information object about accepted and rejected recipients
   - **info.accepted** an array of accepted recipient addresses. Normally this array should contain at least one address except when in LMTP mode. In this case the message itself might have succeeded but all recipients were rejected after sending the message.
   - **info.rejected** an array of rejected recipient addresses. This array includes both the addresses that were rejected before sending the message and addresses rejected after sending it if using LMTP

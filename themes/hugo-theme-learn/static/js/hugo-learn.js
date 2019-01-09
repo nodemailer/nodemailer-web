@@ -17,11 +17,13 @@ var getUrlParameter = function getUrlParameter(sPageURL) {
 };
 
 // Execute actions on images generated from Markdown pages
-var images = $("div#body-inner img");
+var images = $("div#body-inner img").not(".inline");
 // Wrap image inside a featherlight (to get a full size view in a popup)
 images.wrap(function(){
   var image =$(this);
-  return "<a href='" + image[0].src + "' data-featherlight='image'></a>";
+  if (!image.parent("a").length) {
+    return "<a href='" + image[0].src + "' data-featherlight='image'></a>";
+  }
 });
 
 // Change styles, depending on parameters set to the image
@@ -56,7 +58,9 @@ images.each(function(index){
 });
 
 // Stick the top to the top of the screen when  scrolling
-$("#top-bar").stick_in_parent({spacer: false});
+$(document).ready(function(){
+  $("#top-bar").sticky({topSpacing:0, zIndex: 1000});
+});
 
 
 jQuery(document).ready(function() {
@@ -64,10 +68,10 @@ jQuery(document).ready(function() {
   var text, clip = new Clipboard('.anchor');
   $("h1~h2,h1~h3,h1~h4,h1~h5,h1~h6").append(function(index, html){
     var element = $(this);
-    var url = document.location.origin + document.location.pathname;
+    var url = encodeURI(document.location.origin + document.location.pathname);
     var link = url + "#"+element[0].id;
     return " <span class='anchor' data-clipboard-text='"+link+"'>" +
-      "<i class='fa fa-link fa-lg'></i>" +
+      "<i class='fas fa-link fa-lg'></i>" +
       "</span>"
     ;
   });

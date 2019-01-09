@@ -2,606 +2,1059 @@
 <html lang="en" class="js csstransforms3d">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.18.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.53" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<link rel="icon" href="/images/favicon.png" type="image/x-icon" />
+    <title>SMTP Server :: Nodemailer</title>
 
     
-    <title>SMTP Server</title>
-    <link href="/css/nucleus.css" rel="stylesheet">
-    <link href="/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/hybrid.css" rel="stylesheet">
-    <link href="/css/featherlight.min.css" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css" rel="stylesheet">
-    <link href="/css/horsey.css" rel="stylesheet">
-    <link href="/css/theme.css" rel="stylesheet">
-    <link href="/css/hugo-theme.css" rel="stylesheet">
-    <script src="/js/jquery-2.x.min.js"></script>
-    <style type="text/css">:root #header + #content > #left > #rlblock_left
-    {display:none !important;}</style>
+    <link href="/css/nucleus.css?1547036911" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1547036911" rel="stylesheet">
+    <link href="/css/hybrid.css?1547036911" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1547036911" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1547036911" rel="stylesheet">
+    <link href="/css/auto-complete.css?1547036911" rel="stylesheet">
+    <link href="/css/theme.css?1547036911" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1547036911" rel="stylesheet">
     
+      <link href="/css/theme-blue.css?1547036911" rel="stylesheet">
+    
+
+    <script src="/js/jquery-2.x.min.js?1547036911"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    <style>
+  #sidebar #header-wrapper {
+    background-color: white;
+  }
+  #sidebar #header-wrapper a {
+    color: #07689f;
+  }
+
+  #ads {
+     
+    max-width: 260px;
+     
+    margin: 3px auto 10px auto;
+     
+    font-size: 13px;
+    color: #07689f;
+  }
+
+  #carbonads {
+    display: block;
+    margin: 0 auto;
+    --width: 180px;
+    --font-size: 14px;
+  }
+
+  #carbonads {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial,
+      sans-serif;
+    display: block;
+    overflow: hidden;
+    margin-bottom: 20px;
+    max-width: var(--width);
+    border-radius: 4px;
+    text-align: center;
+    box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.1);
+    background-color: hsl(0, 0%, 98%);
+    font-size: var(--font-size);
+    line-height: 1.5;
+  }
+
+  #carbonads a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #carbonads a:hover {
+    color: inherit;
+  }
+
+  #carbonads span {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+
+  .carbon-img {
+    display: block;
+    margin-bottom: 8px;
+    max-width: var(--width);
+    line-height: 1;
+  }
+
+  .carbon-img img {
+    display: block;
+    margin: 0 auto;
+    max-width: var(--width) !important;
+    width: var(--width);
+    height: auto;
+  }
+
+  .carbon-text {
+    display: block;
+    padding: 0 1em 8px;
+  }
+
+  .carbon-poweredby {
+    display: block;
+    padding: 10px var(--font-size);
+    background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 5px,
+        hsla(0, 0%, 0%, 0.025) 5px,
+        hsla(0, 0%, 0%, 0.025) 10px
+      )
+      hsla(203, 11%, 95%, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    font-size: 9px;
+    line-height: 0;
+  }
+
+  #chapter p {
+      text-align: left;
+  }
+</style>
 
   </head>
   <body class="" data-url="/extras/smtp-server/">
-    <nav id="sidebar">
+    <nav id="sidebar" class="">
+
+
+
   <div id="header-wrapper">
     <div id="header">
-      <a id="logo" href="/">
-  <img src="/nm_logo_200x136.png" alt="Nodemailer"/>
+      <a id="logo" href="https://nodemailer.com">
+  <img src="/nm_logo_200x136.png" alt="Nodemailer" />
 </a>
 
     </div>
-    <p>
-      <a href="http://outfunnel.com/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=header-link">Powered by <b>Outfunnel</b></a>
-    </p>
+    
+        <p>
+  <a
+    href="http://outfunnel.com/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=header-link"
+    >Powered by <b>Outfunnel</b></a
+  >
+</p>
 
     
+  </div>
+
+    <div class="highlightable">
+
+    <div id="ads">
+      <script
+        async
+        type="text/javascript"
+        src="https://cdn.carbonads.com/carbon.js?serve=CKYIE27U&placement=nodemailercom"
+        id="_carbonads_js"
+      ></script>
+    </div>
+
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/about/" title="Nodemailer" class="dd-item
+        
+        
+        
+        ">
+      <a href="/about/">
+          <b>1. </b>Nodemailer
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/about/migrate/" title="Migration" class="dd-item ">
+        <a href="/about/migrate/">
+        Migration
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/about/license/" title="License" class="dd-item ">
+        <a href="/about/license/">
+        License
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/usage/" title="Usage" class="dd-item
+        
+        
+        
+        ">
+      <a href="/usage/">
+          <b>2. </b>Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/usage/why-smtp/" title="SMTP? Say what?" class="dd-item ">
+        <a href="/usage/why-smtp/">
+        SMTP? Say what?
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/usage/using-gmail/" title="Using Gmail" class="dd-item ">
+        <a href="/usage/using-gmail/">
+        Using Gmail
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/usage/bulk-mail/" title="Delivering bulk mail" class="dd-item ">
+        <a href="/usage/bulk-mail/">
+        Delivering bulk mail
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/message/" title="Message configuration" class="dd-item
+        
+        
+        
+        ">
+      <a href="/message/">
+          <b>3. </b>Message configuration
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/message/attachments/" title="Attachments" class="dd-item ">
+        <a href="/message/attachments/">
+        Attachments
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/message/alternatives/" title="Alternatives" class="dd-item ">
+        <a href="/message/alternatives/">
+        Alternatives
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/message/addresses/" title="Address object" class="dd-item ">
+        <a href="/message/addresses/">
+        Address object
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/message/calendar-events/" title="Calendar events" class="dd-item ">
+        <a href="/message/calendar-events/">
+        Calendar events
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/message/embedded-images/" title="Embedded images" class="dd-item ">
+        <a href="/message/embedded-images/">
+        Embedded images
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/message/list-headers/" title="List headers" class="dd-item ">
+        <a href="/message/list-headers/">
+        List headers
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/message/custom-headers/" title="Custom headers" class="dd-item ">
+        <a href="/message/custom-headers/">
+        Custom headers
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/message/custom-source/" title="Custom source" class="dd-item ">
+        <a href="/message/custom-source/">
+        Custom source
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/smtp/" title="SMTP transport" class="dd-item
+        
+        
+        
+        ">
+      <a href="/smtp/">
+          <b>4. </b>SMTP transport
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/smtp/envelope/" title="SMTP envelope" class="dd-item ">
+        <a href="/smtp/envelope/">
+        SMTP envelope
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/smtp/pooled/" title="Pooled SMTP" class="dd-item ">
+        <a href="/smtp/pooled/">
+        Pooled SMTP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/smtp/testing/" title="Testing SMTP" class="dd-item ">
+        <a href="/smtp/testing/">
+        Testing SMTP
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/smtp/oauth2/" title="OAuth2" class="dd-item ">
+        <a href="/smtp/oauth2/">
+        OAuth2
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/smtp/customauth/" title="Custom authentication" class="dd-item ">
+        <a href="/smtp/customauth/">
+        Custom authentication
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/smtp/proxies/" title="Proxy support" class="dd-item ">
+        <a href="/smtp/proxies/">
+        Proxy support
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/smtp/dsn/" title="Delivery status notifications" class="dd-item ">
+        <a href="/smtp/dsn/">
+        Delivery status notifications
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/transports/" title="Other transports" class="dd-item
+        
+        
+        
+        ">
+      <a href="/transports/">
+          <b>5. </b>Other transports
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/transports/sendmail/" title="Sendmail transport" class="dd-item ">
+        <a href="/transports/sendmail/">
+        Sendmail transport
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/transports/ses/" title="SES transport" class="dd-item ">
+        <a href="/transports/ses/">
+        SES transport
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/transports/stream/" title="Stream transport" class="dd-item ">
+        <a href="/transports/stream/">
+        Stream transport
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/plugins/" title="Plugins" class="dd-item
+        
+        
+        
+        ">
+      <a href="/plugins/">
+          <b>6. </b>Plugins
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/plugins/create/" title="Create plugins" class="dd-item ">
+        <a href="/plugins/create/">
+        Create plugins
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/dkim/" title="DKIM" class="dd-item
+        
+        
+        
+        ">
+      <a href="/dkim/">
+          <b>7. </b>DKIM
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/extras/" title="Extra modules" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/extras/">
+          <b>8. </b>Extra modules
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/extras/smtp-server/" title="SMTP Server" class="dd-item active">
+        <a href="/extras/smtp-server/">
+        SMTP Server
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/extras/smtp-connection/" title="SMTP Connection" class="dd-item ">
+        <a href="/extras/smtp-connection/">
+        SMTP Connection
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/extras/mailparser/" title="Mailparser" class="dd-item ">
+        <a href="/extras/mailparser/">
+        Mailparser
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/extras/mailcomposer/" title="Mailcomposer" class="dd-item ">
+        <a href="/extras/mailcomposer/">
+        Mailcomposer
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/extras/daemons/" title="Node.js daemons" class="dd-item ">
+        <a href="/extras/daemons/">
+        Node.js daemons
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <div style="text-align: center; margin-bottom:10px;">
+  <form
+    action="https://www.paypal.com/cgi-bin/webscr"
+    method="post"
+    target="_top"
+  >
+    <input type="hidden" name="cmd" value="_s-xclick" />
+    <input type="hidden" name="hosted_button_id" value="DB26KWR2BQX5W" />
+    <input
+      type="image"
+      src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif"
+      border="0"
+      name="submit"
+      alt="PayPal - The safer, easier way to pay online!"
+      style="display: inline"
+    />
+    <img
+      alt=""
+      border="0"
+      src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+      width="1"
+      height="1"
+    />
+  </form>
 </div>
 
+<div style="margin: 0 auto;">
+  <script src="https://opencollective.com/nodemailer/banner.js"></script>
+</div>
 
-  <div class="highlightable">
-      <div id="ads">
-          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CKYIE27U&placement=nodemailercom" id="_carbonads_js"></script>
-      </div>
-    <ul class="topics">
-      
-      
-        
-        
-          
-            
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
-          
-            
-          
-        
-      
-      
-      
-      
-
-      
-        
-      
-      
-      
-
-      <li class="dd-item  " data-nav-id="/about/">
-        <a href="/about/">
-          <span>
-            
-              <b>1. </b>
-            
-             Nodemailer
-            
-           </span>
-        </a>
-        
-        <ul>
-          
-          
-          
-          
-            <li class="dd-item " data-nav-id="/about/migrate/">
-              <a href="/about/migrate/">
-                <span>Migration     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/about/license/">
-              <a href="/about/license/">
-                <span>License     </i></span>
-              </a>
-            </li>
-          
-          
-        </ul>
-        
-      </li>
-      
-      
-      
-
-      
-        
-      
-      
-      
-
-      <li class="dd-item  " data-nav-id="/usage/">
-        <a href="/usage/">
-          <span>
-            
-              <b>2. </b>
-            
-             Usage
-            
-           </span>
-        </a>
-        
-        <ul>
-          
-          
-          
-          
-            <li class="dd-item " data-nav-id="/usage/why-smtp/">
-              <a href="/usage/why-smtp/">
-                <span>SMTP? Say what?     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/usage/using-gmail/">
-              <a href="/usage/using-gmail/">
-                <span>Using Gmail     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/usage/bulk-mail/">
-              <a href="/usage/bulk-mail/">
-                <span>Delivering bulk mail     </i></span>
-              </a>
-            </li>
-          
-          
-        </ul>
-        
-      </li>
-      
-      
-      
-
-      
-        
-      
-      
-      
-
-      <li class="dd-item  " data-nav-id="/message/">
-        <a href="/message/">
-          <span>
-            
-              <b>3. </b>
-            
-             Message configuration
-            
-           </span>
-        </a>
-        
-        <ul>
-          
-          
-          
-          
-            <li class="dd-item " data-nav-id="/message/attachments/">
-              <a href="/message/attachments/">
-                <span>Attachments     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/message/alternatives/">
-              <a href="/message/alternatives/">
-                <span>Alternatives     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/message/addresses/">
-              <a href="/message/addresses/">
-                <span>Address object     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/message/calendar-events/">
-              <a href="/message/calendar-events/">
-                <span>Calendar events     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/message/embedded-images/">
-              <a href="/message/embedded-images/">
-                <span>Embedded images     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/message/list-headers/">
-              <a href="/message/list-headers/">
-                <span>List headers     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/message/custom-headers/">
-              <a href="/message/custom-headers/">
-                <span>Custom headers     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/message/custom-source/">
-              <a href="/message/custom-source/">
-                <span>Custom source     </i></span>
-              </a>
-            </li>
-          
-          
-        </ul>
-        
-      </li>
-      
-      
-      
-
-      
-        
-      
-      
-      
-
-      <li class="dd-item  " data-nav-id="/smtp/">
-        <a href="/smtp/">
-          <span>
-            
-              <b>4. </b>
-            
-             SMTP transport
-            
-           </span>
-        </a>
-        
-        <ul>
-          
-          
-          
-          
-            <li class="dd-item " data-nav-id="/smtp/envelope/">
-              <a href="/smtp/envelope/">
-                <span>SMTP envelope     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/smtp/pooled/">
-              <a href="/smtp/pooled/">
-                <span>Pooled SMTP     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/smtp/testing/">
-              <a href="/smtp/testing/">
-                <span>Testing SMTP     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/smtp/oauth2/">
-              <a href="/smtp/oauth2/">
-                <span>OAuth2     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/smtp/proxies/">
-              <a href="/smtp/proxies/">
-                <span>Proxy support     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/smtp/dsn/">
-              <a href="/smtp/dsn/">
-                <span>Delivery status notifications     </i></span>
-              </a>
-            </li>
-          
-          
-        </ul>
-        
-      </li>
-      
-      
-      
-
-      
-        
-      
-      
-      
-
-      <li class="dd-item  " data-nav-id="/transports/">
-        <a href="/transports/">
-          <span>
-            
-              <b>5. </b>
-            
-             Other transports
-            
-           </span>
-        </a>
-        
-        <ul>
-          
-          
-          
-          
-            <li class="dd-item " data-nav-id="/transports/sendmail/">
-              <a href="/transports/sendmail/">
-                <span>Sendmail transport     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/transports/ses/">
-              <a href="/transports/ses/">
-                <span>SES transport     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/transports/stream/">
-              <a href="/transports/stream/">
-                <span>Stream transport     </i></span>
-              </a>
-            </li>
-          
-          
-        </ul>
-        
-      </li>
-      
-      
-      
-
-      
-        
-      
-      
-      
-
-      <li class="dd-item  " data-nav-id="/plugins/">
-        <a href="/plugins/">
-          <span>
-            
-              <b>6. </b>
-            
-             Plugins
-            
-           </span>
-        </a>
-        
-        <ul>
-          
-          
-          
-          
-            <li class="dd-item " data-nav-id="/plugins/create/">
-              <a href="/plugins/create/">
-                <span>Create plugins     </i></span>
-              </a>
-            </li>
-          
-          
-        </ul>
-        
-      </li>
-      
-      
-      
-
-      
-        
-      
-      
-      
-
-      <li class="dd-item  " data-nav-id="/dkim/">
-        <a href="/dkim/">
-          <span>
-            
-              <b>7. </b>
-            
-             DKIM
-            
-           </span>
-        </a>
-        
-      </li>
-      
-      
-      
-
-      
-        
-      
-      
-      
-
-      <li class="dd-item  parent" data-nav-id="/extras/">
-        <a href="/extras/">
-          <span>
-            
-              <b>8. </b>
-            
-             Extra modules
-            
-           </span>
-        </a>
-        
-        <ul>
-          
-          
-          
-          
-            <li class="dd-item active" data-nav-id="/extras/smtp-server/">
-              <a href="/extras/smtp-server/">
-                <span>SMTP Server     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/extras/smtp-connection/">
-              <a href="/extras/smtp-connection/">
-                <span>SMTP Connection     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/extras/mailparser/">
-              <a href="/extras/mailparser/">
-                <span>Mailparser     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/extras/mailcomposer/">
-              <a href="/extras/mailcomposer/">
-                <span>Mailcomposer     </i></span>
-              </a>
-            </li>
-          
-          
-          
-            <li class="dd-item " data-nav-id="/extras/daemons/">
-              <a href="/extras/daemons/">
-                <span>Node.js daemons     </i></span>
-              </a>
-            </li>
-          
-          
-        </ul>
-        
-      </li>
-      
-      
-      <li class="dd-item">
-        <a href="https://blog.nodemailer.com">
-          <span>
-             <b>9. </b>
-             Blog
-           </span>
-        </a>
-      </li>
-      <li class="dd-item">
-          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-         <input type="hidden" name="cmd" value="_s-xclick">
-         <input type="hidden" name="hosted_button_id" value="DB26KWR2BQX5W">
-         <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-         </form>
-      </li>
-      <li class="dd-item">
-	     <script src="https://opencollective.com/nodemailer/banner.js"></script>
-	</li>
-    </ul>
-    <hr>
-     
+    </section>
   </div>
 </nav>
 
+
+
+
         <section id="body">
         <div id="overlay"></div>
-
         <div class="padding highlightable">
-
-            <div id="top-bar">
               
-              <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                  <span id="sidebar-toggle-span">
-                      <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
-                        <i class="fa fa-bars"></i>
-                      </a>
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'>Nodemailer</a> > <a href='/extras/'>Extra modules</a> > SMTP Server
+          
+         
+          
+         
+          
+        
+                 
                   </span>
+                </div>
                 
-                <span id="toc-menu"><a href=""><i class="fa fa-list-alt"></i></a></span>
-                
-                
-                
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                    
-                    
-                <a href="/extras/" itemprop="url"><span itemprop="title">Extra modules</span></a> <i class="fa fa-angle-right"></i>
-                    
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                  
-                
-                <span itemprop="title"> SMTP Server</span>
-              </div>
-              
-                  <div class="progress">
+                    <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
 <ul>
@@ -649,14 +1102,19 @@
     </div>
 </div>
 
-              
-
+                
+              </div>
             </div>
             
-    	        <div id="body-inner">
-                
-                <h1>SMTP Server</h1>
-                
+
+        
+        <div id="body-inner">
+          
+            <h1>SMTP Server</h1>
+          
+
+        
+
 
 
 
@@ -675,7 +1133,7 @@
 
 <h4 id="step-2-require-in-your-script">Step 2. Require in your script</h4>
 
-<pre><code class="language-javascript">const SMTPServer = require('smtp-server').SMTPServer;
+<pre><code class="language-javascript">const SMTPServer = require(&quot;smtp-server&quot;).SMTPServer;
 </code></pre>
 
 <h4 id="step-3-create-smtpserver-instance">Step 3. Create SMTPServer instance</h4>
@@ -740,9 +1198,9 @@
 
 <pre><code class="language-javascript">// This example starts a SMTP server using TLS with your own certificate and key
 const server = new SMTPServer({
-    secure: true,
-    key: fs.readFileSync('private.key'),
-    cert: fs.readFileSync('server.crt')
+  secure: true,
+  key: fs.readFileSync(&quot;private.key&quot;),
+  cert: fs.readFileSync(&quot;server.crt&quot;)
 });
 server.listen(465);
 </code></pre>
@@ -764,8 +1222,8 @@ server.listen(465);
 
 <p>Errors can be handled by setting an &lsquo;error&rsquo; event listener to the server instance</p>
 
-<pre><code class="language-javascript">server.on('error', err =&gt; {
-    console.log('Error %s', err.message);
+<pre><code class="language-javascript">server.on(&quot;error&quot;, err =&gt; {
+  console.log(&quot;Error %s&quot;, err.message);
 });
 </code></pre>
 
@@ -774,7 +1232,7 @@ server.listen(465);
 <p>Authentication calls can be handled with <em>onAuth</em> handler</p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    onAuth(auth, session, callback){}
+  onAuth(auth, session, callback) {}
 });
 </code></pre>
 
@@ -795,12 +1253,9 @@ server.listen(465);
 
 <ul>
 <li><strong>error</strong> is an error to return if authentication failed. If you want to set custom error code, set <em>responseCode</em> to the error object</li>
-<li><strong>response</strong> is an object with the authentication results
-
-<ul>
+<li><strong>response</strong> is an object with the authentication results</li>
 <li><strong>user</strong> can be any value - if this is set then the user is considered logged in and this value is used later with the session data to identify the user. If this value is empty, then the authentication is considered failed</li>
 <li><strong>data</strong> is an object to return if XOAUTH2 authentication failed (do not set the error object in this case). This value is serialized to JSON and base64 encoded automatically, so you can just return the object</li>
-</ul></li>
 </ul></li>
 </ul>
 
@@ -811,12 +1266,12 @@ server.listen(465);
 <h4 id="password-based-authentication">Password based authentication</h4>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    onAuth(auth, session, callback){
-        if(auth.username !== 'abc' || auth.password !== 'def'){
-            return callback(new Error('Invalid username or password'));
-        }
-        callback(null, {user: 123}); // where 123 is the user id or similar property
+  onAuth(auth, session, callback) {
+    if (auth.username !== &quot;abc&quot; || auth.password !== &quot;def&quot;) {
+      return callback(new Error(&quot;Invalid username or password&quot;));
     }
+    callback(null, { user: 123 }); // where 123 is the user id or similar property
+  }
 });
 </code></pre>
 
@@ -826,23 +1281,23 @@ server.listen(465);
 If you support multiple authentication mechanisms, then you can check the used mechanism from the <em>method</em> property.</p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    authMethods: ['XOAUTH2'], // XOAUTH2 is not enabled by default
-    onAuth(auth, session, callback){
-        if(auth.method !== 'XOAUTH2'){
-            // should never occur in this case as only XOAUTH2 is allowed
-            return callback(new Error('Expecting XOAUTH2'));
-        }
-        if(auth.username !== 'abc' || auth.accessToken !== 'def'){
-            return callback(null, {
-                data: {
-                    status: '401',
-                    schemes: 'bearer mac',
-                    scope: 'my_smtp_access_scope_name'
-                }
-            });
-        }
-        callback(null, {user: 123}); // where 123 is the user id or similar property
+  authMethods: [&quot;XOAUTH2&quot;], // XOAUTH2 is not enabled by default
+  onAuth(auth, session, callback) {
+    if (auth.method !== &quot;XOAUTH2&quot;) {
+      // should never occur in this case as only XOAUTH2 is allowed
+      return callback(new Error(&quot;Expecting XOAUTH2&quot;));
     }
+    if (auth.username !== &quot;abc&quot; || auth.accessToken !== &quot;def&quot;) {
+      return callback(null, {
+        data: {
+          status: &quot;401&quot;,
+          schemes: &quot;bearer mac&quot;,
+          scope: &quot;my_smtp_access_scope_name&quot;
+        }
+      });
+    }
+    callback(null, { user: 123 }); // where 123 is the user id or similar property
+  }
 });
 </code></pre>
 
@@ -854,21 +1309,21 @@ If you support multiple authentication mechanisms, then you can check the used m
 <p>This authentication method does not return a password with the username but a response to a challenge. To validate the returned challenge response, the authentication object includes a method <em>validatePassword</em> that takes the actual plaintext password as an argument and returns either <em>true</em> if the password matches with the challenge response or <em>false</em> if it does not.</p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    authMethods: ['CRAM-MD5'], // CRAM-MD5 is not enabled by default
-    onAuth(auth, session, callback){
-        if(auth.method !== 'CRAM-MD5'){
-            // should never occur in this case as only CRAM-MD5 is allowed
-            return callback(new Error('Expecting CRAM-MD5'));
-        }
-
-        // CRAM-MD5 does not provide a password but a challenge response
-        // that can be validated against the actual password of the user
-        if(auth.username !== 'abc' || !auth.validatePassword('def')){
-            return callback(new Error('Invalid username or password'));
-        }
-
-        callback(null, {user: 123}); // where 123 is the user id or similar property
+  authMethods: [&quot;CRAM-MD5&quot;], // CRAM-MD5 is not enabled by default
+  onAuth(auth, session, callback) {
+    if (auth.method !== &quot;CRAM-MD5&quot;) {
+      // should never occur in this case as only CRAM-MD5 is allowed
+      return callback(new Error(&quot;Expecting CRAM-MD5&quot;));
     }
+
+    // CRAM-MD5 does not provide a password but a challenge response
+    // that can be validated against the actual password of the user
+    if (auth.username !== &quot;abc&quot; || !auth.validatePassword(&quot;def&quot;)) {
+      return callback(new Error(&quot;Invalid username or password&quot;));
+    }
+
+    callback(null, { user: 123 }); // where 123 is the user id or similar property
+  }
 });
 </code></pre>
 
@@ -878,7 +1333,7 @@ If you support multiple authentication mechanisms, then you can check the used m
 any other command, you can set a handler for it with <em>onConnect</em></p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    onConnect(session, callback){}
+  onConnect(session, callback) {}
 });
 </code></pre>
 
@@ -890,19 +1345,19 @@ any other command, you can set a handler for it with <em>onConnect</em></p>
 </ul>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    onConnect(session, callback){
-        if(session.remoteAddress === '127.0.0.1'){
-            return callback(new Error('No connections from localhost allowed'));
-        }
-        return callback(); // Accept the connection
+  onConnect(session, callback) {
+    if (session.remoteAddress === &quot;127.0.0.1&quot;) {
+      return callback(new Error(&quot;No connections from localhost allowed&quot;));
     }
+    return callback(); // Accept the connection
+  }
 });
 </code></pre>
 
 <p>If you also need to detect when a connection is closed use <em>onClose</em>. This method does not expect you to run a callback function as it is purely informational.</p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    onClose(session){}
+  onClose(session) {}
 });
 </code></pre>
 
@@ -912,7 +1367,7 @@ any other command, you can set a handler for it with <em>onConnect</em></p>
 the address before it is accepted you can set a handler for it with <em>onMailFrom</em></p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    onMailFrom(address, session, callback){}
+  onMailFrom(address, session, callback) {}
 });
 </code></pre>
 
@@ -925,12 +1380,14 @@ the address before it is accepted you can set a handler for it with <em>onMailFr
 </ul>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    onMailFrom(address, session, callback){
-        if(address.address !== 'allowed@example.com'){
-            return callback(new Error('Only allowed@example.com is allowed to send mail'));
-        }
-        return callback(); // Accept the address
+  onMailFrom(address, session, callback) {
+    if (address.address !== &quot;allowed@example.com&quot;) {
+      return callback(
+        new Error(&quot;Only allowed@example.com is allowed to send mail&quot;)
+      );
     }
+    return callback(); // Accept the address
+  }
 });
 </code></pre>
 
@@ -940,7 +1397,7 @@ the address before it is accepted you can set a handler for it with <em>onMailFr
 the address before it is accepted you can set a handler for it with <em>onRcptTo</em></p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    onRcptTo(address, session, callback){}
+  onRcptTo(address, session, callback) {}
 });
 </code></pre>
 
@@ -953,12 +1410,14 @@ the address before it is accepted you can set a handler for it with <em>onRcptTo
 </ul>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    onRcptTo(address, session, callback){
-        if(address.address !== 'allowed@example.com'){
-            return callback(new Error('Only allowed@example.com is allowed to receive mail'));
-        }
-        return callback(); // Accept the address
+  onRcptTo(address, session, callback) {
+    if (address.address !== &quot;allowed@example.com&quot;) {
+      return callback(
+        new Error(&quot;Only allowed@example.com is allowed to receive mail&quot;)
+      );
     }
+    return callback(); // Accept the address
+  }
 });
 </code></pre>
 
@@ -967,7 +1426,7 @@ the address before it is accepted you can set a handler for it with <em>onRcptTo
 <p>You can get the stream for the incoming message with <em>onData</em> handler</p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    onData(stream, session, callback){}
+  onData(stream, session, callback) {}
 });
 </code></pre>
 
@@ -980,10 +1439,10 @@ the address before it is accepted you can set a handler for it with <em>onRcptTo
 </ul>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    onData(stream, session, callback){
-        stream.pipe(process.stdout); // print message to console
-        stream.on('end', callback);
-    }
+  onData(stream, session, callback) {
+    stream.pipe(process.stdout); // print message to console
+    stream.on(&quot;end&quot;, callback);
+  }
 });
 </code></pre>
 
@@ -994,29 +1453,29 @@ the address before it is accepted you can set a handler for it with <em>onRcptTo
 <p>When creating the server you can define maximum allowed message size with the <em>size</em> option, see <a href="https://tools.ietf.org/html/rfc1870">RFC1870</a> for details. This is not a strict limitation, the client is informed about the size limit but the client can still send a larger message than allowed, it is up to your application to reject or accept the oversized message. To check if the message was oversized, see <em>stream.sizeExceeded</em> property.</p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    size: 1024, // allow messages up to 1 kb
-    onRcptTo(address, session, callback) {
-        // do not accept messages larger than 100 bytes to specific recipients
-        let expectedSize = Number(session.envelope.mailFrom.args.SIZE) || 0;
-        if (address.address === 'almost-full@example.com' &amp;&amp;  expectedSize &gt; 100) {
-            err = new Error('Insufficient channel storage: ' + address.address);
-            err.responseCode = 452;
-            return callback(err);
-        }
-        callback();
-    },
-    onData(stream, session, callback){
-        stream.pipe(process.stdout); // print message to console
-        stream.on('end', () =&gt; {
-            let err;
-            if(stream.sizeExceeded){
-                err = new Error('Message exceeds fixed maximum message size');
-                err.responseCode = 552;
-                return callback(err);
-            }
-            callback(null, 'Message queued as abcdef');
-        });
+  size: 1024, // allow messages up to 1 kb
+  onRcptTo(address, session, callback) {
+    // do not accept messages larger than 100 bytes to specific recipients
+    let expectedSize = Number(session.envelope.mailFrom.args.SIZE) || 0;
+    if (address.address === &quot;almost-full@example.com&quot; &amp;&amp; expectedSize &gt; 100) {
+      err = new Error(&quot;Insufficient channel storage: &quot; + address.address);
+      err.responseCode = 452;
+      return callback(err);
     }
+    callback();
+  },
+  onData(stream, session, callback) {
+    stream.pipe(process.stdout); // print message to console
+    stream.on(&quot;end&quot;, () =&gt; {
+      let err;
+      if (stream.sizeExceeded) {
+        err = new Error(&quot;Message exceeds fixed maximum message size&quot;);
+        err.responseCode = 552;
+        return callback(err);
+      }
+      callback(null, &quot;Message queued as abcdef&quot;);
+    });
+  }
 });
 </code></pre>
 
@@ -1032,21 +1491,21 @@ of responses instead of a single error or success message. The array must contai
 envelope rcptTo array.</p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-    lmtp: true,
-    onData(stream, session, callback){
-        stream.pipe(process.stdout); // print message to console
-        stream.on('end', () =&gt; {
-            // reject every other recipient
-            let response = session.envelope.rcptTo.map((rcpt, i) =&gt; {
-                if (i % 2) {
-                    return new Error('&lt;' + rcpt.address + '&gt; Not accepted');
-                } else {
-                    return '&lt;' + rcpt.address + '&gt; Accepted';
-                }
-            });
-            callback(null, response);
-        });
-    }
+  lmtp: true,
+  onData(stream, session, callback) {
+    stream.pipe(process.stdout); // print message to console
+    stream.on(&quot;end&quot;, () =&gt; {
+      // reject every other recipient
+      let response = session.envelope.rcptTo.map((rcpt, i) =&gt; {
+        if (i % 2) {
+          return new Error(&quot;&lt;&quot; + rcpt.address + &quot;&gt; Not accepted&quot;);
+        } else {
+          return &quot;&lt;&quot; + rcpt.address + &quot;&gt; Accepted&quot;;
+        }
+      });
+      callback(null, response);
+    });
+  }
 });
 </code></pre>
 
@@ -1148,50 +1607,677 @@ C: RCPT TO:&lt;recipient@example.com&gt; NOTIFY=NEVER
 <p><strong>MIT</strong></p>
 
 
-      
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+        </div> 
+        
+
       </div>
-    </div>
 
     <div id="navigation">
         
-        <a class="nav nav-prev" href="/extras/"> <i class="fa fa-chevron-left"></i></a>
-        <a class="nav nav-next" href="/extras/smtp-connection/" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/extras/" title="Extra modules"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/extras/smtp-connection/" title="SMTP Connection" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
     </div>
 
     </section>
+    
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-
-    <script src="/js/clipboard.min.js"></script>
-    <script src="/js/perfect-scrollbar.min.js"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js"></script>
-    <script src="/js/jquery.sticky-kit.min.js"></script>
-    <script src="/js/featherlight.min.js"></script>
-    <script src="/js/html5shiv-printshiv.min.js"></script>
-    <script src="/js/highlight.pack.js"></script>
+    <script src="/js/clipboard.min.js?1547036911"></script>
+    <script src="/js/perfect-scrollbar.min.js?1547036911"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1547036911"></script>
+    <script src="/js/jquery.sticky.js?1547036911"></script>
+    <script src="/js/featherlight.min.js?1547036911"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1547036911"></script>
+    <script src="/js/highlight.pack.js?1547036911"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js"></script>
-    <script src="/js/learn.js"></script>
-    <script src="/js/hugo-learn.js"></script>
+    <script src="/js/modernizr.custom.71422.js?1547036911"></script>
+    <script src="/js/learn.js?1547036911"></script>
+    <script src="/js/hugo-learn.js?1547036911"></script>
 
+    <link href="/mermaid/mermaid.css?1547036911" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1547036911"></script>
     <script>
-        var OFID = '5ade1fb4e2982f2638310b10';
+        mermaid.initialize({ startOnLoad: true });
     </script>
-    <script src="https://app.outfunnel.com/c.js"></script>
-
     
-
-    
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-51322-34', 'auto');
-ga('send', 'pageview');
-</script>
 
   </body>
 </html>

@@ -1,9 +1,9 @@
 +++
 date = "2017-01-20T11:16:41+02:00"
 toc = true
-prev = "/smtp/oauth2/"
+prev = "/smtp/customauth/"
 next = "/smtp/dsn/"
-weight = 24
+weight = 25
 title = "Proxy support"
 +++
 

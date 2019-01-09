@@ -1,184 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Smtps on Nodemailer</title>
-    <link>https://nodemailer.com/smtp/index.xml</link>
-    <description>Recent content in Smtps on Nodemailer</description>
+    <title>SMTP transport on Nodemailer</title>
+    <link>https://nodemailer.com/smtp/</link>
+    <description>Recent content in SMTP transport on Nodemailer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Jan 2017 10:51:36 +0200</lastBuildDate>
-    <atom:link href="https://nodemailer.com/smtp/index.xml" rel="self" type="application/rss+xml" />
     
-    <item>
-      <title>SMTP transport</title>
-      <link>https://nodemailer.com/smtp/</link>
-      <pubDate>Fri, 20 Jan 2017 10:51:36 +0200</pubDate>
-      
-      <guid>https://nodemailer.com/smtp/</guid>
-      <description>
-
-&lt;h1 id=&#34;smtp-transport&#34;&gt;SMTP transport&lt;/h1&gt;
-
-&lt;p&gt;SMTP is the main transport in Nodemailer for delivering messages. SMTP is also the protocol used between different email hosts, so its truly universal. Almost every email delivery provider supports SMTP based sending, even if they mainly push their API based sending. APIs might have more features but using these also means vendor lock-in while in case of SMTP you only need to change the configuration options to replace one provider with another and you&amp;rsquo;re good to go.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport(options[, defaults])
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Where&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;options&lt;/strong&gt; – is an object that defines connection data (see below for details)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;defaults&lt;/strong&gt; – is an object that is going to be merged into every message object. This allows you to specify shared options, for example to set the same &lt;em&gt;from&lt;/em&gt; address for every message&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Alternatively you could use a connection url instead of an object for the options. Use &lt;em&gt;&amp;lsquo;smtp:&amp;rsquo;&lt;/em&gt; or &lt;em&gt;&amp;lsquo;smtps:&amp;rsquo;&lt;/em&gt; as the protocol in the url.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let poolConfig = &#39;smtps://username:password@smtp.example.com/?pool=true&#39;;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;general-options&#34;&gt;General options&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;port&lt;/strong&gt; – is the port to connect to (defaults to 587 if is &lt;em&gt;secure&lt;/em&gt; is &lt;em&gt;false&lt;/em&gt; or 465 if &lt;em&gt;true&lt;/em&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;host&lt;/strong&gt; – is the hostname or IP address to connect to (defaults to &lt;em&gt;&amp;lsquo;localhost&amp;rsquo;&lt;/em&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;auth&lt;/strong&gt; – defines authentication data (see &lt;a href=&#34;#authentication&#34;&gt;authentication&lt;/a&gt; section below)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;authMethod&lt;/strong&gt; – defines preferred authentication method, defaults to &amp;lsquo;PLAIN&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;tls-options&#34;&gt;TLS options&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;secure&lt;/strong&gt; – if &lt;em&gt;true&lt;/em&gt; the connection will use TLS when connecting to server. If &lt;em&gt;false&lt;/em&gt; (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to &lt;em&gt;true&lt;/em&gt; if you are connecting to port 465. For port 587 or 25 keep it &lt;em&gt;false&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;tls&lt;/strong&gt; – defines additional &lt;a href=&#34;https://nodejs.org/api/tls.html#tls_class_tls_tlssocket&#34;&gt;node.js TLSSocket options&lt;/a&gt; to be passed to the socket constructor, eg. &lt;em&gt;{rejectUnauthorized: true}&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ignoreTLS&lt;/strong&gt; – if this is &lt;em&gt;true&lt;/em&gt; and &lt;em&gt;secure&lt;/em&gt; is false then TLS is not used even if the server supports STARTTLS extension&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;requireTLS&lt;/strong&gt; – if this is &lt;em&gt;true&lt;/em&gt; and &lt;em&gt;secure&lt;/em&gt; is false then Nodemailer tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;Setting &lt;strong&gt;secure&lt;/strong&gt; to &lt;strong&gt;false&lt;/strong&gt; does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via &lt;a href=&#34;https://tools.ietf.org/html/rfc3207#section-2&#34;&gt;STARTTLS&lt;/a&gt; command but to use this you have to connect using plaintext first&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;h5 id=&#34;connection-options&#34;&gt;Connection options&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;name&lt;/strong&gt; – optional hostname of the client, used for identifying to the server, defaults to hostname of the machine&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;localAddress&lt;/strong&gt; – is the local interface to bind to for network connections&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;connectionTimeout&lt;/strong&gt; – how many milliseconds to wait for the connection to establish (default is 2 minutes)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;greetingTimeout&lt;/strong&gt; – how many milliseconds to wait for the greeting after connection is established (default is 30 seconds)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;socketTimeout&lt;/strong&gt; – how many milliseconds of inactivity to allow (default is 10 minutes)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;debug-options&#34;&gt;Debug options&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;logger&lt;/strong&gt; – optional &lt;a href=&#34;https://github.com/trentm/node-bunyan&#34;&gt;bunyan&lt;/a&gt; compatible logger instance. If set to &lt;code&gt;true&lt;/code&gt; then logs to console. If value is not set or is &lt;code&gt;false&lt;/code&gt; then nothing is logged&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;debug&lt;/strong&gt; – if set to true, then logs SMTP traffic, otherwise logs only transaction events&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;security-options&#34;&gt;Security options&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;disableFileAccess&lt;/strong&gt; – if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;disableUrlAccess&lt;/strong&gt; – if true, then does not allow to use Urls as content&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;pooling-options&#34;&gt;Pooling options&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;pool&lt;/strong&gt; – see &lt;a href=&#34;https://nodemailer.com/smtp/pooled/&#34;&gt;Pooled SMTP&lt;/a&gt; for details about connection pooling&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;proxy-options&#34;&gt;Proxy options&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;proxy&lt;/strong&gt; – all SMTP based transports allow to use proxies for making TCP connections to servers. Read about proxy support in Nodemailer from &lt;a href=&#34;https://nodemailer.com/smtp/proxies/&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
-
-&lt;h4 id=&#34;1-single-connection&#34;&gt;1. Single connection&lt;/h4&gt;
-
-&lt;p&gt;This example would connect to a SMTP server separately for every single message&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let smtpConfig = {
-    host: &#39;smtp.example.com&#39;,
-    port: 587,
-    secure: false, // upgrade later with STARTTLS
-    auth: {
-        user: &#39;username&#39;,
-        pass: &#39;password&#39;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;2-single-connection&#34;&gt;2. Single connection&lt;/h4&gt;
-
-&lt;p&gt;This example would set up pooled connections against a SMTP server on port 465&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let poolConfig = {
-    pool: true,
-    host: &#39;smtp.example.com&#39;,
-    port: 465,
-    secure: true, // use TLS
-    auth: {
-        user: &#39;username&#39;,
-        pass: &#39;password&#39;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;3-allow-self-signed-certificates&#34;&gt;3. Allow self-signed certificates&lt;/h4&gt;
-
-&lt;p&gt;This config would open a connection to TLS server with self-signed or invalid TLS certificate&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let selfSignedConfig = {
-    host: &#39;my.smtp.host&#39;,
-    port: 465,
-    secure: true, // use TLS
-    auth: {
-        user: &#39;username&#39;,
-        pass: &#39;pass&#39;
-    },
-    tls: {
-        // do not fail on invalid certs
-        rejectUnauthorized: false
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;authentication&#34;&gt;Authentication&lt;/h2&gt;
-
-&lt;p&gt;If authentication data is not present, the connection is considered authenticated from the start. Otherwise you would need to provide the authentication options object.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;auth&lt;/strong&gt; is the authentication object&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;type&lt;/strong&gt; indicates the authetication type, defaults to &amp;lsquo;login&amp;rsquo;, other option is &amp;lsquo;oauth2&amp;rsquo;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;user&lt;/strong&gt; is the username&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;pass&lt;/strong&gt; is the password for the user if normal login is used&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For authenticating using OAuth2 instead of normal auth, see OAuth2 options for the &lt;strong&gt;auth&lt;/strong&gt; object &lt;a href=&#34;https://nodemailer.com/smtp/oauth2/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;verify-smtp-connection-configuration&#34;&gt;Verify SMTP connection configuration&lt;/h2&gt;
-
-&lt;p&gt;You can verify your SMTP configuration with &lt;strong&gt;verify(callback)&lt;/strong&gt; call (also works as a Promise). If it returns an error, then something is not correct, otherwise the server is ready to accept messages.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;// verify connection configuration
-transporter.verify(function(error, success) {
-   if (error) {
-        console.log(error);
-   } else {
-        console.log(&#39;Server is ready to take our messages&#39;);
-   }
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Be aware though that this call only tests connection and authentication but it does not check if the service allows you to use a specific envelope From address or not.&lt;/p&gt;
-</description>
-    </item>
+	<atom:link href="https://nodemailer.com/smtp/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>SMTP envelope</title>
@@ -186,32 +17,8 @@ transporter.verify(function(error, success) {
       <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
       
       <guid>https://nodemailer.com/smtp/envelope/</guid>
-      <description>&lt;p&gt;SMTP envelope is usually auto generated from &lt;strong&gt;from&lt;/strong&gt;, &lt;strong&gt;to&lt;/strong&gt;, &lt;strong&gt;cc&lt;/strong&gt; and &lt;strong&gt;bcc&lt;/strong&gt; fields in the message object but if for some reason you want to specify it yourself (custom envelopes are usually used for VERP addresses), you can do it with the &lt;strong&gt;envelope&lt;/strong&gt; property in the message object.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;envelope&lt;/strong&gt; – is an object with the following address params that behave just like with regular mail options. You can also use the regular address format, unicode domains etc.
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;from&lt;/strong&gt; – the first address gets used as MAIL FROM address in SMTP&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;to&lt;/strong&gt; – addresses from this value get added to RCPT TO list&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;cc&lt;/strong&gt; – addresses from this value get added to RCPT TO list&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;bcc&lt;/strong&gt; – addresses from this value get added to RCPT TO list&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    ...,
-    from: &#39;mailer@nodemailer.com&#39;, // listed in rfc822 message header
-    to: &#39;daemon@nodemailer.com&#39;, // listed in rfc822 message header
-    envelope: {
-        from: &#39;Daemon &amp;lt;deamon@nodemailer.com&amp;gt;&#39;, // used as MAIL FROM: address for SMTP
-        to: &#39;mailer@nodemailer.com, Mailer &amp;lt;mailer2@nodemailer.com&amp;gt;&#39; // used as RCPT TO: address for SMTP
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The envelope object returned by &lt;strong&gt;sendMail()&lt;/strong&gt; includes just &lt;strong&gt;from&lt;/strong&gt; (address string) and &lt;strong&gt;to&lt;/strong&gt; (an array of address strings) fields as all addresses from &lt;strong&gt;to&lt;/strong&gt;, &lt;strong&gt;cc&lt;/strong&gt; and &lt;strong&gt;bcc&lt;/strong&gt; get merged into &lt;strong&gt;to&lt;/strong&gt; when sending.&lt;/p&gt;
-</description>
+      <description>SMTP envelope is usually auto generated from from, to, cc and bcc fields in the message object but if for some reason you want to specify it yourself (custom envelopes are usually used for VERP addresses), you can do it with the envelope property in the message object.
+ envelope – is an object with the following address params that behave just like with regular mail options. You can also use the regular address format, unicode domains etc.</description>
     </item>
     
     <item>
@@ -220,50 +27,9 @@ transporter.verify(function(error, success) {
       <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
       
       <guid>https://nodemailer.com/smtp/pooled/</guid>
-      <description>
-
-&lt;p&gt;If pooling is used then Nodemailer keeps a fixed amount of connections open and sends the next message once a connection becomes available. It is mostly useful when you have a large number of messages that you want to send in batches or your provider allows you to only use a small amount of parallel connections.&lt;/p&gt;
-
-&lt;p&gt;To use pooled connections use the following options in transport configuration&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;pool&lt;/strong&gt; – set to &lt;em&gt;true&lt;/em&gt; to use pooled connections (defaults to &lt;em&gt;false&lt;/em&gt;) instead of creating a new connection for every email&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;maxConnections&lt;/strong&gt; – is the count of maximum simultaneous connections to make against the SMTP server (defaults to 5)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;maxMessages&lt;/strong&gt; – limits the message count to be sent using a single connection (defaults to 100). After &lt;em&gt;maxMessages&lt;/em&gt; is reached the connection is dropped and a new one is created for the following messages&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;rateDelta&lt;/strong&gt; – defines the time measuring period in milliseconds (defaults to 1000, ie. to 1 second) for rate limiting&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;rateLimit&lt;/strong&gt; – limits the message count to be sent in &lt;strong&gt;rateDelta&lt;/strong&gt; time. Once &lt;em&gt;rateLimit&lt;/em&gt; is reached, sending is paused until the end of the measuring period. This limit is shared between connections, so if one connection uses up the limit, then other connections are paused as well. If &lt;em&gt;rateLimit&lt;/em&gt; is not set then sending rate is not limited&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;methods&#34;&gt;Methods&lt;/h3&gt;
-
-&lt;h4 id=&#34;transporter-isidle&#34;&gt;transporter.isIdle()&lt;/h4&gt;
-
-&lt;p&gt;Returns &lt;em&gt;true&lt;/em&gt; if there are available connection slots&lt;/p&gt;
-
-&lt;h4 id=&#34;transporter-close&#34;&gt;transporter.close()&lt;/h4&gt;
-
-&lt;p&gt;If transporter uses pooling then connections are kept open even if there is nothing to be sent. Connections that idle for longer than the &lt;em&gt;socketTimeout&lt;/em&gt; will be closed automatically and reopened once there&amp;rsquo;s more mail to send. You can also use &lt;em&gt;transporter.close()&lt;/em&gt; to clean up all connections.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({pool: true,...});
-// ...
-transporter.close();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;events&#34;&gt;Events&lt;/h3&gt;
-
-&lt;h4 id=&#34;event-idle&#34;&gt;Event:&amp;lsquo;idle&amp;rsquo;&lt;/h4&gt;
-
-&lt;p&gt;Emitted by the transporter object if connection pool has free connection slots. Check if a connection is still available with &lt;code&gt;isIdle()&lt;/code&gt; method (returns &lt;code&gt;true&lt;/code&gt; if a connection is still available). This allows to create push-like senders where messages are not queued into memory in a Node.js process but pushed and loaded through an external queue.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let messages = [...&amp;quot;list of messages&amp;quot;];
-transporter.on(&amp;quot;idle&amp;quot;, function() {
-  // send next message from the pending queue
-  while (transporter.isIdle() &amp;amp;&amp;amp; messages.length) {
-    transporter.sendMail(messages.shift());
-  }
-});
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>If pooling is used then Nodemailer keeps a fixed amount of connections open and sends the next message once a connection becomes available. It is mostly useful when you have a large number of messages that you want to send in batches or your provider allows you to only use a small amount of parallel connections.
+To use pooled connections use the following options in transport configuration
+ pool – set to true to use pooled connections (defaults to false) instead of creating a new connection for every email maxConnections – is the count of maximum simultaneous connections to make against the SMTP server (defaults to 5) maxMessages – limits the message count to be sent using a single connection (defaults to 100).</description>
     </item>
     
     <item>
@@ -272,74 +38,8 @@ transporter.on(&amp;quot;idle&amp;quot;, function() {
       <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
       
       <guid>https://nodemailer.com/smtp/testing/</guid>
-      <description>
-
-&lt;p&gt;When building complex applications then sooner or later you end up in a situation where you need to send emails from your application in test environment but do not want to accidentally spam anyone.&lt;/p&gt;
-
-&lt;p&gt;One solution would be to separate development email addresses and use only some specific testing address to send all mail to but a better approach would be to use a separate email catching service that accepts all messages like a normal transactional SMTP service would but instead of delivering these to destination, it only logs these messages.&lt;/p&gt;
-
-&lt;p&gt;There are several options for using such a service, Nodemailer has built-in support for &lt;a href=&#34;https://ethereal.email&#34;&gt;Ethereal Email&lt;/a&gt;. You can create new testing account on the fly by using the &lt;code&gt;createTestAccount&lt;/code&gt; method or from the Ethereal homepage.&lt;/p&gt;
-
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
-
-&lt;h4 id=&#34;create-a-testing-account-on-the-fly&#34;&gt;Create a testing account on the fly&lt;/h4&gt;
-
-&lt;p&gt;&lt;strong&gt;NB!&lt;/strong&gt; Do not forget to store these credentials somewhere if you want to browse sent messages at &lt;a href=&#34;https://ethereal.email&#34;&gt;ethereal.email&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;nodemailer.createTestAccount((err, account) =&amp;gt; {
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-        host: &#39;smtp.ethereal.email&#39;,
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-            user: account.user, // generated ethereal user
-            pass: account.pass  // generated ethereal password
-        }
-    });
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;use-environment-specific-smtp-settings&#34;&gt;Use environment specific SMTP settings&lt;/h4&gt;
-
-&lt;p&gt;This example assumes you have already generated as user account at Ethereal. You can do this for example from the &lt;a href=&#34;https://ethereal.email/login&#34;&gt;login page&lt;/a&gt; or re-use the credentials created in the previous example.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var mailConfig;
-if (process.env.NODE_ENV === &#39;production&#39; ){
-    // all emails are delivered to destination
-    mailConfig = {
-        host: &#39;smtp.sendgrid.net&#39;,
-        port: 587,
-        auth: {
-            user: &#39;real.user&#39;,
-            pass: &#39;verysecret&#39;
-        }
-    };
-} else {
-    // all emails are catched by ethereal.email
-    mailConfig = {
-        host: &#39;smtp.ethereal.email&#39;,
-        port: 587,
-        auth: {
-            user: &#39;ethereal.user@ethereal.email&#39;,
-            pass: &#39;verysecret&#39;
-        }
-    };
-}
-let transporter = nodemailer.createTransport(mailConfig);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Sending a message to Ethereal gives you a link to the stored message. You can either get the link using &lt;code&gt;getTestMessageUrl&lt;/code&gt; method or log in to Ethereal and open the Messages section.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transporter.sendMail(...).then(info=&amp;gt;{
-    console.log(&#39;Preview URL: &#39; + nodemailer.getTestMessageUrl(info));
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Output of the the &lt;a href=&#34;https://github.com/nodemailer/nodemailer/blob/master/examples/full.js&#34;&gt;example script&lt;/a&gt; as shown by the &lt;a href=&#34;https://ethereal.email/&#34;&gt;Ethereal&lt;/a&gt; mail catching service:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://cldup.com/D5Cj_C1Vw3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
-</description>
+      <description>When building complex applications then sooner or later you end up in a situation where you need to send emails from your application in test environment but do not want to accidentally spam anyone.
+One solution would be to separate development email addresses and use only some specific testing address to send all mail to but a better approach would be to use a separate email catching service that accepts all messages like a normal transactional SMTP service would but instead of delivering these to destination, it only logs these messages.</description>
     </item>
     
     <item>
@@ -348,247 +48,17 @@ let transporter = nodemailer.createTransport(mailConfig);
       <pubDate>Fri, 20 Jan 2017 10:45:57 +0200</pubDate>
       
       <guid>https://nodemailer.com/smtp/oauth2/</guid>
-      <description>
-
-&lt;p&gt;OAuth2 allows your application to store and use authentication tokens instead of actual login credentials. This is great for security as tokens or valid only for specific actions and can be easily revoked thus, once stolen, can&amp;rsquo;t to as much harm as actual account credentials. OAuth2 authentication in Nodemailer is mostly used with Gmail and G Suite (&lt;em&gt;née&lt;/em&gt; Google Apps) even though there are other providers that support it as well.&lt;/p&gt;
-
-&lt;p&gt;Access Tokens needed for OAuth2 authentication are short lived so these need to be regenerated from time to time. Nodemailer is able to use both &lt;a href=&#34;https://developers.google.com/identity/protocols/OAuth2&#34;&gt;3LO&lt;/a&gt; and &lt;a href=&#34;https://developers.google.com/api-client-library/php/auth/service-accounts&#34;&gt;2LO&lt;/a&gt; to automatically regenerate the tokens but you can also handle all token specific yourself.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&#34;#oauth-3lo&#34;&gt;Normal OAuth2 authentication&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#oauth-2lo&#34;&gt;Authenticating using Service Accounts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#custom-handling&#34;&gt;Using custom token handling&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#update-notification&#34;&gt;Token update notifications&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#examples&#34;&gt;Examples&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#troubleshooting&#34;&gt;Troubleshooting&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;Nodemailer requires an &lt;strong&gt;Access Token&lt;/strong&gt; to perform authentication. 3-legged and 2-legged OAuth2 mechanisms are different ways to produce such tokens but in the end it does not matter how a token was exactly generated, as long as it is valid.&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;h3 id=&#34;oauth-3lo&#34;&gt;3-legged OAuth2 authentication&lt;/h3&gt;
-
-&lt;p&gt;This is the &amp;ldquo;normal&amp;rdquo; way of obtaining access tokens. Your application requests permissions from the client and gets a refresh token in return that can be used to generate new access tokens.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;auth&lt;/strong&gt; – is the authentication object&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;type&lt;/strong&gt; – indicates authentication type, set it to &lt;em&gt;&amp;lsquo;OAuth2&amp;rsquo;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;user&lt;/strong&gt; – user email address (required)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;clientId&lt;/strong&gt; – is the registered client id of the application&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;clientSecret&lt;/strong&gt; – is the registered client secret of the application&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;refreshToken&lt;/strong&gt; – is an optional refresh token. If it is provided then Nodemailer tries to generate a new access token if existing one expires or fails&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;accessToken&lt;/strong&gt; – is the access token for the user. Required only if &lt;em&gt;refreshToken&lt;/em&gt; is not available and there is no token refresh callback specified&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;expires&lt;/strong&gt; – is an optional expiration time for the current &lt;em&gt;accessToken&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;accessUrl&lt;/strong&gt; – is an optional HTTP endpoint for requesting new access tokens. This value defaults to Gmail&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Normal SMTP transport (ie. not the pooled version) has a convenience method of using separate authentication for every message. This allows you to set up a transport with just &lt;em&gt;clientId&lt;/em&gt; and &lt;em&gt;clientSecret&lt;/em&gt; values and provide &lt;em&gt;accessToken&lt;/em&gt; and &lt;em&gt;refreshToken&lt;/em&gt; with the message options. See &lt;a href=&#34;#example-5&#34;&gt;example 5&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;oauth-2lo&#34;&gt;2LO authentication (service accounts)&lt;/h3&gt;
-
-&lt;p&gt;Nodemailer also allows you to use &lt;a href=&#34;https://developers.google.com/identity/protocols/OAuth2ServiceAccount&#34;&gt;service accounts&lt;/a&gt; to generate access tokens. In this case the required &lt;code&gt;auth&lt;/code&gt; options are a bit different from 3LO auth.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;auth&lt;/strong&gt; – is the authentication object&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;type&lt;/strong&gt; – indicates authentication type, set it to &lt;em&gt;&amp;lsquo;OAuth2&amp;rsquo;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;user&lt;/strong&gt; – user email address you want to send mail as (required)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;serviceClient&lt;/strong&gt; – service client id (required), you can find it from the &amp;ldquo;client_id&amp;rdquo; field in the service key file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;privateKey&lt;/strong&gt; – is the private key contents, you can find it from the &amp;ldquo;private_key&amp;rdquo; field in the service key file&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;custom-handling&#34;&gt;Using custom token handling&lt;/h3&gt;
-
-&lt;p&gt;If you do not want Nodemailer to create new access tokens then you can provide a custom token generation callback that is called every time a new token is needed for an user.&lt;/p&gt;
-
-&lt;p&gt;The registered function gets the following arguments:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;user&lt;/strong&gt; – is the user email address&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;renew&lt;/strong&gt; – if &lt;em&gt;true&lt;/em&gt; then previous access token either expired or it was not accepted by the SMTP server, in this case you should generate a new value&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;callback&lt;/strong&gt; with arguments &lt;em&gt;(err, accessToken)&lt;/em&gt; – is the callback function to run once you have generated a new access token&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transporter.set(&#39;oauth2_provision_cb&#39;, (user, renew, callback)=&amp;gt;{
-    let accessToken = userTokens[user];
-    if(!accessToken){
-        return callback(new Error(&#39;Unknown user&#39;));
-    }else{
-        return callback(null, accessToken);
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;update-notification&#34;&gt;Token update notifications&lt;/h3&gt;
-
-&lt;p&gt;If you use &lt;em&gt;refreshToken&lt;/em&gt; or service keys to generate new tokens from Nodemailer when &lt;em&gt;accessToken&lt;/em&gt; is not present or expired then you can listen for the token updates by registering a &amp;lsquo;token&amp;rsquo; event handler for the transporter object.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transporter.on(&#39;token&#39;, token =&amp;gt; {
-    console.log(&#39;A new access token was generated&#39;);
-    console.log(&#39;User: %s&#39;, token.user);
-    console.log(&#39;Access Token: %s&#39;, token.accessToken);
-    console.log(&#39;Expires: %s&#39;, new Date(token.expires));
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
-
-&lt;h4 id=&#34;example-1&#34;&gt;1. Authenticate using existing token&lt;/h4&gt;
-
-&lt;p&gt;Use an existing Access Token. If the token is not accepted then message is not sent as there is no way to generate a new token.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    host: &#39;smtp.gmail.com&#39;,
-    port: 465,
-    secure: true,
-    auth: {
-        type: &#39;OAuth2&#39;,
-        user: &#39;user@example.com&#39;,
-        accessToken: &#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;example-2&#34;&gt;2. Custom handler&lt;/h4&gt;
-
-&lt;p&gt;This example requests a new &lt;em&gt;accessToken&lt;/em&gt; value from a custom OAuth2 handler. Nodemailer does not attempt to generate the token by itself.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    host: &#39;smtp.gmail.com&#39;,
-    port: 465,
-    secure: true,
-    auth: {
-        type: &#39;OAuth2&#39;,
-        user: &#39;user@example.com&#39;
-    }
-});
-
-transporter.set(&#39;oauth2_provision_cb&#39;, (user, renew, callback)=&amp;gt;{
-    let accessToken = userTokens[user];
-    if(!accessToken){
-        return callback(new Error(&#39;Unknown user&#39;));
-    }else{
-        return callback(null, accessToken);
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;example-3&#34;&gt;3. Set up 3LO authentication&lt;/h4&gt;
-
-&lt;p&gt;This example uses an existing Access Token. If the token is not accepted or current time is past the &lt;em&gt;expires&lt;/em&gt; value, then &lt;em&gt;refreshToken&lt;/em&gt; is used to automatically generate a new &lt;em&gt;accessToken&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    host: &#39;smtp.gmail.com&#39;,
-    port: 465,
-    secure: true,
-    auth: {
-        type: &#39;OAuth2&#39;,
-        user: &#39;user@example.com&#39;,
-        clientId: &#39;000000000000-xxx0.apps.googleusercontent.com&#39;,
-        clientSecret: &#39;XxxxxXXxX0xxxxxxxx0XXxX0&#39;,
-        refreshToken: &#39;1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx&#39;,
-        accessToken: &#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;,
-        expires: 1484314697598
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;example-4&#34;&gt;4. Set up 2LO authentication&lt;/h4&gt;
-
-&lt;p&gt;This example uses an existing Access Token. If the token is not accepted or current time is past the &lt;em&gt;expires&lt;/em&gt; value, then a new &lt;em&gt;accessToken&lt;/em&gt; value is generated using provided service account.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    host: &#39;smtp.gmail.com&#39;,
-    port: 465,
-    secure: true,
-    auth: {
-        type: &#39;OAuth2&#39;,
-        user: &#39;user@example.com&#39;,
-        serviceClient: &#39;113600000000000000000&#39;,
-        privateKey: &#39;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#39;,
-        accessToken: &#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;,
-        expires: 1484314697598
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;example-5&#34;&gt;5. Provide authentication details with message options&lt;/h4&gt;
-
-&lt;p&gt;This example demonstrates how to authenticate every message separately. This is mostly useful if you provide an email application that sends mail for multiple users. Instead of creating a new transporter for every message, create it just once and provide dynamic details with the message options.&lt;/p&gt;
-
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Per-message specific authentication does not work in pooled mode&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    host: &#39;smtp.gmail.com&#39;,
-    port: 465,
-    secure: true,
-    auth: {
-        type: &#39;OAuth2&#39;,
-        clientId: &#39;000000000000-xxx.apps.googleusercontent.com&#39;,
-        clientSecret: &#39;XxxxxXXxX0xxxxxxxx0XXxX0&#39;
-    }
-});
-
-transporter.sendMail({
-    from: &#39;sender@example.com&#39;,
-    to: &#39;recipient@example.com&#39;,
-    subject: &#39;Message&#39;,
-    text: &#39;I hope this message gets through!&#39;,
-    auth: {
-        user: &#39;user@example.com&#39;,
-        refreshToken: &#39;1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx&#39;,
-        accessToken: &#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;,
-        expires: 1484314697598
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Or alternatively you can do the same with your own OAuth2 handler.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    host: &#39;smtp.gmail.com&#39;,
-    port: 465,
-    secure: true,
-    auth: {
-        type: &#39;OAuth2&#39;
-    }
-});
-
-transporter.set(&#39;oauth2_provision_cb&#39;, (user, renew, callback) =&amp;gt; {
-    let accessToken = userTokens[user];
-    if(!accessToken){
-        return callback(new Error(&#39;Unknown user&#39;));
-    }else{
-        return callback(null, accessToken);
-    }
-});
-
-transporter.sendMail({
-    from: &#39;sender@example.com&#39;,
-    to: &#39;recipient@example.com&#39;,
-    subject: &#39;Message&#39;,
-    text: &#39;I hope this message gets through!&#39;,
-    auth: {
-        user: &#39;user@example.com&#39;
-    }
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;troubleshooting&#34;&gt;Troubleshooting&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The correct OAuth2 scope for Gmail SMTP is &lt;code&gt;https://mail.google.com/&lt;/code&gt;, make sure your client has this scope set when requesting permissions for an user&lt;/li&gt;
-&lt;li&gt;Make sure that Gmail API access is enabled for your Client ID. To do this, search for the Gmail API in &lt;a href=&#34;https://console.developers.google.com&#34;&gt;Google API Manager&lt;/a&gt; and click on &amp;ldquo;enable&amp;rdquo;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>OAuth2 allows your application to store and use authentication tokens instead of actual login credentials. This is great for security as tokens or valid only for specific actions and can be easily revoked thus, once stolen, can&amp;rsquo;t to as much harm as actual account credentials. OAuth2 authentication in Nodemailer is mostly used with Gmail and G Suite (née Google Apps) even though there are other providers that support it as well.</description>
+    </item>
+    
+    <item>
+      <title>Custom authentication</title>
+      <link>https://nodemailer.com/smtp/customauth/</link>
+      <pubDate>Fri, 20 Jan 2017 11:16:41 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/smtp/customauth/</guid>
+      <description>Nodemailer SMTP client can be extended to use custom authentication mechanisms that Nodemailer does not support by default.
+To use one you should define a custom authentication handler with customAuth in the transporter options. Multiple handlers can be defined. Use authentication identifier as the handler name. For example if the server responds with &amp;ldquo;AUTH LOGIN PLAIN MY-CUSTOM-METHOD&amp;rdquo; then it supports &amp;ldquo;LOGIN&amp;rdquo;, &amp;ldquo;PLAIN&amp;rdquo; and &amp;ldquo;MY-CUSTOM-METHOD&amp;rdquo;. Nodemailer has built in support form &amp;ldquo;LOGIN&amp;rdquo; and &amp;ldquo;PLAIN&amp;rdquo; but it knows nothing about &amp;ldquo;MY-CUSTOM-METHOD&amp;rdquo;, to add support use this identifier as the handler name.</description>
     </item>
     
     <item>
@@ -597,130 +67,9 @@ transporter.sendMail({
       <pubDate>Fri, 20 Jan 2017 11:16:41 +0200</pubDate>
       
       <guid>https://nodemailer.com/smtp/proxies/</guid>
-      <description>
-
-&lt;p&gt;Nodemailer is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing &lt;a href=&#34;https://www.npmjs.com/package/socks&#34;&gt;socks&lt;/a&gt; module to Nodemailer, other proxies need custom handling.&lt;/p&gt;
-
-&lt;p&gt;To enable proxying, define a &lt;strong&gt;proxy&lt;/strong&gt; option for the transporter.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;proxy&lt;/strong&gt; – is a proxy URL&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
-
-&lt;h4 id=&#34;1-using-http-proxy&#34;&gt;1. Using HTTP proxy&lt;/h4&gt;
-
-&lt;p&gt;Set HTTP proxy url for the &lt;em&gt;proxy&lt;/em&gt; option. That&amp;rsquo;s it, everything required to handle it is built into Nodemailer.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    host: &#39;smtp.example.com&#39;,
-    port: 465,
-    secure: true,
-    proxy: &#39;http://proxy-host:1234&#39;
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Or if you want to use some environment defined variable like _http&lt;em&gt;proxy&lt;/em&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    host: &#39;smtp.example.com&#39;,
-    port: 465,
-    secure: true,
-    proxy: process.env.http_proxy
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;div class=&#34;notices info&#34; &gt;&lt;p&gt;Make sure that your HTTP proxy supports CONNECT protocol and allows connecting to the SMTP port you want to use.&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;h4 id=&#34;2-using-socks-proxy&#34;&gt;2. Using Socks proxy&lt;/h4&gt;
-
-&lt;p&gt;Set Socks proxy url for the &lt;strong&gt;proxy&lt;/strong&gt; option. Additionally you need to provide the &lt;a href=&#34;https://www.npmjs.com/package/socks&#34;&gt;socks&lt;/a&gt; module for the transporter as it is not bundled with Nodemailer. Both versions 1.x.x and 2.x.x of the socks module are supported&lt;/p&gt;
-
-&lt;p&gt;Possible protocol values for the SOCKS proxy:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;&amp;lsquo;socks4:&amp;rsquo;&lt;/em&gt; or &lt;em&gt;&amp;lsquo;socks4a:&amp;rsquo;&lt;/em&gt; for a SOCKS4 proxy&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&amp;lsquo;socks5:&amp;rsquo;&lt;/em&gt; or &lt;em&gt;&amp;lsquo;socks:&amp;rsquo;&lt;/em&gt; for a SOCKS5 proxy&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    host: &#39;smtp.example.com&#39;,
-    port: 465,
-    secure: true,
-    proxy: &#39;socks5://socks-host:1234&#39;
-});
-// enable support for socks URLs
-transporter.set(&#39;proxy_socks_module&#39;, require(&#39;socks&#39;));
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;testing-socks-proxies&#34;&gt;Testing Socks proxies&lt;/h5&gt;
-
-&lt;p&gt;For testing you can use ssh to create a SOCKS5 proxy. The following command connects to your remote server and sets up a proxy on port 1080 that routes connections through that server.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ssh -N -D 0.0.0.0:1080 username@remote.host`
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;proxy&lt;/strong&gt; url for that server would be &lt;code&gt;socks5://localhost:1080&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;3-using-a-custom-proxy-handler&#34;&gt;3. Using a custom proxy handler&lt;/h4&gt;
-
-&lt;p&gt;Additionally you can create your own proxy handler. To do this you would need to register a protocol handler callback with the name _proxy&lt;em&gt;handler_{protocol}&lt;/em&gt; where &lt;em&gt;{protocol}&lt;/em&gt; would be the protocol from proxy URL. If the URL looks like &lt;em&gt;&amp;lsquo;yyy://localhost&amp;rsquo;&lt;/em&gt; then you would need to set callback for _proxy_handler&lt;em&gt;yyy&lt;/em&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;transporter.set(&#39;proxy_handler_myproxy&#39;, handler);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Where&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;handler&lt;/strong&gt; is the function to run to create a proxied socket. It gets the following arguments:
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;proxy&lt;/strong&gt; is the proxy url in a parsed form&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;options&lt;/strong&gt; is transport configuration object&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;callback&lt;/strong&gt; is the function to return the socket&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    host: &#39;smtp.example.com&#39;,
-    port: 465,
-    secure: true,
-    proxy: &#39;myproxy://localhost:1234&#39;
-});
-// enable support for socks URLs
-transporter.set(&#39;proxy_handler_myproxy&#39;, (proxy, options, callback) =&amp;gt; {
-    console.log(&#39;Proxy host=% port=%&#39;, proxy.hostname, proxy.port);
-    let socket = require(&#39;net&#39;).connect(options.port, options.host, () =&amp;gt; {
-        callback(null, {
-            connection: socket
-        });
-    });
-});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer from upgrading the provided connection using TLS.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({
-    host: &#39;smtp.example.com&#39;,
-    port: 465,
-    secure: true,
-    proxy: &#39;myproxys://localhost:1234&#39;
-});
-// enable support for socks URLs
-transporter.set(&#39;proxy_handler_myproxys&#39;, (proxy, options, callback) =&amp;gt; {
-    console.log(&#39;Proxy host=% port=%&#39;, proxy.hostname, proxy.port);
-    let socket = require(&#39;tls&#39;).connect(options.port, options.host, () =&amp;gt; {
-        callback(null, {
-            connection: socket,
-            secured: true
-        });
-    });
-});
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>Nodemailer is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing socks module to Nodemailer, other proxies need custom handling.
+To enable proxying, define a proxy option for the transporter.
+ proxy – is a proxy URL  Examples 1. Using HTTP proxy Set HTTP proxy url for the proxy option. That&amp;rsquo;s it, everything required to handle it is built into Nodemailer.</description>
     </item>
     
     <item>
@@ -729,59 +78,10 @@ transporter.set(&#39;proxy_handler_myproxys&#39;, (proxy, options, callback) =&a
       <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
       
       <guid>https://nodemailer.com/smtp/dsn/</guid>
-      <description>
-
-&lt;p&gt;If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery status notifications (DSN) with Nodemailer as defined in &lt;a href=&#34;https://tools.ietf.org/html/rfc3461&#34;&gt;RFC3461&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;To set up a DSN call, add a dsn property to message data&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;dsn&lt;/strong&gt; – optional object to define DSN options&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;id&lt;/strong&gt; – is the envelope identifier that would be included in the response (ENVID)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;return&lt;/strong&gt; – is either &lt;em&gt;&amp;lsquo;headers&amp;rsquo;&lt;/em&gt; or &lt;em&gt;&amp;lsquo;full&amp;rsquo;&lt;/em&gt;. It specifies if only headers or the entire body of the message should be included in the response (RET)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;notify&lt;/strong&gt; – is either a string or an array of strings that define the conditions under which a DSN response should be sent. Possible values are &lt;em&gt;&amp;lsquo;never&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;success&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;failure&amp;rsquo;&lt;/em&gt; and &lt;em&gt;&amp;lsquo;delay&amp;rsquo;&lt;/em&gt;. The condition &lt;em&gt;&amp;lsquo;never&amp;rsquo;&lt;/em&gt; can only appear on its own, other values can be grouped together into an array (NOTIFY)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;recipient&lt;/strong&gt; – is the email address the DSN should be sent (ORCPT)&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Non-xtext strings are encoded automatically.&lt;/p&gt;
-
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
-
-&lt;h4 id=&#34;1-request-dsn-for-delivered-messages&#34;&gt;1. Request DSN for delivered messages&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    from: &#39;sender@example.com&#39;,
-    to: &#39;recipient@example.com&#39;,
-    subject: &#39;Message&#39;,
-    text: &#39;I hope this message gets read!&#39;,
-    dsn: {
-        id: &#39;some random message specific id&#39;,
-        return: &#39;headers&#39;,
-        notify: &#39;success&#39;,
-        recipient: &#39;sender@example.com&#39;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;2-request-dsn-for-undelivered-and-delayed-messages&#34;&gt;2. Request DSN for undelivered and delayed messages&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    from: &#39;sender@example.com&#39;,
-    to: &#39;recipient@example.com&#39;,
-    subject: &#39;Message&#39;,
-    text: &#39;I hope this message gets read!&#39;,
-    dsn: {
-        id: &#39;some random message specific id&#39;,
-        return: &#39;headers&#39;,
-        notify: [&#39;failure&#39;, &#39;delay&#39;],
-        recipient: &#39;sender@example.com&#39;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery status notifications (DSN) with Nodemailer as defined in RFC3461.
+To set up a DSN call, add a dsn property to message data
+ dsn – optional object to define DSN options
+ id – is the envelope identifier that would be included in the response (ENVID) return – is either &amp;lsquo;headers&amp;rsquo; or &amp;lsquo;full&amp;rsquo;.</description>
     </item>
     
   </channel>

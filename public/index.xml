@@ -2,12 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nodemailer</title>
-    <link>https://nodemailer.com/index.xml</link>
+    <link>https://nodemailer.com/</link>
     <description>Recent content on Nodemailer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Jan 2017 21:37:15 +0200</lastBuildDate>
-    <atom:link href="https://nodemailer.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Jan 2017 21:25:35 +0200</lastBuildDate>
+    
+	<atom:link href="https://nodemailer.com/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SMTP Server</title>
+      <link>https://nodemailer.com/extras/smtp-server/</link>
+      <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/extras/smtp-server/</guid>
+      <description>Create SMTP and LMTP server instances on the fly. This is not a full-blown server application like Haraka but an easy way to add custom SMTP listeners to your app. This module is the successor for the server part of the (now deprecated) SMTP module simplesmtp. For matching SMTP client see smtp-connection.
+This module does not make any email deliveries by itself. smtp-server allows you to listen on ports 25/24/465/587 etc.</description>
+    </item>
+    
+    <item>
+      <title>SMTP Connection</title>
+      <link>https://nodemailer.com/extras/smtp-connection/</link>
+      <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/extras/smtp-connection/</guid>
+      <description>SMTP client module to connect to SMTP servers and send mail with it.
+This module is the successor for the client part of the (now deprecated) SMTP module simplesmtp. For matching SMTP server see smtp-server.
+Usage Step 1. Install Nodemailer with npm smtp-connection is exposed as a submodule of Nodemailer
+npm install nodemailer --save  Step 2. Require smtp-connection in your script const SMTPConnection = require(&amp;quot;nodemailer/lib/smtp-connection&amp;quot;);  Step 3. Create SMTPConnection instance let connection = new SMTPConnection(options);  Where</description>
+    </item>
     
     <item>
       <title>Migration</title>
@@ -15,20 +39,19 @@
       <pubDate>Fri, 20 Jan 2017 21:37:15 +0200</pubDate>
       
       <guid>https://nodemailer.com/about/migrate/</guid>
-      <description>&lt;p&gt;Nodemailer v3 has dropped some features that were available in Nodemailer v2 and also introduced some new ones.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;All &lt;strong&gt;dependencies were dropped&lt;/strong&gt;. There is exactly 0 dependencies needed to use Nodemailer. This brings the installation time of Nodemailer from NPM to less than 2 seconds&lt;/li&gt;
-&lt;li&gt;All &lt;strong&gt;templating is gone&lt;/strong&gt;. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template syntaxes&lt;/li&gt;
-&lt;li&gt;No &lt;strong&gt;NTLM authentication&lt;/strong&gt;. It was too difficult to re-implement. If you still need it then it would be possible to introduce a pluggable SASL interface where you could load the ntlm module in your own code and pass it to Nodemailer. Currently this is not possible.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;OAuth2 authentication&lt;/strong&gt; is built in and has a different &lt;a href=&#34;https://nodemailer.com/smtp/oauth2/&#34;&gt;configuration&lt;/a&gt;. You can use both user (3LO) and service (2LO) accounts to generate access tokens from Nodemailer. Additionally there&amp;rsquo;s a new feature to authenticate differently for every message – useful if your application sends on behalf of different users instead of a single sender.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Delivery status notifications&lt;/strong&gt; added to Nodemailer&lt;/li&gt;
-&lt;li&gt;Improved &lt;strong&gt;DKIM&lt;/strong&gt; signing of messages. Previously you needed an external module for this and it did quite a lousy job with larger messages&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Stream transport&lt;/strong&gt; to return a RFC822 formatted message as a stream. Useful if you want to use Nodemailer as a preprocessor and not for actual delivery.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Sendmail&lt;/strong&gt; transport built-in, no need for external transport plugin&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Improved Calendaring&lt;/strong&gt;. Provide an ical file to Nodemailer to send out &lt;a href=&#34;https://nodemailer.com/message/calendar-events/&#34;&gt;calendar events&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Nodemailer v3 has dropped some features that were available in Nodemailer v2 and also introduced some new ones.
+ All dependencies were dropped. There is exactly 0 dependencies needed to use Nodemailer. This brings the installation time of Nodemailer from NPM to less than 2 seconds All templating is gone. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template syntaxes No NTLM authentication.</description>
+    </item>
+    
+    <item>
+      <title>Mailparser</title>
+      <link>https://nodemailer.com/extras/mailparser/</link>
+      <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/extras/mailparser/</guid>
+      <description>Advanced email parser for Node.js. Everything is handled as a stream which should make it able to parse even very large messages (100MB+) with relatively low overhead.
+The module exposes two separate modes, a lower level MailParser class and simpleParser function. The latter is simpler to use (hence the name) but is less resource efficient as it buffers attachment contents in memory.
+Install npm install mailparser --save  simpleParser simpleParser is the easiest way to parse emails.</description>
     </item>
     
     <item>
@@ -37,29 +60,30 @@
       <pubDate>Fri, 20 Jan 2017 21:37:15 +0200</pubDate>
       
       <guid>https://nodemailer.com/about/license/</guid>
-      <description>&lt;p&gt;Nodemailer v4+ is licensed under the &lt;strong&gt;MIT license&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Version 3 of Nodemailer used the &lt;strong&gt;European Union Public License 1.1&lt;/strong&gt; which is a &lt;em&gt;copyleft&lt;/em&gt; license. You can read about the reasoning behind using EUPL for Nodemailer from the &lt;a href=&#34;https://blog.nodemailer.com/2017/02/02/nodemailer-v3-0-0/&#34;&gt;Nodemailer blog&lt;/a&gt;. After a two months long experiment I decided to cancel all active subscriptions of Nodemailer and changed the license back to MIT.&lt;/p&gt;
-
-&lt;p&gt;Keeping a lower level infrastructure module under a restrictive license has turned out to cause more trouble than gains – I myself had to use older versions of Nodemailer for some client work to avoid any licensing conflicts. There weren&amp;rsquo;t too many paying or interested clients either and most users did not seem to care about the license at all, they still used the copyleft licensed Nodemailer in their commercial products and I did not have any means to enforce the license terms.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations. I can also write a consulting invoice (I have a EU VAT number) if you can&amp;rsquo;t do donations.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;My &lt;a href=&#34;https://opencollective.com/nodemailer&#34;&gt;OpenCollective page&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;My &lt;a href=&#34;https://www.patreon.com/andrisreinman&#34;&gt;Patreon page&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;My Bitcoin wallet is: &lt;code&gt;15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;form action=&#34;https://www.paypal.com/cgi-bin/webscr&#34; method=&#34;post&#34; target=&#34;_top&#34;&gt;
-&lt;input type=&#34;hidden&#34; name=&#34;cmd&#34; value=&#34;_s-xclick&#34;&gt;
-&lt;input type=&#34;hidden&#34; name=&#34;hosted_button_id&#34; value=&#34;DB26KWR2BQX5W&#34;&gt;
-&lt;input type=&#34;image&#34; src=&#34;https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif&#34; border=&#34;0&#34; name=&#34;submit&#34; alt=&#34;PayPal - The safer, easier way to pay online!&#34;&gt;
-&lt;img alt=&#34;&#34; border=&#34;0&#34; src=&#34;https://www.paypalobjects.com/en_US/i/scr/pixel.gif&#34; width=&#34;1&#34; height=&#34;1&#34;&gt;
-&lt;/form&gt;
-</description>
+      <description>Nodemailer v4+ is licensed under the MIT license.
+Version 3 of Nodemailer used the European Union Public License 1.1 which is a copyleft license. You can read about the reasoning behind using EUPL for Nodemailer from the Nodemailer blog. After a two months long experiment I decided to cancel all active subscriptions of Nodemailer and changed the license back to MIT.
+Keeping a lower level infrastructure module under a restrictive license has turned out to cause more trouble than gains – I myself had to use older versions of Nodemailer for some client work to avoid any licensing conflicts.</description>
+    </item>
+    
+    <item>
+      <title>Mailcomposer</title>
+      <link>https://nodemailer.com/extras/mailcomposer/</link>
+      <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/extras/mailcomposer/</guid>
+      <description>Generate RFC822 formatted e-mail messages that can be streamed to SMTP or file.
+Usage Step 1. Install Nodemailer with npm mailcomposer is exposed as a submodule of Nodemailer
+npm install nodemailer --save  Step 2. Require mailcomposer in your script const MailComposer = require(&amp;quot;nodemailer/lib/mail-composer&amp;quot;);  Step 3. Create a new MailComposer instance var mail = new MailComposer(mailOptions);  Where mailOptions is an object that defines the components of the message, see below</description>
+    </item>
+    
+    <item>
+      <title>Node.js daemons</title>
+      <link>https://nodemailer.com/extras/daemons/</link>
+      <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/extras/daemons/</guid>
+      <description>This tutorial shows how to set up Node.js applications as daemon services under Linux. Specifically the following would apply:
+ The daemon application is a Node.js web app Daemon is set up as a SystemD services Node.js app is accessed as a Nginx virtual domain Updates are deployed using git   Even though this tutorial uses a web app as the service daemon, then the same approach can be used for deploying any kind of services.</description>
     </item>
     
     <item>
@@ -68,18 +92,8 @@
       <pubDate>Sat, 21 Jan 2017 00:44:30 +0200</pubDate>
       
       <guid>https://nodemailer.com/usage/why-smtp/</guid>
-      <description>&lt;p&gt;You might wonder why you would need to set something up while in comparison PHP&amp;rsquo;s &lt;a href=&#34;http://php.net/manual/en/function.mail.php&#34;&gt;mail&lt;/a&gt; command works out of the box with no special configuration whatsoever. Just call &lt;strong&gt;mail(&amp;hellip;)&lt;/strong&gt; and you&amp;rsquo;re already sending mail. So what&amp;rsquo;s going on in Node.js?&lt;/p&gt;
-
-&lt;p&gt;The difference is in the software stack required for your application to work. While Node.js stack is thin, all you need for your app to work is the &lt;em&gt;node&lt;/em&gt; binary, then PHP&amp;rsquo;s stack is fat. The server you&amp;rsquo;re running your PHP code on has several different components installed.&lt;/p&gt;
-
-&lt;p&gt;Firstly the PHP interpreter itself. Then there&amp;rsquo;s some kind of web server, most probably Apache or Nginx. Web server needs some way to interact with the PHP interpreter, so you have a (fast-)CGI process manager. There might be MySQL also running in the same host. Depending on the installation type you might even have &lt;em&gt;imagemagick&lt;/em&gt; executables or other helpers lying around somewhere. And finally, you have the &lt;em&gt;sendmail&lt;/em&gt; binary.&lt;/p&gt;
-
-&lt;p&gt;What PHP&amp;rsquo;s &lt;strong&gt;mail()&lt;/strong&gt; call actually does is that it passes your mail data to sendmail&amp;rsquo;s &lt;em&gt;stdin&lt;/em&gt; and thats it, no magic involved. &lt;em&gt;sendmail&lt;/em&gt; does all the heavy lifting of queueing your message and trying to send it to the recipients&amp;rsquo; MX mail server.&lt;/p&gt;
-
-&lt;p&gt;In fact you can achieve the exact same behavior in Nodemailer as well by using the &lt;a href=&#34;https://nodemailer.com/transports/sendmail/&#34;&gt;sendmail transport&lt;/a&gt;. The difference being that in case of PHP the sendmail configuration resides in &lt;em&gt;php.ini&lt;/em&gt; but in case of Node.js the sendmail configuration is part of Nodemailer setup.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately this might not always work – as it was already said, the stack for Node.js is thin and this means that &lt;em&gt;sendmail&lt;/em&gt; might not have been installed to the server your application is running on. This is why it is better to rely on an actual SMTP service that is always accessible.&lt;/p&gt;
-</description>
+      <description>You might wonder why you would need to set something up while in comparison PHP&amp;rsquo;s mail command works out of the box with no special configuration whatsoever. Just call mail(&amp;hellip;) and you&amp;rsquo;re already sending mail. So what&amp;rsquo;s going on in Node.js?
+The difference is in the software stack required for your application to work. While Node.js stack is thin, all you need for your app to work is the node binary, then PHP&amp;rsquo;s stack is fat.</description>
     </item>
     
     <item>
@@ -88,16 +102,7 @@
       <pubDate>Sat, 21 Jan 2017 00:25:10 +0200</pubDate>
       
       <guid>https://nodemailer.com/usage/using-gmail/</guid>
-      <description>&lt;p&gt;Even though Gmail is the fastest way to get started with sending emails, it is by no means a preferable solution unless you are using OAuth2 authentication. Gmail expects the user to be an actual user not a robot so it runs a lot of heuristics for every login attempt and blocks anything that looks suspicious to defend the user from account hijacking attempts. For example you might run into trouble if your server is in another geographical location – everything works in your dev machine but messages are blocked in production.&lt;/p&gt;
-
-&lt;p&gt;Additionally Gmail has came up with the concept of &lt;a href=&#34;https://support.google.com/accounts/answer/6010255?hl=en&#34;&gt;&amp;ldquo;Less Secure&amp;rdquo;&lt;/a&gt; apps which is basically anyone who uses plain password to login to Gmail, so you might end up in a situation where one username can send mail (support for &amp;ldquo;less secure&amp;rdquo; apps is enabled) but other is blocked (support for &amp;ldquo;less secure&amp;rdquo; apps is disabled). You can configure your Gmail account to allow less secure apps &lt;a href=&#34;https://www.google.com/settings/security/lesssecureapps&#34;&gt;here&lt;/a&gt;. When using this method make sure to also enable the required functionality by completing the &lt;a href=&#34;https://accounts.google.com/b/0/displayunlockcaptcha&#34;&gt;&amp;ldquo;Captcha Enable&amp;rdquo;&lt;/a&gt; challenge. Without this, less secure connections probably would not work.&lt;/p&gt;
-
-&lt;p&gt;If you are using 2FA you would have to create an &lt;a href=&#34;https://security.google.com/settings/security/apppasswords&#34;&gt;&amp;ldquo;Application Specific&amp;rdquo;&lt;/a&gt; password for Nodemailer to work.&lt;/p&gt;
-
-&lt;p&gt;Gmail also always sets authenticated username as the &lt;em&gt;From:&lt;/em&gt; email address. So if you authenticate as &lt;em&gt;foo@example.com&lt;/em&gt; and set &lt;em&gt;bar@example.com&lt;/em&gt; as the &lt;em&gt;from:&lt;/em&gt; address, then Gmail reverts this and replaces the sender with the authenticated user.&lt;/p&gt;
-
-&lt;p&gt;To prevent having login issues you should either use OAuth2 (see details &lt;a href=&#34;https://nodemailer.com/smtp/oauth2/&#34;&gt;here&lt;/a&gt;) or use another delivery provider and preferably a dedicated one. Usually these providers have free plans available that are comparable to the daily sending limits of Gmail. Gmail has a limit of 500 recipients a day (a message with one &lt;em&gt;To&lt;/em&gt; and one &lt;em&gt;Cc&lt;/em&gt; address counts as two messages since it has two recipients) for @gmail.com addresses and 2000 for Google Apps customers, larger SMTP providers usually offer about 200-300 recipients a day for free.&lt;/p&gt;
-</description>
+      <description>Even though Gmail is the fastest way to get started with sending emails, it is by no means a preferable solution unless you are using OAuth2 authentication. Gmail expects the user to be an actual user not a robot so it runs a lot of heuristics for every login attempt and blocks anything that looks suspicious to defend the user from account hijacking attempts. For example you might run into trouble if your server is in another geographical location – everything works in your dev machine but messages are blocked in production.</description>
     </item>
     
     <item>
@@ -106,18 +111,8 @@
       <pubDate>Sat, 21 Jan 2017 00:40:56 +0200</pubDate>
       
       <guid>https://nodemailer.com/usage/bulk-mail/</guid>
-      <description>&lt;p&gt;Here are some tips how to handle bulk mail, for example if you need to send 10 million messages at once.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Use a dedicated delivery provider&lt;/strong&gt;. Do not use services that offer SMTP as a sideline or for free (that&amp;rsquo;s Gmail or the SMTP of your homepage hosting company) to send bulk mail – you&amp;rsquo;ll hit all the hard limits immediately or get labelled as spammer. Basically you get what you pay for and if you pay zero then your deliverability is near zero as well. Email might seem free but it is only free to a certain amount and that amount certainly does not include 10 million emails in a short period of time.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Use a dedicated queue manager,&lt;/strong&gt; for example &lt;a href=&#34;http://www.rabbitmq.com/&#34;&gt;RabbitMQ&lt;/a&gt; for queueing the emails. Nodemailer creates a callback function with related scopes etc. for every message so it might be hard on memory if you pile up the data for 10 million messages at once. Better to take the data from a queue when there&amp;rsquo;s a free spot in the connection pool (previously sent message returns its callback).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Use pooled SMTP&lt;/strong&gt; by setting &lt;em&gt;pool&lt;/em&gt; option to &lt;em&gt;true&lt;/em&gt; (assuming you always send using the same credentials). You do not want to have the overhead of creating a new connection and doing the SMTP handshake dance for every single email. Pooled connections make it possible to bring this overhead to a minimum.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Set &lt;em&gt;maxMessages&lt;/em&gt; option to &lt;em&gt;Infinity&lt;/em&gt;&lt;/strong&gt; for the pooled SMTP transport. Dedicated SMTP providers happily accept all your emails as long you are paying for these, so no need to disconnect in the middle if everything is going smoothly. The default value is 100 which means that once a connection is used to send 100 messages it is removed from the pool and a new connection is created.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Set &lt;em&gt;maxConnections&lt;/em&gt; to whatever your system can handle.&lt;/strong&gt; There might be limits to this on the receiving side, so do not set it to &lt;em&gt;Infinity&lt;/em&gt;, even 20 is probably much better than the default 5. A larger number means a larger amount of messages are sent in parallel.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Use file paths not URLs for attachments.&lt;/strong&gt; If you are reading the same file from the disk several million times, the contents for the file probably get cached somewhere between your app and the physical hard disk, so you get your files back quicker (assuming you send the same attachment to all recipients). There is nothing like this for URLs – every new message makes a fresh HTTP fetch to receive the file from the server.&lt;/li&gt;
-&lt;li&gt;If the SMTP service accepts HTTP API as well you still might prefer SMTP and not the HTTP API as HTTP introduces additional overhead. You probably want to use HTTP over SMTP if the HTTP API is bulk aware – you send a message template and the list of 10 million recipients and the service compiles this information into emails itself, you can&amp;rsquo;t beat this with SMTP.&lt;/li&gt;
-&lt;/ol&gt;
-</description>
+      <description>Here are some tips how to handle bulk mail, for example if you need to send 10 million messages at once.
+ Use a dedicated delivery provider. Do not use services that offer SMTP as a sideline or for free (that&amp;rsquo;s Gmail or the SMTP of your homepage hosting company) to send bulk mail – you&amp;rsquo;ll hit all the hard limits immediately or get labelled as spammer. Basically you get what you pay for and if you pay zero then your deliverability is near zero as well.</description>
     </item>
     
     <item>
@@ -126,77 +121,9 @@
       <pubDate>Sat, 21 Jan 2017 00:09:16 +0200</pubDate>
       
       <guid>https://nodemailer.com/message/attachments/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;attachments&lt;/strong&gt; option in the message object that contains an array of attachment objects.&lt;/p&gt;
-
-&lt;p&gt;Attachment object consists of the following properties:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;filename&lt;/strong&gt; - filename to be reported as the name of the attached file. Use of unicode is allowed.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt; - String, Buffer or a Stream contents for the attachment&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;path&lt;/strong&gt; - path to the file if you want to stream the file instead of including it (better for larger attachments)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;href&lt;/strong&gt; – an URL to the file (data uris are allowed as well)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;contentType&lt;/strong&gt; - optional content type for the attachment, if not set will be derived from the &lt;em&gt;filename&lt;/em&gt; property&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;contentDisposition&lt;/strong&gt; - optional content disposition type for the attachment, defaults to &amp;lsquo;attachment&amp;rsquo;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;cid&lt;/strong&gt; - optional content id for using inline images in HTML message source&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;encoding&lt;/strong&gt; - If set and &lt;em&gt;content&lt;/em&gt; is string, then encodes the content to a Buffer using the specified encoding. Example values: &lt;em&gt;&amp;lsquo;base64&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;hex&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;binary&amp;rsquo;&lt;/em&gt; etc. Useful if you want to use binary attachments in a JSON formatted email object.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; - custom headers for the attachment node. Same usage as with message headers&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;raw&lt;/strong&gt; - is an optional special value that overrides entire contents of current mime node including mime headers. Useful if you want to prepare node contents yourself&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Attachments can be added as many as you want.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    ...
-    attachments: [
-        {   // utf-8 string as an attachment
-            filename: &#39;text1.txt&#39;,
-            content: &#39;hello world!&#39;
-        },
-        {   // binary buffer as an attachment
-            filename: &#39;text2.txt&#39;,
-            content: new Buffer(&#39;hello world!&#39;,&#39;utf-8&#39;)
-        },
-        {   // file on disk as an attachment
-            filename: &#39;text3.txt&#39;,
-            path: &#39;/path/to/file.txt&#39; // stream this file
-        },
-        {   // filename and content type is derived from path
-            path: &#39;/path/to/file.txt&#39;
-        },
-        {   // stream as an attachment
-            filename: &#39;text4.txt&#39;,
-            content: fs.createReadStream(&#39;file.txt&#39;)
-        },
-        {   // define custom content type for the attachment
-            filename: &#39;text.bin&#39;,
-            content: &#39;hello world!&#39;,
-            contentType: &#39;text/plain&#39;
-        },
-        {   // use URL as an attachment
-            filename: &#39;license.txt&#39;,
-            path: &#39;https://raw.github.com/nodemailer/nodemailer/master/LICENSE&#39;
-        },
-        {   // encoded string as an attachment
-            filename: &#39;text1.txt&#39;,
-            content: &#39;aGVsbG8gd29ybGQh&#39;,
-            encoding: &#39;base64&#39;
-        },
-        {   // data uri as an attachment
-            path: &#39;data:text/plain;base64,aGVsbG8gd29ybGQ=&#39;
-        },
-        {
-            // use pregenerated MIME node
-            raw: &#39;Content-Type: text/plain\r\n&#39; +
-                 &#39;Content-Disposition: attachment;\r\n&#39; +
-                 &#39;\r\n&#39; +
-                 &#39;Hello world!&#39;
-        }
-    ]
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>attachments option in the message object that contains an array of attachment objects.
+Attachment object consists of the following properties:
+ filename - filename to be reported as the name of the attached file. Use of unicode is allowed. content - String, Buffer or a Stream contents for the attachment path - path to the file if you want to stream the file instead of including it (better for larger attachments) href – an URL to the file (data uris are allowed as well) contentType - optional content type for the attachment, if not set will be derived from the filename property contentDisposition - optional content disposition type for the attachment, defaults to &amp;lsquo;attachment&amp;rsquo; cid - optional content id for using inline images in HTML message source encoding - If set and content is string, then encodes the content to a Buffer using the specified encoding.</description>
     </item>
     
     <item>
@@ -205,30 +132,8 @@
       <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
       
       <guid>https://nodemailer.com/message/alternatives/</guid>
-      <description>&lt;p&gt;In addition to text and HTML, any kind of data can be inserted as an alternative content of the main body - for example a word processing document with the same text as in the HTML field. It is the job of the email client to select and show the best fitting alternative to the reader. Usually this field is used for calendar events and such.&lt;/p&gt;
-
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;If you want to use a calendar event as the alternative, the consider using the &lt;strong&gt;icalEvent&lt;/strong&gt; option instead. See details &lt;a href=&#34;https://nodemailer.com/message/calendar-events/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;p&gt;Alternative objects use the same options as &lt;a href=&#34;https://nodemailer.com/attachments/&#34;&gt;attachment objects&lt;/a&gt;. The difference between an attachment and an alternative is the fact that attachments are placed into &lt;em&gt;multipart/mixed&lt;/em&gt; or &lt;em&gt;multipart/related&lt;/em&gt; parts of the message white alternatives are placed into &lt;em&gt;multipart/alternative&lt;/em&gt; part.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Usage example:&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    ...
-    html: &#39;&amp;lt;b&amp;gt;Hello world!&amp;lt;/b&amp;gt;&#39;,
-    alternatives: [
-        {
-            contentType: &#39;text/x-web-markdown&#39;,
-            content: &#39;**Hello world!**&#39;
-        }
-    ]
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Alternatives can be added as many as you want.&lt;/p&gt;
-</description>
+      <description>In addition to text and HTML, any kind of data can be inserted as an alternative content of the main body - for example a word processing document with the same text as in the HTML field. It is the job of the email client to select and show the best fitting alternative to the reader. Usually this field is used for calendar events and such.
+If you want to use a calendar event as the alternative, the consider using the icalEvent option instead.</description>
     </item>
     
     <item>
@@ -237,56 +142,9 @@
       <pubDate>Fri, 20 Jan 2017 20:58:57 +0200</pubDate>
       
       <guid>https://nodemailer.com/message/addresses/</guid>
-      <description>&lt;p&gt;All email addresses can be &lt;strong&gt;plain&lt;/strong&gt; email addresses&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;foobar@example.com&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;or with &lt;strong&gt;formatted name&lt;/strong&gt; (includes unicode support)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;Ноде Майлер &amp;lt;foobar@example.com&amp;gt;&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;div class=&#34;notices tip&#34; &gt;&lt;p&gt;Notice that all address fields (even &lt;em&gt;from:&lt;/em&gt;) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: &lt;code&gt;&#39;&amp;quot;Майлер, Ноде&amp;quot; &amp;lt;foobar@example.com&amp;gt;&#39;&lt;/code&gt;&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;or as an &lt;strong&gt;address object&lt;/strong&gt; (in this case you do not need to worry about the formatting, no need to use quotes etc.)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;{
-    name: &#39;Майлер, Ноде&#39;,
-    address: &#39;foobar@example.com&#39;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;All address fields accept values as a comma separated list of emails or an array of emails or an array of comma separated list of emails or address objects - use it as you like. Formatting can be mixed.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;...,
-to: &#39;foobar@example.com, &amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@example.com&amp;gt;, &amp;quot;Name, User&amp;quot; &amp;lt;baz@example.com&amp;gt;&#39;,
-cc: [
-    &#39;foobar@example.com&#39;,
-    &#39;&amp;quot;Ноде Майлер&amp;quot; &amp;lt;bar@example.com&amp;gt;,
-    &amp;quot;Name, User&amp;quot; &amp;lt;baz@example.com&amp;gt;&#39;
-],
-bcc: [
-    &#39;foobar@example.com&#39;,
-    {
-        name: &#39;Майлер, Ноде&#39;,
-        address: &#39;foobar@example.com&#39;
-    }
-]
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;You can even use unicode domains, these are automatically converted to punycode&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;&#39;&amp;quot;Unicode Domain&amp;quot; &amp;lt;info@müriaad-polüteism.info&amp;gt;&#39;
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>All email addresses can be plain email addresses
+&#39;foobar@example.com&#39;   or with formatted name (includes unicode support)  &#39;Ноде Майлер &amp;lt;foobar@example.com&amp;gt;&#39;  Notice that all address fields (even from:) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: &#39;&amp;quot;Майлер, Ноде&amp;quot; &amp;lt;foobar@example.com&amp;gt;&#39;
+  or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.</description>
     </item>
     
     <item>
@@ -295,79 +153,9 @@ bcc: [
       <pubDate>Fri, 20 Jan 2017 12:01:43 +0200</pubDate>
       
       <guid>https://nodemailer.com/message/calendar-events/</guid>
-      <description>
-
-&lt;p&gt;Calendar events are tricky because different email clients handle these differently. Nodemailer uses the same style as Gmail for attaching calendar files which should ensure maximum compatibility. If you want to attach a calendar event to your email then you can use the message option &lt;strong&gt;icalEvent&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;icalEvent&lt;/strong&gt; – an object to define calendar event&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;method&lt;/strong&gt; – optional method, case insensitive, defaults to &lt;em&gt;&amp;lsquo;publish&amp;rsquo;&lt;/em&gt;. Other possible values would be &lt;em&gt;&amp;lsquo;request&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;reply&amp;rsquo;&lt;/em&gt;, &lt;em&gt;&amp;lsquo;cancel&amp;rsquo;&lt;/em&gt; or any other valid calendar method listed in &lt;a href=&#34;https://tools.ietf.org/html/rfc5546#section-1.4&#34;&gt;RFC5546&lt;/a&gt;. This should match the &lt;strong&gt;METHOD:&lt;/strong&gt; value in calendar event file.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;filename&lt;/strong&gt; – optional filename, defaults to &lt;em&gt;&amp;lsquo;invite.ics&amp;rsquo;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;content&lt;/strong&gt; – is the event file, it can be a string, a buffer, a stream&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;path&lt;/strong&gt; – is an alternative for &lt;em&gt;content&lt;/em&gt; to load the calendar data from a file&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;href&lt;/strong&gt; – is an alternative for &lt;em&gt;content&lt;/em&gt; to load the calendar data from an URL&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;encoding&lt;/strong&gt; – defines optional &lt;em&gt;content&lt;/em&gt; encoding, eg. &amp;lsquo;base64&amp;rsquo; or &amp;lsquo;hex&amp;rsquo;. This only applies if the &lt;em&gt;content&lt;/em&gt; is a string. By default an unicode string is assumed.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;You can use modules like &lt;a href=&#34;https://www.npmjs.com/package/ical-generator&#34;&gt;ical-generator&lt;/a&gt; to generate the actual calendar file content, Nodemailer acts as a transport layer only and does not generate the event file structure.&lt;/p&gt;
-
-&lt;div class=&#34;notices note&#34; &gt;In general it is not a good idea to add additional attachments to calendar messages as it might mess up the behavior of some email clients. Try to keep it only to &lt;strong&gt;text&lt;/strong&gt;, &lt;strong&gt;html&lt;/strong&gt; and &lt;strong&gt;icalEvent&lt;/strong&gt; without any additional &lt;strong&gt;alternatives&lt;/strong&gt; or &lt;strong&gt;attachments&lt;/strong&gt;&lt;/div&gt;
-
-
-&lt;h1 id=&#34;examples&#34;&gt;Examples&lt;/h1&gt;
-
-&lt;h2 id=&#34;1-send-a-request-event-as-a-string&#34;&gt;1. Send a REQUEST event as a string&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let content = &#39;BEGIN:VCALENDAR\r\nPRODID:-//ACME/DesktopCalendar//EN\r\nMETHOD:REQUEST\r\n...&#39;;
-
-let message = {
-    from: &#39;sender@example.com&#39;,
-    to: &#39;recipient@example.com&#39;,
-    subject: &#39;Appointment&#39;,
-    text: &#39;Please see the attached appointment&#39;,
-    icalEvent: {
-        filename: &#39;invitation.ics&#39;,
-        method: &#39;request&#39;,
-        content: content
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;2-send-a-publish-event-from-a-file&#34;&gt;2. Send a PUBLISH event from a file&lt;/h2&gt;
-
-&lt;p&gt;Event data is loaded from the provided file and attached to the message.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    from: &#39;sender@example.com&#39;,
-    to: &#39;recipient@example.com&#39;,
-    subject: &#39;Appointment&#39;,
-    text: &#39;Please see the attached appointment&#39;,
-    icalEvent: {
-        method: &#39;PUBLISH&#39;,
-        path: &#39;/path/to/file&#39;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;3-send-a-cancel-event-from-an-url&#34;&gt;3. Send a CANCEL event from an URL&lt;/h2&gt;
-
-&lt;p&gt;Event data is downloaded from the provided URL and attached to the message as regular calendar file.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    from: &#39;sender@example.com&#39;,
-    to: &#39;recipient@example.com&#39;,
-    subject: &#39;Appointment&#39;,
-    text: &#39;Please see the attached appointment&#39;,
-    icalEvent: {
-        method: &#39;CANCEL&#39;,
-        href: &#39;http://www.example.com/events?event=123&#39;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>Calendar events are tricky because different email clients handle these differently. Nodemailer uses the same style as Gmail for attaching calendar files which should ensure maximum compatibility. If you want to attach a calendar event to your email then you can use the message option icalEvent:
+ icalEvent – an object to define calendar event
+ method – optional method, case insensitive, defaults to &amp;lsquo;publish&amp;rsquo;. Other possible values would be &amp;lsquo;request&amp;rsquo;, &amp;lsquo;reply&amp;rsquo;, &amp;lsquo;cancel&amp;rsquo; or any other valid calendar method listed in RFC5546.</description>
     </item>
     
     <item>
@@ -376,27 +164,8 @@ let message = {
       <pubDate>Sat, 21 Jan 2017 00:09:24 +0200</pubDate>
       
       <guid>https://nodemailer.com/message/embedded-images/</guid>
-      <description>
-
-&lt;p&gt;Attachments can be used as embedded images in the HTML body. To use this feature, you need to set additional property of the attachment - &lt;strong&gt;cid&lt;/strong&gt; (unique identifier of the file) which is a reference to the attachment file. The same &lt;strong&gt;cid&lt;/strong&gt; value must be used as the image URL in HTML (using &lt;strong&gt;cid:&lt;/strong&gt; as the URL protocol, see example below).&lt;/p&gt;
-
-&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;&lt;strong&gt;NB!&lt;/strong&gt; the cid value should be as unique as possible!&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;h4 id=&#34;example&#34;&gt;Example&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    ...
-    html: &#39;Embedded image: &amp;lt;img src=&amp;quot;cid:unique@nodemailer.com&amp;quot;/&amp;gt;&#39;,
-    attachments: [{
-        filename: &#39;image.png&#39;,
-        path: &#39;/path/to/file&#39;,
-        cid: &#39;unique@nodemailer.com&#39; //same cid value as in the html img src
-    }]
-}
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>Attachments can be used as embedded images in the HTML body. To use this feature, you need to set additional property of the attachment - cid (unique identifier of the file) which is a reference to the attachment file. The same cid value must be used as the image URL in HTML (using cid: as the URL protocol, see example below).
+NB! the cid value should be as unique as possible!</description>
     </item>
     
     <item>
@@ -405,60 +174,9 @@ let message = {
       <pubDate>Fri, 20 Jan 2017 12:01:57 +0200</pubDate>
       
       <guid>https://nodemailer.com/message/list-headers/</guid>
-      <description>
-
-&lt;p&gt;Nodemailer includes a helper for setting more complex &lt;em&gt;List-*&lt;/em&gt; headers with ease. You can use this by providing message option &lt;strong&gt;list&lt;/strong&gt;. It&amp;rsquo;s an object where key names are converted into list headers. List key &lt;em&gt;help&lt;/em&gt; becomes &lt;em&gt;List-Help&lt;/em&gt; header etc.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;General rules&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;If the value is a string, it is treated as an URL&lt;/li&gt;
-&lt;li&gt;If you want to provide an optional comment, use &lt;em&gt;{url:&amp;lsquo;url&amp;rsquo;, comment: &amp;lsquo;comment&amp;rsquo;}&lt;/em&gt; object&lt;/li&gt;
-&lt;li&gt;If you want to have multiple header rows for the same &lt;em&gt;List-*&lt;/em&gt; key, use an array as the value for this key&lt;/li&gt;
-&lt;li&gt;If you want to have multiple URLs for single &lt;em&gt;List-*&lt;/em&gt; header row, use an array inside an array&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;List-*&lt;/em&gt; headers are treated as pregenerated values, this means that lines are not folded and strings are not encoded. Use only ascii characters and be prepared for longer header lines&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
-
-&lt;h4 id=&#34;1-setup-different-list-headers&#34;&gt;1. Setup different List-* headers&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    from: &#39;sender@example.com&#39;,
-    to: &#39;recipient@example.com&#39;,
-    subject: &#39;List Message&#39;,
-    text: &#39;I hope no-one unsubscribes from this list!&#39;,
-    list: {
-        // List-Help: &amp;lt;mailto:admin@example.com?subject=help&amp;gt;
-        help: &#39;admin@example.com?subject=help&#39;,
-        // List-Unsubscribe: &amp;lt;http://example.com&amp;gt; (Comment)
-        unsubscribe: {
-            url: &#39;http://example.com&#39;,
-            comment: &#39;Comment&#39;
-        },
-        // List-Subscribe: &amp;lt;mailto:admin@example.com?subject=subscribe&amp;gt;
-        // List-Subscribe: &amp;lt;http://example.com&amp;gt; (Subscribe)
-        subscribe: [
-            &#39;admin@example.com?subject=subscribe&#39;,
-            {
-                url: &#39;http://example.com&#39;,
-                comment: &#39;Subscribe&#39;
-            }
-        ],
-        // List-Post: &amp;lt;http://example.com/post&amp;gt;, &amp;lt;mailto:admin@example.com?subject=post&amp;gt; (Post)
-        post: [
-            [
-                &#39;http://example.com/post&#39;,
-                {
-                    url: &#39;admin@example.com?subject=post&#39;,
-                    comment: &#39;Post&#39;
-                }
-            ]
-        ]
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>Nodemailer includes a helper for setting more complex List-* headers with ease. You can use this by providing message option list. It&amp;rsquo;s an object where key names are converted into list headers. List key help becomes List-Help header etc.
+General rules
+ If the value is a string, it is treated as an URL If you want to provide an optional comment, use {url:&amp;lsquo;url&amp;rsquo;, comment: &amp;lsquo;comment&amp;rsquo;} object If you want to have multiple header rows for the same List-* key, use an array as the value for this key If you want to have multiple URLs for single List-* header row, use an array inside an array List-* headers are treated as pregenerated values, this means that lines are not folded and strings are not encoded.</description>
     </item>
     
     <item>
@@ -467,71 +185,8 @@ let message = {
       <pubDate>Fri, 20 Jan 2017 12:37:05 +0200</pubDate>
       
       <guid>https://nodemailer.com/message/custom-headers/</guid>
-      <description>
-
-&lt;p&gt;Most messages do not need any kind of tampering with the headers. If you do need to add custom headers either to the message or to an attachment/alternative, you can add these values with the &lt;strong&gt;headers&lt;/strong&gt; option. Values are processed automatically, non-ascii strings are encoded as mime-words and long lines are folded.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;headers&lt;/strong&gt; – is an object of key-value pairs, where key names are converted into message header keys&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
-
-&lt;h4 id=&#34;1-set-custom-headers&#34;&gt;1. Set custom headers&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    ...,
-    headers: {
-        &#39;x-my-key&#39;: &#39;header value&#39;,
-        &#39;x-another-key&#39;: &#39;another value&#39;
-    }
-}
-
-// Becomes:
-//   X-My-Key: header value
-//   X-Another-Key: another value
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;2-multiple-rows-with-the-same-key&#34;&gt;2. Multiple rows with the same key&lt;/h4&gt;
-
-&lt;p&gt;The same header key can be used multiple times if the header value is an Array&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    ...,
-    headers: {
-        &#39;x-my-key&#39;: [
-            &#39;value for row 1&#39;,
-            &#39;value for row 2&#39;,
-            &#39;value for row 3&#39;
-        ]
-    }
-}
-
-// X-My-Key: value for row 1
-// X-My-Key: value for row 2
-// X-My-Key: value for row 3
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;3-prepared-headers&#34;&gt;3. Prepared headers&lt;/h4&gt;
-
-&lt;p&gt;Normally all headers are encoded and folded to meet the requirement of having plain-ASCII messages with lines no longer than 78 bytes. Sometimes it is preferable to not modify header values and pass these as provided. This can be achieved with the &lt;strong&gt;prepared&lt;/strong&gt; option:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    ...,
-    headers: {
-        &#39;x-processed&#39;: &#39;a really long header or value with non-ascii characters 👮&#39;,
-        &#39;x-unprocessed&#39;: {
-            prepared: true,
-            value: &#39;a really long header or value with non-ascii characters 👮&#39;
-        }
-    }
-}
-
-// X-Processed: a really long header or value with non-ascii characters
-//  =?UTF-8?Q?=F0=9F=91=AE?=
-// X-Unprocessed: a really long header or value with non-ascii characters ?
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>Most messages do not need any kind of tampering with the headers. If you do need to add custom headers either to the message or to an attachment/alternative, you can add these values with the headers option. Values are processed automatically, non-ascii strings are encoded as mime-words and long lines are folded.
+ headers – is an object of key-value pairs, where key names are converted into message header keys  Examples 1.</description>
     </item>
     
     <item>
@@ -540,64 +195,9 @@ let message = {
       <pubDate>Fri, 20 Jan 2017 12:37:52 +0200</pubDate>
       
       <guid>https://nodemailer.com/message/custom-source/</guid>
-      <description>
-
-&lt;p&gt;If you want to use your own custom generated RFC822 formatted message source, instead of letting Nodemailer to generate it from the message options, use option &lt;strong&gt;raw&lt;/strong&gt;. This can be used both for the entire message or alternatively per-attachment or per-alternative.&lt;/p&gt;
-
-&lt;div class=&#34;notices note&#34; &gt;&lt;p&gt;Don&amp;rsquo;t forget to set the &lt;strong&gt;envelope&lt;/strong&gt; option when using &lt;strong&gt;raw&lt;/strong&gt; as the message source&lt;/p&gt;
-&lt;/div&gt;
-
-
-&lt;h3 id=&#34;examples&#34;&gt;Examples&lt;/h3&gt;
-
-&lt;h4 id=&#34;1-use-string-as-a-message-body&#34;&gt;1. Use string as a message body&lt;/h4&gt;
-
-&lt;p&gt;This example loads the entire message source from a string value. You don&amp;rsquo;t have to worry about proper newlines, these are handled by Nodemailer.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    envelope: {
-        from: &#39;sender@example.com&#39;,
-        to: [&#39;recipient@example.com&#39;]
-    },
-    raw: `From: sender@example.com
-To: recipient@example.com
-Subject: test message
-
-Hello world!`
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;2-set-eml-file-as-message-body&#34;&gt;2. Set EML file as message body&lt;/h4&gt;
-
-&lt;p&gt;This example loads the entire message source from a file&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    envelope: {
-        from: &#39;sender@example.com&#39;,
-        to: [&#39;recipient@example.com&#39;]
-    },
-    raw: {
-        path: &#39;/path/to/message.eml&#39;
-    }
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;3-set-string-as-attachment-body&#34;&gt;3. Set string as attachment body&lt;/h4&gt;
-
-&lt;p&gt;When using &lt;strong&gt;raw&lt;/strong&gt; for attachments then you need to provide all content headers youself, Nodemailer does not process it in any way (besides newline processing), it is inserted into the MIME tree as is.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    from: &#39;sender@example.com&#39;,
-    to: &#39;recipient@example.com&#39;,
-    subject: &#39;Custom attachment&#39;,
-    attachments: [{
-        raw: `Content-Type: text/plain
-Content-Disposition: attachment
-
-Attached text file`}]
-};
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>If you want to use your own custom generated RFC822 formatted message source, instead of letting Nodemailer to generate it from the message options, use option raw. This can be used both for the entire message or alternatively per-attachment or per-alternative.
+Don&amp;rsquo;t forget to set the envelope option when using raw as the message source
+ Examples 1. Use string as a message body This example loads the entire message source from a string value.</description>
     </item>
     
     <item>
@@ -606,32 +206,8 @@ Attached text file`}]
       <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
       
       <guid>https://nodemailer.com/smtp/envelope/</guid>
-      <description>&lt;p&gt;SMTP envelope is usually auto generated from &lt;strong&gt;from&lt;/strong&gt;, &lt;strong&gt;to&lt;/strong&gt;, &lt;strong&gt;cc&lt;/strong&gt; and &lt;strong&gt;bcc&lt;/strong&gt; fields in the message object but if for some reason you want to specify it yourself (custom envelopes are usually used for VERP addresses), you can do it with the &lt;strong&gt;envelope&lt;/strong&gt; property in the message object.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;envelope&lt;/strong&gt; – is an object with the following address params that behave just like with regular mail options. You can also use the regular address format, unicode domains etc.
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;from&lt;/strong&gt; – the first address gets used as MAIL FROM address in SMTP&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;to&lt;/strong&gt; – addresses from this value get added to RCPT TO list&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;cc&lt;/strong&gt; – addresses from this value get added to RCPT TO list&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;bcc&lt;/strong&gt; – addresses from this value get added to RCPT TO list&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let message = {
-    ...,
-    from: &#39;mailer@nodemailer.com&#39;, // listed in rfc822 message header
-    to: &#39;daemon@nodemailer.com&#39;, // listed in rfc822 message header
-    envelope: {
-        from: &#39;Daemon &amp;lt;deamon@nodemailer.com&amp;gt;&#39;, // used as MAIL FROM: address for SMTP
-        to: &#39;mailer@nodemailer.com, Mailer &amp;lt;mailer2@nodemailer.com&amp;gt;&#39; // used as RCPT TO: address for SMTP
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The envelope object returned by &lt;strong&gt;sendMail()&lt;/strong&gt; includes just &lt;strong&gt;from&lt;/strong&gt; (address string) and &lt;strong&gt;to&lt;/strong&gt; (an array of address strings) fields as all addresses from &lt;strong&gt;to&lt;/strong&gt;, &lt;strong&gt;cc&lt;/strong&gt; and &lt;strong&gt;bcc&lt;/strong&gt; get merged into &lt;strong&gt;to&lt;/strong&gt; when sending.&lt;/p&gt;
-</description>
+      <description>SMTP envelope is usually auto generated from from, to, cc and bcc fields in the message object but if for some reason you want to specify it yourself (custom envelopes are usually used for VERP addresses), you can do it with the envelope property in the message object.
+ envelope – is an object with the following address params that behave just like with regular mail options. You can also use the regular address format, unicode domains etc.</description>
     </item>
     
     <item>
@@ -640,50 +216,111 @@ Attached text file`}]
       <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
       
       <guid>https://nodemailer.com/smtp/pooled/</guid>
-      <description>
-
-&lt;p&gt;If pooling is used then Nodemailer keeps a fixed amount of connections open and sends the next message once a connection becomes available. It is mostly useful when you have a large number of messages that you want to send in batches or your provider allows you to only use a small amount of parallel connections.&lt;/p&gt;
-
-&lt;p&gt;To use pooled connections use the following options in transport configuration&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;pool&lt;/strong&gt; – set to &lt;em&gt;true&lt;/em&gt; to use pooled connections (defaults to &lt;em&gt;false&lt;/em&gt;) instead of creating a new connection for every email&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;maxConnections&lt;/strong&gt; – is the count of maximum simultaneous connections to make against the SMTP server (defaults to 5)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;maxMessages&lt;/strong&gt; – limits the message count to be sent using a single connection (defaults to 100). After &lt;em&gt;maxMessages&lt;/em&gt; is reached the connection is dropped and a new one is created for the following messages&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;rateDelta&lt;/strong&gt; – defines the time measuring period in milliseconds (defaults to 1000, ie. to 1 second) for rate limiting&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;rateLimit&lt;/strong&gt; – limits the message count to be sent in &lt;strong&gt;rateDelta&lt;/strong&gt; time. Once &lt;em&gt;rateLimit&lt;/em&gt; is reached, sending is paused until the end of the measuring period. This limit is shared between connections, so if one connection uses up the limit, then other connections are paused as well. If &lt;em&gt;rateLimit&lt;/em&gt; is not set then sending rate is not limited&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;methods&#34;&gt;Methods&lt;/h3&gt;
-
-&lt;h4 id=&#34;transporter-isidle&#34;&gt;transporter.isIdle()&lt;/h4&gt;
-
-&lt;p&gt;Returns &lt;em&gt;true&lt;/em&gt; if there are available connection slots&lt;/p&gt;
-
-&lt;h4 id=&#34;transporter-close&#34;&gt;transporter.close()&lt;/h4&gt;
-
-&lt;p&gt;If transporter uses pooling then connections are kept open even if there is nothing to be sent. Connections that idle for longer than the &lt;em&gt;socketTimeout&lt;/em&gt; will be closed automatically and reopened once there&amp;rsquo;s more mail to send. You can also use &lt;em&gt;transporter.close()&lt;/em&gt; to clean up all connections.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let transporter = nodemailer.createTransport({pool: true,...});
-// ...
-transporter.close();
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&#34;events&#34;&gt;Events&lt;/h3&gt;
-
-&lt;h4 id=&#34;event-idle&#34;&gt;Event:&amp;lsquo;idle&amp;rsquo;&lt;/h4&gt;
-
-&lt;p&gt;Emitted by the transporter object if connection pool has free connection slots. Check if a connection is still available with &lt;code&gt;isIdle()&lt;/code&gt; method (returns &lt;code&gt;true&lt;/code&gt; if a connection is still available). This allows to create push-like senders where messages are not queued into memory in a Node.js process but pushed and loaded through an external queue.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;let messages = [...&amp;quot;list of messages&amp;quot;];
-transporter.on(&amp;quot;idle&amp;quot;, function() {
-  // send next message from the pending queue
-  while (transporter.isIdle() &amp;amp;&amp;amp; messages.length) {
-    transporter.sendMail(messages.shift());
-  }
-});
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>If pooling is used then Nodemailer keeps a fixed amount of connections open and sends the next message once a connection becomes available. It is mostly useful when you have a large number of messages that you want to send in batches or your provider allows you to only use a small amount of parallel connections.
+To use pooled connections use the following options in transport configuration
+ pool – set to true to use pooled connections (defaults to false) instead of creating a new connection for every email maxConnections – is the count of maximum simultaneous connections to make against the SMTP server (defaults to 5) maxMessages – limits the message count to be sent using a single connection (defaults to 100).</description>
+    </item>
+    
+    <item>
+      <title>Testing SMTP</title>
+      <link>https://nodemailer.com/smtp/testing/</link>
+      <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/smtp/testing/</guid>
+      <description>When building complex applications then sooner or later you end up in a situation where you need to send emails from your application in test environment but do not want to accidentally spam anyone.
+One solution would be to separate development email addresses and use only some specific testing address to send all mail to but a better approach would be to use a separate email catching service that accepts all messages like a normal transactional SMTP service would but instead of delivering these to destination, it only logs these messages.</description>
+    </item>
+    
+    <item>
+      <title>OAuth2</title>
+      <link>https://nodemailer.com/smtp/oauth2/</link>
+      <pubDate>Fri, 20 Jan 2017 10:45:57 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/smtp/oauth2/</guid>
+      <description>OAuth2 allows your application to store and use authentication tokens instead of actual login credentials. This is great for security as tokens or valid only for specific actions and can be easily revoked thus, once stolen, can&amp;rsquo;t to as much harm as actual account credentials. OAuth2 authentication in Nodemailer is mostly used with Gmail and G Suite (née Google Apps) even though there are other providers that support it as well.</description>
+    </item>
+    
+    <item>
+      <title>Custom authentication</title>
+      <link>https://nodemailer.com/smtp/customauth/</link>
+      <pubDate>Fri, 20 Jan 2017 11:16:41 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/smtp/customauth/</guid>
+      <description>Nodemailer SMTP client can be extended to use custom authentication mechanisms that Nodemailer does not support by default.
+To use one you should define a custom authentication handler with customAuth in the transporter options. Multiple handlers can be defined. Use authentication identifier as the handler name. For example if the server responds with &amp;ldquo;AUTH LOGIN PLAIN MY-CUSTOM-METHOD&amp;rdquo; then it supports &amp;ldquo;LOGIN&amp;rdquo;, &amp;ldquo;PLAIN&amp;rdquo; and &amp;ldquo;MY-CUSTOM-METHOD&amp;rdquo;. Nodemailer has built in support form &amp;ldquo;LOGIN&amp;rdquo; and &amp;ldquo;PLAIN&amp;rdquo; but it knows nothing about &amp;ldquo;MY-CUSTOM-METHOD&amp;rdquo;, to add support use this identifier as the handler name.</description>
+    </item>
+    
+    <item>
+      <title>Proxy support</title>
+      <link>https://nodemailer.com/smtp/proxies/</link>
+      <pubDate>Fri, 20 Jan 2017 11:16:41 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/smtp/proxies/</guid>
+      <description>Nodemailer is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing socks module to Nodemailer, other proxies need custom handling.
+To enable proxying, define a proxy option for the transporter.
+ proxy – is a proxy URL  Examples 1. Using HTTP proxy Set HTTP proxy url for the proxy option. That&amp;rsquo;s it, everything required to handle it is built into Nodemailer.</description>
+    </item>
+    
+    <item>
+      <title>Delivery status notifications</title>
+      <link>https://nodemailer.com/smtp/dsn/</link>
+      <pubDate>Fri, 20 Jan 2017 11:20:07 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/smtp/dsn/</guid>
+      <description>If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery status notifications (DSN) with Nodemailer as defined in RFC3461.
+To set up a DSN call, add a dsn property to message data
+ dsn – optional object to define DSN options
+ id – is the envelope identifier that would be included in the response (ENVID) return – is either &amp;lsquo;headers&amp;rsquo; or &amp;lsquo;full&amp;rsquo;.</description>
+    </item>
+    
+    <item>
+      <title>Sendmail transport</title>
+      <link>https://nodemailer.com/transports/sendmail/</link>
+      <pubDate>Fri, 20 Jan 2017 11:35:26 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/transports/sendmail/</guid>
+      <description>Sendmail transport pipes the generated RFC822 message to the standard input of the sendmail command, so it&amp;rsquo;s the same thing what the mail() function in PHP does.
+To use Sendmail transport, set sendmail in Nodemailer transport options to true.
+The additional options to use with this transport are the following:
+ path - path to the sendmail command (defaults to &amp;lsquo;sendmail&amp;rsquo;) newline - either &amp;lsquo;windows&amp;rsquo; or &amp;lsquo;unix&amp;rsquo; (default). Forces all newlines in the output to either use Windows syntax &amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt; or Unix syntax &amp;lt;LF&amp;gt; args - an optional array of command line options to pass to the sendmail command (ie.</description>
+    </item>
+    
+    <item>
+      <title>SES transport</title>
+      <link>https://nodemailer.com/transports/ses/</link>
+      <pubDate>Fri, 20 Jan 2017 12:01:09 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/transports/ses/</guid>
+      <description>Nodemailer SES transport is a wrapper around aws.SES from the aws-sdk package. SES transport is available from Nodemailer v3.1.0.
+Why not use aws-sdk directly? The SES API exposes two methods to send mail – SendEmail and SendRawEmail. While the first one is really easy to use and Nodemailer is not actualy needed, then it is also quite basic in features. For example you can&amp;rsquo;t use attachments with SendEmail. On the other hand SendRawEmail requires you build your own MIME formatted email message which is far from being easy.</description>
+    </item>
+    
+    <item>
+      <title>Stream transport</title>
+      <link>https://nodemailer.com/transports/stream/</link>
+      <pubDate>Fri, 20 Jan 2017 12:01:09 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/transports/stream/</guid>
+      <description>Stream Transport is not actually a transport, it&amp;rsquo;s more like a testing add-on as instead of delivering the message it processes input data and returns you the generated RFC822 email message either as a stream or a Buffer. Additionally you can define which kind of newlines to use, either the &amp;lsquo;windows&amp;rsquo; style (&amp;lt;CR&amp;gt;&amp;lt;LF&amp;gt;) or the &amp;lsquo;unix&amp;rsquo; style (&amp;lt;LF&amp;gt;). This transport is mostly useful for testing and also for scenarios where you want to use Nodemailer plugins to process the message and do the actual delivery by some other means.</description>
+    </item>
+    
+    <item>
+      <title>Create plugins</title>
+      <link>https://nodemailer.com/plugins/create/</link>
+      <pubDate>Fri, 20 Jan 2017 23:19:31 +0200</pubDate>
+      
+      <guid>https://nodemailer.com/plugins/create/</guid>
+      <description>There are 3 stages a plugin can hook to:
+ &amp;lsquo;compile&amp;rsquo; is the step where email data is set but nothing has been done with it yet. At this step you can modify mail options, for example modify html content, add new headers etc. &amp;lsquo;stream&amp;rsquo; is the step where message tree has been compiled and is ready to be streamed. At this step you can modify the generated MIME tree or add a transform stream that the generated raw email will be piped through before passed to the transport object Transport step where the raw email is streamed to destination  Including plugins &amp;lsquo;compile&amp;rsquo; and &amp;lsquo;stream&amp;rsquo; plugins can be attached with use(plugin) method</description>
+    </item>
+    
+    <item>
+      <title>Status</title>
+      <link>https://nodemailer.com/status/</link>
+      <pubDate>Sat, 03 Jun 2017 12:36:15 +0300</pubDate>
+      
+      <guid>https://nodemailer.com/status/</guid>
+      <description>All versions of Nodemailer below 4.0.1 are deprecated.</description>
     </item>
     
   </channel>
