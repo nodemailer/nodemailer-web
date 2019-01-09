@@ -139,6 +139,8 @@ If authentication data is not present, the connection is considered authenticate
 
 For authenticating using OAuth2 instead of normal auth, see OAuth2 options for the **auth** object [here](/smtp/oauth2/).
 
+You can also define [custom authentication handlers](/smtp/customauth/) for protocols that are not natively supported by Nodemailer, see [NTLM handler](https://github.com/nodemailer/nodemailer-ntlm-auth) as an example of such custom handler.
+
 ## Verify SMTP connection configuration
 
 You can verify your SMTP configuration with **verify(callback)** call (also works as a Promise). If it returns an error, then something is not correct, otherwise the server is ready to accept messages.

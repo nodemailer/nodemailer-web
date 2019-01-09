@@ -50,10 +50,10 @@ The most useful method of the context object is `sendCommand` that takes a full 
 
 Resulting `cmd` response object includes the following properties:
 
-* **status** is the numeric status code of the response (eg 250 or 334 etc.)
-* **code** is the enchanced status code (eg "5.7.0")
-* **text** is the readable part of server response ("Authentication successful")
-* **response** is the full response from the server ("235 Authentication successful")
+- **status** is the numeric status code of the response (eg 250 or 334 etc.)
+- **code** is the enchanced status code (eg "5.7.0")
+- **text** is the readable part of server response ("Authentication successful")
+- **response** is the full response from the server ("235 Authentication successful")
 
 ```
 async function myCustomMethod(ctx){
@@ -88,7 +88,7 @@ let transporter = nodemailer.createTransport({
 
 ### Custom options
 
-If your authentication mechanism requires additional configuration besides the usual username and password, then you can use the `pass` field to provide the details.
+If your authentication mechanism requires additional configuration besides the usual username and password, then you can use the `options` field to provide the details.
 
 ```
 let transporter = nodemailer.createTransport({
@@ -99,7 +99,8 @@ let transporter = nodemailer.createTransport({
         type: 'custom',
         method: 'MY-CUSTOM-METHOD', // forces Nodemailer to use your custom handler
         user: 'username',
-        pass: {
+        pass: 'verysecret',
+        options: {
             clientId: 'verysecret',
             applicationId: 'my-app'
         }
@@ -107,8 +108,8 @@ let transporter = nodemailer.createTransport({
     customAuth: {
         'MY-CUSTOM-METHOD': async ctx => {
             let token = await generateSecretTokenSomehow(
-                ctx.auth.credentials.pass.clientId,
-                ctx.auth.credentials.pass.applicationId
+                ctx.auth.credentials.options.clientId,
+                ctx.auth.credentials.options.applicationId
             );
             ...
         }
