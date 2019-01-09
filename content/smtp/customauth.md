@@ -67,4 +67,19 @@ async function myCustomMethod(ctx){
         throw new Error('Failed to authenticate user: ' + cmd.text);
     }
 }
+
+let transporter = nodemailer.createTransport({
+    host: 'smtp.example.com',
+    port: 465,
+    secure: true,
+    auth: {
+        type: 'custom',
+        method: 'MY-CUSTOM-METHOD', // forces Nodemailer to use your custom handler
+        user: 'username',
+        pass: 'verysecret'
+    },
+    customAuth: {
+        'MY-CUSTOM-METHOD': myCustomMethod
+    }
+});
 ```
