@@ -1,5 +1,5 @@
 +++
-weight = 0
+weight = 10
 title = "Nodemailer"
 date = "2017-01-20T21:25:35+02:00"
 pre = "<b>1. </b>"
@@ -43,9 +43,9 @@ You can support Nodemailer by becoming either an [OpenCollective sponsor](https:
 
 #### Requirements
 
-- **Node.js v6+**. That's it.
+- **Node.js v6.0.0** or newer. That's it.
 
-If you are able to run Node.js version 6 or newer, then you can use Nodemailer. There are no platform or resource specific requirements.
+If you are able to run Node.js version 6 or newer, then you can use Nodemailer. There are no platform or resource specific requirements. All public Nodemailer methods support both callbacks and if callback is omitted then Promises and `async..await` (you need to have at least Node v8.0.0 if you want to use `async..await` with Nodemailer).
 
 #### TL;DR
 
@@ -67,9 +67,13 @@ This is a complete example to send an email with plain text and HTML body
 "use strict";
 const nodemailer = require("nodemailer");
 
-// Generate test SMTP service account from ethereal.email
-// Only needed if you don't have a real mail account for testing
-nodemailer.createTestAccount((err, account) => {
+// async..await is not allowed in global scope, must use a wrapper
+async function main(){
+
+  // Generate test SMTP service account from ethereal.email
+  // Only needed if you don't have a real mail account for testing
+  let account = await nodemailer.createTestAccount();
+
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: "smtp.ethereal.email",
@@ -91,18 +95,17 @@ nodemailer.createTestAccount((err, account) => {
   };
 
   // send mail with defined transport object
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }
-    console.log("Message sent: %s", info.messageId);
-    // Preview only available when sending through an Ethereal account
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  let info = await transporter.sendMail(mailOptions)
 
-    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-  });
-});
+  console.log("Message sent: %s", info.messageId);
+  // Preview only available when sending through an Ethereal account
+  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+}
+
+main().catch(console.error);
 ```
 
 ### Examples

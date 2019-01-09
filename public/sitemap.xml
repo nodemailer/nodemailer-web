@@ -53,6 +53,11 @@
   </url>
   
   <url>
+    <loc>https://nodemailer.com/</loc>
+    <lastmod>2017-01-20T21:25:35+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://nodemailer.com/about/</loc>
     <lastmod>2017-01-20T21:25:35+02:00</lastmod>
   </url>
@@ -190,11 +195,6 @@
   <url>
     <loc>https://nodemailer.com/status/</loc>
     <lastmod>2017-06-03T12:36:15+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://nodemailer.com/</loc>
-    <lastmod>2017-01-20T21:25:35+02:00</lastmod>
   </url>
   
   <url>

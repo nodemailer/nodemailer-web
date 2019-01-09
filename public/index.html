@@ -12,19 +12,19 @@
     <title>Nodemailer :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1547037698" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1547037698" rel="stylesheet">
-    <link href="/css/hybrid.css?1547037698" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1547037698" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1547037698" rel="stylesheet">
-    <link href="/css/auto-complete.css?1547037698" rel="stylesheet">
-    <link href="/css/theme.css?1547037698" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1547037698" rel="stylesheet">
+    <link href="/css/nucleus.css?1547043060" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1547043060" rel="stylesheet">
+    <link href="/css/hybrid.css?1547043060" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1547043060" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1547043060" rel="stylesheet">
+    <link href="/css/auto-complete.css?1547043060" rel="stylesheet">
+    <link href="/css/theme.css?1547043060" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1547043060" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1547037698" rel="stylesheet">
+      <link href="/css/theme-blue.css?1547043060" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1547037698"></script>
+    <script src="/js/jquery-2.x.min.js?1547043060"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1068,10 +1068,10 @@
 <h4 id="requirements">Requirements</h4>
 
 <ul>
-<li><strong>Node.js v6+</strong>. That&rsquo;s it.</li>
+<li><strong>Node.js v6.0.0</strong> or newer. That&rsquo;s it.</li>
 </ul>
 
-<p>If you are able to run Node.js version 6 or newer, then you can use Nodemailer. There are no platform or resource specific requirements.</p>
+<p>If you are able to run Node.js version 6 or newer, then you can use Nodemailer. There are no platform or resource specific requirements. All public Nodemailer methods support both callbacks and if callback is omitted then Promises and <code>async..await</code> (you need to have at least Node v8.0.0 if you want to use <code>async..await</code> with Nodemailer).</p>
 
 <h4 id="tl-dr">TL;DR</h4>
 
@@ -1094,9 +1094,13 @@
 <pre><code class="language-javascript">&quot;use strict&quot;;
 const nodemailer = require(&quot;nodemailer&quot;);
 
-// Generate test SMTP service account from ethereal.email
-// Only needed if you don't have a real mail account for testing
-nodemailer.createTestAccount((err, account) =&gt; {
+// async..await is not allowed in global scope, must use a wrapper
+async function main(){
+
+  // Generate test SMTP service account from ethereal.email
+  // Only needed if you don't have a real mail account for testing
+  let account = await nodemailer.createTestAccount();
+
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: &quot;smtp.ethereal.email&quot;,
@@ -1118,18 +1122,17 @@ nodemailer.createTestAccount((err, account) =&gt; {
   };
 
   // send mail with defined transport object
-  transporter.sendMail(mailOptions, (error, info) =&gt; {
-    if (error) {
-      return console.log(error);
-    }
-    console.log(&quot;Message sent: %s&quot;, info.messageId);
-    // Preview only available when sending through an Ethereal account
-    console.log(&quot;Preview URL: %s&quot;, nodemailer.getTestMessageUrl(info));
+  let info = await transporter.sendMail(mailOptions)
 
-    // Message sent: &lt;b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com&gt;
-    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-  });
-});
+  console.log(&quot;Message sent: %s&quot;, info.messageId);
+  // Preview only available when sending through an Ethereal account
+  console.log(&quot;Preview URL: %s&quot;, nodemailer.getTestMessageUrl(info));
+
+  // Message sent: &lt;b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com&gt;
+  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+}
+
+main().catch(console.error);
 </code></pre>
 
 <h3 id="examples">Examples</h3>
@@ -1790,20 +1793,20 @@ nodemailer.createTestAccount((err, account) =&gt; {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1547037698"></script>
-    <script src="/js/perfect-scrollbar.min.js?1547037698"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1547037698"></script>
-    <script src="/js/jquery.sticky.js?1547037698"></script>
-    <script src="/js/featherlight.min.js?1547037698"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1547037698"></script>
-    <script src="/js/highlight.pack.js?1547037698"></script>
+    <script src="/js/clipboard.min.js?1547043060"></script>
+    <script src="/js/perfect-scrollbar.min.js?1547043060"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1547043060"></script>
+    <script src="/js/jquery.sticky.js?1547043060"></script>
+    <script src="/js/featherlight.min.js?1547043060"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1547043060"></script>
+    <script src="/js/highlight.pack.js?1547043060"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1547037698"></script>
-    <script src="/js/learn.js?1547037698"></script>
-    <script src="/js/hugo-learn.js?1547037698"></script>
+    <script src="/js/modernizr.custom.71422.js?1547043060"></script>
+    <script src="/js/learn.js?1547043060"></script>
+    <script src="/js/hugo-learn.js?1547043060"></script>
 
-    <link href="/mermaid/mermaid.css?1547037698" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1547037698"></script>
+    <link href="/mermaid/mermaid.css?1547043060" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1547043060"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
