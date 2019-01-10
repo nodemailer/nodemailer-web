@@ -17,8 +17,9 @@
       <pubDate>Fri, 20 Jan 2017 21:37:15 +0200</pubDate>
       
       <guid>https://nodemailer.com/about/migrate/</guid>
-      <description>Nodemailer v3 has dropped some features that were available in Nodemailer v2 and also introduced some new ones.
- All dependencies were dropped. There is exactly 0 dependencies needed to use Nodemailer. This brings the installation time of Nodemailer from NPM to less than 2 seconds All templating is gone. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template syntaxes No NTLM authentication.</description>
+      <description>This migration document applies Migrating from Nodemailer 2 to Nodemailer 3 and to a lesser extent to 4
+ Nodemailer v3 has dropped some features that were available in Nodemailer v2 and also introduced some new ones.
+ All dependencies were dropped. There is exactly 0 dependencies needed to use Nodemailer. This brings the installation time of Nodemailer from NPM to less than 2 seconds All templating is gone. It was too confusing to use and to be really universal a huge list of different renderers would be required.</description>
     </item>
     
     <item>
