@@ -120,3 +120,4 @@ let transporter = nodemailer.createTransport({
 ### Examples
 
 - **[NTLM handler](https://github.com/nodemailer/nodemailer-ntlm-auth)** to authenticate using NTLM
+- **[CRAM-MD5 handler](https://github.com/nodemailer/nodemailer-cram-md5)** to authenticate using CRAM-MD5
