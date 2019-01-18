@@ -15,19 +15,19 @@
     <title>SMTP transport :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1547135471" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1547135471" rel="stylesheet">
-    <link href="/css/hybrid.css?1547135471" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1547135471" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1547135471" rel="stylesheet">
-    <link href="/css/auto-complete.css?1547135471" rel="stylesheet">
-    <link href="/css/theme.css?1547135471" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1547135471" rel="stylesheet">
+    <link href="/css/nucleus.css?1547799327" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1547799327" rel="stylesheet">
+    <link href="/css/hybrid.css?1547799327" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1547799327" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1547799327" rel="stylesheet">
+    <link href="/css/auto-complete.css?1547799327" rel="stylesheet">
+    <link href="/css/theme.css?1547799327" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1547799327" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1547135471" rel="stylesheet">
+      <link href="/css/theme-blue.css?1547799327" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1547135471"></script>
+    <script src="/js/jquery-2.x.min.js?1547799327"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1147,7 +1147,7 @@
 
 <p>This example would connect to a SMTP server separately for every single message</p>
 
-<pre><code class="language-javascript">let smtpConfig = {
+<pre><code class="language-javascript">nodemailer.createTransport({
   host: &quot;smtp.example.com&quot;,
   port: 587,
   secure: false, // upgrade later with STARTTLS
@@ -1155,14 +1155,14 @@
     user: &quot;username&quot;,
     pass: &quot;password&quot;
   }
-};
+});
 </code></pre>
 
-<h4 id="2-single-connection">2. Single connection</h4>
+<h4 id="2-pooled-connections">2. Pooled connections</h4>
 
 <p>This example would set up pooled connections against a SMTP server on port 465</p>
 
-<pre><code class="language-javascript">let poolConfig = {
+<pre><code class="language-javascript">nodemailer.createTransport({
   pool: true,
   host: &quot;smtp.example.com&quot;,
   port: 465,
@@ -1171,14 +1171,14 @@
     user: &quot;username&quot;,
     pass: &quot;password&quot;
   }
-};
+});
 </code></pre>
 
 <h4 id="3-allow-self-signed-certificates">3. Allow self-signed certificates</h4>
 
 <p>This config would open a connection to TLS server with self-signed or invalid TLS certificate</p>
 
-<pre><code class="language-javascript">let selfSignedConfig = {
+<pre><code class="language-javascript">nodemailer.createTransport({
   host: &quot;my.smtp.host&quot;,
   port: 465,
   secure: true, // use TLS
@@ -1190,7 +1190,7 @@
     // do not fail on invalid certs
     rejectUnauthorized: false
   }
-};
+});
 </code></pre>
 
 <h2 id="authentication">Authentication</h2>
@@ -1881,20 +1881,20 @@ transporter.verify(function(error, success) {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1547135471"></script>
-    <script src="/js/perfect-scrollbar.min.js?1547135471"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1547135471"></script>
-    <script src="/js/jquery.sticky.js?1547135471"></script>
-    <script src="/js/featherlight.min.js?1547135471"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1547135471"></script>
-    <script src="/js/highlight.pack.js?1547135471"></script>
+    <script src="/js/clipboard.min.js?1547799327"></script>
+    <script src="/js/perfect-scrollbar.min.js?1547799327"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1547799327"></script>
+    <script src="/js/jquery.sticky.js?1547799327"></script>
+    <script src="/js/featherlight.min.js?1547799327"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1547799327"></script>
+    <script src="/js/highlight.pack.js?1547799327"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1547135471"></script>
-    <script src="/js/learn.js?1547135471"></script>
-    <script src="/js/hugo-learn.js?1547135471"></script>
+    <script src="/js/modernizr.custom.71422.js?1547799327"></script>
+    <script src="/js/learn.js?1547799327"></script>
+    <script src="/js/hugo-learn.js?1547799327"></script>
 
-    <link href="/mermaid/mermaid.css?1547135471" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1547135471"></script>
+    <link href="/mermaid/mermaid.css?1547799327" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1547799327"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

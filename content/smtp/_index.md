@@ -79,7 +79,7 @@ Setting **secure** to **false** does not mean that you would not use an encrypte
 This example would connect to a SMTP server separately for every single message
 
 ```javascript
-let smtpConfig = {
+nodemailer.createTransport({
   host: "smtp.example.com",
   port: 587,
   secure: false, // upgrade later with STARTTLS
@@ -87,15 +87,15 @@ let smtpConfig = {
     user: "username",
     pass: "password"
   }
-};
+});
 ```
 
-#### 2\. Single connection
+#### 2\. Pooled connections
 
 This example would set up pooled connections against a SMTP server on port 465
 
 ```javascript
-let poolConfig = {
+nodemailer.createTransport({
   pool: true,
   host: "smtp.example.com",
   port: 465,
@@ -104,7 +104,7 @@ let poolConfig = {
     user: "username",
     pass: "password"
   }
-};
+});
 ```
 
 #### 3\. Allow self-signed certificates
@@ -112,7 +112,7 @@ let poolConfig = {
 This config would open a connection to TLS server with self-signed or invalid TLS certificate
 
 ```javascript
-let selfSignedConfig = {
+nodemailer.createTransport({
   host: "my.smtp.host",
   port: 465,
   secure: true, // use TLS
@@ -124,7 +124,7 @@ let selfSignedConfig = {
     // do not fail on invalid certs
     rejectUnauthorized: false
   }
-};
+});
 ```
 
 ## Authentication {#authentication}
