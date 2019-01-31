@@ -14,7 +14,7 @@ toc = true
 
 The following are the possible fields of an email message:
 
-### Commmon fields
+### Common fields
 
 - **from** - The email address of the sender. All email addresses can be plain _'sender@server.com'_ or formatted _'"Sender Name" <sender@server.com>'_, see [Address object](/message/addresses/) for details
 - **to** - Comma separated list or an array of recipients email addresses that will appear on the _To:_ field
