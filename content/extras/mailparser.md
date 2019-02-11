@@ -20,17 +20,17 @@ npm install mailparser --save
 
 ## simpleParser
 
-**simpleParser** is the easiest way to parse emails. You only need to provide a message source to get a parsed email structure in return. As an additional bonus all embedded images in HTML (eg. the images that point to attachments using cid: URIs) are replaced with base64 encoded data URIs, so the message can be displayed without any additional processing. Be aware though that this module does not do any security cleansing (eg. removing javascript and so on), this is left to your own application.
+**simpleParser** is the easiest way to parse emails. You only need to provide a message source to get a parsed email structure in return. As an additional bonus all embedded images in HTML (eg. the images that point to attachments using cid: URIs) are replaced with base64 encoded data URIs by default, so the message can be displayed without any additional processing. Be aware though that this module does not do any security cleansing (eg. removing javascript and so on), this is left to your own application.
 
 ```javascript
 const simpleParser = require("mailparser").simpleParser;
-simpleParser(source, (err, parsed) => {});
+simpleParser(source, options, (err, parsed) => {});
 ```
 
 or as a Promise:
 
 ```javascript
-simpleParser(source)
+simpleParser(source, options)
   .then(parsed => {})
   .catch(err => {});
 ```
@@ -38,12 +38,13 @@ simpleParser(source)
 or even with async..await:
 
 ```javascript
-let parsed = await simpleParser(source);
+let parsed = await simpleParser(source, options);
 ```
 
 Where
 
 - **source** is either a stream, a Buffer or a string that needs to be parsed
+- **options** is an optional object which defaults to ```{ keepCidLinks: false }```. If set to ```{ keepCidLinks: true }```, the HTML content will retain the raw cid: URIs for embedded images.
 - **err** is the possible error object
 - **mail** is a structured email object
 
