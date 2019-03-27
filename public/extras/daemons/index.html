@@ -15,19 +15,19 @@
     <title>Node.js daemons :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1548936377" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1548936377" rel="stylesheet">
-    <link href="/css/hybrid.css?1548936377" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1548936377" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1548936377" rel="stylesheet">
-    <link href="/css/auto-complete.css?1548936377" rel="stylesheet">
-    <link href="/css/theme.css?1548936377" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1548936377" rel="stylesheet">
+    <link href="/css/nucleus.css?1553681795" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1553681795" rel="stylesheet">
+    <link href="/css/hybrid.css?1553681795" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1553681795" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1553681795" rel="stylesheet">
+    <link href="/css/auto-complete.css?1553681795" rel="stylesheet">
+    <link href="/css/theme.css?1553681795" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1553681795" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1548936377" rel="stylesheet">
+      <link href="/css/theme-blue.css?1553681795" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1548936377"></script>
+    <script src="/js/jquery-2.x.min.js?1553681795"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1111,6 +1111,10 @@
 
 
 
+<blockquote>
+<p><strong>DRAFT</strong></p>
+</blockquote>
+
 <p>This tutorial shows how to set up Node.js applications as daemon services under Linux. Specifically the following would apply:</p>
 
 <ul>
@@ -1129,33 +1133,33 @@
 <p>The application code is simple, it consists only from two files, the application script and package.json. It&rsquo;s a Node.js app that serves web requests at port 3000. For demo purposes the app uses <a href="https://www.npmjs.com/package/npmlog">npmlog</a> as a dependency that is only needed to demonstrate deploying dependencies.</p>
 
 <pre><code class="language-javascript">// index.js
-const http = require(&quot;http&quot;);
-const log = require(&quot;npmlog&quot;);
+const http = require('http');
+const log = require('npmlog');
 
-const hostname = &quot;127.0.0.1&quot;;
+const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer((req, res) =&gt; {
-  res.statusCode = 200;
-  res.setHeader(&quot;Content-Type&quot;, &quot;text/plain&quot;);
-  res.end(&quot;Hello World\n&quot;);
-  log.http(&quot;App&quot;, req.url);
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello World\n');
+    log.http('App', req.url);
 });
 
 server.listen(port, hostname, () =&gt; {
-  log.info(&quot;App&quot;, `Server running at http://${hostname}:${port}/`);
+    log.info('App', `Server running at http://${hostname}:${port}/`);
 });
 </code></pre>
 
 <pre><code class="language-json">{
-  &quot;name&quot;: &quot;demo-app&quot;,
-  &quot;private&quot;: true,
-  &quot;version&quot;: &quot;1.0.0&quot;,
-  &quot;main&quot;: &quot;index.js&quot;,
-  &quot;dependencies&quot;: {
-    &quot;npmlog&quot;: &quot;^4.1.2&quot;
-  },
-  &quot;license&quot;: &quot;ISC&quot;
+    &quot;name&quot;: &quot;demo-app&quot;,
+    &quot;private&quot;: true,
+    &quot;version&quot;: &quot;1.0.0&quot;,
+    &quot;main&quot;: &quot;index.js&quot;,
+    &quot;dependencies&quot;: {
+        &quot;npmlog&quot;: &quot;^4.1.2&quot;
+    },
+    &quot;license&quot;: &quot;ISC&quot;
 }
 </code></pre>
 
@@ -1831,20 +1835,20 @@ $ git commit -m Initial
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1548936377"></script>
-    <script src="/js/perfect-scrollbar.min.js?1548936377"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1548936377"></script>
-    <script src="/js/jquery.sticky.js?1548936377"></script>
-    <script src="/js/featherlight.min.js?1548936377"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1548936377"></script>
-    <script src="/js/highlight.pack.js?1548936377"></script>
+    <script src="/js/clipboard.min.js?1553681795"></script>
+    <script src="/js/perfect-scrollbar.min.js?1553681795"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1553681795"></script>
+    <script src="/js/jquery.sticky.js?1553681795"></script>
+    <script src="/js/featherlight.min.js?1553681795"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1553681795"></script>
+    <script src="/js/highlight.pack.js?1553681795"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1548936377"></script>
-    <script src="/js/learn.js?1548936377"></script>
-    <script src="/js/hugo-learn.js?1548936377"></script>
+    <script src="/js/modernizr.custom.71422.js?1553681795"></script>
+    <script src="/js/learn.js?1553681795"></script>
+    <script src="/js/hugo-learn.js?1553681795"></script>
 
-    <link href="/mermaid/mermaid.css?1548936377" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1548936377"></script>
+    <link href="/mermaid/mermaid.css?1553681795" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1553681795"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

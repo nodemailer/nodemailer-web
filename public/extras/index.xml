@@ -61,7 +61,8 @@ npm install nodemailer --save  Step 2. Require mailcomposer in your script const
       <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
       
       <guid>https://nodemailer.com/extras/daemons/</guid>
-      <description>This tutorial shows how to set up Node.js applications as daemon services under Linux. Specifically the following would apply:
+      <description>DRAFT
+ This tutorial shows how to set up Node.js applications as daemon services under Linux. Specifically the following would apply:
  The daemon application is a Node.js web app Daemon is set up as a SystemD services Node.js app is accessed as a Nginx virtual domain Updates are deployed using git   Even though this tutorial uses a web app as the service daemon, then the same approach can be used for deploying any kind of services.</description>
     </item>
     

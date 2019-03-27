@@ -15,19 +15,19 @@
     <title>Mailparser :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1548936377" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1548936377" rel="stylesheet">
-    <link href="/css/hybrid.css?1548936377" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1548936377" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1548936377" rel="stylesheet">
-    <link href="/css/auto-complete.css?1548936377" rel="stylesheet">
-    <link href="/css/theme.css?1548936377" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1548936377" rel="stylesheet">
+    <link href="/css/nucleus.css?1553681795" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1553681795" rel="stylesheet">
+    <link href="/css/hybrid.css?1553681795" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1553681795" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1553681795" rel="stylesheet">
+    <link href="/css/auto-complete.css?1553681795" rel="stylesheet">
+    <link href="/css/theme.css?1553681795" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1553681795" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1548936377" rel="stylesheet">
+      <link href="/css/theme-blue.css?1553681795" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1548936377"></script>
+    <script src="/js/jquery-2.x.min.js?1553681795"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1135,15 +1135,15 @@
 
 <p><strong>simpleParser</strong> is the easiest way to parse emails. You only need to provide a message source to get a parsed email structure in return. As an additional bonus all embedded images in HTML (eg. the images that point to attachments using cid: URIs) are replaced with base64 encoded data URIs, so the message can be displayed without any additional processing. Be aware though that this module does not do any security cleansing (eg. removing javascript and so on), this is left to your own application.</p>
 
-<pre><code class="language-javascript">const simpleParser = require(&quot;mailparser&quot;).simpleParser;
+<pre><code class="language-javascript">const simpleParser = require('mailparser').simpleParser;
 simpleParser(source, (err, parsed) =&gt; {});
 </code></pre>
 
 <p>or as a Promise:</p>
 
 <pre><code class="language-javascript">simpleParser(source)
-  .then(parsed =&gt; {})
-  .catch(err =&gt; {});
+    .then(parsed =&gt; {})
+    .catch(err =&gt; {});
 </code></pre>
 
 <p>or even with async..await:</p>
@@ -1221,8 +1221,8 @@ simpleParser(source, (err, parsed) =&gt; {});
 
 <p><strong>headers</strong> is a Map with lowercase header keys. So if you want to check for the Subject: header then you can do it like this:</p>
 
-<pre><code class="language-javascript">if (mail.headers.has(&quot;subject&quot;)) {
-  console.log(mail.headers.get(&quot;subject&quot;));
+<pre><code class="language-javascript">if (mail.headers.has('subject')) {
+    console.log(mail.headers.get('subject'));
 }
 </code></pre>
 
@@ -1297,7 +1297,7 @@ simpleParser(source, (err, parsed) =&gt; {});
 
 <p><strong>MailParser</strong> is a lower-level email parsing class. It is a transform stream that takes email source as bytestream for the input and emits data objects for attachments and text contents.</p>
 
-<pre><code class="language-javascript">const MailParser = require(&quot;mailparser&quot;).MailParser;
+<pre><code class="language-javascript">const MailParser = require('mailparser').MailParser;
 let parser = new MailParser();
 </code></pre>
 
@@ -1307,8 +1307,8 @@ let parser = new MailParser();
 
 <p>Header keys in the Map are lowercase.</p>
 
-<pre><code class="language-javascript">parser.on(&quot;headers&quot;, headers =&gt; {
-  console.log(headers.get(&quot;subject&quot;));
+<pre><code class="language-javascript">parser.on('headers', headers =&gt; {
+    console.log(headers.get('subject'));
 });
 </code></pre>
 
@@ -1325,12 +1325,12 @@ let parser = new MailParser();
 
 <p>Attachment object is the same as in <em>simpleParser</em> except that <em>content</em> is not a buffer but a stream. Additionally there&rsquo;s a method <strong>release()</strong> that must be called once you have processed the attachment. The property <em>related</em> is set after message processing is ended, so at the <em>data</em> event this value is not yet available.</p>
 
-<pre><code class="language-javascript">parser.on(&quot;data&quot;, data =&gt; {
-  if (data.type === &quot;attachment&quot;) {
-    console.log(data.filename);
-    data.content.pipe(process.stdout);
-    data.content.on(&quot;end&quot;, () =&gt; data.release());
-  }
+<pre><code class="language-javascript">parser.on('data', data =&gt; {
+    if (data.type === 'attachment') {
+        console.log(data.filename);
+        data.content.pipe(process.stdout);
+        data.content.on('end', () =&gt; data.release());
+    }
 });
 </code></pre>
 
@@ -1346,10 +1346,10 @@ let parser = new MailParser();
 <li><strong>textAsHtml</strong> includes the plaintext version of the message in HTML format. Is set if the message has at least one &lsquo;text/plain&rsquo; node.</li>
 </ul>
 
-<pre><code class="language-javascript">parser.on(&quot;data&quot;, data =&gt; {
-  if (data.type === &quot;text&quot;) {
-    console.log(data.html);
-  }
+<pre><code class="language-javascript">parser.on('data', data =&gt; {
+    if (data.type === 'text') {
+        console.log(data.html);
+    }
 });
 </code></pre>
 
@@ -1359,7 +1359,7 @@ let parser = new MailParser();
 
 <h2 id="license">License</h2>
 
-<p><strong>EUPLv1.1</strong></p>
+<p>Dual licensed under <strong>MIT</strong> or <strong>EUPLv1.1+</strong></p>
 
 
 <footer class=" footline" >
@@ -2018,20 +2018,20 @@ let parser = new MailParser();
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1548936377"></script>
-    <script src="/js/perfect-scrollbar.min.js?1548936377"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1548936377"></script>
-    <script src="/js/jquery.sticky.js?1548936377"></script>
-    <script src="/js/featherlight.min.js?1548936377"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1548936377"></script>
-    <script src="/js/highlight.pack.js?1548936377"></script>
+    <script src="/js/clipboard.min.js?1553681795"></script>
+    <script src="/js/perfect-scrollbar.min.js?1553681795"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1553681795"></script>
+    <script src="/js/jquery.sticky.js?1553681795"></script>
+    <script src="/js/featherlight.min.js?1553681795"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1553681795"></script>
+    <script src="/js/highlight.pack.js?1553681795"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1548936377"></script>
-    <script src="/js/learn.js?1548936377"></script>
-    <script src="/js/hugo-learn.js?1548936377"></script>
+    <script src="/js/modernizr.custom.71422.js?1553681795"></script>
+    <script src="/js/learn.js?1553681795"></script>
+    <script src="/js/hugo-learn.js?1553681795"></script>
 
-    <link href="/mermaid/mermaid.css?1548936377" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1548936377"></script>
+    <link href="/mermaid/mermaid.css?1553681795" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1553681795"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

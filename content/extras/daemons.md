@@ -8,12 +8,14 @@ weight = 5
 
 +++
 
+> **DRAFT**
+
 This tutorial shows how to set up Node.js applications as daemon services under Linux. Specifically the following would apply:
 
-- The daemon application is a Node.js web app
-- Daemon is set up as a SystemD services
-- Node.js app is accessed as a Nginx virtual domain
-- Updates are deployed using git
+-   The daemon application is a Node.js web app
+-   Daemon is set up as a SystemD services
+-   Node.js app is accessed as a Nginx virtual domain
+-   Updates are deployed using git
 
 > Even though this tutorial uses a web app as the service daemon, then the same approach can be used for deploying any kind of services.
 
@@ -23,34 +25,34 @@ The application code is simple, it consists only from two files, the application
 
 ```javascript
 // index.js
-const http = require("http");
-const log = require("npmlog");
+const http = require('http');
+const log = require('npmlog');
 
-const hostname = "127.0.0.1";
+const hostname = '127.0.0.1';
 const port = 3000;
 
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Hello World\n");
-  log.http("App", req.url);
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello World\n');
+    log.http('App', req.url);
 });
 
 server.listen(port, hostname, () => {
-  log.info("App", `Server running at http://${hostname}:${port}/`);
+    log.info('App', `Server running at http://${hostname}:${port}/`);
 });
 ```
 
 ```json
 {
-  "name": "demo-app",
-  "private": true,
-  "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "npmlog": "^4.1.2"
-  },
-  "license": "ISC"
+    "name": "demo-app",
+    "private": true,
+    "version": "1.0.0",
+    "main": "index.js",
+    "dependencies": {
+        "npmlog": "^4.1.2"
+    },
+    "license": "ISC"
 }
 ```
 
