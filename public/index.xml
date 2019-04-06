@@ -74,7 +74,7 @@ Keeping a lower level infrastructure module under a restrictive license has turn
       <guid>https://nodemailer.com/extras/mailcomposer/</guid>
       <description>Generate RFC822 formatted e-mail messages that can be streamed to SMTP or file.
 Usage Step 1. Install Nodemailer with npm mailcomposer is exposed as a submodule of Nodemailer
-npm install nodemailer --save  Step 2. Require mailcomposer in your script const MailComposer = require(&amp;quot;nodemailer/lib/mail-composer&amp;quot;);  Step 3. Create a new MailComposer instance var mail = new MailComposer(mailOptions);  Where mailOptions is an object that defines the components of the message, see below</description>
+npm install nodemailer --save  Step 2. Require mailcomposer in your script const MailComposer = require(&#39;nodemailer/lib/mail-composer&#39;);  Step 3. Create a new MailComposer instance var mail = new MailComposer(mailOptions);  Where mailOptions is an object that defines the components of the message, see below</description>
     </item>
     
     <item>

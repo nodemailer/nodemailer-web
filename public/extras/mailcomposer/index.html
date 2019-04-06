@@ -15,19 +15,19 @@
     <title>Mailcomposer :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1553681795" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1553681795" rel="stylesheet">
-    <link href="/css/hybrid.css?1553681795" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1553681795" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1553681795" rel="stylesheet">
-    <link href="/css/auto-complete.css?1553681795" rel="stylesheet">
-    <link href="/css/theme.css?1553681795" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1553681795" rel="stylesheet">
+    <link href="/css/nucleus.css?1554562914" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1554562914" rel="stylesheet">
+    <link href="/css/hybrid.css?1554562914" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1554562914" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1554562914" rel="stylesheet">
+    <link href="/css/auto-complete.css?1554562914" rel="stylesheet">
+    <link href="/css/theme.css?1554562914" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1554562914" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1553681795" rel="stylesheet">
+      <link href="/css/theme-blue.css?1554562914" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1553681795"></script>
+    <script src="/js/jquery-2.x.min.js?1554562914"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -132,6 +132,10 @@
     #chapter p {
         text-align: left;
     }
+
+    code {
+        line-height: 1.5rem;
+    }
 </style>
 
 <script>
@@ -140,16 +144,19 @@
 <script src="https://app.outfunnel.com/c.js"></script>
 
 
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-51322-34"></script>
+<script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-51322-34"
+></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
 
-  gtag('config', 'UA-51322-34');
+    gtag('config', 'UA-51322-34');
 </script>
-
 
   </head>
   <body class="" data-url="/extras/mailcomposer/">
@@ -1140,7 +1147,7 @@
 
 <h4 id="step-2-require-mailcomposer-in-your-script">Step 2. Require <em>mailcomposer</em> in your script</h4>
 
-<pre><code class="language-javascript">const MailComposer = require(&quot;nodemailer/lib/mail-composer&quot;);
+<pre><code class="language-javascript">const MailComposer = require('nodemailer/lib/mail-composer');
 </code></pre>
 
 <h4 id="step-3-create-a-new-mailcomposer-instance">Step 3. Create a new <em>MailComposer</em> instance</h4>
@@ -1188,6 +1195,7 @@ mail.compile().build(function(err, message){
 <li><strong>text</strong> - The plaintext version of the message as an Unicode string, Buffer, Stream or an object <em>{path: &lsquo;&hellip;&rsquo;}</em></li>
 <li><strong>html</strong> - The HTML version of the message as an Unicode string, Buffer, Stream or an object <em>{path: &lsquo;&hellip;&rsquo;}</em></li>
 <li><strong>watchHtml</strong> - Apple Watch specific HTML version of the message, same usage as with <code>text</code> and <code>html</code></li>
+<li><strong>amp</strong> - AMP4EMAIL specific HTML version of the message, same usage as with <code>text</code> and <code>html</code>. Make sure it is a full and valid AMP4EMAIL document, otherwise the displaying email client falls back to <code>html</code> and ignores the <code>amp</code> part</li>
 <li><strong>icalEvent</strong> - iCalendar event, same usage as with <code>text</code> and <code>html</code>. Event <code>method</code> attribute defaults to &lsquo;PUBLISH&rsquo; or define it yourself: <code>{method: 'REQUEST', content: iCalString}</code>. This value is added as an additional alternative to html or text. Only utf-8 content is allowed</li>
 <li><strong>headers</strong> - An object or array of additional header fields (e.g. <em>{&ldquo;X-Key-Name&rdquo;: &ldquo;key value&rdquo;}</em> or <em>[{key: &ldquo;X-Key-Name&rdquo;, value: &ldquo;val1&rdquo;}, {key: &ldquo;X-Key-Name&rdquo;, value: &ldquo;val2&rdquo;}]</em>)</li>
 <li><strong>attachments</strong> - An array of attachment objects (see <a href="#attachments">below</a> for details)</li>
@@ -2046,20 +2054,20 @@ mail.build(function(err, message){
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1553681795"></script>
-    <script src="/js/perfect-scrollbar.min.js?1553681795"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1553681795"></script>
-    <script src="/js/jquery.sticky.js?1553681795"></script>
-    <script src="/js/featherlight.min.js?1553681795"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1553681795"></script>
-    <script src="/js/highlight.pack.js?1553681795"></script>
+    <script src="/js/clipboard.min.js?1554562914"></script>
+    <script src="/js/perfect-scrollbar.min.js?1554562914"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1554562914"></script>
+    <script src="/js/jquery.sticky.js?1554562914"></script>
+    <script src="/js/featherlight.min.js?1554562914"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1554562914"></script>
+    <script src="/js/highlight.pack.js?1554562914"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1553681795"></script>
-    <script src="/js/learn.js?1553681795"></script>
-    <script src="/js/hugo-learn.js?1553681795"></script>
+    <script src="/js/modernizr.custom.71422.js?1554562914"></script>
+    <script src="/js/learn.js?1554562914"></script>
+    <script src="/js/hugo-learn.js?1554562914"></script>
 
-    <link href="/mermaid/mermaid.css?1553681795" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1553681795"></script>
+    <link href="/mermaid/mermaid.css?1554562914" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1554562914"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
