@@ -55,7 +55,7 @@ All text fields (email addresses, plaintext body, html body, attachment filename
 
 -   **attachDataUrls** – if true then convert _data:_ images in the HTML content of this message to embedded attachments
 -   **watchHtml** - Apple Watch specific HTML version of the message
--   **amp** - AMP4EMAIL specific HTML version of the message, same usage as with `text` and `html`
+-   **amp** - AMP4EMAIL specific HTML version of the message, same usage as with `text` and `html`. See AMP example below for usage
 
 {{% notice info %}}
 When using `amp` then make sure it is a full and valid AMP4EMAIL document, otherwise the displaying email client most probably falls back to `html` and ignores the `amp` part. Validate your AMP4EMAIL content [here](https://validator.ampproject.org/#htmlFormat=AMP4EMAIL)
@@ -101,4 +101,30 @@ transport.sendMail({ html: htmlstream }, function(err) {
         // check if htmlstream is still open and close it to clean up
     }
 });
+```
+
+##### AMP example
+
+```
+let message = {
+    from: 'Nodemailer <example@nodemailer.com>',
+    to: 'Nodemailer <example@nodemailer.com>',
+    subject: 'AMP4EMAIL message',
+    text: 'For clients with plaintext support only',
+    html: '<p>For clients that do not support AMP4EMAIL or amp content is not valid</p>',
+    amp: `<!doctype html>
+    <html ⚡4email>
+      <head>
+        <meta charset="utf-8">
+        <style amp4email-boilerplate>body{visibility:hidden}</style>
+        <script async src="https://cdn.ampproject.org/v0.js"></script>
+        <script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>
+      </head>
+      <body>
+        <p>Image: <amp-img src="https://cldup.com/P0b1bUmEet.png" width="16" height="16"/></p>
+        <p>GIF (requires "amp-anim" script in header):<br/>
+          <amp-anim src="https://cldup.com/D72zpdwI-i.gif" width="500" height="350"/></p>
+      </body>
+    </html>`
+}
 ```
