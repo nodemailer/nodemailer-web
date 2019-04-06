@@ -55,7 +55,7 @@ All text fields (email addresses, plaintext body, html body, attachment filename
 
 -   **attachDataUrls** – if true then convert _data:_ images in the HTML content of this message to embedded attachments
 -   **watchHtml** - Apple Watch specific HTML version of the message
--   **amp** - AMP4EMAIL specific HTML version of the message, same usage as with `text` and `html`. See AMP example below for usage
+-   **amp** - AMP4EMAIL specific HTML version of the message, same usage as with `text` and `html`. See AMP example [below](#amp-example) for usage
 
 {{% notice info %}}
 When using `amp` then make sure it is a full and valid AMP4EMAIL document, otherwise the displaying email client most probably falls back to `html` and ignores the `amp` part. Validate your AMP4EMAIL content [here](https://validator.ampproject.org/#htmlFormat=AMP4EMAIL)
