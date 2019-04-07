@@ -35,6 +35,10 @@ The **info** argument for **sendMail()** callback includes the following propert
 - **envelope** – is an envelope object *{from:'address', to:['address']}*
 - **messageId** – is the Message-ID header value
 
+#### Not Able to send Mail using sendmail transport ?
+
+If `createTransport` function is not taking up the path which by default is '/usr/bin/sendmail', make sure you have sendmail configured in your system. Take a look at [Source](https://www.computerhope.com/unix/usendmai.htm) (for linux/unix).
+
 ### Examples
 
 #### 1\. Send a message using specific binary

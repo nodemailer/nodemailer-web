@@ -15,8 +15,8 @@ toc = true
 
 **Nodemailer** is licensed under **MIT license**. See license details in the [License page](/about/license/). If you are upgrading from Nodemailer v2 or older, then see the light migration guide [here](/about/migrate).
 
-```bash
-npm install nodemailer --save
+```
+npm install nodemailer
 ```
 
 ### Support Nodemailer
@@ -55,11 +55,7 @@ In short, what you need to do to send messages, would be the following:
 2. Set up [message options](/message/) (who sends what to whom)
 3. Deliver the message object using the **sendMail()** method of your previously created transporter
 
-#### Not Able to send Mail using transport ?
-
-If createTransport function is not taking up the path which is '/usr/bin/sendMail', make sure you have sendmail configured in your system. Take a look at [Source](https://www.computerhope.com/unix/usendmai.htm) (for linux/unix).
-
-##### Example
+#### Example
 
 This is a complete example to send an email with plain text and HTML body
 
@@ -72,7 +68,7 @@ async function main(){
 
   // Generate test SMTP service account from ethereal.email
   // Only needed if you don't have a real mail account for testing
-  let account = await nodemailer.createTestAccount();
+  let testAccount = await nodemailer.createTestAccount();
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -80,28 +76,25 @@ async function main(){
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: account.user, // generated ethereal user
-      pass: account.pass // generated ethereal password
+      user: testAccount.user, // generated ethereal user
+      pass: testAccount.pass // generated ethereal password
     }
   });
 
-  // setup email data with unicode symbols
-  let mailOptions = {
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
     from: '"Fred Foo 👻" <foo@example.com>', // sender address
     to: "bar@example.com, baz@example.com", // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
     html: "<b>Hello world?</b>" // html body
-  };
-
-  // send mail with defined transport object
-  let info = await transporter.sendMail(mailOptions)
+  });
 
   console.log("Message sent: %s", info.messageId);
+  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
   // Preview only available when sending through an Ethereal account
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
@@ -115,6 +108,10 @@ main().catch(console.error);
 Output of the the [example script](https://github.com/nodemailer/nodemailer/blob/master/examples/full.js) as shown by the [Ethereal](https://ethereal.email/) mail catching service:
 
 ![](https://cldup.com/D5Cj_C1Vw3.png)
+
+### Source
+
+Nodemailer source can be found from [Github](https://github.com/nodemailer/nodemailer/).
 
 ---
 

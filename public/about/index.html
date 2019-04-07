@@ -15,19 +15,19 @@
     <title>Nodemailer :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1554563305" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1554563305" rel="stylesheet">
-    <link href="/css/hybrid.css?1554563305" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1554563305" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1554563305" rel="stylesheet">
-    <link href="/css/auto-complete.css?1554563305" rel="stylesheet">
-    <link href="/css/theme.css?1554563305" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1554563305" rel="stylesheet">
+    <link href="/css/nucleus.css?1554629293" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1554629293" rel="stylesheet">
+    <link href="/css/hybrid.css?1554629293" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1554629293" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1554629293" rel="stylesheet">
+    <link href="/css/auto-complete.css?1554629293" rel="stylesheet">
+    <link href="/css/theme.css?1554629293" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1554629293" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1554563305" rel="stylesheet">
+      <link href="/css/theme-blue.css?1554629293" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1554563305"></script>
+    <script src="/js/jquery-2.x.min.js?1554629293"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1097,7 +1097,7 @@
 
 <p><strong>Nodemailer</strong> is licensed under <strong>MIT license</strong>. See license details in the <a href="/about/license/">License page</a>. If you are upgrading from Nodemailer v2 or older, then see the light migration guide <a href="/about/migrate">here</a>.</p>
 
-<pre><code class="language-bash">npm install nodemailer --save
+<pre><code>npm install nodemailer
 </code></pre>
 
 <h3 id="support-nodemailer">Support Nodemailer</h3>
@@ -1142,11 +1142,7 @@
 <li>Deliver the message object using the <strong>sendMail()</strong> method of your previously created transporter</li>
 </ol>
 
-<h4 id="not-able-to-send-mail-using-transport">Not Able to send Mail using transport ?</h4>
-
-<p>If createTransport function is not taking up the path which is &lsquo;/usr/bin/sendMail&rsquo;, make sure you have sendmail configured in your system. Take a look at <a href="https://www.computerhope.com/unix/usendmai.htm">Source</a> (for linux/unix).</p>
-
-<h5 id="example">Example</h5>
+<h4 id="example">Example</h4>
 
 <p>This is a complete example to send an email with plain text and HTML body</p>
 
@@ -1158,7 +1154,7 @@ async function main(){
 
   // Generate test SMTP service account from ethereal.email
   // Only needed if you don't have a real mail account for testing
-  let account = await nodemailer.createTestAccount();
+  let testAccount = await nodemailer.createTestAccount();
 
   // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
@@ -1166,28 +1162,25 @@ async function main(){
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-      user: account.user, // generated ethereal user
-      pass: account.pass // generated ethereal password
+      user: testAccount.user, // generated ethereal user
+      pass: testAccount.pass // generated ethereal password
     }
   });
 
-  // setup email data with unicode symbols
-  let mailOptions = {
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
     from: '&quot;Fred Foo 👻&quot; &lt;foo@example.com&gt;', // sender address
     to: &quot;bar@example.com, baz@example.com&quot;, // list of receivers
     subject: &quot;Hello ✔&quot;, // Subject line
     text: &quot;Hello world?&quot;, // plain text body
     html: &quot;&lt;b&gt;Hello world?&lt;/b&gt;&quot; // html body
-  };
-
-  // send mail with defined transport object
-  let info = await transporter.sendMail(mailOptions)
+  });
 
   console.log(&quot;Message sent: %s&quot;, info.messageId);
+  // Message sent: &lt;b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com&gt;
+
   // Preview only available when sending through an Ethereal account
   console.log(&quot;Preview URL: %s&quot;, nodemailer.getTestMessageUrl(info));
-
-  // Message sent: &lt;b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com&gt;
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
@@ -1203,6 +1196,10 @@ main().catch(console.error);
 <p>Output of the the <a href="https://github.com/nodemailer/nodemailer/blob/master/examples/full.js">example script</a> as shown by the <a href="https://ethereal.email/">Ethereal</a> mail catching service:</p>
 
 <p><img src="https://cldup.com/D5Cj_C1Vw3.png" alt="" /></p>
+
+<h3 id="source">Source</h3>
+
+<p>Nodemailer source can be found from <a href="https://github.com/nodemailer/nodemailer/">Github</a>.</p>
 
 <hr />
 
@@ -1859,20 +1856,20 @@ main().catch(console.error);
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1554563305"></script>
-    <script src="/js/perfect-scrollbar.min.js?1554563305"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1554563305"></script>
-    <script src="/js/jquery.sticky.js?1554563305"></script>
-    <script src="/js/featherlight.min.js?1554563305"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1554563305"></script>
-    <script src="/js/highlight.pack.js?1554563305"></script>
+    <script src="/js/clipboard.min.js?1554629293"></script>
+    <script src="/js/perfect-scrollbar.min.js?1554629293"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1554629293"></script>
+    <script src="/js/jquery.sticky.js?1554629293"></script>
+    <script src="/js/featherlight.min.js?1554629293"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1554629293"></script>
+    <script src="/js/highlight.pack.js?1554629293"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1554563305"></script>
-    <script src="/js/learn.js?1554563305"></script>
-    <script src="/js/hugo-learn.js?1554563305"></script>
+    <script src="/js/modernizr.custom.71422.js?1554629293"></script>
+    <script src="/js/learn.js?1554629293"></script>
+    <script src="/js/hugo-learn.js?1554629293"></script>
 
-    <link href="/mermaid/mermaid.css?1554563305" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1554563305"></script>
+    <link href="/mermaid/mermaid.css?1554629293" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1554629293"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
