@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.55.2" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>SMTP transport :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1554629293" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1554629293" rel="stylesheet">
-    <link href="/css/hybrid.css?1554629293" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1554629293" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1554629293" rel="stylesheet">
-    <link href="/css/auto-complete.css?1554629293" rel="stylesheet">
-    <link href="/css/theme.css?1554629293" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1554629293" rel="stylesheet">
+    <link href="/css/nucleus.css?1555746635" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1555746635" rel="stylesheet">
+    <link href="/css/hybrid.css?1555746635" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1555746635" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1555746635" rel="stylesheet">
+    <link href="/css/auto-complete.css?1555746635" rel="stylesheet">
+    <link href="/css/theme.css?1555746635" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1555746635" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1554629293" rel="stylesheet">
+      <link href="/css/theme-blue.css?1555746635" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1554629293"></script>
+    <script src="/js/jquery-2.x.min.js?1555746635"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1119,18 +1119,23 @@
 <li><strong>authMethod</strong> – defines preferred authentication method, defaults to &lsquo;PLAIN&rsquo;</li>
 </ul>
 
+<div class="notices tip" >
+Hostnames for the **host** field are resolved using `dns.resolve()`. If you are using a non-resolvable hostname (eg. something listed in */etc/hosts* or you are using different resolver for you Node apps) then provide the IP address of the SMTP server as **host** and for the actual hostname user **tls.servername** parameter. This way not hostname resolving is attempted but TLS validation still works.
+</div>
+
 <h5 id="tls-options">TLS options</h5>
 
 <ul>
 <li><strong>secure</strong> – if <em>true</em> the connection will use TLS when connecting to server. If <em>false</em> (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to <em>true</em> if you are connecting to port 465. For port 587 or 25 keep it <em>false</em></li>
 <li><strong>tls</strong> – defines additional <a href="https://nodejs.org/api/tls.html#tls_class_tls_tlssocket">node.js TLSSocket options</a> to be passed to the socket constructor, eg. <em>{rejectUnauthorized: true}</em>.</li>
+<li><strong>tls.servername</strong> - is optional hostname for TLS validation if <code>host</code> was set to an IP address</li>
 <li><strong>ignoreTLS</strong> – if this is <em>true</em> and <em>secure</em> is false then TLS is not used even if the server supports STARTTLS extension</li>
 <li><strong>requireTLS</strong> – if this is <em>true</em> and <em>secure</em> is false then Nodemailer tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent</li>
 </ul>
 
-<div class="notices note" ><p>Setting <strong>secure</strong> to <strong>false</strong> does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via <a href="https://tools.ietf.org/html/rfc3207#section-2">STARTTLS</a> command but to use this you have to connect using plaintext first</p>
+<div class="notices note" >
+Setting **secure** to **false** does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via [STARTTLS](https://tools.ietf.org/html/rfc3207#section-2) command but to use this you have to connect using plaintext first
 </div>
-
 
 <h5 id="connection-options">Connection options</h5>
 
@@ -1908,20 +1913,20 @@ transporter.verify(function(error, success) {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1554629293"></script>
-    <script src="/js/perfect-scrollbar.min.js?1554629293"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1554629293"></script>
-    <script src="/js/jquery.sticky.js?1554629293"></script>
-    <script src="/js/featherlight.min.js?1554629293"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1554629293"></script>
-    <script src="/js/highlight.pack.js?1554629293"></script>
+    <script src="/js/clipboard.min.js?1555746635"></script>
+    <script src="/js/perfect-scrollbar.min.js?1555746635"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1555746635"></script>
+    <script src="/js/jquery.sticky.js?1555746635"></script>
+    <script src="/js/featherlight.min.js?1555746635"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1555746635"></script>
+    <script src="/js/highlight.pack.js?1555746635"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1554629293"></script>
-    <script src="/js/learn.js?1554629293"></script>
-    <script src="/js/hugo-learn.js?1554629293"></script>
+    <script src="/js/modernizr.custom.71422.js?1555746635"></script>
+    <script src="/js/learn.js?1555746635"></script>
+    <script src="/js/hugo-learn.js?1555746635"></script>
 
-    <link href="/mermaid/mermaid.css?1554629293" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1554629293"></script>
+    <link href="/mermaid/mermaid.css?1555746635" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1555746635"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

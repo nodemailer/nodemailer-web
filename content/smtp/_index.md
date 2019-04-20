@@ -35,10 +35,15 @@ let poolConfig = "smtps://username:password@smtp.example.com/?pool=true";
 - **auth** – defines authentication data (see [authentication](#authentication) section below)
 - **authMethod** – defines preferred authentication method, defaults to 'PLAIN'
 
+{{% notice tip %}}
+Hostnames for the **host** field are resolved using `dns.resolve()`. If you are using a non-resolvable hostname (eg. something listed in */etc/hosts* or you are using different resolver for you Node apps) then provide the IP address of the SMTP server as **host** and for the actual hostname user **tls.servername** parameter. This way not hostname resolving is attempted but TLS validation still works.
+{{% /notice %}}
+
 ##### TLS options
 
 - **secure** – if _true_ the connection will use TLS when connecting to server. If _false_ (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to _true_ if you are connecting to port 465. For port 587 or 25 keep it _false_
 - **tls** – defines additional [node.js TLSSocket options](https://nodejs.org/api/tls.html#tls_class_tls_tlssocket) to be passed to the socket constructor, eg. _{rejectUnauthorized: true}_.
+- **tls.servername** - is optional hostname for TLS validation if `host` was set to an IP address
 - **ignoreTLS** – if this is _true_ and _secure_ is false then TLS is not used even if the server supports STARTTLS extension
 - **requireTLS** – if this is _true_ and _secure_ is false then Nodemailer tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent
 

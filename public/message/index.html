@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.53" />
+    <meta name="generator" content="Hugo 0.55.2" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Message configuration :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1554629293" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1554629293" rel="stylesheet">
-    <link href="/css/hybrid.css?1554629293" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1554629293" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1554629293" rel="stylesheet">
-    <link href="/css/auto-complete.css?1554629293" rel="stylesheet">
-    <link href="/css/theme.css?1554629293" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1554629293" rel="stylesheet">
+    <link href="/css/nucleus.css?1555746635" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1555746635" rel="stylesheet">
+    <link href="/css/hybrid.css?1555746635" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1555746635" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1555746635" rel="stylesheet">
+    <link href="/css/auto-complete.css?1555746635" rel="stylesheet">
+    <link href="/css/theme.css?1555746635" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1555746635" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1554629293" rel="stylesheet">
+      <link href="/css/theme-blue.css?1555746635" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1554629293"></script>
+    <script src="/js/jquery-2.x.min.js?1555746635"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1119,9 +1119,9 @@
 };
 </code></pre>
 
-<div class="notices note" ><p>All text fields (email addresses, plaintext body, html body, attachment filenames) use UTF-8 as the encoding. Attachments are streamed as binary.</p>
+<div class="notices note" >
+All text fields (email addresses, plaintext body, html body, attachment filenames) use UTF-8 as the encoding. Attachments are streamed as binary.
 </div>
-
 
 <h3 id="more-advanced-fields">More advanced fields</h3>
 
@@ -1143,9 +1143,9 @@
 <li><strong>amp</strong> - AMP4EMAIL specific HTML version of the message, same usage as with <code>text</code> and <code>html</code>. See AMP example <a href="#amp-example">below</a> for usage</li>
 </ul>
 
-<div class="notices info" ><p>When using <code>amp</code> then make sure it is a full and valid AMP4EMAIL document, otherwise the displaying email client most probably falls back to <code>html</code> and ignores the <code>amp</code> part. Validate your AMP4EMAIL content <a href="https://validator.ampproject.org/#htmlFormat=AMP4EMAIL">here</a></p>
+<div class="notices info" >
+When using `amp` then make sure it is a full and valid AMP4EMAIL document, otherwise the displaying email client most probably falls back to `html` and ignores the `amp` part. Validate your AMP4EMAIL content [here](https://validator.ampproject.org/#htmlFormat=AMP4EMAIL)
 </div>
-
 
 <ul>
 <li><strong>icalEvent</strong> – iCalendar event to use as an alternative. See details <a href="/message/calendar-events/">here</a></li>
@@ -1181,9 +1181,9 @@
 };
 </code></pre>
 
-<div class="notices info" ><p><strong>Memory leak warning!</strong> When using readable streams as content and sending fails then Nodemailer does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer only closes the streams it has opened itself (eg. file paths, URLs)</p>
+<div class="notices info" >
+**Memory leak warning!** When using readable streams as content and sending fails then Nodemailer does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer only closes the streams it has opened itself (eg. file paths, URLs)
 </div>
-
 
 <pre><code class="language-javascript">var htmlstream = fs.createReadStream('content.html');
 transport.sendMail({ html: htmlstream }, function(err) {
@@ -1872,20 +1872,20 @@ transport.sendMail({ html: htmlstream }, function(err) {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1554629293"></script>
-    <script src="/js/perfect-scrollbar.min.js?1554629293"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1554629293"></script>
-    <script src="/js/jquery.sticky.js?1554629293"></script>
-    <script src="/js/featherlight.min.js?1554629293"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1554629293"></script>
-    <script src="/js/highlight.pack.js?1554629293"></script>
+    <script src="/js/clipboard.min.js?1555746635"></script>
+    <script src="/js/perfect-scrollbar.min.js?1555746635"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1555746635"></script>
+    <script src="/js/jquery.sticky.js?1555746635"></script>
+    <script src="/js/featherlight.min.js?1555746635"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1555746635"></script>
+    <script src="/js/highlight.pack.js?1555746635"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1554629293"></script>
-    <script src="/js/learn.js?1554629293"></script>
-    <script src="/js/hugo-learn.js?1554629293"></script>
+    <script src="/js/modernizr.custom.71422.js?1555746635"></script>
+    <script src="/js/learn.js?1555746635"></script>
+    <script src="/js/hugo-learn.js?1555746635"></script>
 
-    <link href="/mermaid/mermaid.css?1554629293" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1554629293"></script>
+    <link href="/mermaid/mermaid.css?1555746635" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1555746635"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
