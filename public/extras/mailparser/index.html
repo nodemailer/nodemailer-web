@@ -15,19 +15,19 @@
     <title>Mailparser :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1555746635" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1555746635" rel="stylesheet">
-    <link href="/css/hybrid.css?1555746635" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1555746635" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1555746635" rel="stylesheet">
-    <link href="/css/auto-complete.css?1555746635" rel="stylesheet">
-    <link href="/css/theme.css?1555746635" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1555746635" rel="stylesheet">
+    <link href="/css/nucleus.css?1556722080" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1556722080" rel="stylesheet">
+    <link href="/css/hybrid.css?1556722080" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1556722080" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1556722080" rel="stylesheet">
+    <link href="/css/auto-complete.css?1556722080" rel="stylesheet">
+    <link href="/css/theme.css?1556722080" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1556722080" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1555746635" rel="stylesheet">
+      <link href="/css/theme-blue.css?1556722080" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1555746635"></script>
+    <script src="/js/jquery-2.x.min.js?1556722080"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1143,12 +1143,12 @@
 <p><strong>simpleParser</strong> is the easiest way to parse emails. You only need to provide a message source to get a parsed email structure in return. As an additional bonus all embedded images in HTML (eg. the images that point to attachments using cid: URIs) are replaced with base64 encoded data URIs, so the message can be displayed without any additional processing. Be aware though that this module does not do any security cleansing (eg. removing javascript and so on), this is left to your own application.</p>
 
 <pre><code class="language-javascript">const simpleParser = require('mailparser').simpleParser;
-simpleParser(source, (err, parsed) =&gt; {});
+simpleParser(source, options, (err, parsed) =&gt; {});
 </code></pre>
 
 <p>or as a Promise:</p>
 
-<pre><code class="language-javascript">simpleParser(source)
+<pre><code class="language-javascript">simpleParser(source, options)
     .then(parsed =&gt; {})
     .catch(err =&gt; {});
 </code></pre>
@@ -1162,6 +1162,7 @@ simpleParser(source, (err, parsed) =&gt; {});
 
 <ul>
 <li><strong>source</strong> is either a stream, a Buffer or a string that needs to be parsed</li>
+<li><strong>options</strong> is an optional options object</li>
 <li><strong>err</strong> is the possible error object</li>
 <li><strong>mail</strong> is a structured email object</li>
 </ul>
@@ -1362,7 +1363,19 @@ let parser = new MailParser();
 
 <h2 id="issues">Issues</h2>
 
-<p>Charset decoding is handled using <a href="https://github.com/ashtuchkin/iconv-lite">iconv-lite</a> that is missing some charsets, especially some Japanese ones. If required then it would be possible to switch to native iconv bindings with <a href="https://github.com/bnoordhuis/node-iconv">node-iconv</a> to handle these missing charsets but for now this option is not used for easier packaging.</p>
+<p>Charset decoding is handled using <a href="https://github.com/ashtuchkin/iconv-lite">iconv-lite</a> that is missing some charsets, especially some Japanese ones. If you need to support these charsets then you can use <a href="https://www.npmjs.com/package/iconv">node-iconv</a> module instead. This module is not included in the mailparser package, you would have to provide it to Mailparser or simpleParser as a configuration option.</p>
+
+<pre><code class="language-javascript">const Iconv = require('iconv').Iconv;
+const MailParser = require('mailparser').MailParser;
+let parser = new MailParser({ Iconv });
+</code></pre>
+
+<p>or</p>
+
+<pre><code class="language-javascript">const Iconv = require('iconv').Iconv;
+const simpleParser = require('mailparser').simpleParser;
+simpleParser('rfc822 message', { Iconv }, callback);
+</code></pre>
 
 <h2 id="license">License</h2>
 
@@ -2025,20 +2038,20 @@ let parser = new MailParser();
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1555746635"></script>
-    <script src="/js/perfect-scrollbar.min.js?1555746635"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1555746635"></script>
-    <script src="/js/jquery.sticky.js?1555746635"></script>
-    <script src="/js/featherlight.min.js?1555746635"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1555746635"></script>
-    <script src="/js/highlight.pack.js?1555746635"></script>
+    <script src="/js/clipboard.min.js?1556722080"></script>
+    <script src="/js/perfect-scrollbar.min.js?1556722080"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1556722080"></script>
+    <script src="/js/jquery.sticky.js?1556722080"></script>
+    <script src="/js/featherlight.min.js?1556722080"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1556722080"></script>
+    <script src="/js/highlight.pack.js?1556722080"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1555746635"></script>
-    <script src="/js/learn.js?1555746635"></script>
-    <script src="/js/hugo-learn.js?1555746635"></script>
+    <script src="/js/modernizr.custom.71422.js?1556722080"></script>
+    <script src="/js/learn.js?1556722080"></script>
+    <script src="/js/hugo-learn.js?1556722080"></script>
 
-    <link href="/mermaid/mermaid.css?1555746635" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1555746635"></script>
+    <link href="/mermaid/mermaid.css?1556722080" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1556722080"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

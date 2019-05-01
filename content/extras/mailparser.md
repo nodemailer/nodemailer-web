@@ -24,13 +24,13 @@ npm install mailparser --save
 
 ```javascript
 const simpleParser = require('mailparser').simpleParser;
-simpleParser(source, (err, parsed) => {});
+simpleParser(source, options, (err, parsed) => {});
 ```
 
 or as a Promise:
 
 ```javascript
-simpleParser(source)
+simpleParser(source, options)
     .then(parsed => {})
     .catch(err => {});
 ```
@@ -44,6 +44,7 @@ let parsed = await simpleParser(source);
 Where
 
 -   **source** is either a stream, a Buffer or a string that needs to be parsed
+-   **options** is an optional options object
 -   **err** is the possible error object
 -   **mail** is a structured email object
 
@@ -222,7 +223,21 @@ parser.on('data', data => {
 
 ## Issues
 
-Charset decoding is handled using [iconv-lite](https://github.com/ashtuchkin/iconv-lite) that is missing some charsets, especially some Japanese ones. If required then it would be possible to switch to native iconv bindings with [node-iconv](https://github.com/bnoordhuis/node-iconv) to handle these missing charsets but for now this option is not used for easier packaging.
+Charset decoding is handled using [iconv-lite](https://github.com/ashtuchkin/iconv-lite) that is missing some charsets, especially some Japanese ones. If you need to support these charsets then you can use [node-iconv](https://www.npmjs.com/package/iconv) module instead. This module is not included in the mailparser package, you would have to provide it to Mailparser or simpleParser as a configuration option.
+
+```javascript
+const Iconv = require('iconv').Iconv;
+const MailParser = require('mailparser').MailParser;
+let parser = new MailParser({ Iconv });
+```
+
+or
+
+```javascript
+const Iconv = require('iconv').Iconv;
+const simpleParser = require('mailparser').simpleParser;
+simpleParser('rfc822 message', { Iconv }, callback);
+```
 
 ## License
 
