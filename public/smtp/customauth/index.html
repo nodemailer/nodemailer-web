@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.55.2" />
+    <meta name="generator" content="Hugo 0.55.5" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Custom authentication :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1556722080" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1556722080" rel="stylesheet">
-    <link href="/css/hybrid.css?1556722080" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1556722080" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1556722080" rel="stylesheet">
-    <link href="/css/auto-complete.css?1556722080" rel="stylesheet">
-    <link href="/css/theme.css?1556722080" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1556722080" rel="stylesheet">
+    <link href="/css/nucleus.css?1563103711" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1563103711" rel="stylesheet">
+    <link href="/css/hybrid.css?1563103711" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1563103711" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1563103711" rel="stylesheet">
+    <link href="/css/auto-complete.css?1563103711" rel="stylesheet">
+    <link href="/css/theme.css?1563103711" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1563103711" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1556722080" rel="stylesheet">
+      <link href="/css/theme-blue.css?1563103711" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1556722080"></script>
+    <script src="/js/jquery-2.x.min.js?1563103711"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1170,38 +1170,39 @@
 <li><strong>status</strong> is the numeric status code of the response (eg 250 or 334 etc.)</li>
 <li><strong>code</strong> is the enchanced status code (eg &ldquo;5.7.0&rdquo;)</li>
 <li><strong>text</strong> is the readable part of server response (&ldquo;Authentication successful&rdquo;)</li>
-<li><strong>response</strong> is the full response from the server (&ldquo;235 Authentication successful&rdquo;)</li>
-</ul>
+
+<li><p><strong>response</strong> is the full response from the server (&ldquo;235 Authentication successful&rdquo;)</p>
 
 <pre><code>async function myCustomMethod(ctx){
-    let cmd = await ctx.sendCommand(
-        'AUTH PLAIN ' +
-            Buffer.from(
-                '\u0000' + ctx.auth.credentials.user + '\u0000' + ctx.auth.credentials.pass,
-                'utf-8'
-            ).toString('base64')
-    );
+let cmd = await ctx.sendCommand(
+    'AUTH PLAIN ' +
+        Buffer.from(
+            '\u0000' + ctx.auth.credentials.user + '\u0000' + ctx.auth.credentials.pass,
+            'utf-8'
+        ).toString('base64')
+);
 
-    if(cmd.status &lt; 200 || cmd.status &gt;=300){
-        throw new Error('Failed to authenticate user: ' + cmd.text);
-    }
+if(cmd.status &lt; 200 || cmd.status &gt;=300){
+    throw new Error('Failed to authenticate user: ' + cmd.text);
+}
 }
 
 let transporter = nodemailer.createTransport({
-    host: 'smtp.example.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'custom',
-        method: 'MY-CUSTOM-METHOD', // forces Nodemailer to use your custom handler
-        user: 'username',
-        pass: 'verysecret'
-    },
-    customAuth: {
-        'MY-CUSTOM-METHOD': myCustomMethod
-    }
+host: 'smtp.example.com',
+port: 465,
+secure: true,
+auth: {
+    type: 'custom',
+    method: 'MY-CUSTOM-METHOD', // forces Nodemailer to use your custom handler
+    user: 'username',
+    pass: 'verysecret'
+},
+customAuth: {
+    'MY-CUSTOM-METHOD': myCustomMethod
+}
 });
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="custom-options">Custom options</h3>
 
@@ -1897,20 +1898,20 @@ let transporter = nodemailer.createTransport({
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1556722080"></script>
-    <script src="/js/perfect-scrollbar.min.js?1556722080"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1556722080"></script>
-    <script src="/js/jquery.sticky.js?1556722080"></script>
-    <script src="/js/featherlight.min.js?1556722080"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1556722080"></script>
-    <script src="/js/highlight.pack.js?1556722080"></script>
+    <script src="/js/clipboard.min.js?1563103711"></script>
+    <script src="/js/perfect-scrollbar.min.js?1563103711"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1563103711"></script>
+    <script src="/js/jquery.sticky.js?1563103711"></script>
+    <script src="/js/featherlight.min.js?1563103711"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1563103711"></script>
+    <script src="/js/highlight.pack.js?1563103711"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1556722080"></script>
-    <script src="/js/learn.js?1556722080"></script>
-    <script src="/js/hugo-learn.js?1556722080"></script>
+    <script src="/js/modernizr.custom.71422.js?1563103711"></script>
+    <script src="/js/learn.js?1563103711"></script>
+    <script src="/js/hugo-learn.js?1563103711"></script>
 
-    <link href="/mermaid/mermaid.css?1556722080" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1556722080"></script>
+    <link href="/mermaid/mermaid.css?1563103711" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1563103711"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
