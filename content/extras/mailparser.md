@@ -27,6 +27,8 @@ const simpleParser = require('mailparser').simpleParser;
 simpleParser(source, options, (err, parsed) => {});
 ```
 
+See `MailParser` [options](#options) list
+
 or as a Promise:
 
 ```javascript
@@ -169,6 +171,17 @@ Attachment objects have the following structure:
 const MailParser = require('mailparser').MailParser;
 let parser = new MailParser();
 ```
+
+### options
+
+-   **skipHtmlToText** `boolean` Don't generate plaintext from HTML. Defaults to `undefined` (*falsy*).
+-   **maxHtmlLengthToParse** `number` The maximum amount of HTML to parse in bytes. Defaults to `undefined` (*Infinity*).
+-   **formatDateString** `function` Provide a custom formatting function. Defaults to `undefined`.
+-   **skipImageLinks** `boolean` Skip converting CID attachments to data URL images. Defaults to `undefined` (*falsy*).
+-   **skipTextToHtml** `boolean` Don't generate HTML from plaintext message. Defaults to `undefined` (*falsy*).
+-   **skipTextLinks** `boolean` Do not linkify links in plaintext content. Defaults to `undefined` (*falsy*).
+-   **Iconv** `object` Defaults to [iconv-lite](https://www.npmjs.com/package/iconv-lite)
+-   **keepCidLinks** `boolean`  `simpleParser`-only option. Sets `skipImageLinks` to true.
 
 ### Event 'headers'
 
