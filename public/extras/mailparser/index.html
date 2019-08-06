@@ -15,19 +15,19 @@
     <title>Mailparser :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1563103711" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1563103711" rel="stylesheet">
-    <link href="/css/hybrid.css?1563103711" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1563103711" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1563103711" rel="stylesheet">
-    <link href="/css/auto-complete.css?1563103711" rel="stylesheet">
-    <link href="/css/theme.css?1563103711" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1563103711" rel="stylesheet">
+    <link href="/css/nucleus.css?1565072440" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1565072440" rel="stylesheet">
+    <link href="/css/hybrid.css?1565072440" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1565072440" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1565072440" rel="stylesheet">
+    <link href="/css/auto-complete.css?1565072440" rel="stylesheet">
+    <link href="/css/theme.css?1565072440" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1565072440" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1563103711" rel="stylesheet">
+      <link href="/css/theme-blue.css?1565072440" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1563103711"></script>
+    <script src="/js/jquery-2.x.min.js?1565072440"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1100,6 +1100,7 @@
 </ul></li>
 <li><a href="#mailparser">MailParser</a>
 <ul>
+<li><a href="#options">options</a></li>
 <li><a href="#event-headers">Event &lsquo;headers&rsquo;</a></li>
 <li><a href="#event-data">Event &lsquo;data&rsquo;</a></li>
 <li><a href="#attachment-object-1">attachment object</a></li>
@@ -1145,6 +1146,8 @@
 <pre><code class="language-javascript">const simpleParser = require('mailparser').simpleParser;
 simpleParser(source, options, (err, parsed) =&gt; {});
 </code></pre>
+
+<p>See <code>MailParser</code> <a href="#options">options</a> list</p>
 
 <p>or as a Promise:</p>
 
@@ -1308,6 +1311,19 @@ simpleParser(source, options, (err, parsed) =&gt; {});
 <pre><code class="language-javascript">const MailParser = require('mailparser').MailParser;
 let parser = new MailParser();
 </code></pre>
+
+<h3 id="options">options</h3>
+
+<ul>
+<li><strong>skipHtmlToText</strong> <code>boolean</code> Don&rsquo;t generate plaintext from HTML. Defaults to <code>undefined</code> (<em>falsy</em>).</li>
+<li><strong>maxHtmlLengthToParse</strong> <code>number</code> The maximum amount of HTML to parse in bytes. Defaults to <code>undefined</code> (<em>Infinity</em>).</li>
+<li><strong>formatDateString</strong> <code>function</code> Provide a custom formatting function. Defaults to <code>undefined</code>.</li>
+<li><strong>skipImageLinks</strong> <code>boolean</code> Skip converting CID attachments to data URL images. Defaults to <code>undefined</code> (<em>falsy</em>).</li>
+<li><strong>skipTextToHtml</strong> <code>boolean</code> Don&rsquo;t generate HTML from plaintext message. Defaults to <code>undefined</code> (<em>falsy</em>).</li>
+<li><strong>skipTextLinks</strong> <code>boolean</code> Do not linkify links in plaintext content. Defaults to <code>undefined</code> (<em>falsy</em>).</li>
+<li><strong>Iconv</strong> <code>object</code> Defaults to <a href="https://www.npmjs.com/package/iconv-lite">iconv-lite</a></li>
+<li><strong>keepCidLinks</strong> <code>boolean</code>  <code>simpleParser</code>-only option. Sets <code>skipImageLinks</code> to true.</li>
+</ul>
 
 <h3 id="event-headers">Event &lsquo;headers&rsquo;</h3>
 
@@ -2038,20 +2054,20 @@ simpleParser('rfc822 message', { Iconv }, callback);
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1563103711"></script>
-    <script src="/js/perfect-scrollbar.min.js?1563103711"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1563103711"></script>
-    <script src="/js/jquery.sticky.js?1563103711"></script>
-    <script src="/js/featherlight.min.js?1563103711"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1563103711"></script>
-    <script src="/js/highlight.pack.js?1563103711"></script>
+    <script src="/js/clipboard.min.js?1565072440"></script>
+    <script src="/js/perfect-scrollbar.min.js?1565072440"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1565072440"></script>
+    <script src="/js/jquery.sticky.js?1565072440"></script>
+    <script src="/js/featherlight.min.js?1565072440"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1565072440"></script>
+    <script src="/js/highlight.pack.js?1565072440"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1563103711"></script>
-    <script src="/js/learn.js?1563103711"></script>
-    <script src="/js/hugo-learn.js?1563103711"></script>
+    <script src="/js/modernizr.custom.71422.js?1565072440"></script>
+    <script src="/js/learn.js?1565072440"></script>
+    <script src="/js/hugo-learn.js?1565072440"></script>
 
-    <link href="/mermaid/mermaid.css?1563103711" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1563103711"></script>
+    <link href="/mermaid/mermaid.css?1565072440" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1565072440"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
