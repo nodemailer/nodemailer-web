@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.55.5" />
+    <meta name="generator" content="Hugo 0.58.3" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>OAuth2 :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1565941917" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565941917" rel="stylesheet">
-    <link href="/css/hybrid.css?1565941917" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565941917" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565941917" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565941917" rel="stylesheet">
-    <link href="/css/theme.css?1565941917" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565941917" rel="stylesheet">
+    <link href="/css/nucleus.css?1572293077" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1572293077" rel="stylesheet">
+    <link href="/css/hybrid.css?1572293077" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1572293077" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1572293077" rel="stylesheet">
+    <link href="/css/auto-complete.css?1572293077" rel="stylesheet">
+    <link href="/css/theme.css?1572293077" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1572293077" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565941917" rel="stylesheet">
+      <link href="/css/theme-blue.css?1572293077" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1565941917"></script>
+    <script src="/js/jquery-2.x.min.js?1572293077"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1186,18 +1186,19 @@ Nodemailer requires an **Access Token** to perform authentication. 3-legged and 
 <ul>
 <li><strong>user</strong> – is the user email address</li>
 <li><strong>renew</strong> – if <em>true</em> then previous access token either expired or it was not accepted by the SMTP server, in this case you should generate a new value</li>
-<li><strong>callback</strong> with arguments <em>(err, accessToken)</em> – is the callback function to run once you have generated a new access token</li>
-</ul>
+
+<li><p><strong>callback</strong> with arguments <em>(err, accessToken)</em> – is the callback function to run once you have generated a new access token</p>
 
 <pre><code class="language-javascript">transporter.set('oauth2_provision_cb', (user, renew, callback)=&gt;{
-    let accessToken = userTokens[user];
-    if(!accessToken){
-        return callback(new Error('Unknown user'));
-    }else{
-        return callback(null, accessToken);
-    }
+let accessToken = userTokens[user];
+if(!accessToken){
+    return callback(new Error('Unknown user'));
+}else{
+    return callback(null, accessToken);
+}
 });
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h3 id="update-notification">Token update notifications</h3>
 
@@ -2020,20 +2021,20 @@ transporter.sendMail({
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565941917"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565941917"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565941917"></script>
-    <script src="/js/jquery.sticky.js?1565941917"></script>
-    <script src="/js/featherlight.min.js?1565941917"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565941917"></script>
-    <script src="/js/highlight.pack.js?1565941917"></script>
+    <script src="/js/clipboard.min.js?1572293077"></script>
+    <script src="/js/perfect-scrollbar.min.js?1572293077"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1572293077"></script>
+    <script src="/js/jquery.sticky.js?1572293077"></script>
+    <script src="/js/featherlight.min.js?1572293077"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1572293077"></script>
+    <script src="/js/highlight.pack.js?1572293077"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1565941917"></script>
-    <script src="/js/learn.js?1565941917"></script>
-    <script src="/js/hugo-learn.js?1565941917"></script>
+    <script src="/js/modernizr.custom.71422.js?1572293077"></script>
+    <script src="/js/learn.js?1572293077"></script>
+    <script src="/js/hugo-learn.js?1572293077"></script>
 
-    <link href="/mermaid/mermaid.css?1565941917" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565941917"></script>
+    <link href="/mermaid/mermaid.css?1572293077" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1572293077"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

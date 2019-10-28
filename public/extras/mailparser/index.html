@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.55.5" />
+    <meta name="generator" content="Hugo 0.58.3" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Mailparser :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1565941917" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565941917" rel="stylesheet">
-    <link href="/css/hybrid.css?1565941917" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565941917" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565941917" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565941917" rel="stylesheet">
-    <link href="/css/theme.css?1565941917" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565941917" rel="stylesheet">
+    <link href="/css/nucleus.css?1572293077" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1572293077" rel="stylesheet">
+    <link href="/css/hybrid.css?1572293077" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1572293077" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1572293077" rel="stylesheet">
+    <link href="/css/auto-complete.css?1572293077" rel="stylesheet">
+    <link href="/css/theme.css?1572293077" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1572293077" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565941917" rel="stylesheet">
+      <link href="/css/theme-blue.css?1572293077" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1565941917"></script>
+    <script src="/js/jquery-2.x.min.js?1572293077"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1318,7 +1318,7 @@ let parser = new MailParser();
 <li><strong>skipTextToHtml</strong> <code>boolean</code> Don&rsquo;t generate HTML from plaintext message. Defaults to <code>undefined</code> (<em>falsy</em>).</li>
 <li><strong>skipTextLinks</strong> <code>boolean</code> Do not linkify links in plaintext content. Defaults to <code>undefined</code> (<em>falsy</em>).</li>
 <li><strong>Iconv</strong> <code>object</code> Defaults to <a href="https://www.npmjs.com/package/iconv-lite">iconv-lite</a></li>
-<li><strong>keepCidLinks</strong> <code>boolean</code>  <code>simpleParser</code>-only option. Sets <code>skipImageLinks</code> to true.</li>
+<li><strong>keepCidLinks</strong> <code>boolean</code> <code>simpleParser</code>-only option. Sets <code>skipImageLinks</code> to true.</li>
 </ul>
 
 <h3 id="event-headers">Event &lsquo;headers&rsquo;</h3>
@@ -1363,19 +1363,20 @@ let parser = new MailParser();
 <ul>
 <li><strong>text</strong> includes the plaintext version of the message. Is set if the message has at least one &lsquo;text/plain&rsquo; node</li>
 <li><strong>html</strong> includes the HTML version of the message. Is set if the message has at least one &lsquo;text/html&rsquo; node</li>
-<li><strong>textAsHtml</strong> includes the plaintext version of the message in HTML format. Is set if the message has at least one &lsquo;text/plain&rsquo; node.</li>
-</ul>
+
+<li><p><strong>textAsHtml</strong> includes the plaintext version of the message in HTML format. Is set if the message has at least one &lsquo;text/plain&rsquo; node.</p>
 
 <pre><code class="language-javascript">parser.on('data', data =&gt; {
-    if (data.type === 'text') {
-        console.log(data.html);
-    }
+if (data.type === 'text') {
+    console.log(data.html);
+}
 });
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h2 id="issues">Issues</h2>
 
-<p>Charset decoding is handled using <a href="https://github.com/ashtuchkin/iconv-lite">iconv-lite</a> that is missing some charsets, especially some Japanese ones. If you need to support these charsets then you can use <a href="https://www.npmjs.com/package/iconv">node-iconv</a> module instead. This module is not included in the mailparser package, you would have to provide it to Mailparser or simpleParser as a configuration option.</p>
+<p>Charset decoding is handled using <a href="https://github.com/ashtuchkin/iconv-lite">iconv-lite</a>, except for ISO-2022-JP and EUCJP that are handled by <a href="https://www.npmjs.com/package/encoding-japanese">encoding-japanese</a>. Alternatively you can use <a href="https://www.npmjs.com/package/iconv">node-iconv</a> module instead for all charset decoding. This module is not included in the mailparser package, you would have to provide it to Mailparser or simpleParser as a configuration option.</p>
 
 <pre><code class="language-javascript">const Iconv = require('iconv').Iconv;
 const MailParser = require('mailparser').MailParser;
@@ -2050,20 +2051,20 @@ simpleParser('rfc822 message', { Iconv }, callback);
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565941917"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565941917"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565941917"></script>
-    <script src="/js/jquery.sticky.js?1565941917"></script>
-    <script src="/js/featherlight.min.js?1565941917"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565941917"></script>
-    <script src="/js/highlight.pack.js?1565941917"></script>
+    <script src="/js/clipboard.min.js?1572293077"></script>
+    <script src="/js/perfect-scrollbar.min.js?1572293077"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1572293077"></script>
+    <script src="/js/jquery.sticky.js?1572293077"></script>
+    <script src="/js/featherlight.min.js?1572293077"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1572293077"></script>
+    <script src="/js/highlight.pack.js?1572293077"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1565941917"></script>
-    <script src="/js/learn.js?1565941917"></script>
-    <script src="/js/hugo-learn.js?1565941917"></script>
+    <script src="/js/modernizr.custom.71422.js?1572293077"></script>
+    <script src="/js/learn.js?1572293077"></script>
+    <script src="/js/hugo-learn.js?1572293077"></script>
 
-    <link href="/mermaid/mermaid.css?1565941917" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565941917"></script>
+    <link href="/mermaid/mermaid.css?1572293077" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1572293077"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

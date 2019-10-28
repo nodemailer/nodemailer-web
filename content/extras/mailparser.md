@@ -174,14 +174,14 @@ let parser = new MailParser();
 
 ### options
 
--   **skipHtmlToText** `boolean` Don't generate plaintext from HTML. Defaults to `undefined` (*falsy*).
--   **maxHtmlLengthToParse** `number` The maximum amount of HTML to parse in bytes. Defaults to `undefined` (*Infinity*).
+-   **skipHtmlToText** `boolean` Don't generate plaintext from HTML. Defaults to `undefined` (_falsy_).
+-   **maxHtmlLengthToParse** `number` The maximum amount of HTML to parse in bytes. Defaults to `undefined` (_Infinity_).
 -   **formatDateString** `function` Provide a custom formatting function. Defaults to `undefined`.
--   **skipImageLinks** `boolean` Skip converting CID attachments to data URL images. Defaults to `undefined` (*falsy*).
--   **skipTextToHtml** `boolean` Don't generate HTML from plaintext message. Defaults to `undefined` (*falsy*).
--   **skipTextLinks** `boolean` Do not linkify links in plaintext content. Defaults to `undefined` (*falsy*).
+-   **skipImageLinks** `boolean` Skip converting CID attachments to data URL images. Defaults to `undefined` (_falsy_).
+-   **skipTextToHtml** `boolean` Don't generate HTML from plaintext message. Defaults to `undefined` (_falsy_).
+-   **skipTextLinks** `boolean` Do not linkify links in plaintext content. Defaults to `undefined` (_falsy_).
 -   **Iconv** `object` Defaults to [iconv-lite](https://www.npmjs.com/package/iconv-lite)
--   **keepCidLinks** `boolean`  `simpleParser`-only option. Sets `skipImageLinks` to true.
+-   **keepCidLinks** `boolean` `simpleParser`-only option. Sets `skipImageLinks` to true.
 
 ### Event 'headers'
 
@@ -236,7 +236,7 @@ parser.on('data', data => {
 
 ## Issues
 
-Charset decoding is handled using [iconv-lite](https://github.com/ashtuchkin/iconv-lite) that is missing some charsets, especially some Japanese ones. If you need to support these charsets then you can use [node-iconv](https://www.npmjs.com/package/iconv) module instead. This module is not included in the mailparser package, you would have to provide it to Mailparser or simpleParser as a configuration option.
+Charset decoding is handled using [iconv-lite](https://github.com/ashtuchkin/iconv-lite), except for ISO-2022-JP and EUCJP that are handled by [encoding-japanese](https://www.npmjs.com/package/encoding-japanese). Alternatively you can use [node-iconv](https://www.npmjs.com/package/iconv) module instead for all charset decoding. This module is not included in the mailparser package, you would have to provide it to Mailparser or simpleParser as a configuration option.
 
 ```javascript
 const Iconv = require('iconv').Iconv;

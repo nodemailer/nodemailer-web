@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.55.5" />
+    <meta name="generator" content="Hugo 0.58.3" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>SMTP Server :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1565941917" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1565941917" rel="stylesheet">
-    <link href="/css/hybrid.css?1565941917" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1565941917" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1565941917" rel="stylesheet">
-    <link href="/css/auto-complete.css?1565941917" rel="stylesheet">
-    <link href="/css/theme.css?1565941917" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1565941917" rel="stylesheet">
+    <link href="/css/nucleus.css?1572293077" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1572293077" rel="stylesheet">
+    <link href="/css/hybrid.css?1572293077" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1572293077" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1572293077" rel="stylesheet">
+    <link href="/css/auto-complete.css?1572293077" rel="stylesheet">
+    <link href="/css/theme.css?1572293077" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1572293077" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1565941917" rel="stylesheet">
+      <link href="/css/theme-blue.css?1572293077" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1565941917"></script>
+    <script src="/js/jquery-2.x.min.js?1572293077"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1367,18 +1367,19 @@ any other command, you can set a handler for it with <em>onConnect</em></p>
 
 <ul>
 <li><strong>session</strong> includes the <em>remoteAddress</em> and <em>clientHostname</em> values</li>
-<li><strong>callback</strong> is the function to run after validation. If you return an error object, the connection is rejected, otherwise it is accepted</li>
-</ul>
+
+<li><p><strong>callback</strong> is the function to run after validation. If you return an error object, the connection is rejected, otherwise it is accepted</p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-  onConnect(session, callback) {
-    if (session.remoteAddress === &quot;127.0.0.1&quot;) {
-      return callback(new Error(&quot;No connections from localhost allowed&quot;));
-    }
-    return callback(); // Accept the connection
-  }
+onConnect(session, callback) {
+if (session.remoteAddress === &quot;127.0.0.1&quot;) {
+  return callback(new Error(&quot;No connections from localhost allowed&quot;));
+}
+return callback(); // Accept the connection
+}
 });
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>If you also need to detect when a connection is closed use <em>onClose</em>. This method does not expect you to run a callback function as it is purely informational.</p>
 
@@ -1402,20 +1403,21 @@ the address before it is accepted you can set a handler for it with <em>onMailFr
 <ul>
 <li><strong>address</strong> is an <a href="#address-object">address object</a> with the provided email address from <em>MAIL FROM:</em> command</li>
 <li><strong>session</strong> includes the <em>envelope</em> object and <em>user</em> data if logged in, see details <a href="#session-object">here</a></li>
-<li><strong>callback</strong> is the function to run after validation. If you return an error object, the address is rejected, otherwise it is accepted</li>
-</ul>
+
+<li><p><strong>callback</strong> is the function to run after validation. If you return an error object, the address is rejected, otherwise it is accepted</p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-  onMailFrom(address, session, callback) {
-    if (address.address !== &quot;allowed@example.com&quot;) {
-      return callback(
-        new Error(&quot;Only allowed@example.com is allowed to send mail&quot;)
-      );
-    }
-    return callback(); // Accept the address
-  }
+onMailFrom(address, session, callback) {
+if (address.address !== &quot;allowed@example.com&quot;) {
+  return callback(
+    new Error(&quot;Only allowed@example.com is allowed to send mail&quot;)
+  );
+}
+return callback(); // Accept the address
+}
 });
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h2 id="validating-recipient-addresses">Validating recipient addresses</h2>
 
@@ -1432,20 +1434,21 @@ the address before it is accepted you can set a handler for it with <em>onRcptTo
 <ul>
 <li><strong>address</strong> is an <a href="#address-object">address object</a> with the provided email address from <em>RCPT TO:</em> command</li>
 <li><strong>session</strong> includes the <em>envelope</em> object and <em>user</em> data if logged in, see details <a href="#session-object">here</a></li>
-<li><strong>callback</strong> is the function to run after validation. If you return an error object, the address is rejected, otherwise it is accepted</li>
-</ul>
+
+<li><p><strong>callback</strong> is the function to run after validation. If you return an error object, the address is rejected, otherwise it is accepted</p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-  onRcptTo(address, session, callback) {
-    if (address.address !== &quot;allowed@example.com&quot;) {
-      return callback(
-        new Error(&quot;Only allowed@example.com is allowed to receive mail&quot;)
-      );
-    }
-    return callback(); // Accept the address
-  }
+onRcptTo(address, session, callback) {
+if (address.address !== &quot;allowed@example.com&quot;) {
+  return callback(
+    new Error(&quot;Only allowed@example.com is allowed to receive mail&quot;)
+  );
+}
+return callback(); // Accept the address
+}
 });
-</code></pre>
+</code></pre></li>
+</ul>
 
 <h2 id="processing-incoming-message">Processing incoming message</h2>
 
@@ -1461,16 +1464,17 @@ the address before it is accepted you can set a handler for it with <em>onRcptTo
 <ul>
 <li><strong>stream</strong> is a readable stream for the incoming message</li>
 <li><strong>session</strong> includes the <em>envelope</em> object and <em>user</em> data if logged in, see details <a href="#session-object">here</a></li>
-<li><strong>callback</strong> is the on to run once the stream is ended and you have processed the outcome. If you return an error object, the message is rejected, otherwise it is accepted</li>
-</ul>
+
+<li><p><strong>callback</strong> is the on to run once the stream is ended and you have processed the outcome. If you return an error object, the message is rejected, otherwise it is accepted</p>
 
 <pre><code class="language-javascript">const server = new SMTPServer({
-  onData(stream, session, callback) {
-    stream.pipe(process.stdout); // print message to console
-    stream.on(&quot;end&quot;, callback);
-  }
+onData(stream, session, callback) {
+stream.pipe(process.stdout); // print message to console
+stream.on(&quot;end&quot;, callback);
+}
 });
-</code></pre>
+</code></pre></li>
+</ul>
 
 <p>This module does not prepend <em>Received</em> or any other header field to the streamed message. The entire message is streamed as-is with no modifications whatsoever. For compliancy you should add the Received data to the message yourself, see <a href="https://tools.ietf.org/html/rfc5321#section-4.4">rfc5321 4.4. Trace Information</a> for details.</p>
 
@@ -2286,20 +2290,20 @@ C: RCPT TO:&lt;recipient@example.com&gt; NOTIFY=NEVER
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1565941917"></script>
-    <script src="/js/perfect-scrollbar.min.js?1565941917"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1565941917"></script>
-    <script src="/js/jquery.sticky.js?1565941917"></script>
-    <script src="/js/featherlight.min.js?1565941917"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1565941917"></script>
-    <script src="/js/highlight.pack.js?1565941917"></script>
+    <script src="/js/clipboard.min.js?1572293077"></script>
+    <script src="/js/perfect-scrollbar.min.js?1572293077"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1572293077"></script>
+    <script src="/js/jquery.sticky.js?1572293077"></script>
+    <script src="/js/featherlight.min.js?1572293077"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1572293077"></script>
+    <script src="/js/highlight.pack.js?1572293077"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1565941917"></script>
-    <script src="/js/learn.js?1565941917"></script>
-    <script src="/js/hugo-learn.js?1565941917"></script>
+    <script src="/js/modernizr.custom.71422.js?1572293077"></script>
+    <script src="/js/learn.js?1572293077"></script>
+    <script src="/js/hugo-learn.js?1572293077"></script>
 
-    <link href="/mermaid/mermaid.css?1565941917" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1565941917"></script>
+    <link href="/mermaid/mermaid.css?1572293077" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1572293077"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -39,7 +39,8 @@ If you want to use a calendar event as the alternative, the consider using the *
       
       <guid>https://nodemailer.com/message/addresses/</guid>
       <description>All email addresses can be plain email addresses
-&#39;foobar@example.com&#39;   or with formatted name (includes unicode support)  &#39;Ноде Майлер &amp;lt;foobar@example.com&amp;gt;&#39;  Notice that all address fields (even *from:*) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: `&#39;&#34;Майлер, Ноде&#34; &#39;`   or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.</description>
+&#39;foobar@example.com&#39;   or with formatted name (includes unicode support)
+&#39;Ноде Майлер &amp;lt;foobar@example.com&amp;gt;&#39;   Notice that all address fields (even *from:*) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: `&#39;&#34;Майлер, Ноде&#34; &#39;`   or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.</description>
     </item>
     
     <item>
