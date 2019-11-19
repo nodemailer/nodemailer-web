@@ -15,19 +15,19 @@
     <title>Nodemailer :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1572293077" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1572293077" rel="stylesheet">
-    <link href="/css/hybrid.css?1572293077" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1572293077" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1572293077" rel="stylesheet">
-    <link href="/css/auto-complete.css?1572293077" rel="stylesheet">
-    <link href="/css/theme.css?1572293077" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1572293077" rel="stylesheet">
+    <link href="/css/nucleus.css?1574152861" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1574152861" rel="stylesheet">
+    <link href="/css/hybrid.css?1574152861" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1574152861" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1574152861" rel="stylesheet">
+    <link href="/css/auto-complete.css?1574152861" rel="stylesheet">
+    <link href="/css/theme.css?1574152861" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1574152861" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1572293077" rel="stylesheet">
+      <link href="/css/theme-blue.css?1574152861" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1572293077"></script>
+    <script src="/js/jquery-2.x.min.js?1574152861"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1100,14 +1100,10 @@
 
 <p>If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations.</p>
 
-<p>My Bitcoin wallet is: <code>15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM</code>.</p>
-
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="DB26KWR2BQX5W">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
+<ul>
+<li>My Bitcoin wallet is: <code>15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM</code>.</li>
+<li><a href="https://www.paypal.me/nodemailer">My PayPal</a></li>
+</ul>
 
 <h3 id="nodemailer-features">Nodemailer features</h3>
 
@@ -1151,41 +1147,41 @@
 
 <p>This is a complete example to send an email with plain text and HTML body</p>
 
-<pre><code class="language-javascript">'use strict';
-const nodemailer = require('nodemailer');
+<pre><code class="language-javascript">&quot;use strict&quot;;
+const nodemailer = require(&quot;nodemailer&quot;);
 
 // async..await is not allowed in global scope, must use a wrapper
 async function main() {
-    // Generate test SMTP service account from ethereal.email
-    // Only needed if you don't have a real mail account for testing
-    let testAccount = await nodemailer.createTestAccount();
+  // Generate test SMTP service account from ethereal.email
+  // Only needed if you don't have a real mail account for testing
+  let testAccount = await nodemailer.createTestAccount();
 
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-            user: testAccount.user, // generated ethereal user
-            pass: testAccount.pass // generated ethereal password
-        }
-    });
+  // create reusable transporter object using the default SMTP transport
+  let transporter = nodemailer.createTransport({
+    host: &quot;smtp.ethereal.email&quot;,
+    port: 587,
+    secure: false, // true for 465, false for other ports
+    auth: {
+      user: testAccount.user, // generated ethereal user
+      pass: testAccount.pass // generated ethereal password
+    }
+  });
 
-    // send mail with defined transport object
-    let info = await transporter.sendMail({
-        from: '&quot;Fred Foo 👻&quot; &lt;foo@example.com&gt;', // sender address
-        to: 'bar@example.com, baz@example.com', // list of receivers
-        subject: 'Hello ✔', // Subject line
-        text: 'Hello world?', // plain text body
-        html: '&lt;b&gt;Hello world?&lt;/b&gt;' // html body
-    });
+  // send mail with defined transport object
+  let info = await transporter.sendMail({
+    from: '&quot;Fred Foo 👻&quot; &lt;foo@example.com&gt;', // sender address
+    to: &quot;bar@example.com, baz@example.com&quot;, // list of receivers
+    subject: &quot;Hello ✔&quot;, // Subject line
+    text: &quot;Hello world?&quot;, // plain text body
+    html: &quot;&lt;b&gt;Hello world?&lt;/b&gt;&quot; // html body
+  });
 
-    console.log('Message sent: %s', info.messageId);
-    // Message sent: &lt;b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com&gt;
+  console.log(&quot;Message sent: %s&quot;, info.messageId);
+  // Message sent: &lt;b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com&gt;
 
-    // Preview only available when sending through an Ethereal account
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+  // Preview only available when sending through an Ethereal account
+  console.log(&quot;Preview URL: %s&quot;, nodemailer.getTestMessageUrl(info));
+  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
 main().catch(console.error);
@@ -1860,20 +1856,20 @@ main().catch(console.error);
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1572293077"></script>
-    <script src="/js/perfect-scrollbar.min.js?1572293077"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1572293077"></script>
-    <script src="/js/jquery.sticky.js?1572293077"></script>
-    <script src="/js/featherlight.min.js?1572293077"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1572293077"></script>
-    <script src="/js/highlight.pack.js?1572293077"></script>
+    <script src="/js/clipboard.min.js?1574152861"></script>
+    <script src="/js/perfect-scrollbar.min.js?1574152861"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1574152861"></script>
+    <script src="/js/jquery.sticky.js?1574152861"></script>
+    <script src="/js/featherlight.min.js?1574152861"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1574152861"></script>
+    <script src="/js/highlight.pack.js?1574152861"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1572293077"></script>
-    <script src="/js/learn.js?1572293077"></script>
-    <script src="/js/hugo-learn.js?1572293077"></script>
+    <script src="/js/modernizr.custom.71422.js?1574152861"></script>
+    <script src="/js/learn.js?1574152861"></script>
+    <script src="/js/hugo-learn.js?1574152861"></script>
 
-    <link href="/mermaid/mermaid.css?1572293077" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1572293077"></script>
+    <link href="/mermaid/mermaid.css?1574152861" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1574152861"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

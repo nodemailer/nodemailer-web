@@ -17,11 +17,5 @@ Keeping a lower level infrastructure module under a restrictive license has turn
 
 If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations.
 
-My Bitcoin wallet is: `15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM`.
-
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="DB26KWR2BQX5W">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
+- My Bitcoin wallet is: `15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM`.
+- [My PayPal](https://www.paypal.me/nodemailer)
