@@ -26,6 +26,10 @@ If you really like Nodemailer or your business benefits from it financially then
 - Nodemailer Bitcoin wallet is: `15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM`.
 - [Nodemailer PayPal](https://www.paypal.me/nodemailer)
 
+### Email problems?
+
+Try out the all new ultimate [email debugging app by Nodemailer](/app/).
+
 ### Nodemailer features
 
 - A single module with **zero dependencies** – code is easily auditable, as there are no dark corners
