@@ -40,3 +40,13 @@ NodemailerApp includes a local SMTP and POP3 server for testing. Use it to insta
 
 ![](/screenshots/img06.png)
 ![](/screenshots/img05.png)
+
+### Videos
+
+**Use NodemailerApp as local test server for SMTP**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ETUmG3B-jOw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+**Use NodemailerApp as local test server for Ghost Blog**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/6uQJcbmZwc0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
