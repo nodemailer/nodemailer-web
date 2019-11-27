@@ -16,11 +16,19 @@ App imports emails from EML files, EMLX files, large MBOX files from Gmail takeo
 
 NodemailerApp includes a local SMTP and POP3 server for testing. Use it to instantly preview emails sent from your dev environment. If needed, you can also upload any email to an external SMTP or IMAP server. All SMTP, POP3 and IMAP transactions include live logs.
 
-<div style="text-align: center"><a href="https://downloads.nodemailer.com/download/osx" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp for Mac OSX</a> <a href="https://downloads.nodemailer.com/download/win32" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp for Windows</a></div>
+<div style="text-align: center"><a href="https://downloads.nodemailer.com/download/osx" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Mac OSX</a> <a href="https://downloads.nodemailer.com/download/win32" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Windows</a></div>
 
-**Extras**
+### Extras
 
-<div style="text-align: center"><a href="https://nodemailer.com/sendmail.tar.gz" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp Sendmail for Linux</a></div>
+1\. NodemailerApp Sendmail replacement. App allows to proxy emails to a SMTP server like the built in development server of NodemailerApp. You could need it if your development environment runs in a Linux container insidde Windows or Mac host. This way you could configure php.ini to send emails via NodemailerApp sendmail inside the container.
+
+<div style="text-align: center"><a href="https://nodemailer.com/sendmail.tar.gz" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Linux</a></div>
+
+**Example for XAMPP VM**
+
+```
+sendmail_path = '"/opt/lampp/sendmail" --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i'
+```
 
 ### Features
 

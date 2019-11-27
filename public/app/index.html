@@ -15,19 +15,19 @@
     <title>NodemailerApp :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1574890654" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1574890654" rel="stylesheet">
-    <link href="/css/hybrid.css?1574890654" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1574890654" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1574890654" rel="stylesheet">
-    <link href="/css/auto-complete.css?1574890654" rel="stylesheet">
-    <link href="/css/theme.css?1574890654" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1574890654" rel="stylesheet">
+    <link href="/css/nucleus.css?1574890996" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1574890996" rel="stylesheet">
+    <link href="/css/hybrid.css?1574890996" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1574890996" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1574890996" rel="stylesheet">
+    <link href="/css/auto-complete.css?1574890996" rel="stylesheet">
+    <link href="/css/theme.css?1574890996" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1574890996" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1574890654" rel="stylesheet">
+      <link href="/css/theme-blue.css?1574890996" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1574890654"></script>
+    <script src="/js/jquery-2.x.min.js?1574890996"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1117,11 +1117,18 @@
 
 <p>NodemailerApp includes a local SMTP and POP3 server for testing. Use it to instantly preview emails sent from your dev environment. If needed, you can also upload any email to an external SMTP or IMAP server. All SMTP, POP3 and IMAP transactions include live logs.</p>
 
-<div style="text-align: center"><a href="https://downloads.nodemailer.com/download/osx" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp for Mac OSX</a> <a href="https://downloads.nodemailer.com/download/win32" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp for Windows</a></div>
+<div style="text-align: center"><a href="https://downloads.nodemailer.com/download/osx" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Mac OSX</a> <a href="https://downloads.nodemailer.com/download/win32" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Windows</a></div>
 
-<p><strong>Extras</strong></p>
+<h3 id="extras">Extras</h3>
 
-<div style="text-align: center"><a href="https://nodemailer.com/sendmail.tar.gz" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp Sendmail for Linux</a></div>
+<p>1. NodemailerApp Sendmail replacement. App allows to proxy emails to a SMTP server like the built in development server of NodemailerApp. You could need it if your development environment runs in a Linux container insidde Windows or Mac host. This way you could configure php.ini to send emails via NodemailerApp sendmail inside the container.</p>
+
+<div style="text-align: center"><a href="https://nodemailer.com/sendmail.tar.gz" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Linux</a></div>
+
+<p><strong>Example for XAMPP VM</strong></p>
+
+<pre><code>sendmail_path = '&quot;/opt/lampp/sendmail&quot; --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i'
+</code></pre>
 
 <h3 id="features">Features</h3>
 
@@ -1827,20 +1834,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1574890654"></script>
-    <script src="/js/perfect-scrollbar.min.js?1574890654"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1574890654"></script>
-    <script src="/js/jquery.sticky.js?1574890654"></script>
-    <script src="/js/featherlight.min.js?1574890654"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1574890654"></script>
-    <script src="/js/highlight.pack.js?1574890654"></script>
+    <script src="/js/clipboard.min.js?1574890996"></script>
+    <script src="/js/perfect-scrollbar.min.js?1574890996"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1574890996"></script>
+    <script src="/js/jquery.sticky.js?1574890996"></script>
+    <script src="/js/featherlight.min.js?1574890996"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1574890996"></script>
+    <script src="/js/highlight.pack.js?1574890996"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1574890654"></script>
-    <script src="/js/learn.js?1574890654"></script>
-    <script src="/js/hugo-learn.js?1574890654"></script>
+    <script src="/js/modernizr.custom.71422.js?1574890996"></script>
+    <script src="/js/learn.js?1574890996"></script>
+    <script src="/js/hugo-learn.js?1574890996"></script>
 
-    <link href="/mermaid/mermaid.css?1574890654" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1574890654"></script>
+    <link href="/mermaid/mermaid.css?1574890996" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1574890996"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
