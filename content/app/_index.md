@@ -16,7 +16,11 @@ App imports emails from EML files, EMLX files, large MBOX files from Gmail takeo
 
 NodemailerApp includes a local SMTP and POP3 server for testing. Use it to instantly preview emails sent from your dev environment. If needed, you can also upload any email to an external SMTP or IMAP server. All SMTP, POP3 and IMAP transactions include live logs.
 
-<div style="text-align: center"><a href="https://downloads.nodemailer.com/download/osx" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Get for Mac OSX</a> <a href="https://downloads.nodemailer.com/download/win32" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Get for Windows</a></div>
+<div style="text-align: center"><a href="https://downloads.nodemailer.com/download/osx" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp for Mac OSX</a> <a href="https://downloads.nodemailer.com/download/win32" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp for Windows</a></div>
+
+**Extras**
+
+<div style="text-align: center"><a href="https://nodemailer.com/sendmail.tar.gz" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp Sendmail for Linux</a></div>
 
 ### Features
 
