@@ -20,11 +20,13 @@ NodemailerApp includes a local SMTP and POP3 server for testing. Use it to insta
 
 ### Extras
 
-1\. NodemailerApp Sendmail replacement. App allows to proxy emails to a SMTP server like the built in development server of NodemailerApp. You could need it if your development environment runs in a Linux container insidde Windows or Mac host. This way you could configure php.ini to send emails via NodemailerApp sendmail inside the container.
+1\. NodemailerApp Sendmail replacement. App allows to proxy emails to a SMTP server like the built in development server of NodemailerApp. You could need it if your development environment runs in a Linux container inside Windows or Mac host. This way you could configure php.ini to send emails via NodemailerApp sendmail out to .
 
 <div style="text-align: center"><a href="https://nodemailer.com/sendmail.tar.gz" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Sendmail (Linux)</a></div>
 
 **Example for XAMPP VM**
+
+XAMPP VM on OSX sets up a virtual private network, where the host machine usually gets assigned IP `192.168.64.1`, this is where NodemailerApp would be listening.
 
 ```
 sendmail_path = '"/opt/lampp/sendmail" --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i'
