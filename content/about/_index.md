@@ -15,7 +15,7 @@ toc = true
 
 ### Trying to debug emails?
 
-Try out the all new ultimate [email debugging app by Nodemailer](/app/).
+**New!** Try out the all new ultimate [email debugging app by Nodemailer](/app/).
 
 ### Support Nodemailer
 
