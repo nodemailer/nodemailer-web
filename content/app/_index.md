@@ -72,7 +72,7 @@ In Windows you can edit php.ini and set it to the value provided in the Local Se
 
 ![](/sendmail_win.png)
 
-Alternatively you can download <a href="https://nodemailer.com/sendmail-win.zip" target="_blank">Windows version of sendmail</a> and place it wherever you like. Use the same arguments though as shown in the instructions section.
+Alternatively you can download <a href="https://nodemailer.com/sendmail-win.zip" target="_blank">Windows version of sendmail</a> as a separate application and place it wherever you like. Use the same arguments though as shown in the instructions section.
 
 **OSX**
 
