@@ -88,9 +88,9 @@ $ cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /opt/lampp/lib/
 **4\.** Then edit /opt/lampp/etc/php.ini, find the _[mail function]_ section and add the following configuration line (assuming you copied _sendmail_ binary to _/opt/lampp_) using SMTP username and password provided by NodemailerApp:
 
 ```
-sendmail_path = '"/opt/lampp/sendmail" --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i'
+sendmail_path = "/opt/lampp/sendmail --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i"
 ```
 
-**5\.** Last, restart Apache service in XAMPP.
+For all available configuration options, run `/opt/lampp/sendmail --help`
 
-Run `sendmail --help` for all available config options
+**5\.** Last, restart Apache service in XAMPP.
