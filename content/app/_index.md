@@ -72,6 +72,8 @@ In Windows you can edit php.ini and set it to the value provided in the Local Se
 
 ![](/sendmail_win.png)
 
+Alternatively you can download <a href="https://nodemailer.com/sendmail-win.zip" target="_blank">Windows version of sendmail</a> and place it wherever you like. Use the same arguments though as shown in the instructions section.
+
 **OSX**
 
 In OSX XAMPP runs your web app in an isolated container and thus making sendmail requests directly against NodemailerApp application is not possible. Instead you should use the Linux version of sendmail replacement to proxy emails over SMTP. This also means that you can only accept mail when NodemailerApp is actually opened and it has local server running.
