@@ -50,7 +50,7 @@ You can use NodemailerApp to instantly preview emails sent from your dev environ
 ![](/screenshots/img06.png)
 ![](/screenshots/img05.png)
 
-### XAMPP
+### Using with XAMPP
 
 **Windows**
 
