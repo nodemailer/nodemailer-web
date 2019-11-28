@@ -12,7 +12,7 @@ toc = true
 
 **NodemailerApp** is the ultimate email debugging app for OSX and Windows 10.
 
-App includes a local SMTP and POP3 servers, a sendmail replacement, and also imports emails from EML files, EMLX files, large MBOX files from Gmail takeout, Maildir folders and Postfix queue files for inspection and preview. Ever wanted to view the actual HTML source of a nicely designed email instead of some garbled rfc822 format? Just open the HTML tab of an email to see it.
+App includes local SMTP and POP3 servers, a sendmail replacement, it also imports emails from EML files, EMLX files, large MBOX files from Gmail takeout, Maildir folders and Postfix queue files for inspection and preview. Ever wanted to view the actual HTML source of a nicely designed email instead of some garbled rfc822 format? Just open the HTML tab of an email to see it.
 
 ![](/screenshots/img01.png)
 
