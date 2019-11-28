@@ -50,20 +50,6 @@ You can use NodemailerApp to instantly preview emails sent from your dev environ
 ![](/screenshots/img06.png)
 ![](/screenshots/img05.png)
 
-### Videos
-
-##### <div style="text-align: center; padding: 20px 0;">Use NodemailerApp as local test server for SMTP</div>
-
-<div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/ETUmG3B-jOw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-##### <div style="text-align: center; padding: 20px 0;" id="ghost">Use NodemailerApp as local test server for Ghost Blog</div>
-
-<div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/6uQJcbmZwc0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
-##### <div style="text-align: center; padding: 20px 0;" id="ghost">Use NodemailerApp as sendmail replacement</div>
-
-<div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/cYfdUqd_Vbs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-
 ### XAMPP
 
 **Windows**
@@ -98,3 +84,21 @@ sendmail_path = "/opt/lampp/sendmail --host=192.168.64.1 --port=1025 --user=proj
 For all available configuration options, run `/opt/lampp/sendmail --help`
 
 **5\.** Last, restart Apache service in XAMPP.
+
+### Videos
+
+##### <div style="text-align: center; padding: 20px 0;">Use NodemailerApp as local test server for SMTP</div>
+
+<div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/ETUmG3B-jOw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+##### <div style="text-align: center; padding: 20px 0;" id="ghost">Use NodemailerApp as local test server for Ghost Blog</div>
+
+<div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/6uQJcbmZwc0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+##### <div style="text-align: center; padding: 20px 0;">Use NodemailerApp as sendmail replacement</div>
+
+<div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/cYfdUqd_Vbs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+##### <div style="text-align: center; padding: 20px 0;" id="xampp">Catch and preview emails from XAMPP OSX VM</div>
+
+<div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/0iO7cxWA_PU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
