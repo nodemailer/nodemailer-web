@@ -74,23 +74,23 @@ In Windows you can edit php.ini and set it to the value provided in the Local Se
 
 In OSX XAMPP runs your web app in an isolated container and thus making sendmail requests directly against NodemailerApp application is not possible. Instead you should use the Linux version of sendmail replacement to proxy emails over SMTP. This also means that you can only accept mail when NodemailerApp is actually opened and it has local server running.
 
-First make sure that NodemailerApp local server listening IP is either 0.0.0.0 or 192.168.64.1 (default is 127.0.0.1) as XAMPP VM on OSX sets up a virtual private network, where the host machine usually gets assigned the IP 192.168.64.1.
+**1\.** First make sure that NodemailerApp local server listening IP is either 0.0.0.0 or 192.168.64.1 (default is 127.0.0.1) as XAMPP VM on OSX sets up a virtual private network, where the host machine usually gets assigned the IP 192.168.64.1.
 
-The download and unpack the <a href="https://nodemailer.com/sendmail-linux.tar.gz" target="_blank">Linux version</a> of sendmail replacement and copy it to the XAMPP container.
+**2\.** Then download and unpack the <a href="https://nodemailer.com/sendmail-linux.tar.gz" target="_blank">Linux version</a> of sendmail replacement and copy it to the XAMPP container.
 
-For some reason Apache in XAMPP uses some old c++ libraries, you can force it to use newer one by running the following commands in XAMP terminal:
+**3\.** For some reason Apache in XAMPP uses some old c++ libraries, you can force it to use newer one by running the following commands in XAMP terminal:
 
 ```
 $ mv /opt/lampp/lib/libstdc++.so.6 /opt/lampp/lib/libstdc++.so.6.bak
 $ cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /opt/lampp/lib/
 ```
 
-Then edit /opt/lampp/etc/php.ini, find the _[mail function]_ section and add the following configuration line:
+**4\.** Then edit /opt/lampp/etc/php.ini, find the _[mail function]_ section and add the following configuration line:
 
 ```
 sendmail_path = '"/opt/lampp/sendmail" --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i'
 ```
 
-Last, restart Apache service in XAMPP.
+**5\.** Last, restart Apache service in XAMPP.
 
 Run `sendmail --help` for all available config options
