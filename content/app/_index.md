@@ -7,34 +7,25 @@ next = "/extras/"
 weight = 90
 title = "NodemailerApp"
 toc = true
++++
 
-+++# Nodemailer App
+# Nodemailer App
 
 **NodemailerApp** is the ultimate email debugging app for OSX and Windows 10.
 
-App includes local SMTP and POP3 servers, a sendmail replacement, it also imports emails from EML files, EMLX files, large MBOX files from Gmail takeout, Maildir folders and Postfix queue files for inspection and preview. Ever wanted to view the actual HTML source of a nicely designed email instead of some garbled rfc822 format? Just open the HTML tab of an email to see it.
+App includes local SMTP and POP3 servers, a sendmail replacement, and it imports emails from EML files, EMLX files, large MBOX files from Gmail takeout, Maildir folders and Postfix queue files for inspection and preview. Ever wanted to view the actual HTML source of a nicely designed email instead of some garbled rfc822 text? Just open the HTML tab of an email to see it.
 
 ![](/screenshots/img01.png)
 
-Use NodemailerApp to instantly preview emails sent from your dev environment. If needed, you can also upload any email to an external SMTP or IMAP server. All SMTP, POP3 and IMAP transactions include live logs.
+You can use NodemailerApp to instantly preview emails sent from your dev environment, be it from SMTP or sendmail. You can also upload any email to an external SMTP or IMAP server. All SMTP, POP3 and IMAP transactions include live logs for extra clarity.
 
 <div style="text-align: center"><a href="https://downloads.nodemailer.com/download/osx" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (OSX)</a> <a href="https://downloads.nodemailer.com/download/win32" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (Windows)</a></div>
 
 ### Extras
 
-1\. **NodemailerApp Sendmail replacement**. NodemailerApp has sendmail compatibility already built in but in some cases you might need a separate executable. Sendmail app allows to proxy emails to a SMTP server, ie. to the built in development server of NodemailerApp (but is not limited to it). You could need it if your development environment runs in a Linux container inside Windows or Mac host. This way you could configure php.ini to send emails via sendmail out to the NodemailerApp SMTP server in the host machine.
+1\. **NodemailerApp Sendmail replacement**. NodemailerApp has sendmail compatibility already built in but in some cases you might need a separate executable. Sendmail app allows to proxy emails to a SMTP server, ie. to the built in development server of NodemailerApp (but is not limited to it). You could use it, for example, if your development environment runs in a Linux container inside Windows or Mac host. This way you could configure php.ini to send emails via sendmail out to the NodemailerApp SMTP server in the host machine.
 
 <div style="text-align: center"><a href="https://nodemailer.com/sendmail-linux.tar.gz" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Sendmail (Linux)</a> <a href="https://nodemailer.com/sendmail-osx.tar.gz" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Sendmail (OSX)</a> <a href="https://nodemailer.com/sendmail-win.zip" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Sendmail (Windows)</a></div>
-
-**Example for XAMPP VM**
-
-XAMPP VM on OSX sets up a virtual private network, where the host machine usually gets assigned IP `192.168.64.1`, this is where NodemailerApp would be listening.
-
-```
-sendmail_path = '"/opt/lampp/sendmail" --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i'
-```
-
-Run `sendmail --help` for all available config options
 
 ### Features
 
@@ -54,7 +45,7 @@ Run `sendmail --help` for all available config options
 
 ![](/screenshots/img04.png)
 
-5\. Extensive search. Search for emails or specific attachments or specific people. You can even search by every header value in every message as NodemailerApp indexes basically everything. Wanted to find that specific PDF file sent by your boss some time last year? NodemailerApp attachment search gets you covered.
+5\. Extensive search. Search for emails or specific attachments or specific people. You can even search by every header value in every message as NodemailerApp indexes basically everything. Wanted to find that specific PDF file sent by your boss some time last year? NodemailerApp attachment search has you covered.
 
 ![](/screenshots/img06.png)
 ![](/screenshots/img05.png)
@@ -72,3 +63,34 @@ Run `sendmail --help` for all available config options
 ##### <div style="text-align: center; padding: 20px 0;" id="ghost">Use NodemailerApp as sendmail replacement</div>
 
 <div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/cYfdUqd_Vbs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+### XAMPP
+
+**Windows**
+
+In Windows you can edit php.ini and set it to the value provided in the Local Server view in NodemailerApp as your web app and NodemailerApp run in the same environment. Great thing about such setup is that NodemailerApp does not have to be working while emails are being sent. Emails are stored to disk and can be viewed next time you start the app.
+
+**OSX**
+
+In OSX XAMPP runs your web app in an isolated container and thus making sendmail requests directly against NodemailerApp application is not possible. Instead you should use the Linux version of sendmail replacement to proxy emails over SMTP. This also means that you can only accept mail when NodemailerApp is actually opened and it has local server running.
+
+First make sure that NodemailerApp local server listening IP is either 0.0.0.0 or 192.168.64.1 (default is 127.0.0.1) as XAMPP VM on OSX sets up a virtual private network, where the host machine usually gets assigned the IP 192.168.64.1.
+
+The download and unpack the <a href="https://nodemailer.com/sendmail-linux.tar.gz" target="_blank">Linux version</a> of sendmail replacement and copy it to the XAMPP container.
+
+For some reason Apache in XAMPP uses some old c++ libraries, you can force it to use newer one by running the following commands in XAMP terminal:
+
+```
+$ mv /opt/lampp/lib/libstdc++.so.6 /opt/lampp/lib/libstdc++.so.6.bak
+$ cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /opt/lampp/lib/
+```
+
+Then edit /opt/lampp/etc/php.ini, find the _[mail function]_ section and add the following configuration line:
+
+```
+sendmail_path = '"/opt/lampp/sendmail" --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i'
+```
+
+Last, restart Apache service in XAMPP.
+
+Run `sendmail --help` for all available config options
