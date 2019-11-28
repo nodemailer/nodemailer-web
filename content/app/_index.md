@@ -23,29 +23,29 @@ You can use NodemailerApp to instantly preview emails sent from your dev environ
 
 ### Extras
 
-1\. **NodemailerApp Sendmail replacement**. NodemailerApp has sendmail compatibility already built in but in some cases you might need a separate executable. Sendmail app allows to proxy emails to a SMTP server, ie. to the built in development server of NodemailerApp (but is not limited to it). You could use it, for example, if your development environment runs in a Linux container inside Windows or Mac host. This way you could configure php.ini to send emails via sendmail out to the NodemailerApp SMTP server in the host machine.
+**1\.** NodemailerApp **Sendmail replacement**. NodemailerApp has sendmail compatibility already built in but in some cases you might need a separate executable. Sendmail app allows to proxy emails to a SMTP server, ie. to the built in development server of NodemailerApp (but is not limited to it). You could use it, for example, if your development environment runs in a Linux container inside Windows or Mac host. This way you could configure php.ini to send emails via sendmail out to the NodemailerApp SMTP server in the host machine.
 
 <div style="text-align: center"><a href="https://nodemailer.com/sendmail-linux.tar.gz" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Sendmail (Linux)</a> <a href="https://nodemailer.com/sendmail-osx.tar.gz" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Sendmail (OSX)</a> <a href="https://nodemailer.com/sendmail-win.zip" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> Sendmail (Windows)</a></div>
 
 ### Features
 
-1\. Preview emails as these are being imported. You can start impoting a large 10GB mbox file from Gmail Takout and immediatelly start browsing emails that are already imported.
+**1\.** **Preview emails** as these are being imported. You can start impoting a large 10GB mbox file from Gmail Takout and immediatelly start browsing emails that are already imported.
 
 ![](/screenshots/img01.png)
 
-2\. Rich email output. In addition to normal rich text email views you can see the plain text alternative, HTML source code and email headers. You can download the entire email as an EML file, or export it as PDF. All related attachments can be found under the Files tab.
+**2\.** **Rich email output.** In addition to normal rich text email views you can see the plain text alternative, HTML source code and email headers. You can download the entire email as an EML file, or export it as PDF. All related attachments can be found under the Files tab.
 
 ![](/screenshots/img02.png)
 
-3\. Local development server. You can configure your development environment to use NodemailerApp as SMTP relay server. Whenever sending out an email from your local Laravel or any other stack you can immediatelly preview the sent email in NodemailerApp. The sent email is catched by NodemailerApp for good so it is not delivered to actual recipients which makes it fantastic for testing environments. If you ever need to access the sent emails from your own app you can do so by using POP3.
+**3\.** **Local development server.** You can configure your development environment to use NodemailerApp as SMTP relay server. Whenever sending out an email from your local Laravel or any other stack you can immediatelly preview the sent email in NodemailerApp. The sent email is catched by NodemailerApp for good so it is not delivered to actual recipients which makes it fantastic for testing environments. If you ever need to access the sent emails from your own app you can do so by using POP3.
 
 ![](/screenshots/img03.png)
 
-4\. Message upload. Stored emails can be uploaded to SMTP (which means the email is being actually delivered to destination) or to an IMAP server (so it would end up in your actual email account).
+**4\.** **Message upload.** Stored emails can be uploaded to SMTP (which means the email is being actually delivered to destination) or to an IMAP server (so it would end up in your actual email account).
 
 ![](/screenshots/img04.png)
 
-5\. Extensive search. Search for emails or specific attachments or specific people. You can even search by every header value in every message as NodemailerApp indexes basically everything. Wanted to find that specific PDF file sent by your boss some time last year? NodemailerApp attachment search has you covered.
+**5\.** **Extensive search.** Search for emails or specific attachments or specific people. You can even search by every header value in every message as NodemailerApp indexes basically everything. Wanted to find that specific PDF file sent by your boss some time last year? NodemailerApp attachment search has you covered.
 
 ![](/screenshots/img06.png)
 ![](/screenshots/img05.png)
@@ -72,7 +72,7 @@ In Windows you can edit php.ini and set it to the value provided in the Local Se
 
 ![](/sendmail_win.png)
 
-Alternatively you can download <a href="https://nodemailer.com/sendmail-win.zip" target="_blank">Windows version of sendmail</a> as a separate application and place it wherever you like. Use the same arguments though as shown in the instructions section.
+> Alternatively you can download <a href="https://nodemailer.com/sendmail-win.zip" target="_blank">Windows version of sendmail</a> as a separate application and place it wherever you like. Use the same arguments though as shown in the instructions section.
 
 **OSX**
 
