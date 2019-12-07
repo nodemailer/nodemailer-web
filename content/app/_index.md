@@ -17,7 +17,7 @@ App includes local SMTP and POP3 servers, a sendmail replacement, catchall email
 
 ![](/screenshots/img01.png)
 
-You can use NodemailerApp to instantly preview emails sent from your dev environment, be it from SMTP or sendmail or even from open the web via built-in catchall service. You can also upload any email to an external SMTP or IMAP server. All SMTP, POP3 and IMAP transactions include live logs for extra clarity.
+You can use NodemailerApp to instantly preview emails sent from your dev environment, be it from SMTP or sendmail or even from the open web via built-in catchall service. You can also upload any email to an external SMTP or IMAP server. All SMTP, POP3 and IMAP transactions include live logs for extra clarity.
 
 <div style="text-align: center"><a href="https://downloads.nodemailer.com/download/osx" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (OSX)</a> <a href="https://downloads.nodemailer.com/download/win32" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (Windows)</a> <a href="https://snapcraft.io/nodemailerapp" target="_blank" class="btn btn-default"><i class="fas fa-arrow-right"></i> Snapcraft (Linux)</a></div>
 
