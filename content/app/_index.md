@@ -50,6 +50,8 @@ You can use NodemailerApp to instantly preview emails sent from your dev environ
 ![](/screenshots/img06.png)
 ![](/screenshots/img05.png)
 
+**6\.** **Catchall service.** App includes built-in support for catchall email domain service. Just enable it with a click and you get a custom domain name. All emails sent to this domain are routed to a project in your app.
+
 ### Using with XAMPP
 
 **Windows**
