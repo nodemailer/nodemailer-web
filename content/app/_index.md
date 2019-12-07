@@ -13,11 +13,11 @@ toc = true
 
 **NodemailerApp** is the ultimate cross platform email debugging app.
 
-App includes local SMTP and POP3 servers, a sendmail replacement, and it imports emails from EML files, EMLX files, large MBOX files from Gmail takeout, Maildir folders and Postfix queue files for inspection and preview. Ever wanted to view the actual HTML source of a nicely designed email instead of some garbled rfc822 text? Just open the HTML tab of an email to see it.
+App includes local SMTP and POP3 servers, a sendmail replacement, catchall email domain service, and it imports emails from EML files, EMLX files, large MBOX files from Gmail takeout, Maildir folders and Postfix queue files for inspection and preview. Ever wanted to view the actual HTML source of a nicely designed email instead of some garbled rfc822 text? Just open the HTML tab of an email to see it.
 
 ![](/screenshots/img01.png)
 
-You can use NodemailerApp to instantly preview emails sent from your dev environment, be it from SMTP or sendmail. You can also upload any email to an external SMTP or IMAP server. All SMTP, POP3 and IMAP transactions include live logs for extra clarity.
+You can use NodemailerApp to instantly preview emails sent from your dev environment, be it from SMTP or sendmail or even from open the web via built-in catchall service. You can also upload any email to an external SMTP or IMAP server. All SMTP, POP3 and IMAP transactions include live logs for extra clarity.
 
 <div style="text-align: center"><a href="https://downloads.nodemailer.com/download/osx" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (OSX)</a> <a href="https://downloads.nodemailer.com/download/win32" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (Windows)</a> <a href="https://snapcraft.io/nodemailerapp" target="_blank" class="btn btn-default"><i class="fas fa-arrow-right"></i> Snapcraft (Linux)</a></div>
 
@@ -102,3 +102,7 @@ For all available configuration options, run `/opt/lampp/sendmail --help`
 ##### <div style="text-align: center; padding: 20px 0;" id="xampp">Catch and preview emails from XAMPP OSX VM</div>
 
 <div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/0iO7cxWA_PU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+##### <div style="text-align: center; padding: 20px 0;" id="xampp">Use built-in catchall service to receive emails from the web</div>
+
+<div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/1lHDxv65lLc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
