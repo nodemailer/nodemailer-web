@@ -29,7 +29,7 @@ You can use NodemailerApp to instantly preview emails sent from your dev environ
 
 ### Features
 
-**1\.** **Preview emails** as these are being imported. You can start impoting a large 10GB mbox file from Gmail Takout and immediatelly start browsing emails that are already imported.
+**1\.** **Preview emails** as these are being imported. You can start importing a large 10GB mbox file from Gmail Takout and immediatelly start browsing emails that are already imported.
 
 ![](/screenshots/img01.png)
 
