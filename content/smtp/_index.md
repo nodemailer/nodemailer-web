@@ -138,7 +138,7 @@ If authentication data is not present, the connection is considered authenticate
 
 - **auth** is the authentication object
 
-  - **type** indicates the authetication type, defaults to 'login', other option is 'oauth2'
+  - **type** indicates the authentication type, defaults to 'login', other option is 'oauth2'
   - **user** is the username
   - **pass** is the password for the user if normal login is used
 
