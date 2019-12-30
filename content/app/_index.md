@@ -52,6 +52,8 @@ You can use NodemailerApp to instantly preview emails sent from your dev environ
 
 **6\.** **Catchall service.** App includes built-in support for catchall email domain service. Just enable it with a click and you get a custom domain name. All emails sent to this domain are routed to a project in your app.
 
+**7\.** **AMP4Email.** Preview dynamic AMP4Email emails. If something is wrong with the message then NodemailerApp shows you the exact cause of the failure unlike email services that just plainly ignore dynamic content on errors.
+
 ### Using with XAMPP
 
 **Windows**
@@ -108,3 +110,7 @@ For all available configuration options, run `/opt/lampp/sendmail --help`
 ##### <div style="text-align: center; padding: 20px 0;" id="xampp">Use built-in catchall service to receive emails from the web</div>
 
 <div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/1lHDxv65lLc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+
+##### <div style="text-align: center; padding: 20px 0;" id="xampp">Preview AMP4Emails</div>
+
+<div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/LFbXztDb03A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
