@@ -13,7 +13,7 @@ toc = true
 
 **NodemailerApp** is the ultimate cross platform email debugging app.
 
-App includes local SMTP and POP3 servers, a sendmail replacement, catchall email domain service, and it imports emails from EML files, EMLX files, large MBOX files from Gmail takeout, Maildir folders and Postfix queue files for inspection and preview. Ever wanted to view the actual HTML source of a nicely designed email instead of some garbled rfc822 text? Just open the HTML tab of an email to see it.
+App includes local SMTP and POP3 servers, a sendmail replacement, catchall email domain service, AMP4Email renderer and it imports emails from EML files, EMLX files, large MBOX files from Gmail takeout, Maildir folders and Postfix queue files for inspection and preview. Ever wanted to view the actual HTML source of a nicely designed email instead of some garbled rfc822 text? Just open the HTML tab of an email to see it.
 
 ![](/screenshots/img01.png)
 
