@@ -15,19 +15,19 @@
     <title>Message configuration :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1577716817" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1577716817" rel="stylesheet">
-    <link href="/css/hybrid.css?1577716817" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1577716817" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1577716817" rel="stylesheet">
-    <link href="/css/auto-complete.css?1577716817" rel="stylesheet">
-    <link href="/css/theme.css?1577716817" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1577716817" rel="stylesheet">
+    <link href="/css/nucleus.css?1577777777" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1577777777" rel="stylesheet">
+    <link href="/css/hybrid.css?1577777777" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1577777777" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1577777777" rel="stylesheet">
+    <link href="/css/auto-complete.css?1577777777" rel="stylesheet">
+    <link href="/css/theme.css?1577777777" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1577777777" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1577716817" rel="stylesheet">
+      <link href="/css/theme-blue.css?1577777777" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1577716817"></script>
+    <script src="/js/jquery-2.x.min.js?1577777777"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1109,6 +1109,8 @@
 
 
 
+<p></p>
+
 <h1 id="message-configuration">Message configuration</h1>
 
 <p>The following are the possible fields of an email message:</p>
@@ -1129,11 +1131,11 @@
 <p>A large majority of emails sent look a lot like this, using only a few basic fields:</p>
 
 <pre><code class="language-javascript">var message = {
-    from: 'sender@server.com',
-    to: 'receiver@sender.com',
-    subject: 'Message title',
-    text: 'Plaintext version of the message',
-    html: '&lt;p&gt;HTML version of the message&lt;/p&gt;'
+  from: &quot;sender@server.com&quot;,
+  to: &quot;receiver@sender.com&quot;,
+  subject: &quot;Message title&quot;,
+  text: &quot;Plaintext version of the message&quot;,
+  html: &quot;&lt;p&gt;HTML version of the message&lt;/p&gt;&quot;
 };
 </code></pre>
 
@@ -1157,7 +1159,7 @@ All text fields (email addresses, plaintext body, html body, attachment filename
 
 <ul>
 <li><strong>attachDataUrls</strong> – if true then convert <em>data:</em> images in the HTML content of this message to embedded attachments</li>
-<li><strong>watchHtml</strong> - Apple Watch specific HTML version of the message</li>
+<li><strong>watchHtml</strong> - Apple Watch specific HTML version of the message. Latest watches have no problems rendering text/html content so watchHtml is most probably never seen by the recipient.</li>
 <li><strong>amp</strong> - AMP4EMAIL specific HTML version of the message, same usage as with <code>text</code> and <code>html</code>. See AMP example <a href="#amp-example">below</a> for usage</li>
 </ul>
 
@@ -1204,11 +1206,11 @@ date: new Date('2000-01-01 00:00:00')
 **Memory leak warning!** When using readable streams as content and sending fails then Nodemailer does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer only closes the streams it has opened itself (eg. file paths, URLs)
 </div>
 
-<pre><code class="language-javascript">var htmlstream = fs.createReadStream('content.html');
+<pre><code class="language-javascript">var htmlstream = fs.createReadStream(&quot;content.html&quot;);
 transport.sendMail({ html: htmlstream }, function(err) {
-    if (err) {
-        // check if htmlstream is still open and close it to clean up
-    }
+  if (err) {
+    // check if htmlstream is still open and close it to clean up
+  }
 });
 </code></pre>
 
@@ -1907,20 +1909,20 @@ transport.sendMail({ html: htmlstream }, function(err) {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1577716817"></script>
-    <script src="/js/perfect-scrollbar.min.js?1577716817"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1577716817"></script>
-    <script src="/js/jquery.sticky.js?1577716817"></script>
-    <script src="/js/featherlight.min.js?1577716817"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1577716817"></script>
-    <script src="/js/highlight.pack.js?1577716817"></script>
+    <script src="/js/clipboard.min.js?1577777777"></script>
+    <script src="/js/perfect-scrollbar.min.js?1577777777"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1577777777"></script>
+    <script src="/js/jquery.sticky.js?1577777777"></script>
+    <script src="/js/featherlight.min.js?1577777777"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1577777777"></script>
+    <script src="/js/highlight.pack.js?1577777777"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1577716817"></script>
-    <script src="/js/learn.js?1577716817"></script>
-    <script src="/js/hugo-learn.js?1577716817"></script>
+    <script src="/js/modernizr.custom.71422.js?1577777777"></script>
+    <script src="/js/learn.js?1577777777"></script>
+    <script src="/js/hugo-learn.js?1577777777"></script>
 
-    <link href="/mermaid/mermaid.css?1577716817" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1577716817"></script>
+    <link href="/mermaid/mermaid.css?1577777777" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1577777777"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
