@@ -73,7 +73,7 @@ The following are the possible fields of an e-mail message:
 - **text** - The plaintext version of the message as an Unicode string, Buffer, Stream or an object _{path: '...'}_
 - **html** - The HTML version of the message as an Unicode string, Buffer, Stream or an object _{path: '...'}_
 - **watchHtml** - Apple Watch specific HTML version of the message, same usage as with `text` and `html`. Latest watches have no problems rendering text/html content so watchHtml is most probably never seen by the recipient
-- **amp** - AMP4EMAIL specific HTML version of the message, same usage as with `text` and `html`. Make sure it is a full and valid AMP4EMAIL document, otherwise the displaying email client falls back to `html` and ignores the `amp` part
+- **amp** - AMP4EMAIL specific HTML version of the message, same usage as with `text` and `html`. Make sure it is a full and valid AMP4EMAIL document, otherwise the displaying email client falls back to `html` and ignores the `amp` part. See [this blogpost](https://blog.nodemailer.com/2019/12/30/testing-amp4email-with-nodemailer/) for sending and rendering
 - **icalEvent** - iCalendar event, same usage as with `text` and `html`. Event `method` attribute defaults to 'PUBLISH' or define it yourself: `{method: 'REQUEST', content: iCalString}`. This value is added as an additional alternative to html or text. Only utf-8 content is allowed
 - **headers** - An object or array of additional header fields (e.g. _{"X-Key-Name": "key value"}_ or _[{key: "X-Key-Name", value: "val1"}, {key: "X-Key-Name", value: "val2"}]_)
 - **attachments** - An array of attachment objects (see [below](#attachments) for details)

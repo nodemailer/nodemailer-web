@@ -54,8 +54,8 @@ All text fields (email addresses, plaintext body, html body, attachment filename
 ##### Content options
 
 - **attachDataUrls** – if true then convert _data:_ images in the HTML content of this message to embedded attachments
-- **watchHtml** - Apple Watch specific HTML version of the message. Latest watches have no problems rendering text/html content so watchHtml is most probably never seen by the recipient.
-- **amp** - AMP4EMAIL specific HTML version of the message, same usage as with `text` and `html`. See AMP example [below](#amp-example) for usage
+- **watchHtml** - Apple Watch specific HTML version of the message. Latest watches have no problems rendering text/html content so watchHtml is most probably never seen by the recipient
+- **amp** - AMP4EMAIL specific HTML version of the message, same usage as with `text` and `html`. See AMP example [below](#amp-example) for usage or [this blogpost](https://blog.nodemailer.com/2019/12/30/testing-amp4email-with-nodemailer/) for sending and rendering
 
 {{% notice info %}}
 When using `amp` then make sure it is a full and valid AMP4EMAIL document, otherwise the displaying email client most probably falls back to `html` and ignores the `amp` part. Validate your AMP4EMAIL content [here](https://validator.ampproject.org/#htmlFormat=AMP4EMAIL)
