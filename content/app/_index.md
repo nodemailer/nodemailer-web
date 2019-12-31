@@ -54,6 +54,9 @@ You can use NodemailerApp to instantly preview emails sent from your dev environ
 
 **7\.** **AMP4Email.** Preview dynamic AMP4Email emails. If something is wrong with the message then NodemailerApp shows you the exact cause of the failure unlike email services that just plainly ignore dynamic content on errors. See [this blog post](https://blog.nodemailer.com/2019/12/30/testing-amp4email-with-nodemailer/) for usage example.
 
+![](/screenshots/img07.png)
+![](/screenshots/img08.png)
+
 ### Using with XAMPP
 
 **Windows**
