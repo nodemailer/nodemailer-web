@@ -15,19 +15,19 @@
     <title>OAuth2 :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
-    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
-    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
-    <link href="/css/theme.css?1586509083" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509555" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509555" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509555" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509555" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509555" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509555" rel="stylesheet">
+    <link href="/css/theme.css?1586509555" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509555" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509555" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1586509083"></script>
+    <script src="/js/jquery-2.x.min.js?1586509555"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1145,7 +1145,9 @@
 <li><a href="#examples">Examples</a></li>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 </ol>
-<!-- raw HTML omitted -->
+<div class="notices tip" >
+Nodemailer requires an **Access Token** to perform authentication. 3-legged and 2-legged OAuth2 mechanisms are different ways to produce such tokens but in the end it does not matter how a token was exactly generated, as long as it is valid.
+</div>
 <h3 id="oauth-3lo">3-legged OAuth2 authentication</h3>
 <p>This is the &ldquo;normal&rdquo; way of obtaining access tokens. Your application requests permissions from the client and gets a refresh token in return that can be used to generate new access tokens.</p>
 <ul>
@@ -1267,7 +1269,9 @@
 });
 </code></pre></div><h4 id="example-5">5. Provide authentication details with message options</h4>
 <p>This example demonstrates how to authenticate every message separately. This is mostly useful if you provide an email application that sends mail for multiple users. Instead of creating a new transporter for every message, create it just once and provide dynamic details with the message options.</p>
-<!-- raw HTML omitted -->
+<div class="notices info" >
+Per-message specific authentication does not work in pooled mode
+</div>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
@@ -1998,20 +2002,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1586509083"></script>
-    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
-    <script src="/js/jquery.sticky.js?1586509083"></script>
-    <script src="/js/featherlight.min.js?1586509083"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
-    <script src="/js/highlight.pack.js?1586509083"></script>
+    <script src="/js/clipboard.min.js?1586509555"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509555"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509555"></script>
+    <script src="/js/jquery.sticky.js?1586509555"></script>
+    <script src="/js/featherlight.min.js?1586509555"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509555"></script>
+    <script src="/js/highlight.pack.js?1586509555"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
-    <script src="/js/learn.js?1586509083"></script>
-    <script src="/js/hugo-learn.js?1586509083"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509555"></script>
+    <script src="/js/learn.js?1586509555"></script>
+    <script src="/js/hugo-learn.js?1586509555"></script>
 
-    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1586509083"></script>
+    <link href="/mermaid/mermaid.css?1586509555" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509555"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

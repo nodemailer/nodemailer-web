@@ -18,7 +18,7 @@
       
       <guid>https://nodemailer.com/extras/smtp-server/</guid>
       <description>Create SMTP and LMTP server instances on the fly. This is not a full-blown server application like Haraka but an easy way to add custom SMTP listeners to your app. This module is the successor for the server part of the (now deprecated) SMTP module simplesmtp. For matching SMTP client see smtp-connection.
-Usage Step 1. Install with npm npm install smtp-server --save Step 2. Require in your script const SMTPServer = require(&amp;#34;smtp-server&amp;#34;).</description>
+This module does not make any email deliveries by itself. _smtp-server_ allows you to listen on ports 25/24/465/587 etc.</description>
     </item>
     
     <item>

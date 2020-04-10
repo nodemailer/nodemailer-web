@@ -15,19 +15,19 @@
     <title>SMTP Server :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1586509082" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1586509082" rel="stylesheet">
-    <link href="/css/hybrid.css?1586509082" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1586509082" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1586509082" rel="stylesheet">
-    <link href="/css/auto-complete.css?1586509082" rel="stylesheet">
-    <link href="/css/theme.css?1586509082" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1586509082" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509555" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509555" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509555" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509555" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509555" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509555" rel="stylesheet">
+    <link href="/css/theme.css?1586509555" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509555" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1586509082" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509555" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1586509082"></script>
+    <script src="/js/jquery-2.x.min.js?1586509555"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1154,7 +1154,9 @@
 
 
 <p>Create SMTP and LMTP server instances on the fly. This is not a full-blown server application like <a href="https://haraka.github.io/">Haraka</a> but an easy way to add custom SMTP listeners to your app. This module is the successor for the server part of the (now deprecated) SMTP module <a href="https://www.npmjs.com/package/simplesmtp">simplesmtp</a>. For matching SMTP client see <a href="/extras/smtp-connection/">smtp-connection</a>.</p>
-<!-- raw HTML omitted -->
+<div class="notices note" >
+This module does not make any email deliveries by itself. _smtp-server_ allows you to listen on ports 25/24/465/587 etc. using SMTP or LMTP protocol and that's it. Your own application is responsible of accepting and delivering the message to destination.
+</div>
 <h2 id="usage">Usage</h2>
 <h4 id="step-1-install-with-npm">Step 1. Install with npm</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install smtp-server --save
@@ -2195,20 +2197,20 @@ C: RCPT TO:&lt;recipient@example.com&gt; NOTIFY=NEVER
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1586509083"></script>
-    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
-    <script src="/js/jquery.sticky.js?1586509083"></script>
-    <script src="/js/featherlight.min.js?1586509083"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
-    <script src="/js/highlight.pack.js?1586509083"></script>
+    <script src="/js/clipboard.min.js?1586509555"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509555"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509555"></script>
+    <script src="/js/jquery.sticky.js?1586509555"></script>
+    <script src="/js/featherlight.min.js?1586509555"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509555"></script>
+    <script src="/js/highlight.pack.js?1586509555"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
-    <script src="/js/learn.js?1586509083"></script>
-    <script src="/js/hugo-learn.js?1586509083"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509555"></script>
+    <script src="/js/learn.js?1586509555"></script>
+    <script src="/js/hugo-learn.js?1586509555"></script>
 
-    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1586509083"></script>
+    <link href="/mermaid/mermaid.css?1586509555" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509555"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
