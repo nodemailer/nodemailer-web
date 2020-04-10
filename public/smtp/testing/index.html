@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Testing SMTP :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,19 +1105,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#examples">Examples</a>
-<ul>
-<li><a href="#create-a-testing-account-on-the-fly">Create a testing account on the fly</a></li>
-<li><a href="#use-environment-specific-smtp-settings">Use environment specific SMTP settings</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#examples">Examples</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1136,73 +1130,55 @@
         
 
 
-
-
 <p>When building complex applications then sooner or later you end up in a situation where you need to send emails from your application in test environment but do not want to accidentally spam anyone.</p>
-
 <p>One solution would be to separate development email addresses and use only some specific testing address to send all mail to but a better approach would be to use a separate email catching service that accepts all messages like a normal transactional SMTP service would but instead of delivering these to destination, it only logs these messages.</p>
-
 <p>There are several options for using such a service, Nodemailer has built-in support for <a href="https://ethereal.email">Ethereal Email</a>. You can create new testing account on the fly by using the <code>createTestAccount</code> method or from the Ethereal homepage.</p>
-
 <h3 id="examples">Examples</h3>
-
 <h4 id="create-a-testing-account-on-the-fly">Create a testing account on the fly</h4>
-
 <p><strong>NB!</strong> Do not forget to store these credentials somewhere if you want to browse sent messages at <a href="https://ethereal.email">ethereal.email</a></p>
-
-<pre><code class="language-javascript">nodemailer.createTestAccount((err, account) =&gt; {
-    // create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
-        secure: false, // true for 465, false for other ports
-        auth: {
-            user: account.user, // generated ethereal user
-            pass: account.pass  // generated ethereal password
-        }
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTestAccount</span>((<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">account</span>) =&gt; {
+    <span style="color:#75715e">// create reusable transporter object using the default SMTP transport
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+        <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.ethereal.email&#39;</span>,
+        <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">587</span>,
+        <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#75715e">// true for 465, false for other ports
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">user</span>, <span style="color:#75715e">// generated ethereal user
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">pass</span>  <span style="color:#75715e">// generated ethereal password
+</span><span style="color:#75715e"></span>        }
     });
 });
-</code></pre>
-
-<h4 id="use-environment-specific-smtp-settings">Use environment specific SMTP settings</h4>
-
+</code></pre></div><h4 id="use-environment-specific-smtp-settings">Use environment specific SMTP settings</h4>
 <p>This example assumes you have already generated as user account at Ethereal. You can do this for example from the <a href="https://ethereal.email/login">login page</a> or re-use the credentials created in the previous example.</p>
-
-<pre><code class="language-javascript">var mailConfig;
-if (process.env.NODE_ENV === 'production' ){
-    // all emails are delivered to destination
-    mailConfig = {
-        host: 'smtp.sendgrid.net',
-        port: 587,
-        auth: {
-            user: 'real.user',
-            pass: 'verysecret'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mailConfig</span>;
+<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">NODE_ENV</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;production&#39;</span> ){
+    <span style="color:#75715e">// all emails are delivered to destination
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">mailConfig</span> <span style="color:#f92672">=</span> {
+        <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.sendgrid.net&#39;</span>,
+        <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">587</span>,
+        <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;real.user&#39;</span>,
+            <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;verysecret&#39;</span>
         }
     };
-} else {
-    // all emails are catched by ethereal.email
-    mailConfig = {
-        host: 'smtp.ethereal.email',
-        port: 587,
-        auth: {
-            user: 'ethereal.user@ethereal.email',
-            pass: 'verysecret'
+} <span style="color:#66d9ef">else</span> {
+    <span style="color:#75715e">// all emails are catched by ethereal.email
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">mailConfig</span> <span style="color:#f92672">=</span> {
+        <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.ethereal.email&#39;</span>,
+        <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">587</span>,
+        <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+            <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ethereal.user@ethereal.email&#39;</span>,
+            <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;verysecret&#39;</span>
         }
     };
 }
-let transporter = nodemailer.createTransport(mailConfig);
-</code></pre>
-
-<p>Sending a message to Ethereal gives you a link to the stored message. You can either get the link using <code>getTestMessageUrl</code> method or log in to Ethereal and open the Messages section.</p>
-
-<pre><code class="language-javascript">transporter.sendMail(...).then(info=&gt;{
-    console.log('Preview URL: ' + nodemailer.getTestMessageUrl(info));
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>(<span style="color:#a6e22e">mailConfig</span>);
+</code></pre></div><p>Sending a message to Ethereal gives you a link to the stored message. You can either get the link using <code>getTestMessageUrl</code> method or log in to Ethereal and open the Messages section.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>(...).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">info</span>=&gt;{
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Preview URL: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">getTestMessageUrl</span>(<span style="color:#a6e22e">info</span>));
 });
-</code></pre>
-
-<p>Output of the the <a href="https://github.com/nodemailer/nodemailer/blob/master/examples/full.js">example script</a> as shown by the <a href="https://ethereal.email/">Ethereal</a> mail catching service:</p>
-
-<p><img src="https://cldup.com/D5Cj_C1Vw3.png" alt="" /></p>
+</code></pre></div><p>Output of the the <a href="https://github.com/nodemailer/nodemailer/blob/master/examples/full.js">example script</a> as shown by the <a href="https://ethereal.email/">Ethereal</a> mail catching service:</p>
+<p><img src="https://cldup.com/D5Cj_C1Vw3.png" alt=""></p>
 
 
 <footer class=" footline" >
@@ -1877,20 +1853,20 @@ let transporter = nodemailer.createTransport(mailConfig);
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

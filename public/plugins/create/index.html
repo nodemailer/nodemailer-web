@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Create plugins :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,40 +1105,29 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#including-plugins">Including plugins</a></li>
-<li><a href="#plugin-api">Plugin API</a>
-<ul>
-<li><a href="#resolvecontent">resolveContent()</a>
-<ul>
-<li><a href="#example">Example</a></li>
-</ul></li>
-<li><a href="#compile">&lsquo;compile&rsquo;</a>
-<ul>
-<li><a href="#example-1">Example</a></li>
-</ul></li>
-<li><a href="#stream">&lsquo;stream&rsquo;</a>
-<ul>
-<li><a href="#example-2">Example</a></li>
-<li><a href="#example-3">Example</a></li>
-</ul></li>
-<li><a href="#message-transform">message.transform()</a></li>
-<li><a href="#message-getaddresses">message.getAddresses()</a></li>
-</ul></li>
-<li><a href="#transports">Transports</a>
-<ul>
-<li><a href="#transport-name">transport.name</a></li>
-<li><a href="#transport-version">transport.version</a></li>
-<li><a href="#transport-send-mail-callback">transport.send(mail, callback)</a></li>
-<li><a href="#transport-close">transport.close()</a></li>
-<li><a href="#transport-isidle">transport.isIdle()</a></li>
-<li><a href="#transport-example">Transport Example</a></li>
-</ul></li>
-<li><a href="#wrapping-up">Wrapping up</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#including-plugins">Including plugins</a></li>
+    <li><a href="#plugin-api">Plugin API</a>
+      <ul>
+        <li><a href="#resolvecontent">resolveContent()</a></li>
+        <li><a href="#compile">&lsquo;compile&rsquo;</a></li>
+        <li><a href="#stream">&lsquo;stream&rsquo;</a></li>
+        <li><a href="#messagetransform">message.transform()</a></li>
+        <li><a href="#messagegetaddresses">message.getAddresses()</a></li>
+      </ul>
+    </li>
+    <li><a href="#transports">Transports</a>
+      <ul>
+        <li><a href="#transportname">transport.name</a></li>
+        <li><a href="#transportversion">transport.version</a></li>
+        <li><a href="#transportsendmail-callback">transport.send(mail, callback)</a></li>
+        <li><a href="#transportclose">transport.close()</a></li>
+        <li><a href="#transportisidle">transport.isIdle()</a></li>
+        <li><a href="#transport-example">Transport Example</a></li>
+      </ul>
+    </li>
+    <li><a href="#wrapping-up">Wrapping up</a></li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1157,156 +1146,104 @@
         
 
 
-
-
 <p>There are 3 stages a plugin can hook to:</p>
-
 <ol>
 <li><strong>&lsquo;compile&rsquo;</strong> is the step where email data is set but nothing has been done with it yet. At this step you can modify mail options, for example modify <strong>html</strong> content, add new headers etc.</li>
 <li><strong>&lsquo;stream&rsquo;</strong> is the step where message tree has been compiled and is ready to be streamed. At this step you can modify the generated MIME tree or add a transform stream that the generated raw email will be piped through before passed to the transport object</li>
 <li><strong>Transport</strong> step where the raw email is streamed to destination</li>
 </ol>
-
 <h2 id="including-plugins">Including plugins</h2>
-
 <p>&lsquo;compile&rsquo; and &lsquo;stream&rsquo; plugins can be attached with <code>use(plugin)</code> method</p>
-
-<pre><code class="language-javascript">transporter.use(step, pluginFunc)
-</code></pre>
-
-<p>Where</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">step</span>, <span style="color:#a6e22e">pluginFunc</span>)
+</code></pre></div><p>Where</p>
 <ul>
 <li><strong>transporter</strong> is a transport object created with <strong>createTransport()</strong></li>
 <li><strong>step</strong> is a string, either <em>&lsquo;compile&rsquo;</em> or <em>&lsquo;stream&rsquo;</em> that defines when the plugin should be hooked</li>
 <li><strong>pluginFunc</strong> is a function that takes two arguments: the mail object and a callback function</li>
 </ul>
-
 <h2 id="plugin-api">Plugin API</h2>
-
 <p>All plugins (including transports) get two arguments, the mail object and a callback function.</p>
-
 <p>Mail object that is passed to the plugin function as the first argument is an object with the following properties:</p>
-
 <ul>
 <li><strong>data</strong> is the mail data object that is passed to the <strong>sendMail()</strong> method</li>
 <li><strong>message</strong> is the MimeNode object of the message. This is available for the &lsquo;stream&rsquo; step and for the transport but not for &lsquo;compile&rsquo;.</li>
 <li><strong>resolveContent</strong> is a helper function for converting Nodemailer compatible stream objects into Strings or Buffers</li>
 </ul>
-
 <h3 id="resolvecontent">resolveContent()</h3>
-
 <p>If your plugin needs to get the full value of a param, for example the String value for the <strong>html</strong> content, you can use <strong>resolveContent()</strong> to convert Nodemailer compatible content objects to Strings or Buffers.</p>
-
-<pre><code class="language-javascript">mail.resolveContent(obj, key, callback)
-</code></pre>
-
-<p>Where</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">resolveContent</span>(<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">callback</span>)
+</code></pre></div><p>Where</p>
 <ul>
 <li><strong>obj</strong> is an object that has a property you want to convert to a String or a Buffer</li>
 <li><strong>key</strong> is the name of the property you want to convert</li>
 <li><strong>callback</strong> is the callback function with <em>(err, value)</em> where <strong>value</strong> is either a String or Buffer, depending on the input</li>
 </ul>
-
 <h4 id="example">Example</h4>
-
-<pre><code class="language-javascript">function plugin(mail, callback) {
-    // if mail.data.html is a file or an url, it is returned as a Buffer
-    mail.resolveContent(mail.data, 'html', (err, html) =&gt; {
-        if(err){
-            return callback(err);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">plugin</span>(<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) {
+    <span style="color:#75715e">// if mail.data.html is a file or an url, it is returned as a Buffer
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">resolveContent</span>(<span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">data</span>, <span style="color:#e6db74">&#39;html&#39;</span>, (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">html</span>) =&gt; {
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">err</span>){
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">err</span>);
         }
-        console.log('HTML contents: %s', html.toString());
-        callback();
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;HTML contents: %s&#39;</span>, <span style="color:#a6e22e">html</span>.<span style="color:#a6e22e">toString</span>());
+        <span style="color:#a6e22e">callback</span>();
     });
 };
-</code></pre>
-
-<h3 id="compile">&lsquo;compile&rsquo;</h3>
-
+</code></pre></div><h3 id="compile">&lsquo;compile&rsquo;</h3>
 <p>Compile step plugins get only the <strong>mail.data</strong> object but not <strong>mail.message</strong>. If you need to access the latter as well, use <em>&lsquo;stream&rsquo;</em> step instead.</p>
-
 <p>This is really straightforward, your plugin can modify the <strong>mail.data</strong> object at will and once everything is finished run the callback function. If the callback gets an error object as an argument, then the process is terminated and the error is returned to the <strong>sendMail()</strong> callback.</p>
-
 <h4 id="example-1">Example</h4>
-
 <p>The following plugin checks if <strong>text</strong> value is set and if not converts <strong>html</strong> value by removing all html tags.</p>
-
-<pre><code class="language-javascript">transporter.use('compile', (mail, callback) =&gt; {
-    if(!mail.data.text &amp;&amp; mail.data.html){
-        mail.data.text = mail.data.html.replace(/&lt;[^&gt;]*&gt;/g, ' ');
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;compile&#39;</span>, (<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">text</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">html</span>){
+        <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">text</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">html</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/&lt;[^&gt;]*&gt;/g</span>, <span style="color:#e6db74">&#39; &#39;</span>);
     }
-    callback();
+    <span style="color:#a6e22e">callback</span>();
 });
-</code></pre>
-
-<h3 id="stream">&lsquo;stream&rsquo;</h3>
-
+</code></pre></div><h3 id="stream">&lsquo;stream&rsquo;</h3>
 <p>Streaming step is invoked once the message structure is built and ready to be streamed to the transport. Plugin function does get <strong>mail.data</strong> as an argument but it is included just for the reference, modifying it should not change anything (unless the transport requires something from the <strong>mail.data</strong>, for example <strong>mail.data.envelope</strong>).</p>
-
 <p>You can modify the <strong>mail.message</strong> object as you like, the message is not yet streaming anything (message starts streaming when the transport calls <strong>mail.message.createReadStream()</strong>).</p>
-
 <p>In most cases you might be interested in the <strong>message.transform()</strong> method for applying transform streams to the raw message.</p>
-
 <h4 id="example-2">Example</h4>
-
 <p>The following plugin replaces all tabs with spaces in the raw message.</p>
-
-<pre><code class="language-javascript">let transformer = new (require('stream').Transform)();
-transformer._transform = (chunk, encoding, done) =&gt; {
-    // replace all tabs with spaces in the stream chunk
-    for(let i = 0; i &lt; chunk.length; i++){
-        if(chunk[i] === 0x09){
-            chunk[i] = 0x20;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transformer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> (<span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;stream&#39;</span>).<span style="color:#a6e22e">Transform</span>)();
+<span style="color:#a6e22e">transformer</span>.<span style="color:#a6e22e">_transform</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">chunk</span>, <span style="color:#a6e22e">encoding</span>, <span style="color:#a6e22e">done</span>) =&gt; {
+    <span style="color:#75715e">// replace all tabs with spaces in the stream chunk
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">chunk</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
+        <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">chunk</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">===</span> <span style="color:#ae81ff">0x09</span>){
+            <span style="color:#a6e22e">chunk</span>[<span style="color:#a6e22e">i</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x20</span>;
         }
     }
-    this.push(chunk);
-    done();
+    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">chunk</span>);
+    <span style="color:#a6e22e">done</span>();
 };
 
-transporter.use('stream', (mail, callback) =&gt; {
-    // apply output transformer to the raw message stream
-    mail.message.transform(transformer);
-    callback();
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;stream&#39;</span>, (<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+    <span style="color:#75715e">// apply output transformer to the raw message stream
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">transform</span>(<span style="color:#a6e22e">transformer</span>);
+    <span style="color:#a6e22e">callback</span>();
 });
-</code></pre>
-
-<p>Additionally you might be interested in the <strong>message.getAddresses()</strong> method that returns the contents for all address fields as structured objects.</p>
-
+</code></pre></div><p>Additionally you might be interested in the <strong>message.getAddresses()</strong> method that returns the contents for all address fields as structured objects.</p>
 <h4 id="example-3">Example</h4>
-
 <p>The following plugin prints address information to console.</p>
-
-<pre><code class="language-javascript">transporter.use('stream', function(mail, callback) =&gt; {
-    let addresses = mail.message.getAddresses();
-    console.log('From: %s', JSON.stringify(addresses.from));
-    console.log('To: %s', JSON.stringify(addresses.to));
-    console.log('Cc: %s', JSON.stringify(addresses.cc));
-    console.log('Bcc: %s', JSON.stringify(addresses.bcc));
-    callback();
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;stream&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">addresses</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">getAddresses</span>();
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;From: %s&#39;</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">addresses</span>.<span style="color:#a6e22e">from</span>));
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;To: %s&#39;</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">addresses</span>.<span style="color:#a6e22e">to</span>));
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Cc: %s&#39;</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">addresses</span>.<span style="color:#a6e22e">cc</span>));
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Bcc: %s&#39;</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">addresses</span>.<span style="color:#a6e22e">bcc</span>));
+    <span style="color:#a6e22e">callback</span>();
 });
-</code></pre>
-
-<h3 id="message-transform">message.transform()</h3>
-
+</code></pre></div><h3 id="messagetransform">message.transform()</h3>
 <p>If you want to modify the created stream, you can add transform streams that the output will be piped through.</p>
-
-<pre><code class="language-javascript">mail.message.transform(transformStream)
-</code></pre>
-
-<p>Where</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">transform</span>(<span style="color:#a6e22e">transformStream</span>)
+</code></pre></div><p>Where</p>
 <ul>
 <li><strong>transformStream</strong> - <em>Stream</em> or <em>Function</em> Transform stream that the output will go through. If the value is a function the function should return a transform stream object when called.</li>
 </ul>
-
-<h3 id="message-getaddresses">message.getAddresses()</h3>
-
+<h3 id="messagegetaddresses">message.getAddresses()</h3>
 <p>Returns an address container object. Includes all parsed addresses from <em>From</em>, <em>Sender</em>, <em>To</em>, <em>Cc</em>, <em>Bcc</em> and <em>Reply-To</em> fields. All returned values are arrays, including <code>from</code>.</p>
-
 <p>Possible return values (all arrays in the form of <code>[{name:'', address:''}]</code>):</p>
-
 <ul>
 <li><strong>from</strong></li>
 <li><strong>sender</strong></li>
@@ -1315,113 +1252,79 @@ transporter.use('stream', (mail, callback) =&gt; {
 <li><strong>cc</strong></li>
 <li><strong>bcc</strong></li>
 </ul>
-
 <p>If no addresses were found for a particular field, the field is not set in the response object.</p>
-
 <h2 id="transports">Transports</h2>
-
 <p>Transports are objects that have a method <strong>send()</strong> and properies <strong>name</strong> and <strong>version</strong>. A transport object is passed to the <code>nodemailer.createTransport(transport)</code> method to create the transporter object.</p>
-
-<h3 id="transport-name">transport.name</h3>
-
+<h3 id="transportname">transport.name</h3>
 <p>This is the name of the transport object. For example &lsquo;SMTP&rsquo; or &lsquo;SES&rsquo; etc.</p>
-
-<pre><code class="language-javascript">transport.name = require('package.json').name;
-</code></pre>
-
-<h3 id="transport-version">transport.version</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;package.json&#39;</span>).<span style="color:#a6e22e">name</span>;
+</code></pre></div><h3 id="transportversion">transport.version</h3>
 <p>This should be the transport module version. For example &lsquo;0.1.0&rsquo;.</p>
-
-<pre><code class="language-javascript">transport.version = require('package.json').version;
-</code></pre>
-
-<h3 id="transport-send-mail-callback">transport.send(mail, callback)</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">version</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;package.json&#39;</span>).<span style="color:#a6e22e">version</span>;
+</code></pre></div><h3 id="transportsendmail-callback">transport.send(mail, callback)</h3>
 <p>This is the method that actually sends out emails. The method is basically the same as &lsquo;stream&rsquo; plugin functions. It gets two arguments: <strong>mail</strong> and a callback. To start streaming the message, create the stream with <strong>mail.message.createReadStream()</strong></p>
-
 <p>Callback function should return an <strong>info</strong> object as the second argument. This info object should contain and <strong>envelope</strong> object with envelope data and a <strong>messageId</strong> value with the Message-Id header (including the surrounding &lt; &amp; &gt; brackets),</p>
-
 <p>The following example pipes the raw stream from Nodemailer to the console.</p>
-
-<pre><code class="language-javascript">transport.send = (mail, callback) =&gt; {
-    let input = mail.message.createReadStream();
-    let envelope = mail.message.getEnvelope();
-    let messageId = mail.message.messageId();
-    input.pipe(process.stdout);
-    input.on('end', function() {
-        callback(null, {
-            envelope,
-            messageId
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">send</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">createReadStream</span>();
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">envelope</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">getEnvelope</span>();
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">messageId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">messageId</span>();
+    <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdout</span>);
+    <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;end&#39;</span>, <span style="color:#66d9ef">function</span>() {
+        <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, {
+            <span style="color:#a6e22e">envelope</span>,
+            <span style="color:#a6e22e">messageId</span>
         });
     });
 };
-</code></pre>
-
-<h3 id="transport-close">transport.close()</h3>
-
+</code></pre></div><h3 id="transportclose">transport.close()</h3>
 <p>If your transport needs to be closed explicitly, you can implement a <strong>close()</strong> method.</p>
-
 <p>This is purely optional feature and only makes sense in special contexts (eg. closing a SMTP pool).</p>
-
-<pre><code class="language-javascript">transport.close = () =&gt; {
-    transport.pool = null;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">close</span> <span style="color:#f92672">=</span> () =&gt; {
+    <span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">pool</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
 };
-</code></pre>
-
-<h3 id="transport-isidle">transport.isIdle()</h3>
-
+</code></pre></div><h3 id="transportisidle">transport.isIdle()</h3>
 <p>If your transport is able to notify about idling state by issuing <em>&lsquo;idle&rsquo;</em> events then this method should return if the transport is still idling or not.</p>
-
-<pre><code class="language-javascript">transport.idling = true;
-transport.isIdle = () =&gt; transport.idling;
-transport.send = (mail, callback) =&gt; {
-    transport.idling = false;
-    sendMail(mail, ()=&gt;{
-        transport.idling = true;
-        transport.emit('idle');
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">idling</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+<span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">isIdle</span> <span style="color:#f92672">=</span> () =&gt; <span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">idling</span>;
+<span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">send</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+    <span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">idling</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+    <span style="color:#a6e22e">sendMail</span>(<span style="color:#a6e22e">mail</span>, ()=&gt;{
+        <span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">idling</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+        <span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">emit</span>(<span style="color:#e6db74">&#39;idle&#39;</span>);
     });
 };
-</code></pre>
-
-<h3 id="transport-example">Transport Example</h3>
-
+</code></pre></div><h3 id="transport-example">Transport Example</h3>
 <p>This example creates and uses a transport object that pipes the raw message to console</p>
-
-<pre><code class="language-javascript">let transport = {
-    name: 'minimal',
-    version: '0.1.0',
-    send: (mail, callback) =&gt; {
-        let input = mail.message.createReadStream();
-        input.pipe(process.stdout);
-        input.on('end', function () {
-            callback(null, true);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transport</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;minimal&#39;</span>,
+    <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;0.1.0&#39;</span>,
+    <span style="color:#a6e22e">send</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">createReadStream</span>();
+        <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdout</span>);
+        <span style="color:#a6e22e">input</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;end&#39;</span>, <span style="color:#66d9ef">function</span> () {
+            <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">true</span>);
         });
     }
 };
 
-let transporter = nodemailer.createTransport(transport);
-transporter.sendMail({
-    from: 'sender',
-    to: 'receiver',
-    subject: 'hello',
-    text: 'hello world!'
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>(<span style="color:#a6e22e">transport</span>);
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>({
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;receiver&#39;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hello&#39;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hello world!&#39;</span>
 });
-</code></pre>
-
-<h2 id="wrapping-up">Wrapping up</h2>
-
+</code></pre></div><h2 id="wrapping-up">Wrapping up</h2>
 <p>Once you have a transport object, you can create a mail transporter out of it.</p>
-
-<pre><code class="language-javascript">let transport = require('some-transport-method');
-let transporter = nodemailer.createTransport(transport);
-transporter.sendMail({
-    from: '...',
-    to: '...',
-    message
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transport</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;some-transport-method&#39;</span>);
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>(<span style="color:#a6e22e">transport</span>);
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>({
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;...&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;...&#39;</span>,
+    <span style="color:#a6e22e">message</span>
 });
-</code></pre>
-
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -2092,20 +1995,20 @@ transporter.sendMail({
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

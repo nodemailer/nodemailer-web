@@ -18,7 +18,7 @@
       
       <guid>https://nodemailer.com/extras/smtp-server/</guid>
       <description>Create SMTP and LMTP server instances on the fly. This is not a full-blown server application like Haraka but an easy way to add custom SMTP listeners to your app. This module is the successor for the server part of the (now deprecated) SMTP module simplesmtp. For matching SMTP client see smtp-connection.
-This module does not make any email deliveries by itself. _smtp-server_ allows you to listen on ports 25/24/465/587 etc.</description>
+Usage Step 1. Install with npm npm install smtp-server --save Step 2. Require in your script const SMTPServer = require(&amp;#34;smtp-server&amp;#34;).</description>
     </item>
     
     <item>
@@ -30,7 +30,7 @@ This module does not make any email deliveries by itself. _smtp-server_ allows y
       <description>SMTP client module to connect to SMTP servers and send mail with it.
 This module is the successor for the client part of the (now deprecated) SMTP module simplesmtp. For matching SMTP server see smtp-server.
 Usage Step 1. Install Nodemailer with npm smtp-connection is exposed as a submodule of Nodemailer
-npm install nodemailer --save  Step 2. Require smtp-connection in your script const SMTPConnection = require(&amp;quot;nodemailer/lib/smtp-connection&amp;quot;);  Step 3. Create SMTPConnection instance let connection = new SMTPConnection(options);  Where</description>
+npm install nodemailer --save Step 2. Require smtp-connection in your script const SMTPConnection = require(&amp;#34;nodemailer/lib/smtp-connection&amp;#34;); Step 3. Create SMTPConnection instance let connection = new SMTPConnection(options); Where</description>
     </item>
     
     <item>
@@ -52,7 +52,7 @@ npm install nodemailer --save  Step 2. Require smtp-connection in your script co
       <guid>https://nodemailer.com/extras/mailparser/</guid>
       <description>Advanced email parser for Node.js. Everything is handled as a stream which should make it able to parse even very large messages (100MB+) with relatively low overhead.
 The module exposes two separate modes, a lower level MailParser class and simpleParser function. The latter is simpler to use (hence the name) but is less resource efficient as it buffers attachment contents in memory.
-Install npm install mailparser --save  simpleParser simpleParser is the easiest way to parse emails.</description>
+Install npm install mailparser --save simpleParser simpleParser is the easiest way to parse emails.</description>
     </item>
     
     <item>
@@ -72,9 +72,10 @@ Keeping a lower level infrastructure module under a restrictive license has turn
       <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
       
       <guid>https://nodemailer.com/extras/mailcomposer/</guid>
-      <description>Generate RFC822 formatted e-mail messages that can be streamed to SMTP or file.
+      <description>\
+Generate RFC822 formatted e-mail messages that can be streamed to SMTP or file.
 Usage Step 1. Install Nodemailer with npm mailcomposer is exposed as a submodule of Nodemailer
-npm install nodemailer --save  Step 2. Require mailcomposer in your script const MailComposer = require(&amp;quot;nodemailer/lib/mail-composer&amp;quot;);  Step 3. Create a new MailComposer instance var mail = new MailComposer(mailOptions);  Where mailOptions is an object that defines the components of the message, see below</description>
+npm install nodemailer --save Step 2. Require mailcomposer in your script const MailComposer = require(&amp;#34;nodemailer/lib/mail-composer&amp;#34;); Step 3. Create a new MailComposer instance var mail = new MailComposer(mailOptions); Where mailOptions is an object that defines the components of the message, see below</description>
     </item>
     
     <item>
@@ -135,7 +136,7 @@ Attachment object consists of the following properties:
       
       <guid>https://nodemailer.com/message/alternatives/</guid>
       <description>In addition to text and HTML, any kind of data can be inserted as an alternative content of the main body - for example a word processing document with the same text as in the HTML field. It is the job of the email client to select and show the best fitting alternative to the reader. Usually this field is used for calendar events and such.
-If you want to use a calendar event as the alternative, the consider using the **icalEvent** option instead.</description>
+Alternative objects use the same options as attachment objects.</description>
     </item>
     
     <item>
@@ -145,8 +146,7 @@ If you want to use a calendar event as the alternative, the consider using the *
       
       <guid>https://nodemailer.com/message/addresses/</guid>
       <description>All email addresses can be plain email addresses
-&#39;foobar@example.com&#39;   or with formatted name (includes unicode support)
-&#39;Ноде Майлер &amp;lt;foobar@example.com&amp;gt;&#39;   Notice that all address fields (even *from:*) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: `&#39;&#34;Майлер, Ноде&#34; &#39;`   or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.</description>
+&amp;#39;foobar@example.com&amp;#39;  or with formatted name (includes unicode support)  &amp;#39;Ноде Майлер &amp;lt;foobar@example.com&amp;gt;&amp;#39;  or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.)  { name: &amp;#39;Майлер, Ноде&amp;#39;, address: &amp;#39;foobar@example.com&amp;#39; } All address fields accept values as a comma separated list of emails or an array of emails or an array of comma separated list of emails or address objects - use it as you like.</description>
     </item>
     
     <item>
@@ -156,7 +156,7 @@ If you want to use a calendar event as the alternative, the consider using the *
       
       <guid>https://nodemailer.com/message/calendar-events/</guid>
       <description>Calendar events are tricky because different email clients handle these differently. Nodemailer uses the same style as Gmail for attaching calendar files which should ensure maximum compatibility. If you want to attach a calendar event to your email then you can use the message option icalEvent:
- icalEvent – an object to define calendar event
+  icalEvent – an object to define calendar event
  method – optional method, case insensitive, defaults to &amp;lsquo;publish&amp;rsquo;. Other possible values would be &amp;lsquo;request&amp;rsquo;, &amp;lsquo;reply&amp;rsquo;, &amp;lsquo;cancel&amp;rsquo; or any other valid calendar method listed in RFC5546.</description>
     </item>
     
@@ -167,7 +167,7 @@ If you want to use a calendar event as the alternative, the consider using the *
       
       <guid>https://nodemailer.com/message/embedded-images/</guid>
       <description>Attachments can be used as embedded images in the HTML body. To use this feature, you need to set additional property of the attachment - cid (unique identifier of the file) which is a reference to the attachment file. The same cid value must be used as the image URL in HTML (using cid: as the URL protocol, see example below).
-**NB!** the cid value should be as unique as possible!</description>
+Example let message = { ... html: &amp;#39;Embedded image: &amp;lt;img src=&amp;#34;cid:unique@nodemailer.</description>
     </item>
     
     <item>
@@ -198,7 +198,7 @@ General rules
       
       <guid>https://nodemailer.com/message/custom-source/</guid>
       <description>If you want to use your own custom generated RFC822 formatted message source, instead of letting Nodemailer to generate it from the message options, use option raw. This can be used both for the entire message or alternatively per-attachment or per-alternative.
-Don&#39;t forget to set the **envelope** option when using **raw** as the message source  Examples 1. Use string as a message body This example loads the entire message source from a string value.</description>
+Examples 1. Use string as a message body This example loads the entire message source from a string value. You don&amp;rsquo;t have to worry about proper newlines, these are handled by Nodemailer.</description>
     </item>
     
     <item>
@@ -249,7 +249,7 @@ One solution would be to separate development email addresses and use only some 
       <guid>https://nodemailer.com/smtp/customauth/</guid>
       <description>Available from Nodemailer v5.1.0
  Nodemailer SMTP client can be extended to use custom authentication mechanisms that Nodemailer does not support by default.
-To use one you should define a custom authentication handler with customAuth in the transporter options. Multiple handlers can be defined. Use authentication identifier as the handler name. For example if the server responds with &amp;ldquo;AUTH LOGIN PLAIN MY-CUSTOM-METHOD&amp;rdquo; then it supports &amp;ldquo;LOGIN&amp;rdquo;, &amp;ldquo;PLAIN&amp;rdquo; and &amp;ldquo;MY-CUSTOM-METHOD&amp;rdquo;.</description>
+To use one you should define a custom authentication handler with customAuth in the transporter options. Multiple handlers can be defined. Use authentication identifier as the handler name. For example if the server responds with &amp;ldquo;AUTH LOGIN PLAIN MY-CUSTOM-METHOD&amp;rdquo; then it supports &amp;ldquo;LOGIN&amp;rdquo;, &amp;ldquo;PLAIN&amp;rdquo; and &amp;ldquo;MY-CUSTOM-METHOD&amp;rdquo;. Nodemailer has built in support form &amp;ldquo;LOGIN&amp;rdquo; and &amp;ldquo;PLAIN&amp;rdquo; but it knows nothing about &amp;ldquo;MY-CUSTOM-METHOD&amp;rdquo;, to add support use this identifier as the handler name.</description>
     </item>
     
     <item>
@@ -271,7 +271,7 @@ To enable proxying, define a proxy option for the transporter.
       <guid>https://nodemailer.com/smtp/dsn/</guid>
       <description>If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery status notifications (DSN) with Nodemailer as defined in RFC3461.
 To set up a DSN call, add a dsn property to message data
- dsn – optional object to define DSN options
+  dsn – optional object to define DSN options
  id – is the envelope identifier that would be included in the response (ENVID) return – is either &amp;lsquo;headers&amp;rsquo; or &amp;lsquo;full&amp;rsquo;.</description>
     </item>
     

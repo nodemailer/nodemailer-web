@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>SMTP? Say what? :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509082" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509082" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509082" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509082" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509082" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509082" rel="stylesheet">
+    <link href="/css/theme.css?1586509082" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509082" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509082" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509082"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1104,7 +1104,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -1123,15 +1123,10 @@
 
 
 <p>You might wonder why you would need to set something up while in comparison PHP&rsquo;s <a href="http://php.net/manual/en/function.mail.php">mail</a> command works out of the box with no special configuration whatsoever. Just call <strong>mail(&hellip;)</strong> and you&rsquo;re already sending mail. So what&rsquo;s going on in Node.js?</p>
-
 <p>The difference is in the software stack required for your application to work. While Node.js stack is thin, all you need for your app to work is the <em>node</em> binary, then PHP&rsquo;s stack is fat. The server you&rsquo;re running your PHP code on has several different components installed.</p>
-
 <p>Firstly the PHP interpreter itself. Then there&rsquo;s some kind of web server, most probably Apache or Nginx. Web server needs some way to interact with the PHP interpreter, so you have a (fast-)CGI process manager. There might be MySQL also running in the same host. Depending on the installation type you might even have <em>imagemagick</em> executables or other helpers lying around somewhere. And finally, you have the <em>sendmail</em> binary.</p>
-
 <p>What PHP&rsquo;s <strong>mail()</strong> call actually does is that it passes your mail data to sendmail&rsquo;s <em>stdin</em> and thats it, no magic involved. <em>sendmail</em> does all the heavy lifting of queueing your message and trying to send it to the recipients&rsquo; MX mail server.</p>
-
 <p>In fact you can achieve the exact same behavior in Nodemailer as well by using the <a href="/transports/sendmail/">sendmail transport</a>. The difference being that in case of PHP the sendmail configuration resides in <em>php.ini</em> but in case of Node.js the sendmail configuration is part of Nodemailer setup.</p>
-
 <p>Unfortunately this might not always work – as it was already said, the stack for Node.js is thin and this means that <em>sendmail</em> might not have been installed to the server your application is running on. This is why it is better to rely on an actual SMTP service that is always accessible.</p>
 
 
@@ -1804,20 +1799,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509082"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509082"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509082"></script>
+    <script src="/js/jquery.sticky.js?1586509082"></script>
+    <script src="/js/featherlight.min.js?1586509082"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509082"></script>
+    <script src="/js/highlight.pack.js?1586509082"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509082"></script>
+    <script src="/js/learn.js?1586509082"></script>
+    <script src="/js/hugo-learn.js?1586509082"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509082" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509082"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

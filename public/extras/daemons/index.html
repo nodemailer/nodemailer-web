@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Node.js daemons :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509082" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509082" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509082" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509082" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509082" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509082" rel="stylesheet">
+    <link href="/css/theme.css?1586509082" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509082" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509082" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509082"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,17 +1105,15 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#1-application">1. Application</a></li>
-<li><a href="#2-setting-up-git">2. Setting up git</a></li>
-<li><a href="#3-setting-up-server">3. Setting up server</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-application">1\. Application</a></li>
+        <li><a href="#2-setting-up-git">2\. Setting up git</a></li>
+        <li><a href="#3-setting-up-server">3\. Setting up server</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1134,76 +1132,59 @@
         
 
 
-
-
 <blockquote>
 <p><strong>DRAFT</strong></p>
 </blockquote>
-
 <p>This tutorial shows how to set up Node.js applications as daemon services under Linux. Specifically the following would apply:</p>
-
 <ul>
 <li>The daemon application is a Node.js web app</li>
 <li>Daemon is set up as a SystemD services</li>
 <li>Node.js app is accessed as a Nginx virtual domain</li>
 <li>Updates are deployed using git</li>
 </ul>
-
 <blockquote>
 <p>Even though this tutorial uses a web app as the service daemon, then the same approach can be used for deploying any kind of services.</p>
 </blockquote>
-
 <h3 id="1-application">1. Application</h3>
-
 <p>The application code is simple, it consists only from two files, the application script and package.json. It&rsquo;s a Node.js app that serves web requests at port 3000. For demo purposes the app uses <a href="https://www.npmjs.com/package/npmlog">npmlog</a> as a dependency that is only needed to demonstrate deploying dependencies.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// index.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">http</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">log</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;npmlog&#39;</span>);
 
-<pre><code class="language-javascript">// index.js
-const http = require('http');
-const log = require('npmlog');
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hostname</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;127.0.0.1&#39;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">port</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3000</span>;
 
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) =&gt; {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello World\n');
-    log.http('App', req.url);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">createServer</span>((<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) =&gt; {
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">statusCode</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">200</span>;
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">setHeader</span>(<span style="color:#e6db74">&#39;Content-Type&#39;</span>, <span style="color:#e6db74">&#39;text/plain&#39;</span>);
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">end</span>(<span style="color:#e6db74">&#39;Hello World\n&#39;</span>);
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">http</span>(<span style="color:#e6db74">&#39;App&#39;</span>, <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">url</span>);
 });
 
-server.listen(port, hostname, () =&gt; {
-    log.info('App', `Server running at http://${hostname}:${port}/`);
+<span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#a6e22e">port</span>, <span style="color:#a6e22e">hostname</span>, () =&gt; {
+    <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;App&#39;</span>, <span style="color:#e6db74">`</span><span style="color:#e6db74">Server running at http://</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">hostname</span><span style="color:#e6db74">}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">port</span><span style="color:#e6db74">}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">`</span>);
 });
-</code></pre>
-
-<pre><code class="language-json">{
-    &quot;name&quot;: &quot;demo-app&quot;,
-    &quot;private&quot;: true,
-    &quot;version&quot;: &quot;1.0.0&quot;,
-    &quot;main&quot;: &quot;index.js&quot;,
-    &quot;dependencies&quot;: {
-        &quot;npmlog&quot;: &quot;^4.1.2&quot;
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;demo-app&#34;</span>,
+    <span style="color:#f92672">&#34;private&#34;</span>: <span style="color:#66d9ef">true</span>,
+    <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;1.0.0&#34;</span>,
+    <span style="color:#f92672">&#34;main&#34;</span>: <span style="color:#e6db74">&#34;index.js&#34;</span>,
+    <span style="color:#f92672">&#34;dependencies&#34;</span>: {
+        <span style="color:#f92672">&#34;npmlog&#34;</span>: <span style="color:#e6db74">&#34;^4.1.2&#34;</span>
     },
-    &quot;license&quot;: &quot;ISC&quot;
+    <span style="color:#f92672">&#34;license&#34;</span>: <span style="color:#e6db74">&#34;ISC&#34;</span>
 }
-</code></pre>
-
-<h3 id="2-setting-up-git">2. Setting up git</h3>
-
+</code></pre></div><h3 id="2-setting-up-git">2. Setting up git</h3>
 <p>Assuming we have these two files in a directory, let&rsquo;s set up git repository</p>
-
-<pre><code class="language-bash">$ git init
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ git init
   Initialized empty Git repository in ~/demo-app/.git/
 $ git add .
 $ git commit -m Initial
-  [master (root-commit) 057e7f3] initial
-   2 files changed, 27 insertions(+)
-   create mode 100644 index.js
-   create mode 100644 package.json
-</code></pre>
-
-<p>For now we do not set up remote repository, let&rsquo;s leave this for later.</p>
-
+  <span style="color:#f92672">[</span>master <span style="color:#f92672">(</span>root-commit<span style="color:#f92672">)</span> 057e7f3<span style="color:#f92672">]</span> initial
+   <span style="color:#ae81ff">2</span> files changed, <span style="color:#ae81ff">27</span> insertions<span style="color:#f92672">(</span>+<span style="color:#f92672">)</span>
+   create mode <span style="color:#ae81ff">100644</span> index.js
+   create mode <span style="color:#ae81ff">100644</span> package.json
+</code></pre></div><p>For now we do not set up remote repository, let&rsquo;s leave this for later.</p>
 <h3 id="3-setting-up-server">3. Setting up server</h3>
 
 
@@ -1879,20 +1860,20 @@ $ git commit -m Initial
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

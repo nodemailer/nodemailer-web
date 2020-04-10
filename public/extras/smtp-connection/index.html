@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>SMTP Connection :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509082" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509082" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509082" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509082" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509082" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509082" rel="stylesheet">
+    <link href="/css/theme.css?1586509082" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509082" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509082" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509082"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,28 +1105,21 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#usage">Usage</a>
-<ul>
-<li>
-<ul>
-<li><a href="#step-1-install-nodemailer-with-npm">Step 1. Install Nodemailer with npm</a></li>
-<li><a href="#step-2-require-smtp-connection-in-your-script">Step 2. Require <em>smtp-connection</em> in your script</a></li>
-<li><a href="#step-3-create-smtpconnection-instance">Step 3. Create SMTPConnection instance</a></li>
-</ul></li>
-<li><a href="#events">Events</a></li>
-<li><a href="#connect">connect</a></li>
-<li><a href="#login">login</a></li>
-<li><a href="#send">send</a></li>
-<li><a href="#quit">quit</a></li>
-<li><a href="#close">close</a></li>
-<li><a href="#reset">reset</a></li>
-</ul></li>
-<li><a href="#license">License</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#usage">Usage</a>
+      <ul>
+        <li></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#connect">connect</a></li>
+        <li><a href="#login">login</a></li>
+        <li><a href="#send">send</a></li>
+        <li><a href="#quit">quit</a></li>
+        <li><a href="#close">close</a></li>
+        <li><a href="#reset">reset</a></li>
+      </ul>
+    </li>
+    <li><a href="#license">License</a></li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1145,36 +1138,20 @@
         
 
 
-
-
 <p>SMTP client module to connect to SMTP servers and send mail with it.</p>
-
 <p>This module is the successor for the client part of the (now deprecated) SMTP module <a href="https://www.npmjs.com/package/simplesmtp">simplesmtp</a>. For matching SMTP server see <a href="/extras/smtp-server/">smtp-server</a>.</p>
-
 <h2 id="usage">Usage</h2>
-
 <h4 id="step-1-install-nodemailer-with-npm">Step 1. Install Nodemailer with npm</h4>
-
 <p><em>smtp-connection</em> is exposed as a submodule of Nodemailer</p>
-
-<pre><code class="language-bash">npm install nodemailer --save
-</code></pre>
-
-<h4 id="step-2-require-smtp-connection-in-your-script">Step 2. Require <em>smtp-connection</em> in your script</h4>
-
-<pre><code class="language-javascript">const SMTPConnection = require(&quot;nodemailer/lib/smtp-connection&quot;);
-</code></pre>
-
-<h4 id="step-3-create-smtpconnection-instance">Step 3. Create SMTPConnection instance</h4>
-
-<pre><code class="language-javascript">let connection = new SMTPConnection(options);
-</code></pre>
-
-<p>Where</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install nodemailer --save
+</code></pre></div><h4 id="step-2-require-_smtp-connection_-in-your-script">Step 2. Require <em>smtp-connection</em> in your script</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SMTPConnection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;nodemailer/lib/smtp-connection&#34;</span>);
+</code></pre></div><h4 id="step-3-create-smtpconnection-instance">Step 3. Create SMTPConnection instance</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">connection</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPConnection</span>(<span style="color:#a6e22e">options</span>);
+</code></pre></div><p>Where</p>
 <ul>
-<li><p><strong>options</strong> defines connection data</p>
-
+<li>
+<p><strong>options</strong> defines connection data</p>
 <ul>
 <li><strong>options.port</strong> is the port to connect to (defaults to 25 or 465)</li>
 <li><strong>options.host</strong> is the hostname or IP address to connect to (defaults to &lsquo;localhost&rsquo;)</li>
@@ -1194,50 +1171,34 @@
 <li><strong>options.tls</strong> defines additional options to be passed to the socket constructor, e.g. <em>{rejectUnauthorized: true}</em></li>
 <li><strong>options.socket</strong> - initialized socket to use instead of creating a new one</li>
 <li><strong>options.connection</strong> - connected socket to use instead of creating and connecting a new one. If <em>secure</em> option is true, then socket is upgraded from plaintext to ciphertext</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="events">Events</h3>
-
 <p>SMTPConnection instances are event emitters with the following events</p>
-
 <ul>
 <li><strong>&lsquo;error&rsquo;</strong> <em>(err)</em> emitted when an error occurs. Connection is closed automatically in this case.</li>
 <li><strong>&lsquo;connect&rsquo;</strong> emitted when the connection is established</li>
 <li><strong>&lsquo;end&rsquo;</strong> when the instance is destroyed</li>
 </ul>
-
 <h3 id="connect">connect</h3>
-
 <p>Establish the connection</p>
-
-<pre><code class="language-javascript">connection.connect(callback);
-</code></pre>
-
-<p>Where</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">callback</span>);
+</code></pre></div><p>Where</p>
 <ul>
 <li><strong>callback</strong> is the function to run once the connection is established. The function is added as a listener to the &lsquo;connect&rsquo; event.</li>
 </ul>
-
 <p>After the connect event the <em>connection</em> has the following properties:</p>
-
 <ul>
 <li><strong>connection.secure</strong> - if <em>true</em> then the connection uses a TLS socket, otherwise it is using a cleartext socket. Connection can start out as cleartext but if available (or <em>requireTLS</em> is set to true) connection upgrade is tried</li>
 </ul>
-
 <h3 id="login">login</h3>
-
 <p>If the server requires authentication you can login with</p>
-
-<pre><code class="language-javascript">connection.login(auth, callback);
-</code></pre>
-
-<p>Where</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">login</span>(<span style="color:#a6e22e">auth</span>, <span style="color:#a6e22e">callback</span>);
+</code></pre></div><p>Where</p>
 <ul>
-<li><p><strong>auth</strong> is the authentication object</p>
-
+<li>
+<p><strong>auth</strong> is the authentication object</p>
 <ul>
 <li><strong>credentials</strong> is a normal authentication object</li>
 <li><strong>credentials.user</strong> is the username</li>
@@ -1248,27 +1209,22 @@
 <li><strong>oauth2.clientSecret</strong> is the OAuth2 Client Secret</li>
 <li><strong>oauth2.refreshToken</strong> is the refresh token to generate new access token if needed</li>
 <li><strong>oauth2.accessToken</strong> is the access token</li>
-</ul></li>
-
-<li><p><strong>callback</strong> is the callback to run once the authentication is finished. Callback has the following arguments</p>
-
+</ul>
+</li>
+<li>
+<p><strong>callback</strong> is the callback to run once the authentication is finished. Callback has the following arguments</p>
 <ul>
 <li><strong>err</strong> and error object if authentication failed</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="send">send</h3>
-
 <p>Once the connection is authenticated (or just after connection is established if authentication is not required), you can send mail with</p>
-
-<pre><code class="language-javascript">connection.send(envelope, message, callback);
-</code></pre>
-
-<p>Where</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">envelope</span>, <span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">callback</span>);
+</code></pre></div><p>Where</p>
 <ul>
-<li><p><strong>envelope</strong> is the envelope object to use</p>
-
+<li>
+<p><strong>envelope</strong> is the envelope object to use</p>
 <ul>
 <li><strong>envelope.from</strong> is the sender address</li>
 <li><strong>envelope.to</strong> is the recipient address or an array of addresses</li>
@@ -1279,12 +1235,13 @@
 <li><strong>envelope.dsn.envid</strong> sender&rsquo;s &lsquo;envelope identifier&rsquo; for tracking</li>
 <li><strong>envelope.dsn.notify</strong> when to send a DSN. Multiple options are OK - array or comma delimited. NEVER must appear by itself. Available options: &lsquo;NEVER&rsquo;, &lsquo;SUCCESS&rsquo;, &lsquo;FAILURE&rsquo;, &lsquo;DELAY&rsquo;</li>
 <li><strong>envelope.dsn.orcpt</strong> original recipient</li>
-</ul></li>
-
-<li><p><strong>message</strong> is either a String, Buffer or a Stream. All newlines are converted to \r\n and all dots are escaped automatically, no need to convert anything before.</p></li>
-
-<li><p><strong>callback</strong> is the callback to run once the sending is finished or failed. Callback has the following arguments</p>
-
+</ul>
+</li>
+<li>
+<p><strong>message</strong> is either a String, Buffer or a Stream. All newlines are converted to \r\n and all dots are escaped automatically, no need to convert anything before.</p>
+</li>
+<li>
+<p><strong>callback</strong> is the callback to run once the sending is finished or failed. Callback has the following arguments</p>
 <ul>
 <li><strong>err</strong> and error object if sending failed</li>
 <li><strong>err.code</strong> string code identifying the error, for example &lsquo;EAUTH&rsquo; is returned when authentication fails</li>
@@ -1295,32 +1252,19 @@
 <li><strong>info.rejected</strong> an array of rejected recipient addresses. This array includes both the addresses that were rejected before sending the message and addresses rejected after sending it if using LMTP</li>
 <li><strong>info.rejectedErrors</strong> if some recipients were rejected then this property holds an array of error objects for the rejected recipients</li>
 <li><strong>info.response</strong> is the last response received from the server</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="quit">quit</h3>
-
 <p>Use it for graceful disconnect</p>
-
-<pre><code class="language-javascript">connection.quit();
-</code></pre>
-
-<h3 id="close">close</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">quit</span>();
+</code></pre></div><h3 id="close">close</h3>
 <p>Use it for less graceful disconnect</p>
-
-<pre><code class="language-javascript">connection.close();
-</code></pre>
-
-<h3 id="reset">reset</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">close</span>();
+</code></pre></div><h3 id="reset">reset</h3>
 <p>Use it to reset current session (invokes RSET command)</p>
-
-<pre><code class="language-javascript">connection.reset(callback);
-</code></pre>
-
-<h2 id="license">License</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">reset</span>(<span style="color:#a6e22e">callback</span>);
+</code></pre></div><h2 id="license">License</h2>
 <p><strong>MIT</strong></p>
 
 
@@ -1996,20 +1940,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

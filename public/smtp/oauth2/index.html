@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>OAuth2 :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,27 +1105,18 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#oauth-3lo">3-legged OAuth2 authentication</a></li>
-<li><a href="#oauth-2lo">2LO authentication (service accounts)</a></li>
-<li><a href="#custom-handling">Using custom token handling</a></li>
-<li><a href="#update-notification">Token update notifications</a></li>
-<li><a href="#examples">Examples</a>
-<ul>
-<li><a href="#example-1">1. Authenticate using existing token</a></li>
-<li><a href="#example-2">2. Custom handler</a></li>
-<li><a href="#example-3">3. Set up 3LO authentication</a></li>
-<li><a href="#example-4">4. Set up 2LO authentication</a></li>
-<li><a href="#example-5">5. Provide authentication details with message options</a></li>
-</ul></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#oauth-3lo">3-legged OAuth2 authentication</a></li>
+        <li><a href="#oauth-2lo">2LO authentication (service accounts)</a></li>
+        <li><a href="#custom-handling">Using custom token handling</a></li>
+        <li><a href="#update-notification">Token update notifications</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1144,12 +1135,8 @@
         
 
 
-
-
 <p>OAuth2 allows your application to store and use authentication tokens instead of actual login credentials. This is great for security as tokens or valid only for specific actions and can be easily revoked thus, once stolen, can&rsquo;t to as much harm as actual account credentials. OAuth2 authentication in Nodemailer is mostly used with Gmail and G Suite (<em>née</em> Google Apps) even though there are other providers that support it as well.</p>
-
 <p>Access Tokens needed for OAuth2 authentication are short lived so these need to be regenerated from time to time. Nodemailer is able to use both <a href="https://developers.google.com/identity/protocols/OAuth2">3LO</a> and <a href="https://developers.google.com/api-client-library/php/auth/service-accounts">2LO</a> to automatically regenerate the tokens but you can also handle all token specific yourself.</p>
-
 <ol>
 <li><a href="#oauth-3lo">Normal OAuth2 authentication</a></li>
 <li><a href="#oauth-2lo">Authenticating using Service Accounts</a></li>
@@ -1158,18 +1145,12 @@
 <li><a href="#examples">Examples</a></li>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 </ol>
-
-<div class="notices tip" >
-Nodemailer requires an **Access Token** to perform authentication. 3-legged and 2-legged OAuth2 mechanisms are different ways to produce such tokens but in the end it does not matter how a token was exactly generated, as long as it is valid.
-</div>
-
+<!-- raw HTML omitted -->
 <h3 id="oauth-3lo">3-legged OAuth2 authentication</h3>
-
 <p>This is the &ldquo;normal&rdquo; way of obtaining access tokens. Your application requests permissions from the client and gets a refresh token in return that can be used to generate new access tokens.</p>
-
 <ul>
-<li><p><strong>auth</strong> – is the authentication object</p>
-
+<li>
+<p><strong>auth</strong> – is the authentication object</p>
 <ul>
 <li><strong>type</strong> – indicates authentication type, set it to <em>&lsquo;OAuth2&rsquo;</em></li>
 <li><strong>user</strong> – user email address (required)</li>
@@ -1179,208 +1160,166 @@ Nodemailer requires an **Access Token** to perform authentication. 3-legged and 
 <li><strong>accessToken</strong> – is the access token for the user. Required only if <em>refreshToken</em> is not available and there is no token refresh callback specified</li>
 <li><strong>expires</strong> – is an optional expiration time for the current <em>accessToken</em></li>
 <li><strong>accessUrl</strong> – is an optional HTTP endpoint for requesting new access tokens. This value defaults to Gmail</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>Normal SMTP transport (ie. not the pooled version) has a convenience method of using separate authentication for every message. This allows you to set up a transport with just <em>clientId</em> and <em>clientSecret</em> values and provide <em>accessToken</em> and <em>refreshToken</em> with the message options. See <a href="#example-5">example 5</a>.</p>
-
 <h3 id="oauth-2lo">2LO authentication (service accounts)</h3>
-
 <p>Nodemailer also allows you to use <a href="https://developers.google.com/identity/protocols/OAuth2ServiceAccount">service accounts</a> to generate access tokens. In this case the required <code>auth</code> options are a bit different from 3LO auth.</p>
-
 <ul>
-<li><p><strong>auth</strong> – is the authentication object</p>
-
+<li>
+<p><strong>auth</strong> – is the authentication object</p>
 <ul>
 <li><strong>type</strong> – indicates authentication type, set it to <em>&lsquo;OAuth2&rsquo;</em></li>
 <li><strong>user</strong> – user email address you want to send mail as (required)</li>
 <li><strong>serviceClient</strong> – service client id (required), you can find it from the &ldquo;client_id&rdquo; field in the service key file</li>
 <li><strong>privateKey</strong> – is the private key contents, you can find it from the &ldquo;private_key&rdquo; field in the service key file</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="custom-handling">Using custom token handling</h3>
-
 <p>If you do not want Nodemailer to create new access tokens then you can provide a custom token generation callback that is called every time a new token is needed for an user.</p>
-
 <p>The registered function gets the following arguments:</p>
-
 <ul>
 <li><strong>user</strong> – is the user email address</li>
 <li><strong>renew</strong> – if <em>true</em> then previous access token either expired or it was not accepted by the SMTP server, in this case you should generate a new value</li>
-
-<li><p><strong>callback</strong> with arguments <em>(err, accessToken)</em> – is the callback function to run once you have generated a new access token</p>
-
-<pre><code class="language-javascript">transporter.set('oauth2_provision_cb', (user, renew, callback)=&gt;{
-let accessToken = userTokens[user];
-if(!accessToken){
-    return callback(new Error('Unknown user'));
-}else{
-    return callback(null, accessToken);
-}
-});
-</code></pre></li>
+<li><strong>callback</strong> with arguments <em>(err, accessToken)</em> – is the callback function to run once you have generated a new access token</li>
 </ul>
-
-<h3 id="update-notification">Token update notifications</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;oauth2_provision_cb&#39;</span>, (<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">renew</span>, <span style="color:#a6e22e">callback</span>)=&gt;{
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userTokens</span>[<span style="color:#a6e22e">user</span>];
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">accessToken</span>){
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;Unknown user&#39;</span>));
+    }<span style="color:#66d9ef">else</span>{
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">accessToken</span>);
+    }
+});
+</code></pre></div><h3 id="update-notification">Token update notifications</h3>
 <p>If you use <em>refreshToken</em> or service keys to generate new tokens from Nodemailer when <em>accessToken</em> is not present or expired then you can listen for the token updates by registering a &lsquo;token&rsquo; event handler for the transporter object.</p>
-
-<pre><code class="language-javascript">transporter.on('token', token =&gt; {
-    console.log('A new access token was generated');
-    console.log('User: %s', token.user);
-    console.log('Access Token: %s', token.accessToken);
-    console.log('Expires: %s', new Date(token.expires));
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;token&#39;</span>, <span style="color:#a6e22e">token</span> =&gt; {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;A new access token was generated&#39;</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;User: %s&#39;</span>, <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">user</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Access Token: %s&#39;</span>, <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">accessToken</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Expires: %s&#39;</span>, <span style="color:#66d9ef">new</span> Date(<span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">expires</span>));
 });
-</code></pre>
-
-<h3 id="examples">Examples</h3>
-
+</code></pre></div><h3 id="examples">Examples</h3>
 <h4 id="example-1">1. Authenticate using existing token</h4>
-
 <p>Use an existing Access Token. If the token is not accepted then message is not sent as there is no way to generate a new token.</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        user: 'user@example.com',
-        accessToken: 'ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>,
+        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>,
+        <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;</span>
     }
 });
-</code></pre>
-
-<h4 id="example-2">2. Custom handler</h4>
-
+</code></pre></div><h4 id="example-2">2. Custom handler</h4>
 <p>This example requests a new <em>accessToken</em> value from a custom OAuth2 handler. Nodemailer does not attempt to generate the token by itself.</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        user: 'user@example.com'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>,
+        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>
     }
 });
 
-transporter.set('oauth2_provision_cb', (user, renew, callback)=&gt;{
-    let accessToken = userTokens[user];
-    if(!accessToken){
-        return callback(new Error('Unknown user'));
-    }else{
-        return callback(null, accessToken);
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;oauth2_provision_cb&#39;</span>, (<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">renew</span>, <span style="color:#a6e22e">callback</span>)=&gt;{
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userTokens</span>[<span style="color:#a6e22e">user</span>];
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">accessToken</span>){
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;Unknown user&#39;</span>));
+    }<span style="color:#66d9ef">else</span>{
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">accessToken</span>);
     }
 });
-</code></pre>
-
-<h4 id="example-3">3. Set up 3LO authentication</h4>
-
+</code></pre></div><h4 id="example-3">3. Set up 3LO authentication</h4>
 <p>This example uses an existing Access Token. If the token is not accepted or current time is past the <em>expires</em> value, then <em>refreshToken</em> is used to automatically generate a new <em>accessToken</em></p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        user: 'user@example.com',
-        clientId: '000000000000-xxx0.apps.googleusercontent.com',
-        clientSecret: 'XxxxxXXxX0xxxxxxxx0XXxX0',
-        refreshToken: '1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx',
-        accessToken: 'ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x',
-        expires: 1484314697598
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>,
+        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>,
+        <span style="color:#a6e22e">clientId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;000000000000-xxx0.apps.googleusercontent.com&#39;</span>,
+        <span style="color:#a6e22e">clientSecret</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;XxxxxXXxX0xxxxxxxx0XXxX0&#39;</span>,
+        <span style="color:#a6e22e">refreshToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx&#39;</span>,
+        <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;</span>,
+        <span style="color:#a6e22e">expires</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1484314697598</span>
     }
 });
-</code></pre>
-
-<h4 id="example-4">4. Set up 2LO authentication</h4>
-
+</code></pre></div><h4 id="example-4">4. Set up 2LO authentication</h4>
 <p>This example uses an existing Access Token. If the token is not accepted or current time is past the <em>expires</em> value, then a new <em>accessToken</em> value is generated using provided service account.</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        user: 'user@example.com',
-        serviceClient: '113600000000000000000',
-        privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...',
-        accessToken: 'ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x',
-        expires: 1484314697598
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>,
+        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>,
+        <span style="color:#a6e22e">serviceClient</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;113600000000000000000&#39;</span>,
+        <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#39;</span>,
+        <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;</span>,
+        <span style="color:#a6e22e">expires</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1484314697598</span>
     }
 });
-</code></pre>
-
-<h4 id="example-5">5. Provide authentication details with message options</h4>
-
+</code></pre></div><h4 id="example-5">5. Provide authentication details with message options</h4>
 <p>This example demonstrates how to authenticate every message separately. This is mostly useful if you provide an email application that sends mail for multiple users. Instead of creating a new transporter for every message, create it just once and provide dynamic details with the message options.</p>
-
-<div class="notices info" >
-Per-message specific authentication does not work in pooled mode
-</div>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        clientId: '000000000000-xxx.apps.googleusercontent.com',
-        clientSecret: 'XxxxxXXxX0xxxxxxxx0XXxX0'
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>,
+        <span style="color:#a6e22e">clientId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;000000000000-xxx.apps.googleusercontent.com&#39;</span>,
+        <span style="color:#a6e22e">clientSecret</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;XxxxxXXxX0xxxxxxxx0XXxX0&#39;</span>
     }
 });
 
-transporter.sendMail({
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Message',
-    text: 'I hope this message gets through!',
-    auth: {
-        user: 'user@example.com',
-        refreshToken: '1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx',
-        accessToken: 'ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x',
-        expires: 1484314697598
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>({
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Message&#39;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;I hope this message gets through!&#39;</span>,
+    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>,
+        <span style="color:#a6e22e">refreshToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx&#39;</span>,
+        <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;</span>,
+        <span style="color:#a6e22e">expires</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1484314697598</span>
     }
 });
-</code></pre>
-
-<p>Or alternatively you can do the same with your own OAuth2 handler.</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2'
+</code></pre></div><p>Or alternatively you can do the same with your own OAuth2 handler.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>
     }
 });
 
-transporter.set('oauth2_provision_cb', (user, renew, callback) =&gt; {
-    let accessToken = userTokens[user];
-    if(!accessToken){
-        return callback(new Error('Unknown user'));
-    }else{
-        return callback(null, accessToken);
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;oauth2_provision_cb&#39;</span>, (<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">renew</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userTokens</span>[<span style="color:#a6e22e">user</span>];
+    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">accessToken</span>){
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;Unknown user&#39;</span>));
+    }<span style="color:#66d9ef">else</span>{
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">accessToken</span>);
     }
 });
 
-transporter.sendMail({
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Message',
-    text: 'I hope this message gets through!',
-    auth: {
-        user: 'user@example.com'
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>({
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Message&#39;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;I hope this message gets through!&#39;</span>,
+    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>
     }
 });
-</code></pre>
-
-<h3 id="troubleshooting">Troubleshooting</h3>
-
+</code></pre></div><h3 id="troubleshooting">Troubleshooting</h3>
 <ul>
 <li>The correct OAuth2 scope for Gmail SMTP is <code>https://mail.google.com/</code>, make sure your client has this scope set when requesting permissions for an user</li>
 <li>Make sure that Gmail API access is enabled for your Client ID. To do this, search for the Gmail API in <a href="https://console.developers.google.com">Google API Manager</a> and click on &ldquo;enable&rdquo;</li>
@@ -2059,20 +1998,20 @@ transporter.sendMail({
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

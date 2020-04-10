@@ -18,7 +18,7 @@
       
       <guid>https://nodemailer.com/extras/smtp-server/</guid>
       <description>Create SMTP and LMTP server instances on the fly. This is not a full-blown server application like Haraka but an easy way to add custom SMTP listeners to your app. This module is the successor for the server part of the (now deprecated) SMTP module simplesmtp. For matching SMTP client see smtp-connection.
-This module does not make any email deliveries by itself. _smtp-server_ allows you to listen on ports 25/24/465/587 etc.</description>
+Usage Step 1. Install with npm npm install smtp-server --save Step 2. Require in your script const SMTPServer = require(&amp;#34;smtp-server&amp;#34;).</description>
     </item>
     
     <item>
@@ -30,7 +30,7 @@ This module does not make any email deliveries by itself. _smtp-server_ allows y
       <description>SMTP client module to connect to SMTP servers and send mail with it.
 This module is the successor for the client part of the (now deprecated) SMTP module simplesmtp. For matching SMTP server see smtp-server.
 Usage Step 1. Install Nodemailer with npm smtp-connection is exposed as a submodule of Nodemailer
-npm install nodemailer --save  Step 2. Require smtp-connection in your script const SMTPConnection = require(&amp;quot;nodemailer/lib/smtp-connection&amp;quot;);  Step 3. Create SMTPConnection instance let connection = new SMTPConnection(options);  Where</description>
+npm install nodemailer --save Step 2. Require smtp-connection in your script const SMTPConnection = require(&amp;#34;nodemailer/lib/smtp-connection&amp;#34;); Step 3. Create SMTPConnection instance let connection = new SMTPConnection(options); Where</description>
     </item>
     
     <item>
@@ -41,7 +41,7 @@ npm install nodemailer --save  Step 2. Require smtp-connection in your script co
       <guid>https://nodemailer.com/extras/mailparser/</guid>
       <description>Advanced email parser for Node.js. Everything is handled as a stream which should make it able to parse even very large messages (100MB+) with relatively low overhead.
 The module exposes two separate modes, a lower level MailParser class and simpleParser function. The latter is simpler to use (hence the name) but is less resource efficient as it buffers attachment contents in memory.
-Install npm install mailparser --save  simpleParser simpleParser is the easiest way to parse emails.</description>
+Install npm install mailparser --save simpleParser simpleParser is the easiest way to parse emails.</description>
     </item>
     
     <item>
@@ -50,9 +50,10 @@ Install npm install mailparser --save  simpleParser simpleParser is the easiest 
       <pubDate>Sat, 21 Jan 2017 00:12:25 +0200</pubDate>
       
       <guid>https://nodemailer.com/extras/mailcomposer/</guid>
-      <description>Generate RFC822 formatted e-mail messages that can be streamed to SMTP or file.
+      <description>\
+Generate RFC822 formatted e-mail messages that can be streamed to SMTP or file.
 Usage Step 1. Install Nodemailer with npm mailcomposer is exposed as a submodule of Nodemailer
-npm install nodemailer --save  Step 2. Require mailcomposer in your script const MailComposer = require(&amp;quot;nodemailer/lib/mail-composer&amp;quot;);  Step 3. Create a new MailComposer instance var mail = new MailComposer(mailOptions);  Where mailOptions is an object that defines the components of the message, see below</description>
+npm install nodemailer --save Step 2. Require mailcomposer in your script const MailComposer = require(&amp;#34;nodemailer/lib/mail-composer&amp;#34;); Step 3. Create a new MailComposer instance var mail = new MailComposer(mailOptions); Where mailOptions is an object that defines the components of the message, see below</description>
     </item>
     
     <item>

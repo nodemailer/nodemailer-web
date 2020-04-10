@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Sendmail transport :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,22 +1105,14 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#not-able-to-send-mail-using-sendmail-transport">Not Able to send Mail using sendmail transport ?</a></li>
-</ul></li>
-<li><a href="#examples">Examples</a>
-<ul>
-<li><a href="#1-send-a-message-using-specific-binary">1. Send a message using specific binary</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#examples">Examples</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1139,63 +1131,43 @@
         
 
 
-
-
 <p>Sendmail transport pipes the generated RFC822 message to the standard input of the <strong>sendmail</strong> command, so it&rsquo;s the same thing what the <strong>mail()</strong> function in PHP does.</p>
-
 <p>To use Sendmail transport, set <strong>sendmail</strong> in Nodemailer transport options to <em>true</em>.</p>
-
 <p>The additional options to use with this transport are the following:</p>
-
 <ul>
 <li><strong>path</strong> - path to the <strong>sendmail</strong> command (defaults to <em>&lsquo;sendmail&rsquo;</em>)</li>
 <li><strong>newline</strong> - either <em>&lsquo;windows&rsquo;</em> or <em>&lsquo;unix&rsquo;</em> (default). Forces all newlines in the output to either use Windows syntax &lt;CR&gt;&lt;LF&gt; or Unix syntax &lt;LF&gt;</li>
-<li><strong>args</strong> - an optional array of command line options to pass to the <strong>sendmail</strong> command (ie. <code>[&quot;-f&quot;, &quot;foo@example.com&quot;]</code>). This overrides all default arguments except for <em>&rsquo;-i&rsquo;</em> and recipient list so you need to make sure you have all required arguments set (ie. the &lsquo;-f&rsquo; flag).</li>
+<li><strong>args</strong> - an optional array of command line options to pass to the <strong>sendmail</strong> command (ie. <code>[&quot;-f&quot;, &quot;foo@example.com&quot;]</code>). This overrides all default arguments except for <em>'-i&rsquo;</em> and recipient list so you need to make sure you have all required arguments set (ie. the &lsquo;-f&rsquo; flag).</li>
 </ul>
-
 <p>The command to be spawned by default looks like this:</p>
-
-<pre><code class="language-sh">sendmail -i -f from_addr to_addr[]
-</code></pre>
-
-<p>If <strong>args</strong> property was provided then the command looks like this:</p>
-
-<pre><code class="language-sh">sendmail -i args[] to_addr[]
-</code></pre>
-
-<p>The <strong>info</strong> argument for <strong>sendMail()</strong> callback includes the following properties:</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sendmail -i -f from_addr to_addr<span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+</code></pre></div><p>If <strong>args</strong> property was provided then the command looks like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sendmail -i args<span style="color:#f92672">[</span><span style="color:#f92672">]</span> to_addr<span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+</code></pre></div><p>The <strong>info</strong> argument for <strong>sendMail()</strong> callback includes the following properties:</p>
 <ul>
 <li><strong>envelope</strong> – is an envelope object <em>{from:&lsquo;address&rsquo;, to:[&lsquo;address&rsquo;]}</em></li>
 <li><strong>messageId</strong> – is the Message-ID header value</li>
 </ul>
-
-<h4 id="not-able-to-send-mail-using-sendmail-transport">Not Able to send Mail using sendmail transport ?</h4>
-
+<h4 id="not-able-to-send-mail-using-sendmail-transport-">Not Able to send Mail using sendmail transport ?</h4>
 <p>If <code>createTransport</code> function is not taking up the path which by default is &lsquo;/usr/bin/sendmail&rsquo;, make sure you have sendmail configured in your system. Take a look at <a href="https://www.computerhope.com/unix/usendmai.htm">Source</a> (for linux/unix).</p>
-
 <h3 id="examples">Examples</h3>
-
 <h4 id="1-send-a-message-using-specific-binary">1. Send a message using specific binary</h4>
-
 <p>This example pipes message to a custom command using unix-style newlines. Sendmail does not produce any output besides the exit code, so there&rsquo;s nothing else to return with the callback.</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    sendmail: true,
-    newline: 'unix',
-    path: '/usr/sbin/sendmail'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">sendmail</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">newline</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;unix&#39;</span>,
+    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/usr/sbin/sendmail&#39;</span>
 });
-transporter.sendMail({
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Message',
-    text: 'I hope this message gets delivered!'
-}, (err, info) =&gt; {
-    console.log(info.envelope);
-    console.log(info.messageId);
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>({
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Message&#39;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;I hope this message gets delivered!&#39;</span>
+}, (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">info</span>) =&gt; {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">envelope</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">messageId</span>);
 });
-</code></pre>
-
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1866,20 +1838,20 @@ transporter.sendMail({
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

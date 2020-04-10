@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>SES transport :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,27 +1105,16 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#why-not-use-aws-sdk-directly">Why not use aws-sdk directly?</a></li>
-<li><a href="#usage">Usage</a>
-<ul>
-<li>
-<ul>
-<li><a href="#message-options">Message options</a></li>
-<li><a href="#response">Response</a></li>
-</ul></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
-<li><a href="#examples">Examples</a>
-<ul>
-<li><a href="#example-1">1. Send a message using SES transport</a></li>
-<li><a href="#example-2">2. Throttle messages</a></li>
-<li><a href="#example-3">3. IAM policy</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#why-not-use-aws-sdk-directly">Why not use aws-sdk directly?</a></li>
+    <li><a href="#usage">Usage</a>
+      <ul>
+        <li></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#examples">Examples</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1144,133 +1133,99 @@
         
 
 
-
-
 <p>Nodemailer SES transport is a wrapper around <em>aws.SES</em> from the <a href="https://www.npmjs.com/package/aws-sdk">aws-sdk</a> package. SES transport is available from Nodemailer v3.1.0.</p>
-
 <h2 id="why-not-use-aws-sdk-directly">Why not use aws-sdk directly?</h2>
-
 <p>The SES API exposes two methods to send mail – <a href="http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendEmail-property">SendEmail</a> and <a href="http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html#sendRawEmail-property">SendRawEmail</a>. While the first one is really easy to use and Nodemailer is not actually needed, then it is also quite basic in features. For example you can&rsquo;t use attachments with <em>SendEmail</em>. On the other hand <em>SendRawEmail</em> requires you build your own MIME formatted email message which is far from being easy. And this is where Nodemailer steps in – it gives you a simple to use API while supporting even really complex scenarios like embedded images or calendar events.</p>
-
 <p>In addition to the simple API, Nodemailer also provides rate limiting for SES out of the box. SES can tolerate short spikes but you can&rsquo;t really flush all your emails at once and expect these to be delivered. To overcome this you can set a rate limiting value and let Nodemailer handle everything – if too many messages are being delivered then Nodemailer buffers these until there is an opportunity to do the actual delivery.</p>
-
 <h2 id="usage">Usage</h2>
-
 <p>To use SES transport, set a <em>aws.SES</em> object as the value for <strong>SES</strong> property in Nodemailer transport options. That&rsquo;s it. You are responsible of initializing that object yourself as Nodemailer does not touch the AWS settings in any way.</p>
-
 <ul>
 <li><strong>SES</strong> – is an option that expects an instantiated <em>aws.SES</em> object (see <a href="#example-1">example #1</a>).</li>
 </ul>
-
 <p>Additional properties to use are the following:</p>
-
 <ul>
 <li><strong>sendingRate</strong> optional Number. How many messages per second is allowed to be delivered to SES</li>
 <li><strong>maxConnections</strong> optional Number. How many parallel connections to allow towards SES.</li>
 </ul>
-
 <p>If you use rate or connection limiting then you can also use helper methods to detect if the sending queue is full or not. This would help to avoid buffering up too many messages.</p>
-
 <p>Listen for the <em>&lsquo;idle&rsquo;</em> event to be notified if you can push more messages to the transporter. To explicitly check if there are free spots available use <em>isIdle()</em> method (see <a href="#example-2">example #2</a>).</p>
-
 <h4 id="message-options">Message options</h4>
-
 <p>When sending mail there&rsquo;s also an additional message option for setting <em>SendRawEmail</em> options</p>
-
 <ul>
 <li><strong>ses</strong> is an optional object. All keys are added to the <em>SendRawEmail</em> method options.</li>
 </ul>
-
 <h4 id="response">Response</h4>
-
 <p>The <strong>info</strong> argument for <strong>sendMail()</strong> callback includes the following properties:</p>
-
 <ul>
 <li><strong>envelope</strong> – is an envelope object <em>{from:&lsquo;address&rsquo;, to:[&lsquo;address&rsquo;]}</em></li>
 <li><strong>messageId</strong> – is the Message-ID header value. This value is derived from the response of SES API, so it differs from the Message-ID values used in logging.</li>
 </ul>
-
 <h3 id="troubleshooting">Troubleshooting</h3>
-
 <p><strong>1. Not allowed to send messages</strong></p>
-
 <ol>
 <li>Check that your IAM role has <em>ses:SendRawEmail</em> action allowed (see <a href="#example-3">example #3</a>)</li>
 <li>Check that the email address you are sending mail from is verified</li>
 <li>There are multiple reports that access keys with special symbols might fail sending mail. Try to generate new access keys and see if it helps</li>
 </ol>
-
 <p><strong>2. aws-sdk is not found</strong></p>
-
 <p>You need to install the <a href="https://www.npmjs.com/package/aws-sdk">aws-sdk</a> module separately, it is not bundled with Nodemailer.</p>
-
 <h3 id="examples">Examples</h3>
-
 <h4 id="example-1">1. Send a message using SES transport</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nodemailer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;nodemailer&#39;</span>);
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">aws</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;aws-sdk&#39;</span>);
 
-<pre><code class="language-javascript">let nodemailer = require('nodemailer');
-let aws = require('aws-sdk');
+<span style="color:#75715e">// configure AWS SDK
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">loadFromPath</span>(<span style="color:#e6db74">&#39;config.json&#39;</span>);
 
-// configure AWS SDK
-aws.config.loadFromPath('config.json');
-
-// create Nodemailer SES transporter
-let transporter = nodemailer.createTransport({
-    SES: new aws.SES({
-        apiVersion: '2010-12-01'
+<span style="color:#75715e">// create Nodemailer SES transporter
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">SES</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">SES</span>({
+        <span style="color:#a6e22e">apiVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-12-01&#39;</span>
     })
 });
 
-// send some mail
-transporter.sendMail({
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Message',
-    text: 'I hope this message gets sent!',
-    ses: { // optional extra arguments for SendRawEmail
-        Tags: [{
-            Name: 'tag name',
-            Value: 'tag value'
+<span style="color:#75715e">// send some mail
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>({
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Message&#39;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;I hope this message gets sent!&#39;</span>,
+    <span style="color:#a6e22e">ses</span><span style="color:#f92672">:</span> { <span style="color:#75715e">// optional extra arguments for SendRawEmail
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span> [{
+            <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;tag name&#39;</span>,
+            <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;tag value&#39;</span>
         }]
     }
-}, (err, info) =&gt; {
-    console.log(info.envelope);
-    console.log(info.messageId);
+}, (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">info</span>) =&gt; {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">envelope</span>);
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">messageId</span>);
 });
-</code></pre>
-
-<h4 id="example-2">2. Throttle messages</h4>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    SES: new aws.SES({
-        apiVersion: '2010-12-01'
+</code></pre></div><h4 id="example-2">2. Throttle messages</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">SES</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">SES</span>({
+        <span style="color:#a6e22e">apiVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-12-01&#39;</span>
     }),
-    sendingRate: 1 // max 1 messages/second
-});
+    <span style="color:#a6e22e">sendingRate</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e">// max 1 messages/second
+</span><span style="color:#75715e"></span>});
 
-// Push next messages to Nodemailer
-transporter.on('idle', () =&gt; {
-    while (transporter.isIdle()) {
-        transporter.sendMail(...);
+<span style="color:#75715e">// Push next messages to Nodemailer
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;idle&#39;</span>, () =&gt; {
+    <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">isIdle</span>()) {
+        <span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>(...);
     }
 });
-</code></pre>
-
-<h4 id="example-3">3. IAM policy</h4>
-
+</code></pre></div><h4 id="example-3">3. IAM policy</h4>
 <p>Nodemailer SES transport requires <em>ses:SendRawEmail</em> role</p>
-
-<pre><code class="language-json">{
-    &quot;Statement&quot;: [
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#f92672">&#34;Statement&#34;</span>: [
         {
-            &quot;Effect&quot;: &quot;Allow&quot;,
-            &quot;Action&quot;: &quot;ses:SendRawEmail&quot;,
-            &quot;Resource&quot;: &quot;*&quot;
+            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+            <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;ses:SendRawEmail&#34;</span>,
+            <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
         }
     ]
 }
-</code></pre>
-
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1944,20 +1899,20 @@ transporter.on('idle', () =&gt; {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

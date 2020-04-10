@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>DKIM :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1107,25 +1107,15 @@
         
 
 
-
-
 <h1 id="dkim-signing">DKIM signing</h1>
-
 <p>Nodemailer is able to sign all messages with DKIM keys. This means calculating a signature for the message and adding it as an additional header (or headers, if you use multiple keys) to the message.</p>
-
 <p>The drawback on DKIM signing is that Nodemailer needs to cache the entire message before it can be sent, unlike normal sending where message output is streamed to SMTP as it is created and nothing needs to be cached. For small messages it does not matter, for larger messages Nodemailer offers an option to cache messages not in memory but on disk. In this case Nodemailer starts buffering the message in memory and if the message size reaches a certain treshold, it gets directed to a file on disk. Once signature is calculated and sent to SMTP, Nodemailer streams the cached message from disk to SMTP.</p>
-
 <p>In general DKIM signing should be fast and effective.</p>
-
 <h3 id="setting-it-up">Setting it up</h3>
-
 <p>DKIM signing can be set on the transport level (all messages get signed with the same keys) and also on the message level (provide different keys for every message). If both are set, then message level DKIM configuration is preferred.</p>
-
 <p>In both cases you need to provide a <code>dkim</code> object with the following structure</p>
-
 <ul>
 <li><strong>dkim</strong> is an object with DKIM options
-
 <ul>
 <li><strong>domainName</strong> – is the domain name to use in the signature</li>
 <li><strong>keySelector</strong> – is the DKIM key selector</li>
@@ -1136,113 +1126,91 @@
 <li><strong>hashAlgo</strong> – optional algorithm for the body hash, defaults to &lsquo;sha256&rsquo;</li>
 <li><strong>headerFieldNames</strong> – an optional colon separated list of header keys to sign (eg. <code>message-id:date:from:to...'</code>)</li>
 <li><strong>skipFields</strong> – optional colon separated list of header keys not to sign. This is useful if you want to sign all the relevant keys but your provider changes some values, ie Message-ID and Date. In this case you should use <code>'message-id:date'</code> to prevent signing these values.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h3 id="examples">Examples</h3>
-
 <h4 id="1-sign-all-messages">1. Sign all messages</h4>
-
 <p>Assumes that there is a public key available for <em>2017._domainkey.example.com</em>. You can test if the key exists or not with the <em>dig</em> tool like this</p>
-
-<pre><code class="language-bash">dig TXT 2017._domainkey.example.com
-</code></pre>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-  host: &quot;smtp.example.com&quot;,
-  port: 465,
-  secure: true,
-  dkim: {
-    domainName: &quot;example.com&quot;,
-    keySelector: &quot;2017&quot;,
-    privateKey: &quot;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dig TXT 2017._domainkey.example.com
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">dkim</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;example.com&#34;</span>,
+    <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2017&#34;</span>,
+    <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>
   }
 });
-</code></pre>
-
-<h4 id="2-sign-all-messages-with-multiple-keys">2. Sign all messages with multiple keys</h4>
-
+</code></pre></div><h4 id="2-sign-all-messages-with-multiple-keys">2. Sign all messages with multiple keys</h4>
 <p>Assumes that there is a public keys available for <em>2017._domainkey.example.com</em> and <em>2016._domainkey.example.com</em></p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    host: 'smtp.example.com',
-    port: 465,
-    secure: true,
-    dkim: {
-        keys: [
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">dkim</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">keys</span><span style="color:#f92672">:</span> [
             {
-                domainName: 'example.com',
-                keySelector: '2017',
-                privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...'
+                <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;example.com&#39;</span>,
+                <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2017&#39;</span>,
+                <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#39;</span>
             },
             {
-                domainName: 'example.com',
-                keySelector: '2016',
-                privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...'
+                <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;example.com&#39;</span>,
+                <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2016&#39;</span>,
+                <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#39;</span>
             }
         ]
-        cacheDir: false
+        <span style="color:#a6e22e">cacheDir</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
     }
 });
-</code></pre>
-
-<h4 id="3-sign-a-specific-message">3. Sign a specific message</h4>
-
+</code></pre></div><h4 id="3-sign-a-specific-message">3. Sign a specific message</h4>
 <p>Do not sign by default. Provide DKIM key values separately for every message.</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-  host: &quot;smtp.example.com&quot;,
-  port: 465,
-  secure: true
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
 });
-let message = {
-  from: &quot;sender@example.com&quot;,
-  to: &quot;recipient@example.com&quot;,
-  subject: &quot;Message&quot;,
-  text: &quot;I hope this message gets read!&quot;,
-  dkim: {
-    domainName: &quot;example.com&quot;,
-    keySelector: &quot;2017&quot;,
-    privateKey: &quot;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&quot;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+  <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;sender@example.com&#34;</span>,
+  <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;recipient@example.com&#34;</span>,
+  <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Message&#34;</span>,
+  <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;I hope this message gets read!&#34;</span>,
+  <span style="color:#a6e22e">dkim</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;example.com&#34;</span>,
+    <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2017&#34;</span>,
+    <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>
   }
 };
-</code></pre>
-
-<h4 id="4-cache-large-messages-for-signing">4. Cache large messages for signing</h4>
-
+</code></pre></div><h4 id="4-cache-large-messages-for-signing">4. Cache large messages for signing</h4>
 <p>Messages larger than 100kB are cached to disk</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-  host: &quot;smtp.example.com&quot;,
-  port: 465,
-  secure: true,
-  dkim: {
-    domainName: &quot;example.com&quot;,
-    keySelector: &quot;2017&quot;,
-    privateKey: &quot;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&quot;,
-    cacheDir: &quot;/tmp&quot;,
-    cacheTreshold: 100 * 1024
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">dkim</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;example.com&#34;</span>,
+    <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2017&#34;</span>,
+    <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>,
+    <span style="color:#a6e22e">cacheDir</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/tmp&#34;</span>,
+    <span style="color:#a6e22e">cacheTreshold</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span>
   }
 });
-</code></pre>
-
-<h4 id="5-do-not-sign-specific-header-keys">5. Do not sign specific header keys</h4>
-
+</code></pre></div><h4 id="5-do-not-sign-specific-header-keys">5. Do not sign specific header keys</h4>
 <p>This is needed when sending mail through SES that has its own Message-ID and Date system.</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-  host: &quot;smtp.example.com&quot;,
-  port: 465,
-  secure: true,
-  dkim: {
-    domainName: &quot;example.com&quot;,
-    keySelector: &quot;2017&quot;,
-    privateKey: &quot;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&quot;,
-    skipFields: &quot;message-id:date&quot;
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">dkim</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;example.com&#34;</span>,
+    <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2017&#34;</span>,
+    <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>,
+    <span style="color:#a6e22e">skipFields</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;message-id:date&#34;</span>
   }
 });
-</code></pre>
-
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1913,20 +1881,20 @@ let message = {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

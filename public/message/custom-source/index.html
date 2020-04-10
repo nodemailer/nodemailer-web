@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Custom source :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,20 +1105,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#examples">Examples</a>
-<ul>
-<li><a href="#1-use-string-as-a-message-body">1. Use string as a message body</a></li>
-<li><a href="#2-set-eml-file-as-message-body">2. Set EML file as message body</a></li>
-<li><a href="#3-set-string-as-attachment-body">3. Set string as attachment body</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#examples">Examples</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1137,64 +1130,46 @@
         
 
 
-
-
 <p>If you want to use your own custom generated RFC822 formatted message source, instead of letting Nodemailer to generate it from the message options, use option <strong>raw</strong>. This can be used both for the entire message or alternatively per-attachment or per-alternative.</p>
-
-<div class="notices note" >
-Don't forget to set the **envelope** option when using **raw** as the message source
-</div>
-
+<!-- raw HTML omitted -->
 <h3 id="examples">Examples</h3>
-
 <h4 id="1-use-string-as-a-message-body">1. Use string as a message body</h4>
-
 <p>This example loads the entire message source from a string value. You don&rsquo;t have to worry about proper newlines, these are handled by Nodemailer.</p>
-
-<pre><code class="language-javascript">let message = {
-    envelope: {
-        from: 'sender@example.com',
-        to: ['recipient@example.com']
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">envelope</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+        <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;recipient@example.com&#39;</span>]
     },
-    raw: `From: sender@example.com
-To: recipient@example.com
-Subject: test message
-
-Hello world!`
+    <span style="color:#a6e22e">raw</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">From: sender@example.com
+</span><span style="color:#e6db74">To: recipient@example.com
+</span><span style="color:#e6db74">Subject: test message
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Hello world!</span><span style="color:#e6db74">`</span>
 };
-</code></pre>
-
-<h4 id="2-set-eml-file-as-message-body">2. Set EML file as message body</h4>
-
+</code></pre></div><h4 id="2-set-eml-file-as-message-body">2. Set EML file as message body</h4>
 <p>This example loads the entire message source from a file</p>
-
-<pre><code class="language-javascript">let message = {
-    envelope: {
-        from: 'sender@example.com',
-        to: ['recipient@example.com']
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">envelope</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+        <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;recipient@example.com&#39;</span>]
     },
-    raw: {
-        path: '/path/to/message.eml'
+    <span style="color:#a6e22e">raw</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/path/to/message.eml&#39;</span>
     }
 };
-</code></pre>
-
-<h4 id="3-set-string-as-attachment-body">3. Set string as attachment body</h4>
-
+</code></pre></div><h4 id="3-set-string-as-attachment-body">3. Set string as attachment body</h4>
 <p>When using <strong>raw</strong> for attachments then you need to provide all content headers youself, Nodemailer does not process it in any way (besides newline processing), it is inserted into the MIME tree as is.</p>
-
-<pre><code class="language-javascript">let message = {
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Custom attachment',
-    attachments: [{
-        raw: `Content-Type: text/plain
-Content-Disposition: attachment
-
-Attached text file`}]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Custom attachment&#39;</span>,
+    <span style="color:#a6e22e">attachments</span><span style="color:#f92672">:</span> [{
+        <span style="color:#a6e22e">raw</span><span style="color:#f92672">:</span> <span style="color:#e6db74">`</span><span style="color:#e6db74">Content-Type: text/plain
+</span><span style="color:#e6db74">Content-Disposition: attachment
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Attached text file</span><span style="color:#e6db74">`</span>}]
 };
-</code></pre>
-
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1868,20 +1843,20 @@ Attached text file`}]
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

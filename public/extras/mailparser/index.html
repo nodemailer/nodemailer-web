@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Mailparser :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509082" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509082" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509082" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509082" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509082" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509082" rel="stylesheet">
+    <link href="/css/theme.css?1586509082" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509082" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509082" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509082"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,29 +1105,28 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#install">Install</a></li>
-<li><a href="#simpleparser">simpleParser</a>
-<ul>
-<li><a href="#mail-object">mail object</a></li>
-<li><a href="#address-object">address object</a></li>
-<li><a href="#headers-map">headers Map</a></li>
-<li><a href="#attachment-object">attachment object</a></li>
-</ul></li>
-<li><a href="#mailparser">MailParser</a>
-<ul>
-<li><a href="#options">options</a></li>
-<li><a href="#event-headers">Event &lsquo;headers&rsquo;</a></li>
-<li><a href="#event-data">Event &lsquo;data&rsquo;</a></li>
-<li><a href="#attachment-object-1">attachment object</a></li>
-<li><a href="#text-object">text object</a></li>
-</ul></li>
-<li><a href="#issues">Issues</a></li>
-<li><a href="#license">License</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#install">Install</a></li>
+    <li><a href="#simpleparser">simpleParser</a>
+      <ul>
+        <li><a href="#mail-object">mail object</a></li>
+        <li><a href="#address-object">address object</a></li>
+        <li><a href="#headers-map">headers Map</a></li>
+        <li><a href="#attachment-object">attachment object</a></li>
+      </ul>
+    </li>
+    <li><a href="#mailparser">MailParser</a>
+      <ul>
+        <li><a href="#options">options</a></li>
+        <li><a href="#event-headers">Event &lsquo;headers&rsquo;</a></li>
+        <li><a href="#event-data">Event &lsquo;data&rsquo;</a></li>
+        <li><a href="#attachment-object-1">attachment object</a></li>
+        <li><a href="#text-object">text object</a></li>
+      </ul>
+    </li>
+    <li><a href="#issues">Issues</a></li>
+    <li><a href="#license">License</a></li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1146,52 +1145,30 @@
         
 
 
-
-
 <p>Advanced email parser for Node.js. Everything is handled as a stream which should make it able to parse even very large messages (100MB+) with relatively low overhead.</p>
-
 <p>The module exposes two separate modes, a lower level <strong>MailParser</strong> class and <strong>simpleParser</strong> function. The latter is simpler to use (hence the name) but is less resource efficient as it buffers attachment contents in memory.</p>
-
 <h2 id="install">Install</h2>
-
-<pre><code class="language-bash">npm install mailparser --save
-</code></pre>
-
-<h2 id="simpleparser">simpleParser</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install mailparser --save
+</code></pre></div><h2 id="simpleparser">simpleParser</h2>
 <p><strong>simpleParser</strong> is the easiest way to parse emails. You only need to provide a message source to get a parsed email structure in return. As an additional bonus all embedded images in HTML (eg. the images that point to attachments using cid: URIs) are replaced with base64 encoded data URIs, so the message can be displayed without any additional processing. Be aware though that this module does not do any security cleansing (eg. removing javascript and so on), this is left to your own application.</p>
-
-<pre><code class="language-javascript">const simpleParser = require('mailparser').simpleParser;
-simpleParser(source, options, (err, parsed) =&gt; {});
-</code></pre>
-
-<p>See <code>MailParser</code> <a href="#options">options</a> list</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">simpleParser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;mailparser&#39;</span>).<span style="color:#a6e22e">simpleParser</span>;
+<span style="color:#a6e22e">simpleParser</span>(<span style="color:#a6e22e">source</span>, <span style="color:#a6e22e">options</span>, (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">parsed</span>) =&gt; {});
+</code></pre></div><p>See <code>MailParser</code> <a href="#options">options</a> list</p>
 <p>or as a Promise:</p>
-
-<pre><code class="language-javascript">simpleParser(source, options)
-    .then(parsed =&gt; {})
-    .catch(err =&gt; {});
-</code></pre>
-
-<p>or even with async..await:</p>
-
-<pre><code class="language-javascript">let parsed = await simpleParser(source);
-</code></pre>
-
-<p>Where</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">simpleParser</span>(<span style="color:#a6e22e">source</span>, <span style="color:#a6e22e">options</span>)
+    .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">parsed</span> =&gt; {})
+    .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">err</span> =&gt; {});
+</code></pre></div><p>or even with async..await:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">parsed</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">await</span> <span style="color:#a6e22e">simpleParser</span>(<span style="color:#a6e22e">source</span>);
+</code></pre></div><p>Where</p>
 <ul>
 <li><strong>source</strong> is either a stream, a Buffer or a string that needs to be parsed</li>
 <li><strong>options</strong> is an optional options object</li>
 <li><strong>err</strong> is the possible error object</li>
 <li><strong>mail</strong> is a structured email object</li>
 </ul>
-
 <h3 id="mail-object">mail object</h3>
-
 <p>Parsed <strong>mail*</strong> object has the following properties</p>
-
 <ul>
 <li><strong>headers</strong> – a Map object with lowercase header keys</li>
 <li><strong>subject</strong> is the subject line (also available from the header <em>mail.headers.get(&lsquo;subject&rsquo;)</em>)</li>
@@ -1209,60 +1186,49 @@ simpleParser(source, options, (err, parsed) =&gt; {});
 <li><strong>textAsHtml</strong> is the plaintext body of the message formatted as HTML</li>
 <li><strong>attachments</strong> is an array of attachments</li>
 </ul>
-
 <h3 id="address-object">address object</h3>
-
 <p>Address objects have the following structure:</p>
-
 <ul>
-<li><p><strong>value</strong> an array with address details</p>
-
+<li>
+<p><strong>value</strong> an array with address details</p>
 <ul>
 <li><strong>name</strong> is the name part of the email/group</li>
 <li><strong>address</strong> is the email address</li>
 <li><strong>group</strong> is an array of grouped addresses</li>
-</ul></li>
-
-<li><p><strong>text</strong> is a formatted address string for plaintext context</p></li>
-
-<li><p><strong>html</strong> is a formatted address string for HTML context</p></li>
 </ul>
-
+</li>
+<li>
+<p><strong>text</strong> is a formatted address string for plaintext context</p>
+</li>
+<li>
+<p><strong>html</strong> is a formatted address string for HTML context</p>
+</li>
+</ul>
 <p><strong>Example</strong></p>
-
-<pre><code class="language-javascript">{
-    value: [
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+    <span style="color:#a6e22e">value</span><span style="color:#f92672">:</span> [
         {
-            address: 'andris+123@kreata.ee',
-            name: 'Andris Reinman'
+            <span style="color:#a6e22e">address</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;andris+123@kreata.ee&#39;</span>,
+            <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Andris Reinman&#39;</span>
         },
         {
-            address: 'andris.reinman@gmail.com',
-            name: ''
+            <span style="color:#a6e22e">address</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;andris.reinman@gmail.com&#39;</span>,
+            <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>
         }
     ],
-    html: '&lt;span class=&quot;mp_address_name&quot;&gt;Andris Reinman&lt;/span&gt; &lt;&lt;a href=&quot;mailto:andris+123@kreata.ee&quot; class=&quot;mp_address_email&quot;&gt;andris+123@kreata.ee&lt;/a&gt;&gt;, &lt;a href=&quot;mailto:andris.reinman@gmail.com&quot; class=&quot;mp_address_email&quot;&gt;andris.reinman@gmail.com&lt;/a&gt;',
-    text: 'Andris Reinman &lt;andris+123@kreata.ee&gt;, andris.reinman@gmail.com'
+    <span style="color:#a6e22e">html</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;span class=&#34;mp_address_name&#34;&gt;Andris Reinman&lt;/span&gt; &lt;&lt;a href=&#34;mailto:andris+123@kreata.ee&#34; class=&#34;mp_address_email&#34;&gt;andris+123@kreata.ee&lt;/a&gt;&gt;, &lt;a href=&#34;mailto:andris.reinman@gmail.com&#34; class=&#34;mp_address_email&#34;&gt;andris.reinman@gmail.com&lt;/a&gt;&#39;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Andris Reinman &lt;andris+123@kreata.ee&gt;, andris.reinman@gmail.com&#39;</span>
 }
-</code></pre>
-
-<h3 id="headers-map">headers Map</h3>
-
+</code></pre></div><h3 id="headers-map">headers Map</h3>
 <p><strong>headers</strong> is a Map with lowercase header keys. So if you want to check for the Subject: header then you can do it like this:</p>
-
-<pre><code class="language-javascript">if (mail.headers.has('subject')) {
-    console.log(mail.headers.get('subject'));
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">headers</span>.<span style="color:#a6e22e">has</span>(<span style="color:#e6db74">&#39;subject&#39;</span>)) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">headers</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;subject&#39;</span>));
 }
-</code></pre>
-
-<p>The format of a header depends on the specific key. For most header keys the value is either a string (a single header) or an array of strings (multiple headers with the same key were found).</p>
-
+</code></pre></div><p>The format of a header depends on the specific key. For most header keys the value is either a string (a single header) or an array of strings (multiple headers with the same key were found).</p>
 <p>Special header keys are the following:</p>
-
 <ol>
 <li>All address headers are converted into address objects</li>
 </ol>
-
 <ul>
 <li><strong>from</strong></li>
 <li><strong>to</strong></li>
@@ -1273,42 +1239,37 @@ simpleParser(source, options, (err, parsed) =&gt; {});
 <li><strong>delivered-to</strong></li>
 <li><strong>return-path</strong></li>
 </ul>
-
-<ol>
+<ol start="2">
 <li>All different priority headers are converted into <strong>priority</strong> with the following values:</li>
 </ol>
-
 <ul>
 <li><strong>&lsquo;high&rsquo;</strong></li>
 <li><strong>&lsquo;normal&rsquo;</strong></li>
 <li><strong>&lsquo;low&rsquo;</strong></li>
 </ul>
-
-<ol>
-<li><p><strong>references</strong> is a string if only a single reference-id exists or an array if multiple ids exist</p></li>
-
-<li><p><strong>date</strong> value is a Date object</p></li>
-
-<li><p>The following headers are parsed into structured objects, where <em>value</em> property includes the main value as string and <em>params</em> property holds an object of additional arguments as key-value pairs</p></li>
+<ol start="3">
+<li>
+<p><strong>references</strong> is a string if only a single reference-id exists or an array if multiple ids exist</p>
+</li>
+<li>
+<p><strong>date</strong> value is a Date object</p>
+</li>
+<li>
+<p>The following headers are parsed into structured objects, where <em>value</em> property includes the main value as string and <em>params</em> property holds an object of additional arguments as key-value pairs</p>
+</li>
 </ol>
-
 <ul>
 <li><strong>content-type</strong></li>
 <li><strong>content-disposition</strong></li>
 <li><strong>dkim-signature</strong></li>
 </ul>
-
 <p>Some headers are also automaticaly mime-word decoded</p>
-
 <ul>
 <li>all address headers (name parts and punycode encoded domains are converted to unicode)</li>
 <li><strong>subject</strong> is converted to unicode</li>
 </ul>
-
 <h3 id="attachment-object">attachment object</h3>
-
 <p>Attachment objects have the following structure:</p>
-
 <ul>
 <li><strong>filename</strong> (if available) file name of the attachment</li>
 <li><strong>contentType</strong> MIME type of the message</li>
@@ -1321,17 +1282,11 @@ simpleParser(source, options, (err, parsed) =&gt; {});
 <li><strong>cid</strong> contentId without &lt; and &gt;</li>
 <li><strong>related</strong> if true then this attachment should not be offered for download (at least not in the main attachments list)</li>
 </ul>
-
 <h2 id="mailparser">MailParser</h2>
-
 <p><strong>MailParser</strong> is a lower-level email parsing class. It is a transform stream that takes email source as bytestream for the input and emits data objects for attachments and text contents.</p>
-
-<pre><code class="language-javascript">const MailParser = require('mailparser').MailParser;
-let parser = new MailParser();
-</code></pre>
-
-<h3 id="options">options</h3>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MailParser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;mailparser&#39;</span>).<span style="color:#a6e22e">MailParser</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">parser</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MailParser</span>();
+</code></pre></div><h3 id="options">options</h3>
 <ul>
 <li><strong>skipHtmlToText</strong> <code>boolean</code> Don&rsquo;t generate plaintext from HTML. Defaults to <code>undefined</code> (<em>falsy</em>).</li>
 <li><strong>maxHtmlLengthToParse</strong> <code>number</code> The maximum amount of HTML to parse in bytes. Defaults to <code>undefined</code> (<em>Infinity</em>).</li>
@@ -1342,78 +1297,50 @@ let parser = new MailParser();
 <li><strong>Iconv</strong> <code>object</code> Defaults to <a href="https://www.npmjs.com/package/iconv-lite">iconv-lite</a></li>
 <li><strong>keepCidLinks</strong> <code>boolean</code> <code>simpleParser</code>-only option. Sets <code>skipImageLinks</code> to true.</li>
 </ul>
-
 <h3 id="event-headers">Event &lsquo;headers&rsquo;</h3>
-
 <p>The parser emits &lsquo;headers&rsquo; once message headers have been processed. The headers object is a Map. Different header keys have different kind of values, for example address headers have the address object/array as the value while subject value is string.</p>
-
 <p>Header keys in the Map are lowercase.</p>
-
-<pre><code class="language-javascript">parser.on('headers', headers =&gt; {
-    console.log(headers.get('subject'));
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">parser</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;headers&#39;</span>, <span style="color:#a6e22e">headers</span> =&gt; {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">headers</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;subject&#39;</span>));
 });
-</code></pre>
-
-<h3 id="event-data">Event &lsquo;data&rsquo;</h3>
-
+</code></pre></div><h3 id="event-data">Event &lsquo;data&rsquo;</h3>
 <p>Event &lsquo;data&rsquo; or &lsquo;readable&rsquo; emits message content objects. The type of the object can be determine by the <em>type</em> property. Currently there are two kind of data objects</p>
-
 <ul>
 <li>&lsquo;attachment&rsquo; indicates that this object is an attachment</li>
 <li>&lsquo;text&rsquo; indicates that this object includes the html and text parts of the message. This object is emitted once and it includes both values</li>
 </ul>
-
 <h3 id="attachment-object-1">attachment object</h3>
-
 <p>Attachment object is the same as in <em>simpleParser</em> except that <em>content</em> is not a buffer but a stream. Additionally there&rsquo;s a method <strong>release()</strong> that must be called once you have processed the attachment. The property <em>related</em> is set after message processing is ended, so at the <em>data</em> event this value is not yet available.</p>
-
-<pre><code class="language-javascript">parser.on('data', data =&gt; {
-    if (data.type === 'attachment') {
-        console.log(data.filename);
-        data.content.pipe(process.stdout);
-        data.content.on('end', () =&gt; data.release());
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">parser</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;data&#39;</span>, <span style="color:#a6e22e">data</span> =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;attachment&#39;</span>) {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">filename</span>);
+        <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">content</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdout</span>);
+        <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">content</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;end&#39;</span>, () =&gt; <span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">release</span>());
     }
 });
-</code></pre>
-
-<p>If you do not call <strong>release()</strong> then the message processing is paused.</p>
-
+</code></pre></div><p>If you do not call <strong>release()</strong> then the message processing is paused.</p>
 <h3 id="text-object">text object</h3>
-
 <p>Text object has the following keys:</p>
-
 <ul>
 <li><strong>text</strong> includes the plaintext version of the message. Is set if the message has at least one &lsquo;text/plain&rsquo; node</li>
 <li><strong>html</strong> includes the HTML version of the message. Is set if the message has at least one &lsquo;text/html&rsquo; node</li>
-
-<li><p><strong>textAsHtml</strong> includes the plaintext version of the message in HTML format. Is set if the message has at least one &lsquo;text/plain&rsquo; node.</p>
-
-<pre><code class="language-javascript">parser.on('data', data =&gt; {
-if (data.type === 'text') {
-    console.log(data.html);
-}
-});
-</code></pre></li>
+<li><strong>textAsHtml</strong> includes the plaintext version of the message in HTML format. Is set if the message has at least one &lsquo;text/plain&rsquo; node.</li>
 </ul>
-
-<h2 id="issues">Issues</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">parser</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;data&#39;</span>, <span style="color:#a6e22e">data</span> =&gt; {
+    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;text&#39;</span>) {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">html</span>);
+    }
+});
+</code></pre></div><h2 id="issues">Issues</h2>
 <p>Charset decoding is handled using <a href="https://github.com/ashtuchkin/iconv-lite">iconv-lite</a>, except for ISO-2022-JP and EUCJP that are handled by <a href="https://www.npmjs.com/package/encoding-japanese">encoding-japanese</a>. Alternatively you can use <a href="https://www.npmjs.com/package/iconv">node-iconv</a> module instead for all charset decoding. This module is not included in the mailparser package, you would have to provide it to Mailparser or simpleParser as a configuration option.</p>
-
-<pre><code class="language-javascript">const Iconv = require('iconv').Iconv;
-const MailParser = require('mailparser').MailParser;
-let parser = new MailParser({ Iconv });
-</code></pre>
-
-<p>or</p>
-
-<pre><code class="language-javascript">const Iconv = require('iconv').Iconv;
-const simpleParser = require('mailparser').simpleParser;
-simpleParser('rfc822 message', { Iconv }, callback);
-</code></pre>
-
-<h2 id="license">License</h2>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Iconv</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;iconv&#39;</span>).<span style="color:#a6e22e">Iconv</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MailParser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;mailparser&#39;</span>).<span style="color:#a6e22e">MailParser</span>;
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">parser</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MailParser</span>({ <span style="color:#a6e22e">Iconv</span> });
+</code></pre></div><p>or</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Iconv</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;iconv&#39;</span>).<span style="color:#a6e22e">Iconv</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">simpleParser</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;mailparser&#39;</span>).<span style="color:#a6e22e">simpleParser</span>;
+<span style="color:#a6e22e">simpleParser</span>(<span style="color:#e6db74">&#39;rfc822 message&#39;</span>, { <span style="color:#a6e22e">Iconv</span> }, <span style="color:#a6e22e">callback</span>);
+</code></pre></div><h2 id="license">License</h2>
 <p>Dual licensed under <strong>MIT</strong> or <strong>EUPLv1.1+</strong></p>
 
 
@@ -2089,20 +2016,20 @@ simpleParser('rfc822 message', { Iconv }, callback);
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

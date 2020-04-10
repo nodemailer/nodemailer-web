@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Usage :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1107,71 +1107,46 @@
         
 
 
-
-
 <h1 id="usage">Usage</h1>
-
 <h2 id="setting-it-up">Setting it up</h2>
-
 <p>Install Nodemailer from <a href="https://www.npmjs.com/package/nodemailer">npm</a></p>
-
-<pre><code class="language-bash">npm install nodemailer
-</code></pre>
-
-<p>To send emails you need a transporter object</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport(transport[, defaults])
-</code></pre>
-
-<p>Where</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install nodemailer
+</code></pre></div><p>To send emails you need a transporter object</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>(<span style="color:#a6e22e">transport</span>[, <span style="color:#a6e22e">defaults</span>])
+</code></pre></div><p>Where</p>
 <ul>
 <li><strong>transporter</strong> is going to be an object that is able to send mail</li>
 <li><strong>transport</strong> is the transport configuration object, connection url or a transport plugin instance</li>
 <li><strong>defaults</strong> is an object that defines default values for mail options</li>
 </ul>
-
-<div class="notices tip" >
-You have to create the transporter object only once. If you already have a transporter object you can use it to send mail as much as you like.
-</div>
-
+<!-- raw HTML omitted -->
 <h3 id="send-using-smtp">Send using SMTP</h3>
-
 <p>See the details about setting up a SMTP based transporter <a href="/smtp/">here</a>.</p>
-
 <h3 id="send-using-a-transport-plugin">Send using a transport plugin</h3>
-
 <p>See the details about setting up a plugin based transporter <a href="/transports/">here</a>.</p>
-
 <h2 id="sending-mail">Sending mail</h2>
-
 <p>Once you have a transporter object you can send mail with it:</p>
-
-<pre><code class="language-javascript">transporter.sendMail(data[, callback])
-</code></pre>
-
-<p>Where</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>(<span style="color:#a6e22e">data</span>[, <span style="color:#a6e22e">callback</span>])
+</code></pre></div><p>Where</p>
 <ul>
 <li><strong>data</strong> defines the mail content (see <a href="/message/">Message Configuration</a> for possible options)</li>
 <li><strong>callback</strong> is an optional callback function to run once the message is delivered or it failed
-
 <ul>
 <li><strong>err</strong> is the error object if message failed</li>
-<li><strong>info</strong> includes the result, the exact format depends on the transport mechanism used</li>
+<li><strong>info</strong> includes the result, the exact format depends on the transport mechanism used
+<ul>
 <li><strong>info.messageId</strong> most transports <em>should</em> return the final Message-Id value used with this property</li>
 <li><strong>info.envelope</strong> includes the envelope object for the message</li>
 <li><strong>info.accepted</strong> is an array returned by SMTP transports (includes recipient addresses that were accepted by the server)</li>
 <li><strong>info.rejected</strong> is an array returned by SMTP transports (includes recipient addresses that were rejected by the server)</li>
 <li><strong>info.pending</strong> is an array returned by Direct SMTP transport. Includes recipient addresses that were temporarily rejected together with the server response</li>
 <li><strong>response</strong> is a string returned by SMTP transports and includes the last SMTP response from the server</li>
-</ul></li>
 </ul>
-
-<div class="notices info" >
-If the message includes several recipients then the message is considered sent if at least one recipient is accepted
-</div>
-
+</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
 <p>If <code>callback</code> argument is not set then the method returns a Promise object. Nodemailer itself does not use Promises internally but it wraps the return into a Promise for convenience.</p>
 
 
@@ -1844,20 +1819,20 @@ If the message includes several recipients then the message is considered sent i
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

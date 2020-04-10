@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Pooled SMTP :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,23 +1105,14 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#methods">Methods</a>
-<ul>
-<li><a href="#transporter-isidle">transporter.isIdle()</a></li>
-<li><a href="#transporter-close">transporter.close()</a></li>
-</ul></li>
-<li><a href="#events">Events</a>
-<ul>
-<li><a href="#event-idle">Event:&lsquo;idle&rsquo;</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#methods">Methods</a></li>
+        <li><a href="#events">Events</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1140,12 +1131,8 @@
         
 
 
-
-
 <p>If pooling is used then Nodemailer keeps a fixed amount of connections open and sends the next message once a connection becomes available. It is mostly useful when you have a large number of messages that you want to send in batches or your provider allows you to only use a small amount of parallel connections.</p>
-
 <p>To use pooled connections use the following options in transport configuration</p>
-
 <ul>
 <li><strong>pool</strong> – set to <em>true</em> to use pooled connections (defaults to <em>false</em>) instead of creating a new connection for every email</li>
 <li><strong>maxConnections</strong> – is the count of maximum simultaneous connections to make against the SMTP server (defaults to 5)</li>
@@ -1153,37 +1140,25 @@
 <li><strong>rateDelta</strong> – defines the time measuring period in milliseconds (defaults to 1000, ie. to 1 second) for rate limiting</li>
 <li><strong>rateLimit</strong> – limits the message count to be sent in <strong>rateDelta</strong> time. Once <em>rateLimit</em> is reached, sending is paused until the end of the measuring period. This limit is shared between connections, so if one connection uses up the limit, then other connections are paused as well. If <em>rateLimit</em> is not set then sending rate is not limited</li>
 </ul>
-
 <h3 id="methods">Methods</h3>
-
-<h4 id="transporter-isidle">transporter.isIdle()</h4>
-
+<h4 id="transporterisidle">transporter.isIdle()</h4>
 <p>Returns <em>true</em> if there are available connection slots</p>
-
-<h4 id="transporter-close">transporter.close()</h4>
-
+<h4 id="transporterclose">transporter.close()</h4>
 <p>If transporter uses pooling then connections are kept open even if there is nothing to be sent. Connections that idle for longer than the <em>socketTimeout</em> will be closed automatically and reopened once there&rsquo;s more mail to send. You can also use <em>transporter.close()</em> to clean up all connections.</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({pool: true,...});
-// ...
-transporter.close();
-</code></pre>
-
-<h3 id="events">Events</h3>
-
-<h4 id="event-idle">Event:&lsquo;idle&rsquo;</h4>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({<span style="color:#a6e22e">pool</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,...});
+<span style="color:#75715e">// ...
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">close</span>();
+</code></pre></div><h3 id="events">Events</h3>
+<h4 id="eventidle">Event:&lsquo;idle&rsquo;</h4>
 <p>Emitted by the transporter object if connection pool has free connection slots. Check if a connection is still available with <code>isIdle()</code> method (returns <code>true</code> if a connection is still available). This allows to create push-like senders where messages are not queued into memory in a Node.js process but pushed and loaded through an external queue.</p>
-
-<pre><code class="language-javascript">let messages = [...&quot;list of messages&quot;];
-transporter.on(&quot;idle&quot;, function() {
-  // send next message from the pending queue
-  while (transporter.isIdle() &amp;&amp; messages.length) {
-    transporter.sendMail(messages.shift());
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">messages</span> <span style="color:#f92672">=</span> [...<span style="color:#e6db74">&#34;list of messages&#34;</span>];
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;idle&#34;</span>, <span style="color:#66d9ef">function</span>() {
+  <span style="color:#75715e">// send next message from the pending queue
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">isIdle</span>() <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">length</span>) {
+    <span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>(<span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">shift</span>());
   }
 });
-</code></pre>
-
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1857,20 +1832,20 @@ transporter.on(&quot;idle&quot;, function() {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

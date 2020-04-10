@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Delivery status notifications :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,19 +1105,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#examples">Examples</a>
-<ul>
-<li><a href="#1-request-dsn-for-delivered-messages">1. Request DSN for delivered messages</a></li>
-<li><a href="#2-request-dsn-for-undelivered-and-delayed-messages">2. Request DSN for undelivered and delayed messages</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#examples">Examples</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1136,59 +1130,48 @@
         
 
 
-
-
 <p>If your delivery service supports it (not all SMTP servers have DSN extension enabled), then you can use Delivery status notifications (DSN) with Nodemailer as defined in <a href="https://tools.ietf.org/html/rfc3461">RFC3461</a>.</p>
-
 <p>To set up a DSN call, add a dsn property to message data</p>
-
 <ul>
-<li><p><strong>dsn</strong> – optional object to define DSN options</p>
-
+<li>
+<p><strong>dsn</strong> – optional object to define DSN options</p>
 <ul>
 <li><strong>id</strong> – is the envelope identifier that would be included in the response (ENVID)</li>
 <li><strong>return</strong> – is either <em>&lsquo;headers&rsquo;</em> or <em>&lsquo;full&rsquo;</em>. It specifies if only headers or the entire body of the message should be included in the response (RET)</li>
 <li><strong>notify</strong> – is either a string or an array of strings that define the conditions under which a DSN response should be sent. Possible values are <em>&lsquo;never&rsquo;</em>, <em>&lsquo;success&rsquo;</em>, <em>&lsquo;failure&rsquo;</em> and <em>&lsquo;delay&rsquo;</em>. The condition <em>&lsquo;never&rsquo;</em> can only appear on its own, other values can be grouped together into an array (NOTIFY)</li>
 <li><strong>recipient</strong> – is the email address the DSN should be sent (ORCPT)</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>Non-xtext strings are encoded automatically.</p>
-
 <h3 id="examples">Examples</h3>
-
 <h4 id="1-request-dsn-for-delivered-messages">1. Request DSN for delivered messages</h4>
-
-<pre><code class="language-javascript">let message = {
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Message',
-    text: 'I hope this message gets read!',
-    dsn: {
-        id: 'some random message specific id',
-        return: 'headers',
-        notify: 'success',
-        recipient: 'sender@example.com'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Message&#39;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;I hope this message gets read!&#39;</span>,
+    <span style="color:#a6e22e">dsn</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;some random message specific id&#39;</span>,
+        <span style="color:#66d9ef">return</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;headers&#39;</span>,
+        <span style="color:#a6e22e">notify</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;success&#39;</span>,
+        <span style="color:#a6e22e">recipient</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>
     }
 };
-</code></pre>
-
-<h4 id="2-request-dsn-for-undelivered-and-delayed-messages">2. Request DSN for undelivered and delayed messages</h4>
-
-<pre><code class="language-javascript">let message = {
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Message',
-    text: 'I hope this message gets read!',
-    dsn: {
-        id: 'some random message specific id',
-        return: 'headers',
-        notify: ['failure', 'delay'],
-        recipient: 'sender@example.com'
+</code></pre></div><h4 id="2-request-dsn-for-undelivered-and-delayed-messages">2. Request DSN for undelivered and delayed messages</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Message&#39;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;I hope this message gets read!&#39;</span>,
+    <span style="color:#a6e22e">dsn</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;some random message specific id&#39;</span>,
+        <span style="color:#66d9ef">return</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;headers&#39;</span>,
+        <span style="color:#a6e22e">notify</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#39;failure&#39;</span>, <span style="color:#e6db74">&#39;delay&#39;</span>],
+        <span style="color:#a6e22e">recipient</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>
     }
 };
-</code></pre>
-
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1862,20 +1845,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

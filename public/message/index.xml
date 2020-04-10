@@ -29,7 +29,7 @@ Attachment object consists of the following properties:
       
       <guid>https://nodemailer.com/message/alternatives/</guid>
       <description>In addition to text and HTML, any kind of data can be inserted as an alternative content of the main body - for example a word processing document with the same text as in the HTML field. It is the job of the email client to select and show the best fitting alternative to the reader. Usually this field is used for calendar events and such.
-If you want to use a calendar event as the alternative, the consider using the **icalEvent** option instead.</description>
+Alternative objects use the same options as attachment objects.</description>
     </item>
     
     <item>
@@ -39,8 +39,7 @@ If you want to use a calendar event as the alternative, the consider using the *
       
       <guid>https://nodemailer.com/message/addresses/</guid>
       <description>All email addresses can be plain email addresses
-&#39;foobar@example.com&#39;   or with formatted name (includes unicode support)
-&#39;Ноде Майлер &amp;lt;foobar@example.com&amp;gt;&#39;   Notice that all address fields (even *from:*) are comma separated lists, so if you want to use a comma (or any other special symbol) in the name part, make sure you enclose the name in double quotes like this: `&#39;&#34;Майлер, Ноде&#34; &#39;`   or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.</description>
+&amp;#39;foobar@example.com&amp;#39;  or with formatted name (includes unicode support)  &amp;#39;Ноде Майлер &amp;lt;foobar@example.com&amp;gt;&amp;#39;  or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.)  { name: &amp;#39;Майлер, Ноде&amp;#39;, address: &amp;#39;foobar@example.com&amp;#39; } All address fields accept values as a comma separated list of emails or an array of emails or an array of comma separated list of emails or address objects - use it as you like.</description>
     </item>
     
     <item>
@@ -50,7 +49,7 @@ If you want to use a calendar event as the alternative, the consider using the *
       
       <guid>https://nodemailer.com/message/calendar-events/</guid>
       <description>Calendar events are tricky because different email clients handle these differently. Nodemailer uses the same style as Gmail for attaching calendar files which should ensure maximum compatibility. If you want to attach a calendar event to your email then you can use the message option icalEvent:
- icalEvent – an object to define calendar event
+  icalEvent – an object to define calendar event
  method – optional method, case insensitive, defaults to &amp;lsquo;publish&amp;rsquo;. Other possible values would be &amp;lsquo;request&amp;rsquo;, &amp;lsquo;reply&amp;rsquo;, &amp;lsquo;cancel&amp;rsquo; or any other valid calendar method listed in RFC5546.</description>
     </item>
     
@@ -61,7 +60,7 @@ If you want to use a calendar event as the alternative, the consider using the *
       
       <guid>https://nodemailer.com/message/embedded-images/</guid>
       <description>Attachments can be used as embedded images in the HTML body. To use this feature, you need to set additional property of the attachment - cid (unique identifier of the file) which is a reference to the attachment file. The same cid value must be used as the image URL in HTML (using cid: as the URL protocol, see example below).
-**NB!** the cid value should be as unique as possible!</description>
+Example let message = { ... html: &amp;#39;Embedded image: &amp;lt;img src=&amp;#34;cid:unique@nodemailer.</description>
     </item>
     
     <item>
@@ -92,7 +91,7 @@ General rules
       
       <guid>https://nodemailer.com/message/custom-source/</guid>
       <description>If you want to use your own custom generated RFC822 formatted message source, instead of letting Nodemailer to generate it from the message options, use option raw. This can be used both for the entire message or alternatively per-attachment or per-alternative.
-Don&#39;t forget to set the **envelope** option when using **raw** as the message source  Examples 1. Use string as a message body This example loads the entire message source from a string value.</description>
+Examples 1. Use string as a message body This example loads the entire message source from a string value. You don&amp;rsquo;t have to worry about proper newlines, these are handled by Nodemailer.</description>
     </item>
     
   </channel>

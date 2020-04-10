@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>SMTP envelope :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1104,7 +1104,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -1123,31 +1123,26 @@
 
 
 <p>SMTP envelope is usually auto generated from <strong>from</strong>, <strong>to</strong>, <strong>cc</strong> and <strong>bcc</strong> fields in the message object but if for some reason you want to specify it yourself (custom envelopes are usually used for VERP addresses), you can do it with the <strong>envelope</strong> property in the message object.</p>
-
 <ul>
-<li><p><strong>envelope</strong> – is an object with the following address params that behave just like with regular mail options. You can also use the regular address format, unicode domains etc.</p>
-
+<li><strong>envelope</strong> – is an object with the following address params that behave just like with regular mail options. You can also use the regular address format, unicode domains etc.
 <ul>
 <li><strong>from</strong> – the first address gets used as MAIL FROM address in SMTP</li>
 <li><strong>to</strong> – addresses from this value get added to RCPT TO list</li>
 <li><strong>cc</strong> – addresses from this value get added to RCPT TO list</li>
-
-<li><p><strong>bcc</strong> – addresses from this value get added to RCPT TO list</p>
-
-<pre><code class="language-javascript">let message = {
-...,
-from: 'mailer@nodemailer.com', // listed in rfc822 message header
-to: 'daemon@nodemailer.com', // listed in rfc822 message header
-envelope: {
-from: 'Daemon &lt;deamon@nodemailer.com&gt;', // used as MAIL FROM: address for SMTP
-to: 'mailer@nodemailer.com, Mailer &lt;mailer2@nodemailer.com&gt;' // used as RCPT TO: address for SMTP
-}
-}
-</code></pre></li>
-</ul></li>
+<li><strong>bcc</strong> – addresses from this value get added to RCPT TO list</li>
 </ul>
-
-<p>The envelope object returned by <strong>sendMail()</strong> includes just <strong>from</strong> (address string) and <strong>to</strong> (an array of address strings) fields as all addresses from <strong>to</strong>, <strong>cc</strong> and <strong>bcc</strong> get merged into <strong>to</strong> when sending.</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+    ...,
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;mailer@nodemailer.com&#39;</span>, <span style="color:#75715e">// listed in rfc822 message header
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;daemon@nodemailer.com&#39;</span>, <span style="color:#75715e">// listed in rfc822 message header
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">envelope</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Daemon &lt;deamon@nodemailer.com&gt;&#39;</span>, <span style="color:#75715e">// used as MAIL FROM: address for SMTP
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;mailer@nodemailer.com, Mailer &lt;mailer2@nodemailer.com&gt;&#39;</span> <span style="color:#75715e">// used as RCPT TO: address for SMTP
+</span><span style="color:#75715e"></span>    }
+}
+</code></pre></div><p>The envelope object returned by <strong>sendMail()</strong> includes just <strong>from</strong> (address string) and <strong>to</strong> (an array of address strings) fields as all addresses from <strong>to</strong>, <strong>cc</strong> and <strong>bcc</strong> get merged into <strong>to</strong> when sending.</p>
 
 
 <footer class=" footline" >
@@ -1819,20 +1814,20 @@ to: 'mailer@nodemailer.com, Mailer &lt;mailer2@nodemailer.com&gt;' // used as RC
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

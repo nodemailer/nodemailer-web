@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Calendar events :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,14 +1105,11 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li><a href="#examples">Examples</a>
-<ul>
-<li><a href="#1-send-a-request-event-as-a-string">1. Send a REQUEST event as a string</a></li>
-<li><a href="#2-send-a-publish-event-from-a-file">2. Send a PUBLISH event from a file</a></li>
-<li><a href="#3-send-a-cancel-event-from-an-url">3. Send a CANCEL event from an URL</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#1-send-a-request-event-as-a-string">1\. Send a REQUEST event as a string</a></li>
+    <li><a href="#2-send-a-publish-event-from-a-file">2\. Send a PUBLISH event from a file</a></li>
+    <li><a href="#3-send-a-cancel-event-from-an-url">3\. Send a CANCEL event from an URL</a></li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1131,13 +1128,10 @@
         
 
 
-
-
 <p>Calendar events are tricky because different email clients handle these differently. Nodemailer uses the same style as Gmail for attaching calendar files which should ensure maximum compatibility. If you want to attach a calendar event to your email then you can use the message option <strong>icalEvent</strong>:</p>
-
 <ul>
-<li><p><strong>icalEvent</strong> – an object to define calendar event</p>
-
+<li>
+<p><strong>icalEvent</strong> – an object to define calendar event</p>
 <ul>
 <li><strong>method</strong> – optional method, case insensitive, defaults to <em>&lsquo;publish&rsquo;</em>. Other possible values would be <em>&lsquo;request&rsquo;</em>, <em>&lsquo;reply&rsquo;</em>, <em>&lsquo;cancel&rsquo;</em> or any other valid calendar method listed in <a href="https://tools.ietf.org/html/rfc5546#section-1.4">RFC5546</a>. This should match the <strong>METHOD:</strong> value in calendar event file.</li>
 <li><strong>filename</strong> – optional filename, defaults to <em>&lsquo;invite.ics&rsquo;</em></li>
@@ -1145,64 +1139,51 @@
 <li><strong>path</strong> – is an alternative for <em>content</em> to load the calendar data from a file</li>
 <li><strong>href</strong> – is an alternative for <em>content</em> to load the calendar data from an URL</li>
 <li><strong>encoding</strong> – defines optional <em>content</em> encoding, eg. &lsquo;base64&rsquo; or &lsquo;hex&rsquo;. This only applies if the <em>content</em> is a string. By default an unicode string is assumed.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>You can use modules like <a href="https://www.npmjs.com/package/ical-generator">ical-generator</a> to generate the actual calendar file content, Nodemailer acts as a transport layer only and does not generate the event file structure.</p>
-
-<div class="notices note" > In general it is not a good idea to add additional attachments to calendar messages as it might mess up the behavior of some email clients. Try to keep it only to **text**, **html** and **icalEvent** without any additional **alternatives** or **attachments** </div>
-
+<!-- raw HTML omitted -->
 <h1 id="examples">Examples</h1>
-
 <h2 id="1-send-a-request-event-as-a-string">1. Send a REQUEST event as a string</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">content</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;BEGIN:VCALENDAR\r\nPRODID:-//ACME/DesktopCalendar//EN\r\nMETHOD:REQUEST\r\n...&#39;</span>;
 
-<pre><code class="language-javascript">let content = 'BEGIN:VCALENDAR\r\nPRODID:-//ACME/DesktopCalendar//EN\r\nMETHOD:REQUEST\r\n...';
-
-let message = {
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Appointment',
-    text: 'Please see the attached appointment',
-    icalEvent: {
-        filename: 'invitation.ics',
-        method: 'request',
-        content: content
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Appointment&#39;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Please see the attached appointment&#39;</span>,
+    <span style="color:#a6e22e">icalEvent</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;invitation.ics&#39;</span>,
+        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;request&#39;</span>,
+        <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">content</span>
     }
 };
-</code></pre>
-
-<h2 id="2-send-a-publish-event-from-a-file">2. Send a PUBLISH event from a file</h2>
-
+</code></pre></div><h2 id="2-send-a-publish-event-from-a-file">2. Send a PUBLISH event from a file</h2>
 <p>Event data is loaded from the provided file and attached to the message.</p>
-
-<pre><code class="language-javascript">let message = {
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Appointment',
-    text: 'Please see the attached appointment',
-    icalEvent: {
-        method: 'PUBLISH',
-        path: '/path/to/file'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Appointment&#39;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Please see the attached appointment&#39;</span>,
+    <span style="color:#a6e22e">icalEvent</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;PUBLISH&#39;</span>,
+        <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/path/to/file&#39;</span>
     }
 };
-</code></pre>
-
-<h2 id="3-send-a-cancel-event-from-an-url">3. Send a CANCEL event from an URL</h2>
-
+</code></pre></div><h2 id="3-send-a-cancel-event-from-an-url">3. Send a CANCEL event from an URL</h2>
 <p>Event data is downloaded from the provided URL and attached to the message as regular calendar file.</p>
-
-<pre><code class="language-javascript">let message = {
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Appointment',
-    text: 'Please see the attached appointment',
-    icalEvent: {
-        method: 'CANCEL',
-        href: 'http://www.example.com/events?event=123'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Appointment&#39;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Please see the attached appointment&#39;</span>,
+    <span style="color:#a6e22e">icalEvent</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;CANCEL&#39;</span>,
+        <span style="color:#a6e22e">href</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://www.example.com/events?event=123&#39;</span>
     }
 };
-</code></pre>
-
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1876,20 +1857,20 @@ let message = {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

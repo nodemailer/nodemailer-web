@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Proxy support :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,23 +1105,13 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#examples">Examples</a>
-<ul>
-<li><a href="#1-using-http-proxy">1. Using HTTP proxy</a></li>
-<li><a href="#2-using-socks-proxy">2. Using Socks proxy</a>
-<ul>
-<li><a href="#testing-socks-proxies">Testing Socks proxies</a></li>
-</ul></li>
-<li><a href="#3-using-a-custom-proxy-handler">3. Using a custom proxy handler</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#examples">Examples</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1140,132 +1130,93 @@
         
 
 
-
-
 <p>Nodemailer is able to use proxies for connecting to SMTP servers. HTTP proxy support is built in, Socks proxy support can be enabled by providing <a href="https://www.npmjs.com/package/socks">socks</a> module to Nodemailer, other proxies need custom handling.</p>
-
 <p>To enable proxying, define a <strong>proxy</strong> option for the transporter.</p>
-
 <ul>
 <li><strong>proxy</strong> – is a proxy URL</li>
 </ul>
-
 <h3 id="examples">Examples</h3>
-
 <h4 id="1-using-http-proxy">1. Using HTTP proxy</h4>
-
 <p>Set HTTP proxy url for the <em>proxy</em> option. That&rsquo;s it, everything required to handle it is built into Nodemailer.</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    host: 'smtp.example.com',
-    port: 465,
-    secure: true,
-    proxy: 'http://proxy-host:1234'
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">proxy</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://proxy-host:1234&#39;</span>
 });
-</code></pre>
-
-<p>Or if you want to use some environment defined variable like _http<em>proxy</em>:</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    host: 'smtp.example.com',
-    port: 465,
-    secure: true,
-    proxy: process.env.http_proxy
+</code></pre></div><p>Or if you want to use some environment defined variable like <em>http_proxy</em>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">proxy</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">http_proxy</span>
 });
-</code></pre>
-
-<div class="notices info" >
-Make sure that your HTTP proxy supports CONNECT protocol and allows connecting to the SMTP port you want to use.
-</div>
-
+</code></pre></div><!-- raw HTML omitted -->
 <h4 id="2-using-socks-proxy">2. Using Socks proxy</h4>
-
 <p>Set Socks proxy url for the <strong>proxy</strong> option. Additionally you need to provide the <a href="https://www.npmjs.com/package/socks">socks</a> module for the transporter as it is not bundled with Nodemailer. Both versions 1.x.x and 2.x.x of the socks module are supported</p>
-
 <p>Possible protocol values for the SOCKS proxy:</p>
-
 <ul>
-<li><em>&lsquo;socks4:&rsquo;</em> or <em>&lsquo;socks4a:&rsquo;</em> for a SOCKS4 proxy</li>
-
-<li><p><em>&lsquo;socks5:&rsquo;</em> or <em>&lsquo;socks:&rsquo;</em> for a SOCKS5 proxy</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-host: 'smtp.example.com',
-port: 465,
-secure: true,
-proxy: 'socks5://socks-host:1234'
-});
-// enable support for socks URLs
-transporter.set('proxy_socks_module', require('socks'));
-</code></pre></li>
+<li><em>&lsquo;socks4:'</em> or <em>&lsquo;socks4a:'</em> for a SOCKS4 proxy</li>
+<li><em>&lsquo;socks5:'</em> or <em>&lsquo;socks:'</em> for a SOCKS5 proxy</li>
 </ul>
-
-<h5 id="testing-socks-proxies">Testing Socks proxies</h5>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">proxy</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;socks5://socks-host:1234&#39;</span>
+});
+<span style="color:#75715e">// enable support for socks URLs
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;proxy_socks_module&#39;</span>, <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;socks&#39;</span>));
+</code></pre></div><h5 id="testing-socks-proxies">Testing Socks proxies</h5>
 <p>For testing you can use ssh to create a SOCKS5 proxy. The following command connects to your remote server and sets up a proxy on port 1080 that routes connections through that server.</p>
-
 <pre><code>ssh -N -D 0.0.0.0:1080 username@remote.host`
-</code></pre>
-
-<p><strong>proxy</strong> url for that server would be <code>socks5://localhost:1080</code></p>
-
+</code></pre><p><strong>proxy</strong> url for that server would be <code>socks5://localhost:1080</code></p>
 <h4 id="3-using-a-custom-proxy-handler">3. Using a custom proxy handler</h4>
-
-<p>Additionally you can create your own proxy handler. To do this you would need to register a protocol handler callback with the name _proxy<em>handler_{protocol}</em> where <em>{protocol}</em> would be the protocol from proxy URL. If the URL looks like <em>&lsquo;yyy://localhost&rsquo;</em> then you would need to set callback for _proxy_handler<em>yyy</em>.</p>
-
-<pre><code class="language-javascript">transporter.set('proxy_handler_myproxy', handler);
-</code></pre>
-
-<p>Where</p>
-
+<p>Additionally you can create your own proxy handler. To do this you would need to register a protocol handler callback with the name <em>proxy_handler_{protocol}</em> where <em>{protocol}</em> would be the protocol from proxy URL. If the URL looks like <em>&lsquo;yyy://localhost&rsquo;</em> then you would need to set callback for <em>proxy_handler_yyy</em>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;proxy_handler_myproxy&#39;</span>, <span style="color:#a6e22e">handler</span>);
+</code></pre></div><p>Where</p>
 <ul>
-<li><p><strong>handler</strong> is the function to run to create a proxied socket. It gets the following arguments:</p>
-
+<li><strong>handler</strong> is the function to run to create a proxied socket. It gets the following arguments:
 <ul>
 <li><strong>proxy</strong> is the proxy url in a parsed form</li>
 <li><strong>options</strong> is transport configuration object</li>
-
-<li><p><strong>callback</strong> is the function to return the socket</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-host: 'smtp.example.com',
-port: 465,
-secure: true,
-proxy: 'myproxy://localhost:1234'
-});
-// enable support for socks URLs
-transporter.set('proxy_handler_myproxy', (proxy, options, callback) =&gt; {
-console.log('Proxy host=% port=%', proxy.hostname, proxy.port);
-let socket = require('net').connect(options.port, options.host, () =&gt; {
-callback(null, {
-    connection: socket
-});
-});
-});
-</code></pre></li>
-</ul></li>
+<li><strong>callback</strong> is the function to return the socket</li>
 </ul>
-
-<p>If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer from upgrading the provided connection using TLS.</p>
-
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
-    host: 'smtp.example.com',
-    port: 465,
-    secure: true,
-    proxy: 'myproxys://localhost:1234'
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">proxy</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;myproxy://localhost:1234&#39;</span>
 });
-// enable support for socks URLs
-transporter.set('proxy_handler_myproxys', (proxy, options, callback) =&gt; {
-    console.log('Proxy host=% port=%', proxy.hostname, proxy.port);
-    let socket = require('tls').connect(options.port, options.host, () =&gt; {
-        callback(null, {
-            connection: socket,
-            secured: true
+<span style="color:#75715e">// enable support for socks URLs
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;proxy_handler_myproxy&#39;</span>, (<span style="color:#a6e22e">proxy</span>, <span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Proxy host=% port=%&#39;</span>, <span style="color:#a6e22e">proxy</span>.<span style="color:#a6e22e">hostname</span>, <span style="color:#a6e22e">proxy</span>.<span style="color:#a6e22e">port</span>);
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">socket</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;net&#39;</span>).<span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">port</span>, <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">host</span>, () =&gt; {
+        <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, {
+            <span style="color:#a6e22e">connection</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">socket</span>
         });
     });
 });
-</code></pre>
-
+</code></pre></div><p>If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer from upgrading the provided connection using TLS.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">proxy</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;myproxys://localhost:1234&#39;</span>
+});
+<span style="color:#75715e">// enable support for socks URLs
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;proxy_handler_myproxys&#39;</span>, (<span style="color:#a6e22e">proxy</span>, <span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Proxy host=% port=%&#39;</span>, <span style="color:#a6e22e">proxy</span>.<span style="color:#a6e22e">hostname</span>, <span style="color:#a6e22e">proxy</span>.<span style="color:#a6e22e">port</span>);
+    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">socket</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;tls&#39;</span>).<span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">port</span>, <span style="color:#a6e22e">options</span>.<span style="color:#a6e22e">host</span>, () =&gt; {
+        <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, {
+            <span style="color:#a6e22e">connection</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">socket</span>,
+            <span style="color:#a6e22e">secured</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+        });
+    });
+});
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1939,20 +1890,20 @@ transporter.set('proxy_handler_myproxys', (proxy, options, callback) =&gt; {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

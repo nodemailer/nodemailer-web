@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Custom authentication :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509083" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509083" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509083" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509083" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509083" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509083" rel="stylesheet">
+    <link href="/css/theme.css?1586509083" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509083" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509083" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509083"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1105,21 +1105,15 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#handler-context">Handler context</a>
-<ul>
-<li><a href="#ctx-auth">ctx.auth</a></li>
-<li><a href="#ctx-sendcommand-cmd-err-cmd">ctx.sendCommand(cmd, (err, cmd)=&gt;{&hellip;})</a></li>
-</ul></li>
-<li><a href="#custom-options">Custom options</a></li>
-<li><a href="#examples">Examples</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#handler-context">Handler context</a></li>
+        <li><a href="#custom-options">Custom options</a></li>
+        <li><a href="#examples">Examples</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -1138,21 +1132,57 @@
         
 
 
-
-
 <blockquote>
 <p>Available from Nodemailer v5.1.0</p>
 </blockquote>
-
 <p>Nodemailer SMTP client can be extended to use custom authentication mechanisms that Nodemailer does not support by default.</p>
-
 <p>To use one you should define a custom authentication handler with <code>customAuth</code> in the transporter options. Multiple handlers can be defined. Use authentication identifier as the handler name. For example if the server responds with &ldquo;AUTH LOGIN PLAIN MY-CUSTOM-METHOD&rdquo; then it supports &ldquo;LOGIN&rdquo;, &ldquo;PLAIN&rdquo; and &ldquo;MY-CUSTOM-METHOD&rdquo;. Nodemailer has built in support form &ldquo;LOGIN&rdquo; and &ldquo;PLAIN&rdquo; but it knows nothing about &ldquo;MY-CUSTOM-METHOD&rdquo;, to add support use this identifier as the handler name.</p>
-
 <p>If SMTP server supports multiple authentication mechanisms then Nodemailer defaults to some well known mechanism like LOGIN or PLAIN. If you want to make sure that Nodemailer specifically uses your custom mechanism, then set <code>method</code> property in the <code>auth</code> section, use method identifier as the value.</p>
-
 <p>The following snippet defines MY-CUSTOM-METHOD handler and forces Nodemailer to use it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
+    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;custom&#39;</span>,
+        <span style="color:#a6e22e">method</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;MY-CUSTOM-METHOD&#39;</span>, <span style="color:#75715e">// forces Nodemailer to use your custom handler
+</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;username&#39;</span>,
+        <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;verysecret&#39;</span>
+    },
+    <span style="color:#a6e22e">customAuth</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#39;MY-CUSTOM-METHOD&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">ctx</span> =&gt; {
+            ...
+        }
+    }
+});
+</code></pre></div><h3 id="handler-context">Handler context</h3>
+<p>Handler method gets handler context as the only argument. Handler method can return a Promise (using an <code>async</code> function as the handler is also supported). If promises are not used then the method must explicitly run <code>ctx.reject(err)</code> to indicate an error or <code>ctx.resolve()</code> to indicate successful auth. In case of Promises if the handler does not throw then the user is considered authenticated once Promise resolves.</p>
+<h4 id="ctxauth">ctx.auth</h4>
+<p>Authentication options can be found from the <code>auth</code> property and credentials from <code>auth.credentials</code> (eg. <code>ctx.auth.credentials.pass</code> for the password)</p>
+<h4 class="  " id="ctxsendcommandcmd-err-cmd">ctx.sendCommand(cmd, (err, cmd)=&gt;</h4>
+<p>The most useful method of the context object is <code>sendCommand</code> that takes a full SMTP command as an argument. Second argument can be a callback function. If callback is not defined, then a Promise is returned instead.</p>
+<p>Resulting <code>cmd</code> response object includes the following properties:</p>
+<ul>
+<li><strong>status</strong> is the numeric status code of the response (eg 250 or 334 etc.)</li>
+<li><strong>code</strong> is the enchanced status code (eg &ldquo;5.7.0&rdquo;)</li>
+<li><strong>text</strong> is the readable part of server response (&ldquo;Authentication successful&rdquo;)</li>
+<li><strong>response</strong> is the full response from the server (&ldquo;235 Authentication successful&rdquo;)</li>
+</ul>
+<pre><code>async function myCustomMethod(ctx){
+    let cmd = await ctx.sendCommand(
+        'AUTH PLAIN ' +
+            Buffer.from(
+                '\u0000' + ctx.auth.credentials.user + '\u0000' + ctx.auth.credentials.pass,
+                'utf-8'
+            ).toString('base64')
+    );
 
-<pre><code class="language-javascript">let transporter = nodemailer.createTransport({
+    if(cmd.status &lt; 200 || cmd.status &gt;=300){
+        throw new Error('Failed to authenticate user: ' + cmd.text);
+    }
+}
+
+let transporter = nodemailer.createTransport({
     host: 'smtp.example.com',
     port: 465,
     secure: true,
@@ -1163,69 +1193,11 @@
         pass: 'verysecret'
     },
     customAuth: {
-        'MY-CUSTOM-METHOD': ctx =&gt; {
-            ...
-        }
+        'MY-CUSTOM-METHOD': myCustomMethod
     }
 });
-</code></pre>
-
-<h3 id="handler-context">Handler context</h3>
-
-<p>Handler method gets handler context as the only argument. Handler method can return a Promise (using an <code>async</code> function as the handler is also supported). If promises are not used then the method must explicitly run <code>ctx.reject(err)</code> to indicate an error or <code>ctx.resolve()</code> to indicate successful auth. In case of Promises if the handler does not throw then the user is considered authenticated once Promise resolves.</p>
-
-<h4 id="ctx-auth">ctx.auth</h4>
-
-<p>Authentication options can be found from the <code>auth</code> property and credentials from <code>auth.credentials</code> (eg. <code>ctx.auth.credentials.pass</code> for the password)</p>
-
-<h4 id="ctx-sendcommand-cmd-err-cmd">ctx.sendCommand(cmd, (err, cmd)=&gt;{&hellip;})</h4>
-
-<p>The most useful method of the context object is <code>sendCommand</code> that takes a full SMTP command as an argument. Second argument can be a callback function. If callback is not defined, then a Promise is returned instead.</p>
-
-<p>Resulting <code>cmd</code> response object includes the following properties:</p>
-
-<ul>
-<li><strong>status</strong> is the numeric status code of the response (eg 250 or 334 etc.)</li>
-<li><strong>code</strong> is the enchanced status code (eg &ldquo;5.7.0&rdquo;)</li>
-<li><strong>text</strong> is the readable part of server response (&ldquo;Authentication successful&rdquo;)</li>
-
-<li><p><strong>response</strong> is the full response from the server (&ldquo;235 Authentication successful&rdquo;)</p>
-
-<pre><code>async function myCustomMethod(ctx){
-let cmd = await ctx.sendCommand(
-    'AUTH PLAIN ' +
-        Buffer.from(
-            '\u0000' + ctx.auth.credentials.user + '\u0000' + ctx.auth.credentials.pass,
-            'utf-8'
-        ).toString('base64')
-);
-
-if(cmd.status &lt; 200 || cmd.status &gt;=300){
-    throw new Error('Failed to authenticate user: ' + cmd.text);
-}
-}
-
-let transporter = nodemailer.createTransport({
-host: 'smtp.example.com',
-port: 465,
-secure: true,
-auth: {
-    type: 'custom',
-    method: 'MY-CUSTOM-METHOD', // forces Nodemailer to use your custom handler
-    user: 'username',
-    pass: 'verysecret'
-},
-customAuth: {
-    'MY-CUSTOM-METHOD': myCustomMethod
-}
-});
-</code></pre></li>
-</ul>
-
-<h3 id="custom-options">Custom options</h3>
-
+</code></pre><h3 id="custom-options">Custom options</h3>
 <p>If your authentication mechanism requires additional configuration besides the usual username and password, then you can use the <code>options</code> field to provide the details.</p>
-
 <pre><code>let transporter = nodemailer.createTransport({
     host: 'smtp.example.com',
     port: 465,
@@ -1250,10 +1222,7 @@ customAuth: {
         }
     }
 });
-</code></pre>
-
-<h3 id="examples">Examples</h3>
-
+</code></pre><h3 id="examples">Examples</h3>
 <ul>
 <li><strong><a href="https://github.com/nodemailer/nodemailer-ntlm-auth">NTLM handler</a></strong> to authenticate using NTLM</li>
 <li><strong><a href="https://github.com/nodemailer/nodemailer-cram-md5">CRAM-MD5 handler</a></strong> to authenticate using CRAM-MD5</li>
@@ -1932,20 +1901,20 @@ customAuth: {
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

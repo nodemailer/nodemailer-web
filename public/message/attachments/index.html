@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="generator" content="Hugo 0.64.1" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Attachments :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1580721363" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1580721363" rel="stylesheet">
-    <link href="/css/hybrid.css?1580721363" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1580721363" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1580721363" rel="stylesheet">
-    <link href="/css/auto-complete.css?1580721363" rel="stylesheet">
-    <link href="/css/theme.css?1580721363" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1580721363" rel="stylesheet">
+    <link href="/css/nucleus.css?1586509082" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1586509082" rel="stylesheet">
+    <link href="/css/hybrid.css?1586509082" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1586509082" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1586509082" rel="stylesheet">
+    <link href="/css/auto-complete.css?1586509082" rel="stylesheet">
+    <link href="/css/theme.css?1586509082" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1586509082" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1580721363" rel="stylesheet">
+      <link href="/css/theme-blue.css?1586509082" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1580721363"></script>
+    <script src="/js/jquery-2.x.min.js?1586509082"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1104,7 +1104,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -1123,9 +1123,7 @@
 
 
 <p><strong>attachments</strong> option in the message object that contains an array of attachment objects.</p>
-
 <p>Attachment object consists of the following properties:</p>
-
 <ul>
 <li><strong>filename</strong> - filename to be reported as the name of the attached file. Use of unicode is allowed.</li>
 <li><strong>content</strong> - String, Buffer or a Stream contents for the attachment</li>
@@ -1139,61 +1137,57 @@
 <li><strong>headers</strong> - custom headers for the attachment node. Same usage as with message headers</li>
 <li><strong>raw</strong> - is an optional special value that overrides entire contents of current mime node including mime headers. Useful if you want to prepare node contents yourself</li>
 </ul>
-
 <p>Attachments can be added as many as you want.</p>
-
 <p><strong>Example</strong></p>
-
-<pre><code class="language-javascript">let message = {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
     ...
-    attachments: [
-        {   // utf-8 string as an attachment
-            filename: 'text1.txt',
-            content: 'hello world!'
+    <span style="color:#a6e22e">attachments</span><span style="color:#f92672">:</span> [
+        {   <span style="color:#75715e">// utf-8 string as an attachment
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text1.txt&#39;</span>,
+            <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hello world!&#39;</span>
         },
-        {   // binary buffer as an attachment
-            filename: 'text2.txt',
-            content: new Buffer('hello world!','utf-8')
+        {   <span style="color:#75715e">// binary buffer as an attachment
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text2.txt&#39;</span>,
+            <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Buffer</span>(<span style="color:#e6db74">&#39;hello world!&#39;</span>,<span style="color:#e6db74">&#39;utf-8&#39;</span>)
         },
-        {   // file on disk as an attachment
-            filename: 'text3.txt',
-            path: '/path/to/file.txt' // stream this file
+        {   <span style="color:#75715e">// file on disk as an attachment
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text3.txt&#39;</span>,
+            <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/path/to/file.txt&#39;</span> <span style="color:#75715e">// stream this file
+</span><span style="color:#75715e"></span>        },
+        {   <span style="color:#75715e">// filename and content type is derived from path
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/path/to/file.txt&#39;</span>
         },
-        {   // filename and content type is derived from path
-            path: '/path/to/file.txt'
+        {   <span style="color:#75715e">// stream as an attachment
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text4.txt&#39;</span>,
+            <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">createReadStream</span>(<span style="color:#e6db74">&#39;file.txt&#39;</span>)
         },
-        {   // stream as an attachment
-            filename: 'text4.txt',
-            content: fs.createReadStream('file.txt')
+        {   <span style="color:#75715e">// define custom content type for the attachment
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text.bin&#39;</span>,
+            <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;hello world!&#39;</span>,
+            <span style="color:#a6e22e">contentType</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text/plain&#39;</span>
         },
-        {   // define custom content type for the attachment
-            filename: 'text.bin',
-            content: 'hello world!',
-            contentType: 'text/plain'
+        {   <span style="color:#75715e">// use URL as an attachment
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;license.txt&#39;</span>,
+            <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;https://raw.github.com/nodemailer/nodemailer/master/LICENSE&#39;</span>
         },
-        {   // use URL as an attachment
-            filename: 'license.txt',
-            path: 'https://raw.github.com/nodemailer/nodemailer/master/LICENSE'
+        {   <span style="color:#75715e">// encoded string as an attachment
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">filename</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;text1.txt&#39;</span>,
+            <span style="color:#a6e22e">content</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;aGVsbG8gd29ybGQh&#39;</span>,
+            <span style="color:#a6e22e">encoding</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;base64&#39;</span>
         },
-        {   // encoded string as an attachment
-            filename: 'text1.txt',
-            content: 'aGVsbG8gd29ybGQh',
-            encoding: 'base64'
-        },
-        {   // data uri as an attachment
-            path: 'data:text/plain;base64,aGVsbG8gd29ybGQ='
+        {   <span style="color:#75715e">// data uri as an attachment
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;data:text/plain;base64,aGVsbG8gd29ybGQ=&#39;</span>
         },
         {
-            // use pregenerated MIME node
-            raw: 'Content-Type: text/plain\r\n' +
-                 'Content-Disposition: attachment;\r\n' +
-                 '\r\n' +
-                 'Hello world!'
+            <span style="color:#75715e">// use pregenerated MIME node
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">raw</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Content-Type: text/plain\r\n&#39;</span> <span style="color:#f92672">+</span>
+                 <span style="color:#e6db74">&#39;Content-Disposition: attachment;\r\n&#39;</span> <span style="color:#f92672">+</span>
+                 <span style="color:#e6db74">&#39;\r\n&#39;</span> <span style="color:#f92672">+</span>
+                 <span style="color:#e6db74">&#39;Hello world!&#39;</span>
         }
     ]
 }
-</code></pre>
-
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1864,20 +1858,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.min.js?1580721363"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1580721363"></script>
-    <script src="/js/jquery.sticky.js?1580721363"></script>
-    <script src="/js/featherlight.min.js?1580721363"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1580721363"></script>
-    <script src="/js/highlight.pack.js?1580721363"></script>
+    <script src="/js/clipboard.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.min.js?1586509083"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1586509083"></script>
+    <script src="/js/jquery.sticky.js?1586509083"></script>
+    <script src="/js/featherlight.min.js?1586509083"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1586509083"></script>
+    <script src="/js/highlight.pack.js?1586509083"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1580721363"></script>
-    <script src="/js/learn.js?1580721363"></script>
-    <script src="/js/hugo-learn.js?1580721363"></script>
+    <script src="/js/modernizr.custom.71422.js?1586509083"></script>
+    <script src="/js/learn.js?1586509083"></script>
+    <script src="/js/hugo-learn.js?1586509083"></script>
 
-    <link href="/mermaid/mermaid.css?1580721363" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1580721363"></script>
+    <link href="/mermaid/mermaid.css?1586509083" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1586509083"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
