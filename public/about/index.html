@@ -15,19 +15,19 @@
     <title>Nodemailer :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1589552101" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1589552101" rel="stylesheet">
-    <link href="/css/hybrid.css?1589552101" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1589552101" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1589552101" rel="stylesheet">
-    <link href="/css/auto-complete.css?1589552101" rel="stylesheet">
-    <link href="/css/theme.css?1589552101" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1589552101" rel="stylesheet">
+    <link href="/css/nucleus.css?1589552197" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1589552197" rel="stylesheet">
+    <link href="/css/hybrid.css?1589552197" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1589552197" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1589552197" rel="stylesheet">
+    <link href="/css/auto-complete.css?1589552197" rel="stylesheet">
+    <link href="/css/theme.css?1589552197" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1589552197" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1589552101" rel="stylesheet">
+      <link href="/css/theme-blue.css?1589552197" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1589552101"></script>
+    <script src="/js/jquery-2.x.min.js?1589552197"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1109,14 +1109,19 @@
 
 <h1 id="nodemailer">Nodemailer</h1>
 <p><strong>Nodemailer</strong> is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.</p>
-<h3 id="trying-to-debug-emails">Trying to debug emails?</h3>
-<p><strong>New!</strong> Try out the all new ultimate <a href="/app/">email debugging app by Nodemailer</a>.</p>
-<h3 id="support-nodemailer">Support Nodemailer</h3>
+<p><strong>Nodemailer</strong> is licensed under <strong>MIT license</strong>. See license details in the <a href="/about/license/">License page</a>. If you are upgrading from Nodemailer v2 or older, then see the light migration guide <a href="/about/migrate">here</a>.</p>
+<pre><code>npm install nodemailer
+</code></pre><h3 id="support-nodemailer">Support Nodemailer</h3>
 <p>If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations.</p>
 <ul>
 <li>Nodemailer Bitcoin wallet is: <code>15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM</code>.</li>
 <li><a href="https://www.paypal.me/nodemailer">Nodemailer PayPal</a></li>
 </ul>
+<h3 id="email-problems">Email problems?</h3>
+<p>Try out the all new ultimate <a href="/app/">email debugging app by Nodemailer</a>.</p>
+<h3 id="having-trouble-managing-your-excess-domain-names">Having trouble managing your excess domain names?</h3>
+<p>You can park <strong>all</strong> your domains for your future projects at <a href="https://projectpending.com/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=header-link">Project Pending</a> free of charge. You get name servers and DNS management, a single HTTPS landing page (or redirect) and an email account.</p>
+<p>Project Pending is a service from the makers of Nodemailer.</p>
 <h3 id="nodemailer-features">Nodemailer features</h3>
 <ul>
 <li>A single module with <strong>zero dependencies</strong> – code is easily auditable, as there are no dark corners</li>
@@ -1165,8 +1170,8 @@
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#75715e">// true for 465, false for other ports
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
       <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">testAccount</span>.<span style="color:#a6e22e">user</span>, <span style="color:#75715e">// generated ethereal user
-</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">testAccount</span>.<span style="color:#a6e22e">pass</span> <span style="color:#75715e">// generated ethereal password
-</span><span style="color:#75715e"></span>    }
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">testAccount</span>.<span style="color:#a6e22e">pass</span>, <span style="color:#75715e">// generated ethereal password
+</span><span style="color:#75715e"></span>    },
   });
 
   <span style="color:#75715e">// send mail with defined transport object
@@ -1175,7 +1180,7 @@
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;bar@example.com, baz@example.com&#34;</span>, <span style="color:#75715e">// list of receivers
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello ✔&#34;</span>, <span style="color:#75715e">// Subject line
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello world?&#34;</span>, <span style="color:#75715e">// plain text body
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">html</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;b&gt;Hello world?&lt;/b&gt;&#34;</span> <span style="color:#75715e">// html body
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">html</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&lt;b&gt;Hello world?&lt;/b&gt;&#34;</span>, <span style="color:#75715e">// html body
 </span><span style="color:#75715e"></span>  });
 
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Message sent: %s&#34;</span>, <span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">messageId</span>);
@@ -1865,20 +1870,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1589552101"></script>
-    <script src="/js/perfect-scrollbar.min.js?1589552101"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1589552101"></script>
-    <script src="/js/jquery.sticky.js?1589552101"></script>
-    <script src="/js/featherlight.min.js?1589552101"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1589552101"></script>
-    <script src="/js/highlight.pack.js?1589552101"></script>
+    <script src="/js/clipboard.min.js?1589552197"></script>
+    <script src="/js/perfect-scrollbar.min.js?1589552197"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1589552197"></script>
+    <script src="/js/jquery.sticky.js?1589552197"></script>
+    <script src="/js/featherlight.min.js?1589552197"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1589552197"></script>
+    <script src="/js/highlight.pack.js?1589552197"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1589552101"></script>
-    <script src="/js/learn.js?1589552101"></script>
-    <script src="/js/hugo-learn.js?1589552101"></script>
+    <script src="/js/modernizr.custom.71422.js?1589552197"></script>
+    <script src="/js/learn.js?1589552197"></script>
+    <script src="/js/hugo-learn.js?1589552197"></script>
 
-    <link href="/mermaid/mermaid.css?1589552101" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1589552101"></script>
+    <link href="/mermaid/mermaid.css?1589552197" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1589552197"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

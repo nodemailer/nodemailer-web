@@ -13,9 +13,11 @@ toc = true
 
 **Nodemailer** is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.
 
-### Trying to debug emails?
+**Nodemailer** is licensed under **MIT license**. See license details in the [License page](/about/license/). If you are upgrading from Nodemailer v2 or older, then see the light migration guide [here](/about/migrate).
 
-**New!** Try out the all new ultimate [email debugging app by Nodemailer](/app/).
+```
+npm install nodemailer
+```
 
 ### Support Nodemailer
 
@@ -23,6 +25,16 @@ If you really like Nodemailer or your business benefits from it financially then
 
 - Nodemailer Bitcoin wallet is: `15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM`.
 - [Nodemailer PayPal](https://www.paypal.me/nodemailer)
+
+### Email problems?
+
+Try out the all new ultimate [email debugging app by Nodemailer](/app/).
+
+### Having trouble managing your excess domain names?
+
+You can park **all** your domains for your future projects at [Project Pending](https://projectpending.com/?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=header-link) free of charge. You get name servers and DNS management, a single HTTPS landing page (or redirect) and an email account.
+
+Project Pending is a service from the makers of Nodemailer.
 
 ### Nodemailer features
 
@@ -77,8 +89,8 @@ async function main() {
     secure: false, // true for 465, false for other ports
     auth: {
       user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass // generated ethereal password
-    }
+      pass: testAccount.pass, // generated ethereal password
+    },
   });
 
   // send mail with defined transport object
@@ -87,7 +99,7 @@ async function main() {
     to: "bar@example.com, baz@example.com", // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>" // html body
+    html: "<b>Hello world?</b>", // html body
   });
 
   console.log("Message sent: %s", info.messageId);
