@@ -15,19 +15,19 @@
     <title>Pooled SMTP :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1589552197" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1589552197" rel="stylesheet">
-    <link href="/css/hybrid.css?1589552197" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1589552197" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1589552197" rel="stylesheet">
-    <link href="/css/auto-complete.css?1589552197" rel="stylesheet">
-    <link href="/css/theme.css?1589552197" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1589552197" rel="stylesheet">
+    <link href="/css/nucleus.css?1590651826" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1590651826" rel="stylesheet">
+    <link href="/css/hybrid.css?1590651826" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1590651826" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1590651826" rel="stylesheet">
+    <link href="/css/auto-complete.css?1590651826" rel="stylesheet">
+    <link href="/css/theme.css?1590651826" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1590651826" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1589552197" rel="stylesheet">
+      <link href="/css/theme-blue.css?1590651826" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1589552197"></script>
+    <script src="/js/jquery-2.x.min.js?1590651826"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1137,6 +1137,10 @@
 <li><strong>pool</strong> – set to <em>true</em> to use pooled connections (defaults to <em>false</em>) instead of creating a new connection for every email</li>
 <li><strong>maxConnections</strong> – is the count of maximum simultaneous connections to make against the SMTP server (defaults to 5)</li>
 <li><strong>maxMessages</strong> – limits the message count to be sent using a single connection (defaults to 100). After <em>maxMessages</em> is reached the connection is dropped and a new one is created for the following messages</li>
+</ul>
+<p><strong>Deprecated options</strong></p>
+<p>The following options are deprecated and will be removed from future version sof Nodemailer.</p>
+<ul>
 <li><strong>rateDelta</strong> – defines the time measuring period in milliseconds (defaults to 1000, ie. to 1 second) for rate limiting</li>
 <li><strong>rateLimit</strong> – limits the message count to be sent in <strong>rateDelta</strong> time. Once <em>rateLimit</em> is reached, sending is paused until the end of the measuring period. This limit is shared between connections, so if one connection uses up the limit, then other connections are paused as well. If <em>rateLimit</em> is not set then sending rate is not limited</li>
 </ul>
@@ -1152,7 +1156,7 @@
 <h4 id="eventidle">Event:&lsquo;idle&rsquo;</h4>
 <p>Emitted by the transporter object if connection pool has free connection slots. Check if a connection is still available with <code>isIdle()</code> method (returns <code>true</code> if a connection is still available). This allows to create push-like senders where messages are not queued into memory in a Node.js process but pushed and loaded through an external queue.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">messages</span> <span style="color:#f92672">=</span> [...<span style="color:#e6db74">&#34;list of messages&#34;</span>];
-<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;idle&#34;</span>, <span style="color:#66d9ef">function</span>() {
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;idle&#34;</span>, <span style="color:#66d9ef">function</span> () {
   <span style="color:#75715e">// send next message from the pending queue
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">while</span> (<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">isIdle</span>() <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">length</span>) {
     <span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>(<span style="color:#a6e22e">messages</span>.<span style="color:#a6e22e">shift</span>());
@@ -1832,20 +1836,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1589552197"></script>
-    <script src="/js/perfect-scrollbar.min.js?1589552197"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1589552197"></script>
-    <script src="/js/jquery.sticky.js?1589552197"></script>
-    <script src="/js/featherlight.min.js?1589552197"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1589552197"></script>
-    <script src="/js/highlight.pack.js?1589552197"></script>
+    <script src="/js/clipboard.min.js?1590651826"></script>
+    <script src="/js/perfect-scrollbar.min.js?1590651826"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1590651826"></script>
+    <script src="/js/jquery.sticky.js?1590651826"></script>
+    <script src="/js/featherlight.min.js?1590651826"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1590651826"></script>
+    <script src="/js/highlight.pack.js?1590651826"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1589552197"></script>
-    <script src="/js/learn.js?1589552197"></script>
-    <script src="/js/hugo-learn.js?1589552197"></script>
+    <script src="/js/modernizr.custom.71422.js?1590651826"></script>
+    <script src="/js/learn.js?1590651826"></script>
+    <script src="/js/hugo-learn.js?1590651826"></script>
 
-    <link href="/mermaid/mermaid.css?1589552197" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1589552197"></script>
+    <link href="/mermaid/mermaid.css?1590651826" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1590651826"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
