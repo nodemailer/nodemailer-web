@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.64.1" />
+    <meta name="generator" content="Hugo 0.79.0" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Sendmail transport :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1604925394" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1604925394" rel="stylesheet">
-    <link href="/css/hybrid.css?1604925394" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1604925394" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1604925394" rel="stylesheet">
-    <link href="/css/auto-complete.css?1604925394" rel="stylesheet">
-    <link href="/css/theme.css?1604925394" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1604925394" rel="stylesheet">
+    <link href="/css/nucleus.css?1606828683" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1606828683" rel="stylesheet">
+    <link href="/css/hybrid.css?1606828683" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1606828683" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1606828683" rel="stylesheet">
+    <link href="/css/auto-complete.css?1606828683" rel="stylesheet">
+    <link href="/css/theme.css?1606828683" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1606828683" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1604925394" rel="stylesheet">
+      <link href="/css/theme-blue.css?1606828683" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1604925394"></script>
+    <script src="/js/jquery-2.x.min.js?1606828683"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1137,12 +1137,12 @@
 <ul>
 <li><strong>path</strong> - path to the <strong>sendmail</strong> command (defaults to <em>&lsquo;sendmail&rsquo;</em>)</li>
 <li><strong>newline</strong> - either <em>&lsquo;windows&rsquo;</em> or <em>&lsquo;unix&rsquo;</em> (default). Forces all newlines in the output to either use Windows syntax &lt;CR&gt;&lt;LF&gt; or Unix syntax &lt;LF&gt;</li>
-<li><strong>args</strong> - an optional array of command line options to pass to the <strong>sendmail</strong> command (ie. <code>[&quot;-f&quot;, &quot;foo@example.com&quot;]</code>). This overrides all default arguments except for <em>'-i&rsquo;</em> and recipient list so you need to make sure you have all required arguments set (ie. the &lsquo;-f&rsquo; flag).</li>
+<li><strong>args</strong> - an optional array of command line options to pass to the <strong>sendmail</strong> command (ie. <code>[&quot;-f&quot;, &quot;foo@example.com&quot;]</code>). This overrides all default arguments except for <em>'-i'</em> and recipient list so you need to make sure you have all required arguments set (ie. the &lsquo;-f&rsquo; flag).</li>
 </ul>
 <p>The command to be spawned by default looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sendmail -i -f from_addr to_addr<span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sendmail -i -f from_addr to_addr<span style="color:#f92672">[]</span>
 </code></pre></div><p>If <strong>args</strong> property was provided then the command looks like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sendmail -i args<span style="color:#f92672">[</span><span style="color:#f92672">]</span> to_addr<span style="color:#f92672">[</span><span style="color:#f92672">]</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sendmail -i args<span style="color:#f92672">[]</span> to_addr<span style="color:#f92672">[]</span>
 </code></pre></div><p>The <strong>info</strong> argument for <strong>sendMail()</strong> callback includes the following properties:</p>
 <ul>
 <li><strong>envelope</strong> – is an envelope object <em>{from:&lsquo;address&rsquo;, to:[&lsquo;address&rsquo;]}</em></li>
@@ -1838,20 +1838,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1604925394"></script>
-    <script src="/js/perfect-scrollbar.min.js?1604925394"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1604925394"></script>
-    <script src="/js/jquery.sticky.js?1604925394"></script>
-    <script src="/js/featherlight.min.js?1604925394"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1604925394"></script>
-    <script src="/js/highlight.pack.js?1604925394"></script>
+    <script src="/js/clipboard.min.js?1606828683"></script>
+    <script src="/js/perfect-scrollbar.min.js?1606828683"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1606828683"></script>
+    <script src="/js/jquery.sticky.js?1606828683"></script>
+    <script src="/js/featherlight.min.js?1606828683"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1606828683"></script>
+    <script src="/js/highlight.pack.js?1606828683"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1604925394"></script>
-    <script src="/js/learn.js?1604925394"></script>
-    <script src="/js/hugo-learn.js?1604925394"></script>
+    <script src="/js/modernizr.custom.71422.js?1606828683"></script>
+    <script src="/js/learn.js?1606828683"></script>
+    <script src="/js/hugo-learn.js?1606828683"></script>
 
-    <link href="/mermaid/mermaid.css?1604925394" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1604925394"></script>
+    <link href="/mermaid/mermaid.css?1606828683" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1606828683"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

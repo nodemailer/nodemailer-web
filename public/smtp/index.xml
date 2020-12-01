@@ -6,11 +6,7 @@
     <description>Recent content in SMTP transport on Nodemailer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Jan 2017 10:51:36 +0200</lastBuildDate>
-    
-	<atom:link href="https://nodemailer.com/smtp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 20 Jan 2017 10:51:36 +0200</lastBuildDate><atom:link href="https://nodemailer.com/smtp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SMTP envelope</title>
       <link>https://nodemailer.com/smtp/envelope/</link>

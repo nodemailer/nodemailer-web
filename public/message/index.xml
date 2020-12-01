@@ -6,11 +6,7 @@
     <description>Recent content in Message configuration on Nodemailer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Jan 2017 11:25:31 +0200</lastBuildDate>
-    
-	<atom:link href="https://nodemailer.com/message/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 20 Jan 2017 11:25:31 +0200</lastBuildDate><atom:link href="https://nodemailer.com/message/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Attachments</title>
       <link>https://nodemailer.com/message/attachments/</link>

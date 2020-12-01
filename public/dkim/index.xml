@@ -6,10 +6,6 @@
     <description>Recent content in DKIM on Nodemailer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Jan 2017 11:25:35 +0200</lastBuildDate>
-    
-	<atom:link href="https://nodemailer.com/dkim/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 20 Jan 2017 11:25:35 +0200</lastBuildDate><atom:link href="https://nodemailer.com/dkim/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
