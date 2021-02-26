@@ -17,9 +17,15 @@ The following example uses [SES transport](/transports/ses/) (Amazon SES).
 
 ```javascript
 let nodemailer = require("nodemailer");
-let aws = require("aws-sdk");
+let aws = require("@aws-sdk/client-ses");
+process.env.AWS_ACCESS_KEY_ID = "....";
+process.env.AWS_SECRET_ACCESS_KEY = "....";
+const ses = new aws.SES({
+  apiVersion: "2010-12-01",
+  region: "us-east-1",
+});
 let transporter = nodemailer.createTransport({
-  SES: new aws.SES({ apiVersion: "2010-12-01" })
+  SES: { ses, aws },
 });
 ```
 

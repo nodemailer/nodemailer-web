@@ -61,44 +61,51 @@ You need to install the [aws-sdk](https://www.npmjs.com/package/aws-sdk) module 
 #### 1\. Send a message using SES transport {#example-1}
 
 ```javascript
-let nodemailer = require('nodemailer');
-let aws = require('aws-sdk');
+let nodemailer = require("nodemailer");
+let aws = require("@aws-sdk/client-ses");
 
 // configure AWS SDK
-aws.config.loadFromPath('config.json');
+process.env.AWS_ACCESS_KEY_ID = "....";
+process.env.AWS_SECRET_ACCESS_KEY = "....";
+const ses = new aws.SES({
+  apiVersion: "2010-12-01",
+  region: "us-east-1",
+});
 
 // create Nodemailer SES transporter
 let transporter = nodemailer.createTransport({
-    SES: new aws.SES({
-        apiVersion: '2010-12-01'
-    })
+  SES: { ses, aws },
 });
 
 // send some mail
-transporter.sendMail({
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Message',
-    text: 'I hope this message gets sent!',
-    ses: { // optional extra arguments for SendRawEmail
-        Tags: [{
-            Name: 'tag name',
-            Value: 'tag value'
-        }]
-    }
-}, (err, info) => {
+transporter.sendMail(
+  {
+    from: "sender@example.com",
+    to: "recipient@example.com",
+    subject: "Message",
+    text: "I hope this message gets sent!",
+    ses: {
+      // optional extra arguments for SendRawEmail
+      Tags: [
+        {
+          Name: "tag_name",
+          Value: "tag_value",
+        },
+      ],
+    },
+  },
+  (err, info) => {
     console.log(info.envelope);
     console.log(info.messageId);
-});
+  }
+);
 ```
 
 #### 2\. Throttle messages {#example-2}
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    SES: new aws.SES({
-        apiVersion: '2010-12-01'
-    }),
+    SES: { ses, aws },
     sendingRate: 1 // max 1 messages/second
 });
 
@@ -112,16 +119,16 @@ transporter.on('idle', () => {
 
 #### 3\. IAM policy {#example-3}
 
-Nodemailer SES transport requires *ses:SendRawEmail* role
+Nodemailer SES transport requires _ses:SendRawEmail_ role
 
 ```json
 {
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": "ses:SendRawEmail",
-            "Resource": "*"
-        }
-    ]
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "ses:SendRawEmail",
+      "Resource": "*"
+    }
+  ]
 }
 ```

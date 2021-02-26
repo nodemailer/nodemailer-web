@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.79.0" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>SES transport :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1606828683" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1606828683" rel="stylesheet">
-    <link href="/css/hybrid.css?1606828683" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1606828683" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1606828683" rel="stylesheet">
-    <link href="/css/auto-complete.css?1606828683" rel="stylesheet">
-    <link href="/css/theme.css?1606828683" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1606828683" rel="stylesheet">
+    <link href="/css/nucleus.css?1614329466" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1614329466" rel="stylesheet">
+    <link href="/css/hybrid.css?1614329466" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1614329466" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1614329466" rel="stylesheet">
+    <link href="/css/auto-complete.css?1614329466" rel="stylesheet">
+    <link href="/css/theme.css?1614329466" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1614329466" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1606828683" rel="stylesheet">
+      <link href="/css/theme-blue.css?1614329466" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1606828683"></script>
+    <script src="/js/jquery-2.x.min.js?1614329466"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1171,40 +1171,47 @@
 <p>You need to install the <a href="https://www.npmjs.com/package/aws-sdk">aws-sdk</a> module separately, it is not bundled with Nodemailer.</p>
 <h3 id="examples">Examples</h3>
 <h4 id="example-1">1. Send a message using SES transport</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nodemailer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;nodemailer&#39;</span>);
-<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">aws</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;aws-sdk&#39;</span>);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">nodemailer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;nodemailer&#34;</span>);
+<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">aws</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;@aws-sdk/client-ses&#34;</span>);
 
 <span style="color:#75715e">// configure AWS SDK
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">config</span>.<span style="color:#a6e22e">loadFromPath</span>(<span style="color:#e6db74">&#39;config.json&#39;</span>);
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">AWS_ACCESS_KEY_ID</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;....&#34;</span>;
+<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">env</span>.<span style="color:#a6e22e">AWS_SECRET_ACCESS_KEY</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;....&#34;</span>;
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ses</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">SES</span>({
+  <span style="color:#a6e22e">apiVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2010-12-01&#34;</span>,
+  <span style="color:#a6e22e">region</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;us-east-1&#34;</span>,
+});
 
 <span style="color:#75715e">// create Nodemailer SES transporter
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
-    <span style="color:#a6e22e">SES</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">SES</span>({
-        <span style="color:#a6e22e">apiVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-12-01&#39;</span>
-    })
+  <span style="color:#a6e22e">SES</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">ses</span>, <span style="color:#a6e22e">aws</span> },
 });
 
 <span style="color:#75715e">// send some mail
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>({
-    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
-    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
-    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Message&#39;</span>,
-    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;I hope this message gets sent!&#39;</span>,
-    <span style="color:#a6e22e">ses</span><span style="color:#f92672">:</span> { <span style="color:#75715e">// optional extra arguments for SendRawEmail
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span> [{
-            <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;tag name&#39;</span>,
-            <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;tag value&#39;</span>
-        }]
-    }
-}, (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">info</span>) =&gt; {
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>(
+  {
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;sender@example.com&#34;</span>,
+    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;recipient@example.com&#34;</span>,
+    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Message&#34;</span>,
+    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;I hope this message gets sent!&#34;</span>,
+    <span style="color:#a6e22e">ses</span><span style="color:#f92672">:</span> {
+      <span style="color:#75715e">// optional extra arguments for SendRawEmail
+</span><span style="color:#75715e"></span>      <span style="color:#a6e22e">Tags</span><span style="color:#f92672">:</span> [
+        {
+          <span style="color:#a6e22e">Name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;tag_name&#34;</span>,
+          <span style="color:#a6e22e">Value</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;tag_value&#34;</span>,
+        },
+      ],
+    },
+  },
+  (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">info</span>) =&gt; {
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">envelope</span>);
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">messageId</span>);
-});
+  }
+);
 </code></pre></div><h4 id="example-2">2. Throttle messages</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
-    <span style="color:#a6e22e">SES</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">aws</span>.<span style="color:#a6e22e">SES</span>({
-        <span style="color:#a6e22e">apiVersion</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2010-12-01&#39;</span>
-    }),
+    <span style="color:#a6e22e">SES</span><span style="color:#f92672">:</span> { <span style="color:#a6e22e">ses</span>, <span style="color:#a6e22e">aws</span> },
     <span style="color:#a6e22e">sendingRate</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e">// max 1 messages/second
 </span><span style="color:#75715e"></span>});
 
@@ -1217,13 +1224,13 @@
 </code></pre></div><h4 id="example-3">3. IAM policy</h4>
 <p>Nodemailer SES transport requires <em>ses:SendRawEmail</em> role</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;Statement&#34;</span>: [
-        {
-            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
-            <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;ses:SendRawEmail&#34;</span>,
-            <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
-        }
-    ]
+  <span style="color:#f92672">&#34;Statement&#34;</span>: [
+    {
+      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;ses:SendRawEmail&#34;</span>,
+      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
+    }
+  ]
 }
 </code></pre></div>
 
@@ -1899,20 +1906,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1606828683"></script>
-    <script src="/js/perfect-scrollbar.min.js?1606828683"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1606828683"></script>
-    <script src="/js/jquery.sticky.js?1606828683"></script>
-    <script src="/js/featherlight.min.js?1606828683"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1606828683"></script>
-    <script src="/js/highlight.pack.js?1606828683"></script>
+    <script src="/js/clipboard.min.js?1614329466"></script>
+    <script src="/js/perfect-scrollbar.min.js?1614329466"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1614329466"></script>
+    <script src="/js/jquery.sticky.js?1614329466"></script>
+    <script src="/js/featherlight.min.js?1614329466"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1614329466"></script>
+    <script src="/js/highlight.pack.js?1614329466"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1606828683"></script>
-    <script src="/js/learn.js?1606828683"></script>
-    <script src="/js/hugo-learn.js?1606828683"></script>
+    <script src="/js/modernizr.custom.71422.js?1614329466"></script>
+    <script src="/js/learn.js?1614329466"></script>
+    <script src="/js/hugo-learn.js?1614329466"></script>
 
-    <link href="/mermaid/mermaid.css?1606828683" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1606828683"></script>
+    <link href="/mermaid/mermaid.css?1614329466" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1614329466"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
