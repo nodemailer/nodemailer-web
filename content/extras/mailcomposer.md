@@ -86,6 +86,7 @@ The following are the possible fields of an e-mail message:
 - **textEncoding** - set explicitly which encoding to use for text parts (_quoted-printable_ or _base64_). If not set then encoding is detected from text content (mostly ascii means _quoted-printable_, otherwise _base64_)
 - **disableUrlAccess** - if set to true then fails with an error when a node tries to load content from URL
 - **disableFileAccess** - if set to true then fails with an error when a node tries to load content from a file
+- **newline**- either `\r\n` for windows/network newlines, `\n` for unix newlines or do not set to keep as is
 
 All text fields (e-mail addresses, plaintext body, html body) use UTF-8 as the encoding.
 Attachments are streamed as binary.
