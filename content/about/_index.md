@@ -27,10 +27,6 @@ If you really like Nodemailer or your business benefits from it financially then
 - [Nodemailer PayPal](https://www.paypal.me/nodemailer)
 - Become a sponsor in [Github](https://github.com/sponsors/andris9)
 
-### Email problems?
-
-Try out the all new ultimate [email debugging app by Nodemailer](/app/).
-
 ### Looking for IMAP solutions instead?
 
 Check out [IMAP API](https://imapapi.com/) – self hosted service that allows to make REST requests against IMAP servers. IMAP API also sends webhooks whenever something changes on the registered accounts.
