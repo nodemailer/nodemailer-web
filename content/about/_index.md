@@ -31,11 +31,9 @@ If you really like Nodemailer or your business benefits from it financially then
 
 Try out the all new ultimate [email debugging app by Nodemailer](/app/).
 
-### Having trouble managing your excess domain names?
+### Looking for IMAP solutions instead?
 
-You can park **all** your domains for your future projects at [Project Pending](https://projectpending.com/?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=header-link) free of charge. You get name servers and DNS management, a single HTTPS landing page (or redirect) and an email account.
-
-Project Pending is a service from the makers of Nodemailer.
+Check out [IMAP API](https://imapapi.com/) – self hosted service that allows to make REST requests against IMAP servers. IMAP API also sends webhooks whenever something changes on the registered accounts.
 
 ### Nodemailer features
 
