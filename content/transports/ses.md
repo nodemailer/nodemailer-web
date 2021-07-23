@@ -110,8 +110,8 @@ let transporter = nodemailer.createTransport({
 });
 
 // Push next messages to Nodemailer
-transporter.on('idle', () => {
-    while (transporter.isIdle()) {
+transporter.once('idle', () => {
+    if (transporter.isIdle()) {
         transporter.sendMail(...);
     }
 });
