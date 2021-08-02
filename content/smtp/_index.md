@@ -35,9 +35,7 @@ let poolConfig = "smtps://username:password@smtp.example.com/?pool=true";
 - **auth** – defines authentication data (see [authentication](#authentication) section below)
 - **authMethod** – defines preferred authentication method, defaults to 'PLAIN'
 
-{{% notice tip %}}
-Hostnames for the **host** field are resolved using `dns.resolve()`. If you are using a non-resolvable hostname (eg. something listed in */etc/hosts* or you are using different resolver for you Node apps) then provide the IP address of the SMTP server as **host** and for the actual hostname user **tls.servername** parameter. This way not hostname resolving is attempted but TLS validation still works.
-{{% /notice %}}
+Hostnames for the **host** field are resolved using `dns.resolve()`. If you are using a non-resolvable hostname (eg. something listed in _/etc/hosts_ or you are using different resolver for you Node apps) then provide the IP address of the SMTP server as **host** and for the actual hostname user **tls.servername** parameter. This way not hostname resolving is attempted but TLS validation still works.
 
 ##### TLS options
 
@@ -47,9 +45,7 @@ Hostnames for the **host** field are resolved using `dns.resolve()`. If you are 
 - **ignoreTLS** – if this is _true_ and _secure_ is false then TLS is not used even if the server supports STARTTLS extension
 - **requireTLS** – if this is _true_ and _secure_ is false then Nodemailer tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent
 
-{{% notice note %}}
 Setting **secure** to **false** does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via [STARTTLS](https://tools.ietf.org/html/rfc3207#section-2) command but to use this you have to connect using plaintext first
-{{% /notice %}}
 
 ##### Connection options
 
@@ -90,8 +86,8 @@ nodemailer.createTransport({
   secure: false, // upgrade later with STARTTLS
   auth: {
     user: "username",
-    pass: "password"
-  }
+    pass: "password",
+  },
 });
 ```
 
@@ -107,8 +103,8 @@ nodemailer.createTransport({
   secure: true, // use TLS
   auth: {
     user: "username",
-    pass: "password"
-  }
+    pass: "password",
+  },
 });
 ```
 
@@ -123,12 +119,12 @@ nodemailer.createTransport({
   secure: true, // use TLS
   auth: {
     user: "username",
-    pass: "pass"
+    pass: "pass",
   },
   tls: {
     // do not fail on invalid certs
-    rejectUnauthorized: false
-  }
+    rejectUnauthorized: false,
+  },
 });
 ```
 
@@ -152,7 +148,7 @@ You can verify your SMTP configuration with **verify(callback)** call (also work
 
 ```javascript
 // verify connection configuration
-transporter.verify(function(error, success) {
+transporter.verify(function (error, success) {
   if (error) {
     console.log(error);
   } else {

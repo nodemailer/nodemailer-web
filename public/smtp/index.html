@@ -15,19 +15,19 @@
     <title>SMTP transport :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1627059152" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1627059152" rel="stylesheet">
-    <link href="/css/hybrid.css?1627059152" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1627059152" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1627059152" rel="stylesheet">
-    <link href="/css/auto-complete.css?1627059152" rel="stylesheet">
-    <link href="/css/theme.css?1627059152" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1627059152" rel="stylesheet">
+    <link href="/css/nucleus.css?1627904761" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1627904761" rel="stylesheet">
+    <link href="/css/hybrid.css?1627904761" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1627904761" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1627904761" rel="stylesheet">
+    <link href="/css/auto-complete.css?1627904761" rel="stylesheet">
+    <link href="/css/theme.css?1627904761" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1627904761" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1627059152" rel="stylesheet">
+      <link href="/css/theme-blue.css?1627904761" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1627059152"></script>
+    <script src="/js/jquery-2.x.min.js?1627904761"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1106,9 +1106,7 @@
 <li><strong>auth</strong> – defines authentication data (see <a href="#authentication">authentication</a> section below)</li>
 <li><strong>authMethod</strong> – defines preferred authentication method, defaults to &lsquo;PLAIN&rsquo;</li>
 </ul>
-<div class="notices tip" >
-Hostnames for the **host** field are resolved using `dns.resolve()`. If you are using a non-resolvable hostname (eg. something listed in */etc/hosts* or you are using different resolver for you Node apps) then provide the IP address of the SMTP server as **host** and for the actual hostname user **tls.servername** parameter. This way not hostname resolving is attempted but TLS validation still works.
-</div>
+<p>Hostnames for the <strong>host</strong> field are resolved using <code>dns.resolve()</code>. If you are using a non-resolvable hostname (eg. something listed in <em>/etc/hosts</em> or you are using different resolver for you Node apps) then provide the IP address of the SMTP server as <strong>host</strong> and for the actual hostname user <strong>tls.servername</strong> parameter. This way not hostname resolving is attempted but TLS validation still works.</p>
 <h5 id="tls-options">TLS options</h5>
 <ul>
 <li><strong>secure</strong> – if <em>true</em> the connection will use TLS when connecting to server. If <em>false</em> (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to <em>true</em> if you are connecting to port 465. For port 587 or 25 keep it <em>false</em></li>
@@ -1117,9 +1115,7 @@ Hostnames for the **host** field are resolved using `dns.resolve()`. If you are 
 <li><strong>ignoreTLS</strong> – if this is <em>true</em> and <em>secure</em> is false then TLS is not used even if the server supports STARTTLS extension</li>
 <li><strong>requireTLS</strong> – if this is <em>true</em> and <em>secure</em> is false then Nodemailer tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent</li>
 </ul>
-<div class="notices note" >
-Setting **secure** to **false** does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via [STARTTLS](https://tools.ietf.org/html/rfc3207#section-2) command but to use this you have to connect using plaintext first
-</div>
+<p>Setting <strong>secure</strong> to <strong>false</strong> does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via <a href="https://tools.ietf.org/html/rfc3207#section-2">STARTTLS</a> command but to use this you have to connect using plaintext first</p>
 <h5 id="connection-options">Connection options</h5>
 <ul>
 <li><strong>name</strong> – optional hostname of the client, used for identifying to the server, defaults to hostname of the machine</li>
@@ -1155,8 +1151,8 @@ Setting **secure** to **false** does not mean that you would not use an encrypte
   <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#75715e">// upgrade later with STARTTLS
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
     <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;username&#34;</span>,
-    <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;password&#34;</span>
-  }
+    <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;password&#34;</span>,
+  },
 });
 </code></pre></div><h4 id="2-pooled-connections">2. Pooled connections</h4>
 <p>This example would set up pooled connections against a SMTP server on port 465</p>
@@ -1167,8 +1163,8 @@ Setting **secure** to **false** does not mean that you would not use an encrypte
   <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// use TLS
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
     <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;username&#34;</span>,
-    <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;password&#34;</span>
-  }
+    <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;password&#34;</span>,
+  },
 });
 </code></pre></div><h4 id="3-allow-self-signed-certificates">3. Allow self-signed certificates</h4>
 <p>This config would open a connection to TLS server with self-signed or invalid TLS certificate</p>
@@ -1178,12 +1174,12 @@ Setting **secure** to **false** does not mean that you would not use an encrypte
   <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// use TLS
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
     <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;username&#34;</span>,
-    <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;pass&#34;</span>
+    <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;pass&#34;</span>,
   },
   <span style="color:#a6e22e">tls</span><span style="color:#f92672">:</span> {
     <span style="color:#75715e">// do not fail on invalid certs
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rejectUnauthorized</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
-  }
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">rejectUnauthorized</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+  },
 });
 </code></pre></div><h2 id="authentication">Authentication</h2>
 <p>If authentication data is not present, the connection is considered authenticated from the start. Otherwise you would need to provide the authentication options object.</p>
@@ -1202,7 +1198,7 @@ Setting **secure** to **false** does not mean that you would not use an encrypte
 <h2 id="verify-smtp-connection-configuration">Verify SMTP connection configuration</h2>
 <p>You can verify your SMTP configuration with <strong>verify(callback)</strong> call (also works as a Promise). If it returns an error, then something is not correct, otherwise the server is ready to accept messages.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// verify connection configuration
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">verify</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">success</span>) {
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">verify</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">success</span>) {
   <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>) {
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>);
   } <span style="color:#66d9ef">else</span> {
@@ -1881,20 +1877,20 @@ Setting **secure** to **false** does not mean that you would not use an encrypte
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1627059152"></script>
-    <script src="/js/perfect-scrollbar.min.js?1627059152"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1627059152"></script>
-    <script src="/js/jquery.sticky.js?1627059152"></script>
-    <script src="/js/featherlight.min.js?1627059152"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1627059152"></script>
-    <script src="/js/highlight.pack.js?1627059152"></script>
+    <script src="/js/clipboard.min.js?1627904761"></script>
+    <script src="/js/perfect-scrollbar.min.js?1627904761"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1627904761"></script>
+    <script src="/js/jquery.sticky.js?1627904761"></script>
+    <script src="/js/featherlight.min.js?1627904761"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1627904761"></script>
+    <script src="/js/highlight.pack.js?1627904761"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1627059152"></script>
-    <script src="/js/learn.js?1627059152"></script>
-    <script src="/js/hugo-learn.js?1627059152"></script>
+    <script src="/js/modernizr.custom.71422.js?1627904761"></script>
+    <script src="/js/learn.js?1627904761"></script>
+    <script src="/js/hugo-learn.js?1627904761"></script>
 
-    <link href="/mermaid/mermaid.css?1627059152" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1627059152"></script>
+    <link href="/mermaid/mermaid.css?1627904761" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1627904761"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
