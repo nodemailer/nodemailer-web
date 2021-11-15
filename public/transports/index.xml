@@ -25,7 +25,7 @@ The additional options to use with this transport are the following:
       <pubDate>Fri, 20 Jan 2017 12:01:09 +0200</pubDate>
       
       <guid>https://nodemailer.com/transports/ses/</guid>
-      <description>Nodemailer SES transport is a wrapper around aws.SES from the aws-sdk package. SES transport is available from Nodemailer v3.1.0.
+      <description>Nodemailer SES transport is a wrapper around aws.SES from the @aws-sdk/client-ses package. SES transport is available from Nodemailer v3.1.0.
 Why not use aws-sdk directly? The SES API exposes two methods to send mail – SendEmail and SendRawEmail. While the first one is really easy to use and Nodemailer is not actually needed, then it is also quite basic in features. For example you can&amp;rsquo;t use attachments with SendEmail. On the other hand SendRawEmail requires you build your own MIME formatted email message which is far from being easy.</description>
     </item>
     
