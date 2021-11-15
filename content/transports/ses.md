@@ -8,7 +8,7 @@ next = "/transports/stream/"
 
 +++
 
-Nodemailer SES transport is a wrapper around _aws.SES_ from the [aws-sdk](https://www.npmjs.com/package/aws-sdk) package. SES transport is available from Nodemailer v3.1.0.
+Nodemailer SES transport is a wrapper around _aws.SES_ from the [@aws-sdk/client-ses](https://www.npmjs.com/package/@aws-sdk/client-ses) package. SES transport is available from Nodemailer v3.1.0.
 
 ## Why not use aws-sdk directly?
 
@@ -51,10 +51,11 @@ The **info** argument for **sendMail()** callback includes the following propert
 1. Check that your IAM role has _ses:SendRawEmail_ action allowed (see [example #3](#example-3))
 2. Check that the email address you are sending mail from is verified
 3. There are multiple reports that access keys with special symbols might fail sending mail. Try to generate new access keys and see if it helps
+4. aws-sdk v3 requires `@aws-sdk/credential-provider-node` to be passed explicitly to the client constructor. Make sure to install the [@aws-sdk/credential-provider-node](https://www.npmjs.com/package/@aws-sdk/credential-provider-node) module separately.
 
 **2\. aws-sdk is not found**
 
-You need to install the [aws-sdk](https://www.npmjs.com/package/aws-sdk) module separately, it is not bundled with Nodemailer.
+You need to install the [@aws-sdk/client-ses](https://www.npmjs.com/package/@aws-sdk/client-ses) module separately, it is not bundled with Nodemailer.
 
 ### Examples
 
@@ -63,13 +64,12 @@ You need to install the [aws-sdk](https://www.npmjs.com/package/aws-sdk) module 
 ```javascript
 let nodemailer = require("nodemailer");
 let aws = require("@aws-sdk/client-ses");
+let { defaultProvider } = require("@aws-sdk/credential-provider-node");
 
-// configure AWS SDK
-process.env.AWS_ACCESS_KEY_ID = "....";
-process.env.AWS_SECRET_ACCESS_KEY = "....";
 const ses = new aws.SES({
   apiVersion: "2010-12-01",
   region: "us-east-1",
+  defaultProvider,
 });
 
 // create Nodemailer SES transporter
