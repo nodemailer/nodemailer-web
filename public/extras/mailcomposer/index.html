@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.0" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Mailcomposer :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1636958397" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1636958397" rel="stylesheet">
-    <link href="/css/hybrid.css?1636958397" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1636958397" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1636958397" rel="stylesheet">
-    <link href="/css/auto-complete.css?1636958397" rel="stylesheet">
-    <link href="/css/theme.css?1636958397" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1636958397" rel="stylesheet">
+    <link href="/css/nucleus.css?1643235479" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1643235479" rel="stylesheet">
+    <link href="/css/hybrid.css?1643235479" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1643235479" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1643235479" rel="stylesheet">
+    <link href="/css/auto-complete.css?1643235479" rel="stylesheet">
+    <link href="/css/theme.css?1643235479" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1643235479" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1636958397" rel="stylesheet">
+      <link href="/css/theme-blue.css?1643235479" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1636958397"></script>
+    <script src="/js/jquery-2.x.min.js?1643235479"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1131,21 +1131,21 @@
 <h2 id="usage">Usage</h2>
 <h4 id="step-1-install-nodemailer-with-npm">Step 1. Install Nodemailer with npm</h4>
 <p><em>mailcomposer</em> is exposed as a submodule of Nodemailer</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install nodemailer --save
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install nodemailer --save
 </code></pre></div><h4 id="step-2-require-_mailcomposer_-in-your-script">Step 2. Require <em>mailcomposer</em> in your script</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MailComposer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;nodemailer/lib/mail-composer&#34;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MailComposer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;nodemailer/lib/mail-composer&#34;</span>);
 </code></pre></div><h4 id="step-3-create-a-new-_mailcomposer_-instance">Step 3. Create a new <em>MailComposer</em> instance</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mail</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MailComposer</span>(<span style="color:#a6e22e">mailOptions</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mail</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MailComposer</span>(<span style="color:#a6e22e">mailOptions</span>);
 </code></pre></div><p>Where <code>mailOptions</code> is an object that defines the components of the message, see below</p>
 <h2 id="api">API</h2>
 <h3 id="createreadstream">createReadStream</h3>
 <p>To create a stream that outputs a raw rfc822 message from the defined input, use <code>createReadStream()</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mail</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MailComposer</span>({<span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;...&#39;</span>, ...});
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mail</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MailComposer</span>({<span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;...&#39;</span>, ...});
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">stream</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">compile</span>().<span style="color:#a6e22e">createReadStream</span>();
 <span style="color:#a6e22e">stream</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdout</span>);
 </code></pre></div><h3 id="build">build</h3>
 <p>To generate the message and return it with a callback use <code>build()</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mail</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MailComposer</span>({<span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;...&#39;</span>, ...});
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mail</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">MailComposer</span>({<span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;...&#39;</span>, ...});
 <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">compile</span>().<span style="color:#a6e22e">build</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">message</span>){
     <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdout</span>.<span style="color:#a6e22e">write</span>(<span style="color:#a6e22e">message</span>);
 });
@@ -1196,7 +1196,7 @@ Attachments are streamed as binary.</p>
 <li><strong>raw</strong> is an optional value that overrides entire node content in the mime message. If used then all other options set for this node are ignored. The value is either a string, a buffer, a stream or an attachment-like object (eg. provides <code>path</code> or <code>content</code>)</li>
 </ul>
 <p>Attachments can be added as many as you want.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mailOptions</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mailOptions</span> <span style="color:#f92672">=</span> {
     ...
     <span style="color:#a6e22e">attachments</span><span style="color:#f92672">:</span> [
         {   <span style="color:#75715e">// utf-8 string as an attachment
@@ -1241,7 +1241,7 @@ Attachments are streamed as binary.</p>
 <p>In addition to text and HTML, any kind of data can be inserted as an alternative content of the main body - for example a word processing document with the same text as in the HTML field. It is the job of the e-mail client to select and show the best fitting alternative to the reader. Usually this field is used for calendar events and such.</p>
 <p>Alternative objects use the same options as <a href="#attachments">attachment objects</a>. The difference between an attachment and an alternative is the fact that attachments are placed into <em>multipart/mixed</em> or <em>multipart/related</em> parts of the message white alternatives are placed into <em>multipart/alternative</em> part.</p>
 <p><strong>Usage example:</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mailOptions</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mailOptions</span> <span style="color:#f92672">=</span> {
     ...
     <span style="color:#a6e22e">html</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&lt;b&gt;Hello world!&lt;/b&gt;&#39;</span>,
     <span style="color:#a6e22e">alternatives</span><span style="color:#f92672">:</span> [
@@ -1254,33 +1254,33 @@ Attachments are streamed as binary.</p>
 </code></pre></div><p>Alternatives can be added as many as you want.</p>
 <h3 id="address-formatting">Address Formatting</h3>
 <p>All the e-mail addresses can be plain e-mail addresses</p>
-<pre><code>foobar@example.com
+<pre tabindex="0"><code>foobar@example.com
 </code></pre><p>or with formatted name (includes unicode support)</p>
-<pre><code>&quot;Ноде Майлер&quot; &lt;foobar@example.com&gt;
+<pre tabindex="0"><code>&quot;Ноде Майлер&quot; &lt;foobar@example.com&gt;
 </code></pre><blockquote>
 <p>Notice that all address fields (even <code>from</code>) are comma separated lists, so if you want to use a comma in the name part, make sure you enclose the name in double quotes: <code>&quot;Майлер, Ноде&quot; &lt;foobar@example.com&gt;</code></p>
 </blockquote>
 <p>or as an address object (in this case you do not need to worry about the formatting, no need to use quotes etc.)</p>
-<pre><code>{
+<pre tabindex="0"><code>{
     name: 'Майлер, Ноде',
     address: 'foobar@example.com'
 }
 </code></pre><p>All address fields accept comma separated list of e-mails or an array of
 e-mails or an array of comma separated list of e-mails or address objects - use it as you like.
 Formatting can be mixed.</p>
-<pre><code>...,
+<pre tabindex="0"><code>...,
 to: 'foobar@example.com, &quot;Ноде Майлер&quot; &lt;bar@example.com&gt;, &quot;Name, User&quot; &lt;baz@example.com&gt;',
 cc: ['foobar@example.com', '&quot;Ноде Майлер&quot; &lt;bar@example.com&gt;, &quot;Name, User&quot; &lt;baz@example.com&gt;'],
 bcc: ['foobar@example.com', {name: 'Майлер, Ноде', address: 'foobar@example.com'}]
 ...
 </code></pre><p>You can even use unicode domains, these are automatically converted to punycode</p>
-<pre><code>'&quot;Unicode Domain&quot; &lt;info@müriaad-polüteism.info&gt;'
+<pre tabindex="0"><code>'&quot;Unicode Domain&quot; &lt;info@müriaad-polüteism.info&gt;'
 </code></pre><h3 id="smtp-envelope">SMTP envelope</h3>
 <p>SMTP envelope is usually auto generated from <code>from</code>, <code>to</code>, <code>cc</code> and <code>bcc</code> fields but
 if for some reason you want to specify it yourself, you can do it with <code>envelope</code> property.</p>
 <p><code>envelope</code> is an object with the following params: <code>from</code>, <code>to</code>, <code>cc</code> and <code>bcc</code> just like
 with regular mail options. You can also use the regular address format, unicode domains etc.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">mailOptions</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">mailOptions</span> <span style="color:#f92672">=</span> {
     ...,
     <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;mailer@kreata.ee&#39;</span>,
     <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;daemon@kreata.ee&#39;</span>,
@@ -1295,7 +1295,7 @@ with regular mail options. You can also use the regular address format, unicode 
 <h3 id="using-embedded-images">Using Embedded Images</h3>
 <p>Attachments can be used as embedded images in the HTML body. To use this feature, you need to set additional property of the attachment - <code>cid</code> (unique identifier of the file) which is a reference to the attachment file. The same <code>cid</code> value must be used as the image URL in HTML (using <code>cid:</code> as the URL protocol, see example below).</p>
 <p><strong>NB!</strong> the cid value should be as unique as possible!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mailOptions</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mailOptions</span> <span style="color:#f92672">=</span> {
     ...
     <span style="color:#a6e22e">html</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Embedded image: &lt;img src=&#34;cid:unique@kreata.ee&#34;/&gt;&#39;</span>,
     <span style="color:#a6e22e">attachments</span><span style="color:#f92672">:</span> [{
@@ -1306,7 +1306,7 @@ with regular mail options. You can also use the regular address format, unicode 
 }
 </code></pre></div><h3 id="bcc">BCC</h3>
 <p>By default, MailComposer drops the BCC header when built. If you need to BCC header to be shown when built, you&rsquo;ll need to include the <code>keepBcc</code> option like so.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mailOptions</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">mailOptions</span> <span style="color:#f92672">=</span> {
    ...
    <span style="color:#a6e22e">bcc</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;bcc@example.com&#39;</span>
 }
@@ -1992,20 +1992,20 @@ with regular mail options. You can also use the regular address format, unicode 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1636958398"></script>
-    <script src="/js/jquery.sticky.js?1636958398"></script>
-    <script src="/js/featherlight.min.js?1636958398"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1636958398"></script>
-    <script src="/js/highlight.pack.js?1636958398"></script>
+    <script src="/js/clipboard.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1643235479"></script>
+    <script src="/js/jquery.sticky.js?1643235479"></script>
+    <script src="/js/featherlight.min.js?1643235479"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1643235479"></script>
+    <script src="/js/highlight.pack.js?1643235479"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1636958398"></script>
-    <script src="/js/learn.js?1636958398"></script>
-    <script src="/js/hugo-learn.js?1636958398"></script>
+    <script src="/js/modernizr.custom.71422.js?1643235479"></script>
+    <script src="/js/learn.js?1643235479"></script>
+    <script src="/js/hugo-learn.js?1643235479"></script>
 
-    <link href="/mermaid/mermaid.css?1636958398" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1636958398"></script>
+    <link href="/mermaid/mermaid.css?1643235479" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1643235479"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

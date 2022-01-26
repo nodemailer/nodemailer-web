@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.0" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>OAuth2 :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1636958398" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1636958398" rel="stylesheet">
-    <link href="/css/hybrid.css?1636958398" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1636958398" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1636958398" rel="stylesheet">
-    <link href="/css/auto-complete.css?1636958398" rel="stylesheet">
-    <link href="/css/theme.css?1636958398" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1636958398" rel="stylesheet">
+    <link href="/css/nucleus.css?1643235479" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1643235479" rel="stylesheet">
+    <link href="/css/hybrid.css?1643235479" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1643235479" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1643235479" rel="stylesheet">
+    <link href="/css/auto-complete.css?1643235479" rel="stylesheet">
+    <link href="/css/theme.css?1643235479" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1643235479" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1636958398" rel="stylesheet">
+      <link href="/css/theme-blue.css?1643235479" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1636958398"></script>
+    <script src="/js/jquery-2.x.min.js?1643235479"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1169,7 +1169,7 @@ Nodemailer requires an **Access Token** to perform authentication. 3-legged and 
 <li><strong>renew</strong> – if <em>true</em> then previous access token either expired or it was not accepted by the SMTP server, in this case you should generate a new value</li>
 <li><strong>callback</strong> with arguments <em>(err, accessToken)</em> – is the callback function to run once you have generated a new access token</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;oauth2_provision_cb&#39;</span>, (<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">renew</span>, <span style="color:#a6e22e">callback</span>)=&gt;{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;oauth2_provision_cb&#39;</span>, (<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">renew</span>, <span style="color:#a6e22e">callback</span>)=&gt;{
     <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userTokens</span>[<span style="color:#a6e22e">user</span>];
     <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">accessToken</span>){
         <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;Unknown user&#39;</span>));
@@ -1179,7 +1179,7 @@ Nodemailer requires an **Access Token** to perform authentication. 3-legged and 
 });
 </code></pre></div><h3 id="update-notification">Token update notifications</h3>
 <p>If you use <em>refreshToken</em> or service keys to generate new tokens from Nodemailer when <em>accessToken</em> is not present or expired then you can listen for the token updates by registering a &lsquo;token&rsquo; event handler for the transporter object.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;token&#39;</span>, <span style="color:#a6e22e">token</span> =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;token&#39;</span>, <span style="color:#a6e22e">token</span> =&gt; {
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;A new access token was generated&#39;</span>);
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;User: %s&#39;</span>, <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">user</span>);
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Access Token: %s&#39;</span>, <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">accessToken</span>);
@@ -1188,7 +1188,7 @@ Nodemailer requires an **Access Token** to perform authentication. 3-legged and 
 </code></pre></div><h3 id="examples">Examples</h3>
 <h4 id="example-1">1. Authenticate using existing token</h4>
 <p>Use an existing Access Token. If the token is not accepted then message is not sent as there is no way to generate a new token.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1200,7 +1200,7 @@ Nodemailer requires an **Access Token** to perform authentication. 3-legged and 
 });
 </code></pre></div><h4 id="example-2">2. Custom handler</h4>
 <p>This example requests a new <em>accessToken</em> value from a custom OAuth2 handler. Nodemailer does not attempt to generate the token by itself.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1220,7 +1220,7 @@ Nodemailer requires an **Access Token** to perform authentication. 3-legged and 
 });
 </code></pre></div><h4 id="example-3">3. Set up 3LO authentication</h4>
 <p>This example uses an existing Access Token. If the token is not accepted or current time is past the <em>expires</em> value, then <em>refreshToken</em> is used to automatically generate a new <em>accessToken</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1236,7 +1236,7 @@ Nodemailer requires an **Access Token** to perform authentication. 3-legged and 
 });
 </code></pre></div><h4 id="example-4">4. Set up 2LO authentication</h4>
 <p>This example uses an existing Access Token. If the token is not accepted or current time is past the <em>expires</em> value, then a new <em>accessToken</em> value is generated using provided service account.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1254,7 +1254,7 @@ Nodemailer requires an **Access Token** to perform authentication. 3-legged and 
 <div class="notices info" >
 Per-message specific authentication does not work in pooled mode
 </div>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1278,7 +1278,7 @@ Per-message specific authentication does not work in pooled mode
     }
 });
 </code></pre></div><p>Or alternatively you can do the same with your own OAuth2 handler.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1984,20 +1984,20 @@ Per-message specific authentication does not work in pooled mode
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1636958398"></script>
-    <script src="/js/jquery.sticky.js?1636958398"></script>
-    <script src="/js/featherlight.min.js?1636958398"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1636958398"></script>
-    <script src="/js/highlight.pack.js?1636958398"></script>
+    <script src="/js/clipboard.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1643235479"></script>
+    <script src="/js/jquery.sticky.js?1643235479"></script>
+    <script src="/js/featherlight.min.js?1643235479"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1643235479"></script>
+    <script src="/js/highlight.pack.js?1643235479"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1636958398"></script>
-    <script src="/js/learn.js?1636958398"></script>
-    <script src="/js/hugo-learn.js?1636958398"></script>
+    <script src="/js/modernizr.custom.71422.js?1643235479"></script>
+    <script src="/js/learn.js?1643235479"></script>
+    <script src="/js/hugo-learn.js?1643235479"></script>
 
-    <link href="/mermaid/mermaid.css?1636958398" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1636958398"></script>
+    <link href="/mermaid/mermaid.css?1643235479" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1643235479"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

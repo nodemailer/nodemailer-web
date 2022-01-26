@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.0" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Message configuration :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1636958398" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1636958398" rel="stylesheet">
-    <link href="/css/hybrid.css?1636958398" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1636958398" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1636958398" rel="stylesheet">
-    <link href="/css/auto-complete.css?1636958398" rel="stylesheet">
-    <link href="/css/theme.css?1636958398" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1636958398" rel="stylesheet">
+    <link href="/css/nucleus.css?1643235479" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1643235479" rel="stylesheet">
+    <link href="/css/hybrid.css?1643235479" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1643235479" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1643235479" rel="stylesheet">
+    <link href="/css/auto-complete.css?1643235479" rel="stylesheet">
+    <link href="/css/theme.css?1643235479" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1643235479" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1636958398" rel="stylesheet">
+      <link href="/css/theme-blue.css?1643235479" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1636958398"></script>
+    <script src="/js/jquery-2.x.min.js?1643235479"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1104,7 +1104,7 @@
 <li><strong>attachments</strong> - An array of attachment objects (see <a href="/message/attachments/">Using attachments</a> for details). Attachments can be used for <a href="/message/embedded-images/">embedding images</a> as well.</li>
 </ul>
 <p>A large majority of emails sent look a lot like this, using only a few basic fields:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;sender@server.com&#34;</span>,
   <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;receiver@sender.com&#34;</span>,
   <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Message title&#34;</span>,
@@ -1152,7 +1152,7 @@ When using `amp` then make sure it is a full and valid AMP4EMAIL document, other
 <li><strong>disableFileAccess</strong> if true, then does not allow to use files as content. Use it when you want to use JSON data from untrusted source as the email. If an attachment or message node tries to fetch something from a file the sending returns an error. If this field is also set in the transport options, then the value in mail data is ignored</li>
 <li><strong>disableUrlAccess</strong> if true, then does not allow to use Urls as content. If this field is also set in the transport options, then the value in mail data is ignored</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
     ...,
     <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
         <span style="color:#e6db74">&#39;My-Custom-Header&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;header value&#39;</span>
@@ -1162,14 +1162,14 @@ When using `amp` then make sure it is a full and valid AMP4EMAIL document, other
 </code></pre></div><div class="notices info" >
 **Memory leak warning!** When using readable streams as content and sending fails then Nodemailer does not abort the already opened but not yet finished stream, you need to do this yourself. Nodemailer only closes the streams it has opened itself (eg. file paths, URLs)
 </div>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">htmlstream</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">createReadStream</span>(<span style="color:#e6db74">&#34;content.html&#34;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">htmlstream</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">createReadStream</span>(<span style="color:#e6db74">&#34;content.html&#34;</span>);
 <span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">sendMail</span>({ <span style="color:#a6e22e">html</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">htmlstream</span> }, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">err</span>) {
   <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">err</span>) {
     <span style="color:#75715e">// check if htmlstream is still open and close it to clean up
 </span><span style="color:#75715e"></span>  }
 });
 </code></pre></div><h5 id="amp-example">AMP example</h5>
-<pre><code>let message = {
+<pre tabindex="0"><code>let message = {
     from: 'Nodemailer &lt;example@nodemailer.com&gt;',
     to: 'Nodemailer &lt;example@nodemailer.com&gt;',
     subject: 'AMP4EMAIL message',
@@ -1861,20 +1861,20 @@ When using `amp` then make sure it is a full and valid AMP4EMAIL document, other
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1636958398"></script>
-    <script src="/js/jquery.sticky.js?1636958398"></script>
-    <script src="/js/featherlight.min.js?1636958398"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1636958398"></script>
-    <script src="/js/highlight.pack.js?1636958398"></script>
+    <script src="/js/clipboard.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1643235479"></script>
+    <script src="/js/jquery.sticky.js?1643235479"></script>
+    <script src="/js/featherlight.min.js?1643235479"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1643235479"></script>
+    <script src="/js/highlight.pack.js?1643235479"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1636958398"></script>
-    <script src="/js/learn.js?1636958398"></script>
-    <script src="/js/hugo-learn.js?1636958398"></script>
+    <script src="/js/modernizr.custom.71422.js?1643235479"></script>
+    <script src="/js/learn.js?1643235479"></script>
+    <script src="/js/hugo-learn.js?1643235479"></script>
 
-    <link href="/mermaid/mermaid.css?1636958398" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1636958398"></script>
+    <link href="/mermaid/mermaid.css?1643235479" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1643235479"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

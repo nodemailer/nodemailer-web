@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.0" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>DKIM :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1636958398" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1636958398" rel="stylesheet">
-    <link href="/css/hybrid.css?1636958398" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1636958398" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1636958398" rel="stylesheet">
-    <link href="/css/auto-complete.css?1636958398" rel="stylesheet">
-    <link href="/css/theme.css?1636958398" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1636958398" rel="stylesheet">
+    <link href="/css/nucleus.css?1643235479" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1643235479" rel="stylesheet">
+    <link href="/css/hybrid.css?1643235479" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1643235479" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1643235479" rel="stylesheet">
+    <link href="/css/auto-complete.css?1643235479" rel="stylesheet">
+    <link href="/css/theme.css?1643235479" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1643235479" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1636958398" rel="stylesheet">
+      <link href="/css/theme-blue.css?1643235479" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1636958398"></script>
+    <script src="/js/jquery-2.x.min.js?1643235479"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1114,8 +1114,8 @@
 <h3 id="examples">Examples</h3>
 <h4 id="1-sign-all-messages">1. Sign all messages</h4>
 <p>Assumes that there is a public key available for <em>2017._domainkey.example.com</em>. You can test if the key exists or not with the <em>dig</em> tool like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dig TXT 2017._domainkey.example.com
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dig TXT 2017._domainkey.example.com
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
   <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1127,7 +1127,7 @@
 });
 </code></pre></div><h4 id="2-sign-all-messages-with-multiple-keys">2. Sign all messages with multiple keys</h4>
 <p>Assumes that there is a public keys available for <em>2017._domainkey.example.com</em> and <em>2016._domainkey.example.com</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1149,7 +1149,7 @@
 });
 </code></pre></div><h4 id="3-sign-a-specific-message">3. Sign a specific message</h4>
 <p>Do not sign by default. Provide DKIM key values separately for every message.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
   <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
@@ -1167,7 +1167,7 @@
 };
 </code></pre></div><h4 id="4-cache-large-messages-for-signing">4. Cache large messages for signing</h4>
 <p>Messages larger than 100kB are cached to disk</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
   <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1181,7 +1181,7 @@
 });
 </code></pre></div><h4 id="5-do-not-sign-specific-header-keys">5. Do not sign specific header keys</h4>
 <p>This is needed when sending mail through SES that has its own Message-ID and Date system.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
   <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1863,20 +1863,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1636958398"></script>
-    <script src="/js/jquery.sticky.js?1636958398"></script>
-    <script src="/js/featherlight.min.js?1636958398"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1636958398"></script>
-    <script src="/js/highlight.pack.js?1636958398"></script>
+    <script src="/js/clipboard.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1643235479"></script>
+    <script src="/js/jquery.sticky.js?1643235479"></script>
+    <script src="/js/featherlight.min.js?1643235479"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1643235479"></script>
+    <script src="/js/highlight.pack.js?1643235479"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1636958398"></script>
-    <script src="/js/learn.js?1636958398"></script>
-    <script src="/js/hugo-learn.js?1636958398"></script>
+    <script src="/js/modernizr.custom.71422.js?1643235479"></script>
+    <script src="/js/learn.js?1643235479"></script>
+    <script src="/js/hugo-learn.js?1643235479"></script>
 
-    <link href="/mermaid/mermaid.css?1636958398" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1636958398"></script>
+    <link href="/mermaid/mermaid.css?1643235479" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1643235479"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

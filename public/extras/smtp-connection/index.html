@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.0" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>SMTP Connection :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1636958397" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1636958397" rel="stylesheet">
-    <link href="/css/hybrid.css?1636958397" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1636958397" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1636958397" rel="stylesheet">
-    <link href="/css/auto-complete.css?1636958397" rel="stylesheet">
-    <link href="/css/theme.css?1636958397" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1636958397" rel="stylesheet">
+    <link href="/css/nucleus.css?1643235479" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1643235479" rel="stylesheet">
+    <link href="/css/hybrid.css?1643235479" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1643235479" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1643235479" rel="stylesheet">
+    <link href="/css/auto-complete.css?1643235479" rel="stylesheet">
+    <link href="/css/theme.css?1643235479" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1643235479" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1636958397" rel="stylesheet">
+      <link href="/css/theme-blue.css?1643235479" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1636958397"></script>
+    <script src="/js/jquery-2.x.min.js?1643235479"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1125,11 +1125,11 @@
 <h2 id="usage">Usage</h2>
 <h4 id="step-1-install-nodemailer-with-npm">Step 1. Install Nodemailer with npm</h4>
 <p><em>smtp-connection</em> is exposed as a submodule of Nodemailer</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install nodemailer --save
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install nodemailer --save
 </code></pre></div><h4 id="step-2-require-_smtp-connection_-in-your-script">Step 2. Require <em>smtp-connection</em> in your script</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SMTPConnection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;nodemailer/lib/smtp-connection&#34;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SMTPConnection</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;nodemailer/lib/smtp-connection&#34;</span>);
 </code></pre></div><h4 id="step-3-create-smtpconnection-instance">Step 3. Create SMTPConnection instance</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">connection</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPConnection</span>(<span style="color:#a6e22e">options</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">connection</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPConnection</span>(<span style="color:#a6e22e">options</span>);
 </code></pre></div><p>Where</p>
 <ul>
 <li>
@@ -1165,7 +1165,7 @@
 </ul>
 <h3 id="connect">connect</h3>
 <p>Establish the connection</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">callback</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">connect</span>(<span style="color:#a6e22e">callback</span>);
 </code></pre></div><p>Where</p>
 <ul>
 <li><strong>callback</strong> is the function to run once the connection is established. The function is added as a listener to the &lsquo;connect&rsquo; event.</li>
@@ -1176,7 +1176,7 @@
 </ul>
 <h3 id="login">login</h3>
 <p>If the server requires authentication you can login with</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">login</span>(<span style="color:#a6e22e">auth</span>, <span style="color:#a6e22e">callback</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">login</span>(<span style="color:#a6e22e">auth</span>, <span style="color:#a6e22e">callback</span>);
 </code></pre></div><p>Where</p>
 <ul>
 <li>
@@ -1202,7 +1202,7 @@
 </ul>
 <h3 id="send">send</h3>
 <p>Once the connection is authenticated (or just after connection is established if authentication is not required), you can send mail with</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">envelope</span>, <span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">callback</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">envelope</span>, <span style="color:#a6e22e">message</span>, <span style="color:#a6e22e">callback</span>);
 </code></pre></div><p>Where</p>
 <ul>
 <li>
@@ -1239,13 +1239,13 @@
 </ul>
 <h3 id="quit">quit</h3>
 <p>Use it for graceful disconnect</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">quit</span>();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">quit</span>();
 </code></pre></div><h3 id="close">close</h3>
 <p>Use it for less graceful disconnect</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">close</span>();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">close</span>();
 </code></pre></div><h3 id="reset">reset</h3>
 <p>Use it to reset current session (invokes RSET command)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">reset</span>(<span style="color:#a6e22e">callback</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">reset</span>(<span style="color:#a6e22e">callback</span>);
 </code></pre></div><h2 id="license">License</h2>
 <p><strong>MIT</strong></p>
 
@@ -1922,20 +1922,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1636958398"></script>
-    <script src="/js/jquery.sticky.js?1636958398"></script>
-    <script src="/js/featherlight.min.js?1636958398"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1636958398"></script>
-    <script src="/js/highlight.pack.js?1636958398"></script>
+    <script src="/js/clipboard.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1643235479"></script>
+    <script src="/js/jquery.sticky.js?1643235479"></script>
+    <script src="/js/featherlight.min.js?1643235479"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1643235479"></script>
+    <script src="/js/highlight.pack.js?1643235479"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1636958398"></script>
-    <script src="/js/learn.js?1636958398"></script>
-    <script src="/js/hugo-learn.js?1636958398"></script>
+    <script src="/js/modernizr.custom.71422.js?1643235479"></script>
+    <script src="/js/learn.js?1643235479"></script>
+    <script src="/js/hugo-learn.js?1643235479"></script>
 
-    <link href="/mermaid/mermaid.css?1636958398" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1636958398"></script>
+    <link href="/mermaid/mermaid.css?1643235479" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1643235479"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

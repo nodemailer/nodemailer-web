@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.0" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Create plugins :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1636958398" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1636958398" rel="stylesheet">
-    <link href="/css/hybrid.css?1636958398" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1636958398" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1636958398" rel="stylesheet">
-    <link href="/css/auto-complete.css?1636958398" rel="stylesheet">
-    <link href="/css/theme.css?1636958398" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1636958398" rel="stylesheet">
+    <link href="/css/nucleus.css?1643235479" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1643235479" rel="stylesheet">
+    <link href="/css/hybrid.css?1643235479" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1643235479" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1643235479" rel="stylesheet">
+    <link href="/css/auto-complete.css?1643235479" rel="stylesheet">
+    <link href="/css/theme.css?1643235479" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1643235479" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1636958398" rel="stylesheet">
+      <link href="/css/theme-blue.css?1643235479" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1636958398"></script>
+    <script src="/js/jquery-2.x.min.js?1643235479"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1136,7 +1136,7 @@
 </ol>
 <h2 id="including-plugins">Including plugins</h2>
 <p>&lsquo;compile&rsquo; and &lsquo;stream&rsquo; plugins can be attached with <code>use(plugin)</code> method</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">step</span>, <span style="color:#a6e22e">pluginFunc</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">step</span>, <span style="color:#a6e22e">pluginFunc</span>)
 </code></pre></div><p>Where</p>
 <ul>
 <li><strong>transporter</strong> is a transport object created with <strong>createTransport()</strong></li>
@@ -1153,7 +1153,7 @@
 </ul>
 <h3 id="resolvecontent">resolveContent()</h3>
 <p>If your plugin needs to get the full value of a param, for example the String value for the <strong>html</strong> content, you can use <strong>resolveContent()</strong> to convert Nodemailer compatible content objects to Strings or Buffers.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">resolveContent</span>(<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">callback</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">resolveContent</span>(<span style="color:#a6e22e">obj</span>, <span style="color:#a6e22e">key</span>, <span style="color:#a6e22e">callback</span>)
 </code></pre></div><p>Where</p>
 <ul>
 <li><strong>obj</strong> is an object that has a property you want to convert to a String or a Buffer</li>
@@ -1161,7 +1161,7 @@
 <li><strong>callback</strong> is the callback function with <em>(err, value)</em> where <strong>value</strong> is either a String or Buffer, depending on the input</li>
 </ul>
 <h4 id="example">Example</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">plugin</span>(<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">plugin</span>(<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) {
     <span style="color:#75715e">// if mail.data.html is a file or an url, it is returned as a Buffer
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">resolveContent</span>(<span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">data</span>, <span style="color:#e6db74">&#39;html&#39;</span>, (<span style="color:#a6e22e">err</span>, <span style="color:#a6e22e">html</span>) =&gt; {
         <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">err</span>){
@@ -1176,7 +1176,7 @@
 <p>This is really straightforward, your plugin can modify the <strong>mail.data</strong> object at will and once everything is finished run the callback function. If the callback gets an error object as an argument, then the process is terminated and the error is returned to the <strong>sendMail()</strong> callback.</p>
 <h4 id="example-1">Example</h4>
 <p>The following plugin checks if <strong>text</strong> value is set and if not converts <strong>html</strong> value by removing all html tags.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;compile&#39;</span>, (<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;compile&#39;</span>, (<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
     <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">text</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">html</span>){
         <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">text</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">data</span>.<span style="color:#a6e22e">html</span>.<span style="color:#a6e22e">replace</span>(<span style="color:#e6db74">/&lt;[^&gt;]*&gt;/g</span>, <span style="color:#e6db74">&#39; &#39;</span>);
     }
@@ -1188,7 +1188,7 @@
 <p>In most cases you might be interested in the <strong>message.transform()</strong> method for applying transform streams to the raw message.</p>
 <h4 id="example-2">Example</h4>
 <p>The following plugin replaces all tabs with spaces in the raw message.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transformer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> (<span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;stream&#39;</span>).<span style="color:#a6e22e">Transform</span>)();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transformer</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> (<span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;stream&#39;</span>).<span style="color:#a6e22e">Transform</span>)();
 <span style="color:#a6e22e">transformer</span>.<span style="color:#a6e22e">_transform</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">chunk</span>, <span style="color:#a6e22e">encoding</span>, <span style="color:#a6e22e">done</span>) =&gt; {
     <span style="color:#75715e">// replace all tabs with spaces in the stream chunk
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">chunk</span>.<span style="color:#a6e22e">length</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>){
@@ -1208,7 +1208,7 @@
 </code></pre></div><p>Additionally you might be interested in the <strong>message.getAddresses()</strong> method that returns the contents for all address fields as structured objects.</p>
 <h4 id="example-3">Example</h4>
 <p>The following plugin prints address information to console.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;stream&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">use</span>(<span style="color:#e6db74">&#39;stream&#39;</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
     <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">addresses</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">getAddresses</span>();
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;From: %s&#39;</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">addresses</span>.<span style="color:#a6e22e">from</span>));
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;To: %s&#39;</span>, <span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">addresses</span>.<span style="color:#a6e22e">to</span>));
@@ -1218,7 +1218,7 @@
 });
 </code></pre></div><h3 id="messagetransform">message.transform()</h3>
 <p>If you want to modify the created stream, you can add transform streams that the output will be piped through.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">transform</span>(<span style="color:#a6e22e">transformStream</span>)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">transform</span>(<span style="color:#a6e22e">transformStream</span>)
 </code></pre></div><p>Where</p>
 <ul>
 <li><strong>transformStream</strong> - <em>Stream</em> or <em>Function</em> Transform stream that the output will go through. If the value is a function the function should return a transform stream object when called.</li>
@@ -1239,15 +1239,15 @@
 <p>Transports are objects that have a method <strong>send()</strong> and properies <strong>name</strong> and <strong>version</strong>. A transport object is passed to the <code>nodemailer.createTransport(transport)</code> method to create the transporter object.</p>
 <h3 id="transportname">transport.name</h3>
 <p>This is the name of the transport object. For example &lsquo;SMTP&rsquo; or &lsquo;SES&rsquo; etc.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;package.json&#39;</span>).<span style="color:#a6e22e">name</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;package.json&#39;</span>).<span style="color:#a6e22e">name</span>;
 </code></pre></div><h3 id="transportversion">transport.version</h3>
 <p>This should be the transport module version. For example &lsquo;0.1.0&rsquo;.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">version</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;package.json&#39;</span>).<span style="color:#a6e22e">version</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">version</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;package.json&#39;</span>).<span style="color:#a6e22e">version</span>;
 </code></pre></div><h3 id="transportsendmail-callback">transport.send(mail, callback)</h3>
 <p>This is the method that actually sends out emails. The method is basically the same as &lsquo;stream&rsquo; plugin functions. It gets two arguments: <strong>mail</strong> and a callback. To start streaming the message, create the stream with <strong>mail.message.createReadStream()</strong></p>
 <p>Callback function should return an <strong>info</strong> object as the second argument. This info object should contain and <strong>envelope</strong> object with envelope data and a <strong>messageId</strong> value with the Message-Id header (including the surrounding &lt; &amp; &gt; brackets),</p>
 <p>The following example pipes the raw stream from Nodemailer to the console.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">send</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">send</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
     <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">input</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">createReadStream</span>();
     <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">envelope</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">getEnvelope</span>();
     <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">messageId</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">mail</span>.<span style="color:#a6e22e">message</span>.<span style="color:#a6e22e">messageId</span>();
@@ -1262,12 +1262,12 @@
 </code></pre></div><h3 id="transportclose">transport.close()</h3>
 <p>If your transport needs to be closed explicitly, you can implement a <strong>close()</strong> method.</p>
 <p>This is purely optional feature and only makes sense in special contexts (eg. closing a SMTP pool).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">close</span> <span style="color:#f92672">=</span> () =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">close</span> <span style="color:#f92672">=</span> () =&gt; {
     <span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">pool</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
 };
 </code></pre></div><h3 id="transportisidle">transport.isIdle()</h3>
 <p>If your transport is able to notify about idling state by issuing <em>&lsquo;idle&rsquo;</em> events then this method should return if the transport is still idling or not.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">idling</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">idling</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
 <span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">isIdle</span> <span style="color:#f92672">=</span> () =&gt; <span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">idling</span>;
 <span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">send</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
     <span style="color:#a6e22e">transport</span>.<span style="color:#a6e22e">idling</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
@@ -1278,7 +1278,7 @@
 };
 </code></pre></div><h3 id="transport-example">Transport Example</h3>
 <p>This example creates and uses a transport object that pipes the raw message to console</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transport</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transport</span> <span style="color:#f92672">=</span> {
     <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;minimal&#39;</span>,
     <span style="color:#a6e22e">version</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;0.1.0&#39;</span>,
     <span style="color:#a6e22e">send</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">mail</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
@@ -1299,7 +1299,7 @@
 });
 </code></pre></div><h2 id="wrapping-up">Wrapping up</h2>
 <p>Once you have a transport object, you can create a mail transporter out of it.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transport</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;some-transport-method&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transport</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;some-transport-method&#39;</span>);
 <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>(<span style="color:#a6e22e">transport</span>);
 <span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>({
     <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;...&#39;</span>,
@@ -1977,20 +1977,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.min.js?1636958398"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1636958398"></script>
-    <script src="/js/jquery.sticky.js?1636958398"></script>
-    <script src="/js/featherlight.min.js?1636958398"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1636958398"></script>
-    <script src="/js/highlight.pack.js?1636958398"></script>
+    <script src="/js/clipboard.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.min.js?1643235479"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1643235479"></script>
+    <script src="/js/jquery.sticky.js?1643235479"></script>
+    <script src="/js/featherlight.min.js?1643235479"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1643235479"></script>
+    <script src="/js/highlight.pack.js?1643235479"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1636958398"></script>
-    <script src="/js/learn.js?1636958398"></script>
-    <script src="/js/hugo-learn.js?1636958398"></script>
+    <script src="/js/modernizr.custom.71422.js?1643235479"></script>
+    <script src="/js/learn.js?1643235479"></script>
+    <script src="/js/hugo-learn.js?1643235479"></script>
 
-    <link href="/mermaid/mermaid.css?1636958398" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1636958398"></script>
+    <link href="/mermaid/mermaid.css?1643235479" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1643235479"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
