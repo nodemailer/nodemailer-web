@@ -19,15 +19,7 @@ toc = true
 npm install nodemailer
 ```
 
-### Support Nodemailer
-
-If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations.
-
-- Nodemailer Bitcoin wallet is: `15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM`.
-- [Nodemailer PayPal](https://www.paypal.me/nodemailer)
-- Become a sponsor in [Github](https://github.com/sponsors/andris9)
-
-### Looking for IMAP solutions instead?
+### Want to receive and read mail with IMAP instead of sending?
 
 Check out [EmailEngine](https://emailengine.app/) – a self-hosted service that allows making REST requests against IMAP and SMTP servers. EmailEngine also sends webhooks whenever something changes on the registered accounts.
 
