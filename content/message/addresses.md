@@ -40,8 +40,8 @@ All address fields accept values as a comma separated list of emails or an array
 to: 'foobar@example.com, "Ноде Майлер" <bar@example.com>, "Name, User" <baz@example.com>',
 cc: [
     'foobar@example.com',
-    '"Ноде Майлер" <bar@example.com>,
-    "Name, User" <baz@example.com>'
+    '"Ноде Майлер" <bar@example.com>',
+    '"Name, User" <baz@example.com>'
 ],
 bcc: [
     'foobar@example.com',
