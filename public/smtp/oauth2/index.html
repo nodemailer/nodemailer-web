@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.2" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>OAuth2 :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1649941160" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1649941160" rel="stylesheet">
-    <link href="/css/hybrid.css?1649941160" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1649941160" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1649941160" rel="stylesheet">
-    <link href="/css/auto-complete.css?1649941160" rel="stylesheet">
-    <link href="/css/theme.css?1649941160" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1649941160" rel="stylesheet">
+    <link href="/css/nucleus.css?1650097698" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1650097698" rel="stylesheet">
+    <link href="/css/hybrid.css?1650097698" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1650097698" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1650097698" rel="stylesheet">
+    <link href="/css/auto-complete.css?1650097698" rel="stylesheet">
+    <link href="/css/theme.css?1650097698" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1650097698" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1649941160" rel="stylesheet">
+      <link href="/css/theme-blue.css?1650097698" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1649941160"></script>
+    <script src="/js/jquery-2.x.min.js?1650097698"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1127,11 +1127,9 @@
 <li><a href="#examples">Examples</a></li>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 </ol>
-<div class="notices tip" >
-Nodemailer requires an **Access Token** to perform authentication. 3-legged and 2-legged OAuth2 mechanisms are different ways to produce such tokens but in the end it does not matter how a token was exactly generated, as long as it is valid.
-</div>
 <h3 id="oauth-3lo">3-legged OAuth2 authentication</h3>
 <p>This is the &ldquo;normal&rdquo; way of obtaining access tokens. Your application requests permissions from the client and gets a refresh token in return that can be used to generate new access tokens.</p>
+<p>You can find an example of how to generate required tokens from <a href="https://docs.emailengine.app/setting-up-gmail-oauth2-for-imap-api/">EmailEngine&rsquo;s documentation</a>.</p>
 <ul>
 <li>
 <p><strong>auth</strong> – is the authentication object</p>
@@ -1149,7 +1147,7 @@ Nodemailer requires an **Access Token** to perform authentication. 3-legged and 
 </ul>
 <p>Normal SMTP transport (ie. not the pooled version) has a convenience method of using separate authentication for every message. This allows you to set up a transport with just <em>clientId</em> and <em>clientSecret</em> values and provide <em>accessToken</em> and <em>refreshToken</em> with the message options. See <a href="#example-5">example 5</a>.</p>
 <h3 id="oauth-2lo">2LO authentication (service accounts)</h3>
-<p>Nodemailer also allows you to use <a href="https://developers.google.com/identity/protocols/OAuth2ServiceAccount">service accounts</a> to generate access tokens. In this case the required <code>auth</code> options are a bit different from 3LO auth.</p>
+<p>Nodemailer also allows you to use <a href="https://developers.google.com/identity/protocols/OAuth2ServiceAccount">service accounts</a> to generate access tokens. In this case the required <code>auth</code> options are a bit different from 3LO auth. You can find an example of how to generate service tokens from <a href="https://docs.emailengine.app/gmail-oauth-service-accounts/">EmailEngine&rsquo;s documentation</a>.</p>
 <ul>
 <li>
 <p><strong>auth</strong> – is the authentication object</p>
@@ -1169,141 +1167,141 @@ Nodemailer requires an **Access Token** to perform authentication. 3-legged and 
 <li><strong>renew</strong> – if <em>true</em> then previous access token either expired or it was not accepted by the SMTP server, in this case you should generate a new value</li>
 <li><strong>callback</strong> with arguments <em>(err, accessToken)</em> – is the callback function to run once you have generated a new access token</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;oauth2_provision_cb&#39;</span>, (<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">renew</span>, <span style="color:#a6e22e">callback</span>)=&gt;{
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userTokens</span>[<span style="color:#a6e22e">user</span>];
-    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">accessToken</span>){
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;Unknown user&#39;</span>));
-    }<span style="color:#66d9ef">else</span>{
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">accessToken</span>);
-    }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;oauth2_provision_cb&#34;</span>, (<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">renew</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userTokens</span>[<span style="color:#a6e22e">user</span>];
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">accessToken</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Unknown user&#34;</span>));
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">accessToken</span>);
+  }
 });
 </code></pre></div><h3 id="update-notification">Token update notifications</h3>
 <p>If you use <em>refreshToken</em> or service keys to generate new tokens from Nodemailer when <em>accessToken</em> is not present or expired then you can listen for the token updates by registering a &lsquo;token&rsquo; event handler for the transporter object.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#39;token&#39;</span>, <span style="color:#a6e22e">token</span> =&gt; {
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;A new access token was generated&#39;</span>);
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;User: %s&#39;</span>, <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">user</span>);
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Access Token: %s&#39;</span>, <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">accessToken</span>);
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Expires: %s&#39;</span>, <span style="color:#66d9ef">new</span> Date(<span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">expires</span>));
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;token&#34;</span>, (<span style="color:#a6e22e">token</span>) =&gt; {
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;A new access token was generated&#34;</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;User: %s&#34;</span>, <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">user</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Access Token: %s&#34;</span>, <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">accessToken</span>);
+  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Expires: %s&#34;</span>, <span style="color:#66d9ef">new</span> Date(<span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">expires</span>));
 });
 </code></pre></div><h3 id="examples">Examples</h3>
 <h4 id="example-1">1. Authenticate using existing token</h4>
 <p>Use an existing Access Token. If the token is not accepted then message is not sent as there is no way to generate a new token.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
-    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
-    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
-    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>,
-        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>,
-        <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;</span>
-    }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;OAuth2&#34;</span>,
+    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;user@example.com&#34;</span>,
+    <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#34;</span>,
+  },
 });
 </code></pre></div><h4 id="example-2">2. Custom handler</h4>
 <p>This example requests a new <em>accessToken</em> value from a custom OAuth2 handler. Nodemailer does not attempt to generate the token by itself.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
-    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
-    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
-    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>,
-        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>
-    }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;OAuth2&#34;</span>,
+    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;user@example.com&#34;</span>,
+  },
 });
 
-<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;oauth2_provision_cb&#39;</span>, (<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">renew</span>, <span style="color:#a6e22e">callback</span>)=&gt;{
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userTokens</span>[<span style="color:#a6e22e">user</span>];
-    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">accessToken</span>){
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;Unknown user&#39;</span>));
-    }<span style="color:#66d9ef">else</span>{
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">accessToken</span>);
-    }
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;oauth2_provision_cb&#34;</span>, (<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">renew</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userTokens</span>[<span style="color:#a6e22e">user</span>];
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">accessToken</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Unknown user&#34;</span>));
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">accessToken</span>);
+  }
 });
 </code></pre></div><h4 id="example-3">3. Set up 3LO authentication</h4>
 <p>This example uses an existing Access Token. If the token is not accepted or current time is past the <em>expires</em> value, then <em>refreshToken</em> is used to automatically generate a new <em>accessToken</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
-    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
-    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
-    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>,
-        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>,
-        <span style="color:#a6e22e">clientId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;000000000000-xxx0.apps.googleusercontent.com&#39;</span>,
-        <span style="color:#a6e22e">clientSecret</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;XxxxxXXxX0xxxxxxxx0XXxX0&#39;</span>,
-        <span style="color:#a6e22e">refreshToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx&#39;</span>,
-        <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;</span>,
-        <span style="color:#a6e22e">expires</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1484314697598</span>
-    }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;OAuth2&#34;</span>,
+    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;user@example.com&#34;</span>,
+    <span style="color:#a6e22e">clientId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;000000000000-xxx0.apps.googleusercontent.com&#34;</span>,
+    <span style="color:#a6e22e">clientSecret</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;XxxxxXXxX0xxxxxxxx0XXxX0&#34;</span>,
+    <span style="color:#a6e22e">refreshToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx&#34;</span>,
+    <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#34;</span>,
+    <span style="color:#a6e22e">expires</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1484314697598</span>,
+  },
 });
 </code></pre></div><h4 id="example-4">4. Set up 2LO authentication</h4>
 <p>This example uses an existing Access Token. If the token is not accepted or current time is past the <em>expires</em> value, then a new <em>accessToken</em> value is generated using provided service account.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
-    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
-    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
-    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>,
-        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>,
-        <span style="color:#a6e22e">serviceClient</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;113600000000000000000&#39;</span>,
-        <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#39;</span>,
-        <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;</span>,
-        <span style="color:#a6e22e">expires</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1484314697598</span>
-    }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;OAuth2&#34;</span>,
+    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;user@example.com&#34;</span>,
+    <span style="color:#a6e22e">serviceClient</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;113600000000000000000&#34;</span>,
+    <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>,
+    <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#34;</span>,
+    <span style="color:#a6e22e">expires</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1484314697598</span>,
+  },
 });
 </code></pre></div><h4 id="example-5">5. Provide authentication details with message options</h4>
 <p>This example demonstrates how to authenticate every message separately. This is mostly useful if you provide an email application that sends mail for multiple users. Instead of creating a new transporter for every message, create it just once and provide dynamic details with the message options.</p>
 <div class="notices info" >
 Per-message specific authentication does not work in pooled mode
 </div>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
-    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
-    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
-    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>,
-        <span style="color:#a6e22e">clientId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;000000000000-xxx.apps.googleusercontent.com&#39;</span>,
-        <span style="color:#a6e22e">clientSecret</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;XxxxxXXxX0xxxxxxxx0XXxX0&#39;</span>
-    }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;OAuth2&#34;</span>,
+    <span style="color:#a6e22e">clientId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;000000000000-xxx.apps.googleusercontent.com&#34;</span>,
+    <span style="color:#a6e22e">clientSecret</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;XxxxxXXxX0xxxxxxxx0XXxX0&#34;</span>,
+  },
 });
 
 <span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>({
-    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
-    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
-    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Message&#39;</span>,
-    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;I hope this message gets through!&#39;</span>,
-    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>,
-        <span style="color:#a6e22e">refreshToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx&#39;</span>,
-        <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#39;</span>,
-        <span style="color:#a6e22e">expires</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1484314697598</span>
-    }
+  <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;sender@example.com&#34;</span>,
+  <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;recipient@example.com&#34;</span>,
+  <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Message&#34;</span>,
+  <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;I hope this message gets through!&#34;</span>,
+  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;user@example.com&#34;</span>,
+    <span style="color:#a6e22e">refreshToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx&#34;</span>,
+    <span style="color:#a6e22e">accessToken</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x&#34;</span>,
+    <span style="color:#a6e22e">expires</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1484314697598</span>,
+  },
 });
 </code></pre></div><p>Or alternatively you can do the same with your own OAuth2 handler.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
-    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.gmail.com&#39;</span>,
-    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
-    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;OAuth2&#39;</span>
-    }
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;OAuth2&#34;</span>,
+  },
 });
 
-<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;oauth2_provision_cb&#39;</span>, (<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">renew</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userTokens</span>[<span style="color:#a6e22e">user</span>];
-    <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#a6e22e">accessToken</span>){
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#39;Unknown user&#39;</span>));
-    }<span style="color:#66d9ef">else</span>{
-        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">accessToken</span>);
-    }
+<span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#34;oauth2_provision_cb&#34;</span>, (<span style="color:#a6e22e">user</span>, <span style="color:#a6e22e">renew</span>, <span style="color:#a6e22e">callback</span>) =&gt; {
+  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">accessToken</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">userTokens</span>[<span style="color:#a6e22e">user</span>];
+  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">accessToken</span>) {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Unknown user&#34;</span>));
+  } <span style="color:#66d9ef">else</span> {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">null</span>, <span style="color:#a6e22e">accessToken</span>);
+  }
 });
 
 <span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>({
-    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;sender@example.com&#39;</span>,
-    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;recipient@example.com&#39;</span>,
-    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Message&#39;</span>,
-    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;I hope this message gets through!&#39;</span>,
-    <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;user@example.com&#39;</span>
-    }
+  <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;sender@example.com&#34;</span>,
+  <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;recipient@example.com&#34;</span>,
+  <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Message&#34;</span>,
+  <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;I hope this message gets through!&#34;</span>,
+  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;user@example.com&#34;</span>,
+  },
 });
 </code></pre></div><h3 id="troubleshooting">Troubleshooting</h3>
 <ul>
@@ -1984,20 +1982,20 @@ Per-message specific authentication does not work in pooled mode
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1649941160"></script>
-    <script src="/js/jquery.sticky.js?1649941160"></script>
-    <script src="/js/featherlight.min.js?1649941160"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1649941160"></script>
-    <script src="/js/highlight.pack.js?1649941160"></script>
+    <script src="/js/clipboard.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1650097698"></script>
+    <script src="/js/jquery.sticky.js?1650097698"></script>
+    <script src="/js/featherlight.min.js?1650097698"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1650097698"></script>
+    <script src="/js/highlight.pack.js?1650097698"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1649941160"></script>
-    <script src="/js/learn.js?1649941160"></script>
-    <script src="/js/hugo-learn.js?1649941160"></script>
+    <script src="/js/modernizr.custom.71422.js?1650097698"></script>
+    <script src="/js/learn.js?1650097698"></script>
+    <script src="/js/hugo-learn.js?1650097698"></script>
 
-    <link href="/mermaid/mermaid.css?1649941160" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1649941160"></script>
+    <link href="/mermaid/mermaid.css?1650097698" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1650097698"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

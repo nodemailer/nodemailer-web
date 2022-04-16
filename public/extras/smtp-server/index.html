@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.2" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>SMTP Server :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1649941160" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1649941160" rel="stylesheet">
-    <link href="/css/hybrid.css?1649941160" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1649941160" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1649941160" rel="stylesheet">
-    <link href="/css/auto-complete.css?1649941160" rel="stylesheet">
-    <link href="/css/theme.css?1649941160" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1649941160" rel="stylesheet">
+    <link href="/css/nucleus.css?1650097698" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1650097698" rel="stylesheet">
+    <link href="/css/hybrid.css?1650097698" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1650097698" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1650097698" rel="stylesheet">
+    <link href="/css/auto-complete.css?1650097698" rel="stylesheet">
+    <link href="/css/theme.css?1650097698" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1650097698" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1649941160" rel="stylesheet">
+      <link href="/css/theme-blue.css?1650097698" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1649941160"></script>
+    <script src="/js/jquery-2.x.min.js?1650097698"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1141,11 +1141,11 @@ This module does not make any email deliveries by itself. _smtp-server_ allows y
 </div>
 <h2 id="usage">Usage</h2>
 <h4 id="step-1-install-with-npm">Step 1. Install with npm</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install smtp-server --save
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install smtp-server --save
 </code></pre></div><h4 id="step-2-require-in-your-script">Step 2. Require in your script</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SMTPServer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;smtp-server&#34;</span>).<span style="color:#a6e22e">SMTPServer</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SMTPServer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;smtp-server&#34;</span>).<span style="color:#a6e22e">SMTPServer</span>;
 </code></pre></div><h4 id="step-3-create-smtpserver-instance">Step 3. Create SMTPServer instance</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>(<span style="color:#a6e22e">options</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>(<span style="color:#a6e22e">options</span>);
 </code></pre></div><p>Where</p>
 <ul>
 <li><strong>options</strong> defines the behavior of the server
@@ -1192,7 +1192,7 @@ This module does not make any email deliveries by itself. _smtp-server_ allows y
 <h3 id="tls-and-startls-notice">TLS and STARTLS notice</h3>
 <p>If you use <em>secure:true</em> option or you do not disable STARTTLS command then you SHOULD also define the <em>key</em>, <em>cert</em> and possibly <em>ca</em> properties to use a proper certificate. If you do no specify your own certificate then a pregenerated self-signed certificate for &lsquo;localhost&rsquo; is used. Any respectful client refuses to accept such certificate.</p>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// This example starts a SMTP server using TLS with your own certificate and key
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// This example starts a SMTP server using TLS with your own certificate and key
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
   <span style="color:#a6e22e">key</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFileSync</span>(<span style="color:#e6db74">&#34;private.key&#34;</span>),
@@ -1200,7 +1200,7 @@ This module does not make any email deliveries by itself. _smtp-server_ allows y
 });
 <span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">465</span>);
 </code></pre></div><h3 id="start-the-server-instance">Start the server instance</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#a6e22e">port</span>[,<span style="color:#a6e22e">host</span>][,<span style="color:#a6e22e">callback</span>]);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#a6e22e">port</span>[,<span style="color:#a6e22e">host</span>][,<span style="color:#a6e22e">callback</span>]);
 </code></pre></div><p>Where</p>
 <ul>
 <li><strong>port</strong> is the port number to bound to</li>
@@ -1209,12 +1209,12 @@ This module does not make any email deliveries by itself. _smtp-server_ allows y
 </ul>
 <h2 id="handling-errors">Handling errors</h2>
 <p>Errors can be handled by setting an &lsquo;error&rsquo; event listener to the server instance</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;error&#34;</span>, <span style="color:#a6e22e">err</span> =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">server</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;error&#34;</span>, <span style="color:#a6e22e">err</span> =&gt; {
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Error %s&#34;</span>, <span style="color:#a6e22e">err</span>.<span style="color:#a6e22e">message</span>);
 });
 </code></pre></div><h2 id="handling-authentication">Handling Authentication</h2>
 <p>Authentication calls can be handled with <em>onAuth</em> handler</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">onAuth</span>(<span style="color:#a6e22e">auth</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {}
 });
 </code></pre></div><p>Where</p>
@@ -1244,7 +1244,7 @@ This module does not make any email deliveries by itself. _smtp-server_ allows y
 <p>This module supports <em>CRAM-MD5</em> but the use of it is discouraged as it requires access to unencrypted user passwords during the authentication process. You shouldn&rsquo;t store passwords unencrypted.</p>
 <h3 id="examples">Examples</h3>
 <h4 id="password-based-authentication">Password based authentication</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">onAuth</span>(<span style="color:#a6e22e">auth</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {
     <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">auth</span>.<span style="color:#a6e22e">username</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;abc&#34;</span> <span style="color:#f92672">||</span> <span style="color:#a6e22e">auth</span>.<span style="color:#a6e22e">password</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;def&#34;</span>) {
       <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Invalid username or password&#34;</span>));
@@ -1255,7 +1255,7 @@ This module does not make any email deliveries by itself. _smtp-server_ allows y
 </code></pre></div><h4 id="oauth2-authentication">OAuth2 authentication</h4>
 <p>XOAUTH2 support needs to enabled with the <em>authMethods</em> array option as it is disabled by default.
 If you support multiple authentication mechanisms, then you can check the used mechanism from the <em>method</em> property.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">authMethods</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;XOAUTH2&#34;</span>], <span style="color:#75715e">// XOAUTH2 is not enabled by default
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">onAuth</span>(<span style="color:#a6e22e">auth</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {
     <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">auth</span>.<span style="color:#a6e22e">method</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;XOAUTH2&#34;</span>) {
@@ -1278,7 +1278,7 @@ If you support multiple authentication mechanisms, then you can check the used m
 <p>CRAM-MD5 support needs to enabled with the <em>authMethods</em> array option as it is disabled by default.
 If you support multiple authentication mechanisms, then you can check the used mechanism from the <em>method</em> property.</p>
 <p>This authentication method does not return a password with the username but a response to a challenge. To validate the returned challenge response, the authentication object includes a method <em>validatePassword</em> that takes the actual plaintext password as an argument and returns either <em>true</em> if the password matches with the challenge response or <em>false</em> if it does not.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">authMethods</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;CRAM-MD5&#34;</span>], <span style="color:#75715e">// CRAM-MD5 is not enabled by default
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">onAuth</span>(<span style="color:#a6e22e">auth</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {
     <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">auth</span>.<span style="color:#a6e22e">method</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;CRAM-MD5&#34;</span>) {
@@ -1298,7 +1298,7 @@ If you support multiple authentication mechanisms, then you can check the used m
 </code></pre></div><h2 id="validating-client-connection">Validating client connection</h2>
 <p>By default any client connection is allowed. If you want to check the remoteAddress or clientHostname before
 any other command, you can set a handler for it with <em>onConnect</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">onConnect</span>(<span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {}
 });
 </code></pre></div><p>Where</p>
@@ -1306,7 +1306,7 @@ any other command, you can set a handler for it with <em>onConnect</em></p>
 <li><strong>session</strong> includes the <em>remoteAddress</em> and <em>clientHostname</em> values</li>
 <li><strong>callback</strong> is the function to run after validation. If you return an error object, the connection is rejected, otherwise it is accepted</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">onConnect</span>(<span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {
     <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">session</span>.<span style="color:#a6e22e">remoteAddress</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#34;127.0.0.1&#34;</span>) {
       <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;No connections from localhost allowed&#34;</span>));
@@ -1315,13 +1315,13 @@ any other command, you can set a handler for it with <em>onConnect</em></p>
 </span><span style="color:#75715e"></span>  }
 });
 </code></pre></div><p>If you also need to detect when a connection is closed use <em>onClose</em>. This method does not expect you to run a callback function as it is purely informational.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">onClose</span>(<span style="color:#a6e22e">session</span>) {}
 });
 </code></pre></div><h2 id="validating-sender-addresses">Validating sender addresses</h2>
 <p>By default all sender addresses (as long as these are in valid email format) are allowed. If you want to check
 the address before it is accepted you can set a handler for it with <em>onMailFrom</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">onMailFrom</span>(<span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {}
 });
 </code></pre></div><p>Where</p>
@@ -1330,7 +1330,7 @@ the address before it is accepted you can set a handler for it with <em>onMailFr
 <li><strong>session</strong> includes the <em>envelope</em> object and <em>user</em> data if logged in, see details <a href="#session-object">here</a></li>
 <li><strong>callback</strong> is the function to run after validation. If you return an error object, the address is rejected, otherwise it is accepted</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">onMailFrom</span>(<span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {
     <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">address</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;allowed@example.com&#34;</span>) {
       <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(
@@ -1343,7 +1343,7 @@ the address before it is accepted you can set a handler for it with <em>onMailFr
 </code></pre></div><h2 id="validating-recipient-addresses">Validating recipient addresses</h2>
 <p>By default all recipient addresses (as long as these are in valid email format) are allowed. If you want to check
 the address before it is accepted you can set a handler for it with <em>onRcptTo</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">onRcptTo</span>(<span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {}
 });
 </code></pre></div><p>Where</p>
@@ -1352,7 +1352,7 @@ the address before it is accepted you can set a handler for it with <em>onRcptTo
 <li><strong>session</strong> includes the <em>envelope</em> object and <em>user</em> data if logged in, see details <a href="#session-object">here</a></li>
 <li><strong>callback</strong> is the function to run after validation. If you return an error object, the address is rejected, otherwise it is accepted</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">onRcptTo</span>(<span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {
     <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">address</span>.<span style="color:#a6e22e">address</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;allowed@example.com&#34;</span>) {
       <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(
@@ -1364,7 +1364,7 @@ the address before it is accepted you can set a handler for it with <em>onRcptTo
 });
 </code></pre></div><h2 id="processing-incoming-message">Processing incoming message</h2>
 <p>You can get the stream for the incoming message with <em>onData</em> handler</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">onData</span>(<span style="color:#a6e22e">stream</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {}
 });
 </code></pre></div><p>Where</p>
@@ -1373,7 +1373,7 @@ the address before it is accepted you can set a handler for it with <em>onRcptTo
 <li><strong>session</strong> includes the <em>envelope</em> object and <em>user</em> data if logged in, see details <a href="#session-object">here</a></li>
 <li><strong>callback</strong> is the on to run once the stream is ended and you have processed the outcome. If you return an error object, the message is rejected, otherwise it is accepted</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">onData</span>(<span style="color:#a6e22e">stream</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {
     <span style="color:#a6e22e">stream</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdout</span>); <span style="color:#75715e">// print message to console
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">stream</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;end&#34;</span>, <span style="color:#a6e22e">callback</span>);
@@ -1382,7 +1382,7 @@ the address before it is accepted you can set a handler for it with <em>onRcptTo
 </code></pre></div><p>This module does not prepend <em>Received</em> or any other header field to the streamed message. The entire message is streamed as-is with no modifications whatsoever. For compliancy you should add the Received data to the message yourself, see <a href="https://tools.ietf.org/html/rfc5321#section-4.4">rfc5321 4.4. Trace Information</a> for details.</p>
 <h2 id="using-size-extension">Using SIZE extension</h2>
 <p>When creating the server you can define maximum allowed message size with the <em>size</em> option, see <a href="https://tools.ietf.org/html/rfc1870">RFC1870</a> for details. This is not a strict limitation, the client is informed about the size limit but the client can still send a larger message than allowed, it is up to your application to reject or accept the oversized message. To check if the message was oversized, see <em>stream.sizeExceeded</em> property.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">size</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1024</span>, <span style="color:#75715e">// allow messages up to 1 kb
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">onRcptTo</span>(<span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {
     <span style="color:#75715e">// do not accept messages larger than 100 bytes to specific recipients
@@ -1415,7 +1415,7 @@ but in LMTP the message might fail and succeed individually for every recipient.
 On the other hand if you want to report results separately for every recipient you can do this by providing an array
 of responses instead of a single error or success message. The array must contain responses in the same order as in the
 envelope rcptTo array.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
   <span style="color:#a6e22e">lmtp</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
   <span style="color:#a6e22e">onData</span>(<span style="color:#a6e22e">stream</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {
     <span style="color:#a6e22e">stream</span>.<span style="color:#a6e22e">pipe</span>(<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">stdout</span>); <span style="color:#75715e">// print message to console
@@ -1462,7 +1462,7 @@ envelope rcptTo array.</p>
 C: RCPT TO:&lt;recipient@example.com&gt; NOTIFY=NEVER
 </code></pre>
 <p>then the envelope object is going go look like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#f92672">&#34;mailFrom&#34;</span>: {
     <span style="color:#f92672">&#34;address&#34;</span>: <span style="color:#e6db74">&#34;sender@example.com&#34;</span>,
     <span style="color:#f92672">&#34;args&#34;</span>: {
@@ -2179,20 +2179,20 @@ C: RCPT TO:&lt;recipient@example.com&gt; NOTIFY=NEVER
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1649941160"></script>
-    <script src="/js/jquery.sticky.js?1649941160"></script>
-    <script src="/js/featherlight.min.js?1649941160"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1649941160"></script>
-    <script src="/js/highlight.pack.js?1649941160"></script>
+    <script src="/js/clipboard.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1650097698"></script>
+    <script src="/js/jquery.sticky.js?1650097698"></script>
+    <script src="/js/featherlight.min.js?1650097698"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1650097698"></script>
+    <script src="/js/highlight.pack.js?1650097698"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1649941160"></script>
-    <script src="/js/learn.js?1649941160"></script>
-    <script src="/js/hugo-learn.js?1649941160"></script>
+    <script src="/js/modernizr.custom.71422.js?1650097698"></script>
+    <script src="/js/learn.js?1650097698"></script>
+    <script src="/js/hugo-learn.js?1650097698"></script>
 
-    <link href="/mermaid/mermaid.css?1649941160" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1649941160"></script>
+    <link href="/mermaid/mermaid.css?1650097698" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1650097698"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

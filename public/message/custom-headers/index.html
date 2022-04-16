@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.2" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Custom headers :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1649941160" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1649941160" rel="stylesheet">
-    <link href="/css/hybrid.css?1649941160" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1649941160" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1649941160" rel="stylesheet">
-    <link href="/css/auto-complete.css?1649941160" rel="stylesheet">
-    <link href="/css/theme.css?1649941160" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1649941160" rel="stylesheet">
+    <link href="/css/nucleus.css?1650097698" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1650097698" rel="stylesheet">
+    <link href="/css/hybrid.css?1650097698" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1650097698" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1650097698" rel="stylesheet">
+    <link href="/css/auto-complete.css?1650097698" rel="stylesheet">
+    <link href="/css/theme.css?1650097698" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1650097698" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1649941160" rel="stylesheet">
+      <link href="/css/theme-blue.css?1650097698" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1649941160"></script>
+    <script src="/js/jquery-2.x.min.js?1650097698"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1118,7 +1118,7 @@
 </ul>
 <h3 id="examples">Examples</h3>
 <h4 id="1-set-custom-headers">1. Set custom headers</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
     ...,
     <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
         <span style="color:#e6db74">&#39;x-my-key&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;header value&#39;</span>,
@@ -1131,7 +1131,7 @@
 </span><span style="color:#75715e">//   X-Another-Key: another value
 </span></code></pre></div><h4 id="2-multiple-rows-with-the-same-key">2. Multiple rows with the same key</h4>
 <p>The same header key can be used multiple times if the header value is an Array</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
     ...,
     <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
         <span style="color:#e6db74">&#39;x-my-key&#39;</span><span style="color:#f92672">:</span> [
@@ -1147,7 +1147,7 @@
 </span><span style="color:#75715e">// X-My-Key: value for row 3
 </span></code></pre></div><h4 id="3-prepared-headers">3. Prepared headers</h4>
 <p>Normally all headers are encoded and folded to meet the requirement of having plain-ASCII messages with lines no longer than 78 bytes. Sometimes it is preferable to not modify header values and pass these as provided. This can be achieved with the <strong>prepared</strong> option:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
     ...,
     <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> {
         <span style="color:#e6db74">&#39;x-processed&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;a really long header or value with non-ascii characters 👮&#39;</span>,
@@ -1835,20 +1835,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1649941160"></script>
-    <script src="/js/jquery.sticky.js?1649941160"></script>
-    <script src="/js/featherlight.min.js?1649941160"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1649941160"></script>
-    <script src="/js/highlight.pack.js?1649941160"></script>
+    <script src="/js/clipboard.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1650097698"></script>
+    <script src="/js/jquery.sticky.js?1650097698"></script>
+    <script src="/js/featherlight.min.js?1650097698"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1650097698"></script>
+    <script src="/js/highlight.pack.js?1650097698"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1649941160"></script>
-    <script src="/js/learn.js?1649941160"></script>
-    <script src="/js/hugo-learn.js?1649941160"></script>
+    <script src="/js/modernizr.custom.71422.js?1650097698"></script>
+    <script src="/js/learn.js?1650097698"></script>
+    <script src="/js/hugo-learn.js?1650097698"></script>
 
-    <link href="/mermaid/mermaid.css?1649941160" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1649941160"></script>
+    <link href="/mermaid/mermaid.css?1650097698" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1650097698"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

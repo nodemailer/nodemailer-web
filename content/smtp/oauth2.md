@@ -18,13 +18,11 @@ Access Tokens needed for OAuth2 authentication are short lived so these need to 
 5. [Examples](#examples)
 6. [Troubleshooting](#troubleshooting)
 
-{{% notice tip %}}
-Nodemailer requires an **Access Token** to perform authentication. 3-legged and 2-legged OAuth2 mechanisms are different ways to produce such tokens but in the end it does not matter how a token was exactly generated, as long as it is valid.
-{{% /notice %}}
-
 ### 3-legged OAuth2 authentication {#oauth-3lo}
 
 This is the "normal" way of obtaining access tokens. Your application requests permissions from the client and gets a refresh token in return that can be used to generate new access tokens.
+
+You can find an example of how to generate required tokens from [EmailEngine's documentation](https://docs.emailengine.app/setting-up-gmail-oauth2-for-imap-api/).
 
 - **auth** – is the authentication object
 
@@ -41,7 +39,7 @@ Normal SMTP transport (ie. not the pooled version) has a convenience method of u
 
 ### 2LO authentication (service accounts) {#oauth-2lo}
 
-Nodemailer also allows you to use [service accounts](https://developers.google.com/identity/protocols/OAuth2ServiceAccount) to generate access tokens. In this case the required `auth` options are a bit different from 3LO auth.
+Nodemailer also allows you to use [service accounts](https://developers.google.com/identity/protocols/OAuth2ServiceAccount) to generate access tokens. In this case the required `auth` options are a bit different from 3LO auth. You can find an example of how to generate service tokens from [EmailEngine's documentation](https://docs.emailengine.app/gmail-oauth-service-accounts/).
 
 - **auth** – is the authentication object
 
@@ -61,13 +59,13 @@ The registered function gets the following arguments:
 - **callback** with arguments _(err, accessToken)_ – is the callback function to run once you have generated a new access token
 
 ```javascript
-transporter.set('oauth2_provision_cb', (user, renew, callback)=>{
-    let accessToken = userTokens[user];
-    if(!accessToken){
-        return callback(new Error('Unknown user'));
-    }else{
-        return callback(null, accessToken);
-    }
+transporter.set("oauth2_provision_cb", (user, renew, callback) => {
+  let accessToken = userTokens[user];
+  if (!accessToken) {
+    return callback(new Error("Unknown user"));
+  } else {
+    return callback(null, accessToken);
+  }
 });
 ```
 
@@ -76,11 +74,11 @@ transporter.set('oauth2_provision_cb', (user, renew, callback)=>{
 If you use _refreshToken_ or service keys to generate new tokens from Nodemailer when _accessToken_ is not present or expired then you can listen for the token updates by registering a 'token' event handler for the transporter object.
 
 ```javascript
-transporter.on('token', token => {
-    console.log('A new access token was generated');
-    console.log('User: %s', token.user);
-    console.log('Access Token: %s', token.accessToken);
-    console.log('Expires: %s', new Date(token.expires));
+transporter.on("token", (token) => {
+  console.log("A new access token was generated");
+  console.log("User: %s", token.user);
+  console.log("Access Token: %s", token.accessToken);
+  console.log("Expires: %s", new Date(token.expires));
 });
 ```
 
@@ -92,14 +90,14 @@ Use an existing Access Token. If the token is not accepted then message is not s
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        user: 'user@example.com',
-        accessToken: 'ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x'
-    }
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    type: "OAuth2",
+    user: "user@example.com",
+    accessToken: "ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x",
+  },
 });
 ```
 
@@ -109,22 +107,22 @@ This example requests a new _accessToken_ value from a custom OAuth2 handler. No
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        user: 'user@example.com'
-    }
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    type: "OAuth2",
+    user: "user@example.com",
+  },
 });
 
-transporter.set('oauth2_provision_cb', (user, renew, callback)=>{
-    let accessToken = userTokens[user];
-    if(!accessToken){
-        return callback(new Error('Unknown user'));
-    }else{
-        return callback(null, accessToken);
-    }
+transporter.set("oauth2_provision_cb", (user, renew, callback) => {
+  let accessToken = userTokens[user];
+  if (!accessToken) {
+    return callback(new Error("Unknown user"));
+  } else {
+    return callback(null, accessToken);
+  }
 });
 ```
 
@@ -134,18 +132,18 @@ This example uses an existing Access Token. If the token is not accepted or curr
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        user: 'user@example.com',
-        clientId: '000000000000-xxx0.apps.googleusercontent.com',
-        clientSecret: 'XxxxxXXxX0xxxxxxxx0XXxX0',
-        refreshToken: '1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx',
-        accessToken: 'ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x',
-        expires: 1484314697598
-    }
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    type: "OAuth2",
+    user: "user@example.com",
+    clientId: "000000000000-xxx0.apps.googleusercontent.com",
+    clientSecret: "XxxxxXXxX0xxxxxxxx0XXxX0",
+    refreshToken: "1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx",
+    accessToken: "ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x",
+    expires: 1484314697598,
+  },
 });
 ```
 
@@ -155,17 +153,17 @@ This example uses an existing Access Token. If the token is not accepted or curr
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        user: 'user@example.com',
-        serviceClient: '113600000000000000000',
-        privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...',
-        accessToken: 'ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x',
-        expires: 1484314697598
-    }
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    type: "OAuth2",
+    user: "user@example.com",
+    serviceClient: "113600000000000000000",
+    privateKey: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...",
+    accessToken: "ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x",
+    expires: 1484314697598,
+  },
 });
 ```
 
@@ -179,27 +177,27 @@ Per-message specific authentication does not work in pooled mode
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2',
-        clientId: '000000000000-xxx.apps.googleusercontent.com',
-        clientSecret: 'XxxxxXXxX0xxxxxxxx0XXxX0'
-    }
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    type: "OAuth2",
+    clientId: "000000000000-xxx.apps.googleusercontent.com",
+    clientSecret: "XxxxxXXxX0xxxxxxxx0XXxX0",
+  },
 });
 
 transporter.sendMail({
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Message',
-    text: 'I hope this message gets through!',
-    auth: {
-        user: 'user@example.com',
-        refreshToken: '1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx',
-        accessToken: 'ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x',
-        expires: 1484314697598
-    }
+  from: "sender@example.com",
+  to: "recipient@example.com",
+  subject: "Message",
+  text: "I hope this message gets through!",
+  auth: {
+    user: "user@example.com",
+    refreshToken: "1/XXxXxsss-xxxXXXXXxXxx0XXXxxXXx0x00xxx",
+    accessToken: "ya29.Xx_XX0xxxxx-xX0X0XxXXxXxXXXxX0x",
+    expires: 1484314697598,
+  },
 });
 ```
 
@@ -207,31 +205,31 @@ Or alternatively you can do the same with your own OAuth2 handler.
 
 ```javascript
 let transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
-    auth: {
-        type: 'OAuth2'
-    }
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    type: "OAuth2",
+  },
 });
 
-transporter.set('oauth2_provision_cb', (user, renew, callback) => {
-    let accessToken = userTokens[user];
-    if(!accessToken){
-        return callback(new Error('Unknown user'));
-    }else{
-        return callback(null, accessToken);
-    }
+transporter.set("oauth2_provision_cb", (user, renew, callback) => {
+  let accessToken = userTokens[user];
+  if (!accessToken) {
+    return callback(new Error("Unknown user"));
+  } else {
+    return callback(null, accessToken);
+  }
 });
 
 transporter.sendMail({
-    from: 'sender@example.com',
-    to: 'recipient@example.com',
-    subject: 'Message',
-    text: 'I hope this message gets through!',
-    auth: {
-        user: 'user@example.com'
-    }
+  from: "sender@example.com",
+  to: "recipient@example.com",
+  subject: "Message",
+  text: "I hope this message gets through!",
+  auth: {
+    user: "user@example.com",
+  },
 });
 ```
 

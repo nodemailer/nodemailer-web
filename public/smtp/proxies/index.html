@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.2" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>Proxy support :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1649941160" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1649941160" rel="stylesheet">
-    <link href="/css/hybrid.css?1649941160" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1649941160" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1649941160" rel="stylesheet">
-    <link href="/css/auto-complete.css?1649941160" rel="stylesheet">
-    <link href="/css/theme.css?1649941160" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1649941160" rel="stylesheet">
+    <link href="/css/nucleus.css?1650097698" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1650097698" rel="stylesheet">
+    <link href="/css/hybrid.css?1650097698" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1650097698" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1650097698" rel="stylesheet">
+    <link href="/css/auto-complete.css?1650097698" rel="stylesheet">
+    <link href="/css/theme.css?1650097698" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1650097698" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1649941160" rel="stylesheet">
+      <link href="/css/theme-blue.css?1650097698" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1649941160"></script>
+    <script src="/js/jquery-2.x.min.js?1650097698"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1120,14 +1120,14 @@
 <h3 id="examples">Examples</h3>
 <h4 id="1-using-http-proxy">1. Using HTTP proxy</h4>
 <p>Set HTTP proxy url for the <em>proxy</em> option. That&rsquo;s it, everything required to handle it is built into Nodemailer.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
     <span style="color:#a6e22e">proxy</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;http://proxy-host:1234&#39;</span>
 });
 </code></pre></div><p>Or if you want to use some environment defined variable like <em>http_proxy</em>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1143,7 +1143,7 @@ Make sure that your HTTP proxy supports CONNECT protocol and allows connecting t
 <li><em>&lsquo;socks4:'</em> or <em>&lsquo;socks4a:'</em> for a SOCKS4 proxy</li>
 <li><em>&lsquo;socks5:'</em> or <em>&lsquo;socks:'</em> for a SOCKS5 proxy</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1153,11 +1153,11 @@ Make sure that your HTTP proxy supports CONNECT protocol and allows connecting t
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;proxy_socks_module&#39;</span>, <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;socks&#39;</span>));
 </code></pre></div><h5 id="testing-socks-proxies">Testing Socks proxies</h5>
 <p>For testing you can use ssh to create a SOCKS5 proxy. The following command connects to your remote server and sets up a proxy on port 1080 that routes connections through that server.</p>
-<pre><code>ssh -N -D 0.0.0.0:1080 username@remote.host`
+<pre tabindex="0"><code>ssh -N -D 0.0.0.0:1080 username@remote.host`
 </code></pre><p><strong>proxy</strong> url for that server would be <code>socks5://localhost:1080</code></p>
 <h4 id="3-using-a-custom-proxy-handler">3. Using a custom proxy handler</h4>
 <p>Additionally you can create your own proxy handler. To do this you would need to register a protocol handler callback with the name <em>proxy_handler_{protocol}</em> where <em>{protocol}</em> would be the protocol from proxy URL. If the URL looks like <em>&lsquo;yyy://localhost&rsquo;</em> then you would need to set callback for <em>proxy_handler_yyy</em>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;proxy_handler_myproxy&#39;</span>, <span style="color:#a6e22e">handler</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">set</span>(<span style="color:#e6db74">&#39;proxy_handler_myproxy&#39;</span>, <span style="color:#a6e22e">handler</span>);
 </code></pre></div><p>Where</p>
 <ul>
 <li><strong>handler</strong> is the function to run to create a proxied socket. It gets the following arguments:
@@ -1168,7 +1168,7 @@ Make sure that your HTTP proxy supports CONNECT protocol and allows connecting t
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1184,7 +1184,7 @@ Make sure that your HTTP proxy supports CONNECT protocol and allows connecting t
     });
 });
 </code></pre></div><p>If your proxy uses an encrypted connection then you can mark the proxied socket to be already secure. This prevents Nodemailer from upgrading the provided connection using TLS.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
     <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
     <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
     <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
@@ -1874,20 +1874,20 @@ Make sure that your HTTP proxy supports CONNECT protocol and allows connecting t
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1649941160"></script>
-    <script src="/js/jquery.sticky.js?1649941160"></script>
-    <script src="/js/featherlight.min.js?1649941160"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1649941160"></script>
-    <script src="/js/highlight.pack.js?1649941160"></script>
+    <script src="/js/clipboard.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1650097698"></script>
+    <script src="/js/jquery.sticky.js?1650097698"></script>
+    <script src="/js/featherlight.min.js?1650097698"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1650097698"></script>
+    <script src="/js/highlight.pack.js?1650097698"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1649941160"></script>
-    <script src="/js/learn.js?1649941160"></script>
-    <script src="/js/hugo-learn.js?1649941160"></script>
+    <script src="/js/modernizr.custom.71422.js?1650097698"></script>
+    <script src="/js/learn.js?1650097698"></script>
+    <script src="/js/hugo-learn.js?1650097698"></script>
 
-    <link href="/mermaid/mermaid.css?1649941160" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1649941160"></script>
+    <link href="/mermaid/mermaid.css?1650097698" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1650097698"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

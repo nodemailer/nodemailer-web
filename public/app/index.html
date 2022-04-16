@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.2" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>NodemailerApp :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1649941160" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1649941160" rel="stylesheet">
-    <link href="/css/hybrid.css?1649941160" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1649941160" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1649941160" rel="stylesheet">
-    <link href="/css/auto-complete.css?1649941160" rel="stylesheet">
-    <link href="/css/theme.css?1649941160" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1649941160" rel="stylesheet">
+    <link href="/css/nucleus.css?1650097698" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1650097698" rel="stylesheet">
+    <link href="/css/hybrid.css?1650097698" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1650097698" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1650097698" rel="stylesheet">
+    <link href="/css/auto-complete.css?1650097698" rel="stylesheet">
+    <link href="/css/theme.css?1650097698" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1650097698" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1649941160" rel="stylesheet">
+      <link href="/css/theme-blue.css?1650097698" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1649941160"></script>
+    <script src="/js/jquery-2.x.min.js?1650097698"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1127,10 +1127,10 @@
 <p><strong>1.</strong> First make sure that NodemailerApp local server listening IP is either 0.0.0.0 or 192.168.64.1 (default is 127.0.0.1) as XAMPP VM on OSX sets up a virtual private network, where the host machine usually gets assigned the IP 192.168.64.1.</p>
 <p><strong>2.</strong> Then download and unpack the <a href="https://nodemailer.com/sendmail-linux.tar.gz" target="_blank">Linux version</a> of sendmail replacement and copy it to the XAMPP container.</p>
 <p><strong>3.</strong> For some reason Apache in XAMPP uses some old c++ libraries, you can force it to use newer one by running the following commands in XAMP terminal:</p>
-<pre><code>$ mv /opt/lampp/lib/libstdc++.so.6 /opt/lampp/lib/libstdc++.so.6.bak
+<pre tabindex="0"><code>$ mv /opt/lampp/lib/libstdc++.so.6 /opt/lampp/lib/libstdc++.so.6.bak
 $ cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /opt/lampp/lib/
 </code></pre><p><strong>4.</strong> Then edit /opt/lampp/etc/php.ini, find the <em>[mail function]</em> section and add the following configuration line (assuming you copied <em>sendmail</em> binary to <em>/opt/lampp</em>) using SMTP username and password provided by NodemailerApp:</p>
-<pre><code>sendmail_path = &quot;/opt/lampp/sendmail --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i&quot;
+<pre tabindex="0"><code>sendmail_path = &quot;/opt/lampp/sendmail --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i&quot;
 </code></pre><p>For all available configuration options, run <code>/opt/lampp/sendmail --help</code></p>
 <p><strong>5.</strong> Last, restart Apache service in XAMPP.</p>
 <h3 id="videos">Videos</h3>
@@ -1814,20 +1814,20 @@ $ cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /opt/lampp/lib/
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1649941160"></script>
-    <script src="/js/jquery.sticky.js?1649941160"></script>
-    <script src="/js/featherlight.min.js?1649941160"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1649941160"></script>
-    <script src="/js/highlight.pack.js?1649941160"></script>
+    <script src="/js/clipboard.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1650097698"></script>
+    <script src="/js/jquery.sticky.js?1650097698"></script>
+    <script src="/js/featherlight.min.js?1650097698"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1650097698"></script>
+    <script src="/js/highlight.pack.js?1650097698"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1649941160"></script>
-    <script src="/js/learn.js?1649941160"></script>
-    <script src="/js/hugo-learn.js?1649941160"></script>
+    <script src="/js/modernizr.custom.71422.js?1650097698"></script>
+    <script src="/js/learn.js?1650097698"></script>
+    <script src="/js/hugo-learn.js?1650097698"></script>
 
-    <link href="/mermaid/mermaid.css?1649941160" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1649941160"></script>
+    <link href="/mermaid/mermaid.css?1650097698" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1650097698"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

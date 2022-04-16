@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.80.0" />
+    <meta name="generator" content="Hugo 0.92.2" />
     <meta name="description" content="Nodemailer is a module for Node.js to send emails">
 <meta name="author" content="Andris Reinman">
 
@@ -15,19 +15,19 @@
     <title>SMTP transport :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1649941160" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1649941160" rel="stylesheet">
-    <link href="/css/hybrid.css?1649941160" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1649941160" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1649941160" rel="stylesheet">
-    <link href="/css/auto-complete.css?1649941160" rel="stylesheet">
-    <link href="/css/theme.css?1649941160" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1649941160" rel="stylesheet">
+    <link href="/css/nucleus.css?1650097698" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1650097698" rel="stylesheet">
+    <link href="/css/hybrid.css?1650097698" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1650097698" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1650097698" rel="stylesheet">
+    <link href="/css/auto-complete.css?1650097698" rel="stylesheet">
+    <link href="/css/theme.css?1650097698" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1650097698" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1649941160" rel="stylesheet">
+      <link href="/css/theme-blue.css?1650097698" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1649941160"></script>
+    <script src="/js/jquery-2.x.min.js?1650097698"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -1091,14 +1091,14 @@
 
 <h1 id="smtp-transport">SMTP transport</h1>
 <p>SMTP is the main transport in Nodemailer for delivering messages. SMTP is also the protocol used between different email hosts, so its truly universal. Almost every email delivery provider supports SMTP based sending, even if they mainly push their API based sending. APIs might have more features but using these also means vendor lock-in while in case of SMTP you only need to change the configuration options to replace one provider with another and you&rsquo;re good to go.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>(<span style="color:#a6e22e">options</span>[, <span style="color:#a6e22e">defaults</span>])
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>(<span style="color:#a6e22e">options</span>[, <span style="color:#a6e22e">defaults</span>])
 </code></pre></div><p>Where</p>
 <ul>
 <li><strong>options</strong> – is an object that defines connection data (see below for details)</li>
 <li><strong>defaults</strong> – is an object that is going to be merged into every message object. This allows you to specify shared options, for example to set the same <em>from</em> address for every message</li>
 </ul>
 <p>Alternatively you could use a connection url instead of an object for the options. Use <em>&lsquo;smtp:'</em> or <em>&lsquo;smtps:'</em> as the protocol in the url.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">poolConfig</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;smtps://username:password@smtp.example.com/?pool=true&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">poolConfig</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;smtps://username:password@smtp.example.com/?pool=true&#34;</span>;
 </code></pre></div><h5 id="general-options">General options</h5>
 <ul>
 <li><strong>port</strong> – is the port to connect to (defaults to 587 if is <em>secure</em> is <em>false</em> or 465 if <em>true</em>)</li>
@@ -1145,7 +1145,7 @@
 <h3 id="examples">Examples</h3>
 <h4 id="1-single-connection">1. Single connection</h4>
 <p>This example would connect to a SMTP server separately for every single message</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">587</span>,
   <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#75715e">// upgrade later with STARTTLS
@@ -1156,7 +1156,7 @@
 });
 </code></pre></div><h4 id="2-pooled-connections">2. Pooled connections</h4>
 <p>This example would set up pooled connections against a SMTP server on port 465</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">pool</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
@@ -1168,7 +1168,7 @@
 });
 </code></pre></div><h4 id="3-allow-self-signed-certificates">3. Allow self-signed certificates</h4>
 <p>This config would open a connection to TLS server with self-signed or invalid TLS certificate</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;my.smtp.host&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
   <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// use TLS
@@ -1197,7 +1197,7 @@
 <p>You can also define <a href="/smtp/customauth/">custom authentication handlers</a> for protocols that are not natively supported by Nodemailer, see <a href="https://github.com/nodemailer/nodemailer-ntlm-auth">NTLM handler</a> as an example of such custom handler.</p>
 <h2 id="verify-smtp-connection-configuration">Verify SMTP connection configuration</h2>
 <p>You can verify your SMTP configuration with <strong>verify(callback)</strong> call (also works as a Promise). If it returns an error, then something is not correct, otherwise the server is ready to accept messages.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// verify connection configuration
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// verify connection configuration
 </span><span style="color:#75715e"></span><span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">verify</span>(<span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">success</span>) {
   <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>) {
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>);
@@ -1877,20 +1877,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.min.js?1649941160"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1649941160"></script>
-    <script src="/js/jquery.sticky.js?1649941160"></script>
-    <script src="/js/featherlight.min.js?1649941160"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1649941160"></script>
-    <script src="/js/highlight.pack.js?1649941160"></script>
+    <script src="/js/clipboard.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.min.js?1650097698"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1650097698"></script>
+    <script src="/js/jquery.sticky.js?1650097698"></script>
+    <script src="/js/featherlight.min.js?1650097698"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1650097698"></script>
+    <script src="/js/highlight.pack.js?1650097698"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1649941160"></script>
-    <script src="/js/learn.js?1649941160"></script>
-    <script src="/js/hugo-learn.js?1649941160"></script>
+    <script src="/js/modernizr.custom.71422.js?1650097698"></script>
+    <script src="/js/learn.js?1650097698"></script>
+    <script src="/js/hugo-learn.js?1650097698"></script>
 
-    <link href="/mermaid/mermaid.css?1649941160" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1649941160"></script>
+    <link href="/mermaid/mermaid.css?1650097698" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1650097698"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
