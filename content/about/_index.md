@@ -21,7 +21,7 @@ npm install nodemailer
 
 Check out [EmailEngine](https://emailengine.app/) – a self-hosted service that allows making REST requests against IMAP and SMTP servers. EmailEngine also sends webhooks whenever something changes on the registered accounts.\
 \
-Using the email accounts registered with EmailEngine, you can receive emails and [send emails](https://emailengine.app/sending-emails). EmailEngine supports delayed sends, opens and clicks tracking, bounce detection, etc. All on top of regular email accounts without an external MTA service.
+Using the email accounts registered with EmailEngine, you can receive emails and [send emails](https://emailengine.app/sending-emails). EmailEngine supports OAuth2, delayed sends, opens and clicks tracking, bounce detection, etc. All on top of regular email accounts without an external MTA service.
 
 {{% /notice %}}
 
