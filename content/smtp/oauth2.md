@@ -20,7 +20,7 @@ Access Tokens needed for OAuth2 authentication are short lived so these need to 
 
 {{% notice tip %}}
 
-Managing OAuth2 app credentials is hard, so you could let [EmailEngine](https://emailengine.app/) handle these for you. Once you have registered an email account with EmailEngine you can use EmailEngine as a SMTP gateway without any authentication, EmailEngine will handle everything regarding the actual credentials itself. Read more [here](https://emailengine.app/sending-emails).
+Managing OAuth2 app credentials is hard, so you could let [EmailEngine](https://emailengine.app/) handle these for you. Once you have registered an email account with EmailEngine, you can use EmailEngine as an SMTP gateway without any authentication. EmailEngine will handle everything regarding the actual credentials itself. Read more [here](https://emailengine.app/sending-emails).
 
 {{% /notice %}}
 
