@@ -13,17 +13,18 @@ toc = true
 
 **Nodemailer** is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.
 
-**Nodemailer** is licensed under **MIT license**. See license details in the [License page](/about/license/). If you are upgrading from Nodemailer v2 or older, then see the light migration guide [here](/about/migrate).
-
 ```
 npm install nodemailer
 ```
 
-### Want to receive and read mail with IMAP instead of sending?
+{{% notice info %}}
+
+### See also: EmailEngine to read and send emails
 
 Check out [EmailEngine](https://emailengine.app/) – a self-hosted service that allows making REST requests against IMAP and SMTP servers. EmailEngine also sends webhooks whenever something changes on the registered accounts.
 
 Using the email accounts registered with EmailEngine, you can receive emails and [send emails](https://emailengine.app/sending-emails). EmailEngine supports delayed sends, opens and clicks tracking, bounce detection, etc. All on top of regular email accounts without an external MTA service.
+{{% /notice %}}
 
 ### Nodemailer features
 
