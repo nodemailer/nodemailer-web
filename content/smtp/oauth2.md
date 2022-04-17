@@ -18,6 +18,12 @@ Access Tokens needed for OAuth2 authentication are short lived so these need to 
 5. [Examples](#examples)
 6. [Troubleshooting](#troubleshooting)
 
+{{% notice tip %}}
+
+Managing OAuth2 app credentials is hard, so you could let [EmailEngine](https://emailengine.app/) handle these for you. Once you have registered an email account with EmailEngine you can use EmailEngine as a SMTP gateway without any authentication, EmailEngine will handle everything regarding the actual credentials itself. Read more [here](https://emailengine.app/sending-emails).
+
+{{% /notice %}}
+
 ### 3-legged OAuth2 authentication {#oauth-3lo}
 
 This is the "normal" way of obtaining access tokens. Your application requests permissions from the client and gets a refresh token in return that can be used to generate new access tokens.
