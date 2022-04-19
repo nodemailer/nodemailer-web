@@ -17,6 +17,6 @@ In this section you can find additional e-mail related Node.js modules.
 1. [smtp-connection](/extras/smtp-connection) – create SMTP connections
 1. [mailparser](/extras/mailparser) – parse emails
 1. [mailcomposer](/extras/mailcomposer) – generate RFC822 formatted emails
-1. [EmailEngine](https://emailengine.app/) - REST interface for IMAP and SMTP
+1. [EmailEngine](https://emailengine.app/?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=module-link) - REST interface for IMAP and SMTP
 1. [ImapFlow](https://imapflow.com/) - easy to use IMAP client built for EmailEngine
 1. [mailauth](https://github.com/andris9/mailauth) - SPF, DKIM, DMARC, ARC, BIMI support for Node.js

@@ -15,19 +15,19 @@
     <title>OAuth2 :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1650178684" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1650178684" rel="stylesheet">
-    <link href="/css/hybrid.css?1650178684" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1650178684" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1650178684" rel="stylesheet">
-    <link href="/css/auto-complete.css?1650178684" rel="stylesheet">
-    <link href="/css/theme.css?1650178684" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1650178684" rel="stylesheet">
+    <link href="/css/nucleus.css?1650365028" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1650365028" rel="stylesheet">
+    <link href="/css/hybrid.css?1650365028" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1650365028" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1650365028" rel="stylesheet">
+    <link href="/css/auto-complete.css?1650365028" rel="stylesheet">
+    <link href="/css/theme.css?1650365028" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1650365028" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1650178684" rel="stylesheet">
+      <link href="/css/theme-blue.css?1650365028" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1650178684"></script>
+    <script src="/js/jquery-2.x.min.js?1650365028"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -159,10 +159,7 @@
     </div>
     
         <p>
-  <a
-    href="http://outfunnel.com/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=header-link"
-    >Powered by <b>Outfunnel</b></a
-  >
+  <a href="https://emailengine.app/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=header-link">Powered by <b>EmailEngine</b></a>
 </p>
 
     
@@ -1128,11 +1125,11 @@
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 </ol>
 <div class="notices tip" >
-<p>Managing OAuth2 app credentials is hard, so you could let <a href="https://emailengine.app/">EmailEngine</a> handle these for you. Once you have registered an email account with EmailEngine, you can use EmailEngine as an SMTP gateway without any authentication. EmailEngine will handle everything regarding the actual credentials itself. Read more <a href="https://emailengine.app/sending-emails">here</a>.</p>
+<p>Managing OAuth2 app credentials is hard, so you could let <a href="https://emailengine.app/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=tip-link">EmailEngine</a> handle these for you. Once you have registered an email account with EmailEngine, you can use EmailEngine as an SMTP gateway without any authentication. EmailEngine will handle everything regarding the actual credentials itself. Read more <a href="https://emailengine.app/sending-emails?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=tip-link">here</a>.</p>
 </div>
 <h3 id="oauth-3lo">3-legged OAuth2 authentication</h3>
 <p>This is the &ldquo;normal&rdquo; way of obtaining access tokens. Your application requests permissions from the client and gets a refresh token in return that can be used to generate new access tokens.</p>
-<p>You can find an example of how to generate required tokens from <a href="https://docs.emailengine.app/setting-up-gmail-oauth2-for-imap-api/">EmailEngine&rsquo;s documentation</a>.</p>
+<p>You can find an example of how to generate required tokens from <a href="https://docs.emailengine.app/setting-up-gmail-oauth2-for-imap-api/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=oauth-link">EmailEngine&rsquo;s documentation</a>.</p>
 <ul>
 <li>
 <p><strong>auth</strong> – is the authentication object</p>
@@ -1150,7 +1147,7 @@
 </ul>
 <p>Normal SMTP transport (ie. not the pooled version) has a convenience method of using separate authentication for every message. This allows you to set up a transport with just <em>clientId</em> and <em>clientSecret</em> values and provide <em>accessToken</em> and <em>refreshToken</em> with the message options. See <a href="#example-5">example 5</a>.</p>
 <h3 id="oauth-2lo">2LO authentication (service accounts)</h3>
-<p>Nodemailer also allows you to use <a href="https://developers.google.com/identity/protocols/OAuth2ServiceAccount">service accounts</a> to generate access tokens. In this case the required <code>auth</code> options are a bit different from 3LO auth. You can find an example of how to generate service tokens from <a href="https://docs.emailengine.app/gmail-oauth-service-accounts/">EmailEngine&rsquo;s documentation</a>.</p>
+<p>Nodemailer also allows you to use <a href="https://developers.google.com/identity/protocols/OAuth2ServiceAccount">service accounts</a> to generate access tokens. In this case the required <code>auth</code> options are a bit different from 3LO auth. You can find an example of how to generate service tokens from <a href="https://docs.emailengine.app/gmail-oauth-service-accounts/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=oauth-link">EmailEngine&rsquo;s documentation</a>.</p>
 <ul>
 <li>
 <p><strong>auth</strong> – is the authentication object</p>
@@ -1985,20 +1982,20 @@ Per-message specific authentication does not work in pooled mode
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1650178684"></script>
-    <script src="/js/perfect-scrollbar.min.js?1650178684"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1650178684"></script>
-    <script src="/js/jquery.sticky.js?1650178684"></script>
-    <script src="/js/featherlight.min.js?1650178684"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1650178684"></script>
-    <script src="/js/highlight.pack.js?1650178684"></script>
+    <script src="/js/clipboard.min.js?1650365028"></script>
+    <script src="/js/perfect-scrollbar.min.js?1650365028"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1650365028"></script>
+    <script src="/js/jquery.sticky.js?1650365028"></script>
+    <script src="/js/featherlight.min.js?1650365028"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1650365028"></script>
+    <script src="/js/highlight.pack.js?1650365028"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1650178684"></script>
-    <script src="/js/learn.js?1650178684"></script>
-    <script src="/js/hugo-learn.js?1650178684"></script>
+    <script src="/js/modernizr.custom.71422.js?1650365028"></script>
+    <script src="/js/learn.js?1650365028"></script>
+    <script src="/js/hugo-learn.js?1650365028"></script>
 
-    <link href="/mermaid/mermaid.css?1650178684" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1650178684"></script>
+    <link href="/mermaid/mermaid.css?1650365028" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1650365028"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

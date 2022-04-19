@@ -20,7 +20,7 @@ Access Tokens needed for OAuth2 authentication are short lived so these need to 
 
 {{% notice tip %}}
 
-Managing OAuth2 app credentials is hard, so you could let [EmailEngine](https://emailengine.app/) handle these for you. Once you have registered an email account with EmailEngine, you can use EmailEngine as an SMTP gateway without any authentication. EmailEngine will handle everything regarding the actual credentials itself. Read more [here](https://emailengine.app/sending-emails).
+Managing OAuth2 app credentials is hard, so you could let [EmailEngine](https://emailengine.app/?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=tip-link) handle these for you. Once you have registered an email account with EmailEngine, you can use EmailEngine as an SMTP gateway without any authentication. EmailEngine will handle everything regarding the actual credentials itself. Read more [here](https://emailengine.app/sending-emails?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=tip-link).
 
 {{% /notice %}}
 
@@ -28,7 +28,7 @@ Managing OAuth2 app credentials is hard, so you could let [EmailEngine](https://
 
 This is the "normal" way of obtaining access tokens. Your application requests permissions from the client and gets a refresh token in return that can be used to generate new access tokens.
 
-You can find an example of how to generate required tokens from [EmailEngine's documentation](https://docs.emailengine.app/setting-up-gmail-oauth2-for-imap-api/).
+You can find an example of how to generate required tokens from [EmailEngine's documentation](https://docs.emailengine.app/setting-up-gmail-oauth2-for-imap-api/?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=oauth-link).
 
 - **auth** – is the authentication object
 
@@ -45,7 +45,7 @@ Normal SMTP transport (ie. not the pooled version) has a convenience method of u
 
 ### 2LO authentication (service accounts) {#oauth-2lo}
 
-Nodemailer also allows you to use [service accounts](https://developers.google.com/identity/protocols/OAuth2ServiceAccount) to generate access tokens. In this case the required `auth` options are a bit different from 3LO auth. You can find an example of how to generate service tokens from [EmailEngine's documentation](https://docs.emailengine.app/gmail-oauth-service-accounts/).
+Nodemailer also allows you to use [service accounts](https://developers.google.com/identity/protocols/OAuth2ServiceAccount) to generate access tokens. In this case the required `auth` options are a bit different from 3LO auth. You can find an example of how to generate service tokens from [EmailEngine's documentation](https://docs.emailengine.app/gmail-oauth-service-accounts/?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=oauth-link).
 
 - **auth** – is the authentication object
 
