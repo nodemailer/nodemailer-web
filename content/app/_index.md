@@ -23,7 +23,7 @@ You can use NodemailerApp to instantly preview emails sent from your dev environ
 
 > **NB!** Downloads are very slow as the network throughput for this server is limited and file sizes are quite large (>100MB as this is an [Electron](https://www.electronjs.org/apps/nodemailer-app) app).
 
-<div style="text-align: center"><a href="https://downloads.nodemailer.com/download/osx" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (OSX)</a> <a href="https://downloads.nodemailer.com/download/win32" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (Windows)</a> <a href="https://snapcraft.io/nodemailerapp" target="_blank" class="btn btn-default"><i class="fas fa-arrow-right"></i> Snapcraft (Linux)</a></div>
+<div style="text-align: center"><a href="https://github.com/nodemailer/nodemailer-app/releases/download/v1.0.16/NodemailerApp-1.0.16.dmg" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (OSX)</a> <a href="https://github.com/nodemailer/nodemailer-app/releases/download/v1.0.16/NodemailerApp-1.0.16.Setup.exe" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (Windows)</a> <a href="https://snapcraft.io/nodemailerapp" target="_blank" class="btn btn-default"><i class="fas fa-arrow-right"></i> Snapcraft (Linux)</a></div>
 
 ### Features
 
