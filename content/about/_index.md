@@ -25,6 +25,10 @@ Using the email accounts registered with EmailEngine, you can receive and [send 
 
 {{% /notice %}}
 
+---
+
+This project is supported by [Forward Email](https://forwardemail.net) – the 100% open-source and privacy-focused email service.
+
 ### Nodemailer features
 
 - A single module with **zero dependencies** – code is easily auditable, as there are no dark corners
