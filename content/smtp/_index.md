@@ -54,6 +54,7 @@ Setting **secure** to **false** does not mean that you would not use an encrypte
 - **connectionTimeout** – how many milliseconds to wait for the connection to establish (default is 2 minutes)
 - **greetingTimeout** – how many milliseconds to wait for the greeting after connection is established (default is 30 seconds)
 - **socketTimeout** – how many milliseconds of inactivity to allow (default is 10 minutes)
+- **dnsTimeout** - Time to wait in ms for the DNS requests to be resolved (defaults to 30 seconds)
 
 ##### Debug options
 

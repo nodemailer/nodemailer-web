@@ -49,6 +49,7 @@ Where
   - **options.connectionTimeout** how many milliseconds to wait for the connection to establish
   - **options.greetingTimeout** how many milliseconds to wait for the greeting after connection is established
   - **options.socketTimeout** how many milliseconds of inactivity to allow
+  - **options.dnsTimeout** - Time to wait in ms for the DNS requests to be resolved (defaults to 30 seconds)
   - **options.logger** optional [bunyan](https://github.com/trentm/node-bunyan) compatible logger instance. If set to _true_ then logs to console. If value is not set or is _false_ then nothing is logged
   - **options.transactionLog** if set to true, then logs SMTP traffic without message content
   - **options.debug** if set to true, then logs SMTP traffic and message content, otherwise logs only transaction events
