@@ -20,3 +20,5 @@ In this section you can find additional e-mail related Node.js modules.
 1. [EmailEngine](https://emailengine.app/?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=module-link) - REST interface for IMAP and SMTP
 1. [ImapFlow](https://imapflow.com/) - easy to use IMAP client built for EmailEngine
 1. [mailauth](https://github.com/andris9/mailauth) - SPF, DKIM, DMARC, ARC, BIMI support for Node.js
+1. [email-templates](https://github.com/forwardemail/email-templates) - Create, preview (browser/iOS Simulator), and send custom email templates for Node.js
+1. [preview-email](https://github.com/forwardemail/preview-email) - Automatically opens your browser to preview Node.js email messages sent with Nodemailer

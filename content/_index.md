@@ -67,7 +67,7 @@ In short, what you need to do to send messages, would be the following:
 
 #### Example
 
-This is a complete example to send an email with plain text and HTML body
+This is a complete example to send an email with plain text and HTML body. It uses [Forward Email](https://forwardemail.net) in production (e.g. `NODE_ENV=production node app.js`) and [Ethereal Email](https://ethereal.email/) for all other environments (e.g. development, staging, and testing).
 
 ```javascript
 "use strict";
@@ -75,20 +75,35 @@ const nodemailer = require("nodemailer");
 
 // async..await is not allowed in global scope, must use a wrapper
 async function main() {
-  // Generate test SMTP service account from ethereal.email
-  // Only needed if you don't have a real mail account for testing
-  let testAccount = await nodemailer.createTestAccount();
+  let transporter;
 
-  // create reusable transporter object using the default SMTP transport
-  let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: testAccount.user, // generated ethereal user
-      pass: testAccount.pass, // generated ethereal password
-    },
-  });
+  if (process.env.NODE_ENV === 'production') {
+    transporter = nodemailer.createTransport({
+      host: "smtp.forwardemail.net",
+      port: 465,
+      secure: true,
+      auth: {
+        // TODO: replace `user` and `pass` values from https://forwardemail.net
+        user: 'REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM',
+        pass: 'REPLACE-WITH-YOUR-GENERATED-PASSWORD'
+      }
+    });
+  } else {
+    // Generate test SMTP service account from ethereal.email
+    // Only needed if you don't have a real mail account for testing
+    let testAccount = await nodemailer.createTestAccount();
+
+    // create reusable transporter object using the default SMTP transport
+    transporter = nodemailer.createTransport({
+      host: "smtp.ethereal.email",
+      port: 587,
+      secure: false // true for 465, false for other ports
+      auth: {
+        user: testAccount.user, // generated ethereal user
+        pass: testAccount.pass, // generated ethereal password
+      }
+    });
+  }
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
