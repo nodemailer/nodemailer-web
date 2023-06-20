@@ -12,7 +12,7 @@ When building complex applications then sooner or later you end up in a situatio
 
 One solution would be to separate development email addresses and use only some specific testing address to send all mail to but a better approach would be to use a separate email catching service that accepts all messages like a normal transactional SMTP service would but instead of delivering these to destination, it only logs these messages.
 
-There are several options for using such a service, Nodemailer has built-in support for [Ethereal Email](https://ethereal.email). You can create new testing account on the fly by using the `createTestAccount` method or from the Ethereal homepage.
+There are several options for using such a service, Nodemailer has built-in support for [Ethereal Email](https://ethereal.email). You can create new testing account on the fly by using the `createTestAccount` method or from the Ethereal homepage. You could also test locally using [email-templates](https://github.com/forwardemail/email-templates) which uses [preview-email](https://github.com/forwardemail/preview-email) under the hood (renders an email preview in your browser and iOS simulator).
 
 ### Examples
 
