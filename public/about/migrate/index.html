@@ -15,19 +15,19 @@
     <title>Migration :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1681891445" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1681891445" rel="stylesheet">
-    <link href="/css/hybrid.css?1681891445" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1681891445" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1681891445" rel="stylesheet">
-    <link href="/css/auto-complete.css?1681891445" rel="stylesheet">
-    <link href="/css/theme.css?1681891445" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1681891445" rel="stylesheet">
+    <link href="/css/nucleus.css?1687262558" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1687262558" rel="stylesheet">
+    <link href="/css/hybrid.css?1687262558" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1687262558" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1687262558" rel="stylesheet">
+    <link href="/css/auto-complete.css?1687262558" rel="stylesheet">
+    <link href="/css/theme.css?1687262558" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1687262558" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1681891445" rel="stylesheet">
+      <link href="/css/theme-blue.css?1687262558" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1681891445"></script>
+    <script src="/js/jquery-2.x.min.js?1687262558"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -621,7 +621,7 @@
 <p>Nodemailer v3 has dropped some features that were available in Nodemailer v2 and also introduced some new ones.</p>
 <ul>
 <li>All <strong>dependencies were dropped</strong>. There is exactly 0 dependencies needed to use Nodemailer. This brings the installation time of Nodemailer from NPM to less than 2 seconds</li>
-<li>All <strong>templating is gone</strong>. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template syntaxes</li>
+<li>All <strong>templating is gone</strong>. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template syntaxes. If you need templating, then please use <a href="https://github.com/forwardemail/email-templates">email-templates</a>.</li>
 <li>No <strong>NTLM authentication</strong>. It was too difficult to re-implement. If you still need it then it would be possible to introduce a pluggable SASL interface where you could load the ntlm module in your own code and pass it to Nodemailer. Currently this is not possible. (Nodemailer 5 supports NTLM through an authentication <a href="https://github.com/nodemailer/nodemailer-ntlm-auth">addon</a>)</li>
 <li><strong>OAuth2 authentication</strong> is built in and has a different <a href="/smtp/oauth2/">configuration</a>. You can use both user (3LO) and service (2LO) accounts to generate access tokens from Nodemailer. Additionally there&rsquo;s a new feature to authenticate differently for every message – useful if your application sends on behalf of different users instead of a single sender.</li>
 <li><strong>Delivery status notifications</strong> added to Nodemailer</li>
@@ -1298,20 +1298,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1681891445"></script>
-    <script src="/js/perfect-scrollbar.min.js?1681891445"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1681891445"></script>
-    <script src="/js/jquery.sticky.js?1681891445"></script>
-    <script src="/js/featherlight.min.js?1681891445"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1681891445"></script>
-    <script src="/js/highlight.pack.js?1681891445"></script>
+    <script src="/js/clipboard.min.js?1687262558"></script>
+    <script src="/js/perfect-scrollbar.min.js?1687262558"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1687262558"></script>
+    <script src="/js/jquery.sticky.js?1687262558"></script>
+    <script src="/js/featherlight.min.js?1687262558"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1687262558"></script>
+    <script src="/js/highlight.pack.js?1687262558"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1681891445"></script>
-    <script src="/js/learn.js?1681891445"></script>
-    <script src="/js/hugo-learn.js?1681891445"></script>
+    <script src="/js/modernizr.custom.71422.js?1687262558"></script>
+    <script src="/js/learn.js?1687262558"></script>
+    <script src="/js/hugo-learn.js?1687262558"></script>
 
-    <link href="/mermaid/mermaid.css?1681891445" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1681891445"></script>
+    <link href="/mermaid/mermaid.css?1687262558" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1687262558"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
