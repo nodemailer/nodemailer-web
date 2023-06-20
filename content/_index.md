@@ -67,46 +67,27 @@ In short, what you need to do to send messages, would be the following:
 
 #### Example
 
-This is a complete example to send an email with plain text and HTML body. It uses [Forward Email](https://forwardemail.net) in production (e.g. `NODE_ENV=production node app.js`) and [Ethereal Email](https://ethereal.email/) for all other environments (e.g. development, staging, and testing).
+This is a complete example to send an email with plain text and HTML body using [Forward Email](https://forwardemail.net).
 
 ```javascript
 "use strict";
 const nodemailer = require("nodemailer");
 
+const transporter = nodemailer.createTransport({
+  host: "smtp.forwardemail.net",
+  port: 465,
+  secure: true,
+  auth: {
+    // TODO: replace `user` and `pass` values from <https://forwardemail.net>
+    user: 'REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM',
+    pass: 'REPLACE-WITH-YOUR-GENERATED-PASSWORD'
+  }
+});
+
 // async..await is not allowed in global scope, must use a wrapper
 async function main() {
-  let transporter;
-
-  if (process.env.NODE_ENV === 'production') {
-    transporter = nodemailer.createTransport({
-      host: "smtp.forwardemail.net",
-      port: 465,
-      secure: true,
-      auth: {
-        // TODO: replace `user` and `pass` values from https://forwardemail.net
-        user: 'REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM',
-        pass: 'REPLACE-WITH-YOUR-GENERATED-PASSWORD'
-      }
-    });
-  } else {
-    // Generate test SMTP service account from ethereal.email
-    // Only needed if you don't have a real mail account for testing
-    let testAccount = await nodemailer.createTestAccount();
-
-    // create reusable transporter object using the default SMTP transport
-    transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
-      secure: false // true for 465, false for other ports
-      auth: {
-        user: testAccount.user, // generated ethereal user
-        pass: testAccount.pass, // generated ethereal password
-      }
-    });
-  }
-
   // send mail with defined transport object
-  let info = await transporter.sendMail({
+  const info = await transporter.sendMail({
     from: '"Fred Foo 👻" <foo@example.com>', // sender address
     to: "bar@example.com, baz@example.com", // list of receivers
     subject: "Hello ✔", // Subject line
@@ -117,9 +98,11 @@ async function main() {
   console.log("Message sent: %s", info.messageId);
   // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
 
-  // Preview only available when sending through an Ethereal account
-  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+  //
+  // NOTE: You can go to https://forwardemail.net/my-account/emails to see your email delivery status and preview
+  //       Or you can use the "preview-email" npm package to preview emails locally in browsers and iOS Simulator
+  //       <https://github.com/forwardemail/preview-email>
+  //
 }
 
 main().catch(console.error);
