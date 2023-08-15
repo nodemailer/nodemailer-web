@@ -62,6 +62,7 @@ Where
   - **options.closeTimeout** how many millisceonds to wait before disconnecting pending connections once server.close() has been called (defaults to 30 seconds)
   - **options.onAuth** is the callback to handle authentications (see details [here](#handling-authentication))
   - **options.onConnect** is the callback to handle the client connection. (see details [here](#validating-client-connection))
+  - **options.onSecure** is the optional callback to validate TLS information. (see details [here](#validating-tls-information))
   - **options.onMailFrom** is the callback to validate MAIL FROM commands (see details [here](#validating-sender-addresses))
   - **options.onRcptTo** is the callback to validate RCPT TO commands (see details [here](#validating-recipient-addresses))
   - **options.onData** is the callback to handle incoming messages (see details [here](#processing-incoming-message))
@@ -87,7 +88,7 @@ If you use _secure:true_ option or you do not disable STARTTLS command then you 
 const server = new SMTPServer({
   secure: true,
   key: fs.readFileSync("private.key"),
-  cert: fs.readFileSync("server.crt")
+  cert: fs.readFileSync("server.crt"),
 });
 server.listen(465);
 ```
@@ -109,7 +110,7 @@ Where
 Errors can be handled by setting an 'error' event listener to the server instance
 
 ```javascript
-server.on("error", err => {
+server.on("error", (err) => {
   console.log("Error %s", err.message);
 });
 ```
@@ -120,7 +121,7 @@ Authentication calls can be handled with _onAuth_ handler
 
 ```javascript
 const server = new SMTPServer({
-  onAuth(auth, session, callback) {}
+  onAuth(auth, session, callback) {},
 });
 ```
 
@@ -152,7 +153,7 @@ const server = new SMTPServer({
       return callback(new Error("Invalid username or password"));
     }
     callback(null, { user: 123 }); // where 123 is the user id or similar property
-  }
+  },
 });
 ```
 
@@ -174,12 +175,12 @@ const server = new SMTPServer({
         data: {
           status: "401",
           schemes: "bearer mac",
-          scope: "my_smtp_access_scope_name"
-        }
+          scope: "my_smtp_access_scope_name",
+        },
       });
     }
     callback(null, { user: 123 }); // where 123 is the user id or similar property
-  }
+  },
 });
 ```
 
@@ -206,7 +207,7 @@ const server = new SMTPServer({
     }
 
     callback(null, { user: 123 }); // where 123 is the user id or similar property
-  }
+  },
 });
 ```
 
@@ -217,7 +218,7 @@ any other command, you can set a handler for it with _onConnect_
 
 ```javascript
 const server = new SMTPServer({
-  onConnect(session, callback) {}
+  onConnect(session, callback) {},
 });
 ```
 
@@ -233,7 +234,7 @@ const server = new SMTPServer({
       return callback(new Error("No connections from localhost allowed"));
     }
     return callback(); // Accept the connection
-  }
+  },
 });
 ```
 
@@ -241,7 +242,35 @@ If you also need to detect when a connection is closed use _onClose_. This metho
 
 ```javascript
 const server = new SMTPServer({
-  onClose(session) {}
+  onClose(session) {},
+});
+```
+
+## Validating TLS information
+
+By default any client connection is allowed. If you want to check the remoteAddress or clientHostname before
+any other command, you can set a handler for it with _onConnect_
+
+```javascript
+const server = new SMTPServer({
+  onSecure(socket, session, callback) {},
+});
+```
+
+Where
+
+- **socket** is the TLS socket object
+- **session** includes the _servername_ value for SNI
+- **callback** is the function to run after validation. If you return an error object, the connection is rejected, otherwise it is accepted
+
+```javascript
+const server = new SMTPServer({
+  onConnect(socket, session, callback) {
+    if (session.servername !== "sni.example.com") {
+      return callback(new Error("Only connections for sni.example.com are allowed"));
+    }
+    return callback(); // Accept the connection
+  },
 });
 ```
 
@@ -252,7 +281,7 @@ the address before it is accepted you can set a handler for it with _onMailFrom_
 
 ```javascript
 const server = new SMTPServer({
-  onMailFrom(address, session, callback) {}
+  onMailFrom(address, session, callback) {},
 });
 ```
 
@@ -266,12 +295,10 @@ Where
 const server = new SMTPServer({
   onMailFrom(address, session, callback) {
     if (address.address !== "allowed@example.com") {
-      return callback(
-        new Error("Only allowed@example.com is allowed to send mail")
-      );
+      return callback(new Error("Only allowed@example.com is allowed to send mail"));
     }
     return callback(); // Accept the address
-  }
+  },
 });
 ```
 
@@ -282,7 +309,7 @@ the address before it is accepted you can set a handler for it with _onRcptTo_
 
 ```javascript
 const server = new SMTPServer({
-  onRcptTo(address, session, callback) {}
+  onRcptTo(address, session, callback) {},
 });
 ```
 
@@ -296,12 +323,10 @@ Where
 const server = new SMTPServer({
   onRcptTo(address, session, callback) {
     if (address.address !== "allowed@example.com") {
-      return callback(
-        new Error("Only allowed@example.com is allowed to receive mail")
-      );
+      return callback(new Error("Only allowed@example.com is allowed to receive mail"));
     }
     return callback(); // Accept the address
-  }
+  },
 });
 ```
 
@@ -311,7 +336,7 @@ You can get the stream for the incoming message with _onData_ handler
 
 ```javascript
 const server = new SMTPServer({
-  onData(stream, session, callback) {}
+  onData(stream, session, callback) {},
 });
 ```
 
@@ -326,7 +351,7 @@ const server = new SMTPServer({
   onData(stream, session, callback) {
     stream.pipe(process.stdout); // print message to console
     stream.on("end", callback);
-  }
+  },
 });
 ```
 
@@ -360,7 +385,7 @@ const server = new SMTPServer({
       }
       callback(null, "Message queued as abcdef");
     });
-  }
+  },
 });
 ```
 
@@ -391,7 +416,7 @@ const server = new SMTPServer({
       });
       callback(null, response);
     });
-  }
+  },
 });
 ```
 
