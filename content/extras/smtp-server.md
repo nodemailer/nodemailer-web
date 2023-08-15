@@ -248,8 +248,7 @@ const server = new SMTPServer({
 
 ## Validating TLS information
 
-By default any client connection is allowed. If you want to check the remoteAddress or clientHostname before
-any other command, you can set a handler for it with _onConnect_
+_onSecure_ allows to validate TLS information for TLS and STARTTLS connections.
 
 ```javascript
 const server = new SMTPServer({
