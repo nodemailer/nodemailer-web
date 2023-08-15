@@ -264,7 +264,7 @@ Where
 
 ```javascript
 const server = new SMTPServer({
-  onConnect(socket, session, callback) {
+  onSecure(socket, session, callback) {
     if (session.servername !== "sni.example.com") {
       return callback(new Error("Only connections for sni.example.com are allowed"));
     }

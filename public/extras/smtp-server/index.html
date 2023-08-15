@@ -15,19 +15,19 @@
     <title>SMTP Server :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1692086866" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1692086866" rel="stylesheet">
-    <link href="/css/hybrid.css?1692086866" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1692086866" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1692086866" rel="stylesheet">
-    <link href="/css/auto-complete.css?1692086866" rel="stylesheet">
-    <link href="/css/theme.css?1692086866" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1692086866" rel="stylesheet">
+    <link href="/css/nucleus.css?1692086898" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1692086898" rel="stylesheet">
+    <link href="/css/hybrid.css?1692086898" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1692086898" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1692086898" rel="stylesheet">
+    <link href="/css/auto-complete.css?1692086898" rel="stylesheet">
+    <link href="/css/theme.css?1692086898" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1692086898" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1692086866" rel="stylesheet">
+      <link href="/css/theme-blue.css?1692086898" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1692086866"></script>
+    <script src="/js/jquery-2.x.min.js?1692086898"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -843,7 +843,7 @@ any other command, you can set a handler for it with <em>onConnect</em></p>
 <li><strong>callback</strong> is the function to run after validation. If you return an error object, the connection is rejected, otherwise it is accepted</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">server</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">SMTPServer</span>({
-  <span style="color:#a6e22e">onConnect</span>(<span style="color:#a6e22e">socket</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {
+  <span style="color:#a6e22e">onSecure</span>(<span style="color:#a6e22e">socket</span>, <span style="color:#a6e22e">session</span>, <span style="color:#a6e22e">callback</span>) {
     <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">session</span>.<span style="color:#a6e22e">servername</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#34;sni.example.com&#34;</span>) {
       <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">callback</span>(<span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Only connections for sni.example.com are allowed&#34;</span>));
     }
@@ -1707,20 +1707,20 @@ C: RCPT TO:&lt;recipient@example.com&gt; NOTIFY=NEVER
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1692086866"></script>
-    <script src="/js/perfect-scrollbar.min.js?1692086866"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1692086866"></script>
-    <script src="/js/jquery.sticky.js?1692086866"></script>
-    <script src="/js/featherlight.min.js?1692086866"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1692086866"></script>
-    <script src="/js/highlight.pack.js?1692086866"></script>
+    <script src="/js/clipboard.min.js?1692086898"></script>
+    <script src="/js/perfect-scrollbar.min.js?1692086898"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1692086898"></script>
+    <script src="/js/jquery.sticky.js?1692086898"></script>
+    <script src="/js/featherlight.min.js?1692086898"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1692086898"></script>
+    <script src="/js/highlight.pack.js?1692086898"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1692086866"></script>
-    <script src="/js/learn.js?1692086866"></script>
-    <script src="/js/hugo-learn.js?1692086866"></script>
+    <script src="/js/modernizr.custom.71422.js?1692086898"></script>
+    <script src="/js/learn.js?1692086898"></script>
+    <script src="/js/hugo-learn.js?1692086898"></script>
 
-    <link href="/mermaid/mermaid.css?1692086866" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1692086866"></script>
+    <link href="/mermaid/mermaid.css?1692086898" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1692086898"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
