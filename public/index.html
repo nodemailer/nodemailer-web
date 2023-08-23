@@ -15,19 +15,19 @@
     <title>Nodemailer :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1692786385" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1692786385" rel="stylesheet">
-    <link href="/css/hybrid.css?1692786385" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1692786385" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1692786385" rel="stylesheet">
-    <link href="/css/auto-complete.css?1692786385" rel="stylesheet">
-    <link href="/css/theme.css?1692786385" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1692786385" rel="stylesheet">
+    <link href="/css/nucleus.css?1692786957" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1692786957" rel="stylesheet">
+    <link href="/css/hybrid.css?1692786957" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1692786957" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1692786957" rel="stylesheet">
+    <link href="/css/auto-complete.css?1692786957" rel="stylesheet">
+    <link href="/css/theme.css?1692786957" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1692786957" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1692786385" rel="stylesheet">
+      <link href="/css/theme-blue.css?1692786957" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1692786385"></script>
+    <script src="/js/jquery-2.x.min.js?1692786957"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -573,18 +573,16 @@
  
 <h1 id="nodemailer">Nodemailer</h1>
 <p><strong>Nodemailer</strong> is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.</p>
-<p><strong>Nodemailer</strong> is licensed under <strong>MIT license</strong>. See license details in the <a href="/about/license/">License page</a>. If you are upgrading from Nodemailer v2 or older, then see the light migration guide <a href="/about/migrate">here</a>.</p>
 <pre tabindex="0"><code>npm install nodemailer
-</code></pre><h3 id="support-nodemailer">Support Nodemailer</h3>
-<p>If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations.</p>
-<ul>
-<li>Nodemailer Bitcoin wallet is: <code>15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM</code>.</li>
-<li><a href="https://www.paypal.me/nodemailer">Nodemailer PayPal</a></li>
-<li>Become a sponsor in <a href="https://github.com/sponsors/andris9">Github</a></li>
-</ul>
-<h3 id="looking-for-imap-solutions-instead">Looking for IMAP solutions instead?</h3>
-<p>Check out <a href="https://emailengine.app/">EmailEngine</a> – a self-hosted service that allows making REST requests against IMAP and SMTP servers. EmailEngine also sends webhooks whenever something changes on the registered accounts.</p>
-<p>Using the email accounts registered with EmailEngine, you can receive emails and <a href="https://emailengine.app/sending-emails">send emails</a>. EmailEngine supports delayed sends, opens and clicks tracking, bounce detection, etc. All on top of regular email accounts without an external MTA service.</p>
+</code></pre><div class="notices tip" >
+<p>Check out <a href="https://emailengine.app/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=tip-link">EmailEngine</a> – a self-hosted email gateway that allows making REST requests against IMAP and SMTP servers. EmailEngine also sends webhooks whenever something changes on the registered accounts.<br>
+<br>
+Using the email accounts registered with EmailEngine, you can receive and <a href="https://emailengine.app/sending-emails?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=header-link">send emails</a>. EmailEngine supports OAuth2, delayed sends, opens and clicks tracking, bounce detection, etc. All on top of regular email accounts without an external MTA service.</p>
+</div>
+<hr>
+<p>This project is supported by <a href="https://forwardemail.net">Forward Email</a> – the 100% open-source and privacy-focused email service.</p>
+<hr>
+<p>This project is supported by <a href="https://www.opensense.com">Opensense</a> - The beautiful email signature management company for Office 365 and Google Workspace.</p>
 <h3 id="nodemailer-features">Nodemailer features</h3>
 <ul>
 <li>A single module with <strong>zero dependencies</strong> – code is easily auditable, as there are no dark corners</li>
@@ -626,9 +624,9 @@
   <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
   <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
     <span style="color:#75715e">// TODO: replace `user` and `pass` values from &lt;https://forwardemail.net&gt;
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM&#39;</span>,
-    <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;REPLACE-WITH-YOUR-GENERATED-PASSWORD&#39;</span>
-  }
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM&#34;</span>,
+    <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;REPLACE-WITH-YOUR-GENERATED-PASSWORD&#34;</span>,
+  },
 });
 
 <span style="color:#75715e">// async..await is not allowed in global scope, must use a wrapper
@@ -1324,20 +1322,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1692786385"></script>
-    <script src="/js/perfect-scrollbar.min.js?1692786385"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1692786385"></script>
-    <script src="/js/jquery.sticky.js?1692786385"></script>
-    <script src="/js/featherlight.min.js?1692786385"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1692786385"></script>
-    <script src="/js/highlight.pack.js?1692786385"></script>
+    <script src="/js/clipboard.min.js?1692786957"></script>
+    <script src="/js/perfect-scrollbar.min.js?1692786957"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1692786957"></script>
+    <script src="/js/jquery.sticky.js?1692786957"></script>
+    <script src="/js/featherlight.min.js?1692786957"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1692786957"></script>
+    <script src="/js/highlight.pack.js?1692786957"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1692786385"></script>
-    <script src="/js/learn.js?1692786385"></script>
-    <script src="/js/hugo-learn.js?1692786385"></script>
+    <script src="/js/modernizr.custom.71422.js?1692786957"></script>
+    <script src="/js/learn.js?1692786957"></script>
+    <script src="/js/hugo-learn.js?1692786957"></script>
 
-    <link href="/mermaid/mermaid.css?1692786385" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1692786385"></script>
+    <link href="/mermaid/mermaid.css?1692786957" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1692786957"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

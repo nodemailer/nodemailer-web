@@ -13,25 +13,25 @@ toc = true
 
 **Nodemailer** is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.
 
-**Nodemailer** is licensed under **MIT license**. See license details in the [License page](/about/license/). If you are upgrading from Nodemailer v2 or older, then see the light migration guide [here](/about/migrate).
-
 ```
 npm install nodemailer
 ```
 
-### Support Nodemailer
+{{% notice tip %}}
 
-If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations.
+Check out [EmailEngine](https://emailengine.app/?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=tip-link) – a self-hosted email gateway that allows making REST requests against IMAP and SMTP servers. EmailEngine also sends webhooks whenever something changes on the registered accounts.\
+\
+Using the email accounts registered with EmailEngine, you can receive and [send emails](https://emailengine.app/sending-emails?utm_source=nodemailer&utm_campaign=nodemailer&utm_medium=header-link). EmailEngine supports OAuth2, delayed sends, opens and clicks tracking, bounce detection, etc. All on top of regular email accounts without an external MTA service.
 
-- Nodemailer Bitcoin wallet is: `15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM`.
-- [Nodemailer PayPal](https://www.paypal.me/nodemailer)
-- Become a sponsor in [Github](https://github.com/sponsors/andris9)
+{{% /notice %}}
 
-### Looking for IMAP solutions instead?
+---
 
-Check out [EmailEngine](https://emailengine.app/) – a self-hosted service that allows making REST requests against IMAP and SMTP servers. EmailEngine also sends webhooks whenever something changes on the registered accounts.
+This project is supported by [Forward Email](https://forwardemail.net) – the 100% open-source and privacy-focused email service.
 
-Using the email accounts registered with EmailEngine, you can receive emails and [send emails](https://emailengine.app/sending-emails). EmailEngine supports delayed sends, opens and clicks tracking, bounce detection, etc. All on top of regular email accounts without an external MTA service.
+---
+
+This project is supported by [Opensense](https://www.opensense.com) - The beautiful email signature management company for Office 365 and Google Workspace.
 
 ### Nodemailer features
 
@@ -79,9 +79,9 @@ const transporter = nodemailer.createTransport({
   secure: true,
   auth: {
     // TODO: replace `user` and `pass` values from <https://forwardemail.net>
-    user: 'REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM',
-    pass: 'REPLACE-WITH-YOUR-GENERATED-PASSWORD'
-  }
+    user: "REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM",
+    pass: "REPLACE-WITH-YOUR-GENERATED-PASSWORD",
+  },
 });
 
 // async..await is not allowed in global scope, must use a wrapper
