@@ -39,6 +39,8 @@ let transporter = nodemailer.createTransport({
 
 ### External transports
 
+- **[Mailtrap](https://github.com/railsware/mailtrap-nodejs#nodemailer-transport)** – integration with the official API for Mailtrap
+- **[Mailgun](https://www.npmjs.com/package/nodemailer-mailgun-transport)** – send emails with Mailgun API
 - **your own** (see transport api documentation [here](/plugins/create/#transports))
 
 ### General options for transports
