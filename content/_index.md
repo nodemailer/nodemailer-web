@@ -25,6 +25,9 @@ Using the email accounts registered with EmailEngine, you can receive and [send 
 
 {{% /notice %}}
 
+---
+
+This project is supported by [Forward Email](https://forwardemail.net) – the 100% open-source and privacy-focused email service.
 
 ### Nodemailer features
 
@@ -60,18 +63,20 @@ In short, what you need to do to send messages, would be the following:
 
 #### Example
 
-This is a complete example to send an email with plain text and HTML body using [Ethereal Email](https://ethereal.email/).
+This is a complete example to send an email with plain text and HTML body using [Forward Email](https://forwardemail.net).
 
 ```javascript
+"use strict";
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.ethereal.email",
-  port: 587,
-  secure: false, // `true` for port 465, `false` for all other ports
+  host: "smtp.forwardemail.net",
+  port: 465,
+  secure: true,
   auth: {
-    user: "maddison53@ethereal.email",
-    pass: "jn7jnAPss4f63QBp6D",
+    // TODO: replace `user` and `pass` values from <https://forwardemail.net>
+    user: "REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM",
+    pass: "REPLACE-WITH-YOUR-GENERATED-PASSWORD",
   },
 });
 
@@ -79,7 +84,7 @@ const transporter = nodemailer.createTransport({
 async function main() {
   // send mail with defined transport object
   const info = await transporter.sendMail({
-    from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
+    from: '"Fred Foo 👻" <foo@example.com>', // sender address
     to: "bar@example.com, baz@example.com", // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
@@ -87,7 +92,13 @@ async function main() {
   });
 
   console.log("Message sent: %s", info.messageId);
-  // Message sent: <d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email>
+  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+  //
+  // NOTE: You can go to https://forwardemail.net/my-account/emails to see your email delivery status and preview
+  //       Or you can use the "preview-email" npm package to preview emails locally in browsers and iOS Simulator
+  //       <https://github.com/forwardemail/preview-email>
+  //
 }
 
 main().catch(console.error);
