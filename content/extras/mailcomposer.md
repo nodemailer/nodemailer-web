@@ -6,7 +6,7 @@ prev = "/extras/mailparser/"
 next = "/extras/daemons/"
 weight = 4
 
-+++\
++++
 
 Generate RFC822 formatted e-mail messages that can be streamed to SMTP or file.
 

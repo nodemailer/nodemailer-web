@@ -8,7 +8,7 @@ weight = 30
 title = "Message configuration"
 toc = true
 
-+++\
++++
 
 # Message configuration
 
@@ -33,7 +33,7 @@ var message = {
   to: "receiver@sender.com",
   subject: "Message title",
   text: "Plaintext version of the message",
-  html: "<p>HTML version of the message</p>"
+  html: "<p>HTML version of the message</p>",
 };
 ```
 
@@ -96,7 +96,7 @@ var message = {
 
 ```javascript
 var htmlstream = fs.createReadStream("content.html");
-transport.sendMail({ html: htmlstream }, function(err) {
+transport.sendMail({ html: htmlstream }, function (err) {
   if (err) {
     // check if htmlstream is still open and close it to clean up
   }
