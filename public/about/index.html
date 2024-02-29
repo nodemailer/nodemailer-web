@@ -15,19 +15,19 @@
     <title>Nodemailer :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1704786466" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1704786466" rel="stylesheet">
-    <link href="/css/hybrid.css?1704786466" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1704786466" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1704786466" rel="stylesheet">
-    <link href="/css/auto-complete.css?1704786466" rel="stylesheet">
-    <link href="/css/theme.css?1704786466" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1704786466" rel="stylesheet">
+    <link href="/css/nucleus.css?1709194097" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1709194097" rel="stylesheet">
+    <link href="/css/hybrid.css?1709194097" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1709194097" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1709194097" rel="stylesheet">
+    <link href="/css/auto-complete.css?1709194097" rel="stylesheet">
+    <link href="/css/theme.css?1709194097" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1709194097" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1704786466" rel="stylesheet">
+      <link href="/css/theme-blue.css?1709194097" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1704786466"></script>
+    <script src="/js/jquery-2.x.min.js?1709194097"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -608,8 +608,6 @@
 <br>
 Using the email accounts registered with EmailEngine, you can receive and <a href="https://emailengine.app/sending-emails?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=header-link">send emails</a>. EmailEngine supports OAuth2, delayed sends, opens and clicks tracking, bounce detection, etc. All on top of regular email accounts without an external MTA service.</p>
 </div>
-<hr>
-<p>This project is supported by <a href="https://forwardemail.net">Forward Email</a> – the 100% open-source and privacy-focused email service.</p>
 <h3 id="nodemailer-features">Nodemailer features</h3>
 <ul>
 <li>A single module with <strong>zero dependencies</strong> – code is easily auditable, as there are no dark corners</li>
@@ -641,18 +639,16 @@ Using the email accounts registered with EmailEngine, you can receive and <a hre
 <li>Deliver the message object using the <strong>sendMail()</strong> method of your previously created transporter</li>
 </ol>
 <h4 id="example">Example</h4>
-<p>This is a complete example to send an email with plain text and HTML body using <a href="https://forwardemail.net">Forward Email</a>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#e6db74">&#34;use strict&#34;</span>;
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">nodemailer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;nodemailer&#34;</span>);
+<p>This is a complete example to send an email with plain text and HTML body using <a href="https://ethereal.email/">Ethereal Email</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">nodemailer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;nodemailer&#34;</span>);
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
-  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.forwardemail.net&#34;</span>,
-  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
-  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
-    <span style="color:#75715e">// TODO: replace `user` and `pass` values from &lt;https://forwardemail.net&gt;
-</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;REPLACE-WITH-YOUR-ALIAS@YOURDOMAIN.COM&#34;</span>,
-    <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;REPLACE-WITH-YOUR-GENERATED-PASSWORD&#34;</span>,
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.ethereal.email&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">587</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#75715e">// `true` for port 465, `false` for all other ports
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;maddison53@ethereal.email&#34;</span>,
+    <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;jn7jnAPss4f63QBp6D&#34;</span>,
   },
 });
 
@@ -660,7 +656,7 @@ Using the email accounts registered with EmailEngine, you can receive and <a hre
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">main</span>() {
   <span style="color:#75715e">// send mail with defined transport object
 </span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">info</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">transporter</span>.<span style="color:#a6e22e">sendMail</span>({
-    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#34;Fred Foo 👻&#34; &lt;foo@example.com&gt;&#39;</span>, <span style="color:#75715e">// sender address
+    <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#34;Maddison Foo Koch 👻&#34; &lt;maddison53@ethereal.email&gt;&#39;</span>, <span style="color:#75715e">// sender address
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;bar@example.com, baz@example.com&#34;</span>, <span style="color:#75715e">// list of receivers
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">subject</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello ✔&#34;</span>, <span style="color:#75715e">// Subject line
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">text</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Hello world?&#34;</span>, <span style="color:#75715e">// plain text body
@@ -668,13 +664,7 @@ Using the email accounts registered with EmailEngine, you can receive and <a hre
 </span><span style="color:#75715e"></span>  });
 
   <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Message sent: %s&#34;</span>, <span style="color:#a6e22e">info</span>.<span style="color:#a6e22e">messageId</span>);
-  <span style="color:#75715e">// Message sent: &lt;b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com&gt;
-</span><span style="color:#75715e"></span>
-  <span style="color:#75715e">//
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">// NOTE: You can go to https://forwardemail.net/my-account/emails to see your email delivery status and preview
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">//       Or you can use the &#34;preview-email&#34; npm package to preview emails locally in browsers and iOS Simulator
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">//       &lt;https://github.com/forwardemail/preview-email&gt;
-</span><span style="color:#75715e"></span>  <span style="color:#75715e">//
+  <span style="color:#75715e">// Message sent: &lt;d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email&gt;
 </span><span style="color:#75715e"></span>}
 
 <span style="color:#a6e22e">main</span>().<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>);
@@ -1356,20 +1346,20 @@ Using the email accounts registered with EmailEngine, you can receive and <a hre
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1704786466"></script>
-    <script src="/js/perfect-scrollbar.min.js?1704786466"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1704786466"></script>
-    <script src="/js/jquery.sticky.js?1704786466"></script>
-    <script src="/js/featherlight.min.js?1704786466"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1704786466"></script>
-    <script src="/js/highlight.pack.js?1704786466"></script>
+    <script src="/js/clipboard.min.js?1709194097"></script>
+    <script src="/js/perfect-scrollbar.min.js?1709194097"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1709194097"></script>
+    <script src="/js/jquery.sticky.js?1709194097"></script>
+    <script src="/js/featherlight.min.js?1709194097"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1709194097"></script>
+    <script src="/js/highlight.pack.js?1709194097"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1704786466"></script>
-    <script src="/js/learn.js?1704786466"></script>
-    <script src="/js/hugo-learn.js?1704786466"></script>
+    <script src="/js/modernizr.custom.71422.js?1709194097"></script>
+    <script src="/js/learn.js?1709194097"></script>
+    <script src="/js/hugo-learn.js?1709194097"></script>
 
-    <link href="/mermaid/mermaid.css?1704786466" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1704786466"></script>
+    <link href="/mermaid/mermaid.css?1709194097" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1709194097"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
