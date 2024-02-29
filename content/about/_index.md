@@ -28,7 +28,7 @@ Using the email accounts registered with EmailEngine, you can receive and [send 
 ### Nodemailer features
 
 - A single module with **zero dependencies** – code is easily auditable, as there are no dark corners
-- Heavy focus on **security**, no-one likes [RCE vulnerabilities](http://thehackernews.com/2017/01/phpmailer-swiftmailer-zendmail.html)
+- Focus on **security**, no-one likes [RCE vulnerabilities](http://thehackernews.com/2017/01/phpmailer-swiftmailer-zendmail.html)
 - **Unicode support** to use any characters, including emoji 💪
 - **Windows support** – you can install it with [npm](https://www.npmjs.com/package/nodemailer) on Windows just like any other module, there are no compiled dependencies. Use it hassle free from Azure or from your Windows box
 - Use **HTML content**, as well as **plain text** alternative
