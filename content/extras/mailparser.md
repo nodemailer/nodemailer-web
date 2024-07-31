@@ -180,6 +180,7 @@ let parser = new MailParser();
 -   **skipImageLinks** `boolean` Skip converting CID attachments to data URL images. Defaults to `undefined` (_falsy_).
 -   **skipTextToHtml** `boolean` Don't generate HTML from plaintext message. Defaults to `undefined` (_falsy_).
 -   **skipTextLinks** `boolean` Do not linkify links in plaintext content. Defaults to `undefined` (_falsy_).
+-   **keepDeliveryStatus** `boolean` Do not consider attachments of type `message/delivery-status` as text but as a separate attachment. Useful for parsing delivery status notifications. Defaults to `undefined` (_falsy_).
 -   **Iconv** `object` Defaults to [iconv-lite](https://www.npmjs.com/package/iconv-lite)
 -   **keepCidLinks** `boolean` `simpleParser`-only option. Sets `skipImageLinks` to true.
 
