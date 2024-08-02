@@ -11,7 +11,7 @@ toc = true
 
 # SMTP transport
 
-SMTP is the main transport in Nodemailer for delivering messages. SMTP is also the protocol used between different email hosts, so its truly universal. Almost every email delivery provider supports SMTP based sending, even if they mainly push their API based sending. APIs might have more features but using these also means vendor lock-in while in case of SMTP you only need to change the configuration options to replace one provider with another and you're good to go.
+SMTP is the main transport in Nodemailer for delivering messages. SMTP is also the protocol used between different email hosts, so it's truly universal. Almost every email delivery provider supports SMTP-based sending, even if they mainly push their API-based sending. APIs might have more features, but using these also means vendor lock-in. In the case of SMTP, you only need to change the configuration options to replace one provider with another, and you're good to go.
 
 ```javascript
 let transporter = nodemailer.createTransport(options[, defaults])
@@ -22,7 +22,7 @@ Where
 - **options** – is an object that defines connection data (see below for details)
 - **defaults** – is an object that is going to be merged into every message object. This allows you to specify shared options, for example to set the same _from_ address for every message
 
-Alternatively you could use a connection url instead of an object for the options. Use _'smtp:'_ or _'smtps:'_ as the protocol in the url.
+Alternatively, you could use a connection url instead of an object for the options. Use _'smtp:'_ or _'smtps:'_ as the protocol in the url.
 
 ```javascript
 let poolConfig = "smtps://username:password@smtp.example.com/?pool=true";
@@ -35,7 +35,7 @@ let poolConfig = "smtps://username:password@smtp.example.com/?pool=true";
 - **auth** – defines authentication data (see [authentication](#authentication) section below)
 - **authMethod** – defines preferred authentication method, defaults to 'PLAIN'
 
-Hostnames for the **host** field are resolved using `dns.resolve()`. If you are using a non-resolvable hostname (eg. something listed in _/etc/hosts_ or you are using different resolver for you Node apps) then provide the IP address of the SMTP server as **host** and for the actual hostname user **tls.servername** parameter. This way not hostname resolving is attempted but TLS validation still works.
+Hostnames for the **host** field are resolved using `dns.resolve()`. If you are using a non-resolvable hostname (eg. something listed in _/etc/hosts_ or you are using different resolver for your Node apps), then provide the IP address of the SMTP server as **host** and use the actual hostname in the **tls.servername** parameter. This way, no hostname resolving is attempted, but TLS validation still works.
 
 ##### TLS options
 
@@ -45,7 +45,7 @@ Hostnames for the **host** field are resolved using `dns.resolve()`. If you are 
 - **ignoreTLS** – if this is _true_ and _secure_ is false then TLS is not used even if the server supports STARTTLS extension
 - **requireTLS** – if this is _true_ and _secure_ is false then Nodemailer tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent
 
-Setting **secure** to **false** does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via [STARTTLS](https://tools.ietf.org/html/rfc3207#section-2) command but to use this you have to connect using plaintext first
+Setting **secure** to **false** does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via the [STARTTLS](https://tools.ietf.org/html/rfc3207#section-2) command, but to use this, you have to connect using plaintext first.
 
 ##### Connection options
 
@@ -94,7 +94,7 @@ nodemailer.createTransport({
 
 #### 2\. Pooled connections
 
-This example would set up pooled connections against a SMTP server on port 465
+This example would set up pooled connections against an SMTP server on port 465.
 
 ```javascript
 nodemailer.createTransport({
@@ -111,7 +111,7 @@ nodemailer.createTransport({
 
 #### 3\. Allow self-signed certificates
 
-This config would open a connection to TLS server with self-signed or invalid TLS certificate
+This config would open a connection to a TLS server with self-signed or invalid TLS certificate.
 
 ```javascript
 nodemailer.createTransport({
@@ -158,4 +158,4 @@ transporter.verify(function (error, success) {
 });
 ```
 
-Be aware though that this call only tests connection and authentication but it does not check if the service allows you to use a specific envelope From address or not.
+Be aware though that this call only tests connection and authentication, but it does not check if the service allows you to use a specific envelope "From" address or not.
