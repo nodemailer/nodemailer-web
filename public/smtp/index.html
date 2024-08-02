@@ -15,19 +15,19 @@
     <title>SMTP transport :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1722408249" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1722408249" rel="stylesheet">
-    <link href="/css/hybrid.css?1722408249" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1722408249" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1722408249" rel="stylesheet">
-    <link href="/css/auto-complete.css?1722408249" rel="stylesheet">
-    <link href="/css/theme.css?1722408249" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1722408249" rel="stylesheet">
+    <link href="/css/nucleus.css?1722599621" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1722599621" rel="stylesheet">
+    <link href="/css/hybrid.css?1722599621" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1722599621" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1722599621" rel="stylesheet">
+    <link href="/css/auto-complete.css?1722599621" rel="stylesheet">
+    <link href="/css/theme.css?1722599621" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1722599621" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1722408249" rel="stylesheet">
+      <link href="/css/theme-blue.css?1722599621" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1722408249"></script>
+    <script src="/js/jquery-2.x.min.js?1722599621"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -601,14 +601,14 @@
 
 
 <h1 id="smtp-transport">SMTP transport</h1>
-<p>SMTP is the main transport in Nodemailer for delivering messages. SMTP is also the protocol used between different email hosts, so its truly universal. Almost every email delivery provider supports SMTP based sending, even if they mainly push their API based sending. APIs might have more features but using these also means vendor lock-in while in case of SMTP you only need to change the configuration options to replace one provider with another and you&rsquo;re good to go.</p>
+<p>SMTP is the main transport in Nodemailer for delivering messages. SMTP is also the protocol used between different email hosts, so it&rsquo;s truly universal. Almost every email delivery provider supports SMTP-based sending, even if they mainly push their API-based sending. APIs might have more features, but using these also means vendor lock-in. In the case of SMTP, you only need to change the configuration options to replace one provider with another, and you&rsquo;re good to go.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>(<span style="color:#a6e22e">options</span>[, <span style="color:#a6e22e">defaults</span>])
 </code></pre></div><p>Where</p>
 <ul>
 <li><strong>options</strong> – is an object that defines connection data (see below for details)</li>
 <li><strong>defaults</strong> – is an object that is going to be merged into every message object. This allows you to specify shared options, for example to set the same <em>from</em> address for every message</li>
 </ul>
-<p>Alternatively you could use a connection url instead of an object for the options. Use <em>&lsquo;smtp:'</em> or <em>&lsquo;smtps:'</em> as the protocol in the url.</p>
+<p>Alternatively, you could use a connection url instead of an object for the options. Use <em>&lsquo;smtp:'</em> or <em>&lsquo;smtps:'</em> as the protocol in the url.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">poolConfig</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;smtps://username:password@smtp.example.com/?pool=true&#34;</span>;
 </code></pre></div><h5 id="general-options">General options</h5>
 <ul>
@@ -617,7 +617,7 @@
 <li><strong>auth</strong> – defines authentication data (see <a href="#authentication">authentication</a> section below)</li>
 <li><strong>authMethod</strong> – defines preferred authentication method, defaults to &lsquo;PLAIN&rsquo;</li>
 </ul>
-<p>Hostnames for the <strong>host</strong> field are resolved using <code>dns.resolve()</code>. If you are using a non-resolvable hostname (eg. something listed in <em>/etc/hosts</em> or you are using different resolver for you Node apps) then provide the IP address of the SMTP server as <strong>host</strong> and for the actual hostname user <strong>tls.servername</strong> parameter. This way not hostname resolving is attempted but TLS validation still works.</p>
+<p>Hostnames for the <strong>host</strong> field are resolved using <code>dns.resolve()</code>. If you are using a non-resolvable hostname (eg. something listed in <em>/etc/hosts</em> or you are using different resolver for your Node apps), then provide the IP address of the SMTP server as <strong>host</strong> and use the actual hostname in the <strong>tls.servername</strong> parameter. This way, no hostname resolving is attempted, but TLS validation still works.</p>
 <h5 id="tls-options">TLS options</h5>
 <ul>
 <li><strong>secure</strong> – if <em>true</em> the connection will use TLS when connecting to server. If <em>false</em> (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to <em>true</em> if you are connecting to port 465. For port 587 or 25 keep it <em>false</em></li>
@@ -626,7 +626,7 @@
 <li><strong>ignoreTLS</strong> – if this is <em>true</em> and <em>secure</em> is false then TLS is not used even if the server supports STARTTLS extension</li>
 <li><strong>requireTLS</strong> – if this is <em>true</em> and <em>secure</em> is false then Nodemailer tries to use STARTTLS even if the server does not advertise support for it. If the connection can not be encrypted then message is not sent</li>
 </ul>
-<p>Setting <strong>secure</strong> to <strong>false</strong> does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via <a href="https://tools.ietf.org/html/rfc3207#section-2">STARTTLS</a> command but to use this you have to connect using plaintext first</p>
+<p>Setting <strong>secure</strong> to <strong>false</strong> does not mean that you would not use an encrypted connection. Most SMTP servers allow connection upgrade via the <a href="https://tools.ietf.org/html/rfc3207#section-2">STARTTLS</a> command, but to use this, you have to connect using plaintext first.</p>
 <h5 id="connection-options">Connection options</h5>
 <ul>
 <li><strong>name</strong> – optional hostname of the client, used for identifying to the server, defaults to hostname of the machine</li>
@@ -667,7 +667,7 @@
   },
 });
 </code></pre></div><h4 id="2-pooled-connections">2. Pooled connections</h4>
-<p>This example would set up pooled connections against a SMTP server on port 465</p>
+<p>This example would set up pooled connections against an SMTP server on port 465.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">pool</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
@@ -679,7 +679,7 @@
   },
 });
 </code></pre></div><h4 id="3-allow-self-signed-certificates">3. Allow self-signed certificates</h4>
-<p>This config would open a connection to TLS server with self-signed or invalid TLS certificate</p>
+<p>This config would open a connection to a TLS server with self-signed or invalid TLS certificate.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;my.smtp.host&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
@@ -717,7 +717,7 @@
     <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Server is ready to take our messages&#34;</span>);
   }
 });
-</code></pre></div><p>Be aware though that this call only tests connection and authentication but it does not check if the service allows you to use a specific envelope From address or not.</p>
+</code></pre></div><p>Be aware though that this call only tests connection and authentication, but it does not check if the service allows you to use a specific envelope &ldquo;From&rdquo; address or not.</p>
 
 
 <footer class=" footline" >
@@ -1389,20 +1389,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1722408249"></script>
-    <script src="/js/perfect-scrollbar.min.js?1722408249"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1722408249"></script>
-    <script src="/js/jquery.sticky.js?1722408249"></script>
-    <script src="/js/featherlight.min.js?1722408249"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1722408249"></script>
-    <script src="/js/highlight.pack.js?1722408249"></script>
+    <script src="/js/clipboard.min.js?1722599621"></script>
+    <script src="/js/perfect-scrollbar.min.js?1722599621"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1722599621"></script>
+    <script src="/js/jquery.sticky.js?1722599621"></script>
+    <script src="/js/featherlight.min.js?1722599621"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1722599621"></script>
+    <script src="/js/highlight.pack.js?1722599621"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1722408249"></script>
-    <script src="/js/learn.js?1722408249"></script>
-    <script src="/js/hugo-learn.js?1722408249"></script>
+    <script src="/js/modernizr.custom.71422.js?1722599621"></script>
+    <script src="/js/learn.js?1722599621"></script>
+    <script src="/js/hugo-learn.js?1722599621"></script>
 
-    <link href="/mermaid/mermaid.css?1722408249" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1722408249"></script>
+    <link href="/mermaid/mermaid.css?1722599621" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1722599621"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
