@@ -15,19 +15,19 @@
     <title>NodemailerApp :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1722599621" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1722599621" rel="stylesheet">
-    <link href="/css/hybrid.css?1722599621" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1722599621" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1722599621" rel="stylesheet">
-    <link href="/css/auto-complete.css?1722599621" rel="stylesheet">
-    <link href="/css/theme.css?1722599621" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1722599621" rel="stylesheet">
+    <link href="/css/nucleus.css?1725525815" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725525815" rel="stylesheet">
+    <link href="/css/hybrid.css?1725525815" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725525815" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725525815" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725525815" rel="stylesheet">
+    <link href="/css/theme.css?1725525815" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725525815" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1722599621" rel="stylesheet">
+      <link href="/css/theme-blue.css?1725525815" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1722599621"></script>
+    <script src="/js/jquery-2.x.min.js?1725525815"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -600,50 +600,54 @@
         
 
 
-<h1 id="nodemailer-app">Nodemailer App</h1>
-<p><strong>NodemailerApp</strong> is the ultimate cross platform email debugging app.</p>
-<p>App includes local SMTP and POP3 servers, a sendmail replacement, catchall email domain service, AMP4Email renderer and it imports emails from EML files, EMLX files, large MBOX files from Gmail takeout, Maildir folders and Postfix queue files for inspection and preview. Ever wanted to view the actual HTML source of a nicely designed email instead of some garbled rfc822 text? Just open the HTML tab of an email to see it.</p>
+<h1 id="nodemailerapp">NodemailerApp</h1>
+<p><strong>NodemailerApp</strong> is the ultimate cross-platform email debugging tool.</p>
+<p>The app includes local SMTP and POP3 servers, a sendmail replacement, a catchall email domain service, an AMP4Email renderer, and it imports emails from EML, EMLX, large MBOX files from Gmail Takeout, Maildir folders, and Postfix queue files for inspection and preview. Want to see the actual HTML source of a beautifully designed email instead of garbled rfc822 text? Just open the HTML tab of an email to view it.</p>
 <p><img src="/screenshots/img01.png" alt=""></p>
-<p>You can use NodemailerApp to instantly preview emails sent from your dev environment, be it from SMTP or sendmail or even from the open web via built-in catchall service. You can also upload any email to an external SMTP or IMAP server. All SMTP, POP3 and IMAP transactions include live logs for extra clarity.</p>
+<p>You can use NodemailerApp to instantly preview emails sent from your dev environment, whether via SMTP, sendmail, or the open web using the built-in catchall service. You can also upload emails to an external SMTP or IMAP server. All SMTP, POP3, and IMAP transactions include live logs for extra clarity.</p>
 <h3 id="download">Download</h3>
 <blockquote>
-<p><strong>NB!</strong> Downloads are very slow as the network throughput for this server is limited and file sizes are quite large (&gt;100MB as this is an <a href="https://www.electronjs.org/apps/nodemailer-app">Electron</a> app).</p>
+<p><strong>Note</strong>: Downloads may be slow due to limited network throughput, and file sizes are large (&gt;100MB) since NodemailerApp is built on <a href="https://www.electronjs.org/apps/nodemailer-app">Electron</a>.</p>
 </blockquote>
 <div style="text-align: center"><a href="https://github.com/nodemailer/nodemailer-app/releases/download/v1.0.16/NodemailerApp-1.0.16.dmg" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (OSX)</a> <a href="https://github.com/nodemailer/nodemailer-app/releases/download/v1.0.16/NodemailerApp-1.0.16.Setup.exe" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (Windows)</a> <a href="https://snapcraft.io/nodemailerapp" target="_blank" class="btn btn-default"><i class="fas fa-arrow-right"></i> Snapcraft (Linux)</a></div>
 <h3 id="features">Features</h3>
-<p><strong>1.</strong> <strong>Preview emails</strong> as these are being imported. You can start importing a large 10GB mbox file from Gmail Takout and immediatelly start browsing emails that are already imported.</p>
+<p><strong>1. Preview emails</strong> as they are imported. You can start importing a large 10GB mbox file from Gmail Takeout and immediately start browsing the emails that are already imported.</p>
 <p><img src="/screenshots/img01.png" alt=""></p>
-<p><strong>2.</strong> <strong>Rich email output.</strong> In addition to normal rich text email views you can see the plain text alternative, HTML source code and email headers. You can download the entire email as an EML file, or export it as PDF. All related attachments can be found under the Files tab.</p>
+<p><strong>2. Rich email output.</strong> View the plain text alternative, HTML source code, and email headers alongside the standard rich text view. You can download the entire email as an EML file or export it as a PDF. Attachments are located under the Files tab.</p>
 <p><img src="/screenshots/img02.png" alt=""></p>
-<p><strong>3.</strong> <strong>Local development server.</strong> You can configure your development environment to use NodemailerApp as SMTP relay server. Whenever sending out an email from your local Laravel or any other stack you can immediatelly preview the sent email in NodemailerApp. The sent email is catched by NodemailerApp for good so it is not delivered to actual recipients which makes it fantastic for testing environments. If you ever need to access the sent emails from your own app you can do so by using POP3.</p>
+<p><strong>3. Local development server.</strong> NodemailerApp can be configured as an SMTP relay server in your development environment. Emails sent from local environments (like Laravel) can be immediately previewed in NodemailerApp, which catches emails for testing purposes without delivering them to actual recipients. You can also retrieve these emails via POP3 if needed.</p>
 <p><img src="/screenshots/img03.png" alt=""></p>
-<p><strong>4.</strong> <strong>Message upload.</strong> Stored emails can be uploaded to SMTP (which means the email is being actually delivered to destination) or to an IMAP server (so it would end up in your actual email account).</p>
+<p><strong>4. Message upload.</strong> Emails stored in NodemailerApp can be uploaded to an SMTP server for delivery or to an IMAP server to store them in your email account.</p>
 <p><img src="/screenshots/img04.png" alt=""></p>
-<p><strong>5.</strong> <strong>Extensive search.</strong> Search for emails or specific attachments or specific people. You can even search by every header value in every message as NodemailerApp indexes basically everything. Wanted to find that specific PDF file sent by your boss some time last year? NodemailerApp attachment search has you covered.</p>
+<p><strong>5. Extensive search.</strong> Search for emails, attachments, or people. NodemailerApp indexes all header values in every message, making it easy to find specific emails, such as a PDF sent by your boss last year.</p>
 <p><img src="/screenshots/img06.png" alt="">
 <img src="/screenshots/img05.png" alt=""></p>
-<p><strong>6.</strong> <strong>Catchall service.</strong> App includes built-in support for catchall email domain service. Just enable it with a click and you get a custom domain name. All emails sent to this domain are routed to a project in your app.</p>
-<p><strong>7.</strong> <strong>AMP4Email.</strong> Preview dynamic AMP4Email emails. If something is wrong with the message then NodemailerApp shows you the exact cause of the failure unlike email services that just plainly ignore dynamic content on errors. See <a href="https://blog.nodemailer.com/2019/12/30/testing-amp4email-with-nodemailer/">this blog post</a> for usage example.</p>
+<p><strong>6. Catchall service.</strong> Built-in support for a catchall email domain service is included. Enable it with a single click to assign a custom domain name, and all emails sent to this domain will be routed to a project in your app.</p>
+<p><strong>7. AMP4Email.</strong> Preview dynamic AMP4Email messages. If something is wrong with the message, NodemailerApp will display the exact cause of the error, unlike email services that ignore dynamic content when errors occur. See <a href="https://blog.nodemailer.com/2019/12/30/testing-amp4email-with-nodemailer/">this blog post</a> for an example.</p>
 <p><img src="/screenshots/img07.png" alt="">
 <img src="/screenshots/img08.png" alt=""></p>
 <h3 id="using-with-xampp">Using with XAMPP</h3>
 <p><strong>Windows</strong></p>
-<p>In Windows you can edit php.ini and set it to the value provided in the Local Server view in NodemailerApp as your web app and NodemailerApp run in the same environment. Great thing about such setup is that NodemailerApp does not have to be working while emails are being sent. Emails are stored to disk and can be viewed next time you start the app.</p>
+<p>On Windows, you can edit <code>php.ini</code> and set it to the value provided in NodemailerApp&rsquo;s Local Server view. NodemailerApp does not need to be running while emails are sent since they are stored to disk and can be viewed the next time the app starts.</p>
 <p><img src="/sendmail_win.png" alt=""></p>
 <blockquote>
-<p>Alternatively you can download <a href="https://nodemailer.com/sendmail-win.zip" target="_blank">Windows version of sendmail</a> as a separate application and place it wherever you like. Use the same arguments though as shown in the instructions section.</p>
+<p>Alternatively, you can download the <a href="https://nodemailer.com/sendmail-win.zip">Windows version of sendmail</a> as a separate application. Use the same arguments shown in the instructions section.</p>
 </blockquote>
 <p><strong>OSX</strong></p>
-<p>In OSX XAMPP runs your web app in an isolated container and thus making sendmail requests directly against NodemailerApp application is not possible. Instead you should use the Linux version of sendmail replacement to proxy emails over SMTP. This also means that you can only accept mail when NodemailerApp is actually opened and it has local server running.</p>
-<p><strong>1.</strong> First make sure that NodemailerApp local server listening IP is either 0.0.0.0 or 192.168.64.1 (default is 127.0.0.1) as XAMPP VM on OSX sets up a virtual private network, where the host machine usually gets assigned the IP 192.168.64.1.</p>
-<p><strong>2.</strong> Then download and unpack the <a href="https://nodemailer.com/sendmail-linux.tar.gz" target="_blank">Linux version</a> of sendmail replacement and copy it to the XAMPP container.</p>
-<p><strong>3.</strong> For some reason Apache in XAMPP uses some old c++ libraries, you can force it to use newer one by running the following commands in XAMP terminal:</p>
+<p>In OSX, XAMPP runs your web app in an isolated container, making direct sendmail requests to NodemailerApp impossible. Instead, use the Linux version of sendmail replacement to proxy emails over SMTP, which requires that NodemailerApp is running.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Ensure NodemailerApp&rsquo;s local server listening IP is either <code>0.0.0.0</code> or <code>192.168.64.1</code> (default is <code>127.0.0.1</code>). XAMPP VM assigns <code>192.168.64.1</code> to the host machine.</li>
+<li>Download and unpack the <a href="https://nodemailer.com/sendmail-linux.tar.gz">Linux version of sendmail replacement</a> and copy it to the XAMPP container.</li>
+<li>Replace the old c++ libraries by running these commands in the XAMPP terminal:
 <pre tabindex="0"><code>$ mv /opt/lampp/lib/libstdc++.so.6 /opt/lampp/lib/libstdc++.so.6.bak
 $ cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /opt/lampp/lib/
-</code></pre><p><strong>4.</strong> Then edit /opt/lampp/etc/php.ini, find the <em>[mail function]</em> section and add the following configuration line (assuming you copied <em>sendmail</em> binary to <em>/opt/lampp</em>) using SMTP username and password provided by NodemailerApp:</p>
+</code></pre></li>
+<li>Edit <code>/opt/lampp/etc/php.ini</code>, and in the <code>[mail function]</code> section, add the following configuration line using the SMTP username and password provided by NodemailerApp:
 <pre tabindex="0"><code>sendmail_path = &quot;/opt/lampp/sendmail --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i&quot;
-</code></pre><p>For all available configuration options, run <code>/opt/lampp/sendmail --help</code></p>
-<p><strong>5.</strong> Last, restart Apache service in XAMPP.</p>
+</code></pre>For all available configuration options, run <code>/opt/lampp/sendmail --help</code>.</li>
+<li>Restart the Apache service in XAMPP.</li>
+</ol>
 <h3 id="videos">Videos</h3>
 <h5 id="div-styletext-align-center-padding-20px-0use-nodemailerapp-as-local-test-server-for-smtpdiv"><div style="text-align: center; padding: 20px 0;">Use NodemailerApp as local test server for SMTP</div></h5>
 <div style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/ETUmG3B-jOw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
@@ -1325,20 +1329,20 @@ $ cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /opt/lampp/lib/
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1722599621"></script>
-    <script src="/js/perfect-scrollbar.min.js?1722599621"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1722599621"></script>
-    <script src="/js/jquery.sticky.js?1722599621"></script>
-    <script src="/js/featherlight.min.js?1722599621"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1722599621"></script>
-    <script src="/js/highlight.pack.js?1722599621"></script>
+    <script src="/js/clipboard.min.js?1725525815"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725525815"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725525815"></script>
+    <script src="/js/jquery.sticky.js?1725525815"></script>
+    <script src="/js/featherlight.min.js?1725525815"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1725525815"></script>
+    <script src="/js/highlight.pack.js?1725525815"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1722599621"></script>
-    <script src="/js/learn.js?1722599621"></script>
-    <script src="/js/hugo-learn.js?1722599621"></script>
+    <script src="/js/modernizr.custom.71422.js?1725525815"></script>
+    <script src="/js/learn.js?1725525815"></script>
+    <script src="/js/hugo-learn.js?1725525815"></script>
 
-    <link href="/mermaid/mermaid.css?1722599621" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1722599621"></script>
+    <link href="/mermaid/mermaid.css?1725525815" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725525815"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

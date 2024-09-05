@@ -15,19 +15,19 @@
     <title>Nodemailer :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1722599621" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1722599621" rel="stylesheet">
-    <link href="/css/hybrid.css?1722599621" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1722599621" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1722599621" rel="stylesheet">
-    <link href="/css/auto-complete.css?1722599621" rel="stylesheet">
-    <link href="/css/theme.css?1722599621" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1722599621" rel="stylesheet">
+    <link href="/css/nucleus.css?1725525815" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725525815" rel="stylesheet">
+    <link href="/css/hybrid.css?1725525815" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725525815" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725525815" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725525815" rel="stylesheet">
+    <link href="/css/theme.css?1725525815" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725525815" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1722599621" rel="stylesheet">
+      <link href="/css/theme-blue.css?1725525815" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1722599621"></script>
+    <script src="/js/jquery-2.x.min.js?1725525815"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -601,51 +601,51 @@
 
 
 <h1 id="nodemailer">Nodemailer</h1>
-<p><strong>Nodemailer</strong> is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.</p>
+<p><strong>Nodemailer</strong> is a module for Node.js applications that allows easy email sending. The project started in 2010 when there were few reliable options for sending email messages, and today, it is the default solution for most Node.js users.</p>
 <pre tabindex="0"><code>npm install nodemailer
 </code></pre><div class="notices tip" >
-<p>Check out <a href="https://emailengine.app/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=tip-link">EmailEngine</a> – a self-hosted email gateway that allows making REST requests against IMAP and SMTP servers. EmailEngine also sends webhooks whenever something changes on the registered accounts.<br>
+<p>Check out <a href="https://emailengine.app/?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=tip-link">EmailEngine</a> – a self-hosted email gateway that allows you to make REST requests to IMAP and SMTP servers. EmailEngine also sends webhooks whenever something changes on the registered accounts.<br>
 <br>
-Using the email accounts registered with EmailEngine, you can receive and <a href="https://emailengine.app/sending-emails?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=header-link">send emails</a>. EmailEngine supports OAuth2, delayed sends, opens and clicks tracking, bounce detection, etc. All on top of regular email accounts without an external MTA service.</p>
+Using the email accounts registered with EmailEngine, you can receive and <a href="https://emailengine.app/sending-emails?utm_source=nodemailer&amp;utm_campaign=nodemailer&amp;utm_medium=header-link">send emails</a>. It supports OAuth2, delayed sends, opens and clicks tracking, bounce detection, and more, all without needing an external MTA service.</p>
 </div>
 <h3 id="nodemailer-features">Nodemailer features</h3>
 <ul>
-<li>A single module with <strong>zero dependencies</strong> – code is easily auditable, as there are no dark corners</li>
-<li>Focus on <strong>security</strong>, no-one likes <a href="http://thehackernews.com/2017/01/phpmailer-swiftmailer-zendmail.html">RCE vulnerabilities</a></li>
+<li>A single module with <strong>zero dependencies</strong> – easy to audit the code with no hidden complexities</li>
+<li>Emphasis on <strong>security</strong> – avoid <a href="http://thehackernews.com/2017/01/phpmailer-swiftmailer-zendmail.html">RCE vulnerabilities</a></li>
 <li><strong>Unicode support</strong> to use any characters, including emoji 💪</li>
-<li><strong>Windows support</strong> – you can install it with <a href="https://www.npmjs.com/package/nodemailer">npm</a> on Windows just like any other module, there are no compiled dependencies. Use it hassle free from Azure or from your Windows box</li>
-<li>Use <strong>HTML content</strong>, as well as <strong>plain text</strong> alternative</li>
-<li>Add <strong><a href="/message/attachments/">Attachments</a></strong> to messages</li>
-<li><strong><a href="/message/embedded-images/">Embedded</a></strong> image attachments for HTML content – your design does not get blocked</li>
-<li>Secure email delivery using <strong>TLS/STARTTLS</strong></li>
-<li>Different <strong><a href="/transports/">transport methods</a></strong> in addition to the built-in <strong><a href="/smtp/">SMTP support</a></strong></li>
-<li>Sign messages with <strong><a href="/dkim/">DKIM</a></strong></li>
-<li>Custom <strong><a href="/plugins/">Plugin support</a></strong> for manipulating messages</li>
-<li>Sane <strong><a href="/smtp/oauth2/">OAuth2</a></strong> authentication</li>
+<li><strong>Windows support</strong> – install with <a href="https://www.npmjs.com/package/nodemailer">npm</a> on Windows without any compiled dependencies. Perfect for use with Azure or on your local Windows machine</li>
+<li>Send <strong>HTML content</strong> with <strong>plain text</strong> alternatives</li>
+<li>Attach <strong><a href="/message/attachments/">Attachments</a></strong> to emails</li>
+<li>Embed <strong><a href="/message/embedded-images/">Images</a></strong> in HTML emails so your design doesn&rsquo;t get blocked</li>
+<li>Secure email delivery with <strong>TLS/STARTTLS</strong></li>
+<li>Various <strong><a href="/transports/">transport methods</a></strong> beyond the default <strong><a href="/smtp/">SMTP support</a></strong></li>
+<li>Sign emails with <strong><a href="/dkim/">DKIM</a></strong></li>
+<li>Custom <strong><a href="/plugins/">Plugin support</a></strong> for advanced message manipulation</li>
+<li>Supports <strong><a href="/smtp/oauth2/">OAuth2</a></strong> authentication</li>
 <li><strong><a href="/smtp/proxies/">Proxies</a></strong> for SMTP connections</li>
-<li><strong>ES6 code</strong> – no more unintentional memory leaks, due to hoisted <em>var</em>&rsquo;s</li>
-<li>Autogenerated email <strong>test accounts</strong> from <a href="https://ethereal.email">Ethereal.email</a></li>
+<li><strong>ES6 codebase</strong> – fewer chances of memory leaks from hoisted <em>var</em>&rsquo;s</li>
+<li>Autogenerated test email accounts from <a href="https://ethereal.email">Ethereal.email</a></li>
 </ul>
 <h4 id="requirements">Requirements</h4>
 <ul>
-<li><strong>Node.js v6.0.0</strong> or newer. That&rsquo;s it.</li>
+<li><strong>Node.js v6.0.0</strong> or newer. That&rsquo;s all you need.</li>
 </ul>
-<p>If you are able to run Node.js version 6 or newer, then you can use Nodemailer. There are no platform or resource specific requirements. All public Nodemailer methods support both callbacks and Promises (if callback is omitted). You need to have at least Node v8.0.0 if you want to use <em>async..await</em> with Nodemailer.</p>
+<p>If you&rsquo;re running Node.js version 6 or later, you can use Nodemailer. There are no specific platform or resource requirements. All Nodemailer methods support both callbacks and Promises (if no callback is provided). If you want to use <em>async..await</em>, you’ll need Node.js v8.0.0 or newer.</p>
 <h4 id="tldr">TL;DR</h4>
-<p>In short, what you need to do to send messages, would be the following:</p>
+<p>To send an email, follow these steps:</p>
 <ol>
-<li>Create a Nodemailer transporter using either <a href="/smtp/">SMTP</a> or <a href="/transports/">some other</a> transport mechanism</li>
-<li>Set up <a href="/message/">message options</a> (who sends what to whom)</li>
-<li>Deliver the message object using the <strong>sendMail()</strong> method of your previously created transporter</li>
+<li>Create a Nodemailer transporter using either <a href="/smtp/">SMTP</a> or <a href="/transports/">another transport method</a></li>
+<li>Set up your <a href="/message/">message options</a> (who sends what to whom)</li>
+<li>Deliver the message using the <strong>sendMail()</strong> method of your transporter</li>
 </ol>
 <h4 id="example">Example</h4>
-<p>This is a complete example to send an email with plain text and HTML body using <a href="https://ethereal.email/">Ethereal Email</a>.</p>
+<p>Below is an example to send an email with both plain text and HTML content using <a href="https://ethereal.email/">Ethereal Email</a>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">nodemailer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;nodemailer&#34;</span>);
 
 <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.ethereal.email&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">587</span>,
-  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#75715e">// Use `true` for port 465, `false` for all other ports
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#75715e">// true for port 465, false for other ports
 </span><span style="color:#75715e"></span>  <span style="color:#a6e22e">auth</span><span style="color:#f92672">:</span> {
     <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;maddison53@ethereal.email&#34;</span>,
     <span style="color:#a6e22e">pass</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;jn7jnAPss4f63QBp6D&#34;</span>,
@@ -670,14 +670,14 @@ Using the email accounts registered with EmailEngine, you can receive and <a hre
 <span style="color:#a6e22e">main</span>().<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>);
 </code></pre></div><h3 id="examples">Examples</h3>
 <ul>
-<li><strong>Nodemailer AMQP example</strong> is an example of using RabbitMQ to manage Nodemailer email messages. <a href="https://github.com/nodemailer/nodemailer-amqp-example">Source</a>.</li>
+<li><strong>Nodemailer AMQP example</strong>: Learn how to use RabbitMQ with Nodemailer for email message management. <a href="https://github.com/nodemailer/nodemailer-amqp-example">Source</a>.</li>
 </ul>
-<p>Output of the the <a href="https://github.com/nodemailer/nodemailer/blob/master/examples/full.js">example script</a> as shown by the <a href="https://ethereal.email/">Ethereal</a> mail catching service:</p>
+<p>Output from the <a href="https://github.com/nodemailer/nodemailer/blob/master/examples/full.js">example script</a> viewed through the <a href="https://ethereal.email/">Ethereal</a> mail catching service:</p>
 <p><img src="https://cldup.com/D5Cj_C1Vw3.png" alt=""></p>
 <h3 id="source">Source</h3>
-<p>Nodemailer source can be found from <a href="https://github.com/nodemailer/nodemailer/">Github</a>.</p>
+<p>Find the Nodemailer source code on <a href="https://github.com/nodemailer/nodemailer">GitHub</a>.</p>
 <hr>
-<p>Nodemailer is created by <a href="https://github.com/andris9">Andris Reinman</a>. The Nodemailer logo was designed by <a href="https://www.behance.net/kristjansen">Sven Kristjansen</a>.</p>
+<p>Nodemailer was created by <a href="https://github.com/andris9">Andris Reinman</a>, and the Nodemailer logo was designed by <a href="https://www.behance.net/kristjansen">Sven Kristjansen</a>.</p>
 
 
 <footer class=" footline" >
@@ -1346,20 +1346,20 @@ Using the email accounts registered with EmailEngine, you can receive and <a hre
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1722599621"></script>
-    <script src="/js/perfect-scrollbar.min.js?1722599621"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1722599621"></script>
-    <script src="/js/jquery.sticky.js?1722599621"></script>
-    <script src="/js/featherlight.min.js?1722599621"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1722599621"></script>
-    <script src="/js/highlight.pack.js?1722599621"></script>
+    <script src="/js/clipboard.min.js?1725525815"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725525815"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725525815"></script>
+    <script src="/js/jquery.sticky.js?1725525815"></script>
+    <script src="/js/featherlight.min.js?1725525815"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1725525815"></script>
+    <script src="/js/highlight.pack.js?1725525815"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1722599621"></script>
-    <script src="/js/learn.js?1722599621"></script>
-    <script src="/js/hugo-learn.js?1722599621"></script>
+    <script src="/js/modernizr.custom.71422.js?1725525815"></script>
+    <script src="/js/learn.js?1725525815"></script>
+    <script src="/js/hugo-learn.js?1725525815"></script>
 
-    <link href="/mermaid/mermaid.css?1722599621" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1722599621"></script>
+    <link href="/mermaid/mermaid.css?1725525815" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725525815"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

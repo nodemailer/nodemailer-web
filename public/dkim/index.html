@@ -15,19 +15,19 @@
     <title>DKIM :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1722599621" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1722599621" rel="stylesheet">
-    <link href="/css/hybrid.css?1722599621" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1722599621" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1722599621" rel="stylesheet">
-    <link href="/css/auto-complete.css?1722599621" rel="stylesheet">
-    <link href="/css/theme.css?1722599621" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1722599621" rel="stylesheet">
+    <link href="/css/nucleus.css?1725525815" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725525815" rel="stylesheet">
+    <link href="/css/hybrid.css?1725525815" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725525815" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725525815" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725525815" rel="stylesheet">
+    <link href="/css/theme.css?1725525815" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725525815" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1722599621" rel="stylesheet">
+      <link href="/css/theme-blue.css?1725525815" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1722599621"></script>
+    <script src="/js/jquery-2.x.min.js?1725525815"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -600,31 +600,31 @@
         
 
 
-<h1 id="dkim-signing">DKIM signing</h1>
-<p>Nodemailer is able to sign all messages with DKIM keys. This means calculating a signature for the message and adding it as an additional header (or headers, if you use multiple keys) to the message.</p>
-<p>The drawback on DKIM signing is that Nodemailer needs to cache the entire message before it can be sent, unlike normal sending where message output is streamed to SMTP as it is created and nothing needs to be cached. For small messages it does not matter, for larger messages Nodemailer offers an option to cache messages not in memory but on disk. In this case Nodemailer starts buffering the message in memory and if the message size reaches a certain treshold, it gets directed to a file on disk. Once signature is calculated and sent to SMTP, Nodemailer streams the cached message from disk to SMTP.</p>
-<p>In general DKIM signing should be fast and effective.</p>
-<h3 id="setting-it-up">Setting it up</h3>
-<p>DKIM signing can be set on the transport level (all messages get signed with the same keys) and also on the message level (provide different keys for every message). If both are set, then message level DKIM configuration is preferred.</p>
-<p>In both cases you need to provide a <code>dkim</code> object with the following structure</p>
+<h1 id="dkim-signing">DKIM Signing</h1>
+<p>Nodemailer supports DKIM signing, which adds a digital signature to all outgoing messages. This signature is calculated and added as an additional header (or multiple headers, if using multiple keys).</p>
+<p>One drawback of DKIM signing is that Nodemailer needs to cache the entire message before it can be sent. Normally, message output is streamed directly to SMTP without caching. For small messages, this difference is negligible, but for larger messages, Nodemailer offers the option to cache messages on disk instead of in memory. In this scenario, Nodemailer buffers the message in memory up to a certain size and then switches to disk caching. After the signature is calculated and sent to SMTP, the cached message is streamed from disk to SMTP.</p>
+<p>In general, DKIM signing is fast and effective for most use cases.</p>
+<h3 id="setting-it-up">Setting It Up</h3>
+<p>DKIM signing can be configured at the transport level (where all messages are signed with the same keys) or at the message level (where different keys can be used for each message). If both are configured, the message-level DKIM settings will take precedence.</p>
+<p>To set up DKIM signing, you need to provide a <code>dkim</code> object with the following structure:</p>
 <ul>
-<li><strong>dkim</strong> is an object with DKIM options
+<li><strong>dkim</strong>: An object with DKIM options
 <ul>
-<li><strong>domainName</strong> – is the domain name to use in the signature</li>
-<li><strong>keySelector</strong> – is the DKIM key selector</li>
-<li><strong>privateKey</strong> – is the private key for the selector in PEM format</li>
-<li><strong>keys</strong> – is an optional array of key objects (<em>domainName</em>, <em>keySelector</em>, <em>privateKey</em>) if you want to add more than one signature to the message. If this value is set then the default key values are ignored</li>
-<li><strong>cacheDir</strong> – optional location for cached messages. If not set then caching is not used.</li>
-<li><strong>cacheTreshold</strong> – optional size in bytes, if message is larger than this treshold it gets cached to disk (assuming <em>cacheDir</em> is set and writable). Defaults to 131072 (128 kB).</li>
-<li><strong>hashAlgo</strong> – optional algorithm for the body hash, defaults to &lsquo;sha256&rsquo;</li>
-<li><strong>headerFieldNames</strong> – an optional colon separated list of header keys to sign (eg. <code>message-id:date:from:to...'</code>)</li>
-<li><strong>skipFields</strong> – optional colon separated list of header keys not to sign. This is useful if you want to sign all the relevant keys but your provider changes some values, ie Message-ID and Date. In this case you should use <code>'message-id:date'</code> to prevent signing these values.</li>
+<li><strong>domainName</strong>: The domain name to use in the signature</li>
+<li><strong>keySelector</strong>: The DKIM key selector</li>
+<li><strong>privateKey</strong>: The private key for the selector in PEM format</li>
+<li><strong>keys</strong>: (Optional) An array of key objects (<em>domainName</em>, <em>keySelector</em>, <em>privateKey</em>) for signing with multiple keys. If this is provided, the default key values are ignored.</li>
+<li><strong>cacheDir</strong>: (Optional) The location for cached messages. If not set, caching is not used.</li>
+<li><strong>cacheTreshold</strong>: (Optional) The size in bytes after which messages are cached to disk (assuming <em>cacheDir</em> is set and writable). Defaults to 131072 (128 kB).</li>
+<li><strong>hashAlgo</strong>: (Optional) The hashing algorithm for the body hash, defaults to &lsquo;sha256&rsquo;.</li>
+<li><strong>headerFieldNames</strong>: (Optional) A colon-separated list of header fields to sign (e.g., <code>message-id:date:from:to</code>).</li>
+<li><strong>skipFields</strong>: (Optional) A colon-separated list of header fields not to sign, useful when certain fields (like Message-ID or Date) are modified by the provider.</li>
 </ul>
 </li>
 </ul>
 <h3 id="examples">Examples</h3>
-<h4 id="1-sign-all-messages">1. Sign all messages</h4>
-<p>Assumes that there is a public key available for <em>2017._domainkey.example.com</em>. You can test if the key exists or not with the <em>dig</em> tool like this</p>
+<h4 id="1-sign-all-messages">1. Sign All Messages</h4>
+<p>Assumes a public key is available for <em>2017._domainkey.example.com</em>. You can check if the key exists using the <em>dig</em> tool:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dig TXT 2017._domainkey.example.com
 </code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
@@ -633,38 +633,39 @@
   <span style="color:#a6e22e">dkim</span><span style="color:#f92672">:</span> {
     <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;example.com&#34;</span>,
     <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2017&#34;</span>,
-    <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>
-  }
+    <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>,
+  },
 });
-</code></pre></div><h4 id="2-sign-all-messages-with-multiple-keys">2. Sign all messages with multiple keys</h4>
-<p>Assumes that there is a public keys available for <em>2017._domainkey.example.com</em> and <em>2016._domainkey.example.com</em></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
-    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;smtp.example.com&#39;</span>,
-    <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
-    <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
-    <span style="color:#a6e22e">dkim</span><span style="color:#f92672">:</span> {
-        <span style="color:#a6e22e">keys</span><span style="color:#f92672">:</span> [
-            {
-                <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;example.com&#39;</span>,
-                <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2017&#39;</span>,
-                <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#39;</span>
-            },
-            {
-                <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;example.com&#39;</span>,
-                <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;2016&#39;</span>,
-                <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#39;</span>
-            }
-        ]
-        <span style="color:#a6e22e">cacheDir</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>
-    }
-});
-</code></pre></div><h4 id="3-sign-a-specific-message">3. Sign a specific message</h4>
-<p>Do not sign by default. Provide DKIM key values separately for every message.</p>
+</code></pre></div><h4 id="2-sign-messages-with-multiple-keys">2. Sign Messages with Multiple Keys</h4>
+<p>Assumes public keys are available for <em>2017._domainkey.example.com</em> and <em>2016._domainkey.example.com</em>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
-  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+  <span style="color:#a6e22e">dkim</span><span style="color:#f92672">:</span> {
+    <span style="color:#a6e22e">keys</span><span style="color:#f92672">:</span> [
+      {
+        <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;example.com&#34;</span>,
+        <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2017&#34;</span>,
+        <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>,
+      },
+      {
+        <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;example.com&#34;</span>,
+        <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2016&#34;</span>,
+        <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>,
+      },
+    ],
+    <span style="color:#a6e22e">cacheDir</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+  },
 });
+</code></pre></div><h4 id="3-sign-a-specific-message">3. Sign a Specific Message</h4>
+<p>This example shows how to sign a specific message without signing all messages by default.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
+  <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
+  <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
+  <span style="color:#a6e22e">secure</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>,
+});
+
 <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> {
   <span style="color:#a6e22e">from</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;sender@example.com&#34;</span>,
   <span style="color:#a6e22e">to</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;recipient@example.com&#34;</span>,
@@ -673,11 +674,11 @@
   <span style="color:#a6e22e">dkim</span><span style="color:#f92672">:</span> {
     <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;example.com&#34;</span>,
     <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2017&#34;</span>,
-    <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>
-  }
+    <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>,
+  },
 };
-</code></pre></div><h4 id="4-cache-large-messages-for-signing">4. Cache large messages for signing</h4>
-<p>Messages larger than 100kB are cached to disk</p>
+</code></pre></div><h4 id="4-cache-large-messages-for-signing">4. Cache Large Messages for Signing</h4>
+<p>Messages larger than 100kB are cached to disk before signing.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
@@ -687,11 +688,11 @@
     <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2017&#34;</span>,
     <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>,
     <span style="color:#a6e22e">cacheDir</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;/tmp&#34;</span>,
-    <span style="color:#a6e22e">cacheTreshold</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span>
-  }
+    <span style="color:#a6e22e">cacheTreshold</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">100</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span>, <span style="color:#75715e">// 100kB
+</span><span style="color:#75715e"></span>  },
 });
-</code></pre></div><h4 id="5-do-not-sign-specific-header-keys">5. Do not sign specific header keys</h4>
-<p>This is needed when sending mail through SES that has its own Message-ID and Date system.</p>
+</code></pre></div><h4 id="5-do-not-sign-specific-header-keys">5. Do Not Sign Specific Header Keys</h4>
+<p>Useful when sending mail through SES, which generates its own Message-ID and Date.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">transporter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">nodemailer</span>.<span style="color:#a6e22e">createTransport</span>({
   <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;smtp.example.com&#34;</span>,
   <span style="color:#a6e22e">port</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">465</span>,
@@ -700,8 +701,8 @@
     <span style="color:#a6e22e">domainName</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;example.com&#34;</span>,
     <span style="color:#a6e22e">keySelector</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;2017&#34;</span>,
     <span style="color:#a6e22e">privateKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...&#34;</span>,
-    <span style="color:#a6e22e">skipFields</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;message-id:date&#34;</span>
-  }
+    <span style="color:#a6e22e">skipFields</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;message-id:date&#34;</span>,
+  },
 });
 </code></pre></div>
 
@@ -1374,20 +1375,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1722599621"></script>
-    <script src="/js/perfect-scrollbar.min.js?1722599621"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1722599621"></script>
-    <script src="/js/jquery.sticky.js?1722599621"></script>
-    <script src="/js/featherlight.min.js?1722599621"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1722599621"></script>
-    <script src="/js/highlight.pack.js?1722599621"></script>
+    <script src="/js/clipboard.min.js?1725525815"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725525815"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725525815"></script>
+    <script src="/js/jquery.sticky.js?1725525815"></script>
+    <script src="/js/featherlight.min.js?1725525815"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1725525815"></script>
+    <script src="/js/highlight.pack.js?1725525815"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1722599621"></script>
-    <script src="/js/learn.js?1722599621"></script>
-    <script src="/js/hugo-learn.js?1722599621"></script>
+    <script src="/js/modernizr.custom.71422.js?1725525815"></script>
+    <script src="/js/learn.js?1725525815"></script>
+    <script src="/js/hugo-learn.js?1725525815"></script>
 
-    <link href="/mermaid/mermaid.css?1722599621" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1722599621"></script>
+    <link href="/mermaid/mermaid.css?1725525815" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725525815"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

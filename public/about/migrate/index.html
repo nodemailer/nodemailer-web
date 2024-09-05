@@ -15,19 +15,19 @@
     <title>Migration :: Nodemailer</title>
 
     
-    <link href="/css/nucleus.css?1722599621" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1722599621" rel="stylesheet">
-    <link href="/css/hybrid.css?1722599621" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1722599621" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1722599621" rel="stylesheet">
-    <link href="/css/auto-complete.css?1722599621" rel="stylesheet">
-    <link href="/css/theme.css?1722599621" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1722599621" rel="stylesheet">
+    <link href="/css/nucleus.css?1725525815" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1725525815" rel="stylesheet">
+    <link href="/css/hybrid.css?1725525815" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1725525815" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1725525815" rel="stylesheet">
+    <link href="/css/auto-complete.css?1725525815" rel="stylesheet">
+    <link href="/css/theme.css?1725525815" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1725525815" rel="stylesheet">
     
-      <link href="/css/theme-blue.css?1722599621" rel="stylesheet">
+      <link href="/css/theme-blue.css?1725525815" rel="stylesheet">
     
 
-    <script src="/js/jquery-2.x.min.js?1722599621"></script>
+    <script src="/js/jquery-2.x.min.js?1725525815"></script>
 
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{
@@ -597,7 +597,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#major-changes-in-nodemailer-v3">Major Changes in Nodemailer v3</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
 </div>
 
@@ -616,19 +624,20 @@
 
 
 <blockquote>
-<p>This migration document applies Migrating from Nodemailer 2 to Nodemailer 3 and to a lesser extent to 4</p>
+<p>This migration document applies to migrating from Nodemailer 2 to Nodemailer 3, and to a lesser extent, to Nodemailer 4.</p>
 </blockquote>
-<p>Nodemailer v3 has dropped some features that were available in Nodemailer v2 and also introduced some new ones.</p>
+<p>Nodemailer v3 introduces several changes, removing some features from v2 and adding new functionality to improve the overall experience.</p>
+<h3 id="major-changes-in-nodemailer-v3">Major Changes in Nodemailer v3</h3>
 <ul>
-<li>All <strong>dependencies were dropped</strong>. There is exactly 0 dependencies needed to use Nodemailer. This brings the installation time of Nodemailer from NPM to less than 2 seconds</li>
-<li>All <strong>templating is gone</strong>. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template syntaxes. If you need templating, then please use <a href="https://github.com/forwardemail/email-templates">email-templates</a>.</li>
-<li>No <strong>NTLM authentication</strong>. It was too difficult to re-implement. If you still need it then it would be possible to introduce a pluggable SASL interface where you could load the ntlm module in your own code and pass it to Nodemailer. Currently this is not possible. (Nodemailer 5 supports NTLM through an authentication <a href="https://github.com/nodemailer/nodemailer-ntlm-auth">addon</a>)</li>
-<li><strong>OAuth2 authentication</strong> is built in and has a different <a href="/smtp/oauth2/">configuration</a>. You can use both user (3LO) and service (2LO) accounts to generate access tokens from Nodemailer. Additionally there&rsquo;s a new feature to authenticate differently for every message – useful if your application sends on behalf of different users instead of a single sender.</li>
-<li><strong>Delivery status notifications</strong> added to Nodemailer</li>
-<li>Improved <strong>DKIM</strong> signing of messages. Previously you needed an external module for this and it did quite a lousy job with larger messages</li>
-<li><strong>Stream transport</strong> to return a RFC822 formatted message as a stream. Useful if you want to use Nodemailer as a preprocessor and not for actual delivery.</li>
-<li><strong>Sendmail</strong> transport built-in, no need for external transport plugin</li>
-<li><strong>Improved Calendaring</strong>. Provide an ical file to Nodemailer to send out <a href="/message/calendar-events/">calendar events</a>.</li>
+<li><strong>Zero Dependencies</strong>: All external dependencies have been removed, reducing the installation time to less than 2 seconds from NPM.</li>
+<li><strong>Templating Removed</strong>: Templating support was dropped as it caused confusion and would have required extensive support for multiple rendering engines. Nodemailer is focused solely on email delivery. For templating needs, consider using <a href="https://github.com/forwardemail/email-templates">email-templates</a>.</li>
+<li><strong>No NTLM Authentication</strong>: NTLM support has been removed due to complexity. While currently unavailable, a future pluggable SASL interface may enable custom NTLM modules. (Note: Nodemailer 5 supports NTLM through the <a href="https://github.com/nodemailer/nodemailer-ntlm-auth">authentication addon</a>).</li>
+<li><strong>OAuth2 Authentication Built-in</strong>: OAuth2 support now comes built-in with improved <a href="/smtp/oauth2/">configuration options</a>. It supports both user accounts (3LO) and service accounts (2LO) for token generation, with the added ability to authenticate on a per-message basis. This feature is particularly useful for sending on behalf of multiple users.</li>
+<li><strong>Delivery Status Notifications (DSN)</strong>: DSN support has been added to provide detailed feedback on message delivery.</li>
+<li><strong>Improved DKIM Signing</strong>: Built-in DKIM signing has been improved, offering better handling for larger messages, which previously required an external module.</li>
+<li><strong>Stream Transport</strong>: This feature returns a fully formatted RFC822 message as a stream, allowing Nodemailer to act as a preprocessor when actual message delivery is not needed.</li>
+<li><strong>Built-in Sendmail Transport</strong>: The sendmail transport is now part of the core, removing the need for external plugins.</li>
+<li><strong>Enhanced Calendar Support</strong>: Nodemailer now supports sending <a href="/message/calendar-events/">calendar events</a> by attaching an iCal file directly to your emails.</li>
 </ul>
 
 
@@ -1298,20 +1307,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1722599621"></script>
-    <script src="/js/perfect-scrollbar.min.js?1722599621"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1722599621"></script>
-    <script src="/js/jquery.sticky.js?1722599621"></script>
-    <script src="/js/featherlight.min.js?1722599621"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1722599621"></script>
-    <script src="/js/highlight.pack.js?1722599621"></script>
+    <script src="/js/clipboard.min.js?1725525815"></script>
+    <script src="/js/perfect-scrollbar.min.js?1725525815"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1725525815"></script>
+    <script src="/js/jquery.sticky.js?1725525815"></script>
+    <script src="/js/featherlight.min.js?1725525815"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1725525815"></script>
+    <script src="/js/highlight.pack.js?1725525815"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom.71422.js?1722599621"></script>
-    <script src="/js/learn.js?1722599621"></script>
-    <script src="/js/hugo-learn.js?1722599621"></script>
+    <script src="/js/modernizr.custom.71422.js?1725525815"></script>
+    <script src="/js/learn.js?1725525815"></script>
+    <script src="/js/hugo-learn.js?1725525815"></script>
 
-    <link href="/mermaid/mermaid.css?1722599621" type="text/css" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1722599621"></script>
+    <link href="/mermaid/mermaid.css?1725525815" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1725525815"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
