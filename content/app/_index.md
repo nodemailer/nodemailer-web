@@ -9,48 +9,48 @@ title = "NodemailerApp"
 toc = true
 +++
 
-# Nodemailer App
+# NodemailerApp
 
-**NodemailerApp** is the ultimate cross platform email debugging app.
+**NodemailerApp** is the ultimate cross-platform email debugging tool.
 
-App includes local SMTP and POP3 servers, a sendmail replacement, catchall email domain service, AMP4Email renderer and it imports emails from EML files, EMLX files, large MBOX files from Gmail takeout, Maildir folders and Postfix queue files for inspection and preview. Ever wanted to view the actual HTML source of a nicely designed email instead of some garbled rfc822 text? Just open the HTML tab of an email to see it.
+The app includes local SMTP and POP3 servers, a sendmail replacement, a catchall email domain service, an AMP4Email renderer, and it imports emails from EML, EMLX, large MBOX files from Gmail Takeout, Maildir folders, and Postfix queue files for inspection and preview. Want to see the actual HTML source of a beautifully designed email instead of garbled rfc822 text? Just open the HTML tab of an email to view it.
 
 ![](/screenshots/img01.png)
 
-You can use NodemailerApp to instantly preview emails sent from your dev environment, be it from SMTP or sendmail or even from the open web via built-in catchall service. You can also upload any email to an external SMTP or IMAP server. All SMTP, POP3 and IMAP transactions include live logs for extra clarity.
+You can use NodemailerApp to instantly preview emails sent from your dev environment, whether via SMTP, sendmail, or the open web using the built-in catchall service. You can also upload emails to an external SMTP or IMAP server. All SMTP, POP3, and IMAP transactions include live logs for extra clarity.
 
 ### Download
 
-> **NB!** Downloads are very slow as the network throughput for this server is limited and file sizes are quite large (>100MB as this is an [Electron](https://www.electronjs.org/apps/nodemailer-app) app).
+> **Note**: Downloads may be slow due to limited network throughput, and file sizes are large (>100MB) since NodemailerApp is built on [Electron](https://www.electronjs.org/apps/nodemailer-app).
 
 <div style="text-align: center"><a href="https://github.com/nodemailer/nodemailer-app/releases/download/v1.0.16/NodemailerApp-1.0.16.dmg" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (OSX)</a> <a href="https://github.com/nodemailer/nodemailer-app/releases/download/v1.0.16/NodemailerApp-1.0.16.Setup.exe" target="_blank" class="btn btn-default"><i class="fas fa-download"></i> NodemailerApp (Windows)</a> <a href="https://snapcraft.io/nodemailerapp" target="_blank" class="btn btn-default"><i class="fas fa-arrow-right"></i> Snapcraft (Linux)</a></div>
 
 ### Features
 
-**1\.** **Preview emails** as these are being imported. You can start importing a large 10GB mbox file from Gmail Takout and immediatelly start browsing emails that are already imported.
+**1\. Preview emails** as they are imported. You can start importing a large 10GB mbox file from Gmail Takeout and immediately start browsing the emails that are already imported.
 
 ![](/screenshots/img01.png)
 
-**2\.** **Rich email output.** In addition to normal rich text email views you can see the plain text alternative, HTML source code and email headers. You can download the entire email as an EML file, or export it as PDF. All related attachments can be found under the Files tab.
+**2\. Rich email output.** View the plain text alternative, HTML source code, and email headers alongside the standard rich text view. You can download the entire email as an EML file or export it as a PDF. Attachments are located under the Files tab.
 
 ![](/screenshots/img02.png)
 
-**3\.** **Local development server.** You can configure your development environment to use NodemailerApp as SMTP relay server. Whenever sending out an email from your local Laravel or any other stack you can immediatelly preview the sent email in NodemailerApp. The sent email is catched by NodemailerApp for good so it is not delivered to actual recipients which makes it fantastic for testing environments. If you ever need to access the sent emails from your own app you can do so by using POP3.
+**3\. Local development server.** NodemailerApp can be configured as an SMTP relay server in your development environment. Emails sent from local environments (like Laravel) can be immediately previewed in NodemailerApp, which catches emails for testing purposes without delivering them to actual recipients. You can also retrieve these emails via POP3 if needed.
 
 ![](/screenshots/img03.png)
 
-**4\.** **Message upload.** Stored emails can be uploaded to SMTP (which means the email is being actually delivered to destination) or to an IMAP server (so it would end up in your actual email account).
+**4\. Message upload.** Emails stored in NodemailerApp can be uploaded to an SMTP server for delivery or to an IMAP server to store them in your email account.
 
 ![](/screenshots/img04.png)
 
-**5\.** **Extensive search.** Search for emails or specific attachments or specific people. You can even search by every header value in every message as NodemailerApp indexes basically everything. Wanted to find that specific PDF file sent by your boss some time last year? NodemailerApp attachment search has you covered.
+**5\. Extensive search.** Search for emails, attachments, or people. NodemailerApp indexes all header values in every message, making it easy to find specific emails, such as a PDF sent by your boss last year.
 
 ![](/screenshots/img06.png)
 ![](/screenshots/img05.png)
 
-**6\.** **Catchall service.** App includes built-in support for catchall email domain service. Just enable it with a click and you get a custom domain name. All emails sent to this domain are routed to a project in your app.
+**6\. Catchall service.** Built-in support for a catchall email domain service is included. Enable it with a single click to assign a custom domain name, and all emails sent to this domain will be routed to a project in your app.
 
-**7\.** **AMP4Email.** Preview dynamic AMP4Email emails. If something is wrong with the message then NodemailerApp shows you the exact cause of the failure unlike email services that just plainly ignore dynamic content on errors. See [this blog post](https://blog.nodemailer.com/2019/12/30/testing-amp4email-with-nodemailer/) for usage example.
+**7\. AMP4Email.** Preview dynamic AMP4Email messages. If something is wrong with the message, NodemailerApp will display the exact cause of the error, unlike email services that ignore dynamic content when errors occur. See [this blog post](https://blog.nodemailer.com/2019/12/30/testing-amp4email-with-nodemailer/) for an example.
 
 ![](/screenshots/img07.png)
 ![](/screenshots/img08.png)
@@ -59,36 +59,31 @@ You can use NodemailerApp to instantly preview emails sent from your dev environ
 
 **Windows**
 
-In Windows you can edit php.ini and set it to the value provided in the Local Server view in NodemailerApp as your web app and NodemailerApp run in the same environment. Great thing about such setup is that NodemailerApp does not have to be working while emails are being sent. Emails are stored to disk and can be viewed next time you start the app.
+On Windows, you can edit `php.ini` and set it to the value provided in NodemailerApp's Local Server view. NodemailerApp does not need to be running while emails are sent since they are stored to disk and can be viewed the next time the app starts.
 
 ![](/sendmail_win.png)
 
-> Alternatively you can download <a href="https://nodemailer.com/sendmail-win.zip" target="_blank">Windows version of sendmail</a> as a separate application and place it wherever you like. Use the same arguments though as shown in the instructions section.
+> Alternatively, you can download the [Windows version of sendmail](https://nodemailer.com/sendmail-win.zip) as a separate application. Use the same arguments shown in the instructions section.
 
 **OSX**
 
-In OSX XAMPP runs your web app in an isolated container and thus making sendmail requests directly against NodemailerApp application is not possible. Instead you should use the Linux version of sendmail replacement to proxy emails over SMTP. This also means that you can only accept mail when NodemailerApp is actually opened and it has local server running.
+In OSX, XAMPP runs your web app in an isolated container, making direct sendmail requests to NodemailerApp impossible. Instead, use the Linux version of sendmail replacement to proxy emails over SMTP, which requires that NodemailerApp is running.
 
-**1\.** First make sure that NodemailerApp local server listening IP is either 0.0.0.0 or 192.168.64.1 (default is 127.0.0.1) as XAMPP VM on OSX sets up a virtual private network, where the host machine usually gets assigned the IP 192.168.64.1.
+**Steps:**
 
-**2\.** Then download and unpack the <a href="https://nodemailer.com/sendmail-linux.tar.gz" target="_blank">Linux version</a> of sendmail replacement and copy it to the XAMPP container.
-
-**3\.** For some reason Apache in XAMPP uses some old c++ libraries, you can force it to use newer one by running the following commands in XAMP terminal:
-
-```
-$ mv /opt/lampp/lib/libstdc++.so.6 /opt/lampp/lib/libstdc++.so.6.bak
-$ cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /opt/lampp/lib/
-```
-
-**4\.** Then edit /opt/lampp/etc/php.ini, find the _[mail function]_ section and add the following configuration line (assuming you copied _sendmail_ binary to _/opt/lampp_) using SMTP username and password provided by NodemailerApp:
-
-```
-sendmail_path = "/opt/lampp/sendmail --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i"
-```
-
-For all available configuration options, run `/opt/lampp/sendmail --help`
-
-**5\.** Last, restart Apache service in XAMPP.
+1. Ensure NodemailerApp's local server listening IP is either `0.0.0.0` or `192.168.64.1` (default is `127.0.0.1`). XAMPP VM assigns `192.168.64.1` to the host machine.
+2. Download and unpack the [Linux version of sendmail replacement](https://nodemailer.com/sendmail-linux.tar.gz) and copy it to the XAMPP container.
+3. Replace the old c++ libraries by running these commands in the XAMPP terminal:
+   ```
+   $ mv /opt/lampp/lib/libstdc++.so.6 /opt/lampp/lib/libstdc++.so.6.bak
+   $ cp /usr/lib/x86_64-linux-gnu/libstdc++.so.6 /opt/lampp/lib/
+   ```
+4. Edit `/opt/lampp/etc/php.ini`, and in the `[mail function]` section, add the following configuration line using the SMTP username and password provided by NodemailerApp:
+   ```
+   sendmail_path = "/opt/lampp/sendmail --host=192.168.64.1 --port=1025 --user=project.1 --pass=secret.1 -t -i"
+   ```
+   For all available configuration options, run `/opt/lampp/sendmail --help`.
+5. Restart the Apache service in XAMPP.
 
 ### Videos
 

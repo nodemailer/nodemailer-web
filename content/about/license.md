@@ -9,14 +9,16 @@ title = "License"
 
 Nodemailer v4+ is licensed under the **MIT license**.
 
-Version 3 of Nodemailer used the **European Union Public License 1.1** which is a _copyleft_ license. You can read about the reasoning behind using EUPL for Nodemailer from the [Nodemailer blog](https://blog.nodemailer.com/2017/02/02/nodemailer-v3-0-0/). After a two months long experiment I decided to cancel all active subscriptions of Nodemailer and changed the license back to MIT.
+Version 3 of Nodemailer was licensed under the **European Union Public License 1.1 (EUPL)**, which is a _copyleft_ license. For more details on the decision to use EUPL for Nodemailer v3, you can refer to the [Nodemailer blog](https://blog.nodemailer.com/2017/02/02/nodemailer-v3-0-0/). However, after a two-month experiment, I decided to revert Nodemailer back to the MIT license and canceled all active subscriptions.
 
-Keeping a lower level infrastructure module under a restrictive license has turned out to cause more trouble than gains – I myself had to use older versions of Nodemailer for some client work to avoid any licensing conflicts. There weren't too many paying or interested clients either and most users did not seem to care about the license at all, they still used the copyleft licensed Nodemailer in their commercial products and I did not have any means to enforce the license terms.
+Using a restrictive license for a lower-level infrastructure module like Nodemailer proved to be more problematic than beneficial. Even I had to use older versions of Nodemailer to avoid licensing issues for client work. Additionally, there wasn’t a significant interest in paid subscriptions or services, and most users continued using the copyleft-licensed Nodemailer in their commercial projects, with little concern for the licensing terms. Without a feasible way to enforce the copyleft license, the decision was made to return to the more permissive MIT license.
 
 ---
 
-If you really like Nodemailer or your business benefits from it financially then I would really appreciate a small donation. You can either use Bitcoin or PayPal for donations.
+### Support Nodemailer
 
-- Nodemailer Bitcoin wallet is: `15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM`.
-- [Nodemailer PayPal](https://www.paypal.me/nodemailer)
-- Become a sponsor in [Github](https://github.com/sponsors/andris9)
+If you appreciate Nodemailer or if your business profits from its use, I would greatly appreciate any support. You can donate via Bitcoin or PayPal, or become a sponsor on GitHub.
+
+- Nodemailer Bitcoin wallet: `15Z8ADxhssKUiwP3jbbqJwA21744KMCfTM`
+- [Donate via PayPal](https://www.paypal.me/nodemailer)
+- Become a sponsor on [GitHub](https://github.com/sponsors/andris9)

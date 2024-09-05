@@ -7,39 +7,38 @@ next = "/extras/"
 weight = 70
 title = "DKIM"
 toc = true
-
 +++
 
-# DKIM signing
+# DKIM Signing
 
-Nodemailer is able to sign all messages with DKIM keys. This means calculating a signature for the message and adding it as an additional header (or headers, if you use multiple keys) to the message.
+Nodemailer supports DKIM signing, which adds a digital signature to all outgoing messages. This signature is calculated and added as an additional header (or multiple headers, if using multiple keys).
 
-The drawback on DKIM signing is that Nodemailer needs to cache the entire message before it can be sent, unlike normal sending where message output is streamed to SMTP as it is created and nothing needs to be cached. For small messages it does not matter, for larger messages Nodemailer offers an option to cache messages not in memory but on disk. In this case Nodemailer starts buffering the message in memory and if the message size reaches a certain treshold, it gets directed to a file on disk. Once signature is calculated and sent to SMTP, Nodemailer streams the cached message from disk to SMTP.
+One drawback of DKIM signing is that Nodemailer needs to cache the entire message before it can be sent. Normally, message output is streamed directly to SMTP without caching. For small messages, this difference is negligible, but for larger messages, Nodemailer offers the option to cache messages on disk instead of in memory. In this scenario, Nodemailer buffers the message in memory up to a certain size and then switches to disk caching. After the signature is calculated and sent to SMTP, the cached message is streamed from disk to SMTP.
 
-In general DKIM signing should be fast and effective.
+In general, DKIM signing is fast and effective for most use cases.
 
-### Setting it up
+### Setting It Up
 
-DKIM signing can be set on the transport level (all messages get signed with the same keys) and also on the message level (provide different keys for every message). If both are set, then message level DKIM configuration is preferred.
+DKIM signing can be configured at the transport level (where all messages are signed with the same keys) or at the message level (where different keys can be used for each message). If both are configured, the message-level DKIM settings will take precedence.
 
-In both cases you need to provide a `dkim` object with the following structure
+To set up DKIM signing, you need to provide a `dkim` object with the following structure:
 
-- **dkim** is an object with DKIM options
-  - **domainName** – is the domain name to use in the signature
-  - **keySelector** – is the DKIM key selector
-  - **privateKey** – is the private key for the selector in PEM format
-  - **keys** – is an optional array of key objects (_domainName_, _keySelector_, _privateKey_) if you want to add more than one signature to the message. If this value is set then the default key values are ignored
-  - **cacheDir** – optional location for cached messages. If not set then caching is not used.
-  - **cacheTreshold** – optional size in bytes, if message is larger than this treshold it gets cached to disk (assuming _cacheDir_ is set and writable). Defaults to 131072 (128 kB).
-  - **hashAlgo** – optional algorithm for the body hash, defaults to 'sha256'
-  - **headerFieldNames** – an optional colon separated list of header keys to sign (eg. `message-id:date:from:to...'`)
-  - **skipFields** – optional colon separated list of header keys not to sign. This is useful if you want to sign all the relevant keys but your provider changes some values, ie Message-ID and Date. In this case you should use `'message-id:date'` to prevent signing these values.
+- **dkim**: An object with DKIM options
+  - **domainName**: The domain name to use in the signature
+  - **keySelector**: The DKIM key selector
+  - **privateKey**: The private key for the selector in PEM format
+  - **keys**: (Optional) An array of key objects (_domainName_, _keySelector_, _privateKey_) for signing with multiple keys. If this is provided, the default key values are ignored.
+  - **cacheDir**: (Optional) The location for cached messages. If not set, caching is not used.
+  - **cacheTreshold**: (Optional) The size in bytes after which messages are cached to disk (assuming _cacheDir_ is set and writable). Defaults to 131072 (128 kB).
+  - **hashAlgo**: (Optional) The hashing algorithm for the body hash, defaults to 'sha256'.
+  - **headerFieldNames**: (Optional) A colon-separated list of header fields to sign (e.g., `message-id:date:from:to`).
+  - **skipFields**: (Optional) A colon-separated list of header fields not to sign, useful when certain fields (like Message-ID or Date) are modified by the provider.
 
 ### Examples
 
-#### 1\. Sign all messages
+#### 1. Sign All Messages
 
-Assumes that there is a public key available for _2017.\_domainkey.example.com_. You can test if the key exists or not with the _dig_ tool like this
+Assumes a public key is available for _2017.\_domainkey.example.com_. You can check if the key exists using the _dig_ tool:
 
 ```bash
 dig TXT 2017._domainkey.example.com
@@ -53,48 +52,49 @@ let transporter = nodemailer.createTransport({
   dkim: {
     domainName: "example.com",
     keySelector: "2017",
-    privateKey: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg..."
-  }
+    privateKey: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...",
+  },
 });
 ```
 
-#### 2\. Sign all messages with multiple keys
+#### 2. Sign Messages with Multiple Keys
 
-Assumes that there is a public keys available for _2017.\_domainkey.example.com_ and _2016.\_domainkey.example.com_
-
-```javascript
-let transporter = nodemailer.createTransport({
-    host: 'smtp.example.com',
-    port: 465,
-    secure: true,
-    dkim: {
-        keys: [
-            {
-                domainName: 'example.com',
-                keySelector: '2017',
-                privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...'
-            },
-            {
-                domainName: 'example.com',
-                keySelector: '2016',
-                privateKey: '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...'
-            }
-        ]
-        cacheDir: false
-    }
-});
-```
-
-#### 3\. Sign a specific message
-
-Do not sign by default. Provide DKIM key values separately for every message.
+Assumes public keys are available for _2017.\_domainkey.example.com_ and _2016.\_domainkey.example.com_.
 
 ```javascript
 let transporter = nodemailer.createTransport({
   host: "smtp.example.com",
   port: 465,
-  secure: true
+  secure: true,
+  dkim: {
+    keys: [
+      {
+        domainName: "example.com",
+        keySelector: "2017",
+        privateKey: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...",
+      },
+      {
+        domainName: "example.com",
+        keySelector: "2016",
+        privateKey: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...",
+      },
+    ],
+    cacheDir: false,
+  },
 });
+```
+
+#### 3. Sign a Specific Message
+
+This example shows how to sign a specific message without signing all messages by default.
+
+```javascript
+let transporter = nodemailer.createTransport({
+  host: "smtp.example.com",
+  port: 465,
+  secure: true,
+});
+
 let message = {
   from: "sender@example.com",
   to: "recipient@example.com",
@@ -103,14 +103,14 @@ let message = {
   dkim: {
     domainName: "example.com",
     keySelector: "2017",
-    privateKey: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg..."
-  }
+    privateKey: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...",
+  },
 };
 ```
 
-#### 4\. Cache large messages for signing
+#### 4. Cache Large Messages for Signing
 
-Messages larger than 100kB are cached to disk
+Messages larger than 100kB are cached to disk before signing.
 
 ```javascript
 let transporter = nodemailer.createTransport({
@@ -122,14 +122,14 @@ let transporter = nodemailer.createTransport({
     keySelector: "2017",
     privateKey: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...",
     cacheDir: "/tmp",
-    cacheTreshold: 100 * 1024
-  }
+    cacheTreshold: 100 * 1024, // 100kB
+  },
 });
 ```
 
-#### 5\. Do not sign specific header keys
+#### 5. Do Not Sign Specific Header Keys
 
-This is needed when sending mail through SES that has its own Message-ID and Date system.
+Useful when sending mail through SES, which generates its own Message-ID and Date.
 
 ```javascript
 let transporter = nodemailer.createTransport({
@@ -140,7 +140,7 @@ let transporter = nodemailer.createTransport({
     domainName: "example.com",
     keySelector: "2017",
     privateKey: "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBg...",
-    skipFields: "message-id:date"
-  }
+    skipFields: "message-id:date",
+  },
 });
 ```

@@ -8,16 +8,18 @@ title = "Migration"
 
 +++
 
-> This migration document applies Migrating from Nodemailer 2 to Nodemailer 3 and to a lesser extent to 4
+> This migration document applies to migrating from Nodemailer 2 to Nodemailer 3, and to a lesser extent, to Nodemailer 4.
 
-Nodemailer v3 has dropped some features that were available in Nodemailer v2 and also introduced some new ones.
+Nodemailer v3 introduces several changes, removing some features from v2 and adding new functionality to improve the overall experience.
 
-- All **dependencies were dropped**. There is exactly 0 dependencies needed to use Nodemailer. This brings the installation time of Nodemailer from NPM to less than 2 seconds
-- All **templating is gone**. It was too confusing to use and to be really universal a huge list of different renderers would be required. Nodemailer is about email, not about parsing different template syntaxes. If you need templating, then please use [email-templates](https://github.com/forwardemail/email-templates).
-- No **NTLM authentication**. It was too difficult to re-implement. If you still need it then it would be possible to introduce a pluggable SASL interface where you could load the ntlm module in your own code and pass it to Nodemailer. Currently this is not possible. (Nodemailer 5 supports NTLM through an authentication [addon](https://github.com/nodemailer/nodemailer-ntlm-auth))
-- **OAuth2 authentication** is built in and has a different [configuration](/smtp/oauth2/). You can use both user (3LO) and service (2LO) accounts to generate access tokens from Nodemailer. Additionally there's a new feature to authenticate differently for every message – useful if your application sends on behalf of different users instead of a single sender.
-- **Delivery status notifications** added to Nodemailer
-- Improved **DKIM** signing of messages. Previously you needed an external module for this and it did quite a lousy job with larger messages
-- **Stream transport** to return a RFC822 formatted message as a stream. Useful if you want to use Nodemailer as a preprocessor and not for actual delivery.
-- **Sendmail** transport built-in, no need for external transport plugin
-- **Improved Calendaring**. Provide an ical file to Nodemailer to send out [calendar events](/message/calendar-events/).
+### Major Changes in Nodemailer v3
+
+- **Zero Dependencies**: All external dependencies have been removed, reducing the installation time to less than 2 seconds from NPM.
+- **Templating Removed**: Templating support was dropped as it caused confusion and would have required extensive support for multiple rendering engines. Nodemailer is focused solely on email delivery. For templating needs, consider using [email-templates](https://github.com/forwardemail/email-templates).
+- **No NTLM Authentication**: NTLM support has been removed due to complexity. While currently unavailable, a future pluggable SASL interface may enable custom NTLM modules. (Note: Nodemailer 5 supports NTLM through the [authentication addon](https://github.com/nodemailer/nodemailer-ntlm-auth)).
+- **OAuth2 Authentication Built-in**: OAuth2 support now comes built-in with improved [configuration options](/smtp/oauth2/). It supports both user accounts (3LO) and service accounts (2LO) for token generation, with the added ability to authenticate on a per-message basis. This feature is particularly useful for sending on behalf of multiple users.
+- **Delivery Status Notifications (DSN)**: DSN support has been added to provide detailed feedback on message delivery.
+- **Improved DKIM Signing**: Built-in DKIM signing has been improved, offering better handling for larger messages, which previously required an external module.
+- **Stream Transport**: This feature returns a fully formatted RFC822 message as a stream, allowing Nodemailer to act as a preprocessor when actual message delivery is not needed.
+- **Built-in Sendmail Transport**: The sendmail transport is now part of the core, removing the need for external plugins.
+- **Enhanced Calendar Support**: Nodemailer now supports sending [calendar events](/message/calendar-events/) by attaching an iCal file directly to your emails.
