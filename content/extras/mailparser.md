@@ -63,7 +63,7 @@ Parsed **mail\*** object has the following properties
 -   **date** is a Date object for the Date: header
 -   **messageId** is the Message-ID value string
 -   **inReplyTo** is the In-Reply-To value string
--   **reply-to** is an address object for the Cc: header
+-   **reply-to** is an address object for the Reply-To: header
 -   **references** is an array of referenced Message-ID values
 -   **html** is the HTML body of the message. If the message included embedded images as cid: urls then these are all replaced with base64 formatted data: URIs
 -   **text** is the plaintext body of the message
